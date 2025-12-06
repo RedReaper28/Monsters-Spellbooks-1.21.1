@@ -114,6 +114,7 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.SPECTRITE_BLOCK);
                         output.accept(ModBlocks.WITHER_ALLOY_BLOCK);
                         output.accept(ModBlocks.BLAZESTEEL_BLOCK);
+                        output.accept(ModBlocks.VOID_MATTER_ORE);
                     }).build());
     public static void register(IEventBus eventBus){
         CREATIVE_MODE_TAB.register(eventBus);
