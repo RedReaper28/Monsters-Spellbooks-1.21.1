@@ -1,0 +1,17 @@
+{
+  "item.monsterspellbooks.raw_scorched_metal": "Raw Scorched Metal",
+  "item.monsterspellbooks.scorched_metal_ingot": "Scorched Metal Ingot",
+  "item.monsterspellbooks.scorched_metal_nugget": "Scorched Metal Nugget",
+
+
+  "item.monsterspellbooks.raw_vile_iron": "Raw Vile Iron",
+  "item.monsterspellbooks.vile_iron_ingot": "Vile Iron Ingot",
+  "item.monsterspellbooks.vile_iron_nugget": "Vile Iron Nugget",
+  "item.monsterspellbooks.nether_pyrite": "Nether Pyrite",
+  "item.monsterspellbooks.nether_ruby": "Nether Ruby",
+  "item.monsterspellbooks.spectrite_ingot": "Spectrite Ingot",
+
+  "creative_tab.monsterspellbooks.monsters_and_materials": "Monster & Materials",
+  "creative_tab.monsterspellbooks.monsters_and_blocks": "Monster & Blocks"
+
+}
