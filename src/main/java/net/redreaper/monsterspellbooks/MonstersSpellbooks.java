@@ -1,8 +1,8 @@
 package net.redreaper.monsterspellbooks;
 
-import net.redreaper.monsterspellbooks.init.ModBlocks;
-import net.redreaper.monsterspellbooks.init.ModCreativeTabs;
-import net.redreaper.monsterspellbooks.init.ModItems;
+import net.minecraft.resources.ResourceLocation;
+import net.redreaper.monsterspellbooks.init.*;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -31,8 +31,17 @@ public class MonstersSpellbooks {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        ModAtributeRegistry.register(modEventBus);
+
+        ModSpellRegistry.register(modEventBus);
+
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+    }
+
+    public static ResourceLocation id(@NotNull String path)
+    {
+        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, path);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

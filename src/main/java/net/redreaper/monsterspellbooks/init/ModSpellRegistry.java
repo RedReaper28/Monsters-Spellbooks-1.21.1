@@ -1,6 +1,7 @@
 package net.redreaper.monsterspellbooks.init;
 
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 
@@ -14,7 +15,8 @@ public class ModSpellRegistry {
 
 
 
-    public static Supplier<AbstractSpell> registerSpell(AbstractSpell spell) {
-        return SPELLS.register(spell.getSpellName(), () -> spell);
+    public static void register(IEventBus eventBus)
+    {
+        SPELLS.register(eventBus);
     }
 }
