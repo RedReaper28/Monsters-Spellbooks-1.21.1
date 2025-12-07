@@ -45,7 +45,7 @@ public class ModBlocks {
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.METAL)));
     public static final DeferredBlock<Block>SANGUINITE_BLOCK=registerBlock("sanguinite_block",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.NETHERITE_BLOCK)));
-    public static final DeferredBlock<Block>DWARVEN_ALLOY=registerBlock("dwarven_alloy_block",
+    public static final DeferredBlock<Block>DWARVEN_ALLOY_BLOCK =registerBlock("dwarven_alloy_block",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.NETHERITE_BLOCK)));
 
     public static final DeferredBlock<Block>WHITE_GOLD_BLOCK=registerBlock("white_gold_block",
@@ -76,7 +76,6 @@ public class ModBlocks {
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK)));
     public static final DeferredBlock<Block>BLAZESTEEL_BLOCK=registerBlock("blazesteel_block",
             ()->new MagmaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK)));
-
     public static final DeferredBlock<Block>VOID_MATTER_ORE=registerBlock("void_matter_ore",
             ()->new MagmaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ANCIENT_DEBRIS).sound(SoundType.DEEPSLATE)));
 

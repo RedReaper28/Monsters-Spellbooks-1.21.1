@@ -113,8 +113,8 @@ public class ModItems {
     public static final DeferredItem<Item>GOLD_TRUFFLE_SLICE=ITEMS.register("gold_truffle_slice",
             ()->new Item(new Item.Properties().fireResistant().food(ModFoods.GOLD_TRUFFLE_SLICE)));
 
-
-    public static final Supplier<CurioBaseItem> WITHERWARD_RING = ITEMS.register("witherward_ring", WitherWardCurio::new);
+    public static final Supplier<CurioBaseItem> WITHERWARD_RING = ITEMS.register("witherward_ring",
+            WitherWardCurio::new);
 
 
     public static void register(IEventBus eventBus){

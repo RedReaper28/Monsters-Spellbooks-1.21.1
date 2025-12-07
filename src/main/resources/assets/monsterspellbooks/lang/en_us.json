@@ -59,7 +59,7 @@
   "block.monsterspellbooks.oceanite_ore_sand": "Oceanite Ore Sand",
   "block.monsterspellbooks.oceanite_ore_gravel": "Oceanite Ore Gravel",
   "block.monsterspellbooks.raw_oceanite_block": "Raw Oceanite Block",
-  "block.monsterspellbooks.oceanite_block": "Oceanite Ore",
+  "block.monsterspellbooks.oceanite_block": "Oceanite Block",
   "block.monsterspellbooks.rose_gold_block": "Rose Gold Block",
   "block.monsterspellbooks.poseidon_pearl_ore": "Poseidon Pearl Ore",
   "block.monsterspellbooks.poseidon_pearl_block": "Poseidon Pearl Block",
@@ -84,6 +84,7 @@
   "block.monsterspellbooks.spectrite_block": "Spectrite Block",
   "block.monsterspellbooks.wither_alloy_block": "Wither Alloy Block",
   "block.monsterspellbooks.blazesteel_block": "Blazesteel Block",
+  "block.monsterspellbooks.void_matter_ore": "Void Matter Ore",
 
   "attribute.monsterspellbooks.necro_spell_power": "Necro Spell Power",
 

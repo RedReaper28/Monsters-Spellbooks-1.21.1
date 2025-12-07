@@ -11,6 +11,7 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 
 import java.util.function.Supplier;
 
+@SuppressWarnings("unused")
 public class ModCreativeTabs {
     public static final DeferredRegister<CreativeModeTab>CREATIVE_MODE_TAB=
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MonstersSpellbooks.MOD_ID);
@@ -81,7 +82,7 @@ public class ModCreativeTabs {
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_BLOCKS_TAB=CREATIVE_MODE_TAB.register("monsters_and_blocks_tab",
-            ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModItems.RAW_SCORCHED_METAL.get()))
+            ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModBlocks.SCORCHED_METAL_BLOCK.get()))
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID,"monsters_and_materials_tab"))
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_blocks"))
                     .displayItems((itemDisplayParameters, output) ->{
@@ -99,7 +100,7 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.ORICHALCUM_BLOCK);
                         output.accept(ModBlocks.DEATHSILVER_BLOCK);
                         output.accept(ModBlocks.SANGUINITE_BLOCK);
-                        output.accept(ModBlocks.DWARVEN_ALLOY);
+                        output.accept(ModBlocks.DWARVEN_ALLOY_BLOCK);
                         output.accept(ModBlocks.WHITE_GOLD_BLOCK);
                         output.accept(ModBlocks.SCORCHED_METAL_ORE);
                         output.accept(ModBlocks.RAW_SCORCHED_METAL_BLOCK);
