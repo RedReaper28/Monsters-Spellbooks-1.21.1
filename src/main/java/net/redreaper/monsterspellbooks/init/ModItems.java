@@ -9,6 +9,7 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.item.curios.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.weapons.*;
 import net.redreaper.monsterspellbooks.item.weapons.claws_of_calamity.ClawsOfCalamityItem;
+import net.redreaper.monsterspellbooks.item.weapons.endersent_crusher.EndersentCrusherItem;
 
 import java.util.function.Supplier;
 
@@ -117,7 +118,6 @@ public class ModItems {
 
     public static final DeferredItem<Item>CLAWS_OF_CALAMITY = ITEMS.register("claws_of_calamity",
             ClawsOfCalamityItem::new);
-
     public static final DeferredItem<Item>DUCHEES_SEWING_NEEDLE = ITEMS.register("duchees_sewing_needle",
             DuchessSewingNeedle::new);
     public static final DeferredItem<Item>DUKES_HEARTSTEALER = ITEMS.register("dukes_heartstealer",
@@ -130,6 +130,8 @@ public class ModItems {
             StarscourgeSword::new);
     public static final DeferredItem<Item>SWORD_OF_COURAGE = ITEMS.register("sword_of_courage",
             SwordOfCourage::new);
+    public static final DeferredItem<Item>ENDERSENT_CRUSHER = ITEMS.register("endersent_crusher",
+            EndersentCrusherItem::new);
 
 
 

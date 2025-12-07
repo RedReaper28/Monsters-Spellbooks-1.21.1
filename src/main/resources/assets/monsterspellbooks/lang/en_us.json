@@ -52,8 +52,7 @@
   "item.monsterspellbooks.magma_elote": "Magma Elote",
   "item.monsterspellbooks.gold_truffle_slice": "Gold Truffle Slice",
 
-  "item.monsterspellbooks.witherward_ring": "WitherWard Ring",
-  "item.monsterspellbooks.witherward_ring.desc": "Grants wither immunity",
+
 
   "block.monsterspellbooks.oceanite_ore_clay": "Oceanite Ore Clay",
   "block.monsterspellbooks.oceanite_ore_sand": "Oceanite Ore Sand",
@@ -86,14 +85,33 @@
   "block.monsterspellbooks.blazesteel_block": "Blazesteel Block",
   "block.monsterspellbooks.void_matter_ore": "Void Matter Ore",
 
+  "item.monsterspellbooks.claws_of_calamity": "Claws of Calamity",
+  "item.monsterspellbooks.duchees_sewing_needle": "Duchees Sewing Needle",
+  "item.monsterspellbooks.dukes_heartstealer": "Dukes Heartstealer",
+  "item.monsterspellbooks.frostmourne": "Frostmourne",
+  "item.monsterspellbooks.starless_night": "Starless Night",
+  "item.monsterspellbooks.starscourge_sword": "Sword of The Starscourge",
+  "item.monsterspellbooks.sword_of_courage": "Sword of Courage",
+  "item.monsterspellbooks.endersent_crusher": "Endersent Crusher",
+
+  "item.monsterspellbooks.witherward_ring": "WitherWard Ring",
+  "item.monsterspellbooks.witherward_ring.desc": "Grants wither immunity",
+
   "effect.monsterspellbooks.overheat": "Overheat",
   "effect.monsterspellbooks.heal_cut": "Heal Cut",
   "effect.monsterspellbooks.curse": "Curse",
   "display.monsterspellbooks.curse_warning": "What a terrible night to have a Curse",
 
   "attribute.monsterspellbooks.necro_spell_power": "Necro Spell Power",
+  "attribute.monsterspellbooks.necro_magic_resist": "Necro Spell Resist",
 
   "creative_tab.monsterspellbooks.monsters_and_gear": "Monster & Gear",
   "creative_tab.monsterspellbooks.monsters_and_materials": "Monster & Materials",
-  "creative_tab.monsterspellbooks.monsters_and_blocks": "Monster & Blocks"
+  "creative_tab.monsterspellbooks.monsters_and_blocks": "Monster & Blocks",
+
+  "ui.monsterspellbooks.additional_withered_damage": "%d%% Additional Withered Damage",
+  "ui.monsterspellbooks.extra_damage": "Extra Damage",
+  "ui.monsterspellbooks.melee_damage": "Melee Damage"
+
+
 }

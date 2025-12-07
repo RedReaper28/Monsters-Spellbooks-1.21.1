@@ -27,7 +27,7 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
-    public static ModExtendedWeaponTiers HEAVY_VOID_OBSIDIAN = new ModExtendedWeaponTiers(2000, 19, -3.0F, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
+    public static ModExtendedWeaponTiers HEAVY_VOID_OBSIDIAN = new ModExtendedWeaponTiers(2000, 19, -3.4F, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
             new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(Attributes.KNOCKBACK_RESISTANCE, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));

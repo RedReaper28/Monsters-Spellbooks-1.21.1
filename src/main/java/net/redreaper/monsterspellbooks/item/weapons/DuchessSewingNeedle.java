@@ -7,6 +7,7 @@ import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.item.UniqueItem;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
+import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
@@ -15,7 +16,7 @@ public class DuchessSewingNeedle extends MagicSwordItem implements UniqueItem {
     public DuchessSewingNeedle() {
         super(
                 ModExtendedWeaponTiers.RITUAL_BONE,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(Rarity.RARE).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.RITUAL_BONE)),
+                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.ACCURSED_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.RITUAL_BONE)),
                 SpellDataRegistryHolder.of(
                         new SpellDataRegistryHolder(SpellRegistry.BLOOD_NEEDLES_SPELL, 10))
         );
