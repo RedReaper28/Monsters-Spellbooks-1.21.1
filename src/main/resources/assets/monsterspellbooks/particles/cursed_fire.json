@@ -1,7 +1,7 @@
 {
   "textures": [
-    "monstersthieves:cursed_fire_breath_1",
-    "monstersthieves:cursed_fire_breath_2",
-    "monstersthieves:cursed_fire_breath_3"
+    "monsterspellbooks:cursed_fire_breath_1",
+    "monsterspellbooks:cursed_fire_breath_2",
+    "monsterspellbooks:cursed_fire_breath_3"
   ]
 }

@@ -1,0 +1,38 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "monsterspellbooks:item/frostmourne"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -90, 55],
+			"translation": [0, 14, -0.75],
+			"scale": [2, 1.8, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, -55],
+			"translation": [0, 14, -1.5],
+			"scale": [2, 1.8, 0.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -90, 25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [2.5, 2.7, 0.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, -25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [2.5, 2.7, 0.5]
+		},
+		"ground": {
+			"rotation": [0.19, 0.49, -134.95],
+			"translation": [0, 2.75, 0],
+			"scale": [0.60742, 0.61523, 0.16016]
+		},
+		"gui": {
+			"translation": [0.75, 0.25, 0]
+		}
+	}
+}

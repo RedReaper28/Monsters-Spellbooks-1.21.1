@@ -1,9 +1,9 @@
 {
   "textures": [
-    "monstersthieves:putrescence_bubble_1",
-    "monstersthieves:putrescence_bubble_2",
-    "monstersthieves:putrescence_bubble_3",
-    "monstersthieves:putrescence_bubble_4",
-    "monstersthieves:putrescence_bubble_5"
+    "monsterspellbooks:putrescence_bubble_1",
+    "monsterspellbooks:putrescence_bubble_2",
+    "monsterspellbooks:putrescence_bubble_3",
+    "monsterspellbooks:putrescence_bubble_4",
+    "monsterspellbooks:putrescence_bubble_5"
   ]
 }

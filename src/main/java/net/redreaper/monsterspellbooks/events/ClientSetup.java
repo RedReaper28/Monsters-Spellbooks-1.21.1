@@ -6,6 +6,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlashRenderer;
+import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModParticleTypes;
 import net.redreaper.monsterspellbooks.particle.AncientSparksParticle;
 
@@ -14,6 +16,7 @@ public class ClientSetup {
     @SubscribeEvent
     public static void registerRenderer(EntityRenderersEvent.RegisterRenderers event)
     {
+        event.registerEntityRenderer(ModEntities.ANCIENT_FLASH.get(), AncientFlashRenderer::new);
 
 
     }

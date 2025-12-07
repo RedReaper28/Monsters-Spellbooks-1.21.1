@@ -21,6 +21,12 @@ public class ModCreativeTabs {
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_gear"))
                     .displayItems((itemDisplayParameters, output) ->{
                         output.accept(ModItems.CLAWS_OF_CALAMITY.get());
+                        output.accept(ModItems.DUCHEES_SEWING_NEEDLE.get());
+                        output.accept(ModItems.DUKES_HEARTSTEALER.get());
+                        output.accept(ModItems.SWORD_OF_COURAGE.get());
+                        output.accept(ModItems.FROStMOURNE.get());
+                        output.accept(ModItems.STARLESS_NIGHT.get());
+                        output.accept(ModItems.STARSCOURGE_SWORD.get());
                         output.accept(ModItems.WITHERWARD_RING.get());
                     }).build());
 

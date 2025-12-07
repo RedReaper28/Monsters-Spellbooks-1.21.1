@@ -4,10 +4,7 @@ import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.magic.SpellSelectionManager;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
-import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
-import io.redspace.ironsspellbooks.api.spells.CastSource;
-import io.redspace.ironsspellbooks.api.spells.CastType;
-import io.redspace.ironsspellbooks.api.spells.SpellRarity;
+import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.AnimationHolder;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
@@ -37,6 +34,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
+@AutoSpellConfig
 public class AncientFlashSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ancient_flash");
 
@@ -45,8 +43,8 @@ public class AncientFlashSpell extends AbstractSpell {
         return List.of(
                 Component.translatable("ui.irons_spellbooks.damage", getDamageText(spellLevel, caster)),
                 Component.translatable("ui.irons_spellbooks.blast_count", this.getRecastCount(spellLevel, caster)),
-                Component.translatable("ui.discerning_the_eldritch.extra_damage"),
-                Component.translatable("ui.discerning_the_eldritch.melee_damage")
+                Component.translatable("ui.monsterspellbooks.extra_damage"),
+                Component.translatable("ui.monsterspellbooks.melee_damage")
         );
     }
 

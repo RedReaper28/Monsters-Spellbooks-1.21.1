@@ -8,6 +8,7 @@ import net.redreaper.monsterspellbooks.spells.ender.EndersentSmashSpell;
 import net.redreaper.monsterspellbooks.spells.ender.GravityWellSpell;
 import net.redreaper.monsterspellbooks.spells.fire.OverheatSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.AncientFlashSpell;
+import net.redreaper.monsterspellbooks.spells.necro.BansheeScreamSpell;
 
 import java.util.function.Supplier;
 
@@ -31,6 +32,10 @@ public class ModSpellRegistry {
 
     //LIGHTING
     public static final Supplier<AbstractSpell> ANCIENT_FLASH = registerSpell(new AncientFlashSpell());
+
+    //NECRO
+    public static final Supplier<AbstractSpell> BANSHEE_SCREAM = registerSpell(new BansheeScreamSpell());
+
 
 
 

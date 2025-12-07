@@ -1,14 +1,12 @@
 {
   "textures": [
-    "monstersthieves:putrescence_breath_1",
-    "monstersthieves:putrescence_breath_2",
-    "monstersthieves:putrescence_breath_3",
-
-    "monstersthieves:putrescence_breath_4",
-    "monstersthieves:putrescence_breath_5",
-    "monstersthieves:putrescence_breath_6",
-
-    "monstersthieves:putrescence_breath_7",
-    "monstersthieves:putrescence_breath_8"
+    "monsterspellbooks:putrescence_breath_1",
+    "monsterspellbooks:putrescence_breath_2",
+    "monsterspellbooks:putrescence_breath_3",
+    "monsterspellbooks:putrescence_breath_4",
+    "monsterspellbooks:putrescence_breath_5",
+    "monsterspellbooks:putrescence_breath_6",
+    "monsterspellbooks:putrescence_breath_7",
+    "monsterspellbooks:putrescence_breath_8"
   ]
 }

@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
 
+@AutoSpellConfig
 public class BansheeScreamSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "banshee_scream");
 

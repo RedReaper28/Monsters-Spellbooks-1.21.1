@@ -33,8 +33,10 @@ public class MonstersSpellbooks {
 
         ModMobEffects.register(modEventBus);
         ModAtributeRegistry.register(modEventBus);
-
+        ModParticleTypes.register(modEventBus);
+        ModEntities.register(modEventBus);
         ModSpellRegistry.register(modEventBus);
+        ModSpellSchools.register(modEventBus);
 
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
