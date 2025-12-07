@@ -1,0 +1,9 @@
+package net.redreaper.monsterspellbooks.particle;
+
+import net.minecraft.core.particles.ParticleOptions;
+import net.redreaper.monsterspellbooks.init.ModParticleTypes;
+
+public class ModParticleHelper {
+    public static final ParticleOptions ANCIENT_SPARKS = ModParticleTypes.ANCIENT_SPARKS_PARTICLE.get();
+
+}

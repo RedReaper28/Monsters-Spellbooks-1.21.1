@@ -86,6 +86,11 @@
   "block.monsterspellbooks.blazesteel_block": "Blazesteel Block",
   "block.monsterspellbooks.void_matter_ore": "Void Matter Ore",
 
+  "effect.monsterspellbooks.overheat": "Overheat",
+  "effect.monsterspellbooks.heal_cut": "Heal Cut",
+  "effect.monsterspellbooks.curse": "Curse",
+  "display.monsterspellbooks.curse_warning": "What a terrible night to have a Curse",
+
   "attribute.monsterspellbooks.necro_spell_power": "Necro Spell Power",
 
   "creative_tab.monsterspellbooks.monsters_and_gear": "Monster & Gear",

@@ -1,0 +1,26 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.claws_of_calamity",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "right_arm",
+					"pivot": [9, 0, -6],
+					"cubes": [
+						{"origin": [-11.52, 0.48, 4.98], "size": [5.04, 5.54, 6.04], "pivot": [-8.5, 5.5, 8], "rotation": [0, 0, -22.5], "uv": [0, 53]},
+						{"origin": [-15.52, 0.48, 7.98], "size": [3.54, 11.54, 0.04], "pivot": [-13.5, 5.5, 8], "rotation": [0, 0, -22.5], "uv": [27, 53]},
+						{"origin": [-11.01, 4.99, 4.99], "size": [5.02, 3.02, 6.02], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

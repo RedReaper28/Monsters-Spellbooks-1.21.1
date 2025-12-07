@@ -20,6 +20,7 @@ public class ModCreativeTabs {
             ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModItems.WITHERWARD_RING.get()))
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_gear"))
                     .displayItems((itemDisplayParameters, output) ->{
+                        output.accept(ModItems.CLAWS_OF_CALAMITY.get());
                         output.accept(ModItems.WITHERWARD_RING.get());
                     }).build());
 

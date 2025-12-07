@@ -7,6 +7,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.item.curios.WitherWardCurio;
+import net.redreaper.monsterspellbooks.item.weapons.claws_of_calamity.ClawsOfCalamityItem;
 
 import java.util.function.Supplier;
 
@@ -113,6 +114,8 @@ public class ModItems {
     public static final DeferredItem<Item>GOLD_TRUFFLE_SLICE=ITEMS.register("gold_truffle_slice",
             ()->new Item(new Item.Properties().fireResistant().food(ModFoods.GOLD_TRUFFLE_SLICE)));
 
+    public static final DeferredItem<Item> CLAWS_OF_CALAMITY = ITEMS.register("claws_of_calamity",
+            ClawsOfCalamityItem::new);
     public static final Supplier<CurioBaseItem> WITHERWARD_RING = ITEMS.register("witherward_ring",
             WitherWardCurio::new);
 
