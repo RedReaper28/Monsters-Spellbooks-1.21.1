@@ -18,7 +18,7 @@ public class SwordOfCourage extends MagicSwordItem implements UniqueItem {
                 ModExtendedWeaponTiers.HALLOWED_STEEL,
                 ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.HALLOWED_STEEL)),
                 SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(SpellRegistry.WISP_SPELL, 10))
+                        new SpellDataRegistryHolder(SpellRegistry.WISP_SPELL, 11))
         );
     }
 
@@ -28,6 +28,6 @@ public class SwordOfCourage extends MagicSwordItem implements UniqueItem {
         }
 
         super.initializeSpellContainer(itemStack);
-        AffinityData.setAffinityData(itemStack, SpellRegistry.WISP_SPELL.get());
+        AffinityData.setAffinityData(itemStack, SpellRegistry.WISP_SPELL.get(),1);
     }
 }

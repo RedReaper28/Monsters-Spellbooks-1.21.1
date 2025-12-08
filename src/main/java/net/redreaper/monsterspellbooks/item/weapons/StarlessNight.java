@@ -19,7 +19,7 @@ public class StarlessNight extends MagicSwordItem implements UniqueItem {
                 ModExtendedWeaponTiers.VOID_OBSIDIAN,
                 ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.VOID_OBSIDIAN)),
                 SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(SpellRegistry.ECHOING_STRIKES_SPELL, 5))
+                        new SpellDataRegistryHolder(SpellRegistry.ECHOING_STRIKES_SPELL, 6))
         );
     }
 
@@ -29,6 +29,6 @@ public class StarlessNight extends MagicSwordItem implements UniqueItem {
         }
 
         super.initializeSpellContainer(itemStack);
-        AffinityData.setAffinityData(itemStack, SpellRegistry.ECHOING_STRIKES_SPELL.get());
+        AffinityData.setAffinityData(itemStack, SpellRegistry.ECHOING_STRIKES_SPELL.get(),1);
     }
 }

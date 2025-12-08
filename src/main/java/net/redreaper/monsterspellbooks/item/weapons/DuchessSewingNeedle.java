@@ -9,7 +9,6 @@ import io.redspace.ironsspellbooks.item.UniqueItem;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
 
 public class DuchessSewingNeedle extends MagicSwordItem implements UniqueItem {
@@ -18,16 +17,17 @@ public class DuchessSewingNeedle extends MagicSwordItem implements UniqueItem {
                 ModExtendedWeaponTiers.RITUAL_BONE,
                 ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.ACCURSED_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.RITUAL_BONE)),
                 SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(SpellRegistry.BLOOD_NEEDLES_SPELL, 10))
+                        new SpellDataRegistryHolder(SpellRegistry.BLOOD_NEEDLES_SPELL, 11))
         );
     }
 
+    @Override
     public void initializeSpellContainer(ItemStack itemStack) {
         if (itemStack == null) {
             return;
         }
 
         super.initializeSpellContainer(itemStack);
-        AffinityData.setAffinityData(itemStack, SpellRegistry.BLOOD_NEEDLES_SPELL.get());
+        AffinityData.setAffinityData(itemStack, SpellRegistry.BLOOD_NEEDLES_SPELL.get(), 1);
     }
 }

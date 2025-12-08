@@ -1,12 +1,17 @@
 package net.redreaper.monsterspellbooks.init;
 
+import io.redspace.ironsspellbooks.item.NecronomiconSpellBook;
+import io.redspace.ironsspellbooks.item.SpellBook;
 import io.redspace.ironsspellbooks.item.curios.CurioBaseItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.item.curios.WitherWardCurio;
+import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
+import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.weapons.*;
 import net.redreaper.monsterspellbooks.item.weapons.claws_of_calamity.ClawsOfCalamityItem;
 import net.redreaper.monsterspellbooks.item.weapons.endersent_crusher.EndersentCrusherItem;
@@ -132,6 +137,9 @@ public class ModItems {
             SwordOfCourage::new);
     public static final DeferredItem<Item>ENDERSENT_CRUSHER = ITEMS.register("endersent_crusher",
             EndersentCrusherItem::new);
+
+    public static final DeferredHolder<Item, Item> REAPER_LANTERN = ITEMS.register("reaper_lantern",
+            ReaperLanternSpellBook::new);
 
 
 

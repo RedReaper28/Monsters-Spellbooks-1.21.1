@@ -21,10 +21,6 @@ public class ReaperAspectMobEffect extends MagicMobEffect {
     public static void increaseDamage(LivingIncomingDamageEvent event) {
         var attacker = event.getSource().getEntity();
         if (attacker instanceof LivingEntity livingAttacker) {
-            //IronsSpellbooks.LOGGER.debug("onLivingTakeDamage: attacker: {} target:{}", livingAttacker.getName().getString(), event.getEntity());
-            /**
-             * Spider aspect handling
-             */
             if (livingAttacker.hasEffect(ModMobEffects.REAPER_ASPECT)) {
                 if (event.getEntity().hasEffect(MobEffects.WITHER)) {
                     int lvl = livingAttacker.getEffect(ModMobEffects.REAPER_ASPECT).getAmplifier() + 1;

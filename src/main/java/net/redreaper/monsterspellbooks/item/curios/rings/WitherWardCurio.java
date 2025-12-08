@@ -1,4 +1,4 @@
-package net.redreaper.monsterspellbooks.item.curios;
+package net.redreaper.monsterspellbooks.item.curios.rings;
 
 import io.redspace.ironsspellbooks.compat.Curios;
 import io.redspace.ironsspellbooks.item.curios.SimpleDescriptiveCurio;

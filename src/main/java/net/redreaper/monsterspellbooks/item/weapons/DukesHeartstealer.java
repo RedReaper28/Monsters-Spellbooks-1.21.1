@@ -18,7 +18,7 @@ public class DukesHeartstealer extends MagicSwordItem implements UniqueItem {
                 ModExtendedWeaponTiers.BLOOD_RELIC_IRON,
                 ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.ACCURSED_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.BLOOD_RELIC_IRON)),
                 SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(SpellRegistry.BLOOD_SLASH_SPELL, 5))
+                        new SpellDataRegistryHolder(SpellRegistry.BLOOD_SLASH_SPELL, 6))
         );
     }
 
@@ -28,6 +28,6 @@ public class DukesHeartstealer extends MagicSwordItem implements UniqueItem {
         }
 
         super.initializeSpellContainer(itemStack);
-        AffinityData.setAffinityData(itemStack, SpellRegistry.BLOOD_SLASH_SPELL.get());
+        AffinityData.setAffinityData(itemStack, SpellRegistry.BLOOD_SLASH_SPELL.get(),1);
     }
 }

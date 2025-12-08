@@ -19,7 +19,7 @@ public class StarscourgeSword extends MagicSwordItem implements UniqueItem {
                 ModExtendedWeaponTiers.VOID_OBSIDIAN,
                 ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.VOID_OBSIDIAN)),
                 SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(ModSpellRegistry.GRAVITY_WELL, 3))
+                        new SpellDataRegistryHolder(ModSpellRegistry.GRAVITY_WELL, 4))
         );
     }
 
@@ -29,6 +29,6 @@ public class StarscourgeSword extends MagicSwordItem implements UniqueItem {
         }
 
         super.initializeSpellContainer(itemStack);
-        AffinityData.setAffinityData(itemStack, ModSpellRegistry.GRAVITY_WELL.get());
+        AffinityData.setAffinityData(itemStack, ModSpellRegistry.GRAVITY_WELL.get(),1);
     }
 }

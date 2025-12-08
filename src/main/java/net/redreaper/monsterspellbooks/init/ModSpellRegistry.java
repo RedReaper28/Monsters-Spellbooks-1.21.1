@@ -7,10 +7,12 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.spells.ender.EndersentSmashSpell;
 import net.redreaper.monsterspellbooks.spells.ender.GravityWellSpell;
 import net.redreaper.monsterspellbooks.spells.fire.CauterizingTouchSpell;
+import net.redreaper.monsterspellbooks.spells.fire.FrenziedBurstSpell;
 import net.redreaper.monsterspellbooks.spells.fire.OverheatSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.AncientFlashSpell;
 import net.redreaper.monsterspellbooks.spells.nature.BeastHowlSpell;
 import net.redreaper.monsterspellbooks.spells.necro.BansheeScreamSpell;
+import net.redreaper.monsterspellbooks.spells.necro.ReaperAspectSpell;
 import net.redreaper.monsterspellbooks.spells.necro.VileSlashSpell;
 
 import java.util.function.Supplier;
@@ -32,6 +34,7 @@ public class ModSpellRegistry {
 
     //FIRE
     public static final Supplier<AbstractSpell> CAUTERIZING_TOUCH = registerSpell(new CauterizingTouchSpell());
+    public static final Supplier<AbstractSpell> FRENZIED_BURST = registerSpell(new FrenziedBurstSpell());
     public static final Supplier<AbstractSpell> OVERHEAT = registerSpell(new OverheatSpell());
 
     //LIGHTING
@@ -42,6 +45,7 @@ public class ModSpellRegistry {
 
     //NECRO
     public static final Supplier<AbstractSpell> BANSHEE_SCREAM = registerSpell(new BansheeScreamSpell());
+    public static final Supplier<AbstractSpell> REAPER_ASPECT = registerSpell(new ReaperAspectSpell());
     public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
 
 
