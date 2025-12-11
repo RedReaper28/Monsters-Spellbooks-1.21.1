@@ -51,9 +51,7 @@
   "item.monsterspellbooks.battle_taco": "Battle Taco",
   "item.monsterspellbooks.magma_elote": "Magma Elote",
   "item.monsterspellbooks.gold_truffle_slice": "Gold Truffle Slice",
-
-
-
+  
   "block.monsterspellbooks.oceanite_ore_clay": "Oceanite Ore Clay",
   "block.monsterspellbooks.oceanite_ore_sand": "Oceanite Ore Sand",
   "block.monsterspellbooks.oceanite_ore_gravel": "Oceanite Ore Gravel",
@@ -84,6 +82,10 @@
   "block.monsterspellbooks.wither_alloy_block": "Wither Alloy Block",
   "block.monsterspellbooks.blazesteel_block": "Blazesteel Block",
   "block.monsterspellbooks.void_matter_ore": "Void Matter Ore",
+
+  "item.monsterspellbooks.sanguinite_dagger": "Sanguinite Dagger",
+  "item.monsterspellbooks.sanguinite_scythe": "Sanguinite Scythe",
+  "item.monsterspellbooks.sanguinite_axe": "Sanguinite Axe",
 
   "item.monsterspellbooks.claws_of_calamity": "Claws of Calamity",
   "item.monsterspellbooks.duchees_sewing_needle": "Duchees Sewing Needle",

@@ -3,8 +3,10 @@ package net.redreaper.monsterspellbooks.init;
 import io.redspace.ironsspellbooks.item.NecronomiconSpellBook;
 import io.redspace.ironsspellbooks.item.SpellBook;
 import io.redspace.ironsspellbooks.item.curios.CurioBaseItem;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.SwordItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -83,6 +85,10 @@ public class ModItems {
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>VOID_OBSIDIAN_INGOT= ITEMS.register("void_obsidian_ingot",
             ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>VILE_BONE= ITEMS.register("vile_bone",
+            ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>NECRO_RUNE= ITEMS.register("necro_rune",
+            ()->new Item(new Item.Properties()));
 
     public static final DeferredItem<Item>LEMON=ITEMS.register("lemon",
             ()->new Item(new Item.Properties().food(ModFoods.LEMON)));
@@ -120,6 +126,17 @@ public class ModItems {
             ()->new Item(new Item.Properties().food(ModFoods.MAGMA_ELOTE)));
     public static final DeferredItem<Item>GOLD_TRUFFLE_SLICE=ITEMS.register("gold_truffle_slice",
             ()->new Item(new Item.Properties().fireResistant().food(ModFoods.GOLD_TRUFFLE_SLICE)));
+
+    public static final DeferredItem<SwordItem>SANGUINITE_DAGGER=ITEMS.register("sanguinite_dagger",
+            ()->new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,-3,-2.5f))));
+    public static final DeferredItem<SwordItem>SANGUINITE_SCYTHE=ITEMS.register("sanguinite_scythe",
+            ()->new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,0,-3f))));
+    public static final DeferredItem<AxeItem>SANGUINITE_AXE=ITEMS.register("sanguinite_axe",
+            ()->new AxeItem(ModToolTiers.SANGUINITE,new Item.Properties()
+                    .attributes(AxeItem.createAttributes(ModToolTiers.SANGUINITE,3,-3.2f))));
+
 
     public static final DeferredItem<Item>CLAWS_OF_CALAMITY = ITEMS.register("claws_of_calamity",
             ClawsOfCalamityItem::new);

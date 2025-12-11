@@ -9,6 +9,7 @@ import net.redreaper.monsterspellbooks.spells.ender.GravityWellSpell;
 import net.redreaper.monsterspellbooks.spells.fire.CauterizingTouchSpell;
 import net.redreaper.monsterspellbooks.spells.fire.FrenziedBurstSpell;
 import net.redreaper.monsterspellbooks.spells.fire.OverheatSpell;
+import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.AncientFlashSpell;
 import net.redreaper.monsterspellbooks.spells.nature.BeastHowlSpell;
 import net.redreaper.monsterspellbooks.spells.necro.BansheeScreamSpell;
@@ -33,6 +34,10 @@ public class ModSpellRegistry {
 
 
     //FIRE
+
+    //ICE
+    public static final Supplier<AbstractSpell> ICE_ARSENAL = registerSpell(new IceArsenalSpell());
+
     public static final Supplier<AbstractSpell> CAUTERIZING_TOUCH = registerSpell(new CauterizingTouchSpell());
     public static final Supplier<AbstractSpell> FRENZIED_BURST = registerSpell(new FrenziedBurstSpell());
     public static final Supplier<AbstractSpell> OVERHEAT = registerSpell(new OverheatSpell());

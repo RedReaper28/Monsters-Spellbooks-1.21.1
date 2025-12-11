@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import org.jetbrains.annotations.NotNull;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
@@ -24,14 +25,14 @@ public class CauterizingTouchRenderer extends EntityRenderer<CauterizingTouch> {
     }
 
     @Override
-    public void render(CauterizingTouch esotericEdge, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
+    public void render(CauterizingTouch esotericEdge, float entityYaw, float partialTick, PoseStack poseStack, @NotNull MultiBufferSource bufferSource, int packedLight) {
         poseStack.pushPose();
 
         PoseStack.Pose pose = poseStack.last();
-        poseStack.mulPose(Axis.YP.rotationDegrees(90 - esotericEdge.getYRot()));
-        poseStack.mulPose(Axis.ZP.rotationDegrees(esotericEdge.getXRot()));
+        poseStack.mulPose(Axis.YP.rotationDegrees(180 - esotericEdge.getYRot()));
+        poseStack.mulPose(Axis.ZP.rotationDegrees(180-esotericEdge.getXRot()));
         float randomZ = new Random(31L * esotericEdge.getId()).nextInt(-5, 5);
-        poseStack.mulPose(Axis.XP.rotationDegrees(randomZ));
+        poseStack.mulPose(Axis.XP.rotationDegrees(-90-randomZ));
 
         drawSlash(pose, esotericEdge, bufferSource, esotericEdge.getBbWidth() * 1.5F);
 
@@ -56,5 +57,5 @@ public class CauterizingTouchRenderer extends EntityRenderer<CauterizingTouch> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(CauterizingTouch esotericStrike) {return TEXTURE;}
+    public @NotNull ResourceLocation getTextureLocation(@NotNull CauterizingTouch esotericStrike) {return TEXTURE;}
 }

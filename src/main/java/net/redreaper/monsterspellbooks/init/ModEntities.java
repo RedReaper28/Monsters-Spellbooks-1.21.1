@@ -10,6 +10,7 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlash;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouch;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstVisualEntity;
+import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSword;
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashProjectile;
 
 import static net.minecraft.core.registries.Registries.ENTITY_TYPE;
@@ -29,6 +30,12 @@ public class ModEntities {
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "frenzied_burst").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<IceArsenalSword>> ICE_SWORD =
+            ENTITIES.register("ice_sword", () -> EntityType.Builder.<IceArsenalSword>of(IceArsenalSword::new, MobCategory.MISC)
+                    .sized(.5f, .5f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ice_sword").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<AncientFlash>> ANCIENT_FLASH =
             ENTITIES.register("ancient_flash", () -> EntityType.Builder.<AncientFlash>of(AncientFlash::new, MobCategory.MISC)

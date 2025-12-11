@@ -45,6 +45,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.VOID_MATTER.get());
         basicItem(ModItems.VOID_OBSIDIAN_INGOT.get());
 
+        basicItem(ModItems.VILE_BONE.get());
+        basicItem(ModItems.NECRO_RUNE.get());
+
         basicItem(ModItems.LEMON.get());
         basicItem(ModItems.LEMON_PIE.get());
         basicItem(ModItems.LEMON_MERINGUEIT.get());

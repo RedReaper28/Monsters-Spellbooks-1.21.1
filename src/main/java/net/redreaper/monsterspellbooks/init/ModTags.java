@@ -10,6 +10,9 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 
 public class ModTags {
     public static class Blocks{
+        public static final TagKey<Block> NEEDS_SANGUINITE_TOOL=createTag("needs_sanguinite_tool");
+        public static final TagKey<Block> INCORRECT_FOR_SANGUINITE_TOOL=createTag("incorrect_for_sanguinite_tool");
+
 
 
         private static TagKey<Block>createTag(String name){

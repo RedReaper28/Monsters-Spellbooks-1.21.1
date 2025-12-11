@@ -7,6 +7,8 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.init.ModBlocks;
+import net.redreaper.monsterspellbooks.init.ModTags;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -17,7 +19,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.RAW_OCEANITE_BLOCK.get())
@@ -101,6 +103,15 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.PIGLIN_REPELLENTS)
                 .add(ModBlocks.SPECTRITE_BLOCK.get())
+        ;
+
+        tag(ModTags.Blocks.NEEDS_SANGUINITE_TOOL)
+                .addTag(BlockTags.NEEDS_DIAMOND_TOOL)
+        ;
+
+        tag(ModTags.Blocks.INCORRECT_FOR_SANGUINITE_TOOL)
+                .addTag(BlockTags.INCORRECT_FOR_IRON_TOOL)
+                .remove(ModTags.Blocks.NEEDS_SANGUINITE_TOOL)
         ;
 
     }

@@ -89,7 +89,7 @@ public class CauterizingTouchSpell extends AbstractSpell {
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         float radius = 2.15F;
         float distance = 1F;
-        Vec3 hitLocation = entity.position().add(0, entity.getBbHeight() * 0.3F, 0).add(entity.getForward().multiply(distance, 0.35F, distance));
+        Vec3 hitLocation = entity.position().add(0, entity.getBbHeight() * 0.7F, 0).add(entity.getForward().multiply(distance, 0.35F, distance));
         var entities = entity.level().getEntities(entity, AABB.ofSize(hitLocation, radius * 2, radius, radius * 2));
 
         for (Entity target : entities)
