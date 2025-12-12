@@ -34,6 +34,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.ENDERSENT_CRUSHER.get());
 
                         output.accept(ModItems.WITHERWARD_RING.get());
+
+                        output.accept(ModItems.STARSCOURGE_HELMET.get());
+                        output.accept(ModItems.STARSCOURGE_CHESTPLATE.get());
+                        output.accept(ModItems.STARSCOURGE_LEGGINGS.get());
+                        output.accept(ModItems.STARSCOURGE_BOOTS.get());
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_MATERIALS_TAB=CREATIVE_MODE_TAB.register("monsters_and_materials_tab",

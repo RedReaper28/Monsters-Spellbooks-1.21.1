@@ -66,6 +66,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BATTLE_TACO.get());
         basicItem(ModItems.MAGMA_ELOTE.get());
         basicItem(ModItems.GOLD_TRUFFLE_SLICE.get());
+        basicItem(ModItems.STARSCOURGE_HELMET.get());
+        basicItem(ModItems.STARSCOURGE_CHESTPLATE.get());
+        basicItem(ModItems.STARSCOURGE_LEGGINGS.get());
+        basicItem(ModItems.STARSCOURGE_BOOTS.get());
 
         basicItem(ModItems.WITHERWARD_RING.get());
     }

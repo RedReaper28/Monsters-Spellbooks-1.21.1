@@ -4,6 +4,7 @@ import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.spells.blood.SanguiniteEviscerationSpell;
 import net.redreaper.monsterspellbooks.spells.ender.EndersentSmashSpell;
 import net.redreaper.monsterspellbooks.spells.ender.GravityWellSpell;
 import net.redreaper.monsterspellbooks.spells.fire.CauterizingTouchSpell;
@@ -28,19 +29,21 @@ public class ModSpellRegistry {
         return SPELLS.register(spell.getSpellName(), () -> spell);
     }
 
+    //BLOOD
+    public static final Supplier<AbstractSpell> SANGUINITE_EVISCERATION = registerSpell(new SanguiniteEviscerationSpell());
+
     //ENDER
     public static final Supplier<AbstractSpell> ENDERSENT_SMASH = registerSpell(new EndersentSmashSpell());
     public static final Supplier<AbstractSpell> GRAVITY_WELL = registerSpell(new GravityWellSpell());
 
 
     //FIRE
-
-    //ICE
-    public static final Supplier<AbstractSpell> ICE_ARSENAL = registerSpell(new IceArsenalSpell());
-
     public static final Supplier<AbstractSpell> CAUTERIZING_TOUCH = registerSpell(new CauterizingTouchSpell());
     public static final Supplier<AbstractSpell> FRENZIED_BURST = registerSpell(new FrenziedBurstSpell());
     public static final Supplier<AbstractSpell> OVERHEAT = registerSpell(new OverheatSpell());
+
+    //ICE
+    public static final Supplier<AbstractSpell> ICE_ARSENAL = registerSpell(new IceArsenalSpell());
 
     //LIGHTING
     public static final Supplier<AbstractSpell> ANCIENT_FLASH = registerSpell(new AncientFlashSpell());

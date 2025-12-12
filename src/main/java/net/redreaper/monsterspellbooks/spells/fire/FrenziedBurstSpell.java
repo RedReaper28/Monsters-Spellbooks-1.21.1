@@ -94,7 +94,7 @@ public class FrenziedBurstSpell extends AbstractSpell {
             if (target instanceof LivingEntity) {
                 DamageSources.applyDamage(target, this.getDamage(spellLevel, entity), this.getDamageSource(entity));
                 ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.MADNESS,i,getFrenzyAmplifier(spellLevel, entity), false, true, true));
-                target.setRemainingFireTicks(i/20);
+                target.setRemainingFireTicks(Math.min(i / 2, 160));
                 MagicManager.spawnParticles(level, ModParticleHelper.FRENZY_FIRE, hitResult.getLocation().x, target.getY(), hitResult.getLocation().z, 4, 0, 0, 0, .3, true);
             }
         } else if (hitResult.getType() == HitResult.Type.BLOCK) {
