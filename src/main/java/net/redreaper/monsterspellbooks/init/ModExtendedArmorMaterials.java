@@ -1,5 +1,6 @@
 package net.redreaper.monsterspellbooks.init;
 
+import io.redspace.ironsspellbooks.registries.ItemRegistry;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
