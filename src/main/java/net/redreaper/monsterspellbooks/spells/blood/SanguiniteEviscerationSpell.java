@@ -76,7 +76,7 @@ public class SanguiniteEviscerationSpell extends AbstractSpell {
 
     @Override
     public AnimationHolder getCastStartAnimation() {
-        return SpellAnimations.ONE_HANDED_HORIZONTAL_SWING_ANIMATION;
+        return SpellAnimations.ONE_HANDED_VERTICAL_UPSWING_ANIMATION;
     }
 
     public Optional<SoundEvent> getCastStartSound() {return Optional.of(SoundRegistry.BLOOD_CAST.get());}

@@ -22,7 +22,7 @@ public class ModExtendedArmorMaterials {
     private static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(Registries.ARMOR_MATERIAL, MonstersSpellbooks.MOD_ID);
 
 
-    public static DeferredHolder<ArmorMaterial, ArmorMaterial> STARSCOURGE_ARMOR = register("starscourge_armor",
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>STARSCOURGE_ARMOR=register("starscourge_armor",
             schoolUpgradedArmorMap(),
             25,
             SoundEvents.ARMOR_EQUIP_NETHERITE,

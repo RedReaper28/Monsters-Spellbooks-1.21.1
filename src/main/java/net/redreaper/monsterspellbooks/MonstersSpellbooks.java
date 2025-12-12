@@ -30,6 +30,7 @@ public class MonstersSpellbooks {
         ModCreativeTabs.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModExtendedArmorMaterials.register(modEventBus);
 
         ModMobEffects.register(modEventBus);
         ModAtributeRegistry.register(modEventBus);

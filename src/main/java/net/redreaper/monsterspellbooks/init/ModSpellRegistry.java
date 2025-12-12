@@ -30,30 +30,41 @@ public class ModSpellRegistry {
     }
 
     //BLOOD
+    //Slash forward with your claws to inflict heavy bleeding.The damage scales off of your held weapon´s melee damage
     public static final Supplier<AbstractSpell> SANGUINITE_EVISCERATION = registerSpell(new SanguiniteEviscerationSpell());
 
     //ENDER
+    //Smash the ground with the force of an Endersent,making targets susceptible to kinetic damage
     public static final Supplier<AbstractSpell> ENDERSENT_SMASH = registerSpell(new EndersentSmashSpell());
+    //Stab the ground and pull enemies towards you,stunning them for a short time
     public static final Supplier<AbstractSpell> GRAVITY_WELL = registerSpell(new GravityWellSpell());
 
 
     //FIRE
+    //Burn your targets skin and soul making it impossible for them to heal in any way.The damage scales off of your held weapon´s melee damage
     public static final Supplier<AbstractSpell> CAUTERIZING_TOUCH = registerSpell(new CauterizingTouchSpell());
+    //Shot a thin burst of pure frenzy flame,inflicting madness to lower your targets maximum mana reserves
     public static final Supplier<AbstractSpell> FRENZIED_BURST = registerSpell(new FrenziedBurstSpell());
+    //Overheat yourself to gain extra damage and fire spell power at the cost of melting part of your own armor
     public static final Supplier<AbstractSpell> OVERHEAT = registerSpell(new OverheatSpell());
 
     //ICE
+    //Fire a single burst of ice sword to your opponent.Level increases sword number
     public static final Supplier<AbstractSpell> ICE_ARSENAL = registerSpell(new IceArsenalSpell());
 
     //LIGHTING
+    //Boost your strike with ancient lighting to strike your target multiple times in a single cast.The damage scales off of your held weapon´s melee damage
     public static final Supplier<AbstractSpell> ANCIENT_FLASH = registerSpell(new AncientFlashSpell());
 
     //NATURE
     public static final Supplier<AbstractSpell> BEAST_HOWL = registerSpell(new BeastHowlSpell());
 
     //NECRO
+    //Release a horrible scream that wither any life that hears it
     public static final Supplier<AbstractSpell> BANSHEE_SCREAM = registerSpell(new BansheeScreamSpell());
+    //Instill yourself with necrotic magic,dealing additional melee,ranged,or spell damage towards creatures that are withering
     public static final Supplier<AbstractSpell> REAPER_ASPECT = registerSpell(new ReaperAspectSpell());
+
     public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
 
 
