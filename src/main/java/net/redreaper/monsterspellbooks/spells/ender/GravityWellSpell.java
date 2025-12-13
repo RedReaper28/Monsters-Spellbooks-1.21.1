@@ -96,14 +96,14 @@ public class GravityWellSpell extends AbstractSpell {
 
     public void handleKnockback(LivingEntity entity, LivingEntity targetEntity, int spellLevel) {
         Vec3 angleVector = entity.position().subtract(targetEntity.position()).normalize();
-        Vec3 vec = angleVector.multiply(-2.0F, -1.0F, -2.0F).normalize().scale(-1.0F * this.getForce(spellLevel, entity));
+        Vec3 vec = angleVector.multiply(-1.0F, -.5F, -1.0F).normalize().scale(-.5F * this.getForce(spellLevel, entity));
         if (targetEntity instanceof ServerPlayer serverPlayer) {
             serverPlayer.hurtMarked = true;
         }
 
         targetEntity.setDeltaMovement(targetEntity.getDeltaMovement().add(vec));
-        targetEntity.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS, 60,3));
-        targetEntity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, 60,3));
+        targetEntity.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS, 120,3));
+        targetEntity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, 120,3));
         Vec3 particleLocation = targetEntity.position();
         MagicManager.spawnParticles(entity.level(), ParticleHelper.UNSTABLE_ENDER, particleLocation.x, particleLocation.y + (double)(targetEntity.getBbHeight() / 2.0F), particleLocation.z, 50, 0.0F, 0.0F, 0.0F, 0.2, false);
     }

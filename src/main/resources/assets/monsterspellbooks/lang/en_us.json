@@ -32,6 +32,8 @@
   "item.monsterspellbooks.wither_alloy_nugget": "Wither Alloy Ingot",
   "item.monsterspellbooks.void_matter": "Void Matter",
   "item.monsterspellbooks.void_obsidian_ingot": "Void Obsidian Ingot",
+  "item.monsterspellbooks.vile_bone": "Vile Bone",
+  "item.monsterspellbooks.necro_rune": "Necro Rune",
 
   "item.monsterspellbooks.lemon": "Lemon",
   "item.monsterspellbooks.lemon_pie": "Lemon Pie",
@@ -86,7 +88,6 @@
   "item.monsterspellbooks.sanguinite_dagger": "Sanguinite Dagger",
   "item.monsterspellbooks.sanguinite_scythe": "Sanguinite Scythe",
   "item.monsterspellbooks.sanguinite_axe": "Sanguinite Axe",
-
   "item.monsterspellbooks.claws_of_calamity": "Claws of Calamity",
   "item.monsterspellbooks.duchees_sewing_needle": "Duchees Sewing Needle",
   "item.monsterspellbooks.dukes_heartstealer": "Dukes Heartstealer",
@@ -95,21 +96,24 @@
   "item.monsterspellbooks.starscourge_sword": "Sword of The Starscourge",
   "item.monsterspellbooks.sword_of_courage": "Sword of Courage",
   "item.monsterspellbooks.endersent_crusher": "Endersent Crusher",
-
   "item.monsterspellbooks.reaper_lantern": "Reaper Lantern",
   "item.monsterspellbooks.witherward_ring": "WitherWard Ring",
   "item.monsterspellbooks.witherward_ring.desc": "Grants wither immunity",
-
   "item.monsterspellbooks.starscourge_helmet": "Starscourge Helmet",
   "item.monsterspellbooks.starscourge_chestplate": "Starscourge Chestplate",
   "item.monsterspellbooks.starscourge_leggings": "Starscourge leggings",
   "item.monsterspellbooks.starscourge_boots": "Starscourge Boots",
 
-
-
-  "effect.monsterspellbooks.overheat": "Overheat",
-  "effect.monsterspellbooks.heal_cut": "Heal Cut",
+  "effect.monsterspellbooks.bleeding": "Bleeding",
   "effect.monsterspellbooks.curse": "Curse",
+  "effect.monsterspellbooks.heal_cut": "Heal Cut",
+  "effect.monsterspellbooks.hemorrhage": "Hemorrhage",
+  "effect.monsterspellbooks.madness": "Madness",
+  "effect.monsterspellbooks.overheat": "Overheat",
+  "effect.monsterspellbooks.paralysis": "Paralysis",
+  "effect.monsterspellbooks.reaper_aspect": "Aspect of the Reaper",
+  "effect.monsterspellbooks.stunned": "Stunned",
+
   "display.monsterspellbooks.curse_warning": "What a terrible night to have a Curse",
 
   "attribute.monsterspellbooks.necro_spell_power": "Necro Spell Power",
@@ -146,5 +150,7 @@
   "spell.monsterspellbooks.reaper_aspect": "Reaper Aspect",
   "spell.monsterspellbooks.reaper_aspect.guide": "Instill yourself with necrotic magic,dealing additional melee,ranged,or spell damage towards creatures that are withering",
   "spell.monsterspellbooks.vile_slash": "Vile Slash",
-  "spell.monsterspellbooks.vile_slash.guide": "Slash forward to send out a concentrated blade of spectral force,slicing through creatures to wither their body and soul and healing 15% of damage done"
+  "spell.monsterspellbooks.vile_slash.guide": "Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their body and soul and healing 15% of damage done",
+  "spell.monsterspellbooks.life_drain": "Life Drain",
+  "spell.monsterspellbooks.life_drain.guide": "Absorb the life force of your target,making them weak while you healing you for 100% of the damage done"
 }

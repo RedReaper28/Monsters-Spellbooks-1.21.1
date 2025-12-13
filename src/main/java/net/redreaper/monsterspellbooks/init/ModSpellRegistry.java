@@ -14,6 +14,7 @@ import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.AncientFlashSpell;
 import net.redreaper.monsterspellbooks.spells.nature.BeastHowlSpell;
 import net.redreaper.monsterspellbooks.spells.necro.BansheeScreamSpell;
+import net.redreaper.monsterspellbooks.spells.necro.LifeDrainSpell;
 import net.redreaper.monsterspellbooks.spells.necro.ReaperAspectSpell;
 import net.redreaper.monsterspellbooks.spells.necro.VileSlashSpell;
 
@@ -57,6 +58,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> ANCIENT_FLASH = registerSpell(new AncientFlashSpell());
 
     //NATURE
+    //Release a damaging howl that leaves your targets paralyzed and stunned while you gain a primordial strength
     public static final Supplier<AbstractSpell> BEAST_HOWL = registerSpell(new BeastHowlSpell());
 
     //NECRO
@@ -64,8 +66,11 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> BANSHEE_SCREAM = registerSpell(new BansheeScreamSpell());
     //Instill yourself with necrotic magic,dealing additional melee,ranged,or spell damage towards creatures that are withering
     public static final Supplier<AbstractSpell> REAPER_ASPECT = registerSpell(new ReaperAspectSpell());
-
+    //Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their body and soul and healing 15% of damage done
     public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
+    //Absorb the life force of your target,making them weak while you healing you for 100% of the damage done
+    public static final Supplier<AbstractSpell> LIFE_DRAIN = registerSpell(new LifeDrainSpell());
+
 
 
     public static void register(IEventBus eventBus)

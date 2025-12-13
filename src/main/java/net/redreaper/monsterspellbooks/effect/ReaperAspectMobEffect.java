@@ -27,7 +27,6 @@ public class ReaperAspectMobEffect extends MagicMobEffect {
                     float before = event.getAmount();
                     float multiplier = 1 + SpiderAspectEffect.DAMAGE_PER_LEVEL * lvl;
                     event.setAmount(event.getAmount() * multiplier);
-                    //IronsSpellbooks.LOGGER.debug("spider mode {}->{}", before, event.getAmount());
                 }
             }
         }
