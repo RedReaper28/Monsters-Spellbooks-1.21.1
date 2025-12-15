@@ -31,6 +31,10 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> REAPER_ASPECT = MOB_EFFECT_DEFERRED_REGISTER.register("reaper_aspect", () -> new ReaperAspectMobEffect(MobEffectCategory.BENEFICIAL, 4800826));
     public static final DeferredHolder<MobEffect, MobEffect> BLEEDING = MOB_EFFECT_DEFERRED_REGISTER.register("bleeding", () -> new BleedingMobEffect(MobEffectCategory.HARMFUL, 4800826));
     public static final DeferredHolder<MobEffect, MobEffect> HEMORRHAGE = MOB_EFFECT_DEFERRED_REGISTER.register("hemorrhage", () -> new HemorrhageMobEffect(MobEffectCategory.HARMFUL, 0xFFAA00));
+    public static final DeferredHolder<MobEffect, MobEffect> LETHARGY = MOB_EFFECT_DEFERRED_REGISTER.register("lethargy", () -> new LethargyMobEffect(MobEffectCategory.HARMFUL, 3311322)
+            .addAttributeModifier(Attributes.MAX_HEALTH, MonstersSpellbooks.id("mobeffect_lethargy"), LethargyMobEffect.LIFE_DRAIN_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+
+
 
 
 

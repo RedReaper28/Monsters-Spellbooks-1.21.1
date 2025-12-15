@@ -28,6 +28,7 @@ public class ModSpellSchools  {
     }
 
     public static final ResourceLocation NECRO_RESOURCE = MonstersSpellbooks.id("necro");
+    public static final ResourceLocation AERO_RESOURCE = MonstersSpellbooks.id("aero");
 
     public static final Supplier<SchoolType> NECRO = registerSchool(new SchoolType
             (
@@ -38,5 +39,16 @@ public class ModSpellSchools  {
                     ModAtributeRegistry.NECRO_MAGIC_RESIST,
                     SoundRegistry.EVOCATION_CAST,
                     ModDamageTypes.NECRO_MAGIC
+            ));
+
+    public static final Supplier<SchoolType> AERO = registerSchool(new SchoolType
+            (
+                    AERO_RESOURCE,
+                    ModTags.Items.AERO_FOCUS,
+                    Component.translatable("school.monsterspellbooks.aero").withStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)),
+                    ModAtributeRegistry.AERO__MAGIC_POWER,
+                    ModAtributeRegistry.AERO_MAGIC_RESIST,
+                    SoundRegistry.GUST_CAST,
+                    ModDamageTypes.AERO_MAGIC
             ));
 }

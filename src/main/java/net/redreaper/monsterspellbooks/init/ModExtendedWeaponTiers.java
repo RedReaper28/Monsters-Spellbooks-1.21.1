@@ -12,10 +12,9 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
-
-
 public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
 
     public static ModExtendedWeaponTiers FORBIDDEN_TOOL = new ModExtendedWeaponTiers(1000, 9F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ItemRegistry.MITHRIL_INGOT.get()),
@@ -27,7 +26,7 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
-    public static ModExtendedWeaponTiers HEAVY_VOID_OBSIDIAN = new ModExtendedWeaponTiers(2000, 19, -3.4F, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
+    public static ModExtendedWeaponTiers HEAVY_VOID_OBSIDIAN = new ModExtendedWeaponTiers(2000, 9, -3.5f, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
             new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(Attributes.KNOCKBACK_RESISTANCE, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
@@ -55,10 +54,11 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.250, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
+    public static ModExtendedWeaponTiers SANGUINITE = new ModExtendedWeaponTiers(1200, 9F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.SANGUINITE_INGOT.get()),
+            new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(ASAttributeRegistry.GOLIATH_SLAYER, 0.01, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
 
-
-    //private final int level;
     private final int uses;
     private final float speed;
     private final float damage;
@@ -99,7 +99,7 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
     }
 
     @Override
-    public TagKey<Block> getIncorrectBlocksForDrops() {
+    public @NotNull TagKey<Block> getIncorrectBlocksForDrops() {
         return incorrectBlocksForDrops;
     }
 
@@ -109,7 +109,7 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
     }
 
     @Override
-    public Ingredient getRepairIngredient() {
+    public @NotNull Ingredient getRepairIngredient() {
         return this.repairIngredient.get();
     }
 

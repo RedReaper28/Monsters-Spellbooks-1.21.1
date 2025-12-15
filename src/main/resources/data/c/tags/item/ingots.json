@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "monsterspellbooks:oceanite_ingot",
+    "monsterspellbooks:rose_gold_ingot",
+    "#monsterspellbooks:superior_arcane_ingot_base",
+    "#c:ingots/orichalcum",
+    "monsterspellbooks:sanguinite_ingot",
+    "monsterspellbooks:dwarven_alloy_ingot",
+    "monsterspellbooks:white_gold_ingot",
+    "monsterspellbooks:scorched_metal_ingot",
+    "monsterspellbooks:vile_iron_ingot",
+    "monsterspellbooks:spectrite_ingot",
+    "monsterspellbooks:blazesteel_ingot",
+    "monsterspellbooks:wither_alloy_ingot",
+    "monsterspellbooks:void_obsidian_ingot"
+  ]
+}

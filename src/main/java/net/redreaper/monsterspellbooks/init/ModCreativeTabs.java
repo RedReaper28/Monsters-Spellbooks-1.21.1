@@ -32,6 +32,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.STARLESS_NIGHT.get());
                         output.accept(ModItems.STARSCOURGE_SWORD.get());
                         output.accept(ModItems.ENDERSENT_CRUSHER.get());
+                        output.accept(ModItems.REAPER_SICKLE.get());
 
                         output.accept(ModItems.WITHERWARD_RING.get());
 

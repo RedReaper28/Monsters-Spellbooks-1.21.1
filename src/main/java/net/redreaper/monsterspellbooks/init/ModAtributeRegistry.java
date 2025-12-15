@@ -16,6 +16,9 @@ public class ModAtributeRegistry {
     // NECRO
     public static final DeferredHolder<Attribute, Attribute> NECRO_MAGIC_RESIST = registerResistanceAttribute("necro");
     public static final DeferredHolder<Attribute, Attribute> NECRO_MAGIC_POWER = registerPowerAttribute("necro");
+    //AERO
+    public static final DeferredHolder<Attribute, Attribute> AERO_MAGIC_RESIST = registerResistanceAttribute("aero");
+    public static final DeferredHolder<Attribute, Attribute> AERO__MAGIC_POWER = registerPowerAttribute("aero");
 
     public static void register(IEventBus eventBus)
     {

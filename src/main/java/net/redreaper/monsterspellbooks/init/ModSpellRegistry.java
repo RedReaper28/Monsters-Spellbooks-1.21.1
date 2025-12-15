@@ -7,16 +7,14 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.spells.blood.SanguiniteEviscerationSpell;
 import net.redreaper.monsterspellbooks.spells.ender.EndersentSmashSpell;
 import net.redreaper.monsterspellbooks.spells.ender.GravityWellSpell;
+import net.redreaper.monsterspellbooks.spells.fire.BrimstoneBuzzsawSpell;
 import net.redreaper.monsterspellbooks.spells.fire.CauterizingTouchSpell;
 import net.redreaper.monsterspellbooks.spells.fire.FrenziedBurstSpell;
 import net.redreaper.monsterspellbooks.spells.fire.OverheatSpell;
 import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.AncientFlashSpell;
 import net.redreaper.monsterspellbooks.spells.nature.BeastHowlSpell;
-import net.redreaper.monsterspellbooks.spells.necro.BansheeScreamSpell;
-import net.redreaper.monsterspellbooks.spells.necro.LifeDrainSpell;
-import net.redreaper.monsterspellbooks.spells.necro.ReaperAspectSpell;
-import net.redreaper.monsterspellbooks.spells.necro.VileSlashSpell;
+import net.redreaper.monsterspellbooks.spells.necro.*;
 
 import java.util.function.Supplier;
 
@@ -40,10 +38,10 @@ public class ModSpellRegistry {
     //Stab the ground and pull enemies towards you,stunning them for a short time
     public static final Supplier<AbstractSpell> GRAVITY_WELL = registerSpell(new GravityWellSpell());
 
-
     //FIRE
     //Burn your targets skin and soul making it impossible for them to heal in any way.The damage scales off of your held weapon´s melee damage
     public static final Supplier<AbstractSpell> CAUTERIZING_TOUCH = registerSpell(new CauterizingTouchSpell());
+    public static final Supplier<AbstractSpell> BRIMSTONE_BUZZSAW = registerSpell(new BrimstoneBuzzsawSpell());
     //Shot a thin burst of pure frenzy flame,inflicting madness to lower your targets maximum mana reserves
     public static final Supplier<AbstractSpell> FRENZIED_BURST = registerSpell(new FrenziedBurstSpell());
     //Overheat yourself to gain extra damage and fire spell power at the cost of melting part of your own armor
@@ -68,8 +66,12 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> REAPER_ASPECT = registerSpell(new ReaperAspectSpell());
     //Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their body and soul and healing 15% of damage done
     public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
-    //Absorb the life force of your target,making them weak while you healing you for 100% of the damage done
+    //Absorb the life force of your target,making them weak while healing you for 100% of the damage done
     public static final Supplier<AbstractSpell> LIFE_DRAIN = registerSpell(new LifeDrainSpell());
+    //Fires multiple blasts of spectral energy that builds up the Lethargy effect.Land all shots at max level to inflict a health decreasing effect.Level increases recasts
+    public static final Supplier<AbstractSpell> SPECTRAL_BLAST = registerSpell(new SpectralBlastSpell());
+    //Fire an enhanced wither skull which home towards your cursor,or the creature your cursor is targeting,exploding and dealing massive damage on impact
+    public static final Supplier<AbstractSpell> WITHER_BOMB = registerSpell(new WitherBombSpell());
 
 
 

@@ -47,16 +47,6 @@ public class ClawsOfCalamityItem extends MagicSwordItem implements GeoItem  {
         }
     }
 
-    @Override
-    public void initializeSpellContainer(ItemStack itemStack) {
-        if (itemStack == null) {
-            return;
-        }
-
-        super.initializeSpellContainer(itemStack);
-        AffinityData.setAffinityData(itemStack, ModSpellRegistry.ANCIENT_FLASH.get(),1);
-    }
-
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
     }
 

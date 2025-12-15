@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "monsterspellbooks:oceanite_ore_clay",
+    "monsterspellbooks:oceanite_ore_sand",
+    "monsterspellbooks:oceanite_ore_gravel",
+    "monsterspellbooks:poseidon_pearl_ore",
+    "#c:ores/orichalcum",
+    "monsterspellbooks:scorched_metal_ore",
+    "monsterspellbooks:vile_iron_ore",
+    "monsterspellbooks:nether_pyrite_ore",
+    "monsterspellbooks:nether_ruby_ore",
+    "monsterspellbooks:void_matter_ore.json"
+  ]
+}

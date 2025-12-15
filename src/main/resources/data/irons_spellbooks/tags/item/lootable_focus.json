@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "remove": [
+    "monsterspellbooks:vile_bone" ,
+    "minecraft:breeze_rod"
+  ]
+}

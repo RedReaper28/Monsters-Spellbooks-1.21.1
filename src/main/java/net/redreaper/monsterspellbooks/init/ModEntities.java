@@ -8,12 +8,15 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlash;
+import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.BrimstoneBuzzsawProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouch;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSword;
 import net.redreaper.monsterspellbooks.entity.spells.life_drain.LifeDrainProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.SanguiniteEvisceration;
+import net.redreaper.monsterspellbooks.entity.spells.spectral_blast.SpectralBlastVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.wither_bomb.WitherBombProjectile;
 
 import static net.minecraft.core.registries.Registries.ENTITY_TYPE;
 
@@ -33,6 +36,12 @@ public class ModEntities {
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "cauterizing_touch").toString())
             );
+    public static final DeferredHolder<EntityType<?>, EntityType<BrimstoneBuzzsawProjectile>> BRIMSTONE_BUZZSAW_PROJECTILE =
+            ENTITIES.register("brimstone_buzzsaw", () -> EntityType.Builder.<BrimstoneBuzzsawProjectile>of(BrimstoneBuzzsawProjectile::new, MobCategory.MISC)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "brimstone_buzzsaw").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<FrenziedBurstVisualEntity>> FRENZIED_BURST_VISUAL_ENTITY =
             ENTITIES.register("frenzied_burst", () -> EntityType.Builder.<FrenziedBurstVisualEntity>of(FrenziedBurstVisualEntity::new, MobCategory.MISC)
                     .sized(1f, 1f)
@@ -58,11 +67,23 @@ public class ModEntities {
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "vile_slash").toString()));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<SpectralBlastVisualEntity>> SPECTRAL_BLAST_VISUAL_ENTITY =
+            ENTITIES.register("spectral_blast", () -> EntityType.Builder.<SpectralBlastVisualEntity>of(SpectralBlastVisualEntity::new, MobCategory.MISC)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "spectral_blast").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<LifeDrainProjectile>> LIFE_DRAIN_PROJECTILE =
             ENTITIES.register("life_drain", () -> EntityType.Builder.<LifeDrainProjectile>of(LifeDrainProjectile::new, MobCategory.MISC)
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "life_drain").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<WitherBombProjectile>> WITHER_BOMB =
+            ENTITIES.register("wither_bomb", () -> EntityType.Builder.<WitherBombProjectile>of(WitherBombProjectile::new, MobCategory.MISC)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(4)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "wither_bomb").toString()));
 
     public static void register(IEventBus eventBus)
     {

@@ -52,7 +52,6 @@ public class ModItems {
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>DWARVEN_ALLOY_NUGGET= ITEMS.register("dwarven_alloy_nugget",
             ()->new Item(new Item.Properties()));
-
     public static final DeferredItem<Item>WHITE_GOLD_INGOT= ITEMS.register("white_gold_ingot",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>WHITE_GOLD_NUGGET= ITEMS.register("white_gold_nugget",
@@ -84,6 +83,8 @@ public class ModItems {
     public static final DeferredItem<Item>VOID_MATTER= ITEMS.register("void_matter",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>VOID_OBSIDIAN_INGOT= ITEMS.register("void_obsidian_ingot",
+            ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>RESIN_BRICK= ITEMS.register("resin_brick",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>VILE_BONE= ITEMS.register("vile_bone",
             ()->new Item(new Item.Properties()));
@@ -150,6 +151,8 @@ public class ModItems {
             StarscourgeSword::new);
     public static final DeferredItem<Item>SWORD_OF_COURAGE = ITEMS.register("sword_of_courage",
             SwordOfCourage::new);
+    public static final DeferredItem<Item>REAPER_SICKLE = ITEMS.register("reaper_sickle",
+            ReaperSickle::new);
     public static final DeferredItem<Item>ENDERSENT_CRUSHER = ITEMS.register("endersent_crusher",
             EndersentCrusherItem::new);
     public static final DeferredHolder<Item, Item> REAPER_LANTERN = ITEMS.register("reaper_lantern",

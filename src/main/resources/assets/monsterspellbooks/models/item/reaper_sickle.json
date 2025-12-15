@@ -1,0 +1,54 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"render_type": "cutout",
+	"textures": {
+		"layer0": "monsterspellbooks:item/reaper_sickle",
+		"layer1": "monsterspellbooks:item/reaper_sickle_e"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -90, 55],
+			"translation": [0, 6.25, -1.5],
+			"scale": [1.22, 1.36, 0.85]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, -55],
+			"translation": [0, 6.25, -1.5],
+			"scale": [1.22, 1.36, 0.85]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -90, 25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [1.36, 1.25, 0.75]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, -25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [1.36, 1.25, 0.75]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.63086, 0.78516, 0.16797]
+		},
+		"gui": {
+			"translation": [0.75, 0, 0]
+		},
+		"fixed": {
+			"translation": [1, 0, 0],
+			"scale": [1.07813, 1.10156, 1]
+		}
+	},
+	"loader": "neoforge:item_layers",
+	"neoforge_data": {
+		"layers": {
+			"1": {
+				"color": "FFFFFFFF",
+				"block_light": 15,
+				"sky_light": 15,
+				"ambient_occlusion": false
+			}
+		}
+	}
+}

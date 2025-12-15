@@ -17,9 +17,7 @@ public class Frostmourne extends MagicSwordItem implements UniqueItem {
         super(
                 ModExtendedWeaponTiers.SUPERIOR_DEATHSILVER,
                 ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.SUPERIOR_DEATHSILVER)),
-                SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(SpellRegistry.RAISE_DEAD_SPELL, 7))
-        );
+                SpellDataRegistryHolder.of());
     }
 
     public void initializeSpellContainer(ItemStack itemStack) {

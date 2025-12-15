@@ -68,6 +68,7 @@ public class EndersentCrusherItem extends MagicMaceItem implements GeoItem {
         return super.hurtEnemy(stack, target, attacker);
     }
 
+
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
     }
 

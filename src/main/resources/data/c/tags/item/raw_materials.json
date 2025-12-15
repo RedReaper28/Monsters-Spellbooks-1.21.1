@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "monsterspellbooks:raw_oceanite",
+    "#c:raw_materials/orichalcum",
+    "monsterspellbooks:dwarven_alloy_scrap",
+    "monsterspellbooks:raw_vile_iron"
+
+  ]
+}

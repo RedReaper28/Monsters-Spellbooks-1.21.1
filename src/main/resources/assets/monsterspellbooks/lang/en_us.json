@@ -1,6 +1,4 @@
 {
-  "school.monsterspellbooks.necro": "Necro",
-
   "item.monsterspellbooks.raw_oceanite": "Oceanite Ball",
   "item.monsterspellbooks.oceanite_ingot": "Oceanite Ingot",
   "item.monsterspellbooks.oceanite_nugget": "Oceanite Nugget",
@@ -95,6 +93,7 @@
   "item.monsterspellbooks.starless_night": "Starless Night",
   "item.monsterspellbooks.starscourge_sword": "Sword of The Starscourge",
   "item.monsterspellbooks.sword_of_courage": "Sword of Courage",
+  "item.monsterspellbooks.reaper_sickle": "Reaper Sickle",
   "item.monsterspellbooks.endersent_crusher": "Endersent Crusher",
   "item.monsterspellbooks.reaper_lantern": "Reaper Lantern",
   "item.monsterspellbooks.witherward_ring": "WitherWard Ring",
@@ -107,6 +106,7 @@
   "effect.monsterspellbooks.bleeding": "Bleeding",
   "effect.monsterspellbooks.curse": "Curse",
   "effect.monsterspellbooks.heal_cut": "Heal Cut",
+  "effect.monsterspellbooks.lethargy": "Lethargy",
   "effect.monsterspellbooks.hemorrhage": "Hemorrhage",
   "effect.monsterspellbooks.madness": "Madness",
   "effect.monsterspellbooks.overheat": "Overheat",
@@ -115,6 +115,9 @@
   "effect.monsterspellbooks.stunned": "Stunned",
 
   "display.monsterspellbooks.curse_warning": "What a terrible night to have a Curse",
+
+  "school.monsterspellbooks.necro": "Necro",
+  "school.monsterspellbooks.aero": "Aero",
 
   "attribute.monsterspellbooks.necro_spell_power": "Necro Spell Power",
   "attribute.monsterspellbooks.necro_magic_resist": "Necro Spell Resist",
@@ -152,5 +155,11 @@
   "spell.monsterspellbooks.vile_slash": "Vile Slash",
   "spell.monsterspellbooks.vile_slash.guide": "Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their body and soul and healing 15% of damage done",
   "spell.monsterspellbooks.life_drain": "Life Drain",
-  "spell.monsterspellbooks.life_drain.guide": "Absorb the life force of your target,making them weak while you healing you for 100% of the damage done"
+  "spell.monsterspellbooks.life_drain.guide": "Absorb the life force of your target,making them weak while healing you for 100% of the damage done",
+  "spell.monsterspellbooks.spectral_blast": "Spectral Blast",
+  "spell.monsterspellbooks.spectral_blast.guide": "Fires multiple blasts of spectral energy that builds up the Lethargy effect.Land all shots at max level to inflict a health decreasing effect.Level increases recasts",
+  "spell.monsterspellbooks.wither_bomb": "Wither Bomb",
+  "spell.monsterspellbooks.wither_bomb.guide": "Fire an enhanced wither skull which home towards your cursor,or the creature your cursor is targeting,exploding and dealing massive damage on impact",
+  "spell.monsterspellbooks.brimstone_buzzsaw": "Brimstone Buzzsaw",
+  "spell.monsterspellbooks.brimstone_buzzsaw.guide": "Launch a searing buzzsaw made of brimstone flame that melts the defense of the enemies it pierces and bouncing off blocks"
 }

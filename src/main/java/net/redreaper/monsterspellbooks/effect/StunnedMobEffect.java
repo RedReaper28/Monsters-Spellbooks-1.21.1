@@ -9,5 +9,4 @@ public class StunnedMobEffect extends MagicMobEffect {
     public StunnedMobEffect(MobEffectCategory mobEffectCategory, int color) {
         super(mobEffectCategory, color);
     }
-
 }

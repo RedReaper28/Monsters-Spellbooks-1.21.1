@@ -15,10 +15,12 @@ public class ModDamageTypes {
     }
 
     public static final ResourceKey<DamageType> NECRO_MAGIC = register("necro_magic");
+    public static final ResourceKey<DamageType> AERO_MAGIC = register("aero_magic");
 
 
     public static void bootstrap(BootstrapContext<DamageType> context)
     {
         context.register(NECRO_MAGIC, new DamageType(NECRO_MAGIC.location().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0F));
+        context.register(AERO_MAGIC, new DamageType(AERO_MAGIC.location().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0F));
     }
 }
