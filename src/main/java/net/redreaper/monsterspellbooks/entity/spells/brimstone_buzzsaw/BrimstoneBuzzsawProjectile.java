@@ -147,7 +147,6 @@ public class BrimstoneBuzzsawProjectile extends AbstractMagicProjectile implemen
             case SOUTH:
                 this.setDeltaMovement(this.getDeltaMovement().multiply((double)1.0F, (double)1.0F, (double)-1.0F));
         }
-
         if (++this.bounces >= 6) {
             this.discard();
         }
