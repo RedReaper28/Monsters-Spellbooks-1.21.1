@@ -19,7 +19,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 @Mod(MonstersSpellbooks.MOD_ID)
 public class MonstersSpellbooks {
-    public static final String MOD_ID = "monsterspellbooks";
+        public static final String MOD_ID = "monsterspellbooks";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public MonstersSpellbooks(IEventBus modEventBus, ModContainer modContainer) {

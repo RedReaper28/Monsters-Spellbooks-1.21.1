@@ -42,10 +42,7 @@ public class AncientFlashSpell extends AbstractSpell {
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
                 Component.translatable("ui.irons_spellbooks.damage", getDamageText(spellLevel, caster)),
-                Component.translatable("ui.irons_spellbooks.blast_count", this.getRecastCount(spellLevel, caster)),
-                Component.translatable("ui.monsterspellbooks.extra_damage"),
-                Component.translatable("ui.monsterspellbooks.melee_damage")
-        );
+                Component.translatable("ui.irons_spellbooks.blast_count", this.getRecastCount(spellLevel, caster)));
     }
 
     private final DefaultConfig defaultConfig = new DefaultConfig()

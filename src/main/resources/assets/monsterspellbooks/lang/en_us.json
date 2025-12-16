@@ -103,6 +103,9 @@
   "item.monsterspellbooks.starscourge_leggings": "Starscourge leggings",
   "item.monsterspellbooks.starscourge_boots": "Starscourge Boots",
 
+  "entity.monsterspellbooks.vile_skeleton": "Vile Skeleton",
+  "entity.monsterspellbooks.dwarven_sphere": "Dwarven Sphere",
+
   "effect.monsterspellbooks.bleeding": "Bleeding",
   "effect.monsterspellbooks.curse": "Curse",
   "effect.monsterspellbooks.heal_cut": "Heal Cut",

@@ -11,6 +11,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.item.armor.SanguiniteHeroArmorItem;
 import net.redreaper.monsterspellbooks.item.armor.StarscourgeArmorItem;
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
@@ -167,6 +168,14 @@ public class ModItems {
             new StarscourgeArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
     public static final DeferredHolder<Item, Item> STARSCOURGE_BOOTS = ITEMS.register("starscourge_boots", () ->
             new StarscourgeArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(48))));
+    public static final DeferredHolder<Item, Item> SANGUINITE_HERO_HOOD = ITEMS.register("sanguinite_hero_hood", () ->
+            new SanguiniteHeroArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(48))));
+    public static final DeferredHolder<Item, Item> SANGUINITE_HERO_CHESTPLATE = ITEMS.register("sanguinite_hero_chestplate", ()
+            -> new SanguiniteHeroArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
+    public static final DeferredHolder<Item, Item> SANGUINITE_HERO_LEGGINGS = ITEMS.register("sanguinite_hero_leggings", () ->
+            new SanguiniteHeroArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
+    public static final DeferredHolder<Item, Item> SANGUINITE_HERO_BOOTS = ITEMS.register("sanguinite_hero_boots", () ->
+            new SanguiniteHeroArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
 
 

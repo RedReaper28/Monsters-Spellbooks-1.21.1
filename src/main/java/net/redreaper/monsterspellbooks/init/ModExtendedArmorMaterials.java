@@ -30,6 +30,14 @@ public class ModExtendedArmorMaterials {
             3,
             0.5F);
 
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>SANGUINITE_ARMOR=register("sanguinite_armor",
+            schoolUpgradedArmorMap(),
+            20,
+            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            () -> Ingredient.of(ModItems.SANGUINITE_INGOT.get()),
+            3,
+            0.1F);
+
     private static DeferredHolder<ArmorMaterial, ArmorMaterial> register(
             String name,
             EnumMap<ArmorItem.Type, Integer> defense,

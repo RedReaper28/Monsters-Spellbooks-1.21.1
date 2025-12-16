@@ -40,7 +40,7 @@ public class BrimstoneBuzzsawRenderer extends EntityRenderer<BrimstoneBuzzsawPro
         pPoseStack.mulPose(Axis.XP.rotationDegrees(randomZ));
 
 
-        drawSlash(pose, pEntity, pBuffer, pEntity.getBbWidth() * 7.F);
+        drawSlash(pose, pEntity, pBuffer, pEntity.getBbWidth() * 1.5F);
 
         pPoseStack.popPose();
 
@@ -57,15 +57,15 @@ public class BrimstoneBuzzsawRenderer extends EntityRenderer<BrimstoneBuzzsawPro
         float halfWidth = width * 0.5F;
         float height = entity.getBbHeight() * 0.5F;
 
-        consumer.addVertex(poseMatrix, -halfWidth, height, -halfWidth).setColor(255, 255, 255, 255).setUv(0f,1f).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0f, 1f, 0f);
-        consumer.addVertex(poseMatrix, halfWidth, height, -halfWidth).setColor(255, 255, 255, 255).setUv(1f,1f).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0f, 1f, 0f);
-        consumer.addVertex(poseMatrix, halfWidth, height, halfWidth).setColor(255, 255, 255, 255).setUv(1f,0f).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0f, 1f, 0f);
-        consumer.addVertex(poseMatrix, -halfWidth, height, halfWidth).setColor(255, 255, 255, 255).setUv(0f,0f).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0f, 1f, 0f);
+        consumer.addVertex(poseMatrix, -halfWidth, height, -halfWidth).setColor(255, 255, 255, 255).setUv(0F, 1F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0F, 1F, 0F);
+        consumer.addVertex(poseMatrix, halfWidth, height, -halfWidth).setColor(255, 255, 255, 255).setUv(1F, 1F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0F, 1F, 0F);
+        consumer.addVertex(poseMatrix, halfWidth, height, halfWidth).setColor(255, 255, 255, 255).setUv(1F, 0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0F, 1F, 0F);
+        consumer.addVertex(poseMatrix, -halfWidth, height, halfWidth).setColor(255, 255, 255, 255).setUv(0F, 0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0F, 1F, 0F);
     }
 
     @Override
     public ResourceLocation getTextureLocation(BrimstoneBuzzsawProjectile entity) {
-        int frame = (entity.tickCount / 4) % TEXTURES.length;
+        int frame = (entity.tickCount / 2) % TEXTURES.length;
         return TEXTURES[frame];
     }
 }

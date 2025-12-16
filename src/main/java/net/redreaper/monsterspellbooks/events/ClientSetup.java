@@ -1,9 +1,6 @@
 package net.redreaper.monsterspellbooks.events;
 
-import io.redspace.ironsspellbooks.IronsSpellbooks;
-import io.redspace.ironsspellbooks.entity.spells.eldritch_blast.EldritchBlastRenderer;
 import io.redspace.ironsspellbooks.entity.spells.skull_projectile.SkullProjectileRenderer;
-import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -11,6 +8,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.entity.model.DwarvenSphere.DwarvenSphereRenderer;
+import net.redreaper.monsterspellbooks.entity.model.VileSkeleton.VileSkeletonRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlashRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.BrimstoneBuzzsawRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouchRenderer;
@@ -39,6 +38,10 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.LIFE_DRAIN_PROJECTILE.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.SPECTRAL_BLAST_VISUAL_ENTITY.get(), SpectralBlastRenderer::new);
         event.registerEntityRenderer(ModEntities.WITHER_BOMB.get(), (context) -> new SkullProjectileRenderer(context, MonstersSpellbooks.id("textures/entity/wither_bomb/wither_bomb.png")));
+
+        event.registerEntityRenderer(ModEntities.VILE_SKELETON.get(), VileSkeletonRenderer::new);
+        event.registerEntityRenderer(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereRenderer::new);
+
     }
 
 @SubscribeEvent

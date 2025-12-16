@@ -30,7 +30,6 @@ public class BrimstoneBuzzsawProjectile extends AbstractMagicProjectile implemen
 
     public BrimstoneBuzzsawProjectile(EntityType<? extends BrimstoneBuzzsawProjectile> entityType, Level level) {
         super(entityType, level);
-
         this.setNoGravity(true);
     }
 
