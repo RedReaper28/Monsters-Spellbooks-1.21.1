@@ -4,6 +4,7 @@ import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.spells.blood.BloodPierceSpell;
 import net.redreaper.monsterspellbooks.spells.blood.SanguiniteEviscerationSpell;
 import net.redreaper.monsterspellbooks.spells.ender.EndersentSmashSpell;
 import net.redreaper.monsterspellbooks.spells.ender.GravityWellSpell;
@@ -31,6 +32,7 @@ public class ModSpellRegistry {
     //BLOOD
     //Slash forward with your claws to inflict heavy bleeding.The damage scales off of your held weapon´s melee damage
     public static final Supplier<AbstractSpell> SANGUINITE_EVISCERATION = registerSpell(new SanguiniteEviscerationSpell());
+    public static final Supplier<AbstractSpell> BLOOD_PIERCE = registerSpell(new BloodPierceSpell());
 
     //ENDER
     //Smash the ground with the force of an Endersent,making targets susceptible to kinetic damage
@@ -62,14 +64,16 @@ public class ModSpellRegistry {
     //NECRO
     //Release a horrible scream that wither any life that hears it
     public static final Supplier<AbstractSpell> BANSHEE_SCREAM = registerSpell(new BansheeScreamSpell());
-    //Instill yourself with necrotic magic,dealing additional melee,ranged,or spell damage towards creatures that are withering
-    public static final Supplier<AbstractSpell> REAPER_ASPECT = registerSpell(new ReaperAspectSpell());
-    //Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their body and soul and healing 15% of damage done
-    public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
+
+    public static final Supplier<AbstractSpell> FALL_CURSE = registerSpell(new FallCurseSpell());
     //Absorb the life force of your target,making them weak while healing you for 100% of the damage done
     public static final Supplier<AbstractSpell> LIFE_DRAIN = registerSpell(new LifeDrainSpell());
+    // Instill yourself with necrotic magic,dealing additional melee,ranged,or spell damage towards creatures that are withering
+    public static final Supplier<AbstractSpell> REAPER_ASPECT = registerSpell(new ReaperAspectSpell());
     //Fires multiple blasts of spectral energy that builds up the Lethargy effect.Land all shots at max level to inflict a health decreasing effect.Level increases recasts
     public static final Supplier<AbstractSpell> SPECTRAL_BLAST = registerSpell(new SpectralBlastSpell());
+    //Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their body and soul and healing 15% of damage done
+    public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
     //Fire an enhanced wither skull which home towards your cursor,or the creature your cursor is targeting,exploding and dealing massive damage on impact
     public static final Supplier<AbstractSpell> WITHER_BOMB = registerSpell(new WitherBombSpell());
 

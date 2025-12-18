@@ -10,6 +10,7 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.living.DwarvenSphere;
 import net.redreaper.monsterspellbooks.entity.living.VileSkeleton;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlash;
+import net.redreaper.monsterspellbooks.entity.spells.blood_pierce_bullet.BloodPierceVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.BrimstoneBuzzsawProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouch;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstVisualEntity;
@@ -34,6 +35,13 @@ public class ModEntities {
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "sanguinite_evisceration").toString())
             );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<BloodPierceVisualEntity>> BLOOD_PIERCE_VISUAL_ENTITY =
+            ENTITIES.register("blood_pierce", () -> EntityType.Builder.<BloodPierceVisualEntity>of(BloodPierceVisualEntity::new, MobCategory.MISC)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "blood_pierce").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<CauterizingTouch>>CAUTERIZING_TOUCH =
             ENTITIES.register("cauterizing_touch", () -> EntityType.Builder.<CauterizingTouch>of(CauterizingTouch::new, MobCategory.MISC)
                     .sized(2f, 1f)
@@ -90,13 +98,16 @@ public class ModEntities {
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "wither_bomb").toString()));
 
 
+
+
+
     public static final Supplier<EntityType<VileSkeleton>>VILE_SKELETON=
             ENTITIES.register("vile_skeleton",()->EntityType.Builder.of(VileSkeleton::new,MobCategory.MONSTER)
                     .sized(0.6F, 1.9F).build("vile_skeleton"));
 
     public static final Supplier<EntityType<DwarvenSphere>>DWARVEN_SPHERE=
             ENTITIES.register("dwarven_sphere",()->EntityType.Builder.of(DwarvenSphere::new,MobCategory.MONSTER)
-                    .sized(0.8F, 2F).build("dwarven_sphere"));
+                    .sized(0.8F, 2.4F).build("dwarven_sphere"));
 
 
 

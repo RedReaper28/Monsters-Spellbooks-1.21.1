@@ -14,9 +14,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -94,7 +92,6 @@ public class DwarvenSphere extends Monster implements GeoEntity {
         if (compound.contains("Texture")) {
             this.setTexture(compound.getString("Texture"));
         }
-
     }
 
     public @NotNull EntityDimensions getDefaultDimensions(@NotNull Pose pose) {
@@ -138,7 +135,6 @@ public class DwarvenSphere extends Monster implements GeoEntity {
             if (!this.animationprocedure.equals(this.prevAnim)) {
                 event.getController().forceAnimationReset();
             }
-
             event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));
             if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {
                 this.animationprocedure = "empty";
@@ -148,7 +144,6 @@ public class DwarvenSphere extends Monster implements GeoEntity {
             this.prevAnim = "empty";
             return PlayState.STOP;
         }
-
         this.prevAnim = this.animationprocedure;
         return PlayState.CONTINUE;
     }
@@ -159,7 +154,6 @@ public class DwarvenSphere extends Monster implements GeoEntity {
             this.remove(RemovalReason.KILLED);
             this.dropExperience(this);
         }
-
     }
 
     public void registerControllers(AnimatableManager.ControllerRegistrar data) {

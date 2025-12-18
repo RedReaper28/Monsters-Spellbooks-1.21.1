@@ -30,7 +30,6 @@ public class HemorrhageMobEffect extends MagicMobEffect implements ISyncedMobEff
     public static final int STACKS_REQUIRED = 3;
     public static final int STACKS_REQUIRED_AMPLIFIER = STACKS_REQUIRED - 1;
 
-
     private static final Map<LivingEntity, Entity> EFFECT_CREDIT = new WeakHashMap<>();
 
     private static final Map<MobEffectInstance, Integer> DELAYED_INSTANCES = new WeakHashMap<>();
