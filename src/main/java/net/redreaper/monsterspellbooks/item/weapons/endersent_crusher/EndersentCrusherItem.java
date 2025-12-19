@@ -3,6 +3,7 @@ package net.redreaper.monsterspellbooks.item.weapons.endersent_crusher;
 import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
+import io.redspace.ironsspellbooks.item.UniqueItem;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
@@ -27,7 +28,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class EndersentCrusherItem extends MagicMaceItem implements GeoItem {
+public class EndersentCrusherItem extends MagicMaceItem implements GeoItem, UniqueItem {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("idle");
     private final AnimationController<EndersentCrusherItem> animationController = new AnimationController(this, "controller", 0, this::predicate);

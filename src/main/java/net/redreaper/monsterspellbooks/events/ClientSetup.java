@@ -9,6 +9,8 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.model.DwarvenSphere.DwarvenSphereRenderer;
+import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityModel;
+import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityRenderer;
 import net.redreaper.monsterspellbooks.entity.model.VileSkeleton.VileSkeletonRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlashRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.blood_pierce_bullet.BloodPierceRenderer;
@@ -43,6 +45,7 @@ public class ClientSetup {
 
         event.registerEntityRenderer(ModEntities.VILE_SKELETON.get(), VileSkeletonRenderer::new);
         event.registerEntityRenderer(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereRenderer::new);
+        event.registerEntityRenderer(ModEntities.SHOCK.get(), context -> {return new ShockEntityRenderer(context, new ShockEntityModel());});
 
     }
 

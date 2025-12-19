@@ -1,0 +1,105 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.granite_elemental",
+				"texture_width": 64,
+				"texture_height": 32,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "all",
+					"pivot": [-0.08333, 8.20373, 0]
+				},
+				{
+					"name": "body",
+					"parent": "all",
+					"pivot": [-0.16667, 7, 0]
+				},
+				{
+					"name": "rocktop",
+					"parent": "body",
+					"pivot": [-0.16667, 12.5, 0],
+					"cubes": [
+						{"origin": [-5.16667, 10, -5], "size": [10, 3, 10], "uv": [24, 0]},
+						{"origin": [-3.16667, 13, -3], "size": [6, 1, 6], "uv": [24, 13]}
+					]
+				},
+				{
+					"name": "rockbottom",
+					"parent": "body",
+					"pivot": [-0.16667, 1.5, 0],
+					"cubes": [
+						{"origin": [-5.16667, 1, -5], "size": [10, 3, 10], "uv": [24, 0]},
+						{"origin": [-3.16667, 0, -3], "size": [6, 1, 6], "uv": [24, 13]}
+					]
+				},
+				{
+					"name": "core",
+					"parent": "body",
+					"pivot": [-0.16667, 7, 0],
+					"cubes": [
+						{"origin": [-3.16667, 4, -3], "size": [6, 6, 6], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "rocks",
+					"parent": "all",
+					"pivot": [0, 7, 0]
+				},
+				{
+					"name": "stick1",
+					"parent": "rocks",
+					"pivot": [-8.16667, 7, -4],
+					"cubes": [
+						{"origin": [-9.16667, 6, -5], "size": [2, 2, 2], "uv": [0, 17]}
+					]
+				},
+				{
+					"name": "stick2",
+					"parent": "rocks",
+					"pivot": [7.83333, 7, -4],
+					"cubes": [
+						{"origin": [6.83333, 6, -5], "size": [2, 2, 2], "uv": [0, 17]}
+					]
+				},
+				{
+					"name": "stick3",
+					"parent": "rocks",
+					"pivot": [7.83333, 7, 4],
+					"cubes": [
+						{"origin": [6.83333, 6, 3], "size": [2, 2, 2], "uv": [0, 17]}
+					]
+				},
+				{
+					"name": "stick4",
+					"parent": "rocks",
+					"pivot": [-8.16667, 7, 4],
+					"cubes": [
+						{"origin": [-9.16667, 6, 3], "size": [2, 2, 2], "uv": [0, 17]}
+					]
+				},
+				{
+					"name": "stick5",
+					"parent": "rocks",
+					"pivot": [0.83333, 7, 9],
+					"cubes": [
+						{"origin": [-1.16667, 5, 7], "size": [4, 4, 4], "uv": [0, 24]}
+					]
+				},
+				{
+					"name": "stick6",
+					"parent": "rocks",
+					"pivot": [-0.16667, 7, -9],
+					"cubes": [
+						{"origin": [-2.16667, 5, -11], "size": [4, 4, 4], "uv": [0, 24]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -30,9 +30,10 @@ public class ModSpellRegistry {
     }
 
     //BLOOD
+    // Shot a concentrated beam of piercing blood from your blood moon scythe to deal massive damage and inflict rend on the target
+    public static final Supplier<AbstractSpell> BLOOD_PIERCE = registerSpell(new BloodPierceSpell());
     //Slash forward with your claws to inflict heavy bleeding.The damage scales off of your held weapon´s melee damage
     public static final Supplier<AbstractSpell> SANGUINITE_EVISCERATION = registerSpell(new SanguiniteEviscerationSpell());
-    public static final Supplier<AbstractSpell> BLOOD_PIERCE = registerSpell(new BloodPierceSpell());
 
     //ENDER
     //Smash the ground with the force of an Endersent,making targets susceptible to kinetic damage
@@ -41,9 +42,10 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> GRAVITY_WELL = registerSpell(new GravityWellSpell());
 
     //FIRE
+    //Launch a searing buzzsaw made of brimstone flame that melts the defense of the enemies it pierces and bouncing off blocks
+    public static final Supplier<AbstractSpell> BRIMSTONE_BUZZSAW = registerSpell(new BrimstoneBuzzsawSpell());
     //Burn your targets skin and soul making it impossible for them to heal in any way.The damage scales off of your held weapon´s melee damage
     public static final Supplier<AbstractSpell> CAUTERIZING_TOUCH = registerSpell(new CauterizingTouchSpell());
-    public static final Supplier<AbstractSpell> BRIMSTONE_BUZZSAW = registerSpell(new BrimstoneBuzzsawSpell());
     //Shot a thin burst of pure frenzy flame,inflicting madness to lower your targets maximum mana reserves
     public static final Supplier<AbstractSpell> FRENZIED_BURST = registerSpell(new FrenziedBurstSpell());
     //Overheat yourself to gain extra damage and fire spell power at the cost of melting part of your own armor

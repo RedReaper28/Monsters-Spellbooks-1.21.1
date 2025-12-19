@@ -4,6 +4,7 @@ import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
+import io.redspace.ironsspellbooks.item.UniqueItem;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
@@ -23,7 +24,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class ClawsOfCalamityItem extends MagicSwordItem implements GeoItem  {
+public class ClawsOfCalamityItem extends MagicSwordItem implements GeoItem, UniqueItem {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("idle");
     private final AnimationController<ClawsOfCalamityItem> animationController = new AnimationController<>(this, "controller", 0, this::predicate);

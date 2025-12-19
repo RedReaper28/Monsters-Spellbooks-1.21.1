@@ -1,5 +1,7 @@
 package net.redreaper.monsterspellbooks.entity.living;
 
+import com.google.common.collect.ImmutableList;
+import io.redspace.ironsspellbooks.entity.mobs.abstract_spell_casting_mob.AbstractSpellCastingMob;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -7,6 +9,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -17,8 +20,16 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.ambient.AmbientCreature;
+import net.minecraft.world.entity.animal.AbstractGolem;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
+import net.minecraft.world.entity.monster.AbstractIllager;
+import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -32,7 +43,11 @@ import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import java.util.function.Predicate;
+
 public class VileSkeleton extends Monster implements GeoEntity {
+    private static final Predicate<LivingEntity> LIVING_ENTITY_SELECTOR;
+    private static final TargetingConditions TARGETING_CONDITIONS;
     public static final EntityDataAccessor<Boolean> SHOOT;
     public static final EntityDataAccessor<String> ANIMATION;
     public static final EntityDataAccessor<String> TEXTURE;
@@ -73,10 +88,8 @@ public class VileSkeleton extends Monster implements GeoEntity {
                 return this.isTimeToAttack() && this.mob.distanceToSqr(entity) < (double)(this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth()) && this.mob.getSensing().hasLineOfSight(entity);
             }
         });
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, false, false));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, LivingEntity.class, 0, true, true, LIVING_ENTITY_SELECTOR));
         this.targetSelector.addGoal(3, (new HurtByTargetGoal(this, new Class[0])).setAlertOthers(new Class[0]));
-        this.goalSelector.addGoal(4, new AvoidEntityGoal<>(this, Wolf.class, 6.0F, (double)1.0F, (double)1.0F));
-        this.goalSelector.addGoal(5, new AvoidEntityGoal<>(this, AbstractPiglin.class, 6.0F, (double)1.0F, (double)1.0F));
         this.goalSelector.addGoal(6, new RandomStrollGoal(this, 0.8));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(8, new RestrictSunGoal(this) {
@@ -189,6 +202,11 @@ public class VileSkeleton extends Monster implements GeoEntity {
 
     public boolean canBeAffected(MobEffectInstance potioneffect) {
         return potioneffect.is(MobEffects.WITHER) ? false : super.canBeAffected(potioneffect);
+    }
+
+    static {
+        LIVING_ENTITY_SELECTOR = (p_348303_) -> !p_348303_.getType().is(EntityTypeTags.WITHER_FRIENDS) && p_348303_.attackable();
+        TARGETING_CONDITIONS = TargetingConditions.forCombat().range((double)20.0F).selector(LIVING_ENTITY_SELECTOR);
     }
 
     public void registerControllers(AnimatableManager.ControllerRegistrar data) {

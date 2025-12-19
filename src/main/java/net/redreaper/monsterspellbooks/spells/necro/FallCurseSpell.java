@@ -99,6 +99,6 @@ public class FallCurseSpell extends AbstractSpell {
     }
 
     public float getRadius(int spellPower, LivingEntity caster) {
-        return 10.0F + (float)spellPower * 1.F;
+        return 10.0F + (float)spellPower * 1.5f;
     }
 }

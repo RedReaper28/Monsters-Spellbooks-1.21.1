@@ -8,6 +8,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.living.DwarvenSphere;
+import net.redreaper.monsterspellbooks.entity.living.ShockEntity;
 import net.redreaper.monsterspellbooks.entity.living.VileSkeleton;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlash;
 import net.redreaper.monsterspellbooks.entity.spells.blood_pierce_bullet.BloodPierceVisualEntity;
@@ -108,6 +109,13 @@ public class ModEntities {
     public static final Supplier<EntityType<DwarvenSphere>>DWARVEN_SPHERE=
             ENTITIES.register("dwarven_sphere",()->EntityType.Builder.of(DwarvenSphere::new,MobCategory.MONSTER)
                     .sized(0.8F, 2.4F).build("dwarven_sphere"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<ShockEntity>> SHOCK =
+            ENTITIES.register("shock", () -> EntityType.Builder.<ShockEntity>of(ShockEntity::new, MobCategory.MONSTER).
+                    sized(.6f, .75f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "shock").toString()
+                    ));
 
 
 

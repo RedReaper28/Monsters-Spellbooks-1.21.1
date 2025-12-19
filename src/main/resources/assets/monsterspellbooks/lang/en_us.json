@@ -105,6 +105,7 @@
 
   "entity.monsterspellbooks.vile_skeleton": "Vile Skeleton",
   "entity.monsterspellbooks.dwarven_sphere": "Dwarven Sphere",
+  "entity.monsterspellbooks.shock": "Shock",
 
   "effect.monsterspellbooks.bleeding": "Bleeding",
   "effect.monsterspellbooks.curse": "Curse",
@@ -133,11 +134,11 @@
   "ui.monsterspellbooks.extra_damage": "Extra Damage",
   "ui.monsterspellbooks.melee_damage": "Melee Damage",
 
-  "spell.monsterspellbooks.sanguinite_evisceration": "Sanguinite Evisceration",
-  "spell.monsterspellbooks.sanguinite_evisceration.guide": "Slash forward with your claws to inflict heavy bleeding.The damage scales off of your held weapon´s melee damage",
   "spell.monsterspellbooks.blood_pierce": "Blood Pierce",
   "spell.monsterspellbooks.blood_pierce.guide": "Shot a concentrated beam of piercing blood from your blood moon scythe to deal massive damage and inflict rend on the target",
-  "spell.monsterspellbooks.endersent_smash": "Endersent Smash",
+  "spell.monsterspellbooks.sanguinite_evisceration": "Sanguinite Evisceration",
+  "spell.monsterspellbooks.sanguinite_evisceration.guide": "Slash forward with your claws to inflict heavy bleeding.The damage scales off of your held weapon´s melee damage",
+ "spell.monsterspellbooks.endersent_smash": "Endersent Smash",
   "spell.monsterspellbooks.endersent_smash.guide": "Smash the ground with the force of an Endersent,making targets susceptible to kinetic damage",
   "spell.monsterspellbooks.gravity_well": "Gravity Well",
   "spell.monsterspellbooks.gravity_well.guide": "Stab the ground and pull enemies towards you,stunning them for a short time",
