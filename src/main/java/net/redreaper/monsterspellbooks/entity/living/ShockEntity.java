@@ -107,46 +107,8 @@ public class ShockEntity extends UniqueAbstractSpellCastingMob implements GeoAni
     }
 
     @Override
-    public void die( DamageSource pDamageSource) {
-        super.die(pDamageSource);
-    }
+    public void die( DamageSource pDamageSource) {super.die(pDamageSource);}
 
-    static class ShockLookGoal extends Goal {
-        private final ShockEntity ghast;
-
-        public ShockLookGoal(ShockEntity ghast) {
-            this.ghast = ghast;
-            this.setFlags(EnumSet.of(Goal.Flag.LOOK));
-        }
-
-        @Override
-        public boolean canUse() {
-            return true;
-        }
-
-        @Override
-        public boolean requiresUpdateEveryTick() {
-            return true;
-        }
-
-        @Override
-        public void tick() {
-            if (this.ghast.getTarget() == null) {
-                Vec3 vec3 = this.ghast.getDeltaMovement();
-                this.ghast.setYRot(-((float) Mth.atan2(vec3.x, vec3.z)) * (180.0F / (float)Math.PI));
-                this.ghast.yBodyRot = this.ghast.getYRot();
-            } else {
-                LivingEntity livingentity = this.ghast.getTarget();
-                double d0 = 64.0;
-                if (livingentity.distanceToSqr(this.ghast) < 4096.0) {
-                    double d1 = livingentity.getX() - this.ghast.getX();
-                    double d2 = livingentity.getZ() - this.ghast.getZ();
-                    this.ghast.setYRot(-((float)Mth.atan2(d1, d2)) * (180.0F / (float)Math.PI));
-                    this.ghast.yBodyRot = this.ghast.getYRot();
-                }
-            }
-        }
-    }
 
     static class ShockMoveControl extends MoveControl {
         private final ShockEntity ghast;
@@ -187,8 +149,41 @@ public class ShockEntity extends UniqueAbstractSpellCastingMob implements GeoAni
         }
     }
 
-    protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {
+    static class RandomFloatAroundGoal extends Goal {
+        private final ShockEntity ghast;
+        public RandomFloatAroundGoal(ShockEntity ghast) {
+            this.ghast = ghast;
+            this.setFlags(EnumSet.of(Goal.Flag.MOVE));
+        }
+        @Override
+        public boolean canUse() {
+            MoveControl movecontrol = this.ghast.getMoveControl();
+            if (!movecontrol.hasWanted()) {
+                return true;
+            } else {
+                double d0 = movecontrol.getWantedX() - this.ghast.getX();
+                double d1 = movecontrol.getWantedY() - this.ghast.getY();
+                double d2 = movecontrol.getWantedZ() - this.ghast.getZ();
+                double d3 = d0 * d0 + d1 * d1 + d2 * d2;
+                return d3 < 1.0 || d3 > 3600.0;
+            }
+        }
+        @Override
+        public boolean canContinueToUse() {
+            return false;
+        }
+
+        @Override
+        public void start() {
+            RandomSource randomsource = this.ghast.getRandom();
+            double d0 = this.ghast.getX() + (double)((randomsource.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            double d1 = this.ghast.getY() + (double)((randomsource.nextFloat() * 2.0F - 1.0F) * 8.0F);
+            double d2 = this.ghast.getZ() + (double)((randomsource.nextFloat() * 2.0F - 1.0F) * 8.0F);
+            this.ghast.getMoveControl().setWantedPosition(d0, d1, d2, 1.0);
+        }
     }
+
+    protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {}
 
     public void travel(Vec3 travelVector) {
         if (this.isControlledByLocalInstance()) {
@@ -221,45 +216,8 @@ public class ShockEntity extends UniqueAbstractSpellCastingMob implements GeoAni
         this.calculateEntityAnimation(false);
     }
 
-    static class RandomFloatAroundGoal extends Goal {
-        private final ShockEntity ghast;
 
-        public RandomFloatAroundGoal(ShockEntity ghast) {
-            this.ghast = ghast;
-            this.setFlags(EnumSet.of(Goal.Flag.MOVE));
-        }
-
-        @Override
-        public boolean canUse() {
-            MoveControl movecontrol = this.ghast.getMoveControl();
-            if (!movecontrol.hasWanted()) {
-                return true;
-            } else {
-                double d0 = movecontrol.getWantedX() - this.ghast.getX();
-                double d1 = movecontrol.getWantedY() - this.ghast.getY();
-                double d2 = movecontrol.getWantedZ() - this.ghast.getZ();
-                double d3 = d0 * d0 + d1 * d1 + d2 * d2;
-                return d3 < 1.0 || d3 > 3600.0;
-            }
-        }
-        @Override
-        public boolean canContinueToUse() {
-            return false;
-        }
-
-        @Override
-        public void start() {
-            RandomSource randomsource = this.ghast.getRandom();
-            double d0 = this.ghast.getX() + (double)((randomsource.nextFloat() * 2.0F - 1.0F) * 16.0F);
-            double d1 = this.ghast.getY() + (double)((randomsource.nextFloat() * 2.0F - 1.0F) * 8.0F);
-            double d2 = this.ghast.getZ() + (double)((randomsource.nextFloat() * 2.0F - 1.0F) * 8.0F);
-            this.ghast.getMoveControl().setWantedPosition(d0, d1, d2, 1.0);
-        }
-}
-
-protected boolean shouldDespawnInPeaceful() {
-        return true;
-    }
+    protected boolean shouldDespawnInPeaceful() {return true;}
 
     public boolean shouldDropExperience() {
         return true;
