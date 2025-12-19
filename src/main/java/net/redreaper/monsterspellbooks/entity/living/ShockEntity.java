@@ -1,9 +1,11 @@
 package net.redreaper.monsterspellbooks.entity.living;
 
 import io.redspace.ironsspellbooks.IronsSpellbooks;
+import io.redspace.ironsspellbooks.api.entity.IMagicEntity;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.entity.mobs.IAnimatedAttacker;
+import io.redspace.ironsspellbooks.entity.mobs.goals.WizardAttackGoal;
 import io.redspace.ironsspellbooks.entity.mobs.wizards.GenericAnimatedWarlockAttackGoal;
 import net.acetheeldritchking.aces_spell_utils.entity.mobs.UniqueAbstractSpellCastingMob;
 import net.minecraft.core.BlockPos;
@@ -24,6 +26,7 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.AbstractIllager;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -39,7 +42,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.EnumSet;
 import java.util.List;
 
-public class ShockEntity extends UniqueAbstractSpellCastingMob implements GeoAnimatable, IAnimatedAttacker {
+public class ShockEntity extends UniqueAbstractSpellCastingMob implements GeoAnimatable, IMagicEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
     public ShockEntity(EntityType<? extends PathfinderMob> pEntityType, Level pLevel) {
@@ -73,7 +76,7 @@ public class ShockEntity extends UniqueAbstractSpellCastingMob implements GeoAni
 
     @Override
     public void registerGoals() {
-        this.goalSelector.addGoal(1, new GenericAnimatedWarlockAttackGoal<>(this, .20F, 10, 15)
+        this.goalSelector.addGoal(3, new WizardAttackGoal(this, 1.25f, 30, 55)
                 .setSpells(
                         List.of(SpellRegistry.CHAIN_LIGHTNING_SPELL.get()),
                         List.of(),
@@ -86,7 +89,7 @@ public class ShockEntity extends UniqueAbstractSpellCastingMob implements GeoAni
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0F, 0.0F));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers(new Class[0]));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, ShockEntity.class).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, AbstractIllager.class, true));
     }
@@ -271,72 +274,9 @@ protected boolean shouldDespawnInPeaceful() {
     }
 
     // Geckolib & Animations
-    RawAnimation animationToPlay = null;
-    private final AnimationController<ShockEntity> attackAnimationController = new AnimationController<>(this, "attack_controller", 0, this::attackPredicate);
-    private final AnimationController<ShockEntity> animationController = new AnimationController<>(this, "controller", 0, this::predicate);
-    private final AnimationController<ShockEntity> castingAnimationController = new AnimationController<>(this, "casting_controller", 0, this::castingPredicate);
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(animationController);
-        controllers.add(attackAnimationController);
-        controllers.add(castingAnimationController);
-    }
-
-    private PlayState predicate(AnimationState<ShockEntity> event)
-    {
-        if (event.isMoving() && this.animationToPlay == null)
-        {
-            event.getController().setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
-            return PlayState.CONTINUE;
-        }
-        else if (!event.isMoving() && this.animationToPlay == null)
-        {
-            event.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
-            return PlayState.CONTINUE;
-        }
-        return PlayState.STOP;
-    }
-
-    private PlayState attackPredicate(AnimationState<ShockEntity> event)
-    {
-        var controller = event.getController();
-        if (this.animationToPlay != null)
-        {
-            controller.forceAnimationReset();
-            controller.setAnimation(animationToPlay);
-            animationToPlay = null;
-        }
-        return PlayState.CONTINUE;
-    }
-
-    private PlayState castingPredicate(AnimationState<ShockEntity> event)
-    {
-        if (isCasting() && this.animationToPlay == null)
-        {
-            event.getController().setAnimation(RawAnimation.begin().thenPlay("instant_cast"));
-            return PlayState.CONTINUE;
-        }
-        return PlayState.STOP;
-    }
-
-    @Override
-    public void playAnimation(String animationId) {
-        try {
-            animationToPlay = RawAnimation.begin().thenPlay(animationId);
-        } catch (Exception ignored) {
-            IronsSpellbooks.LOGGER.error("Entity {} Failed to play animation: {}", this, animationId);
-        }
-    }
-
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.cache;
-    }
-
-    @Override
-    public double getTick(Object object) {
-        return this.tickCount;
     }
 
     // NBT

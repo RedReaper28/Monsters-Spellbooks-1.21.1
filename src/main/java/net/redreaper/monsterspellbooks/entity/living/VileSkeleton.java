@@ -89,7 +89,7 @@ public class VileSkeleton extends Monster implements GeoEntity {
             }
         });
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, LivingEntity.class, 0, true, true, LIVING_ENTITY_SELECTOR));
-        this.targetSelector.addGoal(3, (new HurtByTargetGoal(this, new Class[0])).setAlertOthers(new Class[0]));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, VileSkeleton.class).setAlertOthers());
         this.goalSelector.addGoal(6, new RandomStrollGoal(this, 0.8));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(8, new RestrictSunGoal(this) {
