@@ -10,6 +10,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
@@ -21,6 +22,22 @@ import java.util.function.Supplier;
 public class ModExtendedArmorMaterials {
     private static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(Registries.ARMOR_MATERIAL, MonstersSpellbooks.MOD_ID);
 
+
+    public static DeferredHolder<ArmorMaterial, ArmorMaterial> FIERCE_DEITY = register("fierce_deity",
+            makeArmorMap(2, 0, 0, 0),
+            15,
+            SoundEvents.ARMOR_EQUIP_DIAMOND,
+            () -> Ingredient.of(ItemRegistry.DIVINE_PEARL.get()),
+            0,
+            0);
+
+    public static DeferredHolder<ArmorMaterial, ArmorMaterial> MAJORAS_MASK = register("majoras_mask",
+            makeArmorMap(2, 0, 0, 0),
+            15,
+            SoundEvents.ARMOR_EQUIP_DIAMOND,
+            () -> Ingredient.of(ModTags.Items.NECRO_FOCUS),
+            0,
+            0);
 
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>STARSCOURGE_ARMOR=register("starscourge_armor",
             schoolUpgradedArmorMap(),

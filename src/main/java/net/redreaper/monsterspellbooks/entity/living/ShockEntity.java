@@ -6,7 +6,6 @@ import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.entity.mobs.goals.WizardAttackGoal;
 import net.acetheeldritchking.aces_spell_utils.entity.mobs.UniqueAbstractSpellCastingMob;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
@@ -30,9 +29,8 @@ import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
-
-
 
 import java.util.EnumSet;
 import java.util.List;
@@ -68,7 +66,6 @@ public class ShockEntity extends UniqueAbstractSpellCastingMob implements GeoAni
         };
     }
 
-
     @Override
     public void registerGoals() {
         this.goalSelector.addGoal(3, new WizardAttackGoal(this, 1.25f, 30, 55)
@@ -103,7 +100,6 @@ public class ShockEntity extends UniqueAbstractSpellCastingMob implements GeoAni
 
     @Override
     public void die( DamageSource pDamageSource) {super.die(pDamageSource);}
-
 
     static class ShockMoveControl extends MoveControl {
         private final ShockEntity ghast;
@@ -211,7 +207,6 @@ public class ShockEntity extends UniqueAbstractSpellCastingMob implements GeoAni
         this.calculateEntityAnimation(false);
     }
 
-
     protected boolean shouldDespawnInPeaceful() {return true;}
 
     public boolean shouldDropExperience() {
@@ -222,24 +217,51 @@ public class ShockEntity extends UniqueAbstractSpellCastingMob implements GeoAni
         return true;
     }
 
-    public boolean isPreventingPlayerRest(Player player) {
-        return true;
+    // Geckolib & Animations
+    RawAnimation animationToPlay = null;
+    private final AnimationController<ShockEntity> animationController = new AnimationController<>(this, "controller", 0, this::predicate);
+    private final AnimationController<ShockEntity> castingAnimationController = new AnimationController<>(this, "casting_controller", 0, this::castingPredicate);
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(animationController);
+        controllers.add(castingAnimationController);
     }
 
-    // Geckolib & Animations
+    private PlayState predicate(AnimationState<ShockEntity> event)
+    {
+        if (event.isMoving() && this.animationToPlay == null)
+        {
+            event.getController().setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
+            return PlayState.CONTINUE;
+        }
+        else if (!event.isMoving() && this.animationToPlay == null)
+        {
+            event.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
+            return PlayState.CONTINUE;
+        }
+
+        return PlayState.STOP;
+    }
+
+    private PlayState castingPredicate(AnimationState<ShockEntity> event)
+    {
+        if (isCasting() && this.animationToPlay == null)
+        {
+            event.getController().setAnimation(RawAnimation.begin().thenPlay("instant_cast"));
+            return PlayState.CONTINUE;
+        }
+
+        return PlayState.STOP;
+    }
+
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.cache;
     }
 
-    // NBT
     @Override
-    public void readAdditionalSaveData(CompoundTag pCompound) {
-        super.readAdditionalSaveData(pCompound);
-    }
-
-    @Override
-    public void addAdditionalSaveData(CompoundTag pCompound) {
-        super.addAdditionalSaveData(pCompound);
+    public double getTick(Object object) {
+        return this.tickCount;
     }
 }

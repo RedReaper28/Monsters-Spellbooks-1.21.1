@@ -1,7 +1,5 @@
 package net.redreaper.monsterspellbooks.entity.living;
 
-import com.google.common.collect.ImmutableList;
-import io.redspace.ironsspellbooks.entity.mobs.abstract_spell_casting_mob.AbstractSpellCastingMob;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -21,17 +19,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
-import net.minecraft.world.entity.ambient.AmbientCreature;
-import net.minecraft.world.entity.animal.AbstractGolem;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.Wolf;
-import net.minecraft.world.entity.boss.wither.WitherBoss;
-import net.minecraft.world.entity.monster.AbstractIllager;
-import net.minecraft.world.entity.monster.AbstractSkeleton;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.Zombie;
-import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
@@ -58,7 +46,7 @@ public class VileSkeleton extends Monster implements GeoEntity {
     public String animationprocedure = "empty";
     String prevAnim = "empty";
 
-    public VileSkeleton(EntityType<VileSkeleton> type, Level world) {
+    public VileSkeleton(EntityType<? extends Monster> type, Level world) {
         super(type, world);
         this.animationprocedure = "empty";
         this.xpReward = 5;

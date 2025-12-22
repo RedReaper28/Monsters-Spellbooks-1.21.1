@@ -66,7 +66,7 @@ public class ModSpellRegistry {
     //NECRO
     //Release a horrible scream that wither any life that hears it
     public static final Supplier<AbstractSpell> BANSHEE_SCREAM = registerSpell(new BansheeScreamSpell());
-
+    public static final Supplier<AbstractSpell> SUMMON_DEATH_KNIGHT = registerSpell(new ConjureDeathKnightSpell());
     public static final Supplier<AbstractSpell> FALL_CURSE = registerSpell(new FallCurseSpell());
     //Absorb the life force of your target,making them weak while healing you for 100% of the damage done
     public static final Supplier<AbstractSpell> LIFE_DRAIN = registerSpell(new LifeDrainSpell());
@@ -76,6 +76,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> SPECTRAL_BLAST = registerSpell(new SpectralBlastSpell());
     //Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their body and soul and healing 15% of damage done
     public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
+    public static final Supplier<AbstractSpell> VILE_SUMMON = registerSpell(new VileSummonSpell());
     //Fire an enhanced wither skull which home towards your cursor,or the creature your cursor is targeting,exploding and dealing massive damage on impact
     public static final Supplier<AbstractSpell> WITHER_BOMB = registerSpell(new WitherBombSpell());
 

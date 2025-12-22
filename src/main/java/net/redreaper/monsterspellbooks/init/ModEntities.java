@@ -1,5 +1,7 @@
 package net.redreaper.monsterspellbooks.init;
 
+import io.redspace.ironsspellbooks.IronsSpellbooks;
+import io.redspace.ironsspellbooks.entity.mobs.SummonedSkeleton;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -7,9 +9,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.living.DwarvenSphere;
-import net.redreaper.monsterspellbooks.entity.living.ShockEntity;
-import net.redreaper.monsterspellbooks.entity.living.VileSkeleton;
+import net.redreaper.monsterspellbooks.entity.living.*;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlash;
 import net.redreaper.monsterspellbooks.entity.spells.blood_pierce_bullet.BloodPierceVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.BrimstoneBuzzsawProjectile;
@@ -108,15 +108,26 @@ public class ModEntities {
 
     public static final Supplier<EntityType<DwarvenSphere>>DWARVEN_SPHERE=
             ENTITIES.register("dwarven_sphere",()->EntityType.Builder.of(DwarvenSphere::new,MobCategory.MONSTER)
-                    .sized(0.8F, 2.4F).build("dwarven_sphere"));
+                    .sized(0.8F, 2.5F).build("dwarven_sphere"));
 
     public static final DeferredHolder<EntityType<?>, EntityType<ShockEntity>> SHOCK =
             ENTITIES.register("shock", () -> EntityType.Builder.<ShockEntity>of(ShockEntity::new, MobCategory.MONSTER).
-                    sized(.6f, .75f)
+                    sized(.6f, .80f)
                     .build(
                             ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "shock").toString()
                     ));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<SummonedVileSkeleton>> SUMMONED_VILE_SKELETON =
+            ENTITIES.register("summoned_vile_skeleton", () -> EntityType.Builder.<SummonedVileSkeleton>of(SummonedVileSkeleton::new, MobCategory.MISC)
+                    .sized(.6f, 1.9f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "summoned_vile_skeleton").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<DeathKnightEntity>> SUMMONED_DEATH_KNIGHT =
+            ENTITIES.register("death_knight", () -> EntityType.Builder.<DeathKnightEntity>of(DeathKnightEntity::new, MobCategory.MISC)
+                    .sized(2, 3F)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "death_knight").toString()));
 
 
 

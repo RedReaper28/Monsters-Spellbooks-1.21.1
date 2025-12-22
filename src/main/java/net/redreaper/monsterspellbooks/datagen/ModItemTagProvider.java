@@ -23,6 +23,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.SWORDS)
                 .add(ModItems.SANGUINITE_DAGGER.get())
                 .add(ModItems.SANGUINITE_SCYTHE.get())
+                .add(ModItems.CRESCENT_BLOOD_ROSE.get())
                 .add(ModItems.CLAWS_OF_CALAMITY.get())
                 .add(ModItems.DUCHEES_SEWING_NEEDLE.get())
                 .add(ModItems.DUKES_HEARTSTEALER.get())

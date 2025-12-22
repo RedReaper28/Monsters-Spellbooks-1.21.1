@@ -24,6 +24,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SANGUINITE_DAGGER.get());
                         output.accept(ModItems.SANGUINITE_SCYTHE.get());
                         output.accept(ModItems.SANGUINITE_AXE.get());
+                        output.accept(ModItems.CRESCENT_BLOOD_ROSE.get());
                         output.accept(ModItems.CLAWS_OF_CALAMITY.get());
                         output.accept(ModItems.DUCHEES_SEWING_NEEDLE.get());
                         output.accept(ModItems.DUKES_HEARTSTEALER.get());
@@ -36,15 +37,18 @@ public class ModCreativeTabs {
 
                         output.accept(ModItems.WITHERWARD_RING.get());
 
+                        output.accept(ModItems.FIERCE_DEITY_MASK.get());
+                        output.accept(ModItems.MAJORAS_MASK.get());
+                        output.accept(ModItems.SANGUINITE_HERO_HOOD.get());
+                        output.accept(ModItems.SANGUINITE_HERO_CHESTPLATE.get());
+                        output.accept(ModItems.SANGUINITE_HERO_LEGGINGS.get());
+                        output.accept(ModItems.SANGUINITE_HERO_BOOTS.get());
                         output.accept(ModItems.STARSCOURGE_HELMET.get());
                         output.accept(ModItems.STARSCOURGE_CHESTPLATE.get());
                         output.accept(ModItems.STARSCOURGE_LEGGINGS.get());
                         output.accept(ModItems.STARSCOURGE_BOOTS.get());
 
-                        output.accept(ModItems.SANGUINITE_HERO_HOOD.get());
-                        output.accept(ModItems.SANGUINITE_HERO_CHESTPLATE.get());
-                        output.accept(ModItems.SANGUINITE_HERO_LEGGINGS.get());
-                        output.accept(ModItems.SANGUINITE_HERO_BOOTS.get());
+
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_MATERIALS_TAB=CREATIVE_MODE_TAB.register("monsters_and_materials_tab",

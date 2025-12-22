@@ -3,6 +3,7 @@ package net.redreaper.monsterspellbooks.init;
 import io.redspace.ironsspellbooks.item.NecronomiconSpellBook;
 import io.redspace.ironsspellbooks.item.SpellBook;
 import io.redspace.ironsspellbooks.item.armor.PyromancerArmorItem;
+import io.redspace.ironsspellbooks.item.armor.TarnishedCrownArmorItem;
 import io.redspace.ironsspellbooks.item.curios.CurioBaseItem;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.minecraft.world.item.*;
@@ -11,12 +12,15 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.item.armor.FierceDeityMaskItem;
+import net.redreaper.monsterspellbooks.item.armor.MajorasMaskArmorItem;
 import net.redreaper.monsterspellbooks.item.armor.SanguiniteHeroArmorItem;
 import net.redreaper.monsterspellbooks.item.armor.StarscourgeArmorItem;
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.weapons.*;
 import net.redreaper.monsterspellbooks.item.weapons.claws_of_calamity.ClawsOfCalamityItem;
+import net.redreaper.monsterspellbooks.item.weapons.crescent_blood_rose.CrescentBloodRoseItem;
 import net.redreaper.monsterspellbooks.item.weapons.endersent_crusher.EndersentCrusherItem;
 
 import java.util.function.Supplier;
@@ -138,6 +142,9 @@ public class ModItems {
             ()->new AxeItem(ModToolTiers.SANGUINITE,new Item.Properties()
                     .attributes(AxeItem.createAttributes(ModToolTiers.SANGUINITE,3,-3.2f))));
 
+
+    public static final DeferredItem<Item>CRESCENT_BLOOD_ROSE = ITEMS.register("crescent_blood_rose",
+            CrescentBloodRoseItem::new);
     public static final DeferredItem<Item>CLAWS_OF_CALAMITY = ITEMS.register("claws_of_calamity",
             ClawsOfCalamityItem::new);
     public static final DeferredItem<Item>DUCHEES_SEWING_NEEDLE = ITEMS.register("duchees_sewing_needle",
@@ -160,14 +167,13 @@ public class ModItems {
             ReaperLanternSpellBook::new);
     public static final Supplier<CurioBaseItem>WITHERWARD_RING = ITEMS.register("witherward_ring",
             WitherWardCurio::new);
-    public static final DeferredHolder<Item, Item> STARSCOURGE_HELMET = ITEMS.register("starscourge_helmet", () ->
-            new StarscourgeArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(48))));
-    public static final DeferredHolder<Item, Item> STARSCOURGE_CHESTPLATE = ITEMS.register("starscourge_chestplate", ()
-            -> new StarscourgeArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
-    public static final DeferredHolder<Item, Item> STARSCOURGE_LEGGINGS = ITEMS.register("starscourge_leggings", () ->
-            new StarscourgeArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
-    public static final DeferredHolder<Item, Item> STARSCOURGE_BOOTS = ITEMS.register("starscourge_boots", () ->
-            new StarscourgeArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(48))));
+
+    public static final DeferredHolder<Item, Item> FIERCE_DEITY_MASK = ITEMS.register("fierce_deity_mask",
+            () -> new FierceDeityMaskItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(Rarity.UNCOMMON).durability(ArmorItem.Type.HELMET.getDurability(30))));
+    public static final DeferredHolder<Item, Item> MAJORAS_MASK = ITEMS.register("majoras_mask",
+            () -> new MajorasMaskArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(Rarity.UNCOMMON).durability(ArmorItem.Type.HELMET.getDurability(30))));
+
+
     public static final DeferredHolder<Item, Item> SANGUINITE_HERO_HOOD = ITEMS.register("sanguinite_hero_hood", () ->
             new SanguiniteHeroArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(48))));
     public static final DeferredHolder<Item, Item> SANGUINITE_HERO_CHESTPLATE = ITEMS.register("sanguinite_hero_chestplate", ()
@@ -176,6 +182,15 @@ public class ModItems {
             new SanguiniteHeroArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
     public static final DeferredHolder<Item, Item> SANGUINITE_HERO_BOOTS = ITEMS.register("sanguinite_hero_boots", () ->
             new SanguiniteHeroArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(48))));
+
+    public static final DeferredHolder<Item, Item> STARSCOURGE_HELMET = ITEMS.register("starscourge_helmet", () ->
+            new StarscourgeArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(48))));
+    public static final DeferredHolder<Item, Item> STARSCOURGE_CHESTPLATE = ITEMS.register("starscourge_chestplate", ()
+            -> new StarscourgeArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
+    public static final DeferredHolder<Item, Item> STARSCOURGE_LEGGINGS = ITEMS.register("starscourge_leggings", () ->
+            new StarscourgeArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
+    public static final DeferredHolder<Item, Item> STARSCOURGE_BOOTS = ITEMS.register("starscourge_boots", () ->
+            new StarscourgeArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
 
 
