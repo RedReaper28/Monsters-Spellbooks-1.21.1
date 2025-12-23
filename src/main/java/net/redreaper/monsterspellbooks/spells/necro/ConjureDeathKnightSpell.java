@@ -45,11 +45,11 @@ public class ConjureDeathKnightSpell extends AbstractSpell {
     }
 
     public ConjureDeathKnightSpell() {
-        this.manaCostPerLevel = 10;
-        this.baseSpellPower = 10;
+        this.manaCostPerLevel = 50;
+        this.baseSpellPower = 20;
         this.spellPowerPerLevel = 10;
         this.castTime = 30;
-        this.baseManaCost = 50;
+        this.baseManaCost = 100;
     }
 
     @Override

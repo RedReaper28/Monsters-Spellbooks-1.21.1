@@ -21,6 +21,12 @@ public class ModCreativeTabs {
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_gear"))
                     .displayItems((itemDisplayParameters, output) ->{
                         output.accept(ModItems.REAPER_LANTERN.get());
+                        output.accept(ModItems.ORICHALCUM_DAGGER.get());
+                        output.accept(ModItems.ORICHALCUM_GREATSWORD.get());
+                        output.accept(ModItems.ORICHALCUM_GREATAXE.get());
+                        output.accept(ModItems.ORICHALCUM_WARHAMMER.get());
+                        output.accept(ModItems.ORICHALCUM_AXE.get());
+
                         output.accept(ModItems.SANGUINITE_DAGGER.get());
                         output.accept(ModItems.SANGUINITE_SCYTHE.get());
                         output.accept(ModItems.SANGUINITE_AXE.get());
@@ -89,7 +95,14 @@ public class ModCreativeTabs {
                         output.accept(ModItems.VOID_MATTER);
                         output.accept(ModItems.VOID_OBSIDIAN_INGOT);
 
+                        output.accept(ModItems.RESIN_BRICK);
+                        output.accept(ModItems.DWARVEN_ALLOY_PLATE);
+                        output.accept(ModItems.DWARVEN_ALLOY_COG);
+                        output.accept(ModItems.STRIDER_COTTON_BALL);
+                        output.accept(ModItems.STRIDER_COTTON_STRING);
                         output.accept(ModItems.VILE_BONE);
+                        output.accept(ModItems.VILE_CORE);
+                        output.accept(ModItems.UPGRADE_RUNE);
                         output.accept(ModItems.NECRO_RUNE);
 
                         output.accept(ModItems.LEMON);

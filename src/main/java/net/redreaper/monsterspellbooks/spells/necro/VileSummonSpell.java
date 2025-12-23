@@ -23,7 +23,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.NeoForge;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.living.DeathKnightEntity;
 import net.redreaper.monsterspellbooks.entity.living.SummonedVileSkeleton;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import org.jetbrains.annotations.Nullable;
@@ -109,7 +108,7 @@ public class VileSummonSpell extends AbstractSpell {
             int summonTime = 20 * 60 * 10;
             int count = getSummonCount(spellLevel, entity);
             for (int i = 0; i < count; i++) {
-                DeathKnightEntity vex = new DeathKnightEntity(world, entity);
+                SummonedVileSkeleton vex = new SummonedVileSkeleton(world, entity);
                 vex.moveTo(entity.getEyePosition().add(new Vec3(Utils.getRandomScaled(2), 1, Utils.getRandomScaled(2))));
                 vex.finalizeSpawn((ServerLevel) world, world.getCurrentDifficultyAt(vex.getOnPos()), MobSpawnType.MOB_SUMMONED, null);
                 var creature = NeoForge.EVENT_BUS.post(new SpellSummonEvent<>(entity, vex, this.spellId, spellLevel)).getCreature();

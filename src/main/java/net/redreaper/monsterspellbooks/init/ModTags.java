@@ -15,13 +15,12 @@ public class ModTags {
     public static class Blocks{
         public static final TagKey<Block> NEEDS_SANGUINITE_TOOL=createTag("needs_sanguinite_tool");
         public static final TagKey<Block> INCORRECT_FOR_SANGUINITE_TOOL=createTag("incorrect_for_sanguinite_tool");
+
+        public static final TagKey<Block> NEEDS_IRON_LEVEL_TOOL =createTag("needs_iron_level_tool");
+        public static final TagKey<Block> INCORRECT_FOR_IRON_LEVEL_TOOL =createTag("incorrect_for_iron_level_tool");
+
         public static final TagKey<Block> NEEDS_DIAMOND_LEVEL_TOOL =createTag("needs_diamond_level_tool");
         public static final TagKey<Block> INCORRECT_FOR_DIAMOND_LEVEL_TOOL =createTag("incorrect_for_diamond_level_tool");
-
-
-        public static final TagKey<Block> NEEDS_DWARVEN_TOOL =createTag("needs_dwarven_tool");
-
-
 
         private static TagKey<Block>createTag(String name){
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID,name));

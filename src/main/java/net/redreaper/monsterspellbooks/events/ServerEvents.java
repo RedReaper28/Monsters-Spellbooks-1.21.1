@@ -2,6 +2,7 @@ package net.redreaper.monsterspellbooks.events;
 
 import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
+import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import net.acetheeldritchking.aces_spell_utils.utils.ASUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
@@ -21,7 +22,13 @@ import java.util.Objects;
 public class ServerEvents {
     @SubscribeEvent
     public static void onLivingHealEvent(LivingHealEvent event) {
-        MobEffectInstance disabledEffect = event.getEntity().getEffect(ModMobEffects.HEAL_CUT);
+        MobEffectInstance antihealEffect = event.getEntity().getEffect(ModMobEffects.HEAL_CUT);
+        MobEffectInstance disabledEffect = event.getEntity().getEffect(MobEffectRegistry.HEARTSTOP);
+
+
+        if (antihealEffect != null) {
+            event.setCanceled(true);
+        }
 
         if (disabledEffect != null) {
             event.setCanceled(true);
@@ -33,18 +40,15 @@ public class ServerEvents {
         var entity = event.getEntity();
         var spell = SpellRegistry.getSpell(event.getSpellId());
 
-        // Silence
-        boolean hasSilenceEffect = entity.hasEffect(ModMobEffects.CURSE);
+        // Curse
+        boolean isCursed = entity.hasEffect(ModMobEffects.CURSE);
         if (entity instanceof ServerPlayer player && !player.level().isClientSide()) {
-            if (hasSilenceEffect) {
+            if (isCursed) {
                 event.setCanceled(true);
-                // Effect Duration
                 int time = Objects.requireNonNull(player.getEffect(ModMobEffects.CURSE)).getDuration();
-                // convert duration to time format  using the method convertTicksToTime
                 String formattedTime = ASUtils.convertTicksToTime(time);
 
                 if (player instanceof ServerPlayer serverPlayer) {
-                    // display a message to the player
                     serverPlayer.connection.send(new ClientboundSetActionBarTextPacket(Component.translatable("display.monsterspellbooks.curse_warning").append(formattedTime)
                             .withStyle(s -> s.withColor(TextColor.fromRgb(0xF35F5F)))));
                     serverPlayer.level().playSound(null, player.getX(), player.getY(), player.getZ(),

@@ -13,6 +13,8 @@ import net.acetheeldritchking.aces_spell_utils.entity.mobs.UniqueAbstractSpellCa
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import software.bernie.geckolib.animation.AnimationState;
@@ -155,7 +157,19 @@ public class DeathKnightEntity extends UniqueAbstractSpellCastingMob implements 
 
     @Override
     public boolean doHurtTarget(Entity entity) {
+        if (!super.doHurtTarget(entity)) {
+            return false;
+        } else {
+            if (entity instanceof LivingEntity) {
+                ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.WITHER, 200), this);
+            }
+        }
         return Utils.doMeleeAttack(this, entity, ModSpellRegistry.SUMMON_DEATH_KNIGHT.get().getDamageSource(this, getSummoner()));
+    }
+
+    @Override
+    public boolean canBeAffected(MobEffectInstance potioneffect) {
+        return !potioneffect.is(MobEffects.WITHER) && super.canBeAffected(potioneffect);
     }
 
     public boolean hurt(DamageSource pSource, float pAmount) {

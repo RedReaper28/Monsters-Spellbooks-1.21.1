@@ -1,10 +1,12 @@
 package net.redreaper.monsterspellbooks.init;
 
+import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.item.NecronomiconSpellBook;
 import io.redspace.ironsspellbooks.item.SpellBook;
 import io.redspace.ironsspellbooks.item.armor.PyromancerArmorItem;
 import io.redspace.ironsspellbooks.item.armor.TarnishedCrownArmorItem;
 import io.redspace.ironsspellbooks.item.curios.CurioBaseItem;
+import io.redspace.ironsspellbooks.item.weapons.ExtendedWeaponTier;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
@@ -22,6 +24,7 @@ import net.redreaper.monsterspellbooks.item.weapons.*;
 import net.redreaper.monsterspellbooks.item.weapons.claws_of_calamity.ClawsOfCalamityItem;
 import net.redreaper.monsterspellbooks.item.weapons.crescent_blood_rose.CrescentBloodRoseItem;
 import net.redreaper.monsterspellbooks.item.weapons.endersent_crusher.EndersentCrusherItem;
+import net.redreaper.monsterspellbooks.item.weapons.magic_axe.ExtendedAxeItem;
 
 import java.util.function.Supplier;
 
@@ -91,7 +94,19 @@ public class ModItems {
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>RESIN_BRICK= ITEMS.register("resin_brick",
             ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>DWARVEN_ALLOY_PLATE= ITEMS.register("dwarven_alloy_plate",
+            ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>DWARVEN_ALLOY_COG= ITEMS.register("dwarven_alloy_cog",
+            ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>STRIDER_COTTON_BALL= ITEMS.register("strider_cotton_boll",
+            ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>STRIDER_COTTON_STRING= ITEMS.register("strider_cotton_string",
+            ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>VILE_BONE= ITEMS.register("vile_bone",
+            ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>VILE_CORE= ITEMS.register("vile_core",
+            ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>UPGRADE_RUNE= ITEMS.register("upgrade_rune",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>NECRO_RUNE= ITEMS.register("necro_rune",
             ()->new Item(new Item.Properties()));
@@ -132,15 +147,28 @@ public class ModItems {
             ()->new Item(new Item.Properties().food(ModFoods.MAGMA_ELOTE)));
     public static final DeferredItem<Item>GOLD_TRUFFLE_SLICE=ITEMS.register("gold_truffle_slice",
             ()->new Item(new Item.Properties().fireResistant().food(ModFoods.GOLD_TRUFFLE_SLICE)));
-    public static final DeferredItem<SwordItem>SANGUINITE_DAGGER=ITEMS.register("sanguinite_dagger",
-            ()->new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties()
-                    .attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,-3,-2.5f))));
+
+    public static final DeferredHolder<Item, Item> ORICHALCUM_DAGGER = ITEMS.register("orichalcum_dagger", () ->
+            new ExtendedSwordItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_DAGGER))));
+
+    public static final DeferredHolder<Item, Item> ORICHALCUM_GREATSWORD = ITEMS.register("orichalcum_greatsword", () ->
+            new ExtendedSwordItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_GREATSWORD))));
+
+    public static final DeferredHolder<Item, Item> ORICHALCUM_GREATAXE = ITEMS.register("orichalcum_greataxe", () ->
+            new ExtendedAxeItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_GREATAXE))));
+
+    public static final DeferredHolder<Item, Item> ORICHALCUM_WARHAMMER = ITEMS.register("orichalcum_warhammer", () ->
+            new ExtendedAxeItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_WARHAMMER))));
+
+    public static final DeferredItem<AxeItem>ORICHALCUM_AXE=ITEMS.register("orichalcum_axe", ()->
+            new AxeItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_AXE))));
+
+    public static final DeferredItem<SwordItem>SANGUINITE_DAGGER=ITEMS.register("sanguinite_dagger", ()->
+            new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,-3,-2.5f))));
     public static final DeferredItem<SwordItem>SANGUINITE_SCYTHE=ITEMS.register("sanguinite_scythe",
-            ()->new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties()
-                    .attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,0,-3f))));
+            ()->new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,0,-3f))));
     public static final DeferredItem<AxeItem>SANGUINITE_AXE=ITEMS.register("sanguinite_axe",
-            ()->new AxeItem(ModToolTiers.SANGUINITE,new Item.Properties()
-                    .attributes(AxeItem.createAttributes(ModToolTiers.SANGUINITE,3,-3.2f))));
+            ()->new AxeItem(ModToolTiers.SANGUINITE,new Item.Properties().attributes(AxeItem.createAttributes(ModToolTiers.SANGUINITE,3,-3.2f))));
 
 
     public static final DeferredItem<Item>CRESCENT_BLOOD_ROSE = ITEMS.register("crescent_blood_rose",

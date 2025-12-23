@@ -87,7 +87,7 @@ public class FallCurseSpell extends AbstractSpell {
                     livingEntity.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS,i,3, true, true, true));
                     livingEntity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED,i,3, true, true, true));
                     livingEntity.addEffect(new MobEffectInstance(ModMobEffects.CURSE,i,0, true, true, true));
-                    livingEntity.addEffect(new MobEffectInstance(MobEffects.DARKNESS,i,0, true, true, true));
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,i,1,true, true, true));
                 }
             }
             super.onCast(level, spellLevel, entity, castSource, playerMagicData);

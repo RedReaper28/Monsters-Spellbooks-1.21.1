@@ -45,7 +45,7 @@ public class ModExtendedArmorMaterials {
             SoundEvents.ARMOR_EQUIP_NETHERITE,
             () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
             3,
-            0.5F);
+            0.2F);
 
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>SANGUINITE_ARMOR=register("sanguinite_armor",
             schoolUpgradedArmorMap(),

@@ -21,6 +21,10 @@ public class ModItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
 
         tag(ItemTags.SWORDS)
+                .add(ModItems.ORICHALCUM_DAGGER.get())
+                .add(ModItems.ORICHALCUM_GREATSWORD.get())
+                .add(ModItems.ORICHALCUM_WARHAMMER.get())
+
                 .add(ModItems.SANGUINITE_DAGGER.get())
                 .add(ModItems.SANGUINITE_SCYTHE.get())
                 .add(ModItems.CRESCENT_BLOOD_ROSE.get())
@@ -33,7 +37,15 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.SWORD_OF_COURAGE.get());
 
         tag(ItemTags.AXES)
-                .add(ModItems.SANGUINITE_AXE.get());
+                .add(ModItems.ORICHALCUM_GREATAXE.get())
+                .add(ModItems.ORICHALCUM_AXE.get())
+                .add(ModItems.SANGUINITE_AXE.get())
+        ;
+
+        tag(ItemTags.SWORD_ENCHANTABLE)
+                .add(ModItems.ORICHALCUM_GREATAXE.get())
+                .add(ModItems.SANGUINITE_AXE.get())
+        ;
 
         tag(ItemTags.MACE_ENCHANTABLE)
                 .add(ModItems.ENDERSENT_CRUSHER.get());
