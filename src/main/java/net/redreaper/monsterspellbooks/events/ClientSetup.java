@@ -8,6 +8,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.entity.model.AegisEntity.AegisEntityModel;
+import net.redreaper.monsterspellbooks.entity.model.AegisEntity.AegisEntityRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DeathKnight.DeathKnightModel;
 import net.redreaper.monsterspellbooks.entity.model.DeathKnight.DeathKnightRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DwarvenSphere.DwarvenSphereRenderer;
@@ -48,6 +50,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.VILE_SKELETON.get(), VileSkeletonRenderer::new);
         event.registerEntityRenderer(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereRenderer::new);
         event.registerEntityRenderer(ModEntities.SHOCK.get(), context -> {return new ShockEntityRenderer(context, new ShockEntityModel());});
+        event.registerEntityRenderer(ModEntities.AEGIS.get(), context -> {return new AegisEntityRenderer(context, new AegisEntityModel());});
         event.registerEntityRenderer(ModEntities.SUMMONED_DEATH_KNIGHT.get(), context -> {return new DeathKnightRenderer(context, new DeathKnightModel());});
 
         event.registerEntityRenderer(ModEntities.SUMMONED_VILE_SKELETON.get(), VileSkeletonRenderer::new);

@@ -15,6 +15,7 @@ public class CommonSetup {
         event.put(ModEntities.VILE_SKELETON.get(), VileSkeleton.createAttributes().build());
         event.put(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphere.createAttributes().build());
         event.put(ModEntities.SHOCK.get(), ShockEntity.createAttributes().build());
+        event.put(ModEntities.AEGIS.get(), AegisEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_VILE_SKELETON.get(), SummonedVileSkeleton.createAttributes().build());
         event.put(ModEntities.SUMMONED_DEATH_KNIGHT.get(), DeathKnightEntity.createAttributes().build());
     }

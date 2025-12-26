@@ -110,6 +110,13 @@ public class ModEntities {
             ENTITIES.register("dwarven_sphere",()->EntityType.Builder.of(DwarvenSphere::new,MobCategory.MONSTER)
                     .sized(0.8F, 2.5F).build("dwarven_sphere"));
 
+    public static final Supplier<EntityType<AegisEntity>>AEGIS=
+            ENTITIES.register("aegis", () -> EntityType.Builder.<AegisEntity>of(AegisEntity::new, MobCategory.MONSTER).
+                    sized(.8f, 1.8f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "aegis").toString()
+                    ));
+
     public static final DeferredHolder<EntityType<?>, EntityType<ShockEntity>> SHOCK =
             ENTITIES.register("shock", () -> EntityType.Builder.<ShockEntity>of(ShockEntity::new, MobCategory.MONSTER).
                     sized(.6f, .80f)

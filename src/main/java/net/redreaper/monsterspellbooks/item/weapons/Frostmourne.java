@@ -9,14 +9,13 @@ import io.redspace.ironsspellbooks.item.UniqueItem;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
 
 public class Frostmourne extends MagicSwordItem implements UniqueItem {
     public Frostmourne() {
         super(
-                ModExtendedWeaponTiers.SUPERIOR_DEATHSILVER,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.SUPERIOR_DEATHSILVER)),
+                ModExtendedWeaponTiers.FROST_TOUCHED_SUPERIOR_DEATHSILVER,
+                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.FROST_TOUCHED_SUPERIOR_DEATHSILVER)),
                 SpellDataRegistryHolder.of());
     }
 

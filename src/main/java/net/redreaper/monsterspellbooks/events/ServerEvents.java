@@ -11,8 +11,11 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 
@@ -57,4 +60,25 @@ public class ServerEvents {
             }
         }
     }
+
+
+    @SubscribeEvent
+    public static void onLivingDamage(LivingDamageEvent.Post event) {
+        LivingEntity livingTarget = event.getEntity();
+        Entity entityAttacker = event.getSource().getDirectEntity();
+
+        if (entityAttacker instanceof LivingEntity livingAttacker) {
+            if (livingAttacker.hasEffect(ModMobEffects.OVERHEAT)) {
+                livingTarget.setRemainingFireTicks(50);
+            }
+        }
+
+        else if (entityAttacker instanceof LivingEntity livingAttacker) {
+            if (livingTarget.hasEffect(ModMobEffects.OVERHEAT)) {
+                livingAttacker.setRemainingFireTicks(50);
+            }
+        }
+    }
 }
+
+

@@ -5,6 +5,8 @@ import io.redspace.ironsspellbooks.effect.MagicMobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
+import net.minecraft.world.item.ItemStack;
+import net.redreaper.monsterspellbooks.procedures.effectsonhit.PoisonOnHit;
 
 public class OverheatMobEffect extends MagicMobEffect implements ISyncedMobEffect {
     public static final float ATTACK_DAMAGE_PER_LEVEL = .2f;
@@ -13,6 +15,5 @@ public class OverheatMobEffect extends MagicMobEffect implements ISyncedMobEffec
             public OverheatMobEffect(MobEffectCategory mobEffectCategory, int color) {
             super(mobEffectCategory, color);
         }
-
     }
 

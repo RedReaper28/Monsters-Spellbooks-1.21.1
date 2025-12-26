@@ -44,7 +44,7 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.250, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
-    public static ModExtendedWeaponTiers SUPERIOR_DEATHSILVER = new ModExtendedWeaponTiers(2000, 11F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT.get()),
+    public static ModExtendedWeaponTiers FROST_TOUCHED_SUPERIOR_DEATHSILVER = new ModExtendedWeaponTiers(2000, 11F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT.get()),
             new AttributeContainer(AttributeRegistry.ICE_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(ASAttributeRegistry.MANA_STEAL, 0.10D, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
@@ -56,6 +56,10 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
     public static ModExtendedWeaponTiers SANGUINITE = new ModExtendedWeaponTiers(1200, 9F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.SANGUINITE_INGOT.get()),
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(ASAttributeRegistry.GOLIATH_SLAYER, 0.01, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static ModExtendedWeaponTiers POISONED_SPEAR = new ModExtendedWeaponTiers(300, 6F, -3, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModItems.SPECTRITE_INGOT.get()),
+            new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(Attributes.ENTITY_INTERACTION_RANGE, 2, AttributeModifier.Operation.ADD_VALUE));
 
     public static ModExtendedWeaponTiers ORICHALCUM_DAGGER = new ModExtendedWeaponTiers(750, 5F, -2.5f, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.1, AttributeModifier.Operation.ADD_VALUE));
@@ -70,7 +74,6 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
     public static ModExtendedWeaponTiers ORICHALCUM_WARHAMMER = new ModExtendedWeaponTiers(1200, 11F, -3.5f, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 1.5f, AttributeModifier.Operation.ADD_VALUE),
             new AttributeContainer(Attributes.KNOCKBACK_RESISTANCE, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
-
     public static ModExtendedWeaponTiers ORICHALCUM_AXE = new ModExtendedWeaponTiers(1200, 8F, -3, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.1, AttributeModifier.Operation.ADD_VALUE));
 

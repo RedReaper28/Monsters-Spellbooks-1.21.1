@@ -24,9 +24,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.ORICHALCUM_DAGGER.get())
                 .add(ModItems.ORICHALCUM_GREATSWORD.get())
                 .add(ModItems.ORICHALCUM_WARHAMMER.get())
-
                 .add(ModItems.SANGUINITE_DAGGER.get())
                 .add(ModItems.SANGUINITE_SCYTHE.get())
+                .add(ModItems.POISON_GLAIVE.get())
                 .add(ModItems.CRESCENT_BLOOD_ROSE.get())
                 .add(ModItems.CLAWS_OF_CALAMITY.get())
                 .add(ModItems.DUCHEES_SEWING_NEEDLE.get())

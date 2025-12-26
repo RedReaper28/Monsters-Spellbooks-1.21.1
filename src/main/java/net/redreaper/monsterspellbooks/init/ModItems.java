@@ -150,27 +150,22 @@ public class ModItems {
 
     public static final DeferredHolder<Item, Item> ORICHALCUM_DAGGER = ITEMS.register("orichalcum_dagger", () ->
             new ExtendedSwordItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_DAGGER))));
-
     public static final DeferredHolder<Item, Item> ORICHALCUM_GREATSWORD = ITEMS.register("orichalcum_greatsword", () ->
             new ExtendedSwordItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_GREATSWORD))));
-
     public static final DeferredHolder<Item, Item> ORICHALCUM_GREATAXE = ITEMS.register("orichalcum_greataxe", () ->
             new ExtendedAxeItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_GREATAXE))));
-
     public static final DeferredHolder<Item, Item> ORICHALCUM_WARHAMMER = ITEMS.register("orichalcum_warhammer", () ->
             new ExtendedAxeItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_WARHAMMER))));
-
     public static final DeferredItem<AxeItem>ORICHALCUM_AXE=ITEMS.register("orichalcum_axe", ()->
             new AxeItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_AXE))));
-
     public static final DeferredItem<SwordItem>SANGUINITE_DAGGER=ITEMS.register("sanguinite_dagger", ()->
             new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,-3,-2.5f))));
     public static final DeferredItem<SwordItem>SANGUINITE_SCYTHE=ITEMS.register("sanguinite_scythe",
             ()->new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,0,-3f))));
     public static final DeferredItem<AxeItem>SANGUINITE_AXE=ITEMS.register("sanguinite_axe",
             ()->new AxeItem(ModToolTiers.SANGUINITE,new Item.Properties().attributes(AxeItem.createAttributes(ModToolTiers.SANGUINITE,3,-3.2f))));
-
-
+    public static final DeferredItem<Item>POISON_GLAIVE = ITEMS.register("poison_glaive",
+            PoisonGlaive::new);
     public static final DeferredItem<Item>CRESCENT_BLOOD_ROSE = ITEMS.register("crescent_blood_rose",
             CrescentBloodRoseItem::new);
     public static final DeferredItem<Item>CLAWS_OF_CALAMITY = ITEMS.register("claws_of_calamity",

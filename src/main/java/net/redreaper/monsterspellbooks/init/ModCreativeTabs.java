@@ -31,6 +31,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SANGUINITE_SCYTHE.get());
                         output.accept(ModItems.SANGUINITE_AXE.get());
                         output.accept(ModItems.CRESCENT_BLOOD_ROSE.get());
+                        output.accept(ModItems.POISON_GLAIVE.get());
                         output.accept(ModItems.CLAWS_OF_CALAMITY.get());
                         output.accept(ModItems.DUCHEES_SEWING_NEEDLE.get());
                         output.accept(ModItems.DUKES_HEARTSTEALER.get());
