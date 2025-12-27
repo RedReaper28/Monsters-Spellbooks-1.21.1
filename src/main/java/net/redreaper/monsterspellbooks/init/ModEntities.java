@@ -1,7 +1,5 @@
 package net.redreaper.monsterspellbooks.init;
 
-import io.redspace.ironsspellbooks.IronsSpellbooks;
-import io.redspace.ironsspellbooks.entity.mobs.SummonedSkeleton;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -102,13 +100,17 @@ public class ModEntities {
 
 
 
-    public static final Supplier<EntityType<VileSkeleton>>VILE_SKELETON=
-            ENTITIES.register("vile_skeleton",()->EntityType.Builder.of(VileSkeleton::new,MobCategory.MONSTER)
+    public static final Supplier<EntityType<VileSkeletonEntity>>VILE_SKELETON=
+            ENTITIES.register("vile_skeleton",()->EntityType.Builder.of(VileSkeletonEntity::new,MobCategory.MONSTER)
                     .sized(0.6F, 1.9F).build("vile_skeleton"));
 
-    public static final Supplier<EntityType<DwarvenSphere>>DWARVEN_SPHERE=
-            ENTITIES.register("dwarven_sphere",()->EntityType.Builder.of(DwarvenSphere::new,MobCategory.MONSTER)
+    public static final Supplier<EntityType<DwarvenSphereEntity>>DWARVEN_SPHERE=
+            ENTITIES.register("dwarven_sphere",()->EntityType.Builder.of(DwarvenSphereEntity::new,MobCategory.MONSTER)
                     .sized(0.8F, 2.5F).build("dwarven_sphere"));
+
+    public static final Supplier<EntityType<DwarvenSlicerEntity>>DWARVEN_SLICER=
+            ENTITIES.register("dwarven_slicer",()->EntityType.Builder.of(DwarvenSlicerEntity::new,MobCategory.MONSTER)
+                    .sized(0.6F, 0.50f).build("dwarven_slicer"));
 
     public static final Supplier<EntityType<AegisEntity>>AEGIS=
             ENTITIES.register("aegis", () -> EntityType.Builder.<AegisEntity>of(AegisEntity::new, MobCategory.MONSTER).
@@ -124,8 +126,8 @@ public class ModEntities {
                             ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "shock").toString()
                     ));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<SummonedVileSkeleton>> SUMMONED_VILE_SKELETON =
-            ENTITIES.register("summoned_vile_skeleton", () -> EntityType.Builder.<SummonedVileSkeleton>of(SummonedVileSkeleton::new, MobCategory.MISC)
+    public static final DeferredHolder<EntityType<?>, EntityType<SummonedVileSkeletonEntity>> SUMMONED_VILE_SKELETON =
+            ENTITIES.register("summoned_vile_skeleton", () -> EntityType.Builder.<SummonedVileSkeletonEntity>of(SummonedVileSkeletonEntity::new, MobCategory.MISC)
                     .sized(.6f, 1.9f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "summoned_vile_skeleton").toString()));

@@ -101,6 +101,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DWARVEN_ALLOY_COG);
                         output.accept(ModItems.STRIDER_COTTON_BALL);
                         output.accept(ModItems.STRIDER_COTTON_STRING);
+                        output.accept(ModItems.CINDER_CINNAMON);
+                        output.accept(ModItems.CINDER_CINNAMON_POWDER);
                         output.accept(ModItems.VILE_BONE);
                         output.accept(ModItems.VILE_CORE);
                         output.accept(ModItems.UPGRADE_RUNE);

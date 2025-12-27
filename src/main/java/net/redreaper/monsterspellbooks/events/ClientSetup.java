@@ -12,6 +12,7 @@ import net.redreaper.monsterspellbooks.entity.model.AegisEntity.AegisEntityModel
 import net.redreaper.monsterspellbooks.entity.model.AegisEntity.AegisEntityRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DeathKnight.DeathKnightModel;
 import net.redreaper.monsterspellbooks.entity.model.DeathKnight.DeathKnightRenderer;
+import net.redreaper.monsterspellbooks.entity.model.DwarvenSlicer.DwarvenSlicerRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DwarvenSphere.DwarvenSphereRenderer;
 import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityModel;
 import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityRenderer;
@@ -49,6 +50,7 @@ public class ClientSetup {
 
         event.registerEntityRenderer(ModEntities.VILE_SKELETON.get(), VileSkeletonRenderer::new);
         event.registerEntityRenderer(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereRenderer::new);
+        event.registerEntityRenderer(ModEntities.DWARVEN_SLICER.get(), DwarvenSlicerRenderer::new);
         event.registerEntityRenderer(ModEntities.SHOCK.get(), context -> {return new ShockEntityRenderer(context, new ShockEntityModel());});
         event.registerEntityRenderer(ModEntities.AEGIS.get(), context -> {return new AegisEntityRenderer(context, new AegisEntityModel());});
         event.registerEntityRenderer(ModEntities.SUMMONED_DEATH_KNIGHT.get(), context -> {return new DeathKnightRenderer(context, new DeathKnightModel());});

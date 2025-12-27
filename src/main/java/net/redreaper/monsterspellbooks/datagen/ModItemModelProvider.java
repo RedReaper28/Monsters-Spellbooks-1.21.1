@@ -50,6 +50,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.DWARVEN_ALLOY_COG.get());
         basicItem(ModItems.STRIDER_COTTON_BALL.get());
         basicItem(ModItems.STRIDER_COTTON_STRING.get());
+        basicItem(ModItems.CINDER_CINNAMON.get());
+        basicItem(ModItems.CINDER_CINNAMON_POWDER.get());
         basicItem(ModItems.VILE_BONE.get());
         basicItem(ModItems.VILE_CORE.get());
         basicItem(ModItems.UPGRADE_RUNE.get());

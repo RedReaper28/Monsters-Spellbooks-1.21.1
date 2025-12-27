@@ -37,7 +37,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Predicate;
 
-public class VileSkeleton extends Monster implements GeoEntity {
+public class VileSkeletonEntity extends Monster implements GeoEntity {
     private static final Predicate<LivingEntity> LIVING_ENTITY_SELECTOR;
     private static final TargetingConditions TARGETING_CONDITIONS;
     public static final EntityDataAccessor<Boolean> SHOOT;
@@ -50,7 +50,7 @@ public class VileSkeleton extends Monster implements GeoEntity {
     public String animationprocedure = "empty";
     String prevAnim = "empty";
 
-    public VileSkeleton(EntityType<? extends Monster> type, Level world) {
+    public VileSkeletonEntity(EntityType<? extends Monster> type, Level world) {
         super(type, world);
         this.animationprocedure = "empty";
         this.xpReward = 5;
@@ -86,7 +86,7 @@ public class VileSkeleton extends Monster implements GeoEntity {
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, AbstractIllager.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, AbstractPiglin.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, AbstractVillager.class, true));
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, VileSkeleton.class).setAlertOthers());
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, VileSkeletonEntity.class).setAlertOthers());
         this.goalSelector.addGoal(6, new RandomStrollGoal(this, 0.8));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(8, new RestrictSunGoal(this) {
@@ -216,8 +216,8 @@ public class VileSkeleton extends Monster implements GeoEntity {
     }
 
     static {
-        SHOOT = SynchedEntityData.defineId(VileSkeleton.class, EntityDataSerializers.BOOLEAN);
-        ANIMATION = SynchedEntityData.defineId(VileSkeleton.class, EntityDataSerializers.STRING);
-        TEXTURE = SynchedEntityData.defineId(VileSkeleton.class, EntityDataSerializers.STRING);
+        SHOOT = SynchedEntityData.defineId(VileSkeletonEntity.class, EntityDataSerializers.BOOLEAN);
+        ANIMATION = SynchedEntityData.defineId(VileSkeletonEntity.class, EntityDataSerializers.STRING);
+        TEXTURE = SynchedEntityData.defineId(VileSkeletonEntity.class, EntityDataSerializers.STRING);
     }
 }

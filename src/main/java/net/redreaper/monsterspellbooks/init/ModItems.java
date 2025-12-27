@@ -102,6 +102,10 @@ public class ModItems {
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>STRIDER_COTTON_STRING= ITEMS.register("strider_cotton_string",
             ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>CINDER_CINNAMON= ITEMS.register("cinder_cinnamon",
+            ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>CINDER_CINNAMON_POWDER= ITEMS.register("cinder_cinnamon_powder",
+            ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>VILE_BONE= ITEMS.register("vile_bone",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>VILE_CORE= ITEMS.register("vile_core",

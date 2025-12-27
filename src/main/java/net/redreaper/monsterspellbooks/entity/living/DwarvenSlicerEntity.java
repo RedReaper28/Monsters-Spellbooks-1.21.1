@@ -8,18 +8,24 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.RestrictSunGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.AbstractIllager;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
@@ -27,7 +33,7 @@ import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class DwarvenSphere extends Monster implements GeoEntity {
+public class DwarvenSlicerEntity extends Monster implements GeoEntity {
     public static final EntityDataAccessor<Boolean> SHOOT;
     public static final EntityDataAccessor<String> ANIMATION;
     public static final EntityDataAccessor<String> TEXTURE;
@@ -35,7 +41,7 @@ public class DwarvenSphere extends Monster implements GeoEntity {
     public String animationprocedure = "empty";
     String prevAnim = "empty";
 
-    public DwarvenSphere(EntityType<DwarvenSphere> type, Level world) {
+    public DwarvenSlicerEntity(EntityType<? extends Monster> type, Level world) {
         super(type, world);
         this.animationprocedure = "empty";
         this.xpReward = 5;
@@ -46,7 +52,7 @@ public class DwarvenSphere extends Monster implements GeoEntity {
         super.defineSynchedData(builder);
         builder.define(SHOOT, false);
         builder.define(ANIMATION, "undefined");
-        builder.define(TEXTURE, "dwarven_sphere");
+        builder.define(TEXTURE, "dwarven_slicer");
     }
 
     public void setTexture(String texture) {
@@ -60,8 +66,10 @@ public class DwarvenSphere extends Monster implements GeoEntity {
     public void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.2F, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, false, false));
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, DwarvenSphere.class).setAlertOthers());
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractIllager.class, true));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, DwarvenSlicerEntity.class).setAlertOthers());
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, DwarvenSphereEntity.class).setAlertOthers());
         this.goalSelector.addGoal(6, new RandomStrollGoal(this, 0.8));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));{
         };
@@ -96,7 +104,7 @@ public class DwarvenSphere extends Monster implements GeoEntity {
     }
 
     public static void init(RegisterSpawnPlacementsEvent event) {
-        event.register((EntityType) ModEntities.DWARVEN_SPHERE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, world, reason, pos, random) -> {
+        event.register((EntityType) ModEntities.DWARVEN_SLICER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, world, reason, pos, random) -> {
             int x = pos.getX();
             int y = pos.getY();
             int z = pos.getZ();
@@ -106,24 +114,38 @@ public class DwarvenSphere extends Monster implements GeoEntity {
 
     public static AttributeSupplier.Builder createAttributes() {
         AttributeSupplier.Builder builder = Mob.createMobAttributes();
-        builder = builder.add(Attributes.MOVEMENT_SPEED, .6);
-        builder = builder.add(Attributes.MAX_HEALTH, (double)25.0F);
+        builder = builder.add(Attributes.MOVEMENT_SPEED, .75);
+        builder = builder.add(Attributes.MAX_HEALTH, (double)10.0F);
         builder = builder.add(Attributes.ARMOR, (double)5.0F);
-        builder = builder.add(Attributes.ATTACK_DAMAGE, (double)6.0F);
+        builder = builder.add(Attributes.ATTACK_DAMAGE, (double)2.0F);
+        builder = builder.add(Attributes.ENTITY_INTERACTION_RANGE, (double).5F);
+        builder = builder.add(Attributes.ATTACK_SPEED, (double)1.F);
         builder = builder.add(Attributes.FOLLOW_RANGE, (double)20.0F);
-        builder = builder.add(Attributes.STEP_HEIGHT, 0.6);
+        builder = builder.add(Attributes.STEP_HEIGHT, 0.25);
         builder = builder.add(Attributes.ATTACK_KNOCKBACK, 0.1);
         builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 0.5);
         return builder;
+    }
+
+    public boolean doHurtTarget(Entity entity) {
+        if (!super.doHurtTarget(entity)) {
+            return false;
+        } else {
+            if (entity instanceof LivingEntity) {
+                ((LivingEntity)entity).addEffect(new MobEffectInstance(ModMobEffects.BLEEDING, 200,1), this);
+            }
+
+            return true;
+        }
     }
 
     private PlayState movementPredicate(software.bernie.geckolib.animation.AnimationState event) {
         if (!this.animationprocedure.equals("empty")) {
             return PlayState.STOP;
         } else if ((event.isMoving() || !(event.getLimbSwingAmount() > -0.15F) || !(event.getLimbSwingAmount() < 0.15F)) && !this.isAggressive()) {
-            return event.setAndContinue(RawAnimation.begin().thenLoop("animation.dwarven_sphere.walk"));
+            return event.setAndContinue(RawAnimation.begin().thenLoop("walk"));
         } else {
-            return this.isAggressive() && event.isMoving() ? event.setAndContinue(RawAnimation.begin().thenLoop("animation.dwarven_sphere.angry")) : event.setAndContinue(RawAnimation.begin().thenLoop("animation.dwarven_sphere.idle"));
+            return this.isAggressive() && event.isMoving() ? event.setAndContinue(RawAnimation.begin().thenLoop("walk")) : event.setAndContinue(RawAnimation.begin().thenLoop("idle"));
         }
     }
 
@@ -163,8 +185,8 @@ public class DwarvenSphere extends Monster implements GeoEntity {
     }
 
     static {
-        SHOOT = SynchedEntityData.defineId(DwarvenSphere.class, EntityDataSerializers.BOOLEAN);
-        ANIMATION = SynchedEntityData.defineId(DwarvenSphere.class, EntityDataSerializers.STRING);
-        TEXTURE = SynchedEntityData.defineId(DwarvenSphere.class, EntityDataSerializers.STRING);
+        SHOOT = SynchedEntityData.defineId(DwarvenSlicerEntity.class, EntityDataSerializers.BOOLEAN);
+        ANIMATION = SynchedEntityData.defineId(DwarvenSlicerEntity.class, EntityDataSerializers.STRING);
+        TEXTURE = SynchedEntityData.defineId(DwarvenSlicerEntity.class, EntityDataSerializers.STRING);
     }
 }

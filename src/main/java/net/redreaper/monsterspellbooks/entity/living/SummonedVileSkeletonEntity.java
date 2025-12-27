@@ -20,15 +20,15 @@ import net.redreaper.monsterspellbooks.init.ModEntities;
 
 import java.util.UUID;
 
-public class SummonedVileSkeleton extends VileSkeleton implements IMagicSummon {
+public class SummonedVileSkeletonEntity extends VileSkeletonEntity implements IMagicSummon {
     protected UUID summonerUUID;
 
-    public SummonedVileSkeleton(EntityType entity, Level world) {
+    public SummonedVileSkeletonEntity(EntityType entity, Level world) {
         super(entity, world);
         xpReward = 0;
     }
 
-    public SummonedVileSkeleton(Level level, LivingEntity owner) {
+    public SummonedVileSkeletonEntity(Level level, LivingEntity owner) {
         this(ModEntities.SUMMONED_VILE_SKELETON.get(), level);
     }
 

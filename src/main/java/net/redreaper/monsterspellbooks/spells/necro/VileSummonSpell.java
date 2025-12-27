@@ -16,14 +16,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.NeoForge;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.living.SummonedVileSkeleton;
+import net.redreaper.monsterspellbooks.entity.living.SummonedVileSkeletonEntity;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import org.jetbrains.annotations.Nullable;
 
@@ -108,7 +107,7 @@ public class VileSummonSpell extends AbstractSpell {
             int summonTime = 20 * 60 * 10;
             int count = getSummonCount(spellLevel, entity);
             for (int i = 0; i < count; i++) {
-                SummonedVileSkeleton vex = new SummonedVileSkeleton(world, entity);
+                SummonedVileSkeletonEntity vex = new SummonedVileSkeletonEntity(world, entity);
                 vex.moveTo(entity.getEyePosition().add(new Vec3(Utils.getRandomScaled(2), 1, Utils.getRandomScaled(2))));
                 vex.finalizeSpawn((ServerLevel) world, world.getCurrentDifficultyAt(vex.getOnPos()), MobSpawnType.MOB_SUMMONED, null);
                 var creature = NeoForge.EVENT_BUS.post(new SpellSummonEvent<>(entity, vex, this.spellId, spellLevel)).getCreature();
