@@ -142,6 +142,7 @@
   "effect.monsterspellbooks.paralysis": "Paralysis",
   "effect.monsterspellbooks.reaper_aspect": "Aspect of the Reaper",
   "effect.monsterspellbooks.stunned": "Stunned",
+  "effect.monsterspellbooks.mountain_corpse": "Mountain Corpse",
 
   "display.monsterspellbooks.curse_warning": "What a terrible night to have a Curse",
 
@@ -159,6 +160,8 @@
   "ui.monsterspellbooks.extra_damage": "Extra Damage",
   "ui.monsterspellbooks.melee_damage": "Melee Damage",
 
+  "spell.monsterspellbooks.anticoagulation": "Anticoagulation",
+  "spell.monsterspellbooks.anticoagulation.guide": "In a radius around a targeted creature,apply the Anti Heal Effect to enemies,preventing them from healing in any way",
   "spell.monsterspellbooks.blood_pierce": "Blood Pierce",
   "spell.monsterspellbooks.blood_pierce.guide": "Shot a concentrated beam of piercing blood from your blood moon scythe to deal massive damage and inflict rend on the target",
   "spell.monsterspellbooks.sanguinite_evisceration": "Sanguinite Evisceration",
@@ -181,6 +184,8 @@
   "spell.monsterspellbooks.ancient_flash.guide": "Boost your strike with ancient lighting to strike your target multiple times in a single cast.The damage scales off of your held weapon´s melee damage",
   "spell.monsterspellbooks.beast_howl": "Beast Howl",
   "spell.monsterspellbooks.beast_howl.guide": "Release a damaging howl that leaves your targets paralyzed and stunned while you gain a primordial strength",
+  "spell.monsterspellbooks.mountain_corpse": "Mountain Corpse",
+  "spell.monsterspellbooks.mountain_corpse.guide": "Increases your size and stats giving the extra damage and knockback on your attacks but you are more susceptible to gravity and you move slower",
   "spell.monsterspellbooks.banshee_scream": "Banshee Scream",
   "spell.monsterspellbooks.banshee_scream.guide": "Release a horrible scream that wither any life that hears it",
   "spell.monsterspellbooks.conjure_death_knight": "Conjure Death Knight",

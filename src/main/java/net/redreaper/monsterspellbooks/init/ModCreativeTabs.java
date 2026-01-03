@@ -56,6 +56,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.STARSCOURGE_BOOTS.get());
 
 
+
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_MATERIALS_TAB=CREATIVE_MODE_TAB.register("monsters_and_materials_tab",
@@ -125,7 +126,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.HOGLIN_CORN_DOG);
                         output.accept(ModItems.BATTLE_TACO);
                         output.accept(ModItems.MAGMA_ELOTE);
-                        output.accept(ModItems.GOLD_TRUFFLE_SLICE);
+                        output.accept(ModItems.GOLD_TRUFFLE_SLICE);  output.accept(ModItems.AEGIS_SPAWN_EGG.get());
+                        output.accept(ModItems.DWARVEN_SPHERE_SPAWN_EGG.get());
+                        output.accept(ModItems.DWARVEN_SLICER_SPAWN_EGG.get());
+                        output.accept(ModItems.SHOCK_SPAWN_EGG.get());
+                        output.accept(ModItems.VILE_SKELETON_SPAWN_EGG.get());
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_BLOCKS_TAB=CREATIVE_MODE_TAB.register("monsters_and_blocks_tab",

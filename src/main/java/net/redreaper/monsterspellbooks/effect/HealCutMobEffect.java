@@ -5,6 +5,6 @@ import net.minecraft.world.effect.MobEffectCategory;
 
 public class HealCutMobEffect extends MagicMobEffect {
     public HealCutMobEffect() {
-        super(MobEffectCategory.HARMFUL, 16449165);
+        super(MobEffectCategory.HARMFUL, 16715353);
     }
 }

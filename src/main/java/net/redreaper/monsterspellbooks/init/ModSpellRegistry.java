@@ -4,6 +4,7 @@ import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.spells.blood.AnticoagulationSpell;
 import net.redreaper.monsterspellbooks.spells.blood.BloodPierceSpell;
 import net.redreaper.monsterspellbooks.spells.blood.SanguiniteEviscerationSpell;
 import net.redreaper.monsterspellbooks.spells.ender.EndersentSmashSpell;
@@ -15,6 +16,7 @@ import net.redreaper.monsterspellbooks.spells.fire.OverheatSpell;
 import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.AncientFlashSpell;
 import net.redreaper.monsterspellbooks.spells.nature.BeastHowlSpell;
+import net.redreaper.monsterspellbooks.spells.nature.MountainCorpseSpell;
 import net.redreaper.monsterspellbooks.spells.necro.*;
 
 import java.util.function.Supplier;
@@ -30,6 +32,8 @@ public class ModSpellRegistry {
     }
 
     //BLOOD
+    //In a radius around a targeted creature,apply the Anti Heal Effect to enemies,preventing them from healing in any way
+    public static final Supplier<AbstractSpell> ANTICOAGULATION = registerSpell(new AnticoagulationSpell());
     // Shot a concentrated beam of piercing blood from your blood moon scythe to deal massive damage and inflict rend on the target
     public static final Supplier<AbstractSpell> BLOOD_PIERCE = registerSpell(new BloodPierceSpell());
     //Slash forward with your claws to inflict heavy bleeding.The damage scales off of your held weapon´s melee damage
@@ -62,11 +66,15 @@ public class ModSpellRegistry {
     //NATURE
     //Release a damaging howl that leaves your targets paralyzed and stunned while you gain a primordial strength
     public static final Supplier<AbstractSpell> BEAST_HOWL = registerSpell(new BeastHowlSpell());
+    //Increases your size and stats giving the extra damage and knockback on your attacks but you are more susceptible to gravity and you move slower
+    public static final Supplier<AbstractSpell> MOUNTAIN_CORPSE = registerSpell(new MountainCorpseSpell());
 
     //NECRO
     //Release a horrible scream that wither any life that hears it
     public static final Supplier<AbstractSpell> BANSHEE_SCREAM = registerSpell(new BansheeScreamSpell());
+    //Summons the once elite guards of the Withered Fortress,imposing creatures that obey their master
     public static final Supplier<AbstractSpell> SUMMON_DEATH_KNIGHT = registerSpell(new ConjureDeathKnightSpell());
+    //A curse long forgotten than reduces your target to a defenseless state in many ways
     public static final Supplier<AbstractSpell> FALL_CURSE = registerSpell(new FallCurseSpell());
     //Absorb the life force of your target,making them weak while healing you for 100% of the damage done
     public static final Supplier<AbstractSpell> LIFE_DRAIN = registerSpell(new LifeDrainSpell());
@@ -76,6 +84,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> SPECTRAL_BLAST = registerSpell(new SpectralBlastSpell());
     //Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their body and soul and healing 15% of damage done
     public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
+    //Summon a ravenous horde of Vile Skeletons that attack anything that isn't their caster,striping their armor and withering their flesh
     public static final Supplier<AbstractSpell> VILE_SUMMON = registerSpell(new VileSummonSpell());
     //Fire an enhanced wither skull which home towards your cursor,or the creature your cursor is targeting,exploding and dealing massive damage on impact
     public static final Supplier<AbstractSpell> WITHER_BOMB = registerSpell(new WitherBombSpell());

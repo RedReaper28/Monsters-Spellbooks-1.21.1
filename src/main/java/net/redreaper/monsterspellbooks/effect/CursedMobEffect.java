@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CursedMobEffect extends MobEffect {
     public CursedMobEffect() {
-        super(MobEffectCategory.HARMFUL, 3755355);
+        super(MobEffectCategory.HARMFUL, 1315355);
     }
 
     public List<ItemStack> getCurativeItems() {

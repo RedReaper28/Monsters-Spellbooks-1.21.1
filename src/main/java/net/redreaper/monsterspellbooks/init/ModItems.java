@@ -7,9 +7,11 @@ import io.redspace.ironsspellbooks.item.armor.PyromancerArmorItem;
 import io.redspace.ironsspellbooks.item.armor.TarnishedCrownArmorItem;
 import io.redspace.ironsspellbooks.item.curios.CurioBaseItem;
 import io.redspace.ironsspellbooks.item.weapons.ExtendedWeaponTier;
+import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -219,6 +221,18 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> STARSCOURGE_BOOTS = ITEMS.register("starscourge_boots", () ->
             new StarscourgeArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
+
+
+
+
+
+
+
+    public static final Supplier<DeferredSpawnEggItem> AEGIS_SPAWN_EGG = ITEMS.register("aegis_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.AEGIS, 5526633, 9864548, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> DWARVEN_SPHERE_SPAWN_EGG = ITEMS.register("dwarven_sphere_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DWARVEN_SPHERE, 10050109, 16501864, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> DWARVEN_SLICER_SPAWN_EGG = ITEMS.register("dwarven_slicer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DWARVEN_SLICER, 10050109, 16501864, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> SHOCK_SPAWN_EGG = ITEMS.register("shock_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.SHOCK, 3873928, 11393785, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> VILE_SKELETON_SPAWN_EGG = ITEMS.register("vile_skeleton_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.VILE_SKELETON, 725001, 3622442, ItemPropertiesHelper.material().stacksTo(64)));
 
 
     public static void register(IEventBus eventBus){

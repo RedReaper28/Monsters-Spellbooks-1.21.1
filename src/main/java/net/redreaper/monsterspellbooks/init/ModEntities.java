@@ -96,35 +96,31 @@ public class ModEntities {
                     .clientTrackingRange(4)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "wither_bomb").toString()));
 
-
-
-
-
-    public static final Supplier<EntityType<VileSkeletonEntity>>VILE_SKELETON=
-            ENTITIES.register("vile_skeleton",()->EntityType.Builder.of(VileSkeletonEntity::new,MobCategory.MONSTER)
-                    .sized(0.6F, 1.9F).build("vile_skeleton"));
-
-    public static final Supplier<EntityType<DwarvenSphereEntity>>DWARVEN_SPHERE=
-            ENTITIES.register("dwarven_sphere",()->EntityType.Builder.of(DwarvenSphereEntity::new,MobCategory.MONSTER)
-                    .sized(0.8F, 2.5F).build("dwarven_sphere"));
-
-    public static final Supplier<EntityType<DwarvenSlicerEntity>>DWARVEN_SLICER=
-            ENTITIES.register("dwarven_slicer",()->EntityType.Builder.of(DwarvenSlicerEntity::new,MobCategory.MONSTER)
-                    .sized(0.6F, 0.50f).build("dwarven_slicer"));
-
     public static final Supplier<EntityType<AegisEntity>>AEGIS=
             ENTITIES.register("aegis", () -> EntityType.Builder.<AegisEntity>of(AegisEntity::new, MobCategory.MONSTER).
                     sized(.8f, 1.8f)
                     .build(
-                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "aegis").toString()
-                    ));
-
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "aegis").toString()));
+    public static final Supplier<EntityType<DwarvenSphereEntity>>DWARVEN_SPHERE=
+            ENTITIES.register("dwarven_sphere",()->EntityType.Builder.of(DwarvenSphereEntity::new,MobCategory.MONSTER)
+                    .sized(0.8F, 2.5F).build("dwarven_sphere"));
+    public static final Supplier<EntityType<DwarvenSlicerEntity>>DWARVEN_SLICER=
+            ENTITIES.register("dwarven_slicer",()->EntityType.Builder.of(DwarvenSlicerEntity::new,MobCategory.MONSTER)
+                    .sized(0.6F, 0.50f).build("dwarven_slicer"));
     public static final DeferredHolder<EntityType<?>, EntityType<ShockEntity>> SHOCK =
             ENTITIES.register("shock", () -> EntityType.Builder.<ShockEntity>of(ShockEntity::new, MobCategory.MONSTER).
                     sized(.6f, .80f)
                     .build(
-                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "shock").toString()
-                    ));
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "shock").toString()));
+    public static final Supplier<EntityType<VileSkeletonEntity>>VILE_SKELETON=
+            ENTITIES.register("vile_skeleton",()->EntityType.Builder.of(VileSkeletonEntity::new,MobCategory.MONSTER)
+                    .sized(0.6F, 1.9F).build("vile_skeleton"));
+
+
+
+
+
+
 
     public static final DeferredHolder<EntityType<?>, EntityType<SummonedVileSkeletonEntity>> SUMMONED_VILE_SKELETON =
             ENTITIES.register("summoned_vile_skeleton", () -> EntityType.Builder.<SummonedVileSkeletonEntity>of(SummonedVileSkeletonEntity::new, MobCategory.MISC)
