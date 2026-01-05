@@ -9,6 +9,8 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
@@ -61,6 +63,12 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(Attributes.ENTITY_INTERACTION_RANGE, 2, AttributeModifier.Operation.ADD_VALUE));
 
+    public static ModExtendedWeaponTiers MASTERS_KATANA = new ModExtendedWeaponTiers(1561, 3F, -2.5f, 25, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModItems.ROSE_GOLD_INGOT.get()),
+            new AttributeContainer(Attributes.ENTITY_INTERACTION_RANGE, 0.2, AttributeModifier.Operation.ADD_VALUE));
+
+    public static ModExtendedWeaponTiers PRISMARINE = new ModExtendedWeaponTiers(751, 6F, -3F, 10, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(Items.PRISMARINE_SHARD),
+            new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.1, AttributeModifier.Operation.ADD_VALUE));
+
     public static ModExtendedWeaponTiers ORICHALCUM_DAGGER = new ModExtendedWeaponTiers(750, 5F, -2.5f, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.1, AttributeModifier.Operation.ADD_VALUE));
 
@@ -74,6 +82,7 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
     public static ModExtendedWeaponTiers ORICHALCUM_WARHAMMER = new ModExtendedWeaponTiers(1200, 11F, -3.5f, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 1.5f, AttributeModifier.Operation.ADD_VALUE),
             new AttributeContainer(Attributes.KNOCKBACK_RESISTANCE, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
     public static ModExtendedWeaponTiers ORICHALCUM_AXE = new ModExtendedWeaponTiers(1200, 8F, -3, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.1, AttributeModifier.Operation.ADD_VALUE));
 

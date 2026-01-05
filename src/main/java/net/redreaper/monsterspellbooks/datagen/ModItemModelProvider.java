@@ -46,6 +46,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.VOID_OBSIDIAN_INGOT.get());
 
         basicItem(ModItems.RESIN_BRICK.get());
+        basicItem(ModItems.RESIN_HEART.get());
+        basicItem(ModItems.ELECTRO_CORE.get());
         basicItem(ModItems.DWARVEN_ALLOY_PLATE.get());
         basicItem(ModItems.DWARVEN_ALLOY_COG.get());
         basicItem(ModItems.STRIDER_COTTON_BALL.get());
@@ -87,5 +89,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.STARSCOURGE_BOOTS.get());
 
         basicItem(ModItems.WITHERWARD_RING.get());
+        basicItem(ModItems.BRIMSTONE_SIGIL.get());
     }
 }

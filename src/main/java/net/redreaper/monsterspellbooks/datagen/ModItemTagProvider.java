@@ -21,6 +21,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
 
         tag(ItemTags.SWORDS)
+                .add(ModItems.GREAT_AXEBLADE.get())
+                .add(ModItems.MASTERS_KATANA.get())
+                .add(ModItems.DANCERS_SWORD.get())
                 .add(ModItems.ORICHALCUM_DAGGER.get())
                 .add(ModItems.ORICHALCUM_GREATSWORD.get())
                 .add(ModItems.ORICHALCUM_WARHAMMER.get())
@@ -37,7 +40,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.SWORD_OF_COURAGE.get());
 
         tag(ItemTags.AXES)
+                .add(ModItems.GREAT_AXEBLADE.get())
                 .add(ModItems.ORICHALCUM_GREATAXE.get())
+                .add(ModItems.PRISMARINE_AXE.get())
                 .add(ModItems.ORICHALCUM_AXE.get())
                 .add(ModItems.SANGUINITE_AXE.get())
         ;

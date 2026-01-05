@@ -14,6 +14,5 @@ public class OverheatMobEffect extends MagicMobEffect implements ISyncedMobEffec
 
             public OverheatMobEffect(MobEffectCategory mobEffectCategory, int color) {
             super(mobEffectCategory, color);
-        }
-    }
-
+            }
+}

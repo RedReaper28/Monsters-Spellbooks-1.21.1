@@ -21,6 +21,10 @@ public class ModCreativeTabs {
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_gear"))
                     .displayItems((itemDisplayParameters, output) ->{
                         output.accept(ModItems.REAPER_LANTERN.get());
+                        output.accept(ModItems.GREAT_AXEBLADE.get());
+                        output.accept(ModItems.MASTERS_KATANA.get());
+                        output.accept(ModItems.DANCERS_SWORD.get());
+                        output.accept(ModItems.PRISMARINE_AXE.get());
                         output.accept(ModItems.ORICHALCUM_DAGGER.get());
                         output.accept(ModItems.ORICHALCUM_GREATSWORD.get());
                         output.accept(ModItems.ORICHALCUM_GREATAXE.get());
@@ -43,6 +47,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.REAPER_SICKLE.get());
 
                         output.accept(ModItems.WITHERWARD_RING.get());
+                        output.accept(ModItems.BRIMSTONE_SIGIL.get());
 
                         output.accept(ModItems.FIERCE_DEITY_MASK.get());
                         output.accept(ModItems.MAJORAS_MASK.get());
@@ -54,9 +59,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.STARSCOURGE_CHESTPLATE.get());
                         output.accept(ModItems.STARSCOURGE_LEGGINGS.get());
                         output.accept(ModItems.STARSCOURGE_BOOTS.get());
-
-
-
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_MATERIALS_TAB=CREATIVE_MODE_TAB.register("monsters_and_materials_tab",
@@ -98,6 +100,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.VOID_OBSIDIAN_INGOT);
 
                         output.accept(ModItems.RESIN_BRICK);
+                        output.accept(ModItems.RESIN_HEART);
+                        output.accept(ModItems.ELECTRO_CORE);
                         output.accept(ModItems.DWARVEN_ALLOY_PLATE);
                         output.accept(ModItems.DWARVEN_ALLOY_COG);
                         output.accept(ModItems.STRIDER_COTTON_BALL);

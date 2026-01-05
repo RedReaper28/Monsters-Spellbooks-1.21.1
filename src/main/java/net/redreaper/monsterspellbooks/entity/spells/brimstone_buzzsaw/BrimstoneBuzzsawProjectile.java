@@ -19,7 +19,9 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
 import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
@@ -91,11 +93,11 @@ public class BrimstoneBuzzsawProjectile extends AbstractMagicProjectile implemen
             Vec3 leftAdjust = this.position().add(new Vec3(Math.sin(Math.toRadians(getYRot() + 90)), 0, Math.cos(Math.toRadians(getYRot() + 90))).scale(radius));
             Vec3 rightAdjust = this.position().add(new Vec3(Math.sin(Math.toRadians(getYRot() - 90)), 0, Math.cos(Math.toRadians(getYRot() - 90))).scale(radius));
 
-            level().addParticle(Utils.random.nextDouble() < 0.3 ? ParticleHelper.FIERY_SMOKE : ParticleTypes.LAVA, (this.getX()) + dx, this.getY() + dy, this.getZ() + dz, dx, dy, dz);
+            level().addParticle(Utils.random.nextDouble() < 0.3 ? ModParticleHelper.BRIMSTONE_FIRE : ParticleTypes.LAVA, (this.getX()) + dx, this.getY() + dy, this.getZ() + dz, dx, dy, dz);
 
-            level().addParticle(Utils.random.nextDouble() < 0.3 ? ParticleHelper.FIERY_SMOKE : ParticleTypes.LAVA, leftAdjust.x, leftAdjust.y, leftAdjust.z, dx, dy, dz);
+            level().addParticle(Utils.random.nextDouble() < 0.3 ? ModParticleHelper.BRIMSTONE_FIRE : ParticleTypes.LAVA, leftAdjust.x, leftAdjust.y, leftAdjust.z, dx, dy, dz);
 
-            level().addParticle(Utils.random.nextDouble() < 0.3 ? ParticleHelper.FIERY_SMOKE : ParticleTypes.LAVA, rightAdjust.x, rightAdjust.y, rightAdjust.z, dx, dy, dz);
+            level().addParticle(Utils.random.nextDouble() < 0.3 ? ModParticleHelper.BRIMSTONE_FIRE : ParticleTypes.LAVA, rightAdjust.x, rightAdjust.y, rightAdjust.z, dx, dy, dz);
         }
     }
 
@@ -127,7 +129,7 @@ public class BrimstoneBuzzsawProjectile extends AbstractMagicProjectile implemen
 
         if (pResult.getEntity() instanceof LivingEntity livingTarget)
         {
-            livingTarget.addEffect(new MobEffectInstance(MobEffectRegistry.REND, 400, 4));
+            livingTarget.addEffect(new MobEffectInstance(ModMobEffects.BRIMSTONE_FLAME, 400, 3));
         }
     }
 

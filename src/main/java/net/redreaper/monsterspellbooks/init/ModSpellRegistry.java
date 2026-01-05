@@ -6,13 +6,11 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.spells.blood.AnticoagulationSpell;
 import net.redreaper.monsterspellbooks.spells.blood.BloodPierceSpell;
+import net.redreaper.monsterspellbooks.spells.blood.HysteriaSpell;
 import net.redreaper.monsterspellbooks.spells.blood.SanguiniteEviscerationSpell;
 import net.redreaper.monsterspellbooks.spells.ender.EndersentSmashSpell;
 import net.redreaper.monsterspellbooks.spells.ender.GravityWellSpell;
-import net.redreaper.monsterspellbooks.spells.fire.BrimstoneBuzzsawSpell;
-import net.redreaper.monsterspellbooks.spells.fire.CauterizingTouchSpell;
-import net.redreaper.monsterspellbooks.spells.fire.FrenziedBurstSpell;
-import net.redreaper.monsterspellbooks.spells.fire.OverheatSpell;
+import net.redreaper.monsterspellbooks.spells.fire.*;
 import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.AncientFlashSpell;
 import net.redreaper.monsterspellbooks.spells.nature.BeastHowlSpell;
@@ -36,6 +34,8 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> ANTICOAGULATION = registerSpell(new AnticoagulationSpell());
     // Shot a concentrated beam of piercing blood from your blood moon scythe to deal massive damage and inflict rend on the target
     public static final Supplier<AbstractSpell> BLOOD_PIERCE = registerSpell(new BloodPierceSpell());
+    //Go all in,either you die or your opponent does,increases your attack damage and speed and inflicts yourself with Heartstop
+    public static final Supplier<AbstractSpell> HYSTERIA = registerSpell(new HysteriaSpell());
     //Slash forward with your claws to inflict heavy bleeding.The damage scales off of your held weapon´s melee damage
     public static final Supplier<AbstractSpell> SANGUINITE_EVISCERATION = registerSpell(new SanguiniteEviscerationSpell());
 
@@ -53,6 +53,9 @@ public class ModSpellRegistry {
     //Shot a thin burst of pure frenzy flame,inflicting madness to lower your targets maximum mana reserves
     public static final Supplier<AbstractSpell> FRENZIED_BURST = registerSpell(new FrenziedBurstSpell());
     //Overheat yourself to gain extra damage and fire spell power at the cost of melting part of your own armor
+
+    public static final Supplier<AbstractSpell> NAPALM_ORB = registerSpell(new NapalmOrbSpell());
+
     public static final Supplier<AbstractSpell> OVERHEAT = registerSpell(new OverheatSpell());
 
     //ICE
