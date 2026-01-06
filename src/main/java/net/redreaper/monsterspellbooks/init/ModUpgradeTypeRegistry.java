@@ -7,9 +7,5 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 
 
 public class ModUpgradeTypeRegistry  {
-    public static ResourceKey<UpgradeOrbType> NECRO_SPELL_POWER;
-
-    static {
-        NECRO_SPELL_POWER = ResourceKey.create(UpgradeOrbTypeRegistry.UPGRADE_ORB_REGISTRY_KEY, MonstersSpellbooks.id("necro_power"));
-    }
+    public static ResourceKey<UpgradeOrbType> NECRO_SPELL_POWER = ResourceKey.create(UpgradeOrbTypeRegistry.UPGRADE_ORB_REGISTRY_KEY, MonstersSpellbooks.id("necro_power"));
 }

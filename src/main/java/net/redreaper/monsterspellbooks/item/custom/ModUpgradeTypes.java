@@ -1,6 +1,5 @@
 package net.redreaper.monsterspellbooks.item.custom;
 
-import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.item.armor.UpgradeType;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -13,8 +12,8 @@ import net.redreaper.monsterspellbooks.init.ModItems;
 
 import java.util.Optional;
 
-public enum  ModUpgradeTypes implements UpgradeType {
-    ELDRITCH_SPELL_POWER("eldritch_power", ModItems.NECRO_UPGRADE_ORB, ModAtributeRegistry.NECRO_MAGIC_POWER, AttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.05F);
+public enum ModUpgradeTypes implements UpgradeType {
+    NECRO_SPELL_POWER("necro_power", ModItems.NECRO_UPGRADE_ORB, ModAtributeRegistry.NECRO_MAGIC_POWER, AttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.05F);
 
     final Holder<Attribute> attribute;
     final AttributeModifier.Operation operation;

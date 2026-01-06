@@ -14,5 +14,4 @@ public class ParalysisMobEffect extends MagicMobEffect {
     public ParalysisMobEffect(MobEffectCategory mobEffectCategory, int color) {
         super(mobEffectCategory, color);
     }
-
 }

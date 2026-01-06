@@ -85,6 +85,7 @@ public class FallCurseSpell extends AbstractSpell {
             if (target instanceof LivingEntity livingEntity) {
                 if (livingEntity.distanceToSqr(entity) < (double)(radius * radius)) {
                     livingEntity.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS,i,3, true, true, true));
+                    livingEntity.addEffect(new MobEffectInstance(ModMobEffects.HEAVY_BODY,i,3, true, true, true));
                     livingEntity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED,i,3, true, true, true));
                     livingEntity.addEffect(new MobEffectInstance(ModMobEffects.CURSE,i,0, true, true, true));
                     livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,i,1,true, true, true));
@@ -99,6 +100,6 @@ public class FallCurseSpell extends AbstractSpell {
     }
 
     public float getRadius(int spellPower, LivingEntity caster) {
-        return 10.0F + (float)spellPower * 1.5f;
+        return 15.0F + (float)spellPower * 2;
     }
 }
