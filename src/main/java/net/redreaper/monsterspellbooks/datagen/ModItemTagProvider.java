@@ -54,6 +54,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.MACE_ENCHANTABLE)
                 .add(ModItems.ENDERSENT_CRUSHER.get());
+
+        tag(ItemTags.WEAPON_ENCHANTABLE)
+                .add(ModItems.ENDERSENT_CRUSHER.get());
     }
 
 

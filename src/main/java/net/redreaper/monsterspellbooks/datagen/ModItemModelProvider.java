@@ -83,12 +83,17 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.SANGUINITE_HERO_CHESTPLATE.get());
         basicItem(ModItems.SANGUINITE_HERO_LEGGINGS.get());
         basicItem(ModItems.SANGUINITE_HERO_BOOTS.get());
+
+        basicItem(ModItems.FORGE_MASTERPIECE_HELMET.get());
+        basicItem(ModItems.FORGE_MASTERPIECE_CHESTPLATE.get());
+        basicItem(ModItems.FORGE_MASTERPIECE_LEGGINGS.get());
+        basicItem(ModItems.FORGE_MASTERPIECE_BOOTS.get());
+
         basicItem(ModItems.STARSCOURGE_HELMET.get());
         basicItem(ModItems.STARSCOURGE_CHESTPLATE.get());
         basicItem(ModItems.STARSCOURGE_LEGGINGS.get());
         basicItem(ModItems.STARSCOURGE_BOOTS.get());
 
         basicItem(ModItems.WITHERWARD_RING.get());
-        basicItem(ModItems.BRIMSTONE_SIGIL.get());
     }
 }

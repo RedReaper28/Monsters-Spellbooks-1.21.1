@@ -35,6 +35,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import net.redreaper.monsterspellbooks.effect.HemorrhageMobEffect;
 import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 
@@ -123,6 +124,12 @@ public class ServerEvents {
                     if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC))
                         target.addEffect(new MobEffectInstance(ModMobEffects.BRIMSTONE_FLAME, 60, 0, true, true, true));
                 }
+
+                // Brimstone Sigil
+                if (ASUtils.hasCurio(player, ModItems.DREADHOUND_TOOTH_NECKLACE.get())) {
+                    if (event.getSource().is(ISSDamageTypes.BLOOD_MAGIC))
+                        target.addEffect(new MobEffectInstance(ModMobEffects.BLEEDING, 120, 1, true, true, true));
+                }
             }
         }
     }
@@ -140,6 +147,12 @@ public class ServerEvents {
         if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
             if (ASUtils.hasCurio((Player) livingAttacker, ModItems.BRIMSTONE_SIGIL.get())) {
                 ImmolateEffect.addImmolateStack(livingEntity, livingAttacker);
+            }
+        }
+
+        if (event.getSource().is(ISSDamageTypes.BLOOD_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
+            if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DREADHOUND_TOOTH_NECKLACE.get())) {
+                HemorrhageMobEffect.addHemorrhageStack(livingEntity, livingAttacker);
             }
         }
     }

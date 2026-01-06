@@ -14,7 +14,7 @@ import software.bernie.geckolib.renderer.GeoArmorRenderer;
 public class StarscourgeArmorItem extends ImbuableChestplateArmorItem {
     public StarscourgeArmorItem(Type slot, Properties settings) {
         super(ModExtendedArmorMaterials.STARSCOURGE_ARMOR, slot, settings,
-                new AttributeContainer(AttributeRegistry.MAX_MANA, 50, AttributeModifier.Operation.ADD_VALUE),
+                new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE),
                 new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     }
 

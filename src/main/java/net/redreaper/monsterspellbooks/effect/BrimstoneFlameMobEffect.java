@@ -6,6 +6,7 @@ import io.redspace.ironsspellbooks.effect.MagicMobEffect;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -19,9 +20,10 @@ public class BrimstoneFlameMobEffect extends MagicMobEffect implements ISyncedMo
         super(pCategory, pColor);
     }
 
-    public boolean applyEffectTick(LivingEntity p_296279_, int p_294798_) {
-        Registry<DamageType> dTypeReg = p_296279_.damageSources().damageTypes;
-        Holder.Reference<DamageType> dType = dTypeReg.getHolder(NeoForgeMod.POISON_DAMAGE).orElse(dTypeReg.getHolderOrThrow(ISSDamageTypes.FIRE_MAGIC));
+    public boolean applyEffectTick(LivingEntity p_296276_, int p_296233_) {
+        Registry<DamageType> dTypeReg = p_296276_.damageSources().damageTypes;
+        Holder.Reference<DamageType> dType = dTypeReg.getHolder(NeoForgeMod.POISON_DAMAGE).orElse(dTypeReg.getHolderOrThrow(ISSDamageTypes.BLOOD_MAGIC));
+        p_296276_.hurt(new DamageSource(dType), 2.5f);
         return true;
     }
 

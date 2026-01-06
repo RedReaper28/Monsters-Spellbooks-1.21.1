@@ -11,11 +11,11 @@ public class ForgeMasterpieceArmorModel extends DefaultedItemGeoModel<ForgeMaste
     }
 
     public ResourceLocation getModelResource(ForgeMasterpieceArmorItem animatable) {
-        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "geo/armor/forge_masterpiece_armor.geo.geo.json");
+        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "geo/armor/forge_masterpiece_armor.geo.json");
     }
 
     public ResourceLocation getTextureResource(ForgeMasterpieceArmorItem animatable) {
-        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "textures/armor/forge_masterpiece_armor.png");
+        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "textures/armor/forge_master_armor.png");
     }
 
     public ResourceLocation getAnimationResource(ForgeMasterpieceArmorItem animatable) {

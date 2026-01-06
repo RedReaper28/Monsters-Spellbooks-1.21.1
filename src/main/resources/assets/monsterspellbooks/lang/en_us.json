@@ -122,10 +122,15 @@
   "item.monsterspellbooks.witherward_ring.desc": "Grants wither immunity",
   "item.monsterspellbooks.brimstone_sigil": "Brimstone Sigil",
   "item.monsterspellbooks.brimstone_sigil.desc": "Dealing Fire Spell Damage inflicts Brimstone Flame and adds a stack of Immolation",
+  "item.monsterspellbooks.brimstone_sigil.immolate.desc": "At 3 Immolation stacks, cause an explosion (%s damage), spreading Immolation",
+  "item.monsterspellbooks.dreadhound_tooth_necklace": "Dreadhound Tooth Necklace",
+  "item.monsterspellbooks.dreadhound_tooth_necklace.desc": "Dealing Blood Spell Damage inflicts Bleeding and adds a stack of Hemorrhage",
+  "item.monsterspellbooks.brimstone_sigil.hemorrhage.desc": "At 3 Hemorrhage stacks, cause an explosion (%s damage), spreading Hemorrhage",
+
 
   "item.monsterspellbooks.aegis_spawn_egg": "Aegis Spawn Egg",
   "item.monsterspellbooks.dwarven_sphere_spawn_egg": "Dwarven Sphere Spawn Egg",
-  "item.monsterspellbooks.dwarven_slicer_spawn_egg": "Dwarven SlicerSpawn Egg",
+  "item.monsterspellbooks.dwarven_slicer_spawn_egg": "Dwarven Slicer Spawn Egg",
   "item.monsterspellbooks.shock_spawn_egg": "Shock Spawn Egg",
   "item.monsterspellbooks.vile_skeleton_spawn_egg": "Vile Skeleton Spawn Egg",
 
@@ -135,11 +140,23 @@
   "item.monsterspellbooks.majoras_mask": "Majoras Mask",
   "item.monsterspellbooks.sanguinite_hero_hood": "Sanguinite Hero Hood",
   "item.monsterspellbooks.sanguinite_hero_chestplate": "Sanguinite Hero Chestplate",
-  "item.monsterspellbooks.sanguinite_hero_leggings": "Sanguinite Hero leggings",
+  "item.monsterspellbooks.sanguinite_hero_leggings": "Sanguinite Hero Leggings",
   "item.monsterspellbooks.sanguinite_hero_boots": "Sanguinite Hero Boots",
+  "item.monsterspellbooks.dwarven_engineer_visor": "Dwarven Engineer Visor",
+  "item.monsterspellbooks.dwarven_engineer_chestplate": "Dwarven Engineer Chestplate",
+  "item.monsterspellbooks.dwarven_engineer_leggings": "Dwarven Engineer Leggings",
+  "item.monsterspellbooks.dwarven_engineer_boots": "Dwarven Engineer Boots",
+  "item.monsterspellbooks.pale_observer_mask": "Pale Observer Mask",
+  "item.monsterspellbooks.pale_observer_chestplate": "Pale Observer Chestplate",
+  "item.monsterspellbooks.pale_observer_leggings": "Pale Observer Leggings",
+  "item.monsterspellbooks.pale_observer_boots": "Pale Observer Boots",
+  "item.monsterspellbooks.forge_masterpiece_helmet": "Forge Masterpiece Helmet",
+  "item.monsterspellbooks.forge_masterpiece_chestplate": "Forge Masterpiece Chestplate",
+  "item.monsterspellbooks.forge_masterpiece_leggings": "Forge Masterpiece Leggings",
+  "item.monsterspellbooks.forge_masterpiece_boots": "Forge Masterpiece Boots",
   "item.monsterspellbooks.starscourge_helmet": "Starscourge Helmet",
   "item.monsterspellbooks.starscourge_chestplate": "Starscourge Chestplate",
-  "item.monsterspellbooks.starscourge_leggings": "Starscourge leggings",
+  "item.monsterspellbooks.starscourge_leggings": "Starscourge Leggings",
   "item.monsterspellbooks.starscourge_boots": "Starscourge Boots",
 
   "entity.monsterspellbooks.aegis": "Aegis",
@@ -166,6 +183,9 @@
   "effect.monsterspellbooks.stunned": "Stunned",
   "effect.monsterspellbooks.mountain_corpse": "Mountain Corpse",
   "effect.monsterspellbooks.brimstone_flame": "Brimstone Flame",
+
+  "effect.monsterspellbooks.hemorrhage.description": "Upon reaching 3 stacks of Hemorrhage, the creature explodes, dealing damage and Hemorrhaging nearby creatures",
+
 
   "display.monsterspellbooks.curse_warning": "What a terrible night to have a Curse",
 

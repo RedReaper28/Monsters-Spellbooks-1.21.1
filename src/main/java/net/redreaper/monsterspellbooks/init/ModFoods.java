@@ -10,14 +10,6 @@ public class ModFoods {
             .saturationModifier(2.4f).build();
     public static final FoodProperties LEMON_PIE=new FoodProperties.Builder().nutrition(8)
             .saturationModifier(4.8f).build();
-    public static final FoodProperties ROCK_CANDY=new FoodProperties.Builder().nutrition(4)
-            .saturationModifier(5).effect(()->new MobEffectInstance(MobEffects.DIG_SPEED,5000),1f)
-            .effect(()->new MobEffectInstance(MobEffects.NIGHT_VISION, 2400, 1), 1F)
-            .effect(()->new MobEffectInstance(MobEffects.ABSORPTION, 2400, 0), 1.0F).alwaysEdible().build();
-    public static final FoodProperties ROCK_CANDY_SYRUP=new FoodProperties.Builder().nutrition(4)
-            .saturationModifier(5).effect(()->new MobEffectInstance(MobEffects.DIG_SPEED,5000,1),1f)
-            .effect(()->new MobEffectInstance(MobEffects.NIGHT_VISION, 6000, 0), 1F)
-            .effect(()->new MobEffectInstance(MobEffects.ABSORPTION, 6000, 0), 1.0F).alwaysEdible().build();
     public static final FoodProperties ROSE_GOLD_APPLE=new FoodProperties.Builder().nutrition(4)
             .saturationModifier(5).effect(()->new MobEffectInstance(MobEffects.REGENERATION,5000,2),1f)
             .effect(()->new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 6000, 0), 1F)

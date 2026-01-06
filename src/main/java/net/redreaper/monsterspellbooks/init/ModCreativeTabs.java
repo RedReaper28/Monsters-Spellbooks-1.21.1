@@ -48,13 +48,31 @@ public class ModCreativeTabs {
 
                         output.accept(ModItems.WITHERWARD_RING.get());
                         output.accept(ModItems.BRIMSTONE_SIGIL.get());
+                        output.accept(ModItems.DREADHOUND_TOOTH_NECKLACE.get());
 
                         output.accept(ModItems.FIERCE_DEITY_MASK.get());
                         output.accept(ModItems.MAJORAS_MASK.get());
+
                         output.accept(ModItems.SANGUINITE_HERO_HOOD.get());
                         output.accept(ModItems.SANGUINITE_HERO_CHESTPLATE.get());
                         output.accept(ModItems.SANGUINITE_HERO_LEGGINGS.get());
                         output.accept(ModItems.SANGUINITE_HERO_BOOTS.get());
+
+                        output.accept(ModItems.DWARVEN_ENGINEER_VISOR.get());
+                        output.accept(ModItems.DWARVEN_ENGINEER_CHESTPLATE.get());
+                        output.accept(ModItems.DWARVEN_ENGINEER_LEGGINGS.get());
+                        output.accept(ModItems.DWARVEN_ENGINEER_BOOTS.get());
+
+                        output.accept(ModItems.PALE_OBSERVER_MASK.get());
+                        output.accept(ModItems.PALE_OBSERVER_CHESTPLATE.get());
+                        output.accept(ModItems.PALE_OBSERVER_LEGGINGS.get());
+                        output.accept(ModItems.PALE_OBSERVER_BOOTS.get());
+
+                        output.accept(ModItems.FORGE_MASTERPIECE_HELMET.get());
+                        output.accept(ModItems.FORGE_MASTERPIECE_CHESTPLATE.get());
+                        output.accept(ModItems.FORGE_MASTERPIECE_LEGGINGS.get());
+                        output.accept(ModItems.FORGE_MASTERPIECE_BOOTS.get());
+
                         output.accept(ModItems.STARSCOURGE_HELMET.get());
                         output.accept(ModItems.STARSCOURGE_CHESTPLATE.get());
                         output.accept(ModItems.STARSCOURGE_LEGGINGS.get());

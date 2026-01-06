@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "monsterspellbooks:brimstone_sigil"
+    "monsterspellbooks:brimstone_sigil",
+    "monsterspellbooks:dreadhound_tooth_necklace"
   ]
 }

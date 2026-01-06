@@ -1,15 +1,20 @@
 package net.redreaper.monsterspellbooks.init;
 
+import io.redspace.ironsspellbooks.api.attribute.MagicPercentAttribute;
 import io.redspace.ironsspellbooks.api.attribute.MagicRangedAttribute;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.PercentageAttribute;
 import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 
+@EventBusSubscriber(modid = MonstersSpellbooks.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class ModAtributeRegistry {
     private static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(Registries.ATTRIBUTE, MonstersSpellbooks.MOD_ID);
 
@@ -18,7 +23,7 @@ public class ModAtributeRegistry {
     public static final DeferredHolder<Attribute, Attribute> NECRO_MAGIC_POWER = registerPowerAttribute("necro");
     //AERO
     public static final DeferredHolder<Attribute, Attribute> AERO_MAGIC_RESIST = registerResistanceAttribute("aero");
-    public static final DeferredHolder<Attribute, Attribute> AERO__MAGIC_POWER = registerPowerAttribute("aero");
+    public static final DeferredHolder<Attribute, Attribute> AERO_MAGIC_POWER = registerPowerAttribute("aero");
 
     public static void register(IEventBus eventBus)
     {
@@ -34,6 +39,7 @@ public class ModAtributeRegistry {
                         )));
     }
 
+    // ;_;
     private static DeferredHolder<Attribute, Attribute> registerResistanceAttribute(String id)
     {
         return ATTRIBUTES.register(id + "_magic_resist", () ->

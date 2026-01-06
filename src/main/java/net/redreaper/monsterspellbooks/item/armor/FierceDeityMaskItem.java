@@ -21,7 +21,7 @@ public class FierceDeityMaskItem extends ExtendedArmorItem implements IPresetSpe
         super(ModExtendedArmorMaterials.FIERCE_DEITY, slot, settings,
                 new AttributeContainer(AttributeRegistry.HOLY_SPELL_POWER, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.MANA_REGEN, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                new AttributeContainer(Attributes.ATTACK_DAMAGE, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(Attributes.ATTACK_DAMAGE, 2, AttributeModifier.Operation.ADD_VALUE),
                 new AttributeContainer(Attributes.MAX_HEALTH, 6, AttributeModifier.Operation.ADD_VALUE)
         );
     }

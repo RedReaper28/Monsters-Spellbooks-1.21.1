@@ -1,6 +1,7 @@
 package net.redreaper.monsterspellbooks.init;
 
 import io.redspace.ironsspellbooks.registries.ItemRegistry;
+import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -50,15 +51,31 @@ public class ModExtendedArmorMaterials {
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>FORGE_MASTERPIECE_ARMOR=register("forge_masterpiece_armor",
             schoolUpgradedArmorMap(),
             25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            SoundRegistry.FIRE_CAST,
             () -> Ingredient.of(ModItems.SCORCHED_METAL_INGOT.get()),
             5,
             0F);
 
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>DWARVEN_ENGINEER=register("dwarven_engineer_armor",
+            schoolUpgradedArmorMap(),
+            25,
+            SoundRegistry.LIGHTNING_CAST,
+            () -> Ingredient.of(ModItems.DWARVEN_ALLOY_PLATE.get()),
+            5,
+            0F);
+
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>PALE_OBSERVER=register("pale_observer_armor",
+            schoolHybridArmorMap(),
+            20,
+            SoundRegistry.OAKSKIN_CAST,
+            () -> Ingredient.of(ModItems.RESIN_BRICK.get()),
+            0,
+            0);
+
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>SANGUINITE_ARMOR=register("sanguinite_armor",
             schoolUpgradedArmorMap(),
             25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            SoundRegistry.BLOOD_EXPLOSION,
             () -> Ingredient.of(ModItems.SANGUINITE_INGOT.get()),
             3,
             0F);
