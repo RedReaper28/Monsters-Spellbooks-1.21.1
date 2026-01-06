@@ -1,5 +1,6 @@
 package net.redreaper.monsterspellbooks;
 
+import io.redspace.ironsspellbooks.registries.UpgradeOrbTypeRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.init.*;
 import org.jetbrains.annotations.NotNull;

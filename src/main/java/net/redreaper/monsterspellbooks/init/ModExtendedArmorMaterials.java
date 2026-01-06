@@ -47,13 +47,21 @@ public class ModExtendedArmorMaterials {
             3,
             0.2F);
 
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>FORGE_MASTERPIECE_ARMOR=register("forge_masterpiece_armor",
+            schoolUpgradedArmorMap(),
+            25,
+            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            () -> Ingredient.of(ModItems.SCORCHED_METAL_INGOT.get()),
+            5,
+            0F);
+
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>SANGUINITE_ARMOR=register("sanguinite_armor",
             schoolUpgradedArmorMap(),
-            20,
+            25,
             SoundEvents.ARMOR_EQUIP_NETHERITE,
             () -> Ingredient.of(ModItems.SANGUINITE_INGOT.get()),
             3,
-            0.1F);
+            0F);
 
     private static DeferredHolder<ArmorMaterial, ArmorMaterial> register(
             String name,

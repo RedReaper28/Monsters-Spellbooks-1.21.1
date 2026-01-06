@@ -135,6 +135,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DWARVEN_SLICER_SPAWN_EGG.get());
                         output.accept(ModItems.SHOCK_SPAWN_EGG.get());
                         output.accept(ModItems.VILE_SKELETON_SPAWN_EGG.get());
+
+                        output.accept(ModItems.NECRO_UPGRADE_ORB.get());
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_BLOCKS_TAB=CREATIVE_MODE_TAB.register("monsters_and_blocks_tab",
