@@ -27,6 +27,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.ORICHALCUM_DAGGER.get())
                 .add(ModItems.ORICHALCUM_GREATSWORD.get())
                 .add(ModItems.ORICHALCUM_WARHAMMER.get())
+                .add(ModItems.DWARVEN_WARHAMMER.get())
                 .add(ModItems.SANGUINITE_DAGGER.get())
                 .add(ModItems.SANGUINITE_SCYTHE.get())
                 .add(ModItems.POISON_GLAIVE.get())
@@ -42,13 +43,16 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.AXES)
                 .add(ModItems.GREAT_AXEBLADE.get())
                 .add(ModItems.ORICHALCUM_GREATAXE.get())
-                .add(ModItems.PRISMARINE_AXE.get())
                 .add(ModItems.ORICHALCUM_AXE.get())
+                .add(ModItems.DWARVEN_GREATAXE.get())
+                .add(ModItems.DWARVEN_AXE.get())
+                .add(ModItems.PRISMARINE_AXE.get())
                 .add(ModItems.SANGUINITE_AXE.get())
         ;
 
         tag(ItemTags.SWORD_ENCHANTABLE)
                 .add(ModItems.ORICHALCUM_GREATAXE.get())
+                .add(ModItems.DWARVEN_GREATAXE.get())
                 .add(ModItems.SANGUINITE_AXE.get())
         ;
 
@@ -57,9 +61,35 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.WEAPON_ENCHANTABLE)
                 .add(ModItems.ENDERSENT_CRUSHER.get());
+
+        tag(ItemTags.HEAD_ARMOR)
+                .add(ModItems.FIERCE_DEITY_MASK.get())
+                .add(ModItems.MAJORAS_MASK.get())
+                .add(ModItems.SANGUINITE_HERO_HOOD.get())
+                .add(ModItems.DWARVEN_ENGINEER_VISOR.get())
+                .add(ModItems.PALE_OBSERVER_MASK.get())
+                .add(ModItems.FORGE_MASTERPIECE_HELMET.get())
+                .add(ModItems.STARSCOURGE_HELMET.get());
+
+        tag(ItemTags.CHEST_ARMOR)
+                .add(ModItems.SANGUINITE_HERO_CHESTPLATE.get())
+                .add(ModItems.DWARVEN_ENGINEER_CHESTPLATE.get())
+                .add(ModItems.PALE_OBSERVER_CHESTPLATE.get())
+                .add(ModItems.FORGE_MASTERPIECE_CHESTPLATE.get())
+                .add(ModItems.STARSCOURGE_CHESTPLATE.get());
+
+        tag(ItemTags.LEG_ARMOR)
+                .add(ModItems.SANGUINITE_HERO_LEGGINGS.get())
+                .add(ModItems.DWARVEN_ENGINEER_LEGGINGS.get())
+                .add(ModItems.PALE_OBSERVER_CHESTPLATE.get())
+                .add(ModItems.FORGE_MASTERPIECE_LEGGINGS.get())
+                .add(ModItems.STARSCOURGE_LEGGINGS.get());
+
+        tag(ItemTags.FOOT_ARMOR)
+                .add(ModItems.SANGUINITE_HERO_BOOTS.get())
+                .add(ModItems.DWARVEN_ENGINEER_BOOTS.get())
+                .add(ModItems.PALE_OBSERVER_BOOTS.get())
+                .add(ModItems.FORGE_MASTERPIECE_BOOTS.get())
+                .add(ModItems.STARSCOURGE_BOOTS.get());
     }
-
-
-
-
 }

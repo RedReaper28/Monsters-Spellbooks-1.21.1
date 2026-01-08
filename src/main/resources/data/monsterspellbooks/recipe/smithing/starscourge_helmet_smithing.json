@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "monsterspellbooks:void_obsidian_ingot"
+  },
+  "base": {
+    "item": "irons_spellbooks:shadowwalker_helmet"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:starscourge_helmet"
+  },
+  "template": {
+    "item": "monsterspellbooks:upgrade_rune"
+  }
+}

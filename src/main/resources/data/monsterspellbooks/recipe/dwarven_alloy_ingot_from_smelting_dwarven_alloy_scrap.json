@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "dwarven_alloy",
+  "ingredient": {
+    "item": "monsterspellbooks:dwarven_alloy_scrap"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:dwarven_alloy_ingot"
+  }
+}

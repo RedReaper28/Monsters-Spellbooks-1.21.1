@@ -21,6 +21,7 @@ public class ModCreativeTabs {
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_gear"))
                     .displayItems((itemDisplayParameters, output) ->{
                         output.accept(ModItems.REAPER_LANTERN.get());
+                        output.accept(ModItems.VILENOVA_STAFF.get());
                         output.accept(ModItems.GREAT_AXEBLADE.get());
                         output.accept(ModItems.MASTERS_KATANA.get());
                         output.accept(ModItems.DANCERS_SWORD.get());
@@ -30,6 +31,10 @@ public class ModCreativeTabs {
                         output.accept(ModItems.ORICHALCUM_GREATAXE.get());
                         output.accept(ModItems.ORICHALCUM_WARHAMMER.get());
                         output.accept(ModItems.ORICHALCUM_AXE.get());
+
+                        output.accept(ModItems.DWARVEN_GREATAXE.get());
+                        output.accept(ModItems.DWARVEN_WARHAMMER.get());
+                        output.accept(ModItems.DWARVEN_AXE.get());
 
                         output.accept(ModItems.SANGUINITE_DAGGER.get());
                         output.accept(ModItems.SANGUINITE_SCYTHE.get());
@@ -84,6 +89,8 @@ public class ModCreativeTabs {
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID,"monsters_and_gear_tab"))
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_materials"))
                     .displayItems((itemDisplayParameters, output) ->{
+                        output.accept(ModItems.NECRO_UPGRADE_ORB.get());
+
                         output.accept(ModItems.RAW_OCEANITE);
                         output.accept(ModItems.OCEANITE_INGOT);
                         output.accept(ModItems.OCEANITE_NUGGET);
@@ -154,7 +161,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SHOCK_SPAWN_EGG.get());
                         output.accept(ModItems.VILE_SKELETON_SPAWN_EGG.get());
 
-                        output.accept(ModItems.NECRO_UPGRADE_ORB.get());
+
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_BLOCKS_TAB=CREATIVE_MODE_TAB.register("monsters_and_blocks_tab",
@@ -192,6 +199,8 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.WITHER_ALLOY_BLOCK);
                         output.accept(ModBlocks.BLAZESTEEL_BLOCK);
                         output.accept(ModBlocks.VOID_MATTER_ORE);
+
+                        output.accept(ModBlocks.VILESTONE);
                     }).build());
     public static void register(IEventBus eventBus){
         CREATIVE_MODE_TAB.register(eventBus);

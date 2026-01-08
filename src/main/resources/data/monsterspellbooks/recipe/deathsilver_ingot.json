@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "monsterspellbooks:deathsilver_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "monsterspellbooks:deathsilver_ingot"
+  }
+}

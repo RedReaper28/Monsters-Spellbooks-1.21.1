@@ -137,25 +137,34 @@ public class ServerEvents {
     @SubscribeEvent
     public static void onBeforeDamageTaken(LivingDamageEvent.Pre event) {
         var livingEntity = event.getEntity();
-        if (livingEntity instanceof IMagicEntity || livingEntity instanceof ServerPlayer) {
-            var playerMagicData = MagicData.getPlayerMagicData(livingEntity);
-            if (livingEntity.hasEffect(MobEffectRegistry.HEARTSTOP)) {
-                playerMagicData.getSyncedData().addHeartstopDamage(event.getOriginalDamage() * .5f);
-                event.setNewDamage(0);
-            }
-        }
+        var entity = event.getEntity();
+        var source = event.getSource();
+        var attacker = event.getSource().getEntity();
+
+
+        if (attacker instanceof Player)
+        {
         if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
             if (ASUtils.hasCurio((Player) livingAttacker, ModItems.BRIMSTONE_SIGIL.get())) {
                 ImmolateEffect.addImmolateStack(livingEntity, livingAttacker);
             }
         }
 
-        if (event.getSource().is(ISSDamageTypes.BLOOD_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
-            if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DREADHOUND_TOOTH_NECKLACE.get())) {
-                HemorrhageMobEffect.addHemorrhageStack(livingEntity, livingAttacker);
+
+            if (attacker instanceof Player)
+            {
+                if (event.getSource().is(ISSDamageTypes.BLOOD_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
+                    if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DREADHOUND_TOOTH_NECKLACE.get())) {
+                        HemorrhageMobEffect.addHemorrhageStack(livingEntity, livingAttacker);
+                    }
+                }
+
+
             }
         }
     }
 }
+
+
 
 

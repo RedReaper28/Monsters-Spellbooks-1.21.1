@@ -41,7 +41,7 @@ public class BrimstoneBuzzsawSpell extends AbstractSpell {
         this.manaCostPerLevel = 20;
         this.baseSpellPower = 15;
         this.spellPowerPerLevel = 3;
-        this.castTime = 40;
+        this.castTime = 60;
         this.baseManaCost = 70;
     }
 

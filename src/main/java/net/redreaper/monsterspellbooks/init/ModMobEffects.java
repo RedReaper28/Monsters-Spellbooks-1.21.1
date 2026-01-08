@@ -49,7 +49,8 @@ public class ModMobEffects {
             .addAttributeModifier(Attributes.ATTACK_KNOCKBACK, MonstersSpellbooks.id("mobeffect_mountain_corpse"), MountainCorpseMobEffect.ATTACK_KNOCKBACK_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE)
             .addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, MonstersSpellbooks.id("mobeffect_mountain_corpse"), MountainCorpseMobEffect.KNOCKBACK_RESISTANCE_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE)
             .addAttributeModifier(Attributes.GRAVITY, MonstersSpellbooks.id("mobeffect_mountain_corpse"), MountainCorpseMobEffect.GRAVITY_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE)
-            .addAttributeModifier(AttributeRegistry.SPELL_POWER, MonstersSpellbooks.id("mobeffect_mountain_corpse"), MountainCorpseMobEffect.NATURE_SPELL_POWER_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+            .addAttributeModifier(Attributes.STEP_HEIGHT, MonstersSpellbooks.id("mobeffect_mountain_corpse"), MountainCorpseMobEffect.STEP_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE)
+            .addAttributeModifier(AttributeRegistry.NATURE_SPELL_POWER, MonstersSpellbooks.id("mobeffect_mountain_corpse"), MountainCorpseMobEffect.NATURE_SPELL_POWER_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
 
 

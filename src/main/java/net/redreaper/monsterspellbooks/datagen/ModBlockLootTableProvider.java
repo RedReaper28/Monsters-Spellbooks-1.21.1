@@ -20,9 +20,7 @@ import net.redreaper.monsterspellbooks.init.ModItems;
 import java.util.Set;
 
 public class ModBlockLootTableProvider extends BlockLootSubProvider {
-    protected ModBlockLootTableProvider(HolderLookup.Provider registries) {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
-    }
+    protected ModBlockLootTableProvider(HolderLookup.Provider registries) {super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);}
 
     @Override
     protected void generate() {
@@ -45,6 +43,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.SPECTRITE_BLOCK.get());
         dropSelf(ModBlocks.WITHER_ALLOY_BLOCK.get());
         dropSelf(ModBlocks.BLAZESTEEL_BLOCK.get());
+
+        dropSelf(ModBlocks.VILESTONE.get());
 
         add(ModBlocks.OCEANITE_ORE_CLAY.get(),
                 block -> createOreDrop(ModBlocks.OCEANITE_ORE_CLAY.get(), ModItems.RAW_OCEANITE.get()));

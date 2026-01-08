@@ -129,6 +129,12 @@ public class ModEntities {
 
 
 
+    public static final Supplier<EntityType<SummonedAegisEntity>>SUMMONED_AEGIS=
+            ENTITIES.register("summoned_aegis", () -> EntityType.Builder.<SummonedAegisEntity>of(SummonedAegisEntity::new, MobCategory.MISC).
+                    sized(.8f, 1.8f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "summoned_aegis").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<SummonedVileSkeletonEntity>> SUMMONED_VILE_SKELETON =
             ENTITIES.register("summoned_vile_skeleton", () -> EntityType.Builder.<SummonedVileSkeletonEntity>of(SummonedVileSkeletonEntity::new, MobCategory.MISC)
                     .sized(.6f, 1.9f)

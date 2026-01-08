@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "oceanite",
+  "ingredient": {
+    "item": "monsterspellbooks:raw_oceanite"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:oceanite_ingot"
+  }
+}

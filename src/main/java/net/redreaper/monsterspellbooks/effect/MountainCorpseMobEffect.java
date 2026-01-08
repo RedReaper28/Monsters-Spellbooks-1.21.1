@@ -14,6 +14,7 @@ public class MountainCorpseMobEffect extends MagicMobEffect implements ISyncedMo
     public static final float KNOCKBACK_RESISTANCE_PER_LEVEL = 1F;
     public static final float GRAVITY_PER_LEVEL =1.0F;
     public static final float NATURE_SPELL_POWER_PER_LEVEL = .10f;
+    public static final float STEP_PER_LEVEL = 1f;
 
 
     public MountainCorpseMobEffect(MobEffectCategory mobEffectCategory, int color) {

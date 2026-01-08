@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "monsterspellbooks:orichalcum_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "monsterspellbooks:orichalcum_ingot"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:oceanite_ingot"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "AAA",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:oceanite_block"
+  }
+}

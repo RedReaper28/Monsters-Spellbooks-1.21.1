@@ -31,7 +31,7 @@ public class ReaperLanternSpellBook extends SpellBook implements GeoItem {
     private final AnimationController<ReaperLanternSpellBook> animationController = new AnimationController<>(this, "controller", 0, this::predicate);
 
     public ReaperLanternSpellBook() {
-        super(12, ItemPropertiesHelper.equipment().fireResistant().stacksTo(1).rarity(ASRarities.FORBIDDEN_RARITY_PROXY.getValue()));
+        super(12, ItemPropertiesHelper.equipment().fireResistant().stacksTo(1).rarity(ASRarities.VERDANT_RARITY_PROXY.getValue()));
         withSpellbookAttributes(new AttributeContainer(AttributeRegistry.MAX_MANA, 200, AttributeModifier.Operation.ADD_VALUE),
         new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
         new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.250, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));

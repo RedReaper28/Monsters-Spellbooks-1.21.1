@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.25,
+  "group": "vile_iron",
+  "ingredient": {
+    "item": "monsterspellbooks:raw_vile_iron"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:vile_iron_ingot"
+  }
+}

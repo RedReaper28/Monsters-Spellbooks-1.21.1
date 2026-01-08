@@ -18,6 +18,7 @@ import net.redreaper.monsterspellbooks.item.curios.elemental_charm.BrimstoneSigi
 import net.redreaper.monsterspellbooks.item.curios.elemental_charm.DreadHoundToothNecklaceItem;
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
+import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffItem;
 import net.redreaper.monsterspellbooks.item.weapons.*;
 import net.redreaper.monsterspellbooks.item.weapons.claws_of_calamity.ClawsOfCalamityItem;
 import net.redreaper.monsterspellbooks.item.weapons.crescent_blood_rose.CrescentBloodRoseItem;
@@ -154,6 +155,9 @@ public class ModItems {
     public static final DeferredItem<Item>GOLD_TRUFFLE_SLICE=ITEMS.register("gold_truffle_slice",
             ()->new Item(new Item.Properties().fireResistant().food(ModFoods.GOLD_TRUFFLE_SLICE)));
 
+    public static final DeferredItem<Item>VILENOVA_STAFF=ITEMS.register("vilenova_staff",
+            VileNovaStaffItem::new);
+
     public static final DeferredHolder<Item, Item> GREAT_AXEBLADE = ITEMS.register("great_axeblade", () ->
             new ExtendedAxeItem(Tiers.IRON, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_GREATAXE))));
     public static final DeferredHolder<Item, Item> MASTERS_KATANA = ITEMS.register("masters_katana", () ->
@@ -172,6 +176,12 @@ public class ModItems {
             new ExtendedAxeItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_WARHAMMER))));
     public static final DeferredItem<AxeItem>ORICHALCUM_AXE=ITEMS.register("orichalcum_axe", ()->
             new AxeItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_AXE))));
+    public static final DeferredHolder<Item, Item> DWARVEN_GREATAXE = ITEMS.register("dwarven_greataxe", () ->
+            new ExtendedAxeItem(ModToolTiers.DWARVEN_ALLOY, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DWARVEN_GREATAXE))));
+    public static final DeferredHolder<Item, Item> DWARVEN_WARHAMMER = ITEMS.register("dwarven_warhammer", () ->
+            new ExtendedAxeItem(ModToolTiers.DWARVEN_ALLOY, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DWARVEN_WARHAMMER))));
+    public static final DeferredItem<AxeItem>DWARVEN_AXE=ITEMS.register("dwarven_axe", ()->
+            new AxeItem(ModToolTiers.DWARVEN_ALLOY, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DWARVEN_AXE))));
     public static final DeferredItem<SwordItem>SANGUINITE_DAGGER=ITEMS.register("sanguinite_dagger", ()->
             new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,-3,-2.5f))));
     public static final DeferredItem<SwordItem>SANGUINITE_SCYTHE=ITEMS.register("sanguinite_scythe",
@@ -206,7 +216,6 @@ public class ModItems {
             WitherWardCurio::new);
     public static final Supplier<CurioBaseItem>BRIMSTONE_SIGIL = ITEMS.register("brimstone_sigil",
             BrimstoneSigilItem::new);
-
     public static final Supplier<CurioBaseItem>DREADHOUND_TOOTH_NECKLACE = ITEMS.register("dreadhound_tooth_necklace",
             DreadHoundToothNecklaceItem::new);
 

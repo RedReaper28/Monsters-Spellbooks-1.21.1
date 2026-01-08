@@ -8,6 +8,7 @@ import net.redreaper.monsterspellbooks.spells.blood.AnticoagulationSpell;
 import net.redreaper.monsterspellbooks.spells.blood.BloodPierceSpell;
 import net.redreaper.monsterspellbooks.spells.blood.HysteriaSpell;
 import net.redreaper.monsterspellbooks.spells.blood.SanguiniteEviscerationSpell;
+import net.redreaper.monsterspellbooks.spells.ender.CrushSpell;
 import net.redreaper.monsterspellbooks.spells.ender.EndersentSmashSpell;
 import net.redreaper.monsterspellbooks.spells.ender.GravityWellSpell;
 import net.redreaper.monsterspellbooks.spells.fire.*;
@@ -40,6 +41,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> SANGUINITE_EVISCERATION = registerSpell(new SanguiniteEviscerationSpell());
 
     //ENDER
+    public static final Supplier<AbstractSpell> CRUSH = registerSpell(new CrushSpell());
     //Smash the ground with the force of an Endersent,making targets susceptible to kinetic damage
     public static final Supplier<AbstractSpell> ENDERSENT_SMASH = registerSpell(new EndersentSmashSpell());
     //Stab the ground and pull enemies towards you,stunning them for a short time

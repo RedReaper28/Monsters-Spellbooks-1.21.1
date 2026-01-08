@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "monsterspellbooks:sanguinite_ingot"
+  },
+  "base": {
+    "item": "irons_spellbooks:cultist_helmet"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:sanguinite_hero_hood"
+  },
+  "template": {
+    "item": "monsterspellbooks:upgrade_rune"
+  }
+}

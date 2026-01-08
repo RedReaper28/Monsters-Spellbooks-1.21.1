@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "monsterspellbooks:raw_vile_iron_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "monsterspellbooks:raw_vile_iron"
+  }
+}

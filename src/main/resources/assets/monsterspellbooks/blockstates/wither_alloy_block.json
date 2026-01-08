@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "monsterspellbooks:block/wither_alloy_block"
+    }
+  }
+}

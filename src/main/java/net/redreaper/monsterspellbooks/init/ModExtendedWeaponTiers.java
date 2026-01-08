@@ -86,6 +86,15 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
     public static ModExtendedWeaponTiers ORICHALCUM_AXE = new ModExtendedWeaponTiers(1200, 8F, -3, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.1, AttributeModifier.Operation.ADD_VALUE));
 
+    public static ModExtendedWeaponTiers DWARVEN_GREATAXE = new ModExtendedWeaponTiers(1570, 11F, -3.2f, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DWARVEN_ALLOY_INGOT.get()),
+            new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 1, AttributeModifier.Operation.ADD_VALUE));
+
+    public static ModExtendedWeaponTiers DWARVEN_WARHAMMER = new ModExtendedWeaponTiers(1570, 11F, -3.5f, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DWARVEN_ALLOY_INGOT.get()),
+            new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 1.5f, AttributeModifier.Operation.ADD_VALUE));
+
+    public static ModExtendedWeaponTiers DWARVEN_AXE = new ModExtendedWeaponTiers(1570, 8F, -2.75f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DWARVEN_ALLOY_INGOT.get()),
+            new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.1, AttributeModifier.Operation.ADD_VALUE));
+
     private final int uses;
     private final float speed;
     private final float damage;

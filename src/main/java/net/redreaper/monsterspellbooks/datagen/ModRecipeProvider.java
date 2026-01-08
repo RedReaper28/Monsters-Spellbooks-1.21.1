@@ -1,14 +1,17 @@
 package net.redreaper.monsterspellbooks.datagen;
 
+import io.redspace.ironsspellbooks.registries.ItemRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.init.ModBlocks;
 import net.redreaper.monsterspellbooks.init.ModItems;
+import net.redreaper.monsterspellbooks.init.ModTags;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -20,175 +23,171 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput){
-        List<ItemLike> OCEANITE_SMELTABLES=List.of(ModItems.RAW_OCEANITE);
-        List<ItemLike> ORICHALCUM_SMELTABLES=List.of(ModItems.RAW_ORICHALCUM);
-        List<ItemLike> DWARVEN_ALLOY_SMELTABLES=List.of(ModItems.DWARVEN_ALLOY_SCRAP);
-        List<ItemLike> SCORCH_METAL_SMELTABLES=List.of(ModItems.RAW_SCORCHED_METAL);
-        List<ItemLike> VILE_IRON_ALLOY_SMELTABLES=List.of(ModItems.RAW_VILE_IRON);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.RAW_OCEANITE_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.RAW_OCEANITE.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.OCEANITE_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.OCEANITE_INGOT.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ROSE_GOLD_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.ROSE_GOLD_INGOT.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.POSEIDON_PEARL_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.POSEIDON_PEARL.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.RAW_ORICHALCUM_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.RAW_ORICHALCUM.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ORICHALCUM_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.RAW_ORICHALCUM.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DEATHSILVER_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.DEATHSILVER_INGOT.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SANGUINITE_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.SANGUINITE_INGOT.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DWARVEN_ALLOY_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.DWARVEN_ALLOY_INGOT.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.WHITE_GOLD_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.WHITE_GOLD_INGOT.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.RAW_SCORCHED_METAL_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.RAW_SCORCHED_METAL.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SCORCHED_METAL_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.SCORCHED_METAL_INGOT.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.RAW_VILE_IRON_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.RAW_VILE_IRON.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.VILE_IRON_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.VILE_IRON_INGOT.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.NETHER_PYRITE_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.NETHER_PYRITE.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.NETHER_RUBY_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.NETHER_RUBY.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SPECTRITE_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.SPECTRITE_INGOT.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.WITHER_ALLOY_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.WITHER_ALLOY_INGOT.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BLAZESTEEL_BLOCK.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .define('A',ModItems.BLAZESTEEL_INGOT.get()).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VILENOVA_STAFF.get())
+                .pattern(" BC")
+                .pattern(" AB")
+                .pattern("A  ")
+                .define('A',ModItems.VILE_BONE.get())
+                .define('B',ModItems.WITHER_ALLOY_INGOT.get())
+                .define('C',Items.NETHER_STAR)
+                        .unlockedBy("has_material", has(Items.NETHER_STAR)).save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.RAW_OCEANITE.get(),9)
-                .requires(ModBlocks.RAW_OCEANITE_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.OCEANITE_INGOT.get(),9)
-                .requires(ModBlocks.OCEANITE_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.OCEANITE_NUGGET.get(),9)
-                .requires(ModItems.OCEANITE_INGOT).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.ROSE_GOLD_INGOT.get(),9)
-                .requires(ModBlocks.ROSE_GOLD_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.ROSE_GOLD_NUGGET.get(),9)
-                .requires(ModItems.ROSE_GOLD_INGOT).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.POSEIDON_PEARL.get(),9)
-                .requires(ModBlocks.POSEIDON_PEARL_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.RAW_ORICHALCUM.get(),9)
-                .requires(ModBlocks.RAW_ORICHALCUM_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.ORICHALCUM_INGOT.get(),9)
-                .requires(ModBlocks.ORICHALCUM_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.ORICHALCUM_NUGGET.get(),9)
-                .requires(ModItems.ORICHALCUM_INGOT).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.DEATHSILVER_INGOT.get(),9)
-                .requires(ModBlocks.DEATHSILVER_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.DEATHSILVER_NUGGET.get(),9)
-                .requires(ModItems.DEATHSILVER_INGOT).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.SANGUINITE_INGOT.get(),9)
-                .requires(ModBlocks.SANGUINITE_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.DWARVEN_ALLOY_INGOT.get(),9)
-                .requires(ModBlocks.DWARVEN_ALLOY_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.DWARVEN_ALLOY_NUGGET.get(),9)
-                .requires(ModItems.DWARVEN_ALLOY_INGOT).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.WHITE_GOLD_INGOT.get(),9)
-                .requires(ModBlocks.WHITE_GOLD_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.WHITE_GOLD_NUGGET.get(),9)
-                .requires(ModItems.WHITE_GOLD_INGOT).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.RAW_SCORCHED_METAL.get(),9)
-                .requires(ModBlocks.RAW_SCORCHED_METAL_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.SCORCHED_METAL_INGOT.get(),9)
-                .requires(ModBlocks.SCORCHED_METAL_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.SCORCHED_METAL_NUGGET.get(),9)
-                .requires(ModItems.SCORCHED_METAL_INGOT).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.RAW_VILE_IRON.get(),9)
-                .requires(ModBlocks.RAW_VILE_IRON_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.VILE_IRON_INGOT.get(),9)
-                .requires(ModBlocks.VILE_IRON_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.VILE_IRON_NUGGET.get(),9)
-                .requires(ModItems.VILE_IRON_INGOT).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.NETHER_PYRITE.get(),9)
-                .requires(ModBlocks.NETHER_PYRITE_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.NETHER_RUBY.get(),9)
-                .requires(ModBlocks.NETHER_RUBY_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.SPECTRITE_INGOT.get(),9)
-                .requires(ModBlocks.SPECTRITE_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.BLAZESTEEL_INGOT.get(),9)
-                .requires(ModBlocks.BLAZESTEEL_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.WITHER_ALLOY_INGOT.get(),9)
-                .requires(ModBlocks.WITHER_ALLOY_BLOCK).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.WITHER_ALLOY_NUGGET.get(),9)
-                .requires(ModItems.WITHER_ALLOY_INGOT).unlockedBy("has_material", has(ModItems.OCEANITE_INGOT)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GREAT_AXEBLADE.get())
+                .pattern("  A")
+                .pattern(" B ")
+                .pattern("C  ")
+                .define('A',Items.IRON_SWORD)
+                .define('B',Items.IRON_AXE)
+                .define('C',Items.STICK)
+                .unlockedBy("has_material", has(Items.IRON_SWORD)).save(recipeOutput);
 
-        oreSmelting(recipeOutput,OCEANITE_SMELTABLES,RecipeCategory.MISC,ModItems.OCEANITE_INGOT,0.25f,200,"oceanite");
-        oreBlasting(recipeOutput,OCEANITE_SMELTABLES,RecipeCategory.MISC,ModItems.OCEANITE_INGOT,0.25f,100,"oceanite");
-        oreSmelting(recipeOutput,ORICHALCUM_SMELTABLES,RecipeCategory.MISC,ModItems.ORICHALCUM_INGOT,0.25f,200,"orichalcum");
-        oreBlasting(recipeOutput,ORICHALCUM_SMELTABLES,RecipeCategory.MISC,ModItems.ORICHALCUM_INGOT,0.25f,100,"orichalcum");
-        oreSmelting(recipeOutput,DWARVEN_ALLOY_SMELTABLES,RecipeCategory.MISC,ModItems.DWARVEN_ALLOY_INGOT,0.25f,200,"dwarven_alloy");
-        oreBlasting(recipeOutput,DWARVEN_ALLOY_SMELTABLES,RecipeCategory.MISC,ModItems.DWARVEN_ALLOY_INGOT,0.25f,100,"dwarven_alloy");
-        oreSmelting(recipeOutput,SCORCH_METAL_SMELTABLES,RecipeCategory.MISC,ModItems.SCORCHED_METAL_INGOT,0.25f,200,"scorched_metal");
-        oreBlasting(recipeOutput,SCORCH_METAL_SMELTABLES,RecipeCategory.MISC,ModItems.SCORCHED_METAL_INGOT,0.25f,100,"scorched_metal");
-        oreSmelting(recipeOutput,VILE_IRON_ALLOY_SMELTABLES,RecipeCategory.MISC,ModItems.VILE_IRON_INGOT,0.25f,200,"vile_iron");
-        oreBlasting(recipeOutput,VILE_IRON_ALLOY_SMELTABLES,RecipeCategory.MISC,ModItems.VILE_IRON_INGOT,0.25f,100,"vile_iron");
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MASTERS_KATANA.get())
+                .pattern("  A")
+                .pattern(" A ")
+                .pattern("B  ")
+                .define('A',ModItems.ROSE_GOLD_INGOT.get())
+                .define('B',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.ROSE_GOLD_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DANCERS_SWORD.get())
+                .pattern("  A")
+                .pattern(" B ")
+                .pattern("A  ")
+                .define('A',Items.IRON_SWORD)
+                .define('B',Items.STICK)
+                        .unlockedBy("has_material", has(Items.IRON_SWORD)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ORICHALCUM_DAGGER.get())
+                .pattern(" A ")
+                .pattern("B  ")
+                .define('A',ModItems.ORICHALCUM_INGOT.get())
+                .define('B',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.ORICHALCUM_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ORICHALCUM_GREATSWORD.get())
+                .pattern("  A")
+                .pattern(" A ")
+                .pattern("B  ")
+                .define('A',ModItems.ORICHALCUM_INGOT.get())
+                .define('B',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.ORICHALCUM_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ORICHALCUM_GREATAXE.get())
+                .pattern(" BA")
+                .pattern("AC ")
+                .pattern("C  ")
+                .define('A',ModItems.ORICHALCUM_INGOT.get())
+                .define('B',ModBlocks.ORICHALCUM_BLOCK.get())
+                .define('C',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.ORICHALCUM_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ORICHALCUM_WARHAMMER.get())
+                .pattern(" BA")
+                .pattern(" CB")
+                .pattern("C  ")
+                .define('A',ModItems.ORICHALCUM_INGOT.get())
+                .define('B',ModBlocks.ORICHALCUM_BLOCK.get())
+                .define('C',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.ORICHALCUM_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ORICHALCUM_AXE.get())
+                .pattern("AA")
+                .pattern("AB")
+                .pattern(" B")
+                .define('A',ModItems.ORICHALCUM_INGOT.get())
+                .define('B',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.ORICHALCUM_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DWARVEN_GREATAXE.get())
+                .pattern(" BA")
+                .pattern("AC ")
+                .pattern("C  ")
+                .define('A',ModItems.DWARVEN_ALLOY_INGOT.get())
+                .define('B',ModBlocks.DWARVEN_ALLOY_BLOCK.get())
+                .define('C',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.DWARVEN_ALLOY_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DWARVEN_WARHAMMER.get())
+                .pattern(" BA")
+                .pattern(" CB")
+                .pattern("C  ")
+                .define('A',ModItems.DWARVEN_ALLOY_INGOT.get())
+                .define('B',ModBlocks.DWARVEN_ALLOY_BLOCK.get())
+                .define('C',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.DWARVEN_ALLOY_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DWARVEN_AXE.get())
+                .pattern("AA")
+                .pattern("AB")
+                .pattern(" B")
+                .define('A',ModItems.DWARVEN_ALLOY_INGOT.get())
+                .define('B',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.DWARVEN_ALLOY_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SANGUINITE_DAGGER.get())
+                .pattern(" A ")
+                .pattern("B  ")
+                .define('A',ModItems.SANGUINITE_INGOT.get())
+                .define('B',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.SANGUINITE_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SANGUINITE_SCYTHE.get())
+                .pattern("AAB")
+                .pattern(" B ")
+                .pattern("B  ")
+                .define('A',ModItems.SANGUINITE_INGOT.get())
+                .define('B',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.SANGUINITE_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SANGUINITE_AXE.get())
+                .pattern(" BA")
+                .pattern("AC ")
+                .pattern("C  ")
+                .define('A',ModItems.SANGUINITE_INGOT.get())
+                .define('B',ModBlocks.SANGUINITE_BLOCK.get())
+                .define('C',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.SANGUINITE_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WITHERWARD_RING.get())
+                .pattern("A ")
+                .pattern(" B")
+                .define('A',ModItems.NECRO_RUNE.get())
+                .define('B', ItemRegistry.MITHRIL_SCRAP.get())
+                .unlockedBy("has_material", has(ItemRegistry.MITHRIL_SCRAP.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.NECRO_RUNE.get())
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .define('A', ModTags.Items.NECRO_FOCUS)
+                .define('B', ItemRegistry.BLANK_RUNE.get())
+                .unlockedBy("has_material", has(ItemRegistry.BLANK_RUNE.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.NECRO_UPGRADE_ORB.get())
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .define('A',ModItems.NECRO_RUNE.get())
+                .define('B', ItemRegistry.UPGRADE_ORB.get())
+                .unlockedBy("has_material", has(ItemRegistry.UPGRADE_ORB.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ROSE_GOLD_APPLE.get())
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .define('A',ModItems.ROSE_GOLD_INGOT.get())
+                .define('B', Items.APPLE)
+                .unlockedBy("has_material", has(ModItems.ROSE_GOLD_INGOT.get())).save(recipeOutput);
+
+
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.STRIDER_COTTON_STRING.get(),4)
+                .requires(ModItems.STRIDER_COTTON_BALL).unlockedBy("has_material", has(ModItems.STRIDER_COTTON_BALL)).save(recipeOutput);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.CINDER_CINNAMON_POWDER.get(),1)
+                .requires(ModItems.CINDER_CINNAMON).unlockedBy("has_material", has(ModItems.CINDER_CINNAMON)).save(recipeOutput);
+
+
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

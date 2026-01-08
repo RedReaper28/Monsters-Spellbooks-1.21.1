@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "monsterspellbooks:void_obsidian_ingot"
+  },
+  "base": {
+    "item": "irons_spellbooks:shadowwalker_boots"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:starscourge_boots"
+  },
+  "template": {
+    "item": "monsterspellbooks:upgrade_rune"
+  }
+}

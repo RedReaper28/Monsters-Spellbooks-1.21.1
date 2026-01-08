@@ -94,6 +94,8 @@
   "block.monsterspellbooks.blazesteel_block": "Blazesteel Block",
   "block.monsterspellbooks.void_matter_ore": "Void Matter Ore",
 
+  "block.monsterspellbooks.vilestone": "Vilestone",
+
   "item.monsterspellbooks.dancers_sword": "Dancers Sword",
   "item.monsterspellbooks.great_axeblade": "Great Axeblade",
   "item.monsterspellbooks.masters_katana": "Masters katana",
@@ -103,6 +105,9 @@
   "item.monsterspellbooks.orichalcum_greataxe": "Orichalcum Greataxe",
   "item.monsterspellbooks.orichalcum_warhammer": "Orichalcum Warhammer",
   "item.monsterspellbooks.orichalcum_axe": "Orichalcum Axe",
+  "item.monsterspellbooks.dwarven_greataxe": "Dwarven Greataxe",
+  "item.monsterspellbooks.dwarven_warhammer": "Dwarven Warhammer",
+  "item.monsterspellbooks.dwarven_axe": "Dwarven Axe",
   "item.monsterspellbooks.sanguinite_dagger": "Sanguinite Dagger",
   "item.monsterspellbooks.sanguinite_scythe": "Sanguinite Scythe",
   "item.monsterspellbooks.sanguinite_axe": "Sanguinite Axe",
@@ -117,6 +122,7 @@
   "item.monsterspellbooks.sword_of_courage": "Sword of Courage",
   "item.monsterspellbooks.reaper_sickle": "Reaper Sickle",
   "item.monsterspellbooks.endersent_crusher": "Endersent Crusher",
+  "item.monsterspellbooks.vilenova_staff": "Vilenova Staff",
   "item.monsterspellbooks.reaper_lantern": "Reaper Lantern",
   "item.monsterspellbooks.witherward_ring": "WitherWard Ring",
   "item.monsterspellbooks.witherward_ring.desc": "Grants wither immunity",
@@ -126,7 +132,6 @@
   "item.monsterspellbooks.dreadhound_tooth_necklace": "Dreadhound Tooth Necklace",
   "item.monsterspellbooks.dreadhound_tooth_necklace.desc": "Dealing Blood Spell Damage inflicts Bleeding and adds a stack of Hemorrhage",
   "item.monsterspellbooks.brimstone_sigil.hemorrhage.desc": "At 3 Hemorrhage stacks, cause an explosion (%s damage), spreading Hemorrhage",
-
 
   "item.monsterspellbooks.aegis_spawn_egg": "Aegis Spawn Egg",
   "item.monsterspellbooks.dwarven_sphere_spawn_egg": "Dwarven Sphere Spawn Egg",
@@ -212,6 +217,8 @@
   "spell.monsterspellbooks.hysteria.guide": "Go all in,either you die or your opponent does,increases your attack damage and speed and inflicts yourself with Heartstop",
   "spell.monsterspellbooks.sanguinite_evisceration": "Sanguinite Evisceration",
   "spell.monsterspellbooks.sanguinite_evisceration.guide": "Slash forward with your claws to inflict heavy bleeding.The damage scales off of your held weapon´s melee damage",
+  "spell.monsterspellbooks.crush": "Crush",
+
   "spell.monsterspellbooks.endersent_smash": "Endersent Smash",
   "spell.monsterspellbooks.endersent_smash.guide": "Smash the ground with the force of an Endersent,making targets susceptible to kinetic damage",
   "spell.monsterspellbooks.gravity_well": "Gravity Well",

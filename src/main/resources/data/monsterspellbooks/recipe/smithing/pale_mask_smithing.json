@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "monsterspellbooks:resin_heart"
+  },
+  "base": {
+    "item": "irons_spellbooks:plagued_helmet"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:pale_observer_mask"
+  },
+  "template": {
+    "item": "monsterspellbooks:upgrade_rune"
+  }
+}

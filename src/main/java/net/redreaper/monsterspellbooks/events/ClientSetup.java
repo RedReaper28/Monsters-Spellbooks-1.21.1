@@ -60,6 +60,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.SUMMONED_VILE_SKELETON.get(), VileSkeletonRenderer::new);
 
 
+
     }
 
 @SubscribeEvent

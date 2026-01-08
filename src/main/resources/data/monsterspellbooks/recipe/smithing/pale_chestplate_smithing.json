@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "monsterspellbooks:resin_heart"
+  },
+  "base": {
+    "item": "irons_spellbooks:plagued_chestplate"
+  },
+  "result": {
+    "components": {
+      "irons_spellbooks:spell_container": {
+        "data": [],
+        "maxSpells": 1,
+        "mustEquip": true,
+        "spellWheel": true
+      }
+    },
+    "count": 1,
+    "id": "monsterspellbooks:pale_observer_chestplate"
+  },
+  "template": {
+    "item": "monsterspellbooks:upgrade_rune"
+  }
+}

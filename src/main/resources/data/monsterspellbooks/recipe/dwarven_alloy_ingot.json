@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "monsterspellbooks:dwarven_alloy_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "monsterspellbooks:dwarven_alloy_ingot"
+  }
+}
