@@ -149,6 +149,33 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C',Items.STICK)
                 .unlockedBy("has_material", has(ModItems.SANGUINITE_INGOT)).save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STARSCOURGE_SWORD.get())
+                .pattern("  A")
+                .pattern("CA ")
+                .pattern("BC ")
+                .define('A',ModItems.VOID_OBSIDIAN_INGOT.get())
+                .define('B',Items.OBSIDIAN)
+                .define('C',Items.GOLD_INGOT)
+                .unlockedBy("has_material", has(ModItems.VOID_OBSIDIAN_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ENDERSENT_CRUSHER.get())
+                .pattern("ABA")
+                .pattern(" C ")
+                .pattern(" D ")
+                .define('A',ModItems.VOID_OBSIDIAN_INGOT.get())
+                .define('B',ItemRegistry.ENDER_UPGRADE_ORB.get())
+                .define('C',Items.MACE)
+                .define('D',Items.OBSIDIAN)
+                .unlockedBy("has_material", has(ModItems.VOID_OBSIDIAN_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REAPER_SICKLE.get())
+                .pattern("AAB")
+                .pattern(" B ")
+                .pattern("B  ")
+                .define('A',ModItems.SANGUINITE_INGOT.get())
+                .define('B',ModItems.WITHER_ALLOY_INGOT)
+                .unlockedBy("has_material", has(ModItems.WITHER_ALLOY_INGOT)).save(recipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WITHERWARD_RING.get())
                 .pattern("A ")
                 .pattern(" B")

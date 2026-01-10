@@ -118,8 +118,9 @@ public class DeathKnightEntity extends UniqueAbstractSpellCastingMob implements 
     public static AttributeSupplier.Builder createAttributes()
     {
         return LivingEntity.createLivingAttributes()
-                .add(Attributes.ATTACK_DAMAGE, 10.0)
+                .add(Attributes.ATTACK_DAMAGE, 30.0)
                 .add(Attributes.ATTACK_KNOCKBACK, 5.0)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 5.0)
                 .add(Attributes.MAX_HEALTH, 100)
                 .add(Attributes.ARMOR, 10.0)
                 .add(Attributes.FOLLOW_RANGE, 45.0)

@@ -26,7 +26,7 @@ public class BleedingMobEffect extends MagicMobEffect implements ISyncedMobEffec
     public boolean applyEffectTick(LivingEntity p_296276_, int p_296233_) {
             Registry<DamageType> dTypeReg = p_296276_.damageSources().damageTypes;
             Holder.Reference<DamageType> dType = dTypeReg.getHolder(NeoForgeMod.POISON_DAMAGE).orElse(dTypeReg.getHolderOrThrow(ISSDamageTypes.BLOOD_MAGIC));
-            p_296276_.hurt(new DamageSource(dType), 1+DAMAGE_PER_LEVEL);
+            p_296276_.hurt(new DamageSource(dType), 1);
         return true;
     }
 
@@ -52,5 +52,4 @@ public class BleedingMobEffect extends MagicMobEffect implements ISyncedMobEffec
         int i = 25 >> p_294232_;
         return i > 0 ? p_295368_ % i == 0 : true;
     }
-
 }

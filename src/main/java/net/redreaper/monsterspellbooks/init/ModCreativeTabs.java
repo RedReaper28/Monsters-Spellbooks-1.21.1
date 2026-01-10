@@ -45,7 +45,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DUCHEES_SEWING_NEEDLE.get());
                         output.accept(ModItems.DUKES_HEARTSTEALER.get());
                         output.accept(ModItems.SWORD_OF_COURAGE.get());
-                        output.accept(ModItems.FROStMOURNE.get());
+                        output.accept(ModItems.FROSTMOURNE.get());
                         output.accept(ModItems.STARLESS_NIGHT.get());
                         output.accept(ModItems.STARSCOURGE_SWORD.get());
                         output.accept(ModItems.ENDERSENT_CRUSHER.get());
@@ -57,6 +57,7 @@ public class ModCreativeTabs {
 
                         output.accept(ModItems.FIERCE_DEITY_MASK.get());
                         output.accept(ModItems.MAJORAS_MASK.get());
+                        output.accept(ModItems.FLESH_MAIDEN.get());
 
                         output.accept(ModItems.SANGUINITE_HERO_HOOD.get());
                         output.accept(ModItems.SANGUINITE_HERO_CHESTPLATE.get());

@@ -12,6 +12,9 @@ import net.redreaper.monsterspellbooks.spells.ender.CrushSpell;
 import net.redreaper.monsterspellbooks.spells.ender.EndersentSmashSpell;
 import net.redreaper.monsterspellbooks.spells.ender.GravityWellSpell;
 import net.redreaper.monsterspellbooks.spells.fire.*;
+import net.redreaper.monsterspellbooks.spells.holy.AegisPatrolSpell;
+import net.redreaper.monsterspellbooks.spells.ice.BlizzardAspectSpell;
+import net.redreaper.monsterspellbooks.spells.ice.FrostCoatingSpell;
 import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.AncientFlashSpell;
 import net.redreaper.monsterspellbooks.spells.nature.BeastHowlSpell;
@@ -54,15 +57,21 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> CAUTERIZING_TOUCH = registerSpell(new CauterizingTouchSpell());
     //Shot a thin burst of pure frenzy flame,inflicting madness to lower your targets maximum mana reserves
     public static final Supplier<AbstractSpell> FRENZIED_BURST = registerSpell(new FrenziedBurstSpell());
-    //Overheat yourself to gain extra damage and fire spell power at the cost of melting part of your own armor
 
     public static final Supplier<AbstractSpell> NAPALM_ORB = registerSpell(new NapalmOrbSpell());
-
+    //Overheat yourself to gain extra damage and fire spell power at the cost of melting part of your own armor
     public static final Supplier<AbstractSpell> OVERHEAT = registerSpell(new OverheatSpell());
 
+    //HOLY
+    public static final Supplier<AbstractSpell> AEGIS_PATROL = registerSpell(new AegisPatrolSpell());
+
+
     //ICE
+    public static final Supplier<AbstractSpell> BLIZZARD_ASPECT = registerSpell(new BlizzardAspectSpell());
     //Fire a single burst of ice sword to your opponent.Level increases sword number
+    public static final Supplier<AbstractSpell> FROST_COATING = registerSpell(new FrostCoatingSpell());
     public static final Supplier<AbstractSpell> ICE_ARSENAL = registerSpell(new IceArsenalSpell());
+
 
     //LIGHTING
     //Boost your strike with ancient lighting to strike your target multiple times in a single cast.The damage scales off of your held weapon´s melee damage
@@ -71,10 +80,12 @@ public class ModSpellRegistry {
     //NATURE
     //Release a damaging howl that leaves your targets paralyzed and stunned while you gain a primordial strength
     public static final Supplier<AbstractSpell> BEAST_HOWL = registerSpell(new BeastHowlSpell());
-    //Increases your size and stats giving the extra damage and knockback on your attacks but you are more susceptible to gravity and you move slower
+    //Increases your size and stats giving the extra damage and knockback on your attacks, but you are more susceptible to gravity and you move slower
     public static final Supplier<AbstractSpell> MOUNTAIN_CORPSE = registerSpell(new MountainCorpseSpell());
 
     //NECRO
+    // Instill yourself with necrotic magic,dealing additional melee,ranged,or spell damage towards creatures that are withering
+    public static final Supplier<AbstractSpell> REAPER_ASPECT = registerSpell(new ReaperAspectSpell());
     //Release a horrible scream that wither any life that hears it
     public static final Supplier<AbstractSpell> BANSHEE_SCREAM = registerSpell(new BansheeScreamSpell());
     //Summons the once elite guards of the Withered Fortress,imposing creatures that obey their master
@@ -83,11 +94,9 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> FALL_CURSE = registerSpell(new FallCurseSpell());
     //Absorb the life force of your target,making them weak while healing you for 100% of the damage done
     public static final Supplier<AbstractSpell> LIFE_DRAIN = registerSpell(new LifeDrainSpell());
-    // Instill yourself with necrotic magic,dealing additional melee,ranged,or spell damage towards creatures that are withering
-    public static final Supplier<AbstractSpell> REAPER_ASPECT = registerSpell(new ReaperAspectSpell());
     //Fires multiple blasts of spectral energy that builds up the Lethargy effect.Land all shots at max level to inflict a health decreasing effect.Level increases recasts
     public static final Supplier<AbstractSpell> SPECTRAL_BLAST = registerSpell(new SpectralBlastSpell());
-    //Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their body and soul and healing 15% of damage done
+    //Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their soul and healing 15% of damage done
     public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
     //Summon a ravenous horde of Vile Skeletons that attack anything that isn't their caster,striping their armor and withering their flesh
     public static final Supplier<AbstractSpell> VILE_SUMMON = registerSpell(new VileSummonSpell());

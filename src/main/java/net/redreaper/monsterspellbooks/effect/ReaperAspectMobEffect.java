@@ -26,6 +26,12 @@ public class ReaperAspectMobEffect extends MagicMobEffect {
                     float multiplier = 1 + ReaperAspectMobEffect.DAMAGE_PER_LEVEL * lvl;
                     event.setAmount(event.getAmount() * multiplier);
                 }
+                if (event.getEntity().hasEffect(ModMobEffects.SOUL_ROT)) {
+                    int lvl = livingAttacker.getEffect(ModMobEffects.REAPER_ASPECT).getAmplifier() + 1;
+                    float before = event.getAmount();
+                    float multiplier = 1 + ReaperAspectMobEffect.DAMAGE_PER_LEVEL * lvl;
+                    event.setAmount(event.getAmount() * multiplier);
+                }
             }
         }
     }

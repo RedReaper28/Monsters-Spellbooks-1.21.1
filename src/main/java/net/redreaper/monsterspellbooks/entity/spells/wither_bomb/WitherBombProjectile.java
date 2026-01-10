@@ -3,7 +3,6 @@ package net.redreaper.monsterspellbooks.entity.spells.wither_bomb;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
-import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import net.minecraft.core.Holder;
@@ -21,11 +20,7 @@ import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.network.PacketDistributor;
 import net.redreaper.monsterspellbooks.init.ModEntities;
-import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
-import net.redreaper.monsterspellbooks.particle.SoulExplosionParticlesPacket;
-import org.joml.Vector3f;
 
 import java.util.Optional;
 
@@ -38,6 +33,12 @@ public class WitherBombProjectile extends AbstractMagicProjectile {
     public WitherBombProjectile(Level pLevel, LivingEntity pShooter) {
         this(ModEntities.WITHER_BOMB.get(), pLevel);
         this.setOwner(pShooter);
+    }
+
+    int witherDuration;
+
+    public int getWitherDuration() {
+        return witherDuration;
     }
 
     public void shoot(Vec3 rotation, float inaccuracy) {
@@ -74,29 +75,31 @@ public class WitherBombProjectile extends AbstractMagicProjectile {
     }
 
     @Override
-    public Optional<Holder<SoundEvent>> getImpactSound() {
-        return Optional.of(SoundEvents.GENERIC_EXPLODE);
-    }
-
-    @Override
     protected void onHit(HitResult hitResult) {
         if (!this.level().isClientSide) {
             impactParticles(xOld, yOld, zOld);
             float explosionRadius = getExplosionRadius();
             var explosionRadiusSqr = explosionRadius * explosionRadius;
-            var entities = level().getEntities(this, this.getBoundingBox().inflate(explosionRadius));
+
             Vec3 losPoint = Utils.raycastForBlock(level(), this.position(), this.position().add(0, 2, 0), ClipContext.Fluid.NONE).getLocation();
             MagicManager.spawnParticles(level(), new BlastwaveParticleOptions(SchoolRegistry.ICE.get().getTargetingColor(), getExplosionRadius()), hitResult.getLocation().x() , hitResult.getLocation().y()  + .165f,  hitResult.getLocation().z() , 1, 0, 0, 0, 0, true);
+
+            var entities = level().getEntities(this, this.getBoundingBox().inflate(explosionRadius));
+
             for (Entity entity : entities) {
                 double distanceSqr = entity.distanceToSqr(hitResult.getLocation());
                 if (distanceSqr < explosionRadiusSqr && canHitEntity(entity) && Utils.hasLineOfSight(level(), losPoint, entity.getBoundingBox().getCenter(), true)) {
                     double p = (1 - distanceSqr / explosionRadiusSqr);
                     float damage = (float) (this.damage * p);
-                    DamageSources.applyDamage(entity, damage, ModSpellRegistry.WITHER_BOMB.get().getDamageSource(this, getOwner()));
-                    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.WITHER,300,1));
+
+                    if (entity instanceof LivingEntity livingEntity && livingEntity != getOwner())
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 180, 200));
                 }
-            }}
+            }
+        }
         playSound(SoundEvents.GENERIC_EXPLODE.value(), 4.0F, (1.0F + (this.level().random.nextFloat() - this.level().random.nextFloat()) * 0.2F) * 0.7F);
             this.discardHelper(hitResult);
         }
+
+        @Override public Optional<Holder<SoundEvent>> getImpactSound() {return Optional.of(SoundEvents.GENERIC_EXPLODE);}
     }

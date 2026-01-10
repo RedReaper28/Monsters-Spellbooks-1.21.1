@@ -2,17 +2,10 @@ package net.redreaper.monsterspellbooks.events;
 
 import io.redspace.ironsspellbooks.api.entity.IMagicEntity;
 import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
-import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
-import io.redspace.ironsspellbooks.config.ServerConfigs;
-import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
-import io.redspace.ironsspellbooks.datagen.DamageTypeTagGenerator;
-import io.redspace.ironsspellbooks.effect.AbyssalShroudEffect;
-import io.redspace.ironsspellbooks.effect.EvasionEffect;
 import io.redspace.ironsspellbooks.effect.ImmolateEffect;
-import io.redspace.ironsspellbooks.entity.spells.ice_tomb.IceTombEntity;
 import io.redspace.ironsspellbooks.registries.ItemRegistry;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import net.acetheeldritchking.aces_spell_utils.utils.ASUtils;
@@ -24,18 +17,18 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.Projectile;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.redreaper.monsterspellbooks.effect.HemorrhageMobEffect;
+import net.redreaper.monsterspellbooks.init.ModDamageTypes;
 import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 
@@ -96,6 +89,12 @@ public class ServerEvents {
                 livingAttacker.setRemainingFireTicks(50);
             }
         }
+
+        else if (entityAttacker instanceof LivingEntity livingAttacker) {
+            if (livingTarget.hasEffect(ModMobEffects.DECAYING_TOUCH)) {
+                livingTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, 120, 1, true, true, true));
+            }
+        }
     }
 
     @SubscribeEvent
@@ -130,6 +129,17 @@ public class ServerEvents {
                     if (event.getSource().is(ISSDamageTypes.BLOOD_MAGIC))
                         target.addEffect(new MobEffectInstance(ModMobEffects.BLEEDING, 120, 1, true, true, true));
                 }
+
+                // Frostmourne
+                if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FROSTMOURNE)) {
+                    if (event.getSource().is(ISSDamageTypes.ICE_MAGIC))
+                        target.addEffect(new MobEffectInstance(MobEffects.WITHER, 120, 1, true, true, true));
+                }
+
+                if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FROSTMOURNE)) {
+                    if (event.getSource().is(ModDamageTypes.NECRO_MAGIC))
+                        Utils.addFreezeTicks(target, 120);
+                }
             }
         }
     }
@@ -156,6 +166,13 @@ public class ServerEvents {
                 if (event.getSource().is(ISSDamageTypes.BLOOD_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
                     if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DREADHOUND_TOOTH_NECKLACE.get())) {
                         HemorrhageMobEffect.addHemorrhageStack(livingEntity, livingAttacker);
+                    }
+                }
+
+
+                if (event.getSource().is(ISSDamageTypes.ICE_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
+                    if (livingAttacker.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FROSTMOURNE) && (!(livingAttacker instanceof Player player))) {
+                        livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 120, 1, true, true, true));
                     }
                 }
 

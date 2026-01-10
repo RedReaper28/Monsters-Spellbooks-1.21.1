@@ -3,9 +3,9 @@ package net.redreaper.monsterspellbooks.init;
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.item.curios.CurioBaseItem;
 import io.redspace.ironsspellbooks.registries.ComponentRegistry;
-import io.redspace.ironsspellbooks.registries.UpgradeOrbTypeRegistry;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.item.UpgradeOrbItem;
+import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
@@ -198,7 +198,7 @@ public class ModItems {
             DuchessSewingNeedle::new);
     public static final DeferredItem<Item>DUKES_HEARTSTEALER = ITEMS.register("dukes_heartstealer",
             DukesHeartstealer::new);
-    public static final DeferredItem<Item>FROStMOURNE = ITEMS.register("frostmourne",
+    public static final DeferredItem<Item> FROSTMOURNE = ITEMS.register("frostmourne",
             Frostmourne::new);
     public static final DeferredItem<Item>STARLESS_NIGHT = ITEMS.register("starless_night",
             StarlessNight::new);
@@ -223,6 +223,9 @@ public class ModItems {
             new FierceDeityMaskItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(Rarity.UNCOMMON).durability(ArmorItem.Type.HELMET.getDurability(30))));
     public static final DeferredHolder<Item, Item> MAJORAS_MASK = ITEMS.register("majoras_mask", () ->
             new MajorasMaskArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(Rarity.UNCOMMON).durability(ArmorItem.Type.HELMET.getDurability(30))));
+
+    public static final DeferredHolder<Item, Item> FLESH_MAIDEN = ITEMS.register("flesh_maiden", () ->
+            new FleshMaidenArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ASRarities.ACCURSED_RARITY_PROXY.getValue()).durability(ArmorItem.Type.CHESTPLATE.getDurability(30))));
 
     public static final DeferredHolder<Item, Item> SANGUINITE_HERO_HOOD = ITEMS.register("sanguinite_hero_hood", () ->
             new SanguiniteHeroArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(48))));

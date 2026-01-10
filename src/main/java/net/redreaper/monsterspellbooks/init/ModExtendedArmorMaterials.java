@@ -80,6 +80,14 @@ public class ModExtendedArmorMaterials {
             3,
             0F);
 
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>FLESH_MAIDEN=register("flesh_maiden",
+            schoolUpgradedArmorMap(),
+            25,
+            SoundRegistry.BLOOD_EXPLOSION,
+            () -> Ingredient.of(ItemRegistry.BLOOD_VIAL.get()),
+            3,
+            0F);
+
     private static DeferredHolder<ArmorMaterial, ArmorMaterial> register(
             String name,
             EnumMap<ArmorItem.Type, Integer> defense,

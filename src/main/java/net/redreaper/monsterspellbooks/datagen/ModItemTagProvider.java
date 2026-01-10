@@ -35,7 +35,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.CLAWS_OF_CALAMITY.get())
                 .add(ModItems.DUCHEES_SEWING_NEEDLE.get())
                 .add(ModItems.DUKES_HEARTSTEALER.get())
-                .add(ModItems.FROStMOURNE.get())
+                .add(ModItems.FROSTMOURNE.get())
                 .add(ModItems.STARLESS_NIGHT.get())
                 .add(ModItems.STARSCOURGE_SWORD.get())
                 .add(ModItems.SWORD_OF_COURAGE.get());

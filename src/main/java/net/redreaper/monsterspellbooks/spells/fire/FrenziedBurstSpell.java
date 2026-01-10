@@ -20,6 +20,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.effect.MadnessMobEffect;
+import net.redreaper.monsterspellbooks.effect.OverheatMobEffect;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstVisualEntity;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
@@ -36,7 +38,9 @@ public class FrenziedBurstSpell extends AbstractSpell {
         return List.of(
                 Component.translatable("ui.irons_spellbooks.damage", Utils.stringTruncation(getDamage(spellLevel, caster), 2)),
                 Component.translatable("ui.irons_spellbooks.distance", Utils.stringTruncation(getRange(spellLevel, caster), 1)),
-                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(spellLevel, caster), 2))
+                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(spellLevel, caster), 2)),
+                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentManaReduction(spellLevel, caster), 0), Component.translatable("attribute.irons_spellbooks.max_mana"))
+
         );
     }
 
@@ -114,6 +118,10 @@ public class FrenziedBurstSpell extends AbstractSpell {
 
     public static float getRange(int level, LivingEntity caster) {
         return 20;
+    }
+
+    private float getPercentManaReduction(int spellLevel, LivingEntity entity) {
+        return spellLevel * MadnessMobEffect.MANA_REDUCTION_PER_LEVEL * 100;
     }
 
     private float getDamage(int spellLevel, LivingEntity caster) {

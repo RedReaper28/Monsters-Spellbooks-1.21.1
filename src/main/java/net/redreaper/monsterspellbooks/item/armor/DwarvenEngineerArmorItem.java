@@ -33,6 +33,6 @@ public class DwarvenEngineerArmorItem extends ImbuableExtendedGeoArmorItem {
     }
 
     static {
-        GLOW_RENDER_TYPE = RenderType.breezeEyes(LAYER);
+        GLOW_RENDER_TYPE = RenderType.eyes(LAYER);
     }
 }

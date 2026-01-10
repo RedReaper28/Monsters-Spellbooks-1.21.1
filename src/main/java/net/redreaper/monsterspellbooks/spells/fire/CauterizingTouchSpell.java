@@ -41,8 +41,6 @@ public class CauterizingTouchSpell extends AbstractSpell {
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
                 Component.translatable("ui.irons_spellbooks.damage", getDamageText(spellLevel, caster)),
-                Component.translatable("ui.monsterspellbooks.extra_damage"),
-                Component.translatable("ui.monsterspellbooks.melee_damage"),
                 Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(spellLevel, caster), 2))
                 );
     }

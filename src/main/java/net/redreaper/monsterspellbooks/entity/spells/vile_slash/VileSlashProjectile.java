@@ -6,14 +6,12 @@ import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.mobs.AntiMagicSusceptible;
 import io.redspace.ironsspellbooks.entity.spells.AbstractShieldEntity;
 import io.redspace.ironsspellbooks.entity.spells.ShieldPart;
-import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
@@ -23,6 +21,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.init.ModParticleTypes;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 
@@ -143,8 +142,7 @@ public class VileSlashProjectile extends Projectile implements AntiMagicSuscepti
     private void damageEntity(Entity entity) {
         if (!victims.contains(entity)) {
             DamageSources.applyDamage(entity, damage, ModSpellRegistry.VILE_SLASH.get().getDamageSource(this, getOwner()));
-            ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffectRegistry.REND,300,3));
-            ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.WITHER,300,1));
+            ((LivingEntity) entity).addEffect(new MobEffectInstance(ModMobEffects.SOUL_ROT,150,1));
             victims.add(entity);
         }
     }

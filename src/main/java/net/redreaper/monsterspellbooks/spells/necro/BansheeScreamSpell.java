@@ -20,6 +20,9 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.effect.FearMobEffect;
+import net.redreaper.monsterspellbooks.effect.OverheatMobEffect;
+import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 
 import javax.annotation.Nullable;
@@ -31,7 +34,10 @@ public class BansheeScreamSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "banshee_scream");
 
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
-        return List.of(Component.translatable("ui.irons_spellbooks.damage", new Object[]{Utils.stringTruncation((double)this.getDamage(spellLevel, caster), 2)}), Component.translatable("ui.irons_spellbooks.radius", new Object[]{Utils.stringTruncation((double)this.getRadius(spellLevel, caster), 2)}));
+        return List.of(Component.translatable("ui.irons_spellbooks.damage", new Object[]{Utils.stringTruncation((double) this.getDamage(spellLevel, caster), 2)}),
+                Component.translatable("ui.irons_spellbooks.radius", new Object[]{Utils.stringTruncation((double) this.getRadius(spellLevel, caster), 2)}),
+                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentCastTime(spellLevel, caster), 0), Component.translatable("attribute.irons_spellbooks.cast_time_reduction"))
+                );
     }
 
     private final DefaultConfig defaultConfig = new DefaultConfig()
@@ -70,19 +76,20 @@ public class BansheeScreamSpell extends AbstractSpell {
     }
 
     public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int)(this.getSpellPower(spellLevel, caster) * 20.0F);
+        return (int) (this.getSpellPower(spellLevel, caster) * 20.0F);
     }
 
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         float radius = getRadius(spellLevel, entity);
         MagicManager.spawnParticles(level, new BlastwaveParticleOptions(SchoolRegistry.ICE.get().getTargetingColor(), radius), entity.getX(), entity.getY() + .165f, entity.getZ(), 1, 0, 0, 0, 0, true);
-        MagicManager.spawnParticles(level, ParticleTypes.SOUL, entity.getX(), entity.getY() + (double)1.0F, entity.getZ(), 50, (double)0.0F, (double)0.0F, (double)0.0F, (double)1.0F, false);
-        level.getEntities(entity, entity.getBoundingBox().inflate((double)radius, (double)4.0F, (double)radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, false)).forEach((target) -> {
+        MagicManager.spawnParticles(level, ParticleTypes.SOUL, entity.getX(), entity.getY() + (double) 1.0F, entity.getZ(), 50, (double) 0.0F, (double) 0.0F, (double) 0.0F, (double) 1.0F, false);
+        level.getEntities(entity, entity.getBoundingBox().inflate((double) radius, (double) 4.0F, (double) radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, false)).forEach((target) -> {
             if (target instanceof LivingEntity livingEntity) {
-                if (livingEntity.distanceToSqr(entity) < (double)(radius * radius)) {
+                if (livingEntity.distanceToSqr(entity) < (double) (radius * radius)) {
                     int i = this.getDuration(spellLevel, entity);
                     DamageSources.applyDamage(target, this.getDamage(spellLevel, entity), this.getDamageSource(entity));
                     livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, i, this.getWitherAmplifier(spellLevel, entity)));
+                    livingEntity.addEffect(new MobEffectInstance(ModMobEffects.FEAR, i, this.getWitherAmplifier(spellLevel, entity)));
                 }
             }
 
@@ -104,6 +111,10 @@ public class BansheeScreamSpell extends AbstractSpell {
 
     public AnimationHolder getCastFinishAnimation() {
         return SpellAnimations.CAST_T_POSE;
+    }
+
+    private float getPercentCastTime(int spellLevel, LivingEntity entity) {
+        return spellLevel * FearMobEffect.CAST_TIME_PER_LEVEL * 100;
     }
 
     public float getRadius(int spellPower, LivingEntity caster) {
