@@ -17,9 +17,9 @@ import net.neoforged.neoforge.common.NeoForgeMod;
 
 public class SpiritFrostbiteMobEffect extends MagicMobEffect implements ISyncedMobEffect {
     public static final float SLOWNESS_PER_LEVEL =  -0.05F;
-    public static final float CAST_TIME_PER_LEVEL =  -0.02F;
-    public static final float ATTACK_SLOWNESS_PER_LEVEL =  -0.02F;
-    public static final float MANA_SLOWNESS_PER_LEVEL =  -0.02F;
+    public static final float CAST_TIME_PER_LEVEL =  -0.05F;
+    public static final float ATTACK_SLOWNESS_PER_LEVEL =  -0.05F;
+    public static final float MANA_SLOWNESS_PER_LEVEL =  -0.05F;
 
     public SpiritFrostbiteMobEffect(MobEffectCategory mobEffectCategory, int color) {
         super(mobEffectCategory, color);

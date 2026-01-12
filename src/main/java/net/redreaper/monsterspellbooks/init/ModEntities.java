@@ -1,7 +1,6 @@
 package net.redreaper.monsterspellbooks.init;
 
 import io.redspace.ironsspellbooks.IronsSpellbooks;
-import io.redspace.ironsspellbooks.entity.spells.poison_cloud.PoisonSplash;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -20,6 +19,8 @@ import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurs
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSword;
 import net.redreaper.monsterspellbooks.entity.spells.life_drain.LifeDrainProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrb;
+import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceField;
+import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMass;
 import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.SanguiniteEvisceration;
 import net.redreaper.monsterspellbooks.entity.spells.spectral_blast.SpectralBlastVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashProjectile;
@@ -119,6 +120,18 @@ public class ModEntities {
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "napalm_orb").toString()));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<PutrescenceField>> PUTRESCENCE_FIELD =
+            ENTITIES.register("putrescence_field", () -> EntityType.Builder.<PutrescenceField>of(PutrescenceField::new, MobCategory.MISC)
+                    .sized(4f, 1.2f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "putrescence_field").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<PutrescenceMass>> PUTRESCENCE_MASS =
+            ENTITIES.register("putrescence_mass", () -> EntityType.Builder.<PutrescenceMass>of(PutrescenceMass::new, MobCategory.MISC)
+                    .sized(0.75F, 0.75F)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "putrescence_mass").toString()));
+
     public static final Supplier<EntityType<AegisEntity>>AEGIS=
             ENTITIES.register("aegis", () -> EntityType.Builder.<AegisEntity>of(AegisEntity::new, MobCategory.MONSTER).
                     sized(.8f, 1.8f)
@@ -135,6 +148,12 @@ public class ModEntities {
                     sized(.6f, .80f)
                     .build(
                             ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "shock").toString()));
+    public static final DeferredHolder<EntityType<?>, EntityType<DripplerEntity>> DRIPPLER =
+            ENTITIES.register("drippler", () -> EntityType.Builder.<DripplerEntity>of(DripplerEntity::new, MobCategory.MONSTER).
+                    sized(.6f, .80f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "shock").toString()));
+
     public static final Supplier<EntityType<VileSkeletonEntity>>VILE_SKELETON=
             ENTITIES.register("vile_skeleton",()->EntityType.Builder.of(VileSkeletonEntity::new,MobCategory.MONSTER)
                     .sized(0.6F, 1.9F).build("vile_skeleton"));

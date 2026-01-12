@@ -2,7 +2,7 @@
   "type": "irons_spellbooks:alchemist_cauldron_brew",
   "base_fluid": {
     "amount": 500,
-    "id": "irons_spellbooks:blood"
+    "id": "monsterspellbooks:raw_sanguinite"
   },
   "byproduct": {
     "id": "monsterspellbooks:sanguinite_ingot"

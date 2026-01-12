@@ -1,0 +1,14 @@
+{
+  "type": "irons_spellbooks:alchemist_cauldron_fill",
+  "fluid": {
+    "amount": 250,
+    "id": "monsterspellbooks:putrescence"
+  },
+  "input": {
+    "item": "monsterspellbooks:putrescence_vial"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:glass_bottle"
+  }
+}

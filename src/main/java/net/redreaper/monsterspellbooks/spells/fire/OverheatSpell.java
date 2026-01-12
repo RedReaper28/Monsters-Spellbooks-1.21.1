@@ -28,7 +28,6 @@ public class OverheatSpell extends AbstractSpell {
         return List.of(
                 Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 20, 1)),
                 Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentAttackDamage(spellLevel, caster), 0), Component.translatable("attribute.name.generic.attack_damage")),
-                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentSpellPower(spellLevel, caster), 0), Component.translatable("attribute.irons_spellbooks.fire_spell_power")),
                 Component.translatable("ui.irons_spellbooks.rend", Utils.stringTruncation((getRendAmplifier(spellLevel, caster) + 1) * 5, 1))
                 );
     }
@@ -71,10 +70,6 @@ public class OverheatSpell extends AbstractSpell {
 
     private float getPercentAttackDamage(int spellLevel, LivingEntity entity) {
         return spellLevel * OverheatMobEffect.ATTACK_DAMAGE_PER_LEVEL * 100;
-    }
-
-    private float getPercentSpellPower(int spellLevel, LivingEntity entity) {
-        return spellLevel * OverheatMobEffect.FIRE_SPELL_POWER_PER_LEVEL * 100;
     }
 
     public int getRendAmplifier(int spellLevel, LivingEntity caster) {

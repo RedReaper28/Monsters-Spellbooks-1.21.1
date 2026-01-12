@@ -72,6 +72,14 @@ public class ModExtendedArmorMaterials {
             0,
             0);
 
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>FROST_DEATHSILVER=register("frost_deathsilver",
+            schoolHybridArmorMap(),
+            20,
+            SoundRegistry.ICE_CAST,
+            () -> Ingredient.of(ModItems.DEATHSILVER_INGOT.get()),
+            2,
+            0);
+
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>SANGUINITE_ARMOR=register("sanguinite_armor",
             schoolUpgradedArmorMap(),
             25,

@@ -75,11 +75,6 @@ public class FrostCoatingSpell extends AbstractSpell {
     }
 
     @Override
-    public Optional<SoundEvent> getCastStartSound() {
-        return Optional.empty();
-    }
-
-    @Override
     public Optional<SoundEvent> getCastFinishSound() {
         return Optional.of(SoundRegistry.FROSTBITE_FREEZE.get());
     }
@@ -89,7 +84,7 @@ public class FrostCoatingSpell extends AbstractSpell {
         return SpellAnimations.SELF_CAST_ANIMATION;
     }
 
-    private float getExtraArmor (int spellLevel, LivingEntity entity) {return spellLevel * FrostCoatingMobEffect.ARMOR_PER_LEVEL ;}
+    private float getExtraArmor (int spellLevel, LivingEntity entity) {return spellLevel * FrostCoatingMobEffect.ARMOR_PER_LEVEL+2 ;}
 
     private float getSpellResistance (int spellLevel, LivingEntity entity) {return spellLevel * FrostCoatingMobEffect.SPELL_RESISTANCE_PER_LEVEL * 100;}
 }

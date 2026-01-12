@@ -28,7 +28,8 @@ public class HysteriaSpell extends AbstractSpell {
         return List.of(
                 Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 10, 1)),
                 Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentAttackDamage(spellLevel, caster), 0), Component.translatable("attribute.name.generic.attack_damage")),
-                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentSpellPower(spellLevel, caster), 0), Component.translatable("attribute.name.generic.attack_speed"))
+                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentSpellPower(spellLevel, caster), 0), Component.translatable("attribute.name.generic.attack_speed")),
+                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentSpeed(spellLevel, caster), 0), Component.translatable("attribute.name.generic.movement_speed"))
         );
     }
 
@@ -36,15 +37,15 @@ public class HysteriaSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.RARE)
             .setSchoolResource(SchoolRegistry.BLOOD_RESOURCE)
             .setMaxLevel(3)
-            .setCooldownSeconds(40)
+            .setCooldownSeconds(240)
             .build();
 
     public HysteriaSpell() {
         this.manaCostPerLevel = 25;
-        this.baseSpellPower = 50;
-        this.spellPowerPerLevel = 8;
+        this.baseSpellPower = 15;
+        this.spellPowerPerLevel = 5;
         this.castTime = 0;
-        this.baseManaCost = 50;
+        this.baseManaCost = 150;
     }
 
     public CastType getCastType() {
@@ -71,6 +72,10 @@ public class HysteriaSpell extends AbstractSpell {
 
     private float getPercentSpellPower(int spellLevel, LivingEntity entity) {
         return spellLevel * BloodLustMobEffect.ATTACK_SPEED_PER_LEVEL * 100;
+    }
+
+    private float getPercentSpeed(int spellLevel, LivingEntity entity) {
+        return spellLevel * BloodLustMobEffect.SPEED_PER_LEVEL * 100;
     }
 
     public AnimationHolder getCastStartAnimation() {

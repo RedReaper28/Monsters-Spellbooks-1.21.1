@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "monsterspellbooks:item/death_knight_helmet"
+  }
+}

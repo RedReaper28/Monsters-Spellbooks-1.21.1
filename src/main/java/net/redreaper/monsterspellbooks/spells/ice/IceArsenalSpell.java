@@ -80,7 +80,7 @@ public class IceArsenalSpell extends AbstractSpell {
     }
 
     private float getDamage(int spellLevel, LivingEntity entity) {
-        return this.getSpellPower(spellLevel, entity) * 0.5F;
+        return this.getSpellPower(spellLevel, entity) * 0.2F;
     }
 
     private int getCount(int spellLevel) {

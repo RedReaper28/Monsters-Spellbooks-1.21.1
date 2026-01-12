@@ -16,6 +16,7 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.item.armor.*;
 import net.redreaper.monsterspellbooks.item.curios.elemental_charm.BrimstoneSigilItem;
 import net.redreaper.monsterspellbooks.item.curios.elemental_charm.DreadHoundToothNecklaceItem;
+import net.redreaper.monsterspellbooks.item.curios.elemental_charm.DwarvenPowerCoreItem;
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffItem;
@@ -95,12 +96,18 @@ public class ModItems {
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>RESIN_HEART= ITEMS.register("resin_heart",
             ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item> HOMUNCULUS_BLOOD_ORB = ITEMS.register("homunculus_blood_orb",
+            ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item> RAW_SANGUINITE_VIAL = ITEMS.register("raw_sanguinite_vial",
+            ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>ELECTRO_CORE= ITEMS.register("electro_core",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>DWARVEN_ALLOY_PLATE= ITEMS.register("dwarven_alloy_plate",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>DWARVEN_ALLOY_COG= ITEMS.register("dwarven_alloy_cog",
             ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item> DWARVEN_UPGRADE = ITEMS.register("dwarven_upgrade",
+            () -> new Item(ItemPropertiesHelper.material()));
     public static final DeferredItem<Item>STRIDER_COTTON_BALL= ITEMS.register("strider_cotton_boll",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>STRIDER_COTTON_STRING= ITEMS.register("strider_cotton_string",
@@ -112,6 +119,10 @@ public class ModItems {
     public static final DeferredItem<Item>VILE_BONE= ITEMS.register("vile_bone",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>VILE_CORE= ITEMS.register("vile_core",
+            ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>PUTRESCENCE_VIAL= ITEMS.register("putrescence_vial",
+            ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>VOID_VIAL= ITEMS.register("void_vial",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>UPGRADE_RUNE= ITEMS.register("upgrade_rune",
             ()->new Item(new Item.Properties()));
@@ -218,6 +229,10 @@ public class ModItems {
             BrimstoneSigilItem::new);
     public static final Supplier<CurioBaseItem>DREADHOUND_TOOTH_NECKLACE = ITEMS.register("dreadhound_tooth_necklace",
             DreadHoundToothNecklaceItem::new);
+    public static final Supplier<CurioBaseItem>DWARVEN_POWER_CORE = ITEMS.register("dwarven_power_core",
+            DwarvenPowerCoreItem::new);
+
+
 
     public static final DeferredHolder<Item, Item> FIERCE_DEITY_MASK = ITEMS.register("fierce_deity_mask", () ->
             new FierceDeityMaskItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(Rarity.UNCOMMON).durability(ArmorItem.Type.HELMET.getDurability(30))));
@@ -244,6 +259,16 @@ public class ModItems {
             new DwarvenEngineerArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
     public static final DeferredHolder<Item, Item> DWARVEN_ENGINEER_BOOTS = ITEMS.register("dwarven_engineer_boots", () ->
             new DwarvenEngineerArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(48))));
+
+    public static final DeferredHolder<Item, Item> DEATH_KNIGHT_HELMET = ITEMS.register("death_knight_helmet", () ->
+            new DeathKnightArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(37))));
+    public static final DeferredHolder<Item, Item>DEATH_KNIGHT_CHESTPLATE = ITEMS.register("death_knight_chestplate", () ->
+            new DeathKnightArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).durability(ArmorItem.Type.CHESTPLATE.getDurability(37))));
+    public static final DeferredHolder<Item, Item> DEATH_KNIGHT_LEGGINGS = ITEMS.register("death_knight_leggings", () ->
+            new DeathKnightArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).durability(ArmorItem.Type.LEGGINGS.getDurability(37))));
+    public static final DeferredHolder<Item, Item> DEATH_KNIGHT_BOOTS = ITEMS.register("death_knight_boots", () ->
+            new DeathKnightArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(37))));
+
 
     public static final DeferredHolder<Item, Item> PALE_OBSERVER_MASK = ITEMS.register("pale_observer_mask", () ->
             new PaleObserverArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(37))));
@@ -273,6 +298,7 @@ public class ModItems {
             new StarscourgeArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
     public static final Supplier<DeferredSpawnEggItem> AEGIS_SPAWN_EGG = ITEMS.register("aegis_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.AEGIS, 5526633, 9864548, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> DRIPPLER_SPAWN_EGG = ITEMS.register("drippler_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DRIPPLER, 5641255, 9386054, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DWARVEN_SPHERE_SPAWN_EGG = ITEMS.register("dwarven_sphere_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DWARVEN_SPHERE, 10050109, 16501864, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DWARVEN_SLICER_SPAWN_EGG = ITEMS.register("dwarven_slicer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DWARVEN_SLICER, 10050109, 16501864, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> SHOCK_SPAWN_EGG = ITEMS.register("shock_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.SHOCK, 3873928, 11393785, ItemPropertiesHelper.material().stacksTo(64)));

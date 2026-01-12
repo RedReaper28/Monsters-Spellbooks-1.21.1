@@ -1,8 +1,16 @@
 package net.redreaper.monsterspellbooks.events;
 
+import net.minecraft.world.entity.SpawnPlacementType;
+import net.minecraft.world.entity.SpawnPlacementTypes;
+import net.minecraft.world.entity.animal.AbstractGolem;
+import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.living.*;
 import net.redreaper.monsterspellbooks.init.ModEntities;
@@ -16,9 +24,19 @@ public class CommonSetup {
         event.put(ModEntities.DWARVEN_SLICER.get(), DwarvenSlicerEntity.createAttributes().build());
         event.put(ModEntities.SHOCK.get(), ShockEntity.createAttributes().build());
         event.put(ModEntities.AEGIS.get(), AegisEntity.createAttributes().build());
+        event.put(ModEntities.DRIPPLER.get(), DripplerEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_AEGIS.get(), SummonedAegisEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_VILE_SKELETON.get(), SummonedVileSkeletonEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_DEATH_KNIGHT.get(), DeathKnightEntity.createAttributes().build());
+
+    }
+
+    @SubscribeEvent
+    public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event){
+        event.register(ModEntities.AEGIS.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                IronGolem::checkMobSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(ModEntities.DRIPPLER.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Zombie::checkMobSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);
 
     }
 }

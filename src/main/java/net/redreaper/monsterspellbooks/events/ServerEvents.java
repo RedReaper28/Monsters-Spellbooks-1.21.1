@@ -28,6 +28,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.redreaper.monsterspellbooks.effect.HemorrhageMobEffect;
+import net.redreaper.monsterspellbooks.effect.StaticMobEffect;
 import net.redreaper.monsterspellbooks.init.ModDamageTypes;
 import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
@@ -88,9 +89,7 @@ public class ServerEvents {
             if (livingTarget.hasEffect(ModMobEffects.OVERHEAT)) {
                 livingAttacker.setRemainingFireTicks(50);
             }
-        }
-
-        else if (entityAttacker instanceof LivingEntity livingAttacker) {
+        } else if (entityAttacker instanceof LivingEntity livingAttacker) {
             if (livingTarget.hasEffect(ModMobEffects.DECAYING_TOUCH)) {
                 livingTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, 120, 1, true, true, true));
             }
@@ -103,6 +102,11 @@ public class ServerEvents {
         if ((livingEntity instanceof ServerPlayer) || (livingEntity instanceof IMagicEntity)) {
             if (ModItems.BRIMSTONE_SIGIL.get().isEquippedBy(livingEntity) && event.getSource().is(DamageTypeTags.IS_FIRE)) {
                 event.getEntity().clearFire();
+                event.setCanceled(true);
+                return;
+            }
+
+            if (livingEntity.getItemBySlot(EquipmentSlot.CHEST).is(ModItems.FLESH_MAIDEN) && event.getSource().is(ISSDamageTypes.HEARTSTOP)) {
                 event.setCanceled(true);
                 return;
             }
@@ -152,31 +156,29 @@ public class ServerEvents {
         var attacker = event.getSource().getEntity();
 
 
-        if (attacker instanceof Player)
-        {
-        if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
-            if (ASUtils.hasCurio((Player) livingAttacker, ModItems.BRIMSTONE_SIGIL.get())) {
-                ImmolateEffect.addImmolateStack(livingEntity, livingAttacker);
+        if (attacker instanceof Player) {
+            if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
+                if (ASUtils.hasCurio((Player) livingAttacker, ModItems.BRIMSTONE_SIGIL.get())) {
+                    ImmolateEffect.addImmolateStack(livingEntity, livingAttacker);
+                }
             }
-        }
 
 
-            if (attacker instanceof Player)
-            {
+            if (attacker instanceof Player) {
                 if (event.getSource().is(ISSDamageTypes.BLOOD_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
                     if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DREADHOUND_TOOTH_NECKLACE.get())) {
                         HemorrhageMobEffect.addHemorrhageStack(livingEntity, livingAttacker);
                     }
                 }
 
-
-                if (event.getSource().is(ISSDamageTypes.ICE_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
-                    if (livingAttacker.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FROSTMOURNE) && (!(livingAttacker instanceof Player player))) {
-                        livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 120, 1, true, true, true));
+                if (attacker instanceof Player) {
+                    if (event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
+                        if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DWARVEN_POWER_CORE.get())) {
+                            StaticMobEffect.addStaticStack(livingEntity, livingAttacker);
+                        }
                     }
+
                 }
-
-
             }
         }
     }

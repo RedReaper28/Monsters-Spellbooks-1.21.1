@@ -87,6 +87,7 @@ public class HemorrhageMobEffect extends MagicMobEffect implements ISyncedMobEff
         double baseDamage = damageFor(attacker);
 
         var source = new DamageSource(level.damageSources().damageTypes.getHolderOrThrow(ISSDamageTypes.BLOOD_MAGIC), attacker);
+
         var explosionRadiusSqr = explosionRadius * explosionRadius;
         var entities = level.getEntities(null, livingEntity.getBoundingBox().inflate(explosionRadius));
         Vec3 losPoint = Utils.raycastForBlock(level, livingEntity.position(), livingEntity.position().add(0, 1, 0), ClipContext.Fluid.NONE).getLocation();

@@ -54,6 +54,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.WITHERWARD_RING.get());
                         output.accept(ModItems.BRIMSTONE_SIGIL.get());
                         output.accept(ModItems.DREADHOUND_TOOTH_NECKLACE.get());
+                        output.accept(ModItems.DWARVEN_POWER_CORE.get());
 
                         output.accept(ModItems.FIERCE_DEITY_MASK.get());
                         output.accept(ModItems.MAJORAS_MASK.get());
@@ -68,6 +69,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DWARVEN_ENGINEER_CHESTPLATE.get());
                         output.accept(ModItems.DWARVEN_ENGINEER_LEGGINGS.get());
                         output.accept(ModItems.DWARVEN_ENGINEER_BOOTS.get());
+
+                        output.accept(ModItems.DEATH_KNIGHT_HELMET.get());
+                        output.accept(ModItems.DEATH_KNIGHT_CHESTPLATE.get());
+                        output.accept(ModItems.DEATH_KNIGHT_LEGGINGS.get());
+                        output.accept(ModItems.DEATH_KNIGHT_BOOTS.get());
 
                         output.accept(ModItems.PALE_OBSERVER_MASK.get());
                         output.accept(ModItems.PALE_OBSERVER_CHESTPLATE.get());
@@ -127,15 +133,21 @@ public class ModCreativeTabs {
 
                         output.accept(ModItems.RESIN_BRICK);
                         output.accept(ModItems.RESIN_HEART);
+                        output.accept(ModItems.HELL_PEPPER);
+                        output.accept(ModItems.HOMUNCULUS_BLOOD_ORB);
+                        output.accept(ModItems.RAW_SANGUINITE_VIAL);
                         output.accept(ModItems.ELECTRO_CORE);
                         output.accept(ModItems.DWARVEN_ALLOY_PLATE);
                         output.accept(ModItems.DWARVEN_ALLOY_COG);
+                        output.accept(ModItems.DWARVEN_UPGRADE);
                         output.accept(ModItems.STRIDER_COTTON_BALL);
                         output.accept(ModItems.STRIDER_COTTON_STRING);
                         output.accept(ModItems.CINDER_CINNAMON);
                         output.accept(ModItems.CINDER_CINNAMON_POWDER);
                         output.accept(ModItems.VILE_BONE);
                         output.accept(ModItems.VILE_CORE);
+                        output.accept(ModItems.PUTRESCENCE_VIAL);
+                        output.accept(ModItems.VOID_VIAL);
                         output.accept(ModItems.UPGRADE_RUNE);
                         output.accept(ModItems.NECRO_RUNE);
 
@@ -156,7 +168,9 @@ public class ModCreativeTabs {
                         output.accept(ModItems.HOGLIN_CORN_DOG);
                         output.accept(ModItems.BATTLE_TACO);
                         output.accept(ModItems.MAGMA_ELOTE);
-                        output.accept(ModItems.GOLD_TRUFFLE_SLICE);  output.accept(ModItems.AEGIS_SPAWN_EGG.get());
+                        output.accept(ModItems.GOLD_TRUFFLE_SLICE);
+                        output.accept(ModItems.AEGIS_SPAWN_EGG.get());
+                        output.accept(ModItems.DRIPPLER_SPAWN_EGG.get());
                         output.accept(ModItems.DWARVEN_SPHERE_SPAWN_EGG.get());
                         output.accept(ModItems.DWARVEN_SLICER_SPAWN_EGG.get());
                         output.accept(ModItems.SHOCK_SPAWN_EGG.get());

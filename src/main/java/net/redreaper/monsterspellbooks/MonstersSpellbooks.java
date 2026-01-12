@@ -1,6 +1,7 @@
 package net.redreaper.monsterspellbooks;
 
 import io.redspace.ironsspellbooks.item.SpellBook;
+import io.redspace.ironsspellbooks.registries.FluidRegistry;
 import io.redspace.ironsspellbooks.registries.UpgradeOrbTypeRegistry;
 import io.redspace.ironsspellbooks.render.SpellBookCurioRenderer;
 import mod.azure.azurelib.common.animation.cache.AzIdentityRegistry;
@@ -52,7 +53,7 @@ public class MonstersSpellbooks {
         ModEntities.register(modEventBus);
         ModSpellRegistry.register(modEventBus);
         ModSpellSchools.register(modEventBus);
-
+        ModFluids.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }

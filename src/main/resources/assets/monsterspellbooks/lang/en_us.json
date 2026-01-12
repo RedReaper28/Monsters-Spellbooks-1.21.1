@@ -32,15 +32,20 @@
   "item.monsterspellbooks.void_obsidian_ingot": "Void Obsidian Ingot",
   "item.monsterspellbooks.resin_brick": "Resin Brick",
   "item.monsterspellbooks.resin_heart": "Resin Heart",
+  "item.monsterspellbooks.homunculus_blood_orb": "Homunculus Blood Orb",
+  "item.monsterspellbooks.raw_sanguinite_vial": "Raw Sanguinite Vial",
   "item.monsterspellbooks.electro_core": "Electro Core",
   "item.monsterspellbooks.dwarven_alloy_plate": "Dwarven Alloy Plate",
   "item.monsterspellbooks.dwarven_alloy_cog": "Dwarven Alloy Cog",
+  "item.monsterspellbooks.dwarven_upgrade": "Dwarven Upgrade Blueprint",
   "item.monsterspellbooks.strider_cotton_boll": "Strider Cotton Ball",
   "item.monsterspellbooks.strider_cotton_string": "Strider Cotton String",
   "item.monsterspellbooks.cinder_cinnamon": "Cinder Cinnamon",
   "item.monsterspellbooks.cinder_cinnamon_powder": "Cinder Cinnamon Powder",
   "item.monsterspellbooks.vile_bone": "Vile Bone",
   "item.monsterspellbooks.vile_core": "Vile Core",
+  "item.monsterspellbooks.putrescence_vial": "Putrescence Vial",
+  "item.monsterspellbooks.void_vial": "Void Vial",
   "item.monsterspellbooks.upgrade_rune": "Upgrade Rune",
   "item.monsterspellbooks.necro_rune": "Necro Rune",
 
@@ -132,8 +137,12 @@
   "item.monsterspellbooks.dreadhound_tooth_necklace": "Dreadhound Tooth Necklace",
   "item.monsterspellbooks.dreadhound_tooth_necklace.desc": "Dealing Blood Spell Damage inflicts Bleeding and adds a stack of Hemorrhage",
   "item.monsterspellbooks.brimstone_sigil.hemorrhage.desc": "At 3 Hemorrhage stacks, cause an explosion (%s damage), spreading Hemorrhage",
+  "item.monsterspellbooks.dwarven_power_core": "Dwarven Power Core",
+  "item.monsterspellbooks.dwarven_power_core.desc": "Dealing Lighting Spell Damage adds a stack of Static",
+
 
   "item.monsterspellbooks.aegis_spawn_egg": "Aegis Spawn Egg",
+  "item.monsterspellbooks.drippler_spawn_egg": "Drippler Spawn Egg",
   "item.monsterspellbooks.dwarven_sphere_spawn_egg": "Dwarven Sphere Spawn Egg",
   "item.monsterspellbooks.dwarven_slicer_spawn_egg": "Dwarven Slicer Spawn Egg",
   "item.monsterspellbooks.shock_spawn_egg": "Shock Spawn Egg",
@@ -152,6 +161,12 @@
   "item.monsterspellbooks.dwarven_engineer_chestplate": "Dwarven Engineer Chestplate",
   "item.monsterspellbooks.dwarven_engineer_leggings": "Dwarven Engineer Leggings",
   "item.monsterspellbooks.dwarven_engineer_boots": "Dwarven Engineer Boots",
+
+  "item.monsterspellbooks.death_knight_helmet": "Death knight Helmet",
+  "item.monsterspellbooks.death_knight_chestplate": "Death knight Chestplate",
+  "item.monsterspellbooks.death_knight_leggings": "Death knight Leggings",
+  "item.monsterspellbooks.death_knight_boots": "Death knight Boots",
+
   "item.monsterspellbooks.pale_observer_mask": "Pale Observer Mask",
   "item.monsterspellbooks.pale_observer_chestplate": "Pale Observer Chestplate",
   "item.monsterspellbooks.pale_observer_leggings": "Pale Observer Leggings",
@@ -167,6 +182,7 @@
 
   "entity.monsterspellbooks.aegis": "Aegis",
   "entity.monsterspellbooks.death_knight": "Death Knight",
+  "entity.monsterspellbooks.drippler": "Drippler",
   "entity.monsterspellbooks.dwarven_sphere": "Dwarven Sphere",
   "entity.monsterspellbooks.dwarven_slicer": "Dwarven Slicer",
   "entity.monsterspellbooks.shock": "Shock",
@@ -205,7 +221,7 @@
   "tooltip.monsterspellbooks.frostmourne_passive_ability": "Dealing Ice Spell Damage inflicts Wither and dealing Necro Spell Damage inflicts Freezing",
 
   "attribute.monsterspellbooks.necro_spell_power": "Necro Spell Power",
-  "attribute.monsterspellbooks.necro_magic_resist": "Necro Spell Resist",
+  "attribute.monsterspellbooks.necro_magic_resist": "Necro Magic Resist",
 
   "creative_tab.monsterspellbooks.monsters_and_gear": "Monster & Gear",
   "creative_tab.monsterspellbooks.monsters_and_materials": "Monster & Materials",
@@ -228,7 +244,6 @@
   "spell.monsterspellbooks.endersent_smash.guide": "Smash the ground with the force of an Endersent,making targets susceptible to kinetic damage",
   "spell.monsterspellbooks.gravity_well": "Gravity Well",
   "spell.monsterspellbooks.gravity_well.guide": "Stab the ground and pull enemies towards you,stunning them for a short time",
-
   "spell.monsterspellbooks.aegis_patrol": "Aegis Patrol",
   "spell.monsterspellbooks.aegis_patrol.guide": "Summon a squad of holy golems to defeat the force of evil with",
   "spell.monsterspellbooks.brimstone_buzzsaw": "Brimstone Buzzsaw",
@@ -270,6 +285,15 @@
   "spell.monsterspellbooks.life_drain.guide": "Absorb the life force of your target,making them weak while healing you for 100% of the damage done",
   "spell.monsterspellbooks.spectral_blast": "Spectral Blast",
   "spell.monsterspellbooks.spectral_blast.guide": "Fires multiple blasts of spectral energy that builds up the Lethargy effect.Land all shots at max level to inflict a health decreasing effect.Level increases recasts",
+  "spell.monsterspellbooks.putrescence_mass": "Putrescence Mass",
+  "spell.monsterspellbooks.putrescence_mass.guide": "Launch a mass made from putrescence ,dissolving on impact and leaving a field of fire where it lands",
   "spell.monsterspellbooks.wither_bomb": "Wither Bomb",
-  "spell.monsterspellbooks.wither_bomb.guide": "Fire an enhanced wither skull which home towards your cursor,or the creature your cursor is targeting,exploding and dealing massive damage on impact"
-  }
+  "spell.monsterspellbooks.wither_bomb.guide": "Fire an enhanced wither skull which home towards your cursor,or the creature your cursor is targeting,exploding and dealing massive damage on impact",
+
+
+  "death.attack.necro_magic": "%1$s was killed by %2$s's necro magic",
+
+  "fluid_type.monsterspellbooks.raw_sanguinite": "Raw Sanguinite",
+  "fluid_type.monsterspellbooks.putrescence": "Putrescence",
+  "fluid_type.monsterspellbooks.void_fluid": "Void Fluid"
+}

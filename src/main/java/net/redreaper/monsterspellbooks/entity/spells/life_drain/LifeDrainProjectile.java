@@ -7,6 +7,7 @@ import io.redspace.ironsspellbooks.entity.spells.AbstractConeProjectile;
 import io.redspace.ironsspellbooks.entity.spells.AbstractShieldEntity;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -78,7 +79,7 @@ public class LifeDrainProjectile extends AbstractConeProjectile {
             double angularness = .5;
             Vec3 randomVec = new Vec3(Math.random() * 2 * angularness - angularness, Math.random() * 2 * angularness - angularness, Math.random() * 2 * angularness - angularness).normalize();
             Vec3 result = (rotation.scale(-3).add(randomVec)).normalize().scale(speed);
-            level().addParticle(ParticleHelper.BLOOD , x + ox, y + oy, z + oz, result.x, result.y, result.z);
+            level().addParticle(ParticleTypes.SOUL , x + ox, y + oy, z + oz, result.x, result.y, result.z);
         }
     }
 

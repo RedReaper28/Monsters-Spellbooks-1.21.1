@@ -1,8 +1,10 @@
 package net.redreaper.monsterspellbooks.entity.spells.wither_bomb;
 
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
+import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import net.minecraft.core.Holder;
@@ -21,6 +23,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 
 import java.util.Optional;
 
@@ -93,7 +96,9 @@ public class WitherBombProjectile extends AbstractMagicProjectile {
                     float damage = (float) (this.damage * p);
 
                     if (entity instanceof LivingEntity livingEntity && livingEntity != getOwner())
-                    livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 180, 200));
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 180, 0));
+                    DamageSources.applyDamage(entity, damage, ModSpellRegistry.WITHER_BOMB.get().getDamageSource(this, getOwner()));
+
                 }
             }
         }

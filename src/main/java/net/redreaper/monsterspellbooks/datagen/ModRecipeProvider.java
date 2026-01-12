@@ -183,6 +183,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('B', ItemRegistry.MITHRIL_SCRAP.get())
                 .unlockedBy("has_material", has(ItemRegistry.MITHRIL_SCRAP.get())).save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.UPGRADE_RUNE.get())
+                .pattern("ACA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .define('A', ItemRegistry.ARCANE_INGOT.get())
+                .define('B', ItemRegistry.MITHRIL_INGOT.get())
+                .define('C',ModItems.UPGRADE_RUNE.get())
+                .unlockedBy("has_material", has(ModItems.UPGRADE_RUNE.get())).save(recipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.NECRO_RUNE.get())
                 .pattern("AAA")
                 .pattern("ABA")

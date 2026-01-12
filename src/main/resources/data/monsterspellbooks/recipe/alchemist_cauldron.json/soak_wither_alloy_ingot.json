@@ -1,0 +1,14 @@
+{
+  "type": "irons_spellbooks:alchemist_cauldron_brew",
+  "base_fluid": {
+    "amount": 500,
+    "id": "monsterspellbooks:putrescence"
+  },
+  "byproduct": {
+    "id": "monsterspellbooks:wither_alloy_ingot"
+  },
+  "input": {
+    "item": "monsterspellbooks:dwarven_alloy_ingot"
+  },
+  "results": []
+}

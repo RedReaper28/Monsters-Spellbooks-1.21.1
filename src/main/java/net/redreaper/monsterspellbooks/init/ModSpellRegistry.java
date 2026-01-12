@@ -96,12 +96,15 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> LIFE_DRAIN = registerSpell(new LifeDrainSpell());
     //Fires multiple blasts of spectral energy that builds up the Lethargy effect.Land all shots at max level to inflict a health decreasing effect.Level increases recasts
     public static final Supplier<AbstractSpell> SPECTRAL_BLAST = registerSpell(new SpectralBlastSpell());
+    //Launch a mass made from putrescence ,dissolving on impact and leaving a field of fire where it lands
+    public static final Supplier<AbstractSpell> PUTRESCENCE_MASS = registerSpell(new PutrescenceMassSpell());
     //Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their soul and healing 15% of damage done
     public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
     //Summon a ravenous horde of Vile Skeletons that attack anything that isn't their caster,striping their armor and withering their flesh
     public static final Supplier<AbstractSpell> VILE_SUMMON = registerSpell(new VileSummonSpell());
     //Fire an enhanced wither skull which home towards your cursor,or the creature your cursor is targeting,exploding and dealing massive damage on impact
     public static final Supplier<AbstractSpell> WITHER_BOMB = registerSpell(new WitherBombSpell());
+
 
 
 

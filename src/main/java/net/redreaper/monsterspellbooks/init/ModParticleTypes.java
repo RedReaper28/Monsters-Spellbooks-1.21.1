@@ -19,6 +19,7 @@ public class ModParticleTypes {
     public static final Supplier<SimpleParticleType> FRENZY_EMBERS_PARTICLE = PARTICLE_TYPES.register("frenzy_embers", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> BRIMSTONE_FIRE_PARTICLE = PARTICLE_TYPES.register("brimstone_fire", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> BRIMSTONE_EMBERS_PARTICLE = PARTICLE_TYPES.register("brimstone_embers", () -> new SimpleParticleType(false));
+    public static final Supplier<SimpleParticleType> PUTRESCENCE_BUBBLE_PARTICLE = PARTICLE_TYPES.register("putrescence_bubble", () -> new SimpleParticleType(false));
 
 
 
