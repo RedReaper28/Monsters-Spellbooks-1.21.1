@@ -45,7 +45,7 @@ public class CrushSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.EPIC)
             .setSchoolResource(SchoolRegistry.ENDER_RESOURCE)
             .setMaxLevel(4)
-            .setCooldownSeconds(160)
+            .setCooldownSeconds(60)
             .build();
 
     public CrushSpell() {

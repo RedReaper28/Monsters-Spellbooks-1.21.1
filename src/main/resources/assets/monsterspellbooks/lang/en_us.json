@@ -139,6 +139,8 @@
   "item.monsterspellbooks.brimstone_sigil.hemorrhage.desc": "At 3 Hemorrhage stacks, cause an explosion (%s damage), spreading Hemorrhage",
   "item.monsterspellbooks.dwarven_power_core": "Dwarven Power Core",
   "item.monsterspellbooks.dwarven_power_core.desc": "Dealing Lighting Spell Damage adds a stack of Static",
+  "item.monsterspellbooks.obsidian_medal": "Obsidian Medal",
+  "item.monsterspellbooks.obsidian_medal.desc": "A medal made of the void,given to only the bravest soldiers",
 
 
   "item.monsterspellbooks.aegis_spawn_egg": "Aegis Spawn Egg",
