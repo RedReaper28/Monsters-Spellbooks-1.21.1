@@ -263,6 +263,10 @@
   "spell.monsterspellbooks.frost_coating.guide": "The great power of ice infuses itself into your skin granting armor for a duration",
   "spell.monsterspellbooks.ice_arsenal": "Ice Arsenal",
   "spell.monsterspellbooks.ice_arsenal.guide": "Fire a single burst of ice sword to your opponent.Level increases sword number",
+  "spell.monsterspellbooks.tundra_terrain": "Tundra Terrain",
+  "spell.monsterspellbooks.tundra_terrain.guide": "Conjure protective rings of Ice Spikes around you",
+
+
   "spell.monsterspellbooks.ancient_flash": "Ancient Flash",
   "spell.monsterspellbooks.ancient_flash.guide": "Boost your strike with ancient lighting to strike your target multiple times in a single cast.The damage scales off of your held weapon´s melee damage",
   "spell.monsterspellbooks.beast_howl": "Beast Howl",

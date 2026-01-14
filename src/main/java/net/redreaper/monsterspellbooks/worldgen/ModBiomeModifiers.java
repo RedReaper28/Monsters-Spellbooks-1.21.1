@@ -31,6 +31,8 @@ public class ModBiomeModifiers {
 
     public static final ResourceKey<BiomeModifier>SPAWN_AEGIS=registerKey("spawn_aegis");
     public static final ResourceKey<BiomeModifier>SPAWN_DRIPPLER=registerKey("spawn_drippler");
+    public static final ResourceKey<BiomeModifier>SPAWN_DWARVEN_SPHERE=registerKey("spawn_dwarven_sphere");
+    public static final ResourceKey<BiomeModifier>SPAWN_VILE_SKELETON=registerKey("spawn_vile_skeleton");
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
@@ -62,14 +64,27 @@ public class ModBiomeModifiers {
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.RUBY_ORE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
-        context.register(SPAWN_DRIPPLER, new BiomeModifiers.AddSpawnsBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DRIPPLER.get(),10,2,4))));
 
 
         context.register(SPAWN_AEGIS, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                 List.of(new MobSpawnSettings.SpawnerData(ModEntities.AEGIS.get(),10,2,4))));
+
+        context.register(SPAWN_DRIPPLER, new BiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DRIPPLER.get(),10,2,4))));
+
+        context.register(SPAWN_DWARVEN_SPHERE, new BiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_MOUNTAIN),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DWARVEN_SPHERE.get(),15,3,5))));
+
+        context.register(SPAWN_VILE_SKELETON, new BiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.HAS_NETHER_FOSSIL),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.VILE_SKELETON.get(),15,3,5))));
+
+
+
+
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {

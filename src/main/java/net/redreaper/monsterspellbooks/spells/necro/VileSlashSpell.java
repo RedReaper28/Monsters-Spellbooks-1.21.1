@@ -15,7 +15,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashProjectile;
-import net.redreaper.monsterspellbooks.init.ModSpellDamageSources;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import org.jetbrains.annotations.Nullable;
 
@@ -28,7 +27,7 @@ public class VileSlashSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.RARE)
             .setSchoolResource(ModSpellSchools.NECRO_RESOURCE)
             .setMaxLevel(5)
-            .setCooldownSeconds(10)
+            .setCooldownSeconds(35)
             .build();
 
     @Override

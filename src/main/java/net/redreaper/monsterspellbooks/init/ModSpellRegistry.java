@@ -16,6 +16,7 @@ import net.redreaper.monsterspellbooks.spells.holy.AegisPatrolSpell;
 import net.redreaper.monsterspellbooks.spells.ice.BlizzardAspectSpell;
 import net.redreaper.monsterspellbooks.spells.ice.FrostCoatingSpell;
 import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
+import net.redreaper.monsterspellbooks.spells.ice.TundraTerrainSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.AncientFlashSpell;
 import net.redreaper.monsterspellbooks.spells.nature.BeastHowlSpell;
 import net.redreaper.monsterspellbooks.spells.nature.MountainCorpseSpell;
@@ -71,6 +72,7 @@ public class ModSpellRegistry {
     //Fire a single burst of ice sword to your opponent.Level increases sword number
     public static final Supplier<AbstractSpell> FROST_COATING = registerSpell(new FrostCoatingSpell());
     public static final Supplier<AbstractSpell> ICE_ARSENAL = registerSpell(new IceArsenalSpell());
+    public static final Supplier<AbstractSpell> TUNDRA_TERRAIN = registerSpell(new TundraTerrainSpell());
 
 
     //LIGHTING

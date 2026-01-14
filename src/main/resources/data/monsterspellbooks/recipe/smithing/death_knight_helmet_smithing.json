@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "monsterspellbooks:deathsilver_ingot"
+  },
+  "base": {
+    "item": "irons_spellbooks:cryomancer_helmet"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:death_knight_helmet"
+  },
+  "template": {
+    "item": "monsterspellbooks:upgrade_rune"
+  }
+}

@@ -170,15 +170,10 @@ public class AegisEntity extends PathfinderMob implements GeoEntity {
                 ;
     }
 
-    @Override
-    public boolean dampensVibrations() {
-        return true;
-    }
+    @Override public boolean dampensVibrations() {return true;}
 
     @Override
-    public boolean canBeAffected(@NotNull MobEffectInstance effectInstance) {
-        return false;
-    }
+    public boolean canBeAffected(@NotNull MobEffectInstance effectInstance) {return false;}
 
     @Override
     protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {}

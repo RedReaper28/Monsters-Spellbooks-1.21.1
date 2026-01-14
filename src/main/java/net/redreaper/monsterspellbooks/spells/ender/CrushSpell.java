@@ -50,7 +50,7 @@ public class CrushSpell extends AbstractSpell {
 
     public CrushSpell() {
         this.manaCostPerLevel = 15;
-        this.baseSpellPower = 25;
+        this.baseSpellPower = 15;
         this.spellPowerPerLevel = 5;
         this.castTime = 45;
         this.baseManaCost = 75;

@@ -76,7 +76,7 @@ public class PowderSnowSplash extends AoeEntity {
     @Override
     public void applyEffect(LivingEntity target) {
         if (DamageSources.applyDamage(target, getDamage(), ModSpellRegistry.BLIZZARD_ASPECT.get().getDamageSource(this, getOwner())))
-            target.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED, getEffectDuration(), 0));
+            target.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED, 10, 0));
             Utils.addFreezeTicks(target, 240);
     }
 

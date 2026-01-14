@@ -1,11 +1,9 @@
 package net.redreaper.monsterspellbooks.events;
 
-import net.minecraft.world.entity.SpawnPlacementType;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.animal.AbstractGolem;
-import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -33,10 +31,16 @@ public class CommonSetup {
 
     @SubscribeEvent
     public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event){
-        event.register(ModEntities.AEGIS.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                IronGolem::checkMobSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);
+
+        event.register(ModEntities.AEGIS.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                AbstractGolem::checkMobSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);
+
         event.register(ModEntities.DRIPPLER.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                Zombie::checkMobSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                Monster::checkMobSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(ModEntities.DWARVEN_SPHERE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(ModEntities.VILE_SKELETON.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);
 
     }
 }

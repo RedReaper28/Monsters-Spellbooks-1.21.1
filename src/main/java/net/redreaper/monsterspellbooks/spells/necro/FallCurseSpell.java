@@ -72,7 +72,7 @@ public class FallCurseSpell extends AbstractSpell {
     }
 
     public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int)(this.getSpellPower(spellLevel, caster) * 25.0F);
+        return (int)(this.getSpellPower(spellLevel, caster) * 10);
     }
 
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {

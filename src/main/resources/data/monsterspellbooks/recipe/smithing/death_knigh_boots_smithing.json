@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "monsterspellbooks:deathsilver_ingot"
+  },
+  "base": {
+    "item": "irons_spellbooks:cryomancer_boots"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:death_knight_boots"
+  },
+  "template": {
+    "item": "monsterspellbooks:upgrade_rune"
+  }
+}

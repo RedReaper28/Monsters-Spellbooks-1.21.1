@@ -67,6 +67,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.MAJORAS_MASK.get())
                 .add(ModItems.SANGUINITE_HERO_HOOD.get())
                 .add(ModItems.DWARVEN_ENGINEER_VISOR.get())
+                .add(ModItems.DEATH_KNIGHT_HELMET.get())
                 .add(ModItems.PALE_OBSERVER_MASK.get())
                 .add(ModItems.FORGE_MASTERPIECE_HELMET.get())
                 .add(ModItems.STARSCOURGE_HELMET.get());
@@ -74,6 +75,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.CHEST_ARMOR)
                 .add(ModItems.SANGUINITE_HERO_CHESTPLATE.get())
                 .add(ModItems.DWARVEN_ENGINEER_CHESTPLATE.get())
+                .add(ModItems.DEATH_KNIGHT_CHESTPLATE.get())
                 .add(ModItems.PALE_OBSERVER_CHESTPLATE.get())
                 .add(ModItems.FORGE_MASTERPIECE_CHESTPLATE.get())
                 .add(ModItems.STARSCOURGE_CHESTPLATE.get());
@@ -81,6 +83,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.LEG_ARMOR)
                 .add(ModItems.SANGUINITE_HERO_LEGGINGS.get())
                 .add(ModItems.DWARVEN_ENGINEER_LEGGINGS.get())
+                .add(ModItems.DEATH_KNIGHT_LEGGINGS.get())
                 .add(ModItems.PALE_OBSERVER_CHESTPLATE.get())
                 .add(ModItems.FORGE_MASTERPIECE_LEGGINGS.get())
                 .add(ModItems.STARSCOURGE_LEGGINGS.get());
@@ -88,6 +91,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.FOOT_ARMOR)
                 .add(ModItems.SANGUINITE_HERO_BOOTS.get())
                 .add(ModItems.DWARVEN_ENGINEER_BOOTS.get())
+                .add(ModItems.DEATH_KNIGHT_BOOTS.get())
                 .add(ModItems.PALE_OBSERVER_BOOTS.get())
                 .add(ModItems.FORGE_MASTERPIECE_BOOTS.get())
                 .add(ModItems.STARSCOURGE_BOOTS.get());

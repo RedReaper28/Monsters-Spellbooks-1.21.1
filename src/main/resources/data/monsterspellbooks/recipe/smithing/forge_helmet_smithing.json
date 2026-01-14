@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "monsterspellbooks:blazesteel_ingot"
+  },
+  "base": {
+    "item": "irons_spellbooks:pyromancer_helmet"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:forge_masterpiece_helmet"
+  },
+  "template": {
+    "item": "monsterspellbooks:upgrade_rune"
+  }
+}

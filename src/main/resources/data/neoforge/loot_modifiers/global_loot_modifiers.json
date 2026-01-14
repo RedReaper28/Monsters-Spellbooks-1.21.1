@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "entries": [
+    "monsterspellbooks:ancient_city_additions",
+    "monsterspellbooks:citadel_additions",
+    "monsterspellbooks:desert_pyramid_additions",
+    "monsterspellbooks:end_city_treasure_additions"
+  ]
+}
