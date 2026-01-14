@@ -1,5 +1,8 @@
 package net.redreaper.monsterspellbooks.init;
 
-public class ModCurios {
+
+import io.redspace.ironsspellbooks.compat.Curios;
+
+public class ModCurios extends Curios {
     public static String ELEMENTAL_CHARM_SLOT = "elemental_charm";
 }

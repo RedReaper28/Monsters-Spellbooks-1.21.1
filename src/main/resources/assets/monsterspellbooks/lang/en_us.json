@@ -303,5 +303,8 @@
 
   "fluid_type.monsterspellbooks.raw_sanguinite": "Raw Sanguinite",
   "fluid_type.monsterspellbooks.putrescence": "Putrescence",
-  "fluid_type.monsterspellbooks.void_fluid": "Void Fluid"
+  "fluid_type.monsterspellbooks.void_fluid": "Void Fluid",
+
+  "curios.identifier.elemental_charm": "Elemental Charm",
+  "curios.modifiers.elemental_charm": "Elemental Charm"
 }
