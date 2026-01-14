@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "package": "net.redreaper.monsterspellbooks.mixins",
+  "refmap": "monsterspellbooks.refmap.json",
+  "plugin": "net.redreaper.monsterspellbooks.mixins.MixinPlugin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "spell.WitherSkullMixin",
+    "spell.SacrificeSpellMixin",
+    "spell.RaiseDeadSpellMixin",
+    "spell.SlowSpellMixin",
+    "spell.GustSpellMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

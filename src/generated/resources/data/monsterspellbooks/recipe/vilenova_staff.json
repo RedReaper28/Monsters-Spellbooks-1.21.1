@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:vile_bone"
+    },
+    "B": {
+      "item": "monsterspellbooks:wither_alloy_ingot"
+    },
+    "C": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    " BC",
+    " AB",
+    "A  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:vilenova_staff"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "values": [
+    "monsterspellbooks:oceanite_ore_clay",
+    "monsterspellbooks:oceanite_ore_sand",
+    "monsterspellbooks:oceanite_ore_gravel",
+    "monsterspellbooks:raw_oceanite_block",
+    "monsterspellbooks:oceanite_block",
+    "monsterspellbooks:rose_gold_block",
+    "monsterspellbooks:scorched_metal_ore",
+    "monsterspellbooks:raw_scorched_metal_block",
+    "monsterspellbooks:scorched_metal_block",
+    "monsterspellbooks:vile_iron_ore",
+    "monsterspellbooks:raw_vile_iron_block",
+    "monsterspellbooks:vile_iron_block",
+    "monsterspellbooks:nether_pyrite_ore",
+    "monsterspellbooks:nether_pyrite_block"
+  ]
+}

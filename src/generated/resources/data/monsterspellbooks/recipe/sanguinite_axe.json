@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:sanguinite_ingot"
+    },
+    "B": {
+      "item": "monsterspellbooks:sanguinite_block"
+    },
+    "C": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " BA",
+    "AC ",
+    "C  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:sanguinite_axe"
+  }
+}

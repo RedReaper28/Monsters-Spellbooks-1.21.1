@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "monsterspellbooks:strider_cotton_boll"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "monsterspellbooks:strider_cotton_string"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:void_obsidian_ingot"
+    },
+    "B": {
+      "item": "irons_spellbooks:ender_upgrade_orb"
+    },
+    "C": {
+      "item": "minecraft:mace"
+    },
+    "D": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    "ABA",
+    " C ",
+    " D "
+  ],
+  "result": {
+    "components": {
+      "irons_spellbooks:affinity_data": {
+        "bonuses": {
+          "monsterspellbooks:endersent_smash": 1
+        }
+      },
+      "irons_spellbooks:spell_container": {
+        "data": [
+          {
+            "id": "monsterspellbooks:endersent_smash",
+            "index": 0,
+            "level": 6,
+            "locked": true
+          }
+        ],
+        "maxSpells": 1,
+        "mustEquip": false,
+        "spellWheel": true
+      }
+    },
+    "count": 1,
+    "id": "monsterspellbooks:endersent_crusher"
+  }
+}

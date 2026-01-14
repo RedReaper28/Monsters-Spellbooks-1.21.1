@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "monsterspellbooks:cinder_cinnamon"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:cinder_cinnamon_powder"
+  }
+}

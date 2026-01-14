@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#minecraft:is_mountain",
+  "spawners": {
+    "type": "monsterspellbooks:dwarven_sphere",
+    "maxCount": 5,
+    "minCount": 3,
+    "weight": 15
+  }
+}

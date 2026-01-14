@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:necro_rune"
+    },
+    "B": {
+      "item": "irons_spellbooks:mithril_scrap"
+    }
+  },
+  "pattern": [
+    "A ",
+    " B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:witherward_ring"
+  }
+}

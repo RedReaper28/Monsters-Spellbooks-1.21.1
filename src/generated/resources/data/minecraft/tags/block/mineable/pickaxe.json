@@ -1,0 +1,31 @@
+{
+  "values": [
+    "monsterspellbooks:raw_oceanite_block",
+    "monsterspellbooks:oceanite_block",
+    "monsterspellbooks:rose_gold_block",
+    "monsterspellbooks:poseidon_pearl_ore",
+    "monsterspellbooks:poseidon_pearl_block",
+    "monsterspellbooks:orichalcum_ore",
+    "monsterspellbooks:deepslate_orichalcum_ore",
+    "monsterspellbooks:raw_orichalcum_block",
+    "monsterspellbooks:orichalcum_block",
+    "monsterspellbooks:deathsilver_block",
+    "monsterspellbooks:sanguinite_block",
+    "monsterspellbooks:dwarven_alloy_block",
+    "monsterspellbooks:white_gold_block",
+    "monsterspellbooks:scorched_metal_ore",
+    "monsterspellbooks:raw_scorched_metal_block",
+    "monsterspellbooks:scorched_metal_block",
+    "monsterspellbooks:vile_iron_ore",
+    "monsterspellbooks:raw_vile_iron_block",
+    "monsterspellbooks:vile_iron_block",
+    "monsterspellbooks:nether_pyrite_ore",
+    "monsterspellbooks:nether_pyrite_block",
+    "monsterspellbooks:nether_ruby_ore",
+    "monsterspellbooks:nether_ruby_block",
+    "monsterspellbooks:spectrite_block",
+    "monsterspellbooks:wither_alloy_block",
+    "monsterspellbooks:blazesteel_block",
+    "monsterspellbooks:void_matter_ore"
+  ]
+}

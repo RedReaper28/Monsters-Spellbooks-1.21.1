@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:orichalcum_ingot"
+    },
+    "B": {
+      "item": "monsterspellbooks:orichalcum_block"
+    },
+    "C": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " BA",
+    "AC ",
+    "C  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:orichalcum_greataxe"
+  }
+}
