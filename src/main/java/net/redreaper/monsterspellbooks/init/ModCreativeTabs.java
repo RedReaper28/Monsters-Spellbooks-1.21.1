@@ -55,6 +55,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.BRIMSTONE_SIGIL.get());
                         output.accept(ModItems.DREADHOUND_TOOTH_NECKLACE.get());
                         output.accept(ModItems.DWARVEN_POWER_CORE.get());
+                        output.accept(ModItems.OBSIDIAN_MEDAL.get());
 
                         output.accept(ModItems.FIERCE_DEITY_MASK.get());
                         output.accept(ModItems.MAJORAS_MASK.get());

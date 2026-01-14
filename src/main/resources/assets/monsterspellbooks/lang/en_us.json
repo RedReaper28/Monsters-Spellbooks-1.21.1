@@ -218,7 +218,9 @@
   "school.monsterspellbooks.necro": "Necro",
   "school.monsterspellbooks.aero": "Aero",
 
-  "tooltip.monsterspellbooks.frostmourne_passive_ability": "Dealing Ice Spell Damage inflicts Wither and dealing Necro Spell Damage inflicts Freezing",
+  "tooltip.monsterspellbooks.frostmourne_passive_ability": "Dealing Ice Spell Damage inflicts Wither and dealing Necro Spell Damage inflicts Freezing And hits inflict Wither",
+  "tooltip.monsterspellbooks.endersent_crusher_passive_ability": "A heavy hammer that acts just like the mace of the trial chambers",
+  "tooltip.monsterspellbooks.flesh_maiden_passive_ability": "A once beautiful women that got experimented on her wedding day,now makes you immune to the consequences of Heartstop",
 
   "attribute.monsterspellbooks.necro_spell_power": "Necro Spell Power",
   "attribute.monsterspellbooks.necro_magic_resist": "Necro Magic Resist",

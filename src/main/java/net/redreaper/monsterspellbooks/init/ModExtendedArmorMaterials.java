@@ -128,7 +128,7 @@ public class ModExtendedArmorMaterials {
     }
 
     static public EnumMap<ArmorItem.Type, Integer> schoolUpgradedArmorMap() {
-        return makeArmorMap(4, 9, 5, 5);
+        return makeArmorMap(5, 10, 9, 6);
     }
 
     public static void register(IEventBus eventBus)

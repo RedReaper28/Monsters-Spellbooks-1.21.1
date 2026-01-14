@@ -49,7 +49,7 @@ public class EndersentSmashSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.RARE)
             .setSchoolResource(SchoolRegistry.ENDER_RESOURCE)
             .setMaxLevel(5)
-            .setCooldownSeconds(240)
+            .setCooldownSeconds(30)
             .build();
 
     public EndersentSmashSpell() {

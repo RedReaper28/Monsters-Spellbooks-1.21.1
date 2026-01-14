@@ -45,7 +45,7 @@ public class GravityWellSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.LEGENDARY)
             .setSchoolResource(SchoolRegistry.ENDER_RESOURCE)
             .setMaxLevel(3)
-            .setCooldownSeconds(120)
+            .setCooldownSeconds(40)
             .build();
 
     public GravityWellSpell() {

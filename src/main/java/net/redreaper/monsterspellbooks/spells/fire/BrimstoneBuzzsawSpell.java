@@ -34,7 +34,7 @@ public class BrimstoneBuzzsawSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.UNCOMMON)
             .setSchoolResource(SchoolRegistry.FIRE_RESOURCE)
             .setMaxLevel(8)
-            .setCooldownSeconds(30)
+            .setCooldownSeconds(190)
             .build();
 
     public BrimstoneBuzzsawSpell() {

@@ -1,5 +1,6 @@
 package net.redreaper.monsterspellbooks.item.weapons.endersent_crusher;
 
+import io.redspace.ironsspellbooks.api.events.ModifySpellLevelEvent;
 import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
@@ -7,6 +8,7 @@ import io.redspace.ironsspellbooks.item.UniqueItem;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -15,9 +17,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.item.weapons.claws_of_calamity.ClawsOfCalamityItem;
 import net.redreaper.monsterspellbooks.item.weapons.magic_mace.MagicMaceItem;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.animatable.GeoItem;
@@ -37,7 +43,7 @@ public class EndersentCrusherItem extends MagicMaceItem implements GeoItem, Uniq
         super(ModExtendedWeaponTiers.HEAVY_VOID_OBSIDIAN,
                 ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.HEAVY_VOID_OBSIDIAN)),
                 SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(ModSpellRegistry.ENDERSENT_SMASH, 6)
+                        new SpellDataRegistryHolder(ModSpellRegistry.ENDERSENT_SMASH, 5)
                 )
         );
     }
@@ -58,6 +64,26 @@ public class EndersentCrusherItem extends MagicMaceItem implements GeoItem, Uniq
         if (!affinityData.affinityData().isEmpty()) {
             int i = TooltipsUtils.indexOfComponent(lines, "tooltip.irons_spellbooks.spellbook_spell_count");
             lines.addAll(i < 0 ? lines.size() : i + 1, affinityData.getDescriptionComponent());
+        }
+        lines.add(Component.translatable("tooltip.monsterspellbooks.endersent_crusher_passive_ability").withStyle(new ChatFormatting[]{ChatFormatting.DARK_PURPLE}));
+    }
+
+    @EventBusSubscriber({Dist.CLIENT})
+    public class SpellEvents {
+        @SubscribeEvent
+        public static void onModifySpellLevel(ModifySpellLevelEvent event) {
+            LivingEntity caster = event.getEntity();
+            if (caster != null) {
+                if (event.getSpell() == ModSpellRegistry.ENDERSENT_SMASH.get()) {
+                    ItemStack mainHand = caster.getMainHandItem();
+                    ItemStack offHand = caster.getOffhandItem();
+                    boolean usingKnives = mainHand.getItem() instanceof EndersentCrusherItem || offHand.getItem() instanceof EndersentCrusherItem;
+                    if (usingKnives) {
+                        event.addLevels(1);
+                    }
+
+                }
+            }
         }
     }
 

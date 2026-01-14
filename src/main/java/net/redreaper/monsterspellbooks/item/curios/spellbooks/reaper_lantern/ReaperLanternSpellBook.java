@@ -67,8 +67,6 @@ public class ReaperLanternSpellBook extends SpellBook implements GeoItem {
         return PlayState.CONTINUE;
     }
 
-
-
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.cache;
     }

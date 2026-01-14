@@ -17,6 +17,7 @@ import net.redreaper.monsterspellbooks.item.armor.*;
 import net.redreaper.monsterspellbooks.item.curios.elemental_charm.BrimstoneSigilItem;
 import net.redreaper.monsterspellbooks.item.curios.elemental_charm.DreadHoundToothNecklaceItem;
 import net.redreaper.monsterspellbooks.item.curios.elemental_charm.DwarvenPowerCoreItem;
+import net.redreaper.monsterspellbooks.item.curios.elemental_charm.ObsidianMedalItem;
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffItem;
@@ -231,6 +232,8 @@ public class ModItems {
             DreadHoundToothNecklaceItem::new);
     public static final Supplier<CurioBaseItem>DWARVEN_POWER_CORE = ITEMS.register("dwarven_power_core",
             DwarvenPowerCoreItem::new);
+    public static final Supplier<CurioBaseItem>OBSIDIAN_MEDAL = ITEMS.register("obsidian_medal",
+            ObsidianMedalItem::new);
 
 
 
