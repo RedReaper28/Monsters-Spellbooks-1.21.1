@@ -1,8 +1,8 @@
 package net.redreaper.monsterspellbooks.events;
 
+import io.redspace.ironsspellbooks.api.util.Utils;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.animal.AbstractGolem;
-import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -36,7 +36,7 @@ public class CommonSetup {
                 AbstractGolem::checkMobSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);
 
         event.register(ModEntities.DRIPPLER.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                Monster::checkMobSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                (type, serverLevelAccessor, spawnType, blockPos, random) -> Utils.checkMonsterSpawnRules(serverLevelAccessor, spawnType, blockPos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(ModEntities.DWARVEN_SPHERE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(ModEntities.VILE_SKELETON.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,

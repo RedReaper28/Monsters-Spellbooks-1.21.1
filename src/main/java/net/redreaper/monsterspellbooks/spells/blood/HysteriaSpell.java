@@ -37,7 +37,7 @@ public class HysteriaSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.RARE)
             .setSchoolResource(SchoolRegistry.BLOOD_RESOURCE)
             .setMaxLevel(3)
-            .setCooldownSeconds(240)
+            .setCooldownSeconds(120)
             .build();
 
     public HysteriaSpell() {

@@ -45,7 +45,7 @@ public class ModExtendedArmorMaterials {
             25,
             SoundEvents.ARMOR_EQUIP_NETHERITE,
             () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
-            3,
+            4,
             0.2F);
 
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>FORGE_MASTERPIECE_ARMOR=register("forge_masterpiece_armor",
@@ -85,15 +85,15 @@ public class ModExtendedArmorMaterials {
             25,
             SoundRegistry.BLOOD_EXPLOSION,
             () -> Ingredient.of(ModItems.SANGUINITE_INGOT.get()),
-            3,
+            2,
             0F);
 
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>FLESH_MAIDEN=register("flesh_maiden",
-            schoolUpgradedArmorMap(),
+            schoolArmorMap(),
             25,
             SoundRegistry.BLOOD_EXPLOSION,
             () -> Ingredient.of(ItemRegistry.BLOOD_VIAL.get()),
-            3,
+            0,
             0F);
 
     private static DeferredHolder<ArmorMaterial, ArmorMaterial> register(
@@ -124,7 +124,7 @@ public class ModExtendedArmorMaterials {
     }
 
     static public EnumMap<ArmorItem.Type, Integer> schoolHybridArmorMap() {
-        return makeArmorMap(5, 9, 7, 4);
+        return makeArmorMap(5, 10, 9, 6);
     }
 
     static public EnumMap<ArmorItem.Type, Integer> schoolUpgradedArmorMap() {

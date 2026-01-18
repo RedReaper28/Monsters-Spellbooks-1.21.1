@@ -30,6 +30,7 @@ import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSword
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrbRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMassRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.SanguiniteEviscerationRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.space_rupture.SpaceRuptureRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.spectral_blast.SpectralBlastRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashRenderer;
 import net.redreaper.monsterspellbooks.init.ModEntities;
@@ -51,6 +52,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.SNOW_CLOUD.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.POWDER_SNOW_SPLASH.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.PUTRESCENCE_FIELD.get(), NoopRenderer::new);
+        event.registerEntityRenderer(ModEntities.DISTORTION_FIELD.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.ICE_SWORD.get(), IceArsenalSwordRenderer::new);
         event.registerEntityRenderer(ModEntities.ANCIENT_FLASH.get(), AncientFlashRenderer::new);
         event.registerEntityRenderer(ModEntities.VILE_SLASH_PROJECTILE.get(), VileSlashRenderer::new);
@@ -59,6 +61,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.WITHER_BOMB.get(), (context) -> new SkullProjectileRenderer(context, MonstersSpellbooks.id("textures/entity/wither_bomb/wither_bomb.png")));
         event.registerEntityRenderer(ModEntities.NAPALM_ORB.get(), NapalmOrbRenderer::new);
         event.registerEntityRenderer(ModEntities.PUTRESCENCE_MASS.get(), PutrescenceMassRenderer::new);
+        event.registerEntityRenderer(ModEntities.SPACE_RUPTURE.get(), SpaceRuptureRenderer::new);
 
         event.registerEntityRenderer(ModEntities.VILE_SKELETON.get(), VileSkeletonRenderer::new);
         event.registerEntityRenderer(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereRenderer::new);

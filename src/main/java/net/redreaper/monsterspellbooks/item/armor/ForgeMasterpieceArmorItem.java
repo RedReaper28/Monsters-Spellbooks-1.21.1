@@ -20,10 +20,10 @@ public class ForgeMasterpieceArmorItem extends ImbuableExtendedGeoArmorItem {
 
     public ForgeMasterpieceArmorItem(Type slot, Properties settings) {
         super(ModExtendedArmorMaterials.FORGE_MASTERPIECE_ARMOR, slot, settings,
+                new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.FIRE_MAGIC_RESIST, 0.15F    , AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                new AttributeContainer(ASAttributeRegistry.SPELL_RES_PENETRATION, 0.25F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE),
-                new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+                new AttributeContainer(ASAttributeRegistry.SPELL_RES_PENETRATION, 0.05F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE));
     }
 
     @OnlyIn(Dist.CLIENT)

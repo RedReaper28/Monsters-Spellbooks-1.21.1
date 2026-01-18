@@ -5,6 +5,7 @@ import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
+import io.redspace.ironsspellbooks.api.util.AnimationHolder;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.entity.spells.ice_spike.IceSpikeEntity;
 import net.minecraft.core.BlockPos;
@@ -38,20 +39,20 @@ public class TundraTerrainSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.COMMON)
             .setSchoolResource(SchoolRegistry.ICE_RESOURCE)
             .setMaxLevel(8)
-            .setCooldownSeconds(15)
+            .setCooldownSeconds(25)
             .build();
 
     public TundraTerrainSpell() {
         this.manaCostPerLevel = 5;
         this.baseSpellPower = 8;
         this.spellPowerPerLevel = 1;
-        this.castTime = 15;
+        this.castTime = 0;
         this.baseManaCost = 45;
     }
 
     @Override
     public CastType getCastType() {
-        return CastType.LONG;
+        return CastType.INSTANT;
     }
 
     @Override
@@ -66,8 +67,10 @@ public class TundraTerrainSpell extends AbstractSpell {
 
     @Override
     public Optional<SoundEvent> getCastStartSound() {
-        return Optional.of(SoundEvents.EVOKER_PREPARE_ATTACK);
+        return Optional.of(SoundEvents.SKELETON_CONVERTED_TO_STRAY);
     }
+
+    @Override public AnimationHolder getCastStartAnimation() {return SpellAnimations.TOUCH_GROUND_ANIMATION;}
 
     @Override
     public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
@@ -81,7 +84,7 @@ public class TundraTerrainSpell extends AbstractSpell {
         for (int r = 0; r < rings; r++) {
             float fangs = count + r * r;
             for (int i = 0; i < fangs; i++) {
-                Vec3 spawn = center.add(new Vec3(0, 0, 1.5 * (r + 1)).yRot(entity.getYRot() * Mth.DEG_TO_RAD + ((6.281f / fangs) * i)));
+                Vec3 spawn = center.add(new Vec3(0, 0, 1.5 * (r + 1)).yRot(entity.getYRot() * Mth.DEG_TO_RAD + ((15 / fangs) * i)));
                 spawn = Utils.moveToRelativeGroundLevel(world, spawn, 5);
                 if (!world.getBlockState(BlockPos.containing(spawn).below()).isAir()) {
                     IceSpikeEntity spike = new IceSpikeEntity(world, entity);

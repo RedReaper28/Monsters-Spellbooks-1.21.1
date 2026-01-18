@@ -38,7 +38,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.FROSTMOURNE.get())
                 .add(ModItems.STARLESS_NIGHT.get())
                 .add(ModItems.STARSCOURGE_SWORD.get())
-                .add(ModItems.SWORD_OF_COURAGE.get());
+                .add(ModItems.SWORD_OF_COURAGE.get())
+                .add(ModItems.REAPER_SICKLE.get());
 
         tag(ItemTags.AXES)
                 .add(ModItems.GREAT_AXEBLADE.get())

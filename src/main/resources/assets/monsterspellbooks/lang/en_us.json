@@ -131,6 +131,9 @@
   "item.monsterspellbooks.reaper_lantern": "Reaper Lantern",
   "item.monsterspellbooks.witherward_ring": "WitherWard Ring",
   "item.monsterspellbooks.witherward_ring.desc": "Grants wither immunity",
+
+  "item.monsterspellbooks.critical_glasses": "Critical Sorcerer Glasses",
+  "item.monsterspellbooks.critical_glasses.desc": "This glasses help you see your opponents weak spot and deal devastating critical damage with your sorcery",
   "item.monsterspellbooks.brimstone_sigil": "Brimstone Sigil",
   "item.monsterspellbooks.brimstone_sigil.desc": "Dealing Fire Spell Damage inflicts Brimstone Flame and adds a stack of Immolation",
   "item.monsterspellbooks.brimstone_sigil.immolate.desc": "At 3 Immolation stacks, cause an explosion (%s damage), spreading Immolation",
@@ -141,6 +144,10 @@
   "item.monsterspellbooks.dwarven_power_core.desc": "Dealing Lighting Spell Damage adds a stack of Static",
   "item.monsterspellbooks.obsidian_medal": "Obsidian Medal",
   "item.monsterspellbooks.obsidian_medal.desc": "A medal made of the void,given to only the bravest soldiers",
+  "item.monsterspellbooks.blizzard_caller": "Blizzard Caller",
+  "item.monsterspellbooks.blizzard_caller.desc": "Increases the strength of the power of ice you imbue yourself with ",
+  "item.monsterspellbooks.orb_soul": "Orb of Souls",
+  "item.monsterspellbooks.orb_soul.desc": "A solid orb of banished souls,the greatest achievement for a necromancer ",
 
 
   "item.monsterspellbooks.aegis_spawn_egg": "Aegis Spawn Egg",
@@ -193,26 +200,32 @@
   "entity.monsterspellbooks.summoned_vile_skeleton": "Summoned Vile Skeleton",
   "entity.monsterspellbooks.summoned_aegis": "Summoned Aegis",
 
-  "effect.monsterspellbooks.bleeding": "Bleeding",
+  "effect.monsterspellbooks.brimstone_flame": "Brimstone Flame",
   "effect.monsterspellbooks.blizzard_aspect": "Aspect of the Blizzard",
   "effect.monsterspellbooks.bloodlust": "Bloodlust",
+  "effect.monsterspellbooks.bleeding": "Bleeding",
+  "effect.monsterspellbooks.crushing_presence": "Crushing Presence",
   "effect.monsterspellbooks.curse": "Curse",
+  "effect.monsterspellbooks.decaying_touch": "Decaying Touch",
   "effect.monsterspellbooks.fear": "Fear",
   "effect.monsterspellbooks.frost_coating": "Frost Coating",
+  "effect.monsterspellbooks.gravity_force": "Gravity Force",
   "effect.monsterspellbooks.heal_cut": "Heal Cut",
   "effect.monsterspellbooks.heavy_body": "Heavy Body",
+  "effect.monsterspellbooks.hemorrhage": "Hemorrhage",
   "effect.monsterspellbooks.inflammable": "Inflammable",
   "effect.monsterspellbooks.lethargy": "Lethargy",
-  "effect.monsterspellbooks.hemorrhage": "Hemorrhage",
   "effect.monsterspellbooks.madness": "Madness",
+  "effect.monsterspellbooks.mountain_corpse": "Mountain Corpse",
   "effect.monsterspellbooks.overheat": "Overheat",
   "effect.monsterspellbooks.paralysis": "Paralysis",
   "effect.monsterspellbooks.reaper_aspect": "Aspect of the Reaper",
   "effect.monsterspellbooks.soul_rot": "Soul Rot",
   "effect.monsterspellbooks.spirit_frostbite": "Spirit Frostbite",
+
+  "effect.monsterspellbooks.static": "Static",
+
   "effect.monsterspellbooks.stunned": "Stunned",
-  "effect.monsterspellbooks.mountain_corpse": "Mountain Corpse",
-  "effect.monsterspellbooks.brimstone_flame": "Brimstone Flame",
 
   "effect.monsterspellbooks.hemorrhage.description": "Upon reaching 3 stacks of Hemorrhage, the creature explodes, dealing damage and Hemorrhaging nearby creatures",
   "display.monsterspellbooks.curse_warning": "What a terrible night to have a Curse",
@@ -244,10 +257,20 @@
   "spell.monsterspellbooks.sanguinite_evisceration.guide": "Slash forward with your claws to inflict heavy bleeding.The damage scales off of your held weapon´s melee damage",
   "spell.monsterspellbooks.crush": "Crush",
   "spell.monsterspellbooks.crush.guide": "Crush your target with a powerful burst of gravitational force to force them to stay on the ground",
+
+  "spell.monsterspellbooks.crushing_presence": "Crushing Presence",
+  "spell.monsterspellbooks.crushing_presence.guide": "Manifest your aura into a crushing aura that slows enemies movement and casting speed just by being near them",
+
   "spell.monsterspellbooks.endersent_smash": "Endersent Smash",
   "spell.monsterspellbooks.endersent_smash.guide": "Smash the ground with the force of an Endersent,making targets susceptible to kinetic damage",
   "spell.monsterspellbooks.gravity_well": "Gravity Well",
   "spell.monsterspellbooks.gravity_well.guide": "Stab the ground and pull enemies towards you,stunning them for a short time",
+  "spell.monsterspellbooks.gravity_force": "Gravity Force",
+  "spell.monsterspellbooks.gravity_force.guide": "Imbue yourself with the power of gravity,increasing your attack damage and speed",
+
+  "spell.monsterspellbooks.space_rupture": "Space Rupture",
+  "spell.monsterspellbooks.space_rupture.guide": "Launch a space distortion ball that explodes on impact to the ground,bouncing off blocks and leaving a distortion field where it lands and damaging creatures it phases through ",
+
   "spell.monsterspellbooks.aegis_patrol": "Aegis Patrol",
   "spell.monsterspellbooks.aegis_patrol.guide": "Summon a squad of holy golems to defeat the force of evil with",
   "spell.monsterspellbooks.brimstone_buzzsaw": "Brimstone Buzzsaw",
@@ -260,7 +283,6 @@
   "spell.monsterspellbooks.overheat.guide": "Overheat yourself to gain extra damage and fire spell power at the cost of melting part of your own armor and burn everything you touch",
   "spell.monsterspellbooks.napalm_orb": "Napalm Orb",
   "spell.monsterspellbooks.napalm_orb.guide": "Throw a orb of napalm,splashing in a radius upon impact and covering creatures hit,making their bodies flammable and weak to fire magic",
-
   "spell.monsterspellbooks.blizzard_aspect": "Aspect of the Blizzard",
   "spell.monsterspellbooks.blizzard_aspect.guide": "Cast to conjure a blizzard centered around yourself,which strikes nearby creatures within sight with small clouds of frost every 2 seconds for the spell´s duration",
   "spell.monsterspellbooks.frost_coating": "Frost Coating",
@@ -269,8 +291,6 @@
   "spell.monsterspellbooks.ice_arsenal.guide": "Fire a single burst of ice sword to your opponent.Level increases sword number",
   "spell.monsterspellbooks.tundra_terrain": "Tundra Terrain",
   "spell.monsterspellbooks.tundra_terrain.guide": "Conjure protective rings of Ice Spikes around you",
-
-
   "spell.monsterspellbooks.ancient_flash": "Ancient Flash",
   "spell.monsterspellbooks.ancient_flash.guide": "Boost your strike with ancient lighting to strike your target multiple times in a single cast.The damage scales off of your held weapon´s melee damage",
   "spell.monsterspellbooks.beast_howl": "Beast Howl",

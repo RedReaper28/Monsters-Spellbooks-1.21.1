@@ -1,150 +1,79 @@
 package net.redreaper.monsterspellbooks.entity.spells.vile_slash;
 
 import io.redspace.ironsspellbooks.api.magic.MagicData;
-import io.redspace.ironsspellbooks.api.util.Utils;
+import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.mobs.AntiMagicSusceptible;
-import io.redspace.ironsspellbooks.entity.spells.AbstractShieldEntity;
-import io.redspace.ironsspellbooks.entity.spells.ShieldPart;
+import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
+import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.HitResult;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.*;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.init.ModParticleTypes;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
-public class VileSlashProjectile extends Projectile implements AntiMagicSusceptible {
-    private static final EntityDataAccessor<Float> DATA_RADIUS = SynchedEntityData.defineId(VileSlashProjectile.class, EntityDataSerializers.FLOAT);
-    private static final double SPEED = 2d;
-    private static final int EXPIRE_TIME = 2 * 20;
-    public final int animationSeed;
-    private final float maxRadius;
-    public AABB oldBB;
-    private int age;
-    private float damage;
-    public int animationTime;
-    private List<Entity> victims;
+public class VileSlashProjectile extends AbstractMagicProjectile implements AntiMagicSusceptible {
+    private int lifetimeInTicks = 20 * 10;
+
 
     public VileSlashProjectile(EntityType<? extends VileSlashProjectile> entityType, Level level) {
         super(entityType, level);
-        animationSeed = Utils.random.nextInt(9999);
 
-        setRadius(.6f);
-        maxRadius = 1;
-        oldBB = getBoundingBox();
-        victims = new ArrayList<>();
         this.setNoGravity(true);
     }
 
-    public VileSlashProjectile(EntityType<? extends VileSlashProjectile> entityType, Level levelIn, LivingEntity shooter) {
-        this(entityType, levelIn);
+    public VileSlashProjectile(EntityType<? extends VileSlashProjectile> entityType, Level level, LivingEntity shooter) {
+        this(entityType, level);
         setOwner(shooter);
         setYRot(shooter.getYRot());
         setXRot(shooter.getXRot());
     }
 
-    public VileSlashProjectile(Level levelIn, LivingEntity shooter) {
-        this(ModEntities.VILE_SLASH_PROJECTILE.get(), levelIn, shooter);
-    }
-
-    public void shoot(Vec3 rotation) {
-        setDeltaMovement(rotation.scale(SPEED));
-    }
-
-    public void setDamage(float damage) {
-        this.damage = damage;
+    public VileSlashProjectile(Level level, LivingEntity shooter) {
+        this(ModEntities.VILE_SLASH_PROJECTILE.get(), level, shooter);
     }
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.Builder pBuilder) {
-        pBuilder.define(DATA_RADIUS, 0.5F);
-    }
-
-    public void setRadius(float newRadius) {
-        if (newRadius <= maxRadius && !this.level().isClientSide) {
-            this.getEntityData().set(DATA_RADIUS, Mth.clamp(newRadius, 0.0F, maxRadius));
+    public void travel() {
+        this.setPos(this.position().add(this.getDeltaMovement()));
+        if (!this.isNoGravity())
+        {
+            Vec3 vec3 = this.getDeltaMovement();
+            this.setDeltaMovement(vec3.x, vec3.y - 0.05000000074505806, vec3.z);
         }
-    }
-
-    public float getRadius() {return this.getEntityData().get(DATA_RADIUS);}
-
-    public void refreshDimensions() {
-        double d0 = this.getX();
-        double d1 = this.getY();
-        double d2 = this.getZ();
-        super.refreshDimensions();
-        this.setPos(d0, d1, d2);
     }
 
     @Override
     public void tick() {
+        lifetimeInTicks--;
+        if (lifetimeInTicks <= 0)
+        {
+            this.discard();
+        }
+
+        Vec3 deltaMovement = getDeltaMovement();
+        double distance = deltaMovement.horizontalDistance();
+
+        double x = deltaMovement.x;
+        double y = deltaMovement.y;
+        double z = deltaMovement.z;
+
+        setYRot((float) (Mth.atan2(x, z) * (180 / Math.PI)));
+        setXRot((float) (Mth.atan2(y, distance) * (180 / Math.PI)));
+        setXRot(lerpRotation(xRotO, getXRot()));
+        setYRot(lerpRotation(yRotO, getYRot()));
+
         super.tick();
-        if (++age > EXPIRE_TIME) {
-            discard();
-            return;
-        }
-        oldBB = getBoundingBox();
-        setRadius(getRadius() + 0.12f);
-
-        if (!level().isClientSide) {
-            HitResult hitresult = ProjectileUtil.getHitResultOnMoveVector(this, this::canHitEntity);
-            if (hitresult.getType() == HitResult.Type.BLOCK) {
-                onHitBlock((BlockHitResult) hitresult);
-            }
-            for (Entity entity : level().getEntities(this, this.getBoundingBox()).stream().filter(target -> canHitEntity(target) && !victims.contains(target)).collect(Collectors.toSet())) {
-                damageEntity(entity);
-                if (entity instanceof ShieldPart || entity instanceof AbstractShieldEntity) {
-                    discard();
-                    return;
-                }
-            }
-        }
-        setPos(position().add(getDeltaMovement()));
-        trailParticles();
-    }
-
-    public EntityDimensions getDimensions(Pose pPose) {
-        this.getBoundingBox();
-        return EntityDimensions.scalable(this.getRadius() * 2.0F, 0.5F);
-    }
-
-    public void onSyncedDataUpdated(EntityDataAccessor<?> pKey) {
-
-        if (DATA_RADIUS.equals(pKey)) {
-            this.refreshDimensions();
-        }
-
-        super.onSyncedDataUpdated(pKey);
-    }
-
-    @Override
-    protected void onHitBlock(BlockHitResult blockHitResult) {
-        super.onHitBlock(blockHitResult);
-        discard();
-    }
-
-    private void damageEntity(Entity entity) {
-        if (!victims.contains(entity)) {
-            DamageSources.applyDamage(entity, damage, ModSpellRegistry.VILE_SLASH.get().getDamageSource(this, getOwner()));
-            ((LivingEntity) entity).addEffect(new MobEffectInstance(ModMobEffects.SOUL_ROT,150,1));
-            victims.add(entity);
-        }
     }
 
     public void trailParticles() {
@@ -169,6 +98,53 @@ public class VileSlashProjectile extends Projectile implements AntiMagicSuscepti
             }
         }
     }
+
+
+    @Override
+    public void impactParticles(double x, double y, double z) {
+        MagicManager.spawnParticles(level(), ModParticleHelper.REAPER_FIRE, x, y, z, 1, 0, 0, 0, 0.1, true);
+    }
+
+    @Override
+    public float getSpeed() {
+        return 2.0F;
+    }
+
+    @Override
+    public Optional<Holder<SoundEvent>> getImpactSound() {
+        return Optional.of(SoundEvents.SOUL_ESCAPE);
+    }
+
+    @Override
+    public void setDamage(float damage) {
+        this.damage = damage;
+    }
+
+    @Override
+    protected void onHitEntity(EntityHitResult pResult) {
+        super.onHitEntity(pResult);
+
+        DamageSources.applyDamage(pResult.getEntity(), getDamage(),
+                ModSpellRegistry.VILE_SLASH.get().getDamageSource(this, getOwner()));
+
+        if (pResult.getEntity() instanceof LivingEntity livingTarget)
+        {
+            livingTarget.addEffect(new MobEffectInstance(ModMobEffects.SOUL_ROT, 100, 1));
+        }
+
+    }
+
+    @Override
+    protected void onHitBlock(BlockHitResult result) {
+        super.onHitBlock(result);
+        this.discard();
+    }
+
+    @Override
+    protected void onHit(HitResult hitresult) {
+        super.onHit(hitresult);
+    }
+
 
     protected boolean canHitEntity(Entity entity) {
         return entity != getOwner() && super.canHitEntity(entity);

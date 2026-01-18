@@ -9,7 +9,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -20,8 +19,8 @@ import java.util.function.Supplier;
 public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
 
     public static ModExtendedWeaponTiers FORBIDDEN_TOOL = new ModExtendedWeaponTiers(1000, 9F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ItemRegistry.MITHRIL_INGOT.get()),
-            new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(AttributeRegistry.FIRE_MAGIC_RESIST, 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(ASAttributeRegistry.MAGIC_DAMAGE_CRIT_CHANCE, 1., AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(ASAttributeRegistry.MAGIC_DAMAGE_CRIT_DAMAGE, 1., AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(AttributeRegistry.LIGHTNING_SPELL_POWER, 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers VOID_OBSIDIAN = new ModExtendedWeaponTiers(2000, 14F, -2.8F, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
@@ -29,7 +28,7 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
 
     public static ModExtendedWeaponTiers HEAVY_VOID_OBSIDIAN = new ModExtendedWeaponTiers(2000, 9, -3.4f, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
             new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 2, AttributeModifier.Operation.ADD_VALUE),
+            new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 2, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(Attributes.KNOCKBACK_RESISTANCE, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers HALLOWED_STEEL = new ModExtendedWeaponTiers(2000, 11F, -3.0F, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ItemRegistry.DIVINE_PEARL.get()),

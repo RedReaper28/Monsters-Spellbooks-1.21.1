@@ -8,9 +8,7 @@ import net.redreaper.monsterspellbooks.spells.blood.AnticoagulationSpell;
 import net.redreaper.monsterspellbooks.spells.blood.BloodPierceSpell;
 import net.redreaper.monsterspellbooks.spells.blood.HysteriaSpell;
 import net.redreaper.monsterspellbooks.spells.blood.SanguiniteEviscerationSpell;
-import net.redreaper.monsterspellbooks.spells.ender.CrushSpell;
-import net.redreaper.monsterspellbooks.spells.ender.EndersentSmashSpell;
-import net.redreaper.monsterspellbooks.spells.ender.GravityWellSpell;
+import net.redreaper.monsterspellbooks.spells.ender.*;
 import net.redreaper.monsterspellbooks.spells.fire.*;
 import net.redreaper.monsterspellbooks.spells.holy.AegisPatrolSpell;
 import net.redreaper.monsterspellbooks.spells.ice.BlizzardAspectSpell;
@@ -45,11 +43,19 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> SANGUINITE_EVISCERATION = registerSpell(new SanguiniteEviscerationSpell());
 
     //ENDER
+    //Crush your target with a powerful burst of gravitational force to force them to stay on the ground
     public static final Supplier<AbstractSpell> CRUSH = registerSpell(new CrushSpell());
+    //Manifest your aura into a crushing aura that slows enemies movement and casting speed just by being near them
+    public static final Supplier<AbstractSpell> CRUSHING_PRESENCE = registerSpell(new CrushingPresenceSpell());
     //Smash the ground with the force of an Endersent,making targets susceptible to kinetic damage
     public static final Supplier<AbstractSpell> ENDERSENT_SMASH = registerSpell(new EndersentSmashSpell());
+    //Imbue yourself with the power of gravity,increasing your attack damage and speed
+    public static final Supplier<AbstractSpell> GRAVITY_FORCE = registerSpell(new GravityForceSpell());
     //Stab the ground and pull enemies towards you,stunning them for a short time
     public static final Supplier<AbstractSpell> GRAVITY_WELL = registerSpell(new GravityWellSpell());
+
+    public static final Supplier<AbstractSpell> SPACE_RUPTURE = registerSpell(new SpaceRuptureSpell());
+
 
     //FIRE
     //Launch a searing buzzsaw made of brimstone flame that melts the defense of the enemies it pierces and bouncing off blocks
@@ -58,7 +64,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> CAUTERIZING_TOUCH = registerSpell(new CauterizingTouchSpell());
     //Shot a thin burst of pure frenzy flame,inflicting madness to lower your targets maximum mana reserves
     public static final Supplier<AbstractSpell> FRENZIED_BURST = registerSpell(new FrenziedBurstSpell());
-
+    //Throw a orb of napalm,splashing in a radius upon impact and covering creatures hit,making their bodies flammable and weak to fire magic
     public static final Supplier<AbstractSpell> NAPALM_ORB = registerSpell(new NapalmOrbSpell());
     //Overheat yourself to gain extra damage and fire spell power at the cost of melting part of your own armor
     public static final Supplier<AbstractSpell> OVERHEAT = registerSpell(new OverheatSpell());
@@ -66,12 +72,14 @@ public class ModSpellRegistry {
     //HOLY
     public static final Supplier<AbstractSpell> AEGIS_PATROL = registerSpell(new AegisPatrolSpell());
 
-
     //ICE
+    //Cast to conjure a blizzard centered around yourself,which strikes nearby creatures within sight with small clouds of frost every 2 seconds for the spell´s duration
     public static final Supplier<AbstractSpell> BLIZZARD_ASPECT = registerSpell(new BlizzardAspectSpell());
-    //Fire a single burst of ice sword to your opponent.Level increases sword number
+    //The great power of ice infuses itself into your skin granting armor for a duration
     public static final Supplier<AbstractSpell> FROST_COATING = registerSpell(new FrostCoatingSpell());
+    //Fire a single burst of ice sword to your opponent.Level increases sword number
     public static final Supplier<AbstractSpell> ICE_ARSENAL = registerSpell(new IceArsenalSpell());
+    //Conjure protective rings of Ice Spikes around you
     public static final Supplier<AbstractSpell> TUNDRA_TERRAIN = registerSpell(new TundraTerrainSpell());
 
 

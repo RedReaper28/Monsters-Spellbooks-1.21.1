@@ -44,7 +44,7 @@ public class OverheatSpell extends AbstractSpell {
         this.baseSpellPower = 30;
         this.spellPowerPerLevel = 8;
         this.castTime = 0;
-        this.baseManaCost = 50;
+        this.baseManaCost = 100;
     }
 
     public CastType getCastType() {
@@ -61,7 +61,7 @@ public class OverheatSpell extends AbstractSpell {
 
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
 
-        entity.addEffect(new MobEffectInstance(ModMobEffects.OVERHEAT, (int) (getSpellPower(spellLevel, entity) * 20), spellLevel - 1, false, false, true));
+        entity.addEffect(new MobEffectInstance(ModMobEffects.OVERHEAT, (int) (getSpellPower(spellLevel, entity) * 20), spellLevel-1, false, false, true));
 
         entity.addEffect(new MobEffectInstance(MobEffectRegistry.REND, (int) (getSpellPower(spellLevel, entity) * 20), getRendAmplifier(spellLevel, entity)));
 
@@ -73,7 +73,7 @@ public class OverheatSpell extends AbstractSpell {
     }
 
     public int getRendAmplifier(int spellLevel, LivingEntity caster) {
-        return spellLevel-1;
+        return spellLevel+1;
     }
 
     public AnimationHolder getCastStartAnimation() {

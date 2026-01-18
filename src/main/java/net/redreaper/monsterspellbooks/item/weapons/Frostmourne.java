@@ -35,7 +35,7 @@ public class Frostmourne extends MagicSwordItem implements UniqueItem {
                 ModExtendedWeaponTiers.FROST_TOUCHED_SUPERIOR_DEATHSILVER,
                 ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.FROST_TOUCHED_SUPERIOR_DEATHSILVER)),
                 SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(ModSpellRegistry.BLIZZARD_ASPECT, 8)));
+                        new SpellDataRegistryHolder(SpellRegistry.ICE_TOMB_SPELL, 8)));
     }
 
     public void initializeSpellContainer(ItemStack itemStack) {
@@ -44,7 +44,7 @@ public class Frostmourne extends MagicSwordItem implements UniqueItem {
         }
 
         super.initializeSpellContainer(itemStack);
-        AffinityData.setAffinityData(itemStack, ModSpellRegistry.BLIZZARD_ASPECT.get(),1);
+        AffinityData.setAffinityData(itemStack, SpellRegistry.ICE_TOMB_SPELL.get(),1);
     }
 
     @Override
@@ -64,7 +64,7 @@ public class Frostmourne extends MagicSwordItem implements UniqueItem {
         public static void onModifySpellLevel(ModifySpellLevelEvent event) {
             LivingEntity caster = event.getEntity();
             if (caster != null) {
-                if (event.getSpell() == ModSpellRegistry.BLIZZARD_ASPECT.get()) {
+                if (event.getSpell() == SpellRegistry.ICE_TOMB_SPELL.get()) {
                     ItemStack mainHand = caster.getMainHandItem();
                     ItemStack offHand = caster.getOffhandItem();
                     boolean usingKnives = mainHand.getItem() instanceof Frostmourne || offHand.getItem() instanceof Frostmourne;

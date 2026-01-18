@@ -10,19 +10,15 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
 
 public class FrostCoatingMobEffect extends MagicMobEffect implements ISyncedMobEffect {
-    public static final float ARMOR_PER_LEVEL =  1f;
-    public static final float SPELL_RESISTANCE_PER_LEVEL =  0.1f;
+    public static final float ARMOR_PER_LEVEL =  0.05f;
+    public static final float SPELL_RESISTANCE_PER_LEVEL =  0.05f;
 
     public FrostCoatingMobEffect(MobEffectCategory mobEffectCategory, int color) {
         super(mobEffectCategory, color);
     }
 
     public void clientTick(LivingEntity livingEntity, MobEffectInstance instance) {
-        int amplifier = instance.getAmplifier();
         ParticleOptions particle = ParticleHelper.SNOWFLAKE;
-        if (amplifier >= 1) {
-            particle = ParticleHelper.SNOWFLAKE;
-        }
         var random = livingEntity.getRandom();
         for (int i = 0; i < 2; i++) {
             Vec3 motion = new Vec3(

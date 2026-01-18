@@ -26,10 +26,8 @@ public class MountainCorpseSpell extends AbstractSpell {
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
                 Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 20, 1)),
-                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentAttackDamage(spellLevel, caster), 0), Component.translatable("attribute.name.generic.attack_damage")),
                 Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getAttackKnockback(spellLevel, caster), 0), Component.translatable("attribute.name.generic.attack_knockback")),
-                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getKnockbackResistance(spellLevel, caster), 0), Component.translatable("attribute.name.generic.knockback_resistance")),
-                Component.translatable("attribute.modifier.plus.2", Utils.stringTruncation(getPercentSpellPower(spellLevel, caster), 0), Component.translatable("attribute.irons_spellbooks.nature_spell_power"))
+                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getKnockbackResistance(spellLevel, caster), 0), Component.translatable("attribute.name.generic.knockback_resistance"))
         );
     }
 
@@ -42,10 +40,10 @@ public class MountainCorpseSpell extends AbstractSpell {
 
     public MountainCorpseSpell() {
         this.manaCostPerLevel = 25;
-        this.baseSpellPower = 30;
-        this.spellPowerPerLevel = 8;
+        this.baseSpellPower = 90;
+        this.spellPowerPerLevel = 5;
         this.castTime = 0;
-        this.baseManaCost = 50;
+        this.baseManaCost = 100;
     }
 
     public CastType getCastType() {
@@ -67,20 +65,12 @@ public class MountainCorpseSpell extends AbstractSpell {
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 
-    private float getPercentAttackDamage(int spellLevel, LivingEntity entity) {
-        return spellLevel * MountainCorpseMobEffect.ATTACK_DAMAGE_PER_LEVEL * 100;
-    }
-
     private float getAttackKnockback (int spellLevel, LivingEntity entity) {
         return spellLevel * MountainCorpseMobEffect.ATTACK_KNOCKBACK_PER_LEVEL* 100;
     }
 
     private float getKnockbackResistance (int spellLevel, LivingEntity entity) {
         return spellLevel * MountainCorpseMobEffect.KNOCKBACK_RESISTANCE_PER_LEVEL* 100;
-    }
-
-    private float getPercentSpellPower(int spellLevel, LivingEntity entity) {
-        return spellLevel * MountainCorpseMobEffect.NATURE_SPELL_POWER_PER_LEVEL * 100;
     }
 
     public AnimationHolder getCastStartAnimation() {

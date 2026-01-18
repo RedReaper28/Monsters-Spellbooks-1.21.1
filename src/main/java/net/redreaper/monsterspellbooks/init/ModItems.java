@@ -14,10 +14,8 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.item.armor.*;
-import net.redreaper.monsterspellbooks.item.curios.elemental_charm.BrimstoneSigilItem;
-import net.redreaper.monsterspellbooks.item.curios.elemental_charm.DreadHoundToothNecklaceItem;
-import net.redreaper.monsterspellbooks.item.curios.elemental_charm.DwarvenPowerCoreItem;
-import net.redreaper.monsterspellbooks.item.curios.elemental_charm.ObsidianMedalItem;
+import net.redreaper.monsterspellbooks.item.curios.elemental_charm.*;
+import net.redreaper.monsterspellbooks.item.curios.head.CriticalSorcererGlassesItem;
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffItem;
@@ -226,6 +224,10 @@ public class ModItems {
             ReaperLanternSpellBook::new);
     public static final Supplier<CurioBaseItem>WITHERWARD_RING = ITEMS.register("witherward_ring",
             WitherWardCurio::new);
+
+    public static final Supplier<CurioBaseItem>CRITICAL_GLASSES = ITEMS.register("critical_glasses",
+            CriticalSorcererGlassesItem::new);
+
     public static final Supplier<CurioBaseItem>BRIMSTONE_SIGIL = ITEMS.register("brimstone_sigil",
             BrimstoneSigilItem::new);
     public static final Supplier<CurioBaseItem>DREADHOUND_TOOTH_NECKLACE = ITEMS.register("dreadhound_tooth_necklace",
@@ -234,6 +236,10 @@ public class ModItems {
             DwarvenPowerCoreItem::new);
     public static final Supplier<CurioBaseItem>OBSIDIAN_MEDAL = ITEMS.register("obsidian_medal",
             ObsidianMedalItem::new);
+    public static final Supplier<CurioBaseItem>ORB_SOUL = ITEMS.register("orb_soul",
+            OrbOFSoulsItem::new);
+    public static final Supplier<CurioBaseItem>BLIZZARD_CALLER = ITEMS.register("blizzard_caller",
+            BlizzardCaller::new);
 
 
 

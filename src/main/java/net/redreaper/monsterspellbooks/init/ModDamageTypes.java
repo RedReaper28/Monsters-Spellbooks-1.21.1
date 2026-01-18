@@ -18,6 +18,7 @@ public class ModDamageTypes {
 
     public static final ResourceKey<DamageType> SNOW_CLOUD = register("snow_cloud");
     public static final ResourceKey<DamageType> PUTRESCENCE_FIELD = register("putrescence_field");
+    public static final ResourceKey<DamageType> DISTORTION_FIELD = register("distortion_field");
 
 
 
@@ -25,8 +26,9 @@ public class ModDamageTypes {
     {
         context.register(NECRO_MAGIC, new DamageType(NECRO_MAGIC.location().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0F));
         context.register(AERO_MAGIC, new DamageType(AERO_MAGIC.location().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0F));
-        context.register(PUTRESCENCE_FIELD, new DamageType(SNOW_CLOUD.location().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0f));
         context.register(SNOW_CLOUD, new DamageType(PUTRESCENCE_FIELD.location().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0f));
+        context.register(PUTRESCENCE_FIELD, new DamageType(SNOW_CLOUD.location().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0f));
+        context.register(DISTORTION_FIELD, new DamageType(DISTORTION_FIELD.location().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0f));
 
     }
 }
