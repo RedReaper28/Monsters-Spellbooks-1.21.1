@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:iron_sword"
+            "items": "monsterspellbooks:void_obsidian_ingot"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "monsterspellbooks:great_axeblade"
+        "recipe": "monsterspellbooks:disruption_naginata"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "monsterspellbooks:great_axeblade"
+      "monsterspellbooks:disruption_naginata"
     ]
   }
 }

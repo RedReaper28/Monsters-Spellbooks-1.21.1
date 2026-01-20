@@ -37,7 +37,7 @@ public class HysteriaSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.RARE)
             .setSchoolResource(SchoolRegistry.BLOOD_RESOURCE)
             .setMaxLevel(3)
-            .setCooldownSeconds(120)
+            .setCooldownSeconds(160)
             .build();
 
     public HysteriaSpell() {
@@ -62,21 +62,16 @@ public class HysteriaSpell extends AbstractSpell {
 
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         entity.addEffect(new MobEffectInstance(ModMobEffects.BLOODLUST, (int) (getSpellPower(spellLevel, entity) * 10), spellLevel - 1, false, false, true));
+        entity.addEffect(new MobEffectInstance(ModMobEffects.CURSE, (int) (getSpellPower(spellLevel, entity) * 10), spellLevel - 1, false, false, true));
         entity.addEffect(new MobEffectInstance(MobEffectRegistry.HEARTSTOP, (int) (getSpellPower(spellLevel, entity) * 10),0));
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 
-    private float getPercentAttackDamage(int spellLevel, LivingEntity entity) {
-        return spellLevel * BloodLustMobEffect.ATTACK_DAMAGE_PER_LEVEL * 100;
-    }
+    private float getPercentAttackDamage(int spellLevel, LivingEntity entity) {return spellLevel * BloodLustMobEffect.ATTACK_DAMAGE_PER_LEVEL * 100;}
 
-    private float getPercentSpellPower(int spellLevel, LivingEntity entity) {
-        return spellLevel * BloodLustMobEffect.ATTACK_SPEED_PER_LEVEL * 100;
-    }
+    private float getPercentSpellPower(int spellLevel, LivingEntity entity) {return spellLevel * BloodLustMobEffect.ATTACK_SPEED_PER_LEVEL * 100;}
 
-    private float getPercentSpeed(int spellLevel, LivingEntity entity) {
-        return spellLevel * BloodLustMobEffect.SPEED_PER_LEVEL * 100;
-    }
+    private float getPercentSpeed(int spellLevel, LivingEntity entity) {return spellLevel * BloodLustMobEffect.SPEED_PER_LEVEL * 100;}
 
     public AnimationHolder getCastStartAnimation() {
         return SpellAnimations.SELF_CAST_ANIMATION;

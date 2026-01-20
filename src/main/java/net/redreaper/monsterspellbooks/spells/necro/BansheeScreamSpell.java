@@ -36,7 +36,7 @@ public class BansheeScreamSpell extends AbstractSpell {
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(Component.translatable("ui.irons_spellbooks.damage", new Object[]{Utils.stringTruncation((double) this.getDamage(spellLevel, caster), 2)}),
                 Component.translatable("ui.irons_spellbooks.radius", new Object[]{Utils.stringTruncation((double) this.getRadius(spellLevel, caster), 2)}),
-                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentCastTime(spellLevel, caster), 0), Component.translatable("attribute.irons_spellbooks.cast_time_reduction"))
+                Component.translatable("attribute.modifier.take.1", Utils.stringTruncation(getPercentCastTime(spellLevel, caster), 0), Component.translatable("attribute.irons_spellbooks.cast_time_reduction"))
                 );
     }
 
@@ -92,7 +92,6 @@ public class BansheeScreamSpell extends AbstractSpell {
                     livingEntity.addEffect(new MobEffectInstance(ModMobEffects.FEAR, i, this.getWitherAmplifier(spellLevel, entity)));
                 }
             }
-
         });
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }

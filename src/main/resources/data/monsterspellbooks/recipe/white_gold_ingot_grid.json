@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:gold_nugget"
+    },
+    "B": {
+      "item": "minecraft:quartz"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ABB",
+    "BB "
+  ],
+  "result": {
+    "count": 2,
+    "id": "monsterspellbooks:white_gold_ingot"
+  }
+}

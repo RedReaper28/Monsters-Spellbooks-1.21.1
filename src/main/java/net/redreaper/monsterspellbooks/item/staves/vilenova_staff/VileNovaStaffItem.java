@@ -16,7 +16,8 @@ public class VileNovaStaffItem extends StaffItem {
     public final ModDispatcher dispatcher = new ModDispatcher();
 
     public VileNovaStaffItem() {
-        super(ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.VERDANT_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModStaffMaterials.VILENOVA)));
+        super(ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.VERDANT_RARITY_PROXY.getValue())
+                .attributes(ExtendedSwordItem.createAttributes(ModStaffMaterials.VILENOVA)));
     }
 
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {

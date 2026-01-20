@@ -6,7 +6,6 @@ import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import io.redspace.ironsspellbooks.effect.ImmolateEffect;
-import io.redspace.ironsspellbooks.registries.ItemRegistry;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import net.acetheeldritchking.aces_spell_utils.utils.ASUtils;
 import net.minecraft.network.chat.Component;
@@ -22,9 +21,12 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.EntityTeleportEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.redreaper.monsterspellbooks.effect.HemorrhageMobEffect;
@@ -52,12 +54,20 @@ public class ServerEvents {
         }
     }
 
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void onSpellTeleport(EntityTeleportEvent event) {
+        if (event.getEntity() instanceof LivingEntity livingEntity) {
+            if (livingEntity.hasEffect(ModMobEffects.SPACE_ANCHORED)) {
+                event.setCanceled(true);
+            }
+        }
+    }
+
     @SubscribeEvent
     public static void onPlayerCastEvent(SpellPreCastEvent event) {
         var entity = event.getEntity();
         var spell = SpellRegistry.getSpell(event.getSpellId());
 
-        // Curse
         boolean isCursed = entity.hasEffect(ModMobEffects.CURSE);
         if (entity instanceof ServerPlayer player && !player.level().isClientSide()) {
             if (isCursed) {
@@ -78,20 +88,29 @@ public class ServerEvents {
 
     @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent.Post event) {
-        LivingEntity livingTarget = event.getEntity();
+        LivingEntity entityTarget = event.getEntity();
         Entity entityAttacker = event.getSource().getDirectEntity();
 
         if (entityAttacker instanceof LivingEntity livingAttacker) {
             if (livingAttacker.hasEffect(ModMobEffects.OVERHEAT)) {
-                livingTarget.setRemainingFireTicks(50);
+                entityTarget.setRemainingFireTicks(50);
             }
-        } else if (entityAttacker instanceof LivingEntity livingAttacker) {
-            if (livingTarget.hasEffect(ModMobEffects.OVERHEAT)) {
+        }
+        if (entityAttacker instanceof LivingEntity livingAttacker) {
+            if (entityTarget.hasEffect(ModMobEffects.OVERHEAT)) {
                 livingAttacker.setRemainingFireTicks(50);
             }
-        } else if (entityAttacker instanceof LivingEntity livingAttacker) {
-            if (livingTarget.hasEffect(ModMobEffects.DECAYING_TOUCH)) {
-                livingTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, 120, 1, true, true, true));
+        }
+
+        if (entityAttacker instanceof LivingEntity livingAttacker) {
+            if (entityTarget.hasEffect(ModMobEffects.FROST_COATING)) {
+                livingAttacker.setTicksFrozen(360);
+            }
+        }
+
+        if (entityAttacker instanceof LivingEntity livingAttacker) {
+            if (livingAttacker.hasEffect(ModMobEffects.DECAYING_TOUCH)) {
+                entityTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, 120, 1, true, true, true));
             }
         }
     }
@@ -107,6 +126,11 @@ public class ServerEvents {
             }
 
             if (livingEntity.getItemBySlot(EquipmentSlot.CHEST).is(ModItems.FLESH_MAIDEN) && event.getSource().is(ISSDamageTypes.HEARTSTOP)) {
+                event.setCanceled(true);
+                return;
+            }
+
+            if (livingEntity.hasEffect(ModMobEffects.SOUL_FORM)) {
                 event.setCanceled(true);
                 return;
             }
@@ -179,6 +203,20 @@ public class ServerEvents {
                     }
 
                 }
+            }
+        }
+    }
+
+
+    @SubscribeEvent
+    public static void revive(LivingDeathEvent event) {
+        if (event.getEntity() instanceof LivingEntity livingEntity) {
+            if (livingEntity.hasEffect(ModMobEffects.LICHDOM)) {
+                event.setCanceled(true);
+                livingEntity.removeEffect(ModMobEffects.LICHDOM);
+                livingEntity.setHealth(10.0F);
+                livingEntity.addEffect(new MobEffectInstance(ModMobEffects.SOUL_FORM, 200 ,4));
+                livingEntity.level().playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.WITHER_DEATH, SoundSource.NEUTRAL, .8F, 1.3F);
             }
         }
     }

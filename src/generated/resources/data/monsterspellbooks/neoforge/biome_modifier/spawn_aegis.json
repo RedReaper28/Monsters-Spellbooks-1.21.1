@@ -4,7 +4,7 @@
   "spawners": {
     "type": "monsterspellbooks:aegis",
     "maxCount": 4,
-    "minCount": 3,
-    "weight": 1
+    "minCount": 2,
+    "weight": 10
   }
 }

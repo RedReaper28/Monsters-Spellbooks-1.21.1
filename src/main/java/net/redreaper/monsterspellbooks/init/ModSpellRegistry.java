@@ -11,6 +11,7 @@ import net.redreaper.monsterspellbooks.spells.blood.SanguiniteEviscerationSpell;
 import net.redreaper.monsterspellbooks.spells.ender.*;
 import net.redreaper.monsterspellbooks.spells.fire.*;
 import net.redreaper.monsterspellbooks.spells.holy.AegisPatrolSpell;
+import net.redreaper.monsterspellbooks.spells.holy.DivineInterventionSpell;
 import net.redreaper.monsterspellbooks.spells.ice.BlizzardAspectSpell;
 import net.redreaper.monsterspellbooks.spells.ice.FrostCoatingSpell;
 import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
@@ -71,6 +72,7 @@ public class ModSpellRegistry {
 
     //HOLY
     public static final Supplier<AbstractSpell> AEGIS_PATROL = registerSpell(new AegisPatrolSpell());
+    public static final Supplier<AbstractSpell> DIVINE_INTERVENTION = registerSpell(new DivineInterventionSpell());
 
     //ICE
     //Cast to conjure a blizzard centered around yourself,which strikes nearby creatures within sight with small clouds of frost every 2 seconds for the spell´s duration
@@ -102,12 +104,18 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> SUMMON_DEATH_KNIGHT = registerSpell(new ConjureDeathKnightSpell());
     //A curse long forgotten than reduces your target to a defenseless state in many ways
     public static final Supplier<AbstractSpell> FALL_CURSE = registerSpell(new FallCurseSpell());
+
+    public static final Supplier<AbstractSpell> LICHDOM = registerSpell(new LichdomSpell());
+
     //Absorb the life force of your target,making them weak while healing you for 100% of the damage done
     public static final Supplier<AbstractSpell> LIFE_DRAIN = registerSpell(new LifeDrainSpell());
-    //Fires multiple blasts of spectral energy that builds up the Lethargy effect.Land all shots at max level to inflict a health decreasing effect.Level increases recasts
-    public static final Supplier<AbstractSpell> SPECTRAL_BLAST = registerSpell(new SpectralBlastSpell());
     //Launch a mass made from putrescence ,dissolving on impact and leaving a field of fire where it lands
     public static final Supplier<AbstractSpell> PUTRESCENCE_MASS = registerSpell(new PutrescenceMassSpell());
+
+    public static final Supplier<AbstractSpell> SOUL_FORM = registerSpell(new SoulFormSpell());
+
+    //Fires multiple blasts of spectral energy that builds up the Lethargy effect.Land all shots at max level to inflict a health decreasing effect.Level increases recasts
+    public static final Supplier<AbstractSpell> SPECTRAL_BLAST = registerSpell(new SpectralBlastSpell());
     //Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their soul and healing 15% of damage done
     public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
     //Summon a ravenous horde of Vile Skeletons that attack anything that isn't their caster,striping their armor and withering their flesh

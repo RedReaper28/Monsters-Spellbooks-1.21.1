@@ -39,8 +39,7 @@ public class FrenziedBurstSpell extends AbstractSpell {
                 Component.translatable("ui.irons_spellbooks.damage", Utils.stringTruncation(getDamage(spellLevel, caster), 2)),
                 Component.translatable("ui.irons_spellbooks.distance", Utils.stringTruncation(getRange(spellLevel, caster), 1)),
                 Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(spellLevel, caster), 2)),
-                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentManaReduction(spellLevel, caster), 0), Component.translatable("attribute.irons_spellbooks.max_mana"))
-
+                Component.translatable("attribute.modifier.take.1", Utils.stringTruncation(getPercentManaReduction(spellLevel, caster), 0), Component.translatable("attribute.irons_spellbooks.max_mana"))
         );
     }
 

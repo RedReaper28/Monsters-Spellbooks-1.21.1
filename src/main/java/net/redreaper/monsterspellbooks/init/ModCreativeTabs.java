@@ -22,6 +22,7 @@ public class ModCreativeTabs {
                     .displayItems((itemDisplayParameters, output) ->{
                         output.accept(ModItems.REAPER_LANTERN.get());
                         output.accept(ModItems.VILENOVA_STAFF.get());
+                        output.accept(ModItems.BRIMSTONE_OROCHI.get());
                         output.accept(ModItems.GREAT_AXEBLADE.get());
                         output.accept(ModItems.MASTERS_KATANA.get());
                         output.accept(ModItems.DANCERS_SWORD.get());
@@ -46,8 +47,10 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DUKES_HEARTSTEALER.get());
                         output.accept(ModItems.SWORD_OF_COURAGE.get());
                         output.accept(ModItems.FROSTMOURNE.get());
+                        output.accept(ModItems.MAGMATIC_MACUAHUITL.get());
                         output.accept(ModItems.STARLESS_NIGHT.get());
                         output.accept(ModItems.STARSCOURGE_SWORD.get());
+                        output.accept(ModItems.DISRUPTION_NAGINATA.get());
                         output.accept(ModItems.ENDERSENT_CRUSHER.get());
                         output.accept(ModItems.REAPER_SICKLE.get());
 
@@ -59,6 +62,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.OBSIDIAN_MEDAL.get());
                         output.accept(ModItems.ORB_SOUL.get());
                         output.accept(ModItems.BLIZZARD_CALLER.get());
+                        output.accept(ModItems.CROSS_NECKLACE.get());
 
                         output.accept(ModItems.FIERCE_DEITY_MASK.get());
                         output.accept(ModItems.MAJORAS_MASK.get());
@@ -152,6 +156,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.VILE_CORE);
                         output.accept(ModItems.PUTRESCENCE_VIAL);
                         output.accept(ModItems.VOID_VIAL);
+                        output.accept(ModItems.SUPERIOR_WEAPON_PARTS);
                         output.accept(ModItems.UPGRADE_RUNE);
                         output.accept(ModItems.NECRO_RUNE);
 

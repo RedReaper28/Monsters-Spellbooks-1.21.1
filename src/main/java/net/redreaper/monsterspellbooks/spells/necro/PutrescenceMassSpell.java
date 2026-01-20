@@ -86,15 +86,15 @@ public class PutrescenceMassSpell extends AbstractSpell {
     }
 
     public float getRadius(int spellLevel, LivingEntity caster) {
-        return 3 + getEntityPowerMultiplier(caster);
+        return 6 + getEntityPowerMultiplier(caster);
     }
 
     public float getDamage(int spellLevel, LivingEntity caster) {
-        return baseSpellPower * getEntityPowerMultiplier(caster);
+        return baseSpellPower * getEntityPowerMultiplier(caster)/2;
     }
 
     public float getAoeDamage(int spellLevel, LivingEntity caster) {
-        return 1 + getSpellPower(spellLevel, caster) * .1f;
+        return 0.5f + getSpellPower(spellLevel, caster) * .05f;
     }
 
     @Override

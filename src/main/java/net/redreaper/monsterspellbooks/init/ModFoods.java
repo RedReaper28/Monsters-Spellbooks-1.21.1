@@ -11,7 +11,7 @@ public class ModFoods {
     public static final FoodProperties LEMON_PIE=new FoodProperties.Builder().nutrition(8)
             .saturationModifier(4.8f).build();
     public static final FoodProperties ROSE_GOLD_APPLE=new FoodProperties.Builder().nutrition(4)
-            .saturationModifier(5).effect(()->new MobEffectInstance(MobEffects.REGENERATION,5000,2),1f)
+            .saturationModifier(5).effect(()->new MobEffectInstance(ModMobEffects.MANA_REGEN,5000,3),1f)
             .effect(()->new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 6000, 0), 1F)
             .effect(()->new MobEffectInstance(MobEffects.ABSORPTION, 6000, 0), 1.0F).alwaysEdible().build();
     public static final FoodProperties GOLDEN_COD=new FoodProperties.Builder().nutrition(4)

@@ -1,19 +1,22 @@
 {
+  "type": "minecraft:chest",
   "pools": [
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "monsterspellbooks:brimstone_sigil"
+          "name": "monsterspellbooks:claws_of_calamity",
+          "weight": 2
         }
       ],
       "conditions": [
         {
           "condition": "minecraft:random_chance",
-          "chance": 0.5
+          "chance": 0.45
         }
-      ]
+      ],
+      "rolls": 1.0
     }
   ]
 }

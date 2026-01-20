@@ -18,12 +18,15 @@ import net.redreaper.monsterspellbooks.item.curios.elemental_charm.*;
 import net.redreaper.monsterspellbooks.item.curios.head.CriticalSorcererGlassesItem;
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
+import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiItem;
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffItem;
 import net.redreaper.monsterspellbooks.item.weapons.*;
 import net.redreaper.monsterspellbooks.item.weapons.claws_of_calamity.ClawsOfCalamityItem;
 import net.redreaper.monsterspellbooks.item.weapons.crescent_blood_rose.CrescentBloodRoseItem;
+import net.redreaper.monsterspellbooks.item.weapons.disruption_nanginata.DisruptionNaginataItem;
 import net.redreaper.monsterspellbooks.item.weapons.endersent_crusher.EndersentCrusherItem;
 import net.redreaper.monsterspellbooks.item.weapons.magic_axe.ExtendedAxeItem;
+import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlItem;
 
 import java.util.function.Supplier;
 
@@ -64,11 +67,11 @@ public class ModItems {
     public static final DeferredItem<Item>WHITE_GOLD_NUGGET= ITEMS.register("white_gold_nugget",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>RAW_SCORCHED_METAL= ITEMS.register("raw_scorched_metal",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>SCORCHED_METAL_INGOT= ITEMS.register("scorched_metal_ingot",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>SCORCHED_METAL_NUGGET= ITEMS.register("scorched_metal_nugget",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>RAW_VILE_IRON= ITEMS.register("raw_vile_iron",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>VILE_IRON_INGOT= ITEMS.register("vile_iron_ingot",
@@ -76,21 +79,21 @@ public class ModItems {
     public static final DeferredItem<Item>VILE_IRON_NUGGET= ITEMS.register("vile_iron_nugget",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>NETHER_PYRITE= ITEMS.register("nether_pyrite",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>NETHER_RUBY= ITEMS.register("nether_ruby",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>SPECTRITE_INGOT= ITEMS.register("spectrite_ingot",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>BLAZESTEEL_INGOT= ITEMS.register("blazesteel_ingot",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>WITHER_ALLOY_INGOT= ITEMS.register("wither_alloy_ingot",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>WITHER_ALLOY_NUGGET= ITEMS.register("wither_alloy_nugget",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>VOID_MATTER= ITEMS.register("void_matter",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>VOID_OBSIDIAN_INGOT= ITEMS.register("void_obsidian_ingot",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>RESIN_BRICK= ITEMS.register("resin_brick",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>RESIN_HEART= ITEMS.register("resin_heart",
@@ -108,21 +111,23 @@ public class ModItems {
     public static final DeferredItem<Item> DWARVEN_UPGRADE = ITEMS.register("dwarven_upgrade",
             () -> new Item(ItemPropertiesHelper.material()));
     public static final DeferredItem<Item>STRIDER_COTTON_BALL= ITEMS.register("strider_cotton_boll",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>STRIDER_COTTON_STRING= ITEMS.register("strider_cotton_string",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>CINDER_CINNAMON= ITEMS.register("cinder_cinnamon",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>CINDER_CINNAMON_POWDER= ITEMS.register("cinder_cinnamon_powder",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>VILE_BONE= ITEMS.register("vile_bone",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>VILE_CORE= ITEMS.register("vile_core",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>PUTRESCENCE_VIAL= ITEMS.register("putrescence_vial",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>VOID_VIAL= ITEMS.register("void_vial",
             ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>SUPERIOR_WEAPON_PARTS= ITEMS.register("superior_weapon_parts",
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>UPGRADE_RUNE= ITEMS.register("upgrade_rune",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>NECRO_RUNE= ITEMS.register("necro_rune",
@@ -167,6 +172,8 @@ public class ModItems {
 
     public static final DeferredItem<Item>VILENOVA_STAFF=ITEMS.register("vilenova_staff",
             VileNovaStaffItem::new);
+    public static final DeferredItem<Item>BRIMSTONE_OROCHI=ITEMS.register("brimstone_orochi",
+            BrimstoneOrochiItem::new);
 
     public static final DeferredHolder<Item, Item> GREAT_AXEBLADE = ITEMS.register("great_axeblade", () ->
             new ExtendedAxeItem(Tiers.IRON, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_GREATAXE))));
@@ -210,10 +217,14 @@ public class ModItems {
             DukesHeartstealer::new);
     public static final DeferredItem<Item> FROSTMOURNE = ITEMS.register("frostmourne",
             Frostmourne::new);
+    public static final DeferredItem<Item> MAGMATIC_MACUAHUITL = ITEMS.register("magmatic_macuahuitl",
+            MagmaticMacuahuitlItem::new);
     public static final DeferredItem<Item>STARLESS_NIGHT = ITEMS.register("starless_night",
             StarlessNight::new);
     public static final DeferredItem<Item>STARSCOURGE_SWORD = ITEMS.register("starscourge_sword",
             StarscourgeSword::new);
+    public static final DeferredItem<Item>DISRUPTION_NAGINATA = ITEMS.register("disruption_naginata",
+            DisruptionNaginataItem::new);
     public static final DeferredItem<Item>SWORD_OF_COURAGE = ITEMS.register("sword_of_courage",
             SwordOfCourage::new);
     public static final DeferredItem<Item>REAPER_SICKLE = ITEMS.register("reaper_sickle",
@@ -239,7 +250,10 @@ public class ModItems {
     public static final Supplier<CurioBaseItem>ORB_SOUL = ITEMS.register("orb_soul",
             OrbOFSoulsItem::new);
     public static final Supplier<CurioBaseItem>BLIZZARD_CALLER = ITEMS.register("blizzard_caller",
-            BlizzardCaller::new);
+            BlizzardCallerItem::new);
+
+    public static final Supplier<CurioBaseItem>CROSS_NECKLACE = ITEMS.register("cross_necklace",
+            CrossNecklaceItem::new);
 
 
 
