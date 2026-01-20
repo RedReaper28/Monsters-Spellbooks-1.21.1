@@ -12,7 +12,7 @@
       "item": "minecraft:mace"
     },
     "D": {
-      "item": "minecraft:obsidian"
+      "item": "monsterspellbooks:superior_weapon_parts"
     }
   },
   "pattern": [
@@ -32,7 +32,7 @@
           {
             "id": "monsterspellbooks:endersent_smash",
             "index": 0,
-            "level": 6,
+            "level": 5,
             "locked": true
           }
         ],

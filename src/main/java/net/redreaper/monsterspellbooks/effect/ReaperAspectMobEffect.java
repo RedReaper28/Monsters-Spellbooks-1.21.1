@@ -5,9 +5,11 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 
+@EventBusSubscriber
 public class ReaperAspectMobEffect extends MagicMobEffect {
     public static final float DAMAGE_PER_LEVEL = 0.05F;
 

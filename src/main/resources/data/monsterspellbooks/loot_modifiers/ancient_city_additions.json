@@ -1,15 +1,10 @@
 {
-  "type": "irons_spellbooks:append_loot",
   "conditions": [
     {
-      "condition": "minecraft:any_of",
-      "terms": [
-        {
-          "condition": "neoforge:loot_table_id",
-          "loot_table_id": "minecraft:chests/ancient_city"
-        }
-      ]
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chests/ancient_city"
     }
   ],
-  "key": "monsterspellbooks:chests/ancient_city_items"
+  "type": "monsterspellbooks:add_to_table",
+  "loot_table": "monsterspellbooks:chests/ancient_city_items"
 }

@@ -26,6 +26,7 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> MADNESS = MOB_EFFECT_DEFERRED_REGISTER.register("madness", () -> new MadnessMobEffect(MobEffectCategory.HARMFUL, 16736559)
             .addAttributeModifier(AttributeRegistry.MAX_MANA, MonstersSpellbooks.id("mobeffect_madness"), MadnessMobEffect.MANA_REDUCTION_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     public static final DeferredHolder<MobEffect, MobEffect> HEAL_CUT = MOB_EFFECT_DEFERRED_REGISTER.register("heal_cut", HealCutMobEffect::new);
+    public static final DeferredHolder<MobEffect, MobEffect> SPACE_ANCHORED = MOB_EFFECT_DEFERRED_REGISTER.register("space_anchored", SpaceAnchoredMobEffect::new);
     public static final DeferredHolder<MobEffect,MobEffect>  SOUL_ROT=MOB_EFFECT_DEFERRED_REGISTER.register("soul_rot",SoulRotMobEffect::new);
     public static final DeferredHolder<MobEffect, MobEffect> BLIZZARD_ASPECT = MOB_EFFECT_DEFERRED_REGISTER.register("blizzard_aspect", () -> new BlizzardAspectMobEffect(MobEffectCategory.BENEFICIAL, 6653361));
     public static final DeferredHolder<MobEffect, MobEffect> CRUSHING_PRESENCE = MOB_EFFECT_DEFERRED_REGISTER.register("crushing_presence", () -> new CrushingPresenceMobEffect(MobEffectCategory.BENEFICIAL, 4798975));
@@ -55,6 +56,9 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> FEAR = MOB_EFFECT_DEFERRED_REGISTER.register("fear", () -> new InflammableMobEffect(MobEffectCategory.HARMFUL, 2818100)
             .addAttributeModifier(AttributeRegistry.CAST_TIME_REDUCTION, MonstersSpellbooks.id("mobeffect_fear"), FearMobEffect.CAST_TIME_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     public static final DeferredHolder<MobEffect, MobEffect> DECAYING_TOUCH = MOB_EFFECT_DEFERRED_REGISTER.register("decaying_touch", () -> new DecayingTouch(MobEffectCategory.HARMFUL, 16711680));
+
+    public static final DeferredHolder<MobEffect, MobEffect> SOUL_REND = MOB_EFFECT_DEFERRED_REGISTER.register("soul_rend", () -> new SoulRendMobEffect(MobEffectCategory.HARMFUL, 6354426)
+            .addAttributeModifier(AttributeRegistry.MANA_REGEN, MonstersSpellbooks.id("mobeffect_soul_rend"), SoulRendMobEffect.MANA_SLOWNESS_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
 
     public static final DeferredHolder<MobEffect, MobEffect> SPIRIT_FROSTBITE = MOB_EFFECT_DEFERRED_REGISTER.register("spirit_frostbite", () -> new SpiritFrostbiteMobEffect(MobEffectCategory.HARMFUL, 2818100)

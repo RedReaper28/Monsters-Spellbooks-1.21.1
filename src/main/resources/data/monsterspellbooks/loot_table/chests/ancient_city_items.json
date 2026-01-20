@@ -2,20 +2,21 @@
   "type": "minecraft:chest",
   "pools": [
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "monsterspellbooks:upgrade_rune"
+          "name": "monsterspellbooks:upgrade_rune",
+          "weight": 2
         }
       ],
       "conditions": [
         {
           "condition": "minecraft:random_chance",
-          "chance": 0.33
+          "chance": 0.45
         }
-      ]
+      ],
+      "rolls": 1.0
     }
   ]
 }

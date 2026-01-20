@@ -62,6 +62,7 @@ public class HysteriaSpell extends AbstractSpell {
 
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         entity.addEffect(new MobEffectInstance(ModMobEffects.BLOODLUST, (int) (getSpellPower(spellLevel, entity) * 10), spellLevel - 1, false, false, true));
+        entity.addEffect(new MobEffectInstance(ModMobEffects.CURSE, (int) (getSpellPower(spellLevel, entity) * 10), spellLevel - 1, false, false, true));
         entity.addEffect(new MobEffectInstance(MobEffectRegistry.HEARTSTOP, (int) (getSpellPower(spellLevel, entity) * 10),0));
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }

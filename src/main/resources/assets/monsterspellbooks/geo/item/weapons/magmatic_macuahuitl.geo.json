@@ -1,0 +1,34 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.magmatic_macuahuitl",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "macuahuitl",
+					"pivot": [0, 12.25, 0.375],
+					"cubes": [
+						{"origin": [-1.5, -2, -1], "size": [3, 2, 3], "uv": [0, 26]},
+						{"origin": [-1, 0, -0.5], "size": [2, 10, 2], "uv": [0, 0]},
+						{"origin": [-1.5, 9, -2], "size": [3, 27, 5], "uv": [48, 32]},
+						{
+							"origin": [-0.1, 10, -5],
+							"size": [0.1, 25, 11],
+							"uv": {
+								"east": {"uv": [34, 0], "uv_size": [11, 25]},
+								"west": {"uv": [45, 0], "uv_size": [11, 25]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

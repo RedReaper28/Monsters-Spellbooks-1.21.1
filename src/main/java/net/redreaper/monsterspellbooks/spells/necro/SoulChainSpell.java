@@ -1,4 +1,4 @@
 package net.redreaper.monsterspellbooks.spells.necro;
 
-public class SoulSplitSpell {
+public class SoulChainSpell {
 }

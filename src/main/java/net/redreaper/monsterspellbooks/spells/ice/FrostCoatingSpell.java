@@ -29,7 +29,7 @@ public class FrostCoatingSpell extends AbstractSpell {
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
                 Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 20, 1)),
-                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getExtraArmor(+2, caster), 0), Component.translatable("attribute.name.generic.armor")),
+                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getExtraArmor(spellLevel+2, caster), 0), Component.translatable("attribute.name.generic.armor")),
                 Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getSpellResistance(spellLevel+2, caster), 0), Component.translatable("attribute.irons_spellbooks.spell_resist"))
         );
     }

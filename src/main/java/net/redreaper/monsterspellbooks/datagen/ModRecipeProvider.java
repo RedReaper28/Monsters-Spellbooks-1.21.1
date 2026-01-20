@@ -33,15 +33,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C',Items.NETHER_STAR)
                         .unlockedBy("has_material", has(Items.NETHER_STAR)).save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GREAT_AXEBLADE.get())
-                .pattern("  A")
-                .pattern(" B ")
-                .pattern("C  ")
-                .define('A',Items.IRON_SWORD)
-                .define('B',Items.IRON_AXE)
-                .define('C',Items.STICK)
-                .unlockedBy("has_material", has(Items.IRON_SWORD)).save(recipeOutput);
-
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MASTERS_KATANA.get())
                 .pattern("  A")
                 .pattern(" A ")
@@ -50,13 +41,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('B',Items.STICK)
                 .unlockedBy("has_material", has(ModItems.ROSE_GOLD_INGOT)).save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DANCERS_SWORD.get())
-                .pattern("  A")
-                .pattern(" B ")
-                .pattern("A  ")
-                .define('A',Items.IRON_SWORD)
-                .define('B',Items.STICK)
-                        .unlockedBy("has_material", has(Items.IRON_SWORD)).save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ORICHALCUM_DAGGER.get())
                 .pattern(" A ")
@@ -154,7 +138,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("CA ")
                 .pattern("BC ")
                 .define('A',ModItems.VOID_OBSIDIAN_INGOT.get())
-                .define('B',Items.OBSIDIAN)
+                .define('B',ModItems.SUPERIOR_WEAPON_PARTS.get())
+                .define('C',Items.GOLD_INGOT)
+                .unlockedBy("has_material", has(ModItems.VOID_OBSIDIAN_INGOT)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DISRUPTION_NAGINATA.get())
+                .pattern("  A")
+                .pattern(" BA")
+                .pattern("C  ")
+                .define('A',ModItems.VOID_OBSIDIAN_INGOT.get())
+                .define('B',ModItems.SUPERIOR_WEAPON_PARTS.get())
                 .define('C',Items.GOLD_INGOT)
                 .unlockedBy("has_material", has(ModItems.VOID_OBSIDIAN_INGOT)).save(recipeOutput);
 
@@ -165,7 +158,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('A',ModItems.VOID_OBSIDIAN_INGOT.get())
                 .define('B',ItemRegistry.ENDER_UPGRADE_ORB.get())
                 .define('C',Items.MACE)
-                .define('D',Items.OBSIDIAN)
+                .define('D',ModItems.SUPERIOR_WEAPON_PARTS.get())
                 .unlockedBy("has_material", has(ModItems.VOID_OBSIDIAN_INGOT)).save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REAPER_SICKLE.get())

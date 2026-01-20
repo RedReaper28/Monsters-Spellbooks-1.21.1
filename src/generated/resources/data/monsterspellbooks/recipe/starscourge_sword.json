@@ -6,7 +6,7 @@
       "item": "monsterspellbooks:void_obsidian_ingot"
     },
     "B": {
-      "item": "minecraft:obsidian"
+      "item": "monsterspellbooks:superior_weapon_parts"
     },
     "C": {
       "item": "minecraft:gold_ingot"
@@ -29,7 +29,7 @@
           {
             "id": "monsterspellbooks:gravity_well",
             "index": 0,
-            "level": 4,
+            "level": 3,
             "locked": true
           }
         ],

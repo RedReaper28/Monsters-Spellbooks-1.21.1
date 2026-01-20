@@ -30,8 +30,7 @@ public class SpiritFrostbiteMobEffect extends MagicMobEffect implements ISyncedM
         Registry<DamageType> dTypeReg = p_296276_.damageSources().damageTypes;
         Holder.Reference<DamageType> dType = dTypeReg.getHolder(NeoForgeMod.POISON_DAMAGE).orElse(dTypeReg.getHolderOrThrow(ISSDamageTypes.ICE_MAGIC));
         p_296276_.hurt(new DamageSource(dType), 0.5f);
-        return true;
-    }
+        return true;}
 
     public void clientTick(LivingEntity livingEntity, MobEffectInstance instance) {
         int amplifier = instance.getAmplifier();

@@ -1,26 +1,19 @@
 package net.redreaper.monsterspellbooks;
 
-import io.redspace.ironsspellbooks.item.SpellBook;
-import io.redspace.ironsspellbooks.registries.FluidRegistry;
-import io.redspace.ironsspellbooks.registries.UpgradeOrbTypeRegistry;
-import io.redspace.ironsspellbooks.render.SpellBookCurioRenderer;
-import mod.azure.azurelib.common.animation.cache.AzIdentityRegistry;
-import mod.azure.azurelib.common.render.armor.AzArmorRendererRegistry;
 import mod.azure.azurelib.common.render.item.AzItemRendererRegistry;
-import net.acetheeldritchking.aces_spell_utils.entity.render.items.SheathCurioRenderer;
-import net.acetheeldritchking.aces_spell_utils.items.curios.SheathCurioItem;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.redreaper.monsterspellbooks.init.*;
+import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiRenderer;
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffRenderer;
+import net.redreaper.monsterspellbooks.item.weapons.disruption_nanginata.DisruptionNaginataRenderer;
+import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlRenderer;
+import net.redreaper.monsterspellbooks.loot.ModLootModifiers;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
-
 import com.mojang.logging.LogUtils;
-
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -30,7 +23,6 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 @Mod(MonstersSpellbooks.MOD_ID)
 public class MonstersSpellbooks {
@@ -54,6 +46,7 @@ public class MonstersSpellbooks {
         ModSpellRegistry.register(modEventBus);
         ModSpellSchools.register(modEventBus);
         ModFluids.register(modEventBus);
+        ModLootModifiers.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -80,7 +73,10 @@ public class MonstersSpellbooks {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            AzItemRendererRegistry.register(VileNovaStaffRenderer::new, (Item)ModItems.VILENOVA_STAFF.get(), new Item[0]);
+            AzItemRendererRegistry.register(DisruptionNaginataRenderer::new, ModItems.DISRUPTION_NAGINATA.get());
+            AzItemRendererRegistry.register(VileNovaStaffRenderer::new, ModItems.VILENOVA_STAFF.get());
+            AzItemRendererRegistry.register(BrimstoneOrochiRenderer::new, ModItems.BRIMSTONE_OROCHI.get());
+            AzItemRendererRegistry.register(MagmaticMacuahuitlRenderer::new, ModItems.MAGMATIC_MACUAHUITL.get());
         }
     }
 }
