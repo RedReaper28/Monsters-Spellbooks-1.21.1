@@ -20,6 +20,7 @@ public class ModCreativeTabs {
             ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModItems.WITHERWARD_RING.get()))
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_gear"))
                     .displayItems((itemDisplayParameters, output) ->{
+                        output.accept(ModItems.BOOK_OF_SOULS.get());
                         output.accept(ModItems.REAPER_LANTERN.get());
                         output.accept(ModItems.VILENOVA_STAFF.get());
                         output.accept(ModItems.BRIMSTONE_OROCHI.get());

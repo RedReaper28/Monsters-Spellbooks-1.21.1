@@ -32,9 +32,9 @@ public class LichdomSpell extends AbstractSpell {
     }
 
     private final DefaultConfig defaultConfig = new DefaultConfig()
-            .setMinRarity(SpellRarity.COMMON)
+            .setMinRarity(SpellRarity.LEGENDARY)
             .setSchoolResource(ModSpellSchools.NECRO_RESOURCE)
-            .setMaxLevel(8)
+            .setMaxLevel(6)
             .setCooldownSeconds(150)
             .build();
 

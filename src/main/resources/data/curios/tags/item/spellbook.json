@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "monsterspellbooks:reaper_lantern"
+    "monsterspellbooks:reaper_lantern",
+    "monsterspellbooks:book_of_souls"
   ]
 }

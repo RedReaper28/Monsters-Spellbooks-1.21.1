@@ -17,6 +17,7 @@ import net.redreaper.monsterspellbooks.item.armor.*;
 import net.redreaper.monsterspellbooks.item.curios.elemental_charm.*;
 import net.redreaper.monsterspellbooks.item.curios.head.CriticalSorcererGlassesItem;
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
+import net.redreaper.monsterspellbooks.item.curios.spellbooks.BookOfSoulsItem;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiItem;
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffItem;
@@ -231,8 +232,11 @@ public class ModItems {
             ReaperSickle::new);
     public static final DeferredItem<Item>ENDERSENT_CRUSHER = ITEMS.register("endersent_crusher",
             EndersentCrusherItem::new);
+    public static final DeferredHolder<Item, Item> BOOK_OF_SOULS = ITEMS.register("book_of_souls",
+            BookOfSoulsItem::new);
     public static final DeferredHolder<Item, Item> REAPER_LANTERN = ITEMS.register("reaper_lantern",
             ReaperLanternSpellBook::new);
+
     public static final Supplier<CurioBaseItem>WITHERWARD_RING = ITEMS.register("witherward_ring",
             WitherWardCurio::new);
 

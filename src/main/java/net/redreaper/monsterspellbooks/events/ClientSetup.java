@@ -2,6 +2,8 @@ package net.redreaper.monsterspellbooks.events;
 
 import io.redspace.ironsspellbooks.entity.spells.skull_projectile.SkullProjectileRenderer;
 import io.redspace.ironsspellbooks.fluids.SimpleClientFluidType;
+import io.redspace.ironsspellbooks.particle.FlameStrikeParticle;
+import io.redspace.ironsspellbooks.registries.ParticleRegistry;
 import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -86,6 +88,8 @@ public static void registerParticles(RegisterParticleProvidersEvent event)
     event.registerSpriteSet(ModParticleTypes.BRIMSTONE_FIRE_PARTICLE.get(), BrimstoneFireParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.BRIMSTONE_EMBERS_PARTICLE.get(), BrimstoneEmberParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.PUTRESCENCE_BUBBLE_PARTICLE.get(), PutrescenceBubbleParticle.Provider::new);
+    event.registerSpriteSet(ModParticleTypes.SPIRIT_STRIKE_PARTICLE.get(), SpiritStrikeParticle.Provider::new);
+
 }
 
     @SubscribeEvent

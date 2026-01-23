@@ -1,11 +1,15 @@
 package net.redreaper.monsterspellbooks.init;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.particle.SpiritStrikeParticleOptions;
 
 import java.util.function.Supplier;
 
@@ -20,6 +24,14 @@ public class ModParticleTypes {
     public static final Supplier<SimpleParticleType> BRIMSTONE_FIRE_PARTICLE = PARTICLE_TYPES.register("brimstone_fire", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> BRIMSTONE_EMBERS_PARTICLE = PARTICLE_TYPES.register("brimstone_embers", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> PUTRESCENCE_BUBBLE_PARTICLE = PARTICLE_TYPES.register("putrescence_bubble", () -> new SimpleParticleType(false));
+    public static final Supplier<ParticleType<SpiritStrikeParticleOptions>> SPIRIT_STRIKE_PARTICLE = PARTICLE_TYPES.register("spirit_strike", () -> new ParticleType<>(true) {
+        public MapCodec<SpiritStrikeParticleOptions> codec() {
+            return SpiritStrikeParticleOptions.MAP_CODEC;
+        }
+        public StreamCodec<? super RegistryFriendlyByteBuf, SpiritStrikeParticleOptions> streamCodec() {
+            return SpiritStrikeParticleOptions.STREAM_CODEC;
+        }
+    });
 
 
 

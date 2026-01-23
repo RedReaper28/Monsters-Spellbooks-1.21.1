@@ -116,6 +116,10 @@ public class ModSpellRegistry {
 
     //Fires multiple blasts of spectral energy that builds up the Lethargy effect.Land all shots at max level to inflict a health decreasing effect.Level increases recasts
     public static final Supplier<AbstractSpell> SPECTRAL_BLAST = registerSpell(new SpectralBlastSpell());
+
+    public static final Supplier<AbstractSpell>SPIRIT_STRIKE = registerSpell(new SpiritStrikeSpell());
+
+
     //Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their soul and healing 15% of damage done
     public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
     //Summon a ravenous horde of Vile Skeletons that attack anything that isn't their caster,striping their armor and withering their flesh

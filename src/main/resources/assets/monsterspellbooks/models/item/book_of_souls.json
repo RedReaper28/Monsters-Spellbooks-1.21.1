@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "monsterspellbooks:item/book_of_souls_model"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "monsterspellbooks:item/book_of_souls_gui"
+    }
+  }
+}
