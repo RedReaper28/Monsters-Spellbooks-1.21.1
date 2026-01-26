@@ -3,8 +3,8 @@
   "biomes": "#minecraft:is_overworld",
   "spawners": {
     "type": "monsterspellbooks:drippler",
-    "maxCount": 2,
-    "minCount": 1,
+    "maxCount": 4,
+    "minCount": 2,
     "weight": 10
   }
 }
