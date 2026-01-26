@@ -3,7 +3,7 @@
   "biomes": "#minecraft:has_structure/nether_fossil",
   "spawners": {
     "type": "monsterspellbooks:vile_skeleton",
-    "maxCount": 5,
+    "maxCount": 6,
     "minCount": 3,
     "weight": 15
   }

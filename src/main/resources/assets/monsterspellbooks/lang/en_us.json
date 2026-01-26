@@ -139,6 +139,11 @@
 
   "item.monsterspellbooks.critical_glasses": "Critical Sorcerer Glasses",
   "item.monsterspellbooks.critical_glasses.desc": "This glasses help you see your opponents weak spot and deal devastating critical damage with your sorcery",
+
+  "item.monsterspellbooks.ignition_gloves": "Ignition Gloves",
+  "item.monsterspellbooks.ignition_gloves.desc": "The gloves of the legendary Fire Alchemist",
+
+
   "item.monsterspellbooks.brimstone_sigil": "Brimstone Sigil",
   "item.monsterspellbooks.brimstone_sigil.desc": "Dealing Fire Spell Damage inflicts Brimstone Flame and adds a stack of Immolation",
   "item.monsterspellbooks.brimstone_sigil.immolate.desc": "At 3 Immolation stacks, cause an explosion (%s damage), spreading Immolation",
@@ -229,8 +234,9 @@
   "effect.monsterspellbooks.overheat": "Overheat",
   "effect.monsterspellbooks.paralysis": "Paralysis",
   "effect.monsterspellbooks.reaper_aspect": "Aspect of the Reaper",
-  "effect.monsterspellbooks.soul_rot": "Soul Rot",
   "effect.monsterspellbooks.soul_rend": "Soul Rend",
+  "effect.monsterspellbooks.soul_rot": "Soul Rot",
+  "effect.monsterspellbooks.space_anchored": "Space Anchored",
   "effect.monsterspellbooks.spirit_frostbite": "Spirit Frostbite",
   "effect.monsterspellbooks.static": "Static",
   "effect.monsterspellbooks.stunned": "Stunned",
@@ -243,6 +249,7 @@
 
   "tooltip.monsterspellbooks.poison_glaive": "Hits inflict poison",
   "tooltip.monsterspellbooks.frostmourne_passive_ability": "Dealing Ice Spell Damage inflicts Wither and dealing Necro Spell Damage inflicts Freezing And hits inflict Wither",
+  "tooltip.monsterspellbooks.magmatic_passive_ability": "15% reduced armor on hit",
   "tooltip.monsterspellbooks.endersent_crusher_passive_ability": "A heavy hammer that acts just like the mace of the trial chambers",
   "tooltip.monsterspellbooks.flesh_maiden_passive_ability": "A once beautiful women that got experimented on her wedding day,now makes you immune to the consequences of Heartstop",
 
@@ -285,7 +292,7 @@
   "spell.monsterspellbooks.cauterizing_touch": "Cauterizing Touch",
   "spell.monsterspellbooks.cauterizing_touch.guide": "Burn your targets skin and soul making it impossible for them to heal in any way.The damage scales off of your held weapon´s melee damage",
   "spell.monsterspellbooks.frenzied_burst": "Frenzied Burst",
-  "spell.monsterspellbooks.frenzied_burst.guide": "Shot a thin burst of pure frenzy flame,inflicting madness to lower your targets maximum mana reserves",
+  "spell.monsterspellbooks.frenzied_burst.guide": "Shot a thin burst of pure frenzy flame,inflicting madness to lower your targets maximum mana reserves.Damage scales with Fire Spell Power and Eldritch Spell Power",
   "spell.monsterspellbooks.overheat": "Overheat",
   "spell.monsterspellbooks.overheat.guide": "Overheat yourself to gain extra damage and fire spell power at the cost of melting part of your own armor and burn everything you touch",
   "spell.monsterspellbooks.napalm_orb": "Napalm Orb",
@@ -300,6 +307,10 @@
   "spell.monsterspellbooks.tundra_terrain.guide": "Conjure protective rings of Ice Spikes around you",
   "spell.monsterspellbooks.ancient_flash": "Ancient Flash",
   "spell.monsterspellbooks.ancient_flash.guide": "Boost your strike with ancient lighting to strike your target multiple times in a single cast.The damage scales off of your held weapon´s melee damage",
+
+  "spell.monsterspellbooks.static_cleave": "Static Cleave",
+  "spell.monsterspellbooks.static_cleave.guide": "Launch a slash of pure static that phases through solid matter and paralyzes anything it touches ",
+
   "spell.monsterspellbooks.beast_howl": "Beast Howl",
   "spell.monsterspellbooks.beast_howl.guide": "Release a damaging howl that leaves your targets paralyzed and stunned while you gain a primordial strength",
   "spell.monsterspellbooks.mountain_corpse": "Mountain Corpse",
@@ -318,13 +329,14 @@
   "spell.monsterspellbooks.lichdom.guide": "Abandon your humanity to gain the ability to resurrect once and gain soul form once the effect is activated",
   "spell.monsterspellbooks.putrescence_mass": "Putrescence Mass",
   "spell.monsterspellbooks.putrescence_mass.guide": "Launch a mass made from putrescence ,dissolving on impact and leaving a field of putrescence where it lands",
-
+  "spell.monsterspellbooks.soul_chain": "Soul Chain",
+  "spell.monsterspellbooks.soul_chain.guide": "Launch a chain made out of your soul to strike your targets soul and the others close to it,linking their body so they are unable to teleport",
   "spell.monsterspellbooks.soul_form": "Soul Form",
   "spell.monsterspellbooks.soul_form.guide": "Turn your corporeal body into a nearly untouchable soul making it physically weaker but granting you the speed of the souls",
   "spell.monsterspellbooks.spectral_blast": "Spectral Blast",
   "spell.monsterspellbooks.spectral_blast.guide": "Fires multiple blasts of spectral energy that builds up the Lethargy effect.Land all shots at max level to inflict a health decreasing effect.Level increases recasts",
   "spell.monsterspellbooks.spirit_strike": "Spirit Strike",
-  "spell.monsterspellbooks.spirit_strike.guide": "Unleash a sweeping melee attack in the form of a wreath of soul fire that renders the soul incapable of regenerating mana.This spell is uninterruptible.The damage scales off of your held weapon´s melee damage",
+  "spell.monsterspellbooks.spirit_strike.guide": "Unleash a sweeping melee attack in the form of a wreath of soul fire that renders the soul incapable of regenerating mana and slowly burn their mana reserves in soul fire.This spell is uninterruptible.The damage scales off of your held weapon´s melee damage",
   "spell.monsterspellbooks.vile_slash": "Vile Slash",
   "spell.monsterspellbooks.vile_slash.guide": "Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their body and soul and healing 15% of damage done",
   "spell.monsterspellbooks.vile_summon": "Vile Summon",

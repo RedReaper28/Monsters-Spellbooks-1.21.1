@@ -17,13 +17,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.armor.FleshMaidenArmorModel;
 import net.redreaper.monsterspellbooks.init.ModExtendedArmorMaterials;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
@@ -35,9 +35,6 @@ import java.util.Map;
 
 
 public class FleshMaidenArmorItem extends ImbuableExtendedGeoArmorItem {
-    private static final ResourceLocation LAYER = ResourceLocation.fromNamespaceAndPath("monsterspellbooks", "textures/armor/flesh_maiden_glow.png");
-    private static final RenderType GLOW_RENDER_TYPE;
-
     public FleshMaidenArmorItem(Type slot, Properties settings) {
         super(ModExtendedArmorMaterials.FLESH_MAIDEN, slot, settings,
                 new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE),
@@ -61,7 +58,7 @@ public class FleshMaidenArmorItem extends ImbuableExtendedGeoArmorItem {
     public void initializeSpellContainer(ItemStack itemStack) {
         if (itemStack != null) {
             super.initializeSpellContainer(itemStack);
-            itemStack.set(ComponentRegistry.AFFINITY_COMPONENT, new AffinityData(Map.of(((AbstractSpell)ModSpellRegistry.HYSTERIA.get()).getSpellResource(), 1)));
+            itemStack.set(ComponentRegistry.AFFINITY_COMPONENT, new AffinityData(Map.of(ModSpellRegistry.HYSTERIA.get().getSpellResource(), 1)));
         }
     }
 
@@ -82,13 +79,15 @@ public class FleshMaidenArmorItem extends ImbuableExtendedGeoArmorItem {
         }
     }
 
+    private static final ResourceLocation LAYER = ResourceLocation.fromNamespaceAndPath(
+            MonstersSpellbooks.MOD_ID,
+            "textures/armor/flesh_maiden_glow.png");
 
+    @Override
     @OnlyIn(Dist.CLIENT)
     public GeoArmorRenderer<?> supplyRenderer() {
-        return new EmissiveGenericCustomArmorRenderer<>(new FleshMaidenArmorModel(), LAYER, GLOW_RENDER_TYPE);
-    }
+        RenderType GLOW_RENDER_TYPE = RenderType.eyes(LAYER);
 
-    static {
-        GLOW_RENDER_TYPE = RenderType.eyes(LAYER);
+        return new EmissiveGenericCustomArmorRenderer<>(new FleshMaidenArmorModel(), LAYER, GLOW_RENDER_TYPE);
     }
 }

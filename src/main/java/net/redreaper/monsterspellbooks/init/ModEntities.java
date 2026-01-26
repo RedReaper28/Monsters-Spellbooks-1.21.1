@@ -1,6 +1,5 @@
 package net.redreaper.monsterspellbooks.init;
 
-import io.redspace.ironsspellbooks.IronsSpellbooks;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -22,9 +21,11 @@ import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrb;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceField;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMass;
 import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.SanguiniteEvisceration;
+import net.redreaper.monsterspellbooks.entity.spells.soul_chain.SoulChain;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.DistortionField;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.SpaceRupture;
 import net.redreaper.monsterspellbooks.entity.spells.spectral_blast.SpectralBlastVisualEntity;
+import net.redreaper.monsterspellbooks.entity.spells.static_cleave.StaticCleave;
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.wither_bomb.WitherBombProjectile;
 
@@ -36,6 +37,12 @@ public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
 
+    public static final DeferredHolder<EntityType<?>, EntityType<SoulChain>> SOUL_CHAIN =
+            ENTITIES.register("soul_chain", () -> EntityType.Builder.<SoulChain>of(SoulChain::new, MobCategory.MISC)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "soul_chain").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<SpaceRupture>> SPACE_RUPTURE =
             ENTITIES.register("space_rupture", () -> EntityType.Builder.<SpaceRupture>of(SpaceRupture::new, MobCategory.MISC)
                     .sized(2f, 2f)
@@ -46,8 +53,7 @@ public class ModEntities {
             ENTITIES.register("sanguinite_evisceration", () -> EntityType.Builder.<SanguiniteEvisceration>of(SanguiniteEvisceration::new, MobCategory.MISC)
                     .sized(2f, 1f)
                     .clientTrackingRange(64)
-                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "sanguinite_evisceration").toString())
-            );
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "sanguinite_evisceration").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<BloodPierceVisualEntity>> BLOOD_PIERCE_VISUAL_ENTITY =
             ENTITIES.register("blood_pierce", () -> EntityType.Builder.<BloodPierceVisualEntity>of(BloodPierceVisualEntity::new, MobCategory.MISC)
@@ -59,92 +65,84 @@ public class ModEntities {
             ENTITIES.register("cauterizing_touch", () -> EntityType.Builder.<CauterizingTouch>of(CauterizingTouch::new, MobCategory.MISC)
                     .sized(2f, 1f)
                     .clientTrackingRange(64)
-                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "cauterizing_touch").toString())
-            );
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "cauterizing_touch").toString()));
     public static final DeferredHolder<EntityType<?>, EntityType<BrimstoneBuzzsawProjectile>> BRIMSTONE_BUZZSAW_PROJECTILE =
             ENTITIES.register("brimstone_buzzsaw", () -> EntityType.Builder.<BrimstoneBuzzsawProjectile>of(BrimstoneBuzzsawProjectile::new, MobCategory.MISC)
                     .sized(7f, 1f)
                     .clientTrackingRange(128)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "brimstone_buzzsaw").toString()));
-
     public static final DeferredHolder<EntityType<?>, EntityType<FrenziedBurstVisualEntity>> FRENZIED_BURST_VISUAL_ENTITY =
             ENTITIES.register("frenzied_burst", () -> EntityType.Builder.<FrenziedBurstVisualEntity>of(FrenziedBurstVisualEntity::new, MobCategory.MISC)
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "frenzied_burst").toString()));
-
     public static final DeferredHolder<EntityType<?>, EntityType<IceArsenalSword>> ICE_SWORD =
             ENTITIES.register("ice_sword", () -> EntityType.Builder.<IceArsenalSword>of(IceArsenalSword::new, MobCategory.MISC)
                     .sized(.5f, .5f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ice_sword").toString()));
-
     public static final DeferredHolder<EntityType<?>, EntityType<SnowCloud>> SNOW_CLOUD =
             ENTITIES.register("snow_cloud", () -> EntityType.Builder.<SnowCloud>of(SnowCloud::new, MobCategory.MISC)
                     .sized(4f, 1.2f)
                     .clientTrackingRange(64)
-                    .build(ResourceLocation.fromNamespaceAndPath(IronsSpellbooks.MODID, "snow_cloud").toString()));
-
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "snow_cloud").toString()));
     public static final DeferredHolder<EntityType<?>, EntityType<PowderSnowSplash>> POWDER_SNOW_SPLASH =
             ENTITIES.register("powder_snow_splash", () -> EntityType.Builder.<PowderSnowSplash>of(PowderSnowSplash::new, MobCategory.MISC)
                     .sized(3.5f, 4f)
                     .clientTrackingRange(64)
-                    .build(ResourceLocation.fromNamespaceAndPath(IronsSpellbooks.MODID, "powder_snow_splash").toString()));
-
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "powder_snow_splash").toString()));
     public static final DeferredHolder<EntityType<?>, EntityType<AncientFlash>> ANCIENT_FLASH =
             ENTITIES.register("ancient_flash", () -> EntityType.Builder.<AncientFlash>of(AncientFlash::new, MobCategory.MISC)
                     .sized(2f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ancient_flash").toString()));
-
     public static final DeferredHolder<EntityType<?>, EntityType<VileSlashProjectile>> VILE_SLASH_PROJECTILE =
             ENTITIES.register("vile_slash", () -> EntityType.Builder.<VileSlashProjectile>of(VileSlashProjectile::new, MobCategory.MISC)
                     .sized(2f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "vile_slash").toString()));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<StaticCleave>> STATIC_CLEAVE =
+            ENTITIES.register("static_cleave", () -> EntityType.Builder.<StaticCleave>of(StaticCleave::new, MobCategory.MISC)
+                    .sized(3f, 1.5f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "static_cleave").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<SpectralBlastVisualEntity>> SPECTRAL_BLAST_VISUAL_ENTITY =
             ENTITIES.register("spectral_blast", () -> EntityType.Builder.<SpectralBlastVisualEntity>of(SpectralBlastVisualEntity::new, MobCategory.MISC)
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "spectral_blast").toString()));
-
     public static final DeferredHolder<EntityType<?>, EntityType<LifeDrainProjectile>> LIFE_DRAIN_PROJECTILE =
             ENTITIES.register("life_drain", () -> EntityType.Builder.<LifeDrainProjectile>of(LifeDrainProjectile::new, MobCategory.MISC)
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "life_drain").toString()));
-
     public static final DeferredHolder<EntityType<?>, EntityType<WitherBombProjectile>> WITHER_BOMB =
             ENTITIES.register("wither_bomb", () -> EntityType.Builder.<WitherBombProjectile>of(WitherBombProjectile::new, MobCategory.MISC)
                     .sized(1f, 1f)
                     .clientTrackingRange(4)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "wither_bomb").toString()));
-
     public static final DeferredHolder<EntityType<?>, EntityType<NapalmOrb>> NAPALM_ORB =
             ENTITIES.register("napalm_orb", () -> EntityType.Builder.<NapalmOrb>of(NapalmOrb::new, MobCategory.MISC)
                     .sized(0.75F, 0.75F)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "napalm_orb").toString()));
-
     public static final DeferredHolder<EntityType<?>, EntityType<PutrescenceField>> PUTRESCENCE_FIELD =
             ENTITIES.register("putrescence_field", () -> EntityType.Builder.<PutrescenceField>of(PutrescenceField::new, MobCategory.MISC)
                     .sized(4f, 1.2f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "putrescence_field").toString()));
-
     public static final DeferredHolder<EntityType<?>, EntityType<DistortionField>> DISTORTION_FIELD =
             ENTITIES.register("distortion_field", () -> EntityType.Builder.<DistortionField>of(DistortionField::new, MobCategory.MISC)
                     .sized(4f, 12f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "distortion_field").toString()));
-
     public static final DeferredHolder<EntityType<?>, EntityType<PutrescenceMass>> PUTRESCENCE_MASS =
             ENTITIES.register("putrescence_mass", () -> EntityType.Builder.<PutrescenceMass>of(PutrescenceMass::new, MobCategory.MISC)
                     .sized(0.75F, 0.75F)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "putrescence_mass").toString()));
-
     public static final Supplier<EntityType<AegisEntity>>AEGIS=
             ENTITIES.register("aegis", () -> EntityType.Builder.of(AegisEntity::new, MobCategory.MONSTER).
                     sized(.8f, 1.8f).build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "aegis").toString()));

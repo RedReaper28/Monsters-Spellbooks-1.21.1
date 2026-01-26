@@ -10,6 +10,7 @@ import io.redspace.ironsspellbooks.item.UniqueItem;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -18,6 +19,8 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
+import net.redreaper.monsterspellbooks.procedures.effectsonhit.RendOnHit;
+import net.redreaper.monsterspellbooks.procedures.effectsonhit.WitherOnHit;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -50,6 +53,14 @@ public class MagmaticMacuahuitlItem extends MagicSwordItem implements UniqueItem
             int i = TooltipsUtils.indexOfComponent(lines, "tooltip.irons_spellbooks.spellbook_spell_count");
             lines.addAll(i < 0 ? lines.size() : i + 1, affinityData.getDescriptionComponent());
         }
+        lines.add(Component.translatable("tooltip.monsterspellbooks.magmatic_passive_ability").withStyle(new ChatFormatting[]{ChatFormatting.RED}));
+
+    }
+
+    public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
+        boolean retval = super.hurtEnemy(itemstack, entity, sourceentity);
+        RendOnHit.execute(entity);
+        return retval;
     }
 
     @EventBusSubscriber({Dist.CLIENT})

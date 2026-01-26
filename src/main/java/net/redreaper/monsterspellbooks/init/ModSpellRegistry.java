@@ -17,6 +17,7 @@ import net.redreaper.monsterspellbooks.spells.ice.FrostCoatingSpell;
 import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
 import net.redreaper.monsterspellbooks.spells.ice.TundraTerrainSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.AncientFlashSpell;
+import net.redreaper.monsterspellbooks.spells.lightning.StaticCleaveSpell;
 import net.redreaper.monsterspellbooks.spells.nature.BeastHowlSpell;
 import net.redreaper.monsterspellbooks.spells.nature.MountainCorpseSpell;
 import net.redreaper.monsterspellbooks.spells.necro.*;
@@ -88,6 +89,8 @@ public class ModSpellRegistry {
     //LIGHTING
     //Boost your strike with ancient lighting to strike your target multiple times in a single cast.The damage scales off of your held weapon´s melee damage
     public static final Supplier<AbstractSpell> ANCIENT_FLASH = registerSpell(new AncientFlashSpell());
+    public static final Supplier<AbstractSpell> STATIC_CLEAVE = registerSpell(new StaticCleaveSpell());
+
 
     //NATURE
     //Release a damaging howl that leaves your targets paralyzed and stunned while you gain a primordial strength
@@ -111,6 +114,9 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> LIFE_DRAIN = registerSpell(new LifeDrainSpell());
     //Launch a mass made from putrescence ,dissolving on impact and leaving a field of fire where it lands
     public static final Supplier<AbstractSpell> PUTRESCENCE_MASS = registerSpell(new PutrescenceMassSpell());
+
+    public static final Supplier<AbstractSpell> SOUL_CHAIN = registerSpell(new SoulChainSpell());
+
 
     public static final Supplier<AbstractSpell> SOUL_FORM = registerSpell(new SoulFormSpell());
 

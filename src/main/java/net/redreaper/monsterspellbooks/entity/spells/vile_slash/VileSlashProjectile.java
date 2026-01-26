@@ -123,32 +123,19 @@ public class VileSlashProjectile extends AbstractMagicProjectile implements Anti
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
-
         DamageSources.applyDamage(pResult.getEntity(), getDamage(),
                 ModSpellRegistry.VILE_SLASH.get().getDamageSource(this, getOwner()));
-
         if (pResult.getEntity() instanceof LivingEntity livingTarget)
         {
             livingTarget.addEffect(new MobEffectInstance(ModMobEffects.SOUL_ROT, 100, 1));
         }
-
     }
 
-    @Override
-    protected void onHitBlock(BlockHitResult result) {
-        super.onHitBlock(result);
-        this.discard();
-    }
+    @Override protected void onHitBlock(BlockHitResult result) {super.onHitBlock(result);this.discard();}
 
-    @Override
-    protected void onHit(HitResult hitresult) {
-        super.onHit(hitresult);
-    }
+    @Override protected void onHit(HitResult hitresult) {super.onHit(hitresult);}
 
-
-    protected boolean canHitEntity(Entity entity) {
-        return entity != getOwner() && super.canHitEntity(entity);
-    }
+    protected boolean canHitEntity(Entity entity) {return entity != getOwner() && super.canHitEntity(entity);}
 
     public void onAntiMagic(MagicData playerMagicData) {
         this.discard();

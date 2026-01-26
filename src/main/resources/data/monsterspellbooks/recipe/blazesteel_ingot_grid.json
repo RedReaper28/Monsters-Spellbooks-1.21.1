@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:nether_pyrite"
+    },
+    "B": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "C": {
+      "item": "irons_spellbooks:pyrium_ingot"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ABC",
+    "CCC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:blazesteel_ingot"
+  }
+}

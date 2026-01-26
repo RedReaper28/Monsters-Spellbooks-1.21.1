@@ -15,6 +15,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.item.armor.*;
 import net.redreaper.monsterspellbooks.item.curios.elemental_charm.*;
+import net.redreaper.monsterspellbooks.item.curios.hands.IgnitionGloveItem;
 import net.redreaper.monsterspellbooks.item.curios.head.CriticalSorcererGlassesItem;
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.BookOfSoulsItem;
@@ -239,10 +240,10 @@ public class ModItems {
 
     public static final Supplier<CurioBaseItem>WITHERWARD_RING = ITEMS.register("witherward_ring",
             WitherWardCurio::new);
-
     public static final Supplier<CurioBaseItem>CRITICAL_GLASSES = ITEMS.register("critical_glasses",
             CriticalSorcererGlassesItem::new);
-
+    public static final Supplier<CurioBaseItem>IGNITION_GLOVE = ITEMS.register("ignition_gloves",
+            IgnitionGloveItem::new);
     public static final Supplier<CurioBaseItem>BRIMSTONE_SIGIL = ITEMS.register("brimstone_sigil",
             BrimstoneSigilItem::new);
     public static final Supplier<CurioBaseItem>DREADHOUND_TOOTH_NECKLACE = ITEMS.register("dreadhound_tooth_necklace",
@@ -255,7 +256,6 @@ public class ModItems {
             OrbOFSoulsItem::new);
     public static final Supplier<CurioBaseItem>BLIZZARD_CALLER = ITEMS.register("blizzard_caller",
             BlizzardCallerItem::new);
-
     public static final Supplier<CurioBaseItem>CROSS_NECKLACE = ITEMS.register("cross_necklace",
             CrossNecklaceItem::new);
 

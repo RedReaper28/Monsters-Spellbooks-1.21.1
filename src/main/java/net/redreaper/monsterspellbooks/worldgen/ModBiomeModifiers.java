@@ -1,20 +1,15 @@
 package net.redreaper.monsterspellbooks.worldgen;
 
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.data.worldgen.Structures;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
-import net.minecraft.tags.StructureTags;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.common.world.BiomeModifiers;
-import net.neoforged.neoforge.common.world.StructureModifier;
-import net.neoforged.neoforge.common.world.StructureModifiers;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.init.ModEntities;
@@ -37,7 +32,6 @@ public class ModBiomeModifiers {
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         var biomes = context.lookup(Registries.BIOME);
-        var structures = context.lookup(Registries.STRUCTURE);
 
         context.register(ADD_ORICHALCUM_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_MOUNTAIN),
@@ -67,24 +61,20 @@ public class ModBiomeModifiers {
 
 
         context.register(SPAWN_AEGIS, new BiomeModifiers.AddSpawnsBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.AEGIS.get(),10,2,4))));
+                biomes.getOrThrow(BiomeTags.HAS_VILLAGE_PLAINS),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.AEGIS.get(),2,1,4))));
 
         context.register(SPAWN_DRIPPLER, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DRIPPLER.get(),10,2,4))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DRIPPLER.get(),10,1,2))));
 
         context.register(SPAWN_DWARVEN_SPHERE, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_MOUNTAIN),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DWARVEN_SPHERE.get(),15,3,5))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DWARVEN_SPHERE.get(),10,1,2))));
 
         context.register(SPAWN_VILE_SKELETON, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.HAS_NETHER_FOSSIL),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.VILE_SKELETON.get(),15,3,5))));
-
-
-
-
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.VILE_SKELETON.get(),15,3,6))));
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {

@@ -9,6 +9,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.particle.SoulChainParticleOptions;
 import net.redreaper.monsterspellbooks.particle.SpiritStrikeParticleOptions;
 
 import java.util.function.Supplier;
@@ -32,9 +33,15 @@ public class ModParticleTypes {
             return SpiritStrikeParticleOptions.STREAM_CODEC;
         }
     });
+    public static final Supplier<ParticleType<SoulChainParticleOptions>> SOUL_CHAIN_PARTICLE = PARTICLE_TYPES.register("soul_chain", () -> new ParticleType<>(false) {
+        public MapCodec<SoulChainParticleOptions> codec() {
+            return SoulChainParticleOptions.MAP_CODEC;
+        }
 
-
-
+        public StreamCodec<? super RegistryFriendlyByteBuf, SoulChainParticleOptions> streamCodec() {
+            return SoulChainParticleOptions.STREAM_CODEC;
+        }
+    });
 
     public static void register(IEventBus eventBus)
     {

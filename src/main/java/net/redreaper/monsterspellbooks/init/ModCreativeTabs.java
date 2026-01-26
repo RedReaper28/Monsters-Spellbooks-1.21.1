@@ -57,6 +57,7 @@ public class ModCreativeTabs {
 
                         output.accept(ModItems.WITHERWARD_RING.get());
                         output.accept(ModItems.CRITICAL_GLASSES.get());
+                        output.accept(ModItems.IGNITION_GLOVE.get());
                         output.accept(ModItems.BRIMSTONE_SIGIL.get());
                         output.accept(ModItems.DREADHOUND_TOOTH_NECKLACE.get());
                         output.accept(ModItems.DWARVEN_POWER_CORE.get());

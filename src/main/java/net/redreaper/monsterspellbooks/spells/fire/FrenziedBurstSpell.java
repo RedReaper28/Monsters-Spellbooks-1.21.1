@@ -2,6 +2,7 @@ package net.redreaper.monsterspellbooks.spells.fire;
 
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.AnimationHolder;
@@ -123,7 +124,13 @@ public class FrenziedBurstSpell extends AbstractSpell {
         return spellLevel * MadnessMobEffect.MANA_REDUCTION_PER_LEVEL * 100;
     }
 
-    private float getDamage(int spellLevel, LivingEntity caster) {
-        return 5 + getSpellPower(spellLevel, caster) * 1.5f;
+    public float getDamage(int spellLevel, LivingEntity caster) {
+        if (caster == null) {
+            return this.getSpellPower(spellLevel, (Entity)null) * 7.0F;
+        } else {
+            double firePower = caster.getAttributeValue(AttributeRegistry.FIRE_SPELL_POWER);
+            double bloodPower = caster.getAttributeValue(AttributeRegistry.ELDRITCH_SPELL_POWER);
+            return (float)((double)5.0F + (double)1.5F * (double)this.getSpellPower(spellLevel, caster) * ((double)0.5F * firePower + (double)0.5F * bloodPower));
+        }
     }
 }
