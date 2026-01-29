@@ -103,7 +103,7 @@ public class SpiritStrikeSpell extends AbstractSpell {
                 if (offsetVector.dot(forward) >= 0) {
                     if (DamageSources.applyDamage(targetEntity, getDamage(spellLevel, entity), damageSource)) {
                         ((LivingEntity) targetEntity).addEffect(new MobEffectInstance(ModMobEffects.SOUL_REND, (int) (getSpellPower(spellLevel, entity) * 20),spellLevel-1, false, true, true));
-                        MagicManager.spawnParticles(level, ModParticleHelper.REAPER_FIRE, targetEntity.getX(), targetEntity.getY() + targetEntity.getBbHeight() * .5f, targetEntity.getZ(), 30, targetEntity.getBbWidth() * .5f, targetEntity.getBbHeight() * .5f, targetEntity.getBbWidth() * .5f, .03, false);
+                        MagicManager.spawnParticles(level, ModParticleHelper.SOUL_FIRE, targetEntity.getX(), targetEntity.getY() + targetEntity.getBbHeight() * .5f, targetEntity.getZ(), 30, targetEntity.getBbWidth() * .5f, targetEntity.getBbHeight() * .5f, targetEntity.getBbWidth() * .5f, .03, false);
                         EnchantmentHelper.doPostAttackEffects((ServerLevel) level, targetEntity, damageSource);
                     }
                 }
@@ -119,7 +119,7 @@ public class SpiritStrikeSpell extends AbstractSpell {
     public SpellDamageSource getDamageSource(Entity projectile, Entity attacker) {return super.getDamageSource(projectile, attacker);}
 
     private float getDamage(int spellLevel, LivingEntity entity) {
-        return getSpellPower(spellLevel, entity) + getAdditionalDamage(entity);
+        return getSpellPower(spellLevel, entity)*0.5f + getAdditionalDamage(entity);
     }
 
     private float getAdditionalDamage(LivingEntity entity) {

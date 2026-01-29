@@ -5,6 +5,7 @@ import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
+import io.redspace.ironsspellbooks.item.UniqueItem;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
@@ -22,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class ReaperSickle extends MagicSwordItem {
+public class ReaperSickle extends MagicSwordItem implements UniqueItem {
     public ReaperSickle() {
         super(
                 ModExtendedWeaponTiers.SPECTRITE,

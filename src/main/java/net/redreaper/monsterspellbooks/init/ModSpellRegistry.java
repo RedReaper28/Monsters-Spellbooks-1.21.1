@@ -4,6 +4,9 @@ import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.spells.aero.AirBubbleSpell;
+import net.redreaper.monsterspellbooks.spells.aero.AirPropulsionSpell;
+import net.redreaper.monsterspellbooks.spells.aero.SuffocateSpell;
 import net.redreaper.monsterspellbooks.spells.blood.AnticoagulationSpell;
 import net.redreaper.monsterspellbooks.spells.blood.BloodPierceSpell;
 import net.redreaper.monsterspellbooks.spells.blood.HysteriaSpell;
@@ -18,6 +21,7 @@ import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
 import net.redreaper.monsterspellbooks.spells.ice.TundraTerrainSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.AncientFlashSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.StaticCleaveSpell;
+import net.redreaper.monsterspellbooks.spells.lightning.ThunderstormWaveSpell;
 import net.redreaper.monsterspellbooks.spells.nature.BeastHowlSpell;
 import net.redreaper.monsterspellbooks.spells.nature.MountainCorpseSpell;
 import net.redreaper.monsterspellbooks.spells.necro.*;
@@ -33,6 +37,11 @@ public class ModSpellRegistry {
     public static Supplier<AbstractSpell> registerSpell(AbstractSpell spell) {
         return SPELLS.register(spell.getSpellName(), () -> spell);
     }
+    //AERO
+    public static final Supplier<AbstractSpell> AIR_BUBBLE = registerSpell(new AirBubbleSpell());
+    public static final Supplier<AbstractSpell> AIR_PROPULSION = registerSpell(new AirPropulsionSpell());
+    public static final Supplier<AbstractSpell> SUFFOCATE = registerSpell(new SuffocateSpell());
+
 
     //BLOOD
     //In a radius around a targeted creature,apply the Anti Heal Effect to enemies,preventing them from healing in any way
@@ -66,6 +75,9 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> CAUTERIZING_TOUCH = registerSpell(new CauterizingTouchSpell());
     //Shot a thin burst of pure frenzy flame,inflicting madness to lower your targets maximum mana reserves
     public static final Supplier<AbstractSpell> FRENZIED_BURST = registerSpell(new FrenziedBurstSpell());
+
+    public static final Supplier<AbstractSpell> FRENZIED_STORM = registerSpell(new FrenziedStormSpell());
+
     //Throw a orb of napalm,splashing in a radius upon impact and covering creatures hit,making their bodies flammable and weak to fire magic
     public static final Supplier<AbstractSpell> NAPALM_ORB = registerSpell(new NapalmOrbSpell());
     //Overheat yourself to gain extra damage and fire spell power at the cost of melting part of your own armor
@@ -90,6 +102,7 @@ public class ModSpellRegistry {
     //Boost your strike with ancient lighting to strike your target multiple times in a single cast.The damage scales off of your held weapon´s melee damage
     public static final Supplier<AbstractSpell> ANCIENT_FLASH = registerSpell(new AncientFlashSpell());
     public static final Supplier<AbstractSpell> STATIC_CLEAVE = registerSpell(new StaticCleaveSpell());
+    public static final Supplier<AbstractSpell> THUNDERSTORM_WAVE = registerSpell(new ThunderstormWaveSpell());
 
 
     //NATURE
@@ -119,6 +132,7 @@ public class ModSpellRegistry {
 
 
     public static final Supplier<AbstractSpell> SOUL_FORM = registerSpell(new SoulFormSpell());
+    public static final Supplier<AbstractSpell> SOUL_SCORCH = registerSpell(new SoulScorchSpell());
 
     //Fires multiple blasts of spectral energy that builds up the Lethargy effect.Land all shots at max level to inflict a health decreasing effect.Level increases recasts
     public static final Supplier<AbstractSpell> SPECTRAL_BLAST = registerSpell(new SpectralBlastSpell());

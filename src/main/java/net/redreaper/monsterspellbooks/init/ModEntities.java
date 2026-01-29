@@ -15,6 +15,7 @@ import net.redreaper.monsterspellbooks.entity.spells.blood_pierce_bullet.BloodPi
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.BrimstoneBuzzsawProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouch;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstVisualEntity;
+import net.redreaper.monsterspellbooks.entity.spells.frenzied_storm.SmallFrenzyFireBall;
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSword;
 import net.redreaper.monsterspellbooks.entity.spells.life_drain.LifeDrainProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrb;
@@ -22,10 +23,12 @@ import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.Putrescenc
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMass;
 import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.SanguiniteEvisceration;
 import net.redreaper.monsterspellbooks.entity.spells.soul_chain.SoulChain;
+import net.redreaper.monsterspellbooks.entity.spells.soul_scorch.SoulFireField;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.DistortionField;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.SpaceRupture;
 import net.redreaper.monsterspellbooks.entity.spells.spectral_blast.SpectralBlastVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.static_cleave.StaticCleave;
+import net.redreaper.monsterspellbooks.entity.spells.thunderstorm_wave.AncientLightningStrike;
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.wither_bomb.WitherBombProjectile;
 
@@ -36,6 +39,18 @@ import static net.minecraft.core.registries.Registries.ENTITY_TYPE;
 public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<AncientLightningStrike>> ANCIENT_LIGHTNING_STRIKE =
+            ENTITIES.register("ancient_lightning_strike", () -> EntityType.Builder.<AncientLightningStrike>of(AncientLightningStrike::new, MobCategory.MISC)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ancient_lightning_strike").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SmallFrenzyFireBall>> SMALL_FRENZY_FIREBALL =
+            ENTITIES.register("small_frenzy_fireball", () -> EntityType.Builder.<SmallFrenzyFireBall>of(SmallFrenzyFireBall::new, MobCategory.MISC)
+                    .sized(.5f, .5f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "small_frenzy_fireball").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<SoulChain>> SOUL_CHAIN =
             ENTITIES.register("soul_chain", () -> EntityType.Builder.<SoulChain>of(SoulChain::new, MobCategory.MISC)
@@ -138,6 +153,11 @@ public class ModEntities {
                     .sized(4f, 12f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "distortion_field").toString()));
+    public static final DeferredHolder<EntityType<?>, EntityType<SoulFireField>> SOUL_FIRE_FIELD =
+            ENTITIES.register("soul_fire_field", () -> EntityType.Builder.<SoulFireField>of(SoulFireField::new, MobCategory.MISC)
+                    .sized(4f, 1.2f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "soul_fire_field").toString()));
     public static final DeferredHolder<EntityType<?>, EntityType<PutrescenceMass>> PUTRESCENCE_MASS =
             ENTITIES.register("putrescence_mass", () -> EntityType.Builder.<PutrescenceMass>of(PutrescenceMass::new, MobCategory.MISC)
                     .sized(0.75F, 0.75F)

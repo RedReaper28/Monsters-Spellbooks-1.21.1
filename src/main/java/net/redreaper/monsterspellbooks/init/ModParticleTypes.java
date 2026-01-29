@@ -1,6 +1,7 @@
 package net.redreaper.monsterspellbooks.init;
 
 import com.mojang.serialization.MapCodec;
+import io.redspace.ironsspellbooks.particle.ZapParticleOption;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
@@ -9,6 +10,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.particle.AncientZapParticleOption;
 import net.redreaper.monsterspellbooks.particle.SoulChainParticleOptions;
 import net.redreaper.monsterspellbooks.particle.SpiritStrikeParticleOptions;
 
@@ -24,7 +26,10 @@ public class ModParticleTypes {
     public static final Supplier<SimpleParticleType> FRENZY_EMBERS_PARTICLE = PARTICLE_TYPES.register("frenzy_embers", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> BRIMSTONE_FIRE_PARTICLE = PARTICLE_TYPES.register("brimstone_fire", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> BRIMSTONE_EMBERS_PARTICLE = PARTICLE_TYPES.register("brimstone_embers", () -> new SimpleParticleType(false));
+    public static final Supplier<SimpleParticleType> SOUL_FIRE_PARTICLE = PARTICLE_TYPES.register("soul_fire", () -> new SimpleParticleType(false));
+    public static final Supplier<SimpleParticleType> SOUL_EMBERS_PARTICLE = PARTICLE_TYPES.register("soul_embers", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> PUTRESCENCE_BUBBLE_PARTICLE = PARTICLE_TYPES.register("putrescence_bubble", () -> new SimpleParticleType(false));
+
     public static final Supplier<ParticleType<SpiritStrikeParticleOptions>> SPIRIT_STRIKE_PARTICLE = PARTICLE_TYPES.register("spirit_strike", () -> new ParticleType<>(true) {
         public MapCodec<SpiritStrikeParticleOptions> codec() {
             return SpiritStrikeParticleOptions.MAP_CODEC;
@@ -40,6 +45,15 @@ public class ModParticleTypes {
 
         public StreamCodec<? super RegistryFriendlyByteBuf, SoulChainParticleOptions> streamCodec() {
             return SoulChainParticleOptions.STREAM_CODEC;
+        }
+    });
+    public static final Supplier<ParticleType<AncientZapParticleOption>> ANCIENT_ZAP_PARTICLE = PARTICLE_TYPES.register("ancient_zap", () -> new ParticleType<>(false) {
+        public MapCodec<AncientZapParticleOption> codec() {
+            return AncientZapParticleOption.MAP_CODEC;
+        }
+
+        public StreamCodec<? super RegistryFriendlyByteBuf, AncientZapParticleOption> streamCodec() {
+            return AncientZapParticleOption.STREAM_CODEC;
         }
     });
 

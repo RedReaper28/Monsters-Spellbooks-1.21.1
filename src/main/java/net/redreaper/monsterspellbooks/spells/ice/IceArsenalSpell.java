@@ -80,7 +80,7 @@ public class IceArsenalSpell extends AbstractSpell {
     }
 
     private float getDamage(int spellLevel, LivingEntity entity) {
-        return this.getSpellPower(spellLevel, entity) * 0.2F;
+        return this.getSpellPower(spellLevel, entity) * 0.1F;
     }
 
     private int getCount(int spellLevel) {
@@ -88,7 +88,7 @@ public class IceArsenalSpell extends AbstractSpell {
     }
 
     public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {
-        return super.getDamageSource(projectile, attacker).setFreezeTicks(80);
+        return super.getDamageSource(projectile, attacker).setFreezeTicks(80).setIFrames(0);
     }
 }
 

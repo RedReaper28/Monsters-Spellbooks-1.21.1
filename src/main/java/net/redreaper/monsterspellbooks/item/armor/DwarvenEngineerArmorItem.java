@@ -9,13 +9,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
+import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.armor.DwarvenEngineerArmorModel;
+import net.redreaper.monsterspellbooks.entity.armor.FleshMaidenArmorModel;
 import net.redreaper.monsterspellbooks.init.ModExtendedArmorMaterials;
 import software.bernie.geckolib.renderer.GeoArmorRenderer;
 
 public class DwarvenEngineerArmorItem extends ImbuableExtendedGeoArmorItem {
-    private static final ResourceLocation LAYER = ResourceLocation.fromNamespaceAndPath("monsterspellbooks", "textures/armor/dwarven_engineer_armor_glow.png");
-    private static final RenderType GLOW_RENDER_TYPE;
+
 
     public DwarvenEngineerArmorItem(Type slot, Properties settings) {
         super(ModExtendedArmorMaterials.DWARVEN_ENGINEER, slot, settings,
@@ -27,12 +28,15 @@ public class DwarvenEngineerArmorItem extends ImbuableExtendedGeoArmorItem {
         );
     }
 
+    private static final ResourceLocation LAYER = ResourceLocation.fromNamespaceAndPath(
+            MonstersSpellbooks.MOD_ID,
+            "textures/armor/dwarven_engineer_armor_glow.png");
+
+    @Override
     @OnlyIn(Dist.CLIENT)
     public GeoArmorRenderer<?> supplyRenderer() {
-        return new EmissiveGenericCustomArmorRenderer<>(new DwarvenEngineerArmorModel(), LAYER, GLOW_RENDER_TYPE);
-    }
+        RenderType GLOW_RENDER_TYPE = RenderType.eyes(LAYER);
 
-    static {
-        GLOW_RENDER_TYPE = RenderType.eyes(LAYER);
+        return new EmissiveGenericCustomArmorRenderer<>(new DwarvenEngineerArmorModel(), LAYER, GLOW_RENDER_TYPE);
     }
 }

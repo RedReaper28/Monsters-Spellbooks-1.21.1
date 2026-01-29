@@ -1,5 +1,6 @@
 package net.redreaper.monsterspellbooks;
 
+import mod.azure.azurelib.common.animation.cache.AzIdentityRegistry;
 import mod.azure.azurelib.common.render.item.AzItemRendererRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
@@ -57,7 +58,11 @@ public class MonstersSpellbooks {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-
+        // Animation Registry
+        AzIdentityRegistry.register(
+                ModItems.VILENOVA_STAFF.get(),
+                ModItems.BRIMSTONE_OROCHI.get()
+        );
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {

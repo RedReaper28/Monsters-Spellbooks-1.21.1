@@ -5,7 +5,6 @@ import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import io.redspace.ironsspellbooks.effect.ISyncedMobEffect;
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
 import io.redspace.ironsspellbooks.entity.spells.ChainLightning;
-import io.redspace.ironsspellbooks.entity.spells.LightningStrike;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.core.particles.ParticleOptions;

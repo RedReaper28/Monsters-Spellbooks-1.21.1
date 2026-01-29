@@ -64,7 +64,7 @@ public class FrenzyEmberParticle extends TextureSheetParticle {
         public Particle createParticle(SimpleParticleType particleType, ClientLevel level,
                                        double x, double y, double z,
                                        double dx, double dy, double dz) {
-            return new FrenzyEmberParticle(level, x, y, z, this.sprites, dx, dy, dz);
+            return new SoulEmberParticle(level, x, y, z, this.sprites, dx, dy, dz);
         }
     }
 

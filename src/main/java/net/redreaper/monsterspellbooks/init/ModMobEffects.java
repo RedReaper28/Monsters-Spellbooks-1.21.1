@@ -41,6 +41,7 @@ public class ModMobEffects {
             .addAttributeModifier(Attributes.ATTACK_SPEED, MonstersSpellbooks.id("mobeffect_stunned"), StunnedMobEffect.ATTACK_SLOWNESS_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     public static final DeferredHolder<MobEffect, MobEffect> REAPER_ASPECT = MOB_EFFECT_DEFERRED_REGISTER.register("reaper_aspect", () -> new ReaperAspectMobEffect(MobEffectCategory.BENEFICIAL, 57744 ));
     public static final DeferredHolder<MobEffect, MobEffect> BLEEDING = MOB_EFFECT_DEFERRED_REGISTER.register("bleeding", () -> new BleedingMobEffect(MobEffectCategory.HARMFUL, 16711680));
+    public static final DeferredHolder<MobEffect, MobEffect> SUFFOCATION = MOB_EFFECT_DEFERRED_REGISTER.register("suffocation", () -> new SuffocationMobEffect(MobEffectCategory.HARMFUL, 8028868));
     public static final DeferredHolder<MobEffect, MobEffect> BRIMSTONE_FLAME = MOB_EFFECT_DEFERRED_REGISTER.register("brimstone_flame", () -> new BrimstoneFlameMobEffect(MobEffectCategory.HARMFUL, 14896975));
     public static final DeferredHolder<MobEffect, MobEffect> HEMORRHAGE = MOB_EFFECT_DEFERRED_REGISTER.register("hemorrhage", () -> new HemorrhageMobEffect(MobEffectCategory.HARMFUL, 16711680));
     public static final DeferredHolder<MobEffect, MobEffect> STATIC = MOB_EFFECT_DEFERRED_REGISTER.register("static", () -> new StaticMobEffect(MobEffectCategory.HARMFUL, 3093151));

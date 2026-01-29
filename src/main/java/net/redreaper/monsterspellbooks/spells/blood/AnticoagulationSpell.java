@@ -104,7 +104,7 @@ public class AnticoagulationSpell extends AbstractSpell {
     }
 
     public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) (getSpellPower(spellLevel, caster) * 20);
+        return (int) (getSpellPower(spellLevel, caster) * 10);
     }
 
     @Override

@@ -1,7 +1,10 @@
 package net.redreaper.monsterspellbooks.events;
 
+import io.redspace.ironsspellbooks.entity.spells.comet.CometRenderer;
+import io.redspace.ironsspellbooks.entity.spells.magic_missile.MagicMissileRenderer;
 import io.redspace.ironsspellbooks.entity.spells.skull_projectile.SkullProjectileRenderer;
 import io.redspace.ironsspellbooks.fluids.SimpleClientFluidType;
+import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -26,6 +29,7 @@ import net.redreaper.monsterspellbooks.entity.spells.blood_pierce_bullet.BloodPi
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.BrimstoneBuzzsawRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouchRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.frenzied_storm.FrenzyFireBallRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSwordRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrbRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMassRenderer;
@@ -54,6 +58,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.POWDER_SNOW_SPLASH.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.PUTRESCENCE_FIELD.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.DISTORTION_FIELD.get(), NoopRenderer::new);
+        event.registerEntityRenderer(ModEntities.SOUL_FIRE_FIELD.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.ICE_SWORD.get(), IceArsenalSwordRenderer::new);
         event.registerEntityRenderer(ModEntities.ANCIENT_FLASH.get(), AncientFlashRenderer::new);
         event.registerEntityRenderer(ModEntities.VILE_SLASH_PROJECTILE.get(), VileSlashRenderer::new);
@@ -65,7 +70,8 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.PUTRESCENCE_MASS.get(), PutrescenceMassRenderer::new);
         event.registerEntityRenderer(ModEntities.SPACE_RUPTURE.get(), SpaceRuptureRenderer::new);
         event.registerEntityRenderer(ModEntities.SOUL_CHAIN.get(), NoopRenderer::new);
-
+        event.registerEntityRenderer(ModEntities.ANCIENT_LIGHTNING_STRIKE.get(), NoopRenderer::new);
+        event.registerEntityRenderer(ModEntities.SMALL_FRENZY_FIREBALL.get(), (context) -> new FrenzyFireBallRenderer(context, 0.75f));
 
         event.registerEntityRenderer(ModEntities.VILE_SKELETON.get(), VileSkeletonRenderer::new);
         event.registerEntityRenderer(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereRenderer::new);
@@ -89,9 +95,12 @@ public static void registerParticles(RegisterParticleProvidersEvent event)
     event.registerSpriteSet(ModParticleTypes.FRENZY_EMBERS_PARTICLE.get(), FrenzyEmberParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.BRIMSTONE_FIRE_PARTICLE.get(), BrimstoneFireParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.BRIMSTONE_EMBERS_PARTICLE.get(), BrimstoneEmberParticle.Provider::new);
+    event.registerSpriteSet(ModParticleTypes.SOUL_FIRE_PARTICLE.get(), SoulFireParticle.Provider::new);
+    event.registerSpriteSet(ModParticleTypes.SOUL_EMBERS_PARTICLE.get(), SoulEmberParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.PUTRESCENCE_BUBBLE_PARTICLE.get(), PutrescenceBubbleParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.SPIRIT_STRIKE_PARTICLE.get(), SpiritStrikeParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.SOUL_CHAIN_PARTICLE.get(), SoulChainParticle.Provider::new);
+    event.registerSpriteSet(ModParticleTypes.ANCIENT_ZAP_PARTICLE.get(), AncientZapParticle.Provider::new);
 
 
 }

@@ -78,9 +78,7 @@ public class TundraTerrainSpell extends AbstractSpell {
         int count = 5;
         Vec3 center = entity.getEyePosition();
         float damage = getDamage(spellLevel, entity);
-        float maxScale = 2f;
-        float scale = maxScale * 1.5f;
-
+        float scale = 3;
         for (int r = 0; r < rings; r++) {
             float fangs = count + r * r;
             for (int i = 0; i < fangs; i++) {
@@ -96,7 +94,6 @@ public class TundraTerrainSpell extends AbstractSpell {
                     spike.setDamage(damage);
                     spike.setYRot((entity.getYRot() - 45 + Utils.random.nextIntBetweenInclusive(-20, 20)));
                     spike.setXRot(Utils.random.nextIntBetweenInclusive(-15, 15));
-
                     world.addFreshEntity(spike);
                 }
             }
@@ -113,7 +110,7 @@ public class TundraTerrainSpell extends AbstractSpell {
     }
 
     private int getRings(int spellLevel, LivingEntity entity) {
-        return 2 + (spellLevel - 1) / 3;
+        return 2 + (spellLevel - 1) / 3+2;
     }
 
     @Override
