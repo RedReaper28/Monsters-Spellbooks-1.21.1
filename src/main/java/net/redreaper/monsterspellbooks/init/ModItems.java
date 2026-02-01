@@ -19,6 +19,7 @@ import net.redreaper.monsterspellbooks.item.curios.hands.IgnitionGloveItem;
 import net.redreaper.monsterspellbooks.item.curios.head.CriticalSorcererGlassesItem;
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.BookOfSoulsItem;
+import net.redreaper.monsterspellbooks.item.curios.spellbooks.FrenzyKingBookItem;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiItem;
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffItem;
@@ -235,6 +236,8 @@ public class ModItems {
             EndersentCrusherItem::new);
     public static final DeferredHolder<Item, Item> BOOK_OF_SOULS = ITEMS.register("book_of_souls",
             BookOfSoulsItem::new);
+    public static final DeferredHolder<Item, Item> FRENZY_KING_BOOK = ITEMS.register("frenzy_king_book",
+            FrenzyKingBookItem::new);
     public static final DeferredHolder<Item, Item> REAPER_LANTERN = ITEMS.register("reaper_lantern",
             ReaperLanternSpellBook::new);
 

@@ -78,7 +78,7 @@ public class SpaceRuptureSpell extends AbstractSpell {
         Vec3 origin = entity.getEyePosition();
         orb.setPos(origin.add(entity.getForward()).subtract(0, orb.getBbHeight() / 2, 0));
         orb.shoot(entity.getLookAngle());
-        orb.setDeltaMovement(orb.getDeltaMovement().add(0, 0.2, 0));
+        orb.setDeltaMovement(orb.getDeltaMovement().add(0, 0.05, 0));
         orb.setExplosionRadius(getRadius(spellLevel, entity));
         orb.setDamage(getDamage(spellLevel, entity));
         orb.setAoeDamage(getAoeDamage(spellLevel, entity));

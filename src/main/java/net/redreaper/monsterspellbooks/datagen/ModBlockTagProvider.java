@@ -49,6 +49,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.WITHER_ALLOY_BLOCK.get())
                 .add(ModBlocks.BLAZESTEEL_BLOCK.get())
                 .add(ModBlocks.VOID_MATTER_ORE.get())
+                .add(ModBlocks.VILESTONE.get())
+                .add(ModBlocks.GRAVISTONE.get())
         ;
 
 
@@ -100,8 +102,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.SPECTRITE_BLOCK.get())
         ;
 
-        tag(BlockTags.PIGLIN_REPELLENTS)
-                .add(ModBlocks.SPECTRITE_BLOCK.get())
+        tag(BlockTags.DRAGON_IMMUNE)
+                .add(ModBlocks.GRAVISTONE.get())
         ;
 
 
@@ -113,10 +115,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .addTag(BlockTags.INCORRECT_FOR_IRON_TOOL)
                 .remove(ModTags.Blocks.NEEDS_DIAMOND_LEVEL_TOOL)
         ;
-
-
-
-
 
         tag(ModTags.Blocks.NEEDS_SANGUINITE_TOOL)
                 .addTag(BlockTags.NEEDS_DIAMOND_TOOL)

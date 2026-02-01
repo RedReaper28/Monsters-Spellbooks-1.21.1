@@ -24,12 +24,16 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?,?>>SCORCHED_METAL_ORE_KEY=registerKey("scorched_metal_ore");
     public static final ResourceKey<ConfiguredFeature<?,?>>NETHER_PYRITE_ORE_KEY=registerKey("nether_pyrite_ore");
     public static final ResourceKey<ConfiguredFeature<?,?>>NETHER_RUBY_ORE_KEY=registerKey("nether_ruby_ore");
+    public static final ResourceKey<ConfiguredFeature<?,?>>VOID_ORE_KEY=registerKey("void_ruby_ore");
+
+    public static final ResourceKey<ConfiguredFeature<?,?>>GRAVISTONE_KEY=registerKey("gravistone");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneReplaceables=new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables=new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
         RuleTest sandReplaceables=new BlockMatchTest(Blocks.SAND);
         RuleTest netherReplaceables=new BlockMatchTest(Blocks.NETHERRACK);
+        RuleTest endReplaceables=new BlockMatchTest(Blocks.END_STONE);
 
         List<OreConfiguration.TargetBlockState>orichalcumOres=List.of(
                 OreConfiguration.target(stoneReplaceables, ModBlocks.ORICHALCUM_ORE.get().defaultBlockState()),
@@ -44,6 +48,11 @@ public class ModConfiguredFeatures {
                 ModBlocks.NETHER_PYRITE_ORE.get().defaultBlockState(),12));
         register(context,NETHER_RUBY_ORE_KEY,Feature.ORE,new OreConfiguration(netherReplaceables,
                 ModBlocks.NETHER_RUBY_ORE.get().defaultBlockState(),3));
+        register(context,VOID_ORE_KEY,Feature.ORE,new OreConfiguration(endReplaceables,
+                ModBlocks.VOID_MATTER_ORE.get().defaultBlockState(),3));
+
+        register(context,GRAVISTONE_KEY,Feature.ORE,new OreConfiguration(endReplaceables,
+                ModBlocks.GRAVISTONE.get().defaultBlockState(),15));
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

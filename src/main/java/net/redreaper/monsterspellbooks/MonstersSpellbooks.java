@@ -58,7 +58,6 @@ public class MonstersSpellbooks {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        // Animation Registry
         AzIdentityRegistry.register(
                 ModItems.VILENOVA_STAFF.get(),
                 ModItems.BRIMSTONE_OROCHI.get()

@@ -45,6 +45,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BLAZESTEEL_BLOCK.get());
 
         dropSelf(ModBlocks.VILESTONE.get());
+        dropSelf(ModBlocks.GRAVISTONE.get());
 
         add(ModBlocks.OCEANITE_ORE_CLAY.get(),
                 block -> createOreDrop(ModBlocks.OCEANITE_ORE_CLAY.get(), ModItems.RAW_OCEANITE.get()));

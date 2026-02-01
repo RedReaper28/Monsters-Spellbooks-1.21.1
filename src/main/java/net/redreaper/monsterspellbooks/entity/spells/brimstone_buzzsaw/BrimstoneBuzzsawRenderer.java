@@ -47,7 +47,9 @@ public class BrimstoneBuzzsawRenderer extends EntityRenderer<BrimstoneBuzzsawPro
         super.render(pEntity, pEntityYaw, pPartialTick, pPoseStack, pBuffer, pPackedLight);
     }
 
-    private void drawSlash(PoseStack.Pose pose, BrimstoneBuzzsawProjectile entity, MultiBufferSource bufferSource, float width)
+
+
+    public void drawSlash(PoseStack.Pose pose, BrimstoneBuzzsawProjectile entity, MultiBufferSource bufferSource, float width)
     {
         Matrix4f poseMatrix = pose.pose();
         Matrix3f normalMatrix = pose.normal();

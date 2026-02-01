@@ -81,6 +81,8 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block>VILESTONE=registerBlock("vilestone",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE)));
+    public static final DeferredBlock<Block>GRAVISTONE=registerBlock("gravistone",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
         DeferredBlock<T> toReturn=BLOCKS.register(name,block);

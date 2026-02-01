@@ -62,7 +62,7 @@ public class SpaceRuptureRenderer extends EntityRenderer<SpaceRupture> {
         poseStack.mulPose(Axis.YP.rotationDegrees(swirlY));
         poseStack.mulPose(Axis.ZP.rotationDegrees(swirlZ));
         consumer = bufferSource.getBuffer(RenderType.entityCutoutNoCull(getSwirlTextureLocation(entity)));
-        poseStack.scale(1.15f, 1.15f, 1.15f);
+        poseStack.scale(2, 2, 2);
         this.swirl.render(poseStack, consumer, light, OverlayTexture.NO_OVERLAY);
 
 

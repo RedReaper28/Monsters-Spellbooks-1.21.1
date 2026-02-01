@@ -5,6 +5,7 @@ import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
+import io.redspace.ironsspellbooks.api.util.AnimationHolder;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import net.minecraft.network.chat.Component;
@@ -124,5 +125,9 @@ public class FrenziedStormSpell extends AbstractSpell {
         return super.getDamageSource(projectile, attacker).setFireTicks(40).setIFrames(0);
     }
 
+    @Override
+    public AnimationHolder getCastStartAnimation() {
+        return SpellAnimations.ANIMATION_CONTINUOUS_CAST;
+    }
 
 }

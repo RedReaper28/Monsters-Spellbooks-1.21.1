@@ -68,7 +68,7 @@ public class ModMobEffects {
             .addAttributeModifier(Attributes.MOVEMENT_SPEED, MonstersSpellbooks.id("mobeffect_soul_form"), SoulFormMobEffect.SPEED_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
             .addAttributeModifier(Attributes.ATTACK_DAMAGE, MonstersSpellbooks.id("mobeffect_soul_form"), SoulFormMobEffect.WEAKNESS_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     public static final DeferredHolder<MobEffect, MobEffect> DECAYING_TOUCH = MOB_EFFECT_DEFERRED_REGISTER.register("decaying_touch", () -> new DecayingTouch(MobEffectCategory.HARMFUL, 16711680));
-
+    public static final DeferredHolder<MobEffect, MobEffect> FOCUS = MOB_EFFECT_DEFERRED_REGISTER.register("focus", () -> new FocusMobEffect(MobEffectCategory.BENEFICIAL, 16711680));
     public static final DeferredHolder<MobEffect, MobEffect> SOUL_REND = MOB_EFFECT_DEFERRED_REGISTER.register("soul_rend", () -> new SoulRendMobEffect(MobEffectCategory.HARMFUL, 6354426)
             .addAttributeModifier(AttributeRegistry.MANA_REGEN, MonstersSpellbooks.id("mobeffect_soul_rend"), SoulRendMobEffect.MANA_SLOWNESS_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 

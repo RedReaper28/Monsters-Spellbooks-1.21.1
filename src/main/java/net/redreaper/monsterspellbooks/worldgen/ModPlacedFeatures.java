@@ -21,6 +21,10 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature>SCORCHED_ORE_PLACED_KEY=registerKey("scorched_ore_placed");
     public static final ResourceKey<PlacedFeature>PYRITE_ORE_PLACED_KEY=registerKey("pyrite_ore_placed");
     public static final ResourceKey<PlacedFeature>RUBY_ORE_PLACED_KEY=registerKey("ruby_ore_placed");
+    public static final ResourceKey<PlacedFeature>VOID_ORE_PLACED_KEY=registerKey("void_ore_placed");
+
+    public static final ResourceKey<PlacedFeature>GRAVISTONE_PLACED_KEY=registerKey("gravistone_placed");
+
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -39,6 +43,12 @@ public class ModPlacedFeatures {
 
         register(context,RUBY_ORE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.NETHER_RUBY_ORE_KEY),
                 ModOrePlacement.commonOrePlacement(4, HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
+
+        register(context,VOID_ORE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.VOID_ORE_KEY),
+                ModOrePlacement.commonOrePlacement(4, HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
+
+        register(context,GRAVISTONE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.GRAVISTONE_KEY),
+                ModOrePlacement.commonOrePlacement(10, HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {

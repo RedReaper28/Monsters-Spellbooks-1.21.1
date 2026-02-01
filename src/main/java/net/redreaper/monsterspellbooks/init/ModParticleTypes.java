@@ -29,6 +29,7 @@ public class ModParticleTypes {
     public static final Supplier<SimpleParticleType> SOUL_FIRE_PARTICLE = PARTICLE_TYPES.register("soul_fire", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> SOUL_EMBERS_PARTICLE = PARTICLE_TYPES.register("soul_embers", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> PUTRESCENCE_BUBBLE_PARTICLE = PARTICLE_TYPES.register("putrescence_bubble", () -> new SimpleParticleType(false));
+    public static final Supplier<SimpleParticleType> STEAM = PARTICLE_TYPES.register("steam", () -> new SimpleParticleType(false));
 
     public static final Supplier<ParticleType<SpiritStrikeParticleOptions>> SPIRIT_STRIKE_PARTICLE = PARTICLE_TYPES.register("spirit_strike", () -> new ParticleType<>(true) {
         public MapCodec<SpiritStrikeParticleOptions> codec() {

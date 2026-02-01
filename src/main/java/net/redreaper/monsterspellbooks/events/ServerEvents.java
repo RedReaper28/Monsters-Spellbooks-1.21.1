@@ -165,7 +165,7 @@ public class ServerEvents {
 
                 if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FROSTMOURNE)) {
                     if (event.getSource().is(ModDamageTypes.NECRO_MAGIC))
-                        Utils.addFreezeTicks(target, 120);
+                        Utils.addFreezeTicks(target, 240);
                 }
             }
         }

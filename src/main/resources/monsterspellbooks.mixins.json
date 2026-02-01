@@ -5,14 +5,17 @@
   "plugin": "net.redreaper.monsterspellbooks.mixins.MixinPlugin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "spell.WitherSkullMixin",
-    "spell.SacrificeSpellMixin",
+    "spell.GustSpellMixin",
     "spell.RaiseDeadSpellMixin",
+    "spell.SacrificeSpellMixin",
     "spell.SlowSpellMixin",
-    "spell.GustSpellMixin"
+    "spell.WitherSkullMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
-  "minVersion": "0.8"
+  "minVersion": "0.8",
+  "client": [
+    "client.MouseMixin"
+  ]
 }

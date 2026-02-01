@@ -23,6 +23,9 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier>ADD_PYRITE_ORE=registerKey("add_pyrite_ore");
     public static final ResourceKey<BiomeModifier>ADD_RUBY_ORE=registerKey("add_ruby_ore");
 
+    public static final ResourceKey<BiomeModifier>ADD_VOID_ORE=registerKey("add_void_ore");
+
+    public static final ResourceKey<BiomeModifier>ADD_GRAVISTONE=registerKey("add_gravistone");
 
     public static final ResourceKey<BiomeModifier>SPAWN_AEGIS=registerKey("spawn_aegis");
     public static final ResourceKey<BiomeModifier>SPAWN_DRIPPLER=registerKey("spawn_drippler");
@@ -58,7 +61,15 @@ public class ModBiomeModifiers {
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.RUBY_ORE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
+        context.register(ADD_VOID_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_END),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.VOID_ORE_PLACED_KEY)),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
 
+        context.register(ADD_GRAVISTONE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_END),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.GRAVISTONE_PLACED_KEY)),
+                GenerationStep.Decoration.UNDERGROUND_DECORATION));
 
         context.register(SPAWN_AEGIS, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.HAS_VILLAGE_PLAINS),

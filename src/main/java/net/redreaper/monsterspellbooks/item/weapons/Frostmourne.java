@@ -76,11 +76,4 @@ public class Frostmourne extends MagicSwordItem implements UniqueItem {
             }
         }
     }
-
-
-    public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
-        boolean retval = super.hurtEnemy(itemstack, entity, sourceentity);
-        WitherOnHit.execute(entity);
-        return retval;
-    }
 }

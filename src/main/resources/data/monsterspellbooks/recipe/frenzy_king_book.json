@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:echo_shard"
+    },
+    "B": {
+      "item": "monsterspellbooks:blazesteel_ingot"
+    },
+    "C": {
+      "item": "irons_spellbooks:ruined_book"
+    },
+    "D": {
+      "item": "irons_spellbooks:magic_cloth"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "BCB",
+    "DDD"
+  ],
+  "result": {
+    "id": "monsterspellbooks:frenzy_king_book",
+    "count": 1
+  }
+}

@@ -1,4 +1,7 @@
-// 1.21.1	2026-01-07T03:19:30.3740397	Block States: monsterspellbooks
+// 1.21.1	2026-01-31T21:38:07.1477949	Block States: monsterspellbooks
+6aa80dbe3ce318cdf5e5d5b8f9093afcebec99fe assets/monsterspellbooks/blockstates/gravistone.json
 f5170ce7ece3019457f09ec985eaaabe14e64f37 assets/monsterspellbooks/blockstates/vilestone.json
+a1d4cfc3c9830d6f827998917b5af97d69a5a18c assets/monsterspellbooks/models/block/gravistone.json
 42039d1d296f2545e69c6736ba8a2e77d113857e assets/monsterspellbooks/models/block/vilestone.json
+ca4a46efa0d724dbc0e2d35d37e78ca15358a85a assets/monsterspellbooks/models/item/gravistone.json
 bea91b0d306f23f829a4098a1cf873407ea9ec0d assets/monsterspellbooks/models/item/vilestone.json

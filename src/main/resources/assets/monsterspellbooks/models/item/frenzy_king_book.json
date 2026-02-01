@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "textures": {
+      "book": "monsterspellbooks:item/spell_book_models/frenzy_king_book",
+      "particle": "monsterspellbooks:item/spell_book_models/frenzy_king_book"
+    },
+    "parent": "irons_spellbooks:item/template_spell_book_model"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "monsterspellbooks:item/frenzy_king_book"
+      }
+    },
+    "head": {
+      "textures": {
+        "book": "monsterspellbooks:item/spell_book_models/frenzy_king_book",
+        "particle": "monsterspellbooks:item/spell_book_models/frenzy_king_book"
+      },
+      "parent": "irons_spellbooks:item/template_spell_book_model_open"
+    }
+  }
+}
