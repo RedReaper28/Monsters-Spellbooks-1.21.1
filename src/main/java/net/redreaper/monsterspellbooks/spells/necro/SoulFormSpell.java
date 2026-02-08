@@ -25,7 +25,7 @@ public class SoulFormSpell extends AbstractSpell {
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 10, 1)),
+                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSoulFormDuration(spellLevel, caster), 1)),
                 Component.translatable("attribute.modifier.take.1", Utils.stringTruncation(getPercentAttackDamage(spellLevel, caster), 0), Component.translatable("attribute.name.generic.attack_damage")),
                 Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentSpeed(spellLevel, caster), 0), Component.translatable("attribute.name.generic.movement_speed"))
         );
@@ -59,7 +59,7 @@ public class SoulFormSpell extends AbstractSpell {
     }
 
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        entity.addEffect(new MobEffectInstance(ModMobEffects.SOUL_FORM, (int) (getSpellPower(spellLevel, entity) * 10), spellLevel, false, false, true));
+        entity.addEffect(new MobEffectInstance(ModMobEffects.SOUL_FORM, (getSoulFormDuration(spellLevel, entity)), spellLevel, false, false, true));
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 
@@ -74,5 +74,10 @@ public class SoulFormSpell extends AbstractSpell {
     public AnimationHolder getCastStartAnimation() {
         return SpellAnimations.SELF_CAST_ANIMATION;
     }
+
+    public int getSoulFormDuration(int spellLevel, LivingEntity caster) {
+        return spellLevel*150;
+    }
+
 }
 

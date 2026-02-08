@@ -6,9 +6,11 @@ import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AoeEntity;
 import io.redspace.ironsspellbooks.particle.ShockwaveParticleOptions;
+import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -28,11 +30,11 @@ public class AncientLightningStrike extends AoeEntity {
         setCircular();
     }
 
-    public AncientLightningStrike(Level level) {
+    public AncientLightningStrike(Level level, Entity owner) {
         this(ModEntities.ANCIENT_LIGHTNING_STRIKE.get(), level);
+        this.setOwner(owner);
     }
-
-    static final int chargeTime = 20;
+    static final int chargeTime = 10;
     static final int vfxHeight = 15;
 
     @Override
@@ -70,7 +72,7 @@ public class AncientLightningStrike extends AoeEntity {
 
     @Override
     public void applyEffect(LivingEntity target) {
-        DamageSources.applyDamage(target, getDamage(), ModSpellRegistry.THUNDERSTORM_WAVE   .get().getDamageSource(this, getOwner()));
+        DamageSources.applyDamage(target, getDamage(), ModSpellRegistry.THUNDERSTORM_WAVE.get().getDamageSource(this, getOwner()));
     }
 
     @Override

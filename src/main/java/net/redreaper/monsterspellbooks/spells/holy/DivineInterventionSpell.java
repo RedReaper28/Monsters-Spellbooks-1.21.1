@@ -25,7 +25,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
-import org.joml.Vector3f;
 
 import java.util.List;
 

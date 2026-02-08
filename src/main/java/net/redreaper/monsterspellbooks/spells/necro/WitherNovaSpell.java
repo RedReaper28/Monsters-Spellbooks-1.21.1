@@ -2,7 +2,6 @@ package net.redreaper.monsterspellbooks.spells.necro;
 
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
-import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.CameraShakeData;
 import io.redspace.ironsspellbooks.api.util.CameraShakeManager;
@@ -10,6 +9,7 @@ import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.capabilities.magic.SyncedSpellData;
 import io.redspace.ironsspellbooks.damage.DamageSources;
+import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -28,6 +28,7 @@ import net.redreaper.monsterspellbooks.entity.spells.wither_nova.WitherNovaVisua
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -98,7 +99,7 @@ public class WitherNovaSpell extends AbstractSpell {
         }
     }
 
-    public void shot(Level level, int spellLevel, LivingEntity entity) {
+    public void shot(Level level, int spellLevel, @NotNull LivingEntity entity) {
         entity.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS,
                 80, 2, true, true, true));
         entity.addEffect(new MobEffectInstance(ModMobEffects.FOCUS,
@@ -123,7 +124,7 @@ public class WitherNovaSpell extends AbstractSpell {
     }
 
     public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) (getSpellPower(spellLevel, caster) * 20);
+        return (int) (getSpellPower(spellLevel, caster) * 5);
     }
 
     public int getAmplifier(int spellLevel, LivingEntity entity) {
@@ -137,6 +138,11 @@ public class WitherNovaSpell extends AbstractSpell {
     private float getDamage(int spellLevel, LivingEntity caster)
     {
         return (float) (1.5 * getSpellPower(spellLevel, caster));
+    }
+
+    @Override
+    public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {
+        return super.getDamageSource(projectile, attacker).setIFrames(0);
     }
 
     public static void ambientParticles(LivingEntity entity, SyncedSpellData spellData) {

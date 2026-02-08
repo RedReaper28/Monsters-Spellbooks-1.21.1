@@ -1,0 +1,14 @@
+{
+  "brimstone_fire": {
+    "subtitles": "sounds.monsterspellbooks.brimstone_fire",
+    "sounds": [
+      "monsterspellbooks:brimstone_fire"
+    ]
+  },
+  "energy_fire": {
+    "subtitles": "sounds.monsterspellbooks.energy_fire",
+    "sounds": [
+      "monsterspellbooks:energy_fire"
+    ]
+  }
+}

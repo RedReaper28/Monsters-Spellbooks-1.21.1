@@ -7,9 +7,6 @@ import io.redspace.ironsspellbooks.entity.mobs.goals.WizardAttackGoal;
 import net.acetheeldritchking.aces_spell_utils.entity.mobs.UniqueAbstractSpellCastingMob;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -25,16 +22,12 @@ import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.monster.Enemy;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LightLayer;
-import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.dimension.DimensionType;
 import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.util.GeckoLibUtil;
@@ -46,7 +39,7 @@ public class DripplerEntity extends UniqueAbstractSpellCastingMob implements Geo
 
     public DripplerEntity(EntityType<? extends PathfinderMob> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        xpReward = 0;
+        xpReward = 10;
         this.lookControl = createLookControl();
         this.moveControl = new FlyingMoveControl(this, 20, true);
     }
@@ -83,7 +76,7 @@ public class DripplerEntity extends UniqueAbstractSpellCastingMob implements Geo
                 .setSpells(
                         List.of(
                                 SpellRegistry.BLOOD_NEEDLES_SPELL.get(),
-                                SpellRegistry.RAY_OF_SIPHONING_SPELL.get()
+                                ModSpellRegistry.BLOOD_THORN.get()
                         ),
                         List.of(),
                         List.of(),
@@ -125,29 +118,6 @@ public class DripplerEntity extends UniqueAbstractSpellCastingMob implements Geo
 
     @Override protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {}
 
-    public static boolean isDarkEnoughToSpawn(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
-        if (level.getBrightness(LightLayer.SKY, pos) > random.nextInt(32)) {
-            return false;
-        } else {
-            DimensionType dimensiontype = level.dimensionType();
-            int i = dimensiontype.monsterSpawnBlockLightLimit();
-            if (i < 15 && level.getBrightness(LightLayer.BLOCK, pos) > i) {
-                return false;
-            } else {
-                int j = level.getLevel().isThundering() ? level.getMaxLocalRawBrightness(pos, 10) : level.getMaxLocalRawBrightness(pos);
-                return j <= dimensiontype.monsterSpawnLightTest().sample(random);
-            }
-        }
-    }
-
-    public static boolean checkDripplerSpawnRules(EntityType<? extends Monster> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
-        return level.getDifficulty() != Difficulty.PEACEFUL && (MobSpawnType.ignoresLightRequirements(spawnType) || isDarkEnoughToSpawn(level, pos, random)) && checkMobSpawnRules(type, level, spawnType, pos, random);
-    }
-
-    public static boolean checkAnyLightMonsterSpawnRules(EntityType<? extends Monster> type, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
-        return level.getDifficulty() != Difficulty.PEACEFUL && checkMobSpawnRules(type, level, spawnType, pos, random);
-    }
-
     protected boolean shouldDespawnInPeaceful() {return true;}
 
     public boolean shouldDropExperience() {
@@ -158,6 +128,7 @@ public class DripplerEntity extends UniqueAbstractSpellCastingMob implements Geo
         return true;
     }
 
+    // Geckolib & Animations
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.cache;

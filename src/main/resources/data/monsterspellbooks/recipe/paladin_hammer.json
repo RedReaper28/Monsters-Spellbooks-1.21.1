@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:iron_block"
+    },
+    "B": {
+      "item": "irons_spellbooks:holy_upgrade_orb"
+    },
+    "C": {
+      "item": "minecraft:mace"
+    },
+    "D": {
+      "item": "monsterspellbooks:superior_weapon_parts"
+    }
+  },
+  "pattern": [
+    "ABA",
+    " C ",
+    " D "
+  ],
+  "result": {
+    "components": {
+      "irons_spellbooks:affinity_data": {
+        "bonuses": {
+          "monsterspellbooks:paladin_throw": 1
+        }
+      },
+      "irons_spellbooks:spell_container": {
+        "data": [
+          {
+            "id": "monsterspellbooks:paladin_throw",
+            "index": 0,
+            "level": 10,
+            "locked": true
+          }
+        ],
+        "maxSpells": 1,
+        "mustEquip": false,
+        "spellWheel": true
+      }
+    },
+    "count": 1,
+    "id": "monsterspellbooks:paladin_hammer"
+  }
+}

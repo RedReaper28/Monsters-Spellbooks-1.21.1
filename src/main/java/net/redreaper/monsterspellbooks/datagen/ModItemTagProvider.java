@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModItemTagProvider extends ItemTagsProvider {
+public class    ModItemTagProvider extends ItemTagsProvider {
     public ModItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTags, @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, blockTags, MonstersSpellbooks.MOD_ID, existingFileHelper);
     }
@@ -60,11 +60,14 @@ public class ModItemTagProvider extends ItemTagsProvider {
         ;
 
         tag(ItemTags.MACE_ENCHANTABLE)
-                .add(ModItems.ENDERSENT_CRUSHER.get());
+                .add(ModItems.PALLADIN_HAMMER.get())
+                .add(ModItems.ENDERSENT_CRUSHER.get())
+                ;
 
         tag(ItemTags.WEAPON_ENCHANTABLE)
-                .add(ModItems.ENDERSENT_CRUSHER.get());
-
+                .add(ModItems.PALLADIN_HAMMER.get())
+                .add(ModItems.ENDERSENT_CRUSHER.get())
+        ;
         tag(ItemTags.HEAD_ARMOR)
                 .add(ModItems.FIERCE_DEITY_MASK.get())
                 .add(ModItems.MAJORAS_MASK.get())

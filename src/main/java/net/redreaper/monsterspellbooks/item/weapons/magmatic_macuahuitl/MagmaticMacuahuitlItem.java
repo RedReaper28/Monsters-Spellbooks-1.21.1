@@ -20,7 +20,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
 import net.redreaper.monsterspellbooks.procedures.effectsonhit.RendOnHit;
-import net.redreaper.monsterspellbooks.procedures.effectsonhit.WitherOnHit;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -57,11 +56,7 @@ public class MagmaticMacuahuitlItem extends MagicSwordItem implements UniqueItem
 
     }
 
-    public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
-        boolean retval = super.hurtEnemy(itemstack, entity, sourceentity);
-        RendOnHit.execute(entity);
-        return retval;
-    }
+
 
     @EventBusSubscriber({Dist.CLIENT})
     public class SpellEvents {
@@ -80,5 +75,11 @@ public class MagmaticMacuahuitlItem extends MagicSwordItem implements UniqueItem
                 }
             }
         }
+    }
+
+    public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
+        boolean retval = super.hurtEnemy(itemstack, entity, sourceentity);
+        RendOnHit.execute(entity);
+        return retval;
     }
 }

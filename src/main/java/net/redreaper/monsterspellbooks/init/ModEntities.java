@@ -1,5 +1,8 @@
 package net.redreaper.monsterspellbooks.init;
 
+import io.redspace.ironsspellbooks.IronsSpellbooks;
+import io.redspace.ironsspellbooks.entity.spells.devour_jaw.DevourJaw;
+import io.redspace.ironsspellbooks.entity.spells.fireball.MagicFireball;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -15,16 +18,21 @@ import net.redreaper.monsterspellbooks.entity.spells.blizzard_aspect.PowderSnowS
 import net.redreaper.monsterspellbooks.entity.spells.blizzard_aspect.SnowCloud;
 import net.redreaper.monsterspellbooks.entity.spells.blood_pierce_bullet.BloodPierceVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.blood_thorn.BloodThornProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.bone_dagger.BoneDaggerProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.BrimstoneBuzzsawProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouch;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_storm.SmallFrenzyFireBall;
+import net.redreaper.monsterspellbooks.entity.spells.graveyard_fissure.GraveyardHand;
 import net.redreaper.monsterspellbooks.entity.spells.guardians_neutralizer.GuardiansNeutralizerVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSword;
 import net.redreaper.monsterspellbooks.entity.spells.life_drain.LifeDrainProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrb;
+import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceField;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMass;
+import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.rancorcall.RancorSkull;
 import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.SanguiniteEvisceration;
 import net.redreaper.monsterspellbooks.entity.spells.soul_chain.SoulChain;
 import net.redreaper.monsterspellbooks.entity.spells.soul_scorch.SoulFireField;
@@ -47,6 +55,18 @@ public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
 
+    public static final DeferredHolder<EntityType<?>, EntityType<GraveyardHand>> GRAVEYARD_HAND =
+            ENTITIES.register("graveyard_hand", () -> EntityType.Builder.<GraveyardHand>of(GraveyardHand::new, MobCategory.MISC)
+                    .sized(1f, 1.5f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "graveyard_hand").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<RaigoProjectile>> RAIGO =
+            ENTITIES.register("raigo", () -> EntityType.Builder.<RaigoProjectile>of(RaigoProjectile::new, MobCategory.MISC)
+                    .sized(4f, 4f)
+                    .clientTrackingRange(4)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "raigo").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<AncientLightningLanceProjectile>> ANCIENT_LIGHTNING_LANCE_PROJECTILE =
             ENTITIES.register("ancient_lightning_lance", () -> EntityType.Builder.<AncientLightningLanceProjectile>of(AncientLightningLanceProjectile::new, MobCategory.MISC)
                     .sized(1.25f, 1.25f)
@@ -58,6 +78,24 @@ public class ModEntities {
                     .sized(1, 1)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "stray_grasp").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<HolyHammerProjectile>> HOLY_HAMMER =
+            ENTITIES.register("holy_hammer", () -> EntityType.Builder.<HolyHammerProjectile>of(HolyHammerProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "holy_hammer").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<BoneDaggerProjectile>> BONE_DAGGER =
+            ENTITIES.register("bone_dagger", () -> EntityType.Builder.<BoneDaggerProjectile>of(BoneDaggerProjectile::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "bone_dagger").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<RancorSkull>> RANCOR_SKULL =
+            ENTITIES.register("rancor_skull", () -> EntityType.Builder.<RancorSkull>of(RancorSkull::new, MobCategory.MISC)
+                    .sized(1, 1)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "rancor_skull").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<BloodThornProjectile>> BLOOD_THORN =
             ENTITIES.register("blood_thorn", () -> EntityType.Builder.<BloodThornProjectile>of(BloodThornProjectile::new, MobCategory.MISC)
@@ -222,17 +260,18 @@ public class ModEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<ShockEntity>> SHOCK =
             ENTITIES.register("shock", () -> EntityType.Builder.<ShockEntity>of(ShockEntity::new, MobCategory.MONSTER).
                     sized(.6f, .80f).build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "shock").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<DripplerEntity>> DRIPPLER =
-            ENTITIES.register("drippler", () -> EntityType.Builder.<DripplerEntity>of(DripplerEntity::new, MobCategory.MONSTER).
-                    sized(.6f, .80f).build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "shock").toString()));
+            ENTITIES.register("drippler", () -> EntityType.Builder.<DripplerEntity>of
+                            (DripplerEntity::new, MobCategory.MONSTER).
+                    sized(.6f, 1.8f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "drippler").toString()
+                    ));
+
     public static final Supplier<EntityType<VileSkeletonEntity>>VILE_SKELETON=
             ENTITIES.register("vile_skeleton",()->EntityType.Builder.of(VileSkeletonEntity::new,MobCategory.MONSTER)
                     .sized(0.6F, 1.9F).build("vile_skeleton"));
-
-
-
-
-
 
 
     public static final DeferredHolder<EntityType<?>, EntityType<SummonedAegisEntity>> SUMMONED_AEGIS =

@@ -1,0 +1,53 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.rancor_skull",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [0, 2, 0.5],
+					"cubes": [
+						{"origin": [-4, -1, -3.5], "size": [8, 8, 8], "uv": [0, 0]},
+						{
+							"origin": [-4.1, 1, -2.5],
+							"size": [0.1, 6, 11],
+							"pivot": [-4, 4, 3],
+							"rotation": [30, 0, 0],
+							"uv": {
+								"east": {"uv": [0, 54], "uv_size": [16, 10]},
+								"west": {"uv": [16, 54], "uv_size": [16, 10]}
+							}
+						},
+						{
+							"origin": [4.1, 1, -2.5],
+							"size": [0.1, 6, 11],
+							"pivot": [4.1, 4, 3],
+							"rotation": [30, 0, 0],
+							"uv": {
+								"east": {"uv": [32, 54], "uv_size": [-16, 10]},
+								"west": {"uv": [16, 54], "uv_size": [-16, 10]}
+							}
+						}
+					]
+				},
+				{
+					"name": "jaw",
+					"parent": "head",
+					"pivot": [3, -2, 3],
+					"rotation": [10, 0, 0],
+					"cubes": [
+						{"origin": [-4, -1.10647, -3.03505], "size": [8, 3, 8], "inflate": 0.25, "uv": [0, 21]}
+					]
+				}
+			]
+		}
+	]
+}

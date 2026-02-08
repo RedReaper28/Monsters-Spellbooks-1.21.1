@@ -11,6 +11,7 @@ import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOro
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffRenderer;
 import net.redreaper.monsterspellbooks.item.weapons.disruption_nanginata.DisruptionNaginataRenderer;
 import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlRenderer;
+import net.redreaper.monsterspellbooks.item.weapons.paadin_hammer.PaladinHammerRenderer;
 import net.redreaper.monsterspellbooks.loot.ModLootModifiers;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -38,8 +39,8 @@ public class MonstersSpellbooks {
         ModCreativeTabs.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModSounds.register(modEventBus);
         ModExtendedArmorMaterials.register(modEventBus);
-
         ModMobEffects.register(modEventBus);
         ModAtributeRegistry.register(modEventBus);
         ModParticleTypes.register(modEventBus);
@@ -77,10 +78,12 @@ public class MonstersSpellbooks {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            AzItemRendererRegistry.register(DisruptionNaginataRenderer::new, ModItems.DISRUPTION_NAGINATA.get());
             AzItemRendererRegistry.register(VileNovaStaffRenderer::new, ModItems.VILENOVA_STAFF.get());
             AzItemRendererRegistry.register(BrimstoneOrochiRenderer::new, ModItems.BRIMSTONE_OROCHI.get());
+            AzItemRendererRegistry.register(PaladinHammerRenderer::new, ModItems.PALLADIN_HAMMER.get());
             AzItemRendererRegistry.register(MagmaticMacuahuitlRenderer::new, ModItems.MAGMATIC_MACUAHUITL.get());
+            AzItemRendererRegistry.register(DisruptionNaginataRenderer::new, ModItems.DISRUPTION_NAGINATA.get());
+
         }
     }
 }

@@ -1,7 +1,8 @@
 {
   "replace": false,
   "values": [
-    "monsterspellbooks:brimstone_sigil",
-    "monsterspellbooks:brimstone_orochi"
+    "#curios:elemental_charm",
+    "monsterspellbooks:brimstone_orochi",
+    "monsterspellbooks:frostmourne"
   ]
 }

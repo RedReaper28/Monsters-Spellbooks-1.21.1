@@ -83,17 +83,11 @@ public class StaticMobEffect extends MagicMobEffect implements ISyncedMobEffect 
 
         if (livingEntity instanceof LivingEntity livingAttacker) {
             double baseDamage = damageFor(attacker);
-
             ChainLightning chainLightning = new ChainLightning(livingAttacker.level(), livingAttacker, livingEntity);
             chainLightning.setDamage((float) baseDamage);
-            chainLightning.range = 10;
+            chainLightning.range = 15;
             chainLightning.maxConnections = 5;
             livingAttacker.level().addFreshEntity(chainLightning);
-
-            if (livingEntity.hurt(source, (float) baseDamage) && livingEntity instanceof LivingEntity livingVictim) {
-                var inst = addStaticStack(livingVictim, attacker);
-                DELAYED_INSTANCES.put(inst, inst.getDuration());
-            }
         }
 
         level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundRegistry.SHOCKWAVE_CAST.value(), livingEntity.getSoundSource(), 4.0F, (1.0F + (level.random.nextFloat() - level.random.nextFloat()) * 0.2F) * 0.7F);

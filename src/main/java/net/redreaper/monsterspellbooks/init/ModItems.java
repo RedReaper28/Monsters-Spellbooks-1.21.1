@@ -30,6 +30,7 @@ import net.redreaper.monsterspellbooks.item.weapons.disruption_nanginata.Disrupt
 import net.redreaper.monsterspellbooks.item.weapons.endersent_crusher.EndersentCrusherItem;
 import net.redreaper.monsterspellbooks.item.weapons.magic_axe.ExtendedAxeItem;
 import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlItem;
+import net.redreaper.monsterspellbooks.item.weapons.paadin_hammer.PaladinHammerItem;
 
 import java.util.function.Supplier;
 
@@ -133,8 +134,11 @@ public class ModItems {
             ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>UPGRADE_RUNE= ITEMS.register("upgrade_rune",
             ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>AERO_RUNE= ITEMS.register("aero_rune",
+            ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>NECRO_RUNE= ITEMS.register("necro_rune",
             ()->new Item(new Item.Properties()));
+
 
     public static final DeferredItem<Item>LEMON=ITEMS.register("lemon",
             ()->new Item(new Item.Properties().food(ModFoods.LEMON)));
@@ -230,6 +234,8 @@ public class ModItems {
             DisruptionNaginataItem::new);
     public static final DeferredItem<Item>SWORD_OF_COURAGE = ITEMS.register("sword_of_courage",
             SwordOfCourage::new);
+    public static final DeferredItem<Item>PALLADIN_HAMMER = ITEMS.register("paladin_hammer",
+            PaladinHammerItem::new);
     public static final DeferredItem<Item>REAPER_SICKLE = ITEMS.register("reaper_sickle",
             ReaperSickle::new);
     public static final DeferredItem<Item>ENDERSENT_CRUSHER = ITEMS.register("endersent_crusher",
@@ -336,6 +342,8 @@ public class ModItems {
 
     public static final DeferredHolder<Item, Item> NECRO_UPGRADE_ORB = ITEMS.register("necro_upgrade_orb", () ->
             new UpgradeOrbItem(ItemPropertiesHelper.material().rarity(Rarity.UNCOMMON).component(ComponentRegistry.UPGRADE_ORB_TYPE, ModUpgradeTypeRegistry.NECRO_SPELL_POWER)));
+    public static final DeferredHolder<Item, Item> AERO_UPGRADE_ORB = ITEMS.register("aero_upgrade_orb", () ->
+            new UpgradeOrbItem(ItemPropertiesHelper.material().rarity(Rarity.UNCOMMON).component(ComponentRegistry.UPGRADE_ORB_TYPE, ModUpgradeTypeRegistry.AERO_SPELL_POWER)));
 
 
     public static void register(IEventBus eventBus){

@@ -11,5 +11,8 @@ public class ModParticleHelper {
     public static final ParticleOptions SOUL_FIRE = ModParticleTypes.SOUL_FIRE_PARTICLE.get();
     public static final ParticleOptions PUTRESCENCE_BUBBLE = ModParticleTypes.PUTRESCENCE_BUBBLE_PARTICLE.get();
     public static final ParticleOptions STEAM = ModParticleTypes.STEAM.get();
+    public static final ParticleOptions ELECTRIC_SMOKE = ModParticleTypes.ELECTRIC_SMOKE.get();
+    public static final ParticleOptions SOUL_SMOKE = ModParticleTypes.SOUL_SMOKE.get();
+    public static final ParticleOptions BONE_FRAGMENTS = ModParticleTypes.BONE_FRAGMENTS.get();
 
 }

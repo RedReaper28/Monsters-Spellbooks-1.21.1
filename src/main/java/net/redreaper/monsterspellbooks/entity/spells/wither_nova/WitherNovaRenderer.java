@@ -80,7 +80,7 @@ public class WitherNovaRenderer extends EntityRenderer<WitherNovaVisualEntity> {
                 float expansion = Mth.clampedLerp(1, 0, f / (lifetime - 5));
                 poseStack.scale(expansion, 2, expansion);
                 poseStack.mulPose(Axis.YP.rotationDegrees(f * -10));
-                this.body.render(poseStack, consumer, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, -1);
+                this.body.render(poseStack, consumer, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, 255);
                 poseStack.popPose();
             }
         }

@@ -5,8 +5,6 @@ import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
-import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
-import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
@@ -38,7 +36,7 @@ public class SoulChain extends AbstractMagicProjectile {
     Entity initialVictim;
     public int maxConnections = 2;
     public int maxConnectionsPerWave = 1;
-    public float range = 3f;
+    public float range = 1f;
     private final static Supplier<AbstractSpell> SPELL = ModSpellRegistry.SOUL_CHAIN;
 
     public SoulChain(EntityType<? extends Projectile> pEntityType, Level pLevel) {

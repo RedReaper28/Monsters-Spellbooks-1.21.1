@@ -37,8 +37,8 @@ public class StrayGraspSpell extends AbstractSpell {
     private final DefaultConfig defaultConfig = new DefaultConfig()
             .setMinRarity(SpellRarity.UNCOMMON)
             .setSchoolResource(ModSpellSchools.NECRO_RESOURCE)
-            .setMaxLevel(8)
-            .setCooldownSeconds(20)
+            .setMaxLevel(5)
+            .setCooldownSeconds(40)
             .build();
 
     public StrayGraspSpell() {
@@ -87,11 +87,11 @@ public class StrayGraspSpell extends AbstractSpell {
         } else {
             double firePower = caster.getAttributeValue(AttributeRegistry.ICE_SPELL_POWER);
             double bloodPower = caster.getAttributeValue(ModAtributeRegistry.NECRO_MAGIC_POWER);
-            return (float)((double)1F + (double).5F * (double)this.getSpellPower(spellLevel, caster) * ((double)0.5F * firePower + (double)0.5F * bloodPower));
+            return (float)((double)1F + (double).25F * (double)this.getSpellPower(spellLevel, caster) * ((double)0.25F * firePower + (double)0.25F * bloodPower));
         }
     }
 
     public int getChilledDuration(int spellLevel, LivingEntity caster) {
-        return (int) (getSpellPower(spellLevel, caster) * 10 * 5);
+        return (int) (getSpellPower(spellLevel, caster) * 10 * 2.5);
     }
 }
