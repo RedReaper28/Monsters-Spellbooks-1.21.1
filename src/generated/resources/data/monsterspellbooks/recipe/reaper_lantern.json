@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:spectrite_ingot"
+    },
+    "B": {
+      "item": "monsterspellbooks:wither_alloy_ingot"
+    },
+    "C": {
+      "item": "monsterspellbooks:book_of_souls"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "result": {
+    "components": {
+      "irons_spellbooks:affinity_data": {
+        "bonuses": {
+          "monsterspellbooks:reaper_aspect": 2
+        }
+      },
+      "irons_spellbooks:spell_container": {
+        "data": [],
+        "maxSpells": 12,
+        "mustEquip": true,
+        "spellWheel": true
+      }
+    },
+    "count": 1,
+    "id": "monsterspellbooks:reaper_lantern"
+  }
+}

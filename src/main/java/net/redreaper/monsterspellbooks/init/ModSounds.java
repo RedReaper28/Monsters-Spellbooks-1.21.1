@@ -20,6 +20,7 @@ public class ModSounds {
     public static final Supplier<SoundEvent>BRIMSTONE_FIRE=registerSoundEvent("brimstone_fire");
     public static final Supplier<SoundEvent>ENERGY_FIRE=registerSoundEvent("energy_fire");
     public static final Supplier<SoundEvent>SPELL_SCREAM=registerSoundEvent("spell_scream");
+    public static final Supplier<SoundEvent>ENDERSENT_SMAsH_CAST=registerSoundEvent("endersent_smash_cast");
 
 
     public static DeferredHolder<SoundEvent, SoundEvent> NECRO_CAST = registerSoundEvent("necro_cast");
