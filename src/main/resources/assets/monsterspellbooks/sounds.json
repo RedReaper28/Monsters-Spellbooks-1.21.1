@@ -5,10 +5,23 @@
       "monsterspellbooks:brimstone_fire"
     ]
   },
+
   "energy_fire": {
-    "subtitles": "sounds.monsterspellbooks.energy_fire",
+  "subtitles": "sounds.monsterspellbooks.energy_fire",
+  "sounds": [
+    "monsterspellbooks:energy_fire"
+  ]
+  },
+  "spell_scream": {
+    "subtitles": "sounds.monsterspellbooks.spell_scream",
     "sounds": [
-      "monsterspellbooks:energy_fire"
+      "monsterspellbooks:spell_scream"
     ]
+  },
+  "necro_cast": {
+  "subtitles": "sounds.monsterspellbooks.necro_cast",
+  "sounds": [
+    "monsterspellbooks:necro_cast"
+  ]
   }
 }

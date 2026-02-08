@@ -9,6 +9,7 @@ import io.redspace.ironsspellbooks.api.util.AnimationHolder;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
+import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.network.particles.ShockwaveParticlesPacket;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import net.acetheeldritchking.aces_spell_utils.spells.ASSpellAnimations;
@@ -27,6 +28,7 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.effect.MadnessMobEffect;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.init.ModParticleTypes;
+import net.redreaper.monsterspellbooks.init.ModSounds;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -83,7 +85,7 @@ public class FrenzySurgeSpell extends AbstractSpell {
 
     @Override
     public Optional<SoundEvent> getCastStartSound() {
-        return Optional.of(SoundEvents.SCULK_SHRIEKER_SHRIEK);
+        return Optional.of(ModSounds.SPELL_SCREAM.get());
     }
 
     @Override
@@ -112,7 +114,6 @@ public class FrenzySurgeSpell extends AbstractSpell {
                 int i = getDuration(spellLevel, entity);
                 DamageSources.applyDamage(target, this.getDamage(spellLevel, entity), this.getDamageSource(entity));
                 livingEntity.addEffect(new MobEffectInstance(ModMobEffects.MADNESS, i, getFrenzyAmplifier(spellLevel, entity)));
-                livingEntity.setRemainingFireTicks(Math.min(i / 2, 160));
                 MagicManager.spawnParticles(level, ModParticleHelper.FRENZY_FIRE, livingEntity.getX(), livingEntity.getY() + livingEntity.getBbHeight() * .5f, livingEntity.getZ(), 50, livingEntity.getBbWidth() * .5f, livingEntity.getBbHeight() * .5f, livingEntity.getBbWidth() * .5f, .03, false);
             }
         });
@@ -127,7 +128,7 @@ public class FrenzySurgeSpell extends AbstractSpell {
     }
 
     public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) (getSpellPower(spellLevel, caster) * 5);
+        return (int) (getSpellPower(spellLevel, caster) * 20);
     }
 
     public float getDamage(int spellLevel, LivingEntity caster) {
@@ -147,6 +148,11 @@ public class FrenzySurgeSpell extends AbstractSpell {
     @Override
     public void onServerCastComplete(Level level, int spellLevel, LivingEntity entity, MagicData playerMagicData, boolean cancelled) {
         super.onServerCastComplete(level, spellLevel, entity, playerMagicData, cancelled);
+    }
+
+    @Override
+    public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {
+        return super.getDamageSource(projectile, attacker).setFireTicks(50).setIFrames(0);
     }
 
     @Override

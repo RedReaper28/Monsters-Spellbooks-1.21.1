@@ -22,8 +22,11 @@ import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
+import net.redreaper.monsterspellbooks.particle.SoulExplosionParticlePacket;
 
 import java.util.Optional;
 
@@ -64,7 +67,7 @@ public class WitherBombProjectile extends AbstractMagicProjectile {
             var x = Mth.lerp(f, d0, this.getX() + vec3.x);
             var y = Mth.lerp(f, d1, this.getY() + vec3.y);
             var z = Mth.lerp(f, d2, this.getZ() + vec3.z);
-            this.level().addParticle(ParticleTypes.SOUL, true,x - random.x, y + getBbHeight() * .5f - random.y, z - random.z, 0,0,0/*motion.x * .5f, motion.y * .5f, motion.z * .5f*/);
+            this.level().addParticle(ModParticleHelper.SOUL_SMOKE, true,x - random.x, y + getBbHeight() * .5f - random.y, z - random.z, 0,0,0/*motion.x * .5f, motion.y * .5f, motion.z * .5f*/);
         }
     }
 
@@ -83,10 +86,7 @@ public class WitherBombProjectile extends AbstractMagicProjectile {
             impactParticles(xOld, yOld, zOld);
             float explosionRadius = getExplosionRadius();
             var explosionRadiusSqr = explosionRadius * explosionRadius;
-
             Vec3 losPoint = Utils.raycastForBlock(level(), this.position(), this.position().add(0, 2, 0), ClipContext.Fluid.NONE).getLocation();
-            MagicManager.spawnParticles(level(), new BlastwaveParticleOptions(SchoolRegistry.ICE.get().getTargetingColor(), getExplosionRadius()), hitResult.getLocation().x() , hitResult.getLocation().y()  + .165f,  hitResult.getLocation().z() , 1, 0, 0, 0, 0, true);
-
             var entities = level().getEntities(this, this.getBoundingBox().inflate(explosionRadius));
 
             for (Entity entity : entities) {
@@ -102,9 +102,10 @@ public class WitherBombProjectile extends AbstractMagicProjectile {
                 }
             }
         }
+        PacketDistributor.sendToPlayersTrackingEntity(this, new SoulExplosionParticlePacket(hitResult.getLocation().subtract(getDeltaMovement().scale(0.5)), getExplosionRadius()));
         playSound(SoundEvents.GENERIC_EXPLODE.value(), 4.0F, (1.0F + (this.level().random.nextFloat() - this.level().random.nextFloat()) * 0.2F) * 0.7F);
             this.discardHelper(hitResult);
-        }
+    }
 
         @Override public Optional<Holder<SoundEvent>> getImpactSound() {return Optional.of(SoundEvents.GENERIC_EXPLODE);}
-    }
+}

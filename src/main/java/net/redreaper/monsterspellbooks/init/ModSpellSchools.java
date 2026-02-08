@@ -37,7 +37,7 @@ public class ModSpellSchools  {
                     Component.translatable("school.monsterspellbooks.necro").withStyle(Style.EMPTY.withColor(ChatFormatting.DARK_GREEN)),
                     ModAtributeRegistry.NECRO_MAGIC_POWER,
                     ModAtributeRegistry.NECRO_MAGIC_RESIST,
-                    SoundRegistry.EVOCATION_CAST,
+                    ModSounds.NECRO_CAST,
                     ModDamageTypes.NECRO_MAGIC
             ));
 
