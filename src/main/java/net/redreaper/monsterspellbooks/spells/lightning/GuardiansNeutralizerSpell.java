@@ -116,7 +116,7 @@ public class GuardiansNeutralizerSpell extends AbstractSpell {
     }
 
     public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) (getSpellPower(spellLevel, caster) * 10);
+        return (int) (getSpellPower(spellLevel, caster) * 5);
     }
 
     public int getAmplifier(int spellLevel, LivingEntity entity) {

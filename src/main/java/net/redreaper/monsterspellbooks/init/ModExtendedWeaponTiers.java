@@ -39,7 +39,13 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(AttributeRegistry.HOLY_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(AttributeRegistry.BLOOD_MAGIC_RESIST, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_RESIST, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(Attributes.ATTACK_DAMAGE, 1, AttributeModifier.Operation.ADD_VALUE));
+            new AttributeContainer(Attributes.ATTACK_SPEED, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static ModExtendedWeaponTiers HALLOWED_HEAVY_STEEL = new ModExtendedWeaponTiers(2000, 9F, -3.4F, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ItemRegistry.DIVINE_PEARL.get()),
+            new AttributeContainer(AttributeRegistry.HOLY_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(Attributes.ARMOR, 2, AttributeModifier.Operation.ADD_VALUE),
+            new AttributeContainer(AttributeRegistry.BLOOD_MAGIC_RESIST, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_RESIST, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers RITUAL_BONE = new ModExtendedWeaponTiers(1000, 5F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ItemRegistry.BLOOD_VIAL.get()),
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),

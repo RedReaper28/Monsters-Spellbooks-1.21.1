@@ -13,6 +13,7 @@ import net.redreaper.monsterspellbooks.spells.ender.*;
 import net.redreaper.monsterspellbooks.spells.fire.*;
 import net.redreaper.monsterspellbooks.spells.holy.AegisPatrolSpell;
 import net.redreaper.monsterspellbooks.spells.holy.DivineInterventionSpell;
+import net.redreaper.monsterspellbooks.spells.holy.PaladinThrowSpell;
 import net.redreaper.monsterspellbooks.spells.ice.BlizzardAspectSpell;
 import net.redreaper.monsterspellbooks.spells.ice.FrostCoatingSpell;
 import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
@@ -56,6 +57,7 @@ public class ModSpellRegistry {
 
     //FIRE
     public static final Supplier<AbstractSpell> BRIMSTONE_BUZZSAW = registerSpell(new BrimstoneBuzzsawSpell());
+    public static final Supplier<AbstractSpell> BRIMSTONE_WRATH = registerSpell(new BrimstoneWrathSpell());
     public static final Supplier<AbstractSpell> CAUTERIZING_TOUCH = registerSpell(new CauterizingTouchSpell());
     public static final Supplier<AbstractSpell> FRENZIED_BURST = registerSpell(new FrenziedBurstSpell());
     public static final Supplier<AbstractSpell> FRENZIED_STORM = registerSpell(new FrenziedStormSpell());
@@ -66,6 +68,7 @@ public class ModSpellRegistry {
     //HOLY
     public static final Supplier<AbstractSpell> AEGIS_PATROL = registerSpell(new AegisPatrolSpell());
     public static final Supplier<AbstractSpell> DIVINE_INTERVENTION = registerSpell(new DivineInterventionSpell());
+    public static final Supplier<AbstractSpell> PALADIN_THROW = registerSpell(new PaladinThrowSpell());
 
     //ICE
     public static final Supplier<AbstractSpell> BLIZZARD_ASPECT = registerSpell(new BlizzardAspectSpell());
@@ -77,7 +80,9 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> ANCIENT_FLASH = registerSpell(new AncientFlashSpell());
     public static final Supplier<AbstractSpell> ANCIENT_LANCE = registerSpell(new AncientLightningLanceSpell());
     public static final Supplier<AbstractSpell> GUARDIANS_NEUTRALIZER = registerSpell(new GuardiansNeutralizerSpell());
+    public static final Supplier<AbstractSpell> RAIGO = registerSpell(new RaigoSpell());
     public static final Supplier<AbstractSpell> STATIC_CLEAVE = registerSpell(new StaticCleaveSpell());
+    public static final Supplier<AbstractSpell> THUNDER_STEP = registerSpell(new ThunderStepSpell());
     public static final Supplier<AbstractSpell> THUNDERSTORM_WAVE = registerSpell(new ThunderstormWaveSpell());
 
     //NATURE
@@ -87,11 +92,14 @@ public class ModSpellRegistry {
     //NECRO
     public static final Supplier<AbstractSpell> REAPER_ASPECT = registerSpell(new ReaperAspectSpell());
     public static final Supplier<AbstractSpell> BANSHEE_SCREAM = registerSpell(new BansheeScreamSpell());
+    public static final Supplier<AbstractSpell> BONE_DAGGER = registerSpell(new BoneDaggerSpell());
     public static final Supplier<AbstractSpell> SUMMON_DEATH_KNIGHT = registerSpell(new ConjureDeathKnightSpell());
     public static final Supplier<AbstractSpell> FALL_CURSE = registerSpell(new FallCurseSpell());
+    public static final Supplier<AbstractSpell> GRAVEYARD_FISSURE = registerSpell(new GraveyardFissureSpell());
     public static final Supplier<AbstractSpell> LICHDOM = registerSpell(new LichdomSpell());
     public static final Supplier<AbstractSpell> LIFE_DRAIN = registerSpell(new LifeDrainSpell());
     public static final Supplier<AbstractSpell> PUTRESCENCE_MASS = registerSpell(new PutrescenceMassSpell());
+    public static final Supplier<AbstractSpell> RANCORCALL = registerSpell(new RancorCallSpell());
     public static final Supplier<AbstractSpell> SOUL_CHAIN = registerSpell(new SoulChainSpell());
     public static final Supplier<AbstractSpell> SOUL_FORM = registerSpell(new SoulFormSpell());
     public static final Supplier<AbstractSpell> SOUL_SCORCH = registerSpell(new SoulScorchSpell());

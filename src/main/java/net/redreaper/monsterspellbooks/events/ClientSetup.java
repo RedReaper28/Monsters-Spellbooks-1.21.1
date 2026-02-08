@@ -30,14 +30,20 @@ import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlashR
 import net.redreaper.monsterspellbooks.entity.spells.ancient_lightning_lance.AncientLightningLanceRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.blood_pierce_bullet.BloodPierceRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.blood_thorn.BloodThornRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.bone_dagger.BoneDaggerRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.BrimstoneBuzzsawRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouchRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_storm.FrenzyFireBallRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.graveyard_fissure.GraveyardHandRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.guardians_neutralizer.GuardiansNeutralizerRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSwordRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrbRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMassRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.rancorcall.RancorSkull;
+import net.redreaper.monsterspellbooks.entity.spells.rancorcall.RancorSkullRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.SanguiniteEviscerationRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.SpaceRuptureRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.spectral_blast.SpectralBlastRenderer;
@@ -84,11 +90,16 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.PUTRESCENCE_MASS.get(), PutrescenceMassRenderer::new);
         event.registerEntityRenderer(ModEntities.SPACE_RUPTURE.get(), SpaceRuptureRenderer::new);
         event.registerEntityRenderer(ModEntities.ANCIENT_LIGHTNING_LANCE_PROJECTILE.get(), AncientLightningLanceRenderer::new);
+        event.registerEntityRenderer(ModEntities.RAIGO.get(), RaigoRenderer::new);
         event.registerEntityRenderer(ModEntities.BLOOD_THORN.get(), BloodThornRenderer::new);
         event.registerEntityRenderer(ModEntities.SOUL_CHAIN.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.ANCIENT_LIGHTNING_STRIKE.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.SMALL_FRENZY_FIREBALL.get(), (context) -> new FrenzyFireBallRenderer(context, 0.75f));
         event.registerEntityRenderer(ModEntities.STRAY_GRASP.get(), StrayGraspRenderer::new);
+        event.registerEntityRenderer(ModEntities.HOLY_HAMMER.get(), HolyHammerRenderer::new);
+        event.registerEntityRenderer(ModEntities.RANCOR_SKULL.get(), RancorSkullRenderer::new);
+        event.registerEntityRenderer(ModEntities.BONE_DAGGER.get(), BoneDaggerRenderer::new);
+        event.registerEntityRenderer(ModEntities.GRAVEYARD_HAND.get(), GraveyardHandRenderer::new);
 
         event.registerEntityRenderer(ModEntities.VILE_SKELETON.get(), VileSkeletonRenderer::new);
         event.registerEntityRenderer(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereRenderer::new);
@@ -119,6 +130,9 @@ public static void registerParticles(RegisterParticleProvidersEvent event)
     event.registerSpriteSet(ModParticleTypes.SOUL_EMBERS_PARTICLE.get(), SoulEmberParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.PUTRESCENCE_BUBBLE_PARTICLE.get(), PutrescenceBubbleParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.STEAM.get(), SteamParticle.Provider::new);
+    event.registerSpriteSet(ModParticleTypes.ELECTRIC_SMOKE.get(), ElectricSmokeParticle.Provider::new);
+    event.registerSpriteSet(ModParticleTypes.SOUL_SMOKE.get(), SoulSmokeParticle.Provider::new);
+    event.registerSpriteSet(ModParticleTypes.BONE_FRAGMENTS.get(), BoneFragmentsParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.SPIRIT_STRIKE_PARTICLE.get(), SpiritStrikeParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.SOUL_CHAIN_PARTICLE.get(), SoulChainParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.ANCIENT_ZAP_PARTICLE.get(), AncientZapParticle.Provider::new);

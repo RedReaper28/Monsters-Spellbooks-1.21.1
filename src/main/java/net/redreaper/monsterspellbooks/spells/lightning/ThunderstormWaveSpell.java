@@ -6,6 +6,7 @@ import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.AnimationHolder;
 import io.redspace.ironsspellbooks.api.util.Utils;
+import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -13,13 +14,14 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.thunderstorm_wave.AncientLightningStrike;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Optional;
@@ -84,7 +86,7 @@ public class ThunderstormWaveSpell extends AbstractSpell {
                 Vec3 spawn = center.add(new Vec3(0, 0, 1.5 * (r + 1)).yRot(entity.getYRot() * Mth.DEG_TO_RAD + ((15 / fangs) * i)));
                 spawn = Utils.moveToRelativeGroundLevel(world, spawn, 5);
                 if (!world.getBlockState(BlockPos.containing(spawn).below()).isAir()) {
-                    AncientLightningStrike lightningStrike = new AncientLightningStrike(entity.level());
+                    AncientLightningStrike lightningStrike = new AncientLightningStrike(world, entity);
                     if (i % 2 == count % 2) {
                         lightningStrike.setSilent(true);
                     }
@@ -99,12 +101,13 @@ public class ThunderstormWaveSpell extends AbstractSpell {
         super.onCast(world, spellLevel, entity, castSource, playerMagicData);
     }
 
-    private float get2DAngle(Vec3 a, Vec3 b) {
-        return Utils.getAngle(new Vec2((float) a.x, (float) a.z), new Vec2((float) b.x, (float) b.z));
-    }
-
     private float getDamage(int spellLevel, LivingEntity entity) {
         return getSpellPower(spellLevel, entity);
+    }
+
+    @Override
+    public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {
+        return super.getDamageSource(projectile, attacker).setIFrames(0);
     }
 
     private int getRings(int spellLevel, LivingEntity entity) {

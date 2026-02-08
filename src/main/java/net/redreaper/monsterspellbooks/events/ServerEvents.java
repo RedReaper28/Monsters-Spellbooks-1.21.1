@@ -197,7 +197,7 @@ public class ServerEvents {
                 if (attacker instanceof Player) {
                     if (event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
                         if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DWARVEN_POWER_CORE.get())) {
-                            StaticMobEffect.addStaticStack(livingEntity, livingAttacker);
+                            StaticMobEffect.addStaticStack((LivingEntity) attacker, attacker);
                         }
                     }
 
@@ -215,6 +215,7 @@ public class ServerEvents {
                 livingEntity.removeEffect(ModMobEffects.LICHDOM);
                 livingEntity.setHealth(10.0F);
                 livingEntity.addEffect(new MobEffectInstance(ModMobEffects.SOUL_FORM, 200 ,4));
+                livingEntity.addEffect(new MobEffectInstance(ModMobEffects.CURSE, 200 ,0));
                 livingEntity.level().playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.WITHER_DEATH, SoundSource.NEUTRAL, .8F, 1.3F);
             }
         }

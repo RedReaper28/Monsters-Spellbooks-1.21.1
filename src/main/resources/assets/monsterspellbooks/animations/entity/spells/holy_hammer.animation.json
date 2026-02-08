@@ -1,0 +1,19 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"idle": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"all": {
+					"rotation": {
+						"0.0": [0, 0, 90],
+						"0.5": [-360, 0, 90]
+					},
+					"position": [0, -11, 0]
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

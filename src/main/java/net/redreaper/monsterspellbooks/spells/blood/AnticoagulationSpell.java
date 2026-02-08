@@ -75,7 +75,7 @@ public class AnticoagulationSpell extends AbstractSpell {
 
     @Override
     public boolean checkPreCastConditions(Level level, int spellLevel, LivingEntity entity, MagicData playerMagicData) {
-        if (Utils.preCastTargetHelper(level, entity, playerMagicData, this, 32, .35f)) {
+        if (Utils.preCastTargetHelper(level, entity, playerMagicData, this, 32, .05f)) {
             float radius = 3f;
             var target = ((TargetEntityCastData) playerMagicData.getAdditionalCastData()).getTarget((ServerLevel) level);
             var area = TargetedAreaEntity.createTargetAreaEntity(level, target.position(), radius, ModMobEffects.HEAL_CUT.get().getColor(), target);
