@@ -26,7 +26,7 @@
                   }
                 }
               ],
-              "name": "monsterspellbooks:vile_iron_ore"
+              "name": "monsterspellbooks:nether_ruby_ore"
             },
             {
               "type": "minecraft:item",
@@ -40,7 +40,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "monsterspellbooks:raw_vile_iron"
+              "name": "monsterspellbooks:nether_ruby"
             }
           ]
         }

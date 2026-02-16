@@ -79,4 +79,8 @@ public class OverheatSpell extends AbstractSpell {
     public AnimationHolder getCastStartAnimation() {
         return SpellAnimations.SELF_CAST_ANIMATION;
     }
+
+    public boolean allowLooting() {
+        return false;
+    }
 }

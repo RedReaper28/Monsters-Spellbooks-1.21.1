@@ -80,4 +80,8 @@ public class AirPropulsionSpell extends AbstractSpell {
     public int getDurationTicks(int spellLevel, LivingEntity caster) {
         return (int) ((20 + (2 * (spellLevel - 1) * getEntityPowerMultiplier(caster))) * 20);
     }
+
+    public boolean allowLooting() {
+        return false;
+    }
 }

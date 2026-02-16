@@ -130,4 +130,8 @@ public class FrenziedStormSpell extends AbstractSpell {
         return SpellAnimations.ANIMATION_CONTINUOUS_CAST;
     }
 
+    public boolean allowLooting() {
+        return false;
+    }
+
 }

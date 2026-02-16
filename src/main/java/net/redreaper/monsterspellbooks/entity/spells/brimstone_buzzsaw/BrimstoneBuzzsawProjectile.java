@@ -20,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
+import net.redreaper.monsterspellbooks.init.ModSounds;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 import org.jetbrains.annotations.NotNull;
@@ -113,8 +114,9 @@ public class BrimstoneBuzzsawProjectile extends AbstractMagicProjectile implemen
 
     @Override
     public Optional<Holder<SoundEvent>> getImpactSound() {
-        return Optional.of(SoundRegistry.FIERY_EXPLOSION);
+        return Optional.of(ModSounds.BRIMSTONE_BUZZSAW_HIT);
     }
+
 
     public void setDamage(float damage) {
         this.damage = damage;

@@ -153,4 +153,9 @@ public class WitherNovaSpell extends AbstractSpell {
             entity.level().addParticle(ModParticleHelper.SOUL_FIRE, pos.x, pos.y, pos.z, motion.x, motion.y, motion.z);
         }
     }
+
+    public boolean allowLooting() {
+        return false;
+    }
+
 }

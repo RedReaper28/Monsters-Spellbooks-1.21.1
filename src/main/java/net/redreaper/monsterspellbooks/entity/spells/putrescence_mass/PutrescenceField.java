@@ -4,12 +4,15 @@ import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AoeEntity;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.init.ModDamageTypes;
 import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 
 import java.util.Optional;
@@ -34,6 +37,7 @@ public class PutrescenceField extends AoeEntity {
         if (!DamageSources.isFriendlyFireBetween(this.getOwner(), target)) {
             DamageSources.ignoreNextKnockback(target);
             if (target.hurt(damageSource, getDamage())) {
+                target.addEffect(new MobEffectInstance(MobEffects.WITHER, 10,0));
             }
         }
     }

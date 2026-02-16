@@ -1,15 +1,15 @@
 {
-  "brimstone_fire": {
-    "subtitles": "sounds.monsterspellbooks.brimstone_fire",
+  "spell_brimstone_fire": {
+    "subtitles": "sounds.monsterspellbooks.spell_brimstone_fire",
     "sounds": [
-      "monsterspellbooks:brimstone_fire"
+      "monsterspellbooks:spell_brimstone_fire"
     ]
   },
 
-  "energy_fire": {
-  "subtitles": "sounds.monsterspellbooks.energy_fire",
+  "spell_energy_fire": {
+  "subtitles": "sounds.monsterspellbooks.spell_energy_fire",
   "sounds": [
-    "monsterspellbooks:energy_fire"
+    "monsterspellbooks:spell_energy_fire"
   ]
   },
   "spell_scream": {
@@ -18,10 +18,84 @@
       "monsterspellbooks:spell_scream"
     ]
   },
-  "necro_cast": {
-  "subtitles": "sounds.monsterspellbooks.necro_cast",
+  "spell_soul_scream": {
+    "subtitles": "sounds.monsterspellbooks.spell_soul_scream",
+    "sounds": [
+      "monsterspellbooks:spell_soul_scream"
+    ]
+  },
+  "spell_endersent_smash_cast": {
+    "subtitles": "sounds.monsterspellbooks.spell_endersent_smash_cast",
+    "sounds": [
+      "monsterspellbooks:spell_endersent_smash_cast"
+    ]
+  },
+  "spell_gravity_wave": {
+    "subtitles": "sounds.monsterspellbooks.spell_gravity_wave",
+    "sounds": [
+      "monsterspellbooks:spell_gravity_wave"
+    ]
+  },
+  "spell_graveyard_fissure": {
+    "subtitles": "sounds.monsterspellbooks.spell_graveyard_fissure",
+    "sounds": [
+      "monsterspellbooks:spell_graveyard_fissure"
+    ]
+  },
+  "spell_guardian_laser_loop": {
+    "subtitles": "sounds.monsterspellbooks.spell_guardian_laser_loop",
+    "sounds": [
+      "monsterspellbooks:spell_guardian_laser_loop"
+    ]
+  },
+  "spell_brimstone_sawblade_shot": {
+    "subtitles": "sounds.monsterspellbooks.spell_brimstone_sawblade_shot",
+    "sounds": [
+      "monsterspellbooks:spell_brimstone_sawblade_shot"
+    ]
+  },
+  "spell_brimstone_sawblade_hit": {
+    "subtitles": "sounds.monsterspellbooks.spell_brimstone_sawblade_hit",
+    "sounds": [
+      "monsterspellbooks:spell_brimstone_sawblade_hit"
+    ]
+  },
+  "spell_soul_wizard_summon": {
+    "subtitles": "sounds.monsterspellbooks.spell_soul_wizard_summon",
+    "sounds": [
+      "monsterspellbooks:spell_soul_wizard_summon"
+    ]
+  },
+
+  "spell_necro_cast": {
+  "subtitles": "sounds.monsterspellbooks.spell_necro_cast",
   "sounds": [
-    "monsterspellbooks:necro_cast"
+    "monsterspellbooks:spell_necro_cast"
   ]
+  },
+
+  "whisperer_ambient": {
+    "subtitles": "sounds.monsterspellbooks.whisperer_ambient",
+    "sounds": [
+      "monsterspellbooks:entity/whisperer_ambient"
+    ]
+  },
+  "whisperer_melee_attack": {
+    "subtitles": "sounds.monsterspellbooks.whisperer_melee_attack",
+    "sounds": [
+      "monsterspellbooks:entity/whisperer_melee_attack"
+    ]
+  },
+  "whisperer_death": {
+    "subtitles": "sounds.monsterspellbooks.whisperer_death",
+    "sounds": [
+      "monsterspellbooks:entity/whisperer_death"
+    ]
+  },
+  "soul_wizard_hurt": {
+    "subtitles": "sounds.monsterspellbooks.soul_wizard_hurt",
+    "sounds": [
+      "monsterspellbooks:entity/soul_wizard_hurt"
+    ]
   }
 }

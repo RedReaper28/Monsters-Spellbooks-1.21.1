@@ -29,16 +29,22 @@ public class ModCreativeTabs {
                         output.accept(ModItems.MASTERS_KATANA.get());
                         output.accept(ModItems.DANCERS_SWORD.get());
                         output.accept(ModItems.PRISMARINE_AXE.get());
+                        output.accept(ModItems.WHITE_GOLD_PICKAXE.get());
+                        output.accept(ModItems.WHITE_GOLD_AXE.get());
+                        output.accept(ModItems.WHITE_GOLD_SHOVEL.get());
+                        output.accept(ModItems.WHITE_GOLD_HOE.get());
+                        output.accept(ModItems.ROSE_GOLD_PICKAXE.get());
+                        output.accept(ModItems.ROSE_GOLD_AXE.get());
+                        output.accept(ModItems.ROSE_GOLD_SHOVEL.get());
+                        output.accept(ModItems.ROSE_GOLD_HOE.get());
                         output.accept(ModItems.ORICHALCUM_DAGGER.get());
                         output.accept(ModItems.ORICHALCUM_GREATSWORD.get());
                         output.accept(ModItems.ORICHALCUM_GREATAXE.get());
                         output.accept(ModItems.ORICHALCUM_WARHAMMER.get());
                         output.accept(ModItems.ORICHALCUM_AXE.get());
-
                         output.accept(ModItems.DWARVEN_GREATAXE.get());
                         output.accept(ModItems.DWARVEN_WARHAMMER.get());
                         output.accept(ModItems.DWARVEN_AXE.get());
-
                         output.accept(ModItems.SANGUINITE_DAGGER.get());
                         output.accept(ModItems.SANGUINITE_SCYTHE.get());
                         output.accept(ModItems.SANGUINITE_AXE.get());
@@ -188,6 +194,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DRIPPLER_SPAWN_EGG.get());
                         output.accept(ModItems.DWARVEN_SPHERE_SPAWN_EGG.get());
                         output.accept(ModItems.DWARVEN_SLICER_SPAWN_EGG.get());
+                        output.accept(ModItems.JUNGLE_WHISPERER_SPAWN_EGG.get());
                         output.accept(ModItems.SHOCK_SPAWN_EGG.get());
                         output.accept(ModItems.VILE_SKELETON_SPAWN_EGG.get());
 

@@ -108,6 +108,16 @@
   "item.monsterspellbooks.great_axeblade": "Great Axeblade",
   "item.monsterspellbooks.masters_katana": "Masters katana",
   "item.monsterspellbooks.prismarine_axe": "Prismarine Axe",
+
+  "item.monsterspellbooks.white_gold_pickaxe": "White Gold Pickaxe",
+  "item.monsterspellbooks.white_gold_axe": "White Gold Axe",
+  "item.monsterspellbooks.white_gold_shovel": "White Gold Shovel",
+  "item.monsterspellbooks.white_gold_hoe": "White Gold Hoe",
+
+  "item.monsterspellbooks.rose_gold_pickaxe": "Rose Gold Pickaxe",
+  "item.monsterspellbooks.rose_gold_axe": "Rose Gold Axe",
+  "item.monsterspellbooks.rose_gold_shovel": "Rose Gold Shovel",
+  "item.monsterspellbooks.rose_gold_hoe": "Rose Gold Hoe",
   "item.monsterspellbooks.orichalcum_dagger": "Orichalcum Dagger",
   "item.monsterspellbooks.orichalcum_greatsword": "Orichalcum Greatsword",
   "item.monsterspellbooks.orichalcum_greataxe": "Orichalcum Greataxe",
@@ -169,6 +179,7 @@
   "item.monsterspellbooks.drippler_spawn_egg": "Drippler Spawn Egg",
   "item.monsterspellbooks.dwarven_sphere_spawn_egg": "Dwarven Sphere Spawn Egg",
   "item.monsterspellbooks.dwarven_slicer_spawn_egg": "Dwarven Slicer Spawn Egg",
+  "item.monsterspellbooks.jungle_whisperer_spawn_egg": "Jungle Whisperer Spawn Egg",
   "item.monsterspellbooks.shock_spawn_egg": "Shock Spawn Egg",
   "item.monsterspellbooks.vile_skeleton_spawn_egg": "Vile Skeleton Spawn Egg",
 
@@ -210,7 +221,9 @@
   "entity.monsterspellbooks.drippler": "Drippler",
   "entity.monsterspellbooks.dwarven_sphere": "Dwarven Sphere",
   "entity.monsterspellbooks.dwarven_slicer": "Dwarven Slicer",
+  "entity.monsterspellbooks.jungle_whisperer": "Jungle Whisperer",
   "entity.monsterspellbooks.shock": "Shock",
+  "entity.monsterspellbooks.soul_wizard": "Soul Wizard",
   "entity.monsterspellbooks.vile_skeleton": "Vile Skeleton",
 
   "entity.monsterspellbooks.summoned_vile_skeleton": "Summoned Vile Skeleton",
@@ -371,8 +384,8 @@
   "spell.monsterspellbooks.putrescence_mass.guide": "Launch a mass made from putrescence ,dissolving on impact and leaving a field of putrescence where it lands",
   "spell.monsterspellbooks.rancorcall": "Rancorcall",
   "spell.monsterspellbooks.rancorcall.guide": "Hold to unleash a barrage of soul fired skulls,shooting rapidly but wildly in front of you",
-
-
+  "spell.monsterspellbooks.soul_firebolt": "Soul Firebolt (SUMMON EXCLUSIVE)",
+  "spell.monsterspellbooks.soul_firebolt.guide": "Soul Firebolt that ignores I frames,exclusive to soul wizard",
   "spell.monsterspellbooks.soul_chain": "Soul Chain",
   "spell.monsterspellbooks.soul_chain.guide": "Launch a chain made out of your soul to strike your targets soul and the others close to it,linking their body so they are unable to teleport",
   "spell.monsterspellbooks.soul_form": "Soul Form",
@@ -385,6 +398,8 @@
   "spell.monsterspellbooks.spirit_strike.guide": "Unleash a sweeping melee attack in the form of a wreath of soul fire that renders the soul incapable of regenerating mana and slowly burn their mana reserves in soul fire.This spell is uninterruptible.The damage scales off of your held weapon´s melee damage",
   "spell.monsterspellbooks.stray_grasp": "Stray Grasp",
   "spell.monsterspellbooks.stray_grasp.guide": "Fire a frozen skeletal hand,inflicting chilling to those it grasps .Damage scales with Necro Spell Power and Ice Spell Power",
+  "spell.monsterspellbooks.summon_soul_wizard": "Summon Soul Wizard",
+  "spell.monsterspellbooks.summon_soul_wizard.guide": "Cast to conjure soul wizards that will follow you and launch soul firebolts at your enemies",
   "spell.monsterspellbooks.vile_slash": "Vile Slash",
   "spell.monsterspellbooks.vile_slash.guide": "Slash forward to send out a concentrated blade of spectral energy,slicing through creatures to wither their body and soul and healing 15% of damage done",
   "spell.monsterspellbooks.vile_summon": "Vile Summon",

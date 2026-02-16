@@ -29,6 +29,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.init.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -62,6 +63,10 @@ public class EndersentSmashSpell extends AbstractSpell {
 
     @Override
     public Optional<SoundEvent> getCastFinishSound() {return Optional.of(SoundEvents.ENDERMAN_DEATH);}
+
+    @Override
+    public Optional<SoundEvent> getCastStartSound() {return Optional.of(ModSounds.ENDERSENT_SMASH_CAST.get());}
+
 
     @Override
     public CastType getCastType() {
@@ -148,9 +153,6 @@ public class EndersentSmashSpell extends AbstractSpell {
         return mob.distanceToSqr(target) > (f * f) * 1.2;
     }
 
-    public Optional<SoundEvent> getCastStartSound() {
-        return Optional.of(SoundEvents.ENDER_DRAGON_AMBIENT);
-    }
 
 }
 

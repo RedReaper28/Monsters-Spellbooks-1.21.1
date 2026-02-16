@@ -21,6 +21,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
+import net.redreaper.monsterspellbooks.init.ModSounds;
 import org.joml.Vector3f;
 
 import java.util.List;
@@ -71,9 +72,9 @@ public class CrushSpell extends AbstractSpell {
         return spellId;
     }
 
-    @Override public Optional<SoundEvent> getCastStartSound() {return Optional.of(SoundRegistry.BLACK_HOLE_CHARGE.get());}
+    @Override public Optional<SoundEvent> getCastStartSound() {return Optional.of(SoundRegistry.SUMMONED_SWORDS_CHARGE.get());}
 
-    @Override public Optional<SoundEvent> getCastFinishSound() {return Optional.of(SoundRegistry.BLACK_HOLE_CAST.get());}
+    @Override public Optional<SoundEvent> getCastFinishSound() {return Optional.of(ModSounds.GRAVITY_WAVE.get());}
 
     @Override
     public boolean checkPreCastConditions(Level level, int spellLevel, LivingEntity entity, MagicData playerMagicData) {

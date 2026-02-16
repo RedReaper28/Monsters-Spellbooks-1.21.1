@@ -6,6 +6,9 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.SimpleTier;
 
 public class ModToolTiers {
+    public static final Tier WHITE_GOLD=new SimpleTier(ModTags.Blocks.INCORRECT_FOR_STONE_LEVEL_TOOL,
+        1561,12.0F,0.0F,22,()-> Ingredient.of(ModItems.WHITE_GOLD_INGOT));
+
     public static final Tier OCEANITE=new SimpleTier(ModTags.Blocks.INCORRECT_FOR_IRON_LEVEL_TOOL,
             500,8f,2,15,()-> Ingredient.of(ModItems.OCEANITE_INGOT));
 

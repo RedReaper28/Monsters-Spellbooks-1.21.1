@@ -3,6 +3,7 @@ package net.redreaper.monsterspellbooks.init;
 import io.redspace.ironsspellbooks.IronsSpellbooks;
 import io.redspace.ironsspellbooks.entity.spells.devour_jaw.DevourJaw;
 import io.redspace.ironsspellbooks.entity.spells.fireball.MagicFireball;
+import io.redspace.ironsspellbooks.entity.spells.firebolt.FireboltProjectile;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -20,6 +21,8 @@ import net.redreaper.monsterspellbooks.entity.spells.blood_pierce_bullet.BloodPi
 import net.redreaper.monsterspellbooks.entity.spells.blood_thorn.BloodThornProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.bone_dagger.BoneDaggerProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.BrimstoneBuzzsawProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.BrimstoneField;
+import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.SmallBrimstoneFireball;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouch;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_storm.SmallFrenzyFireBall;
@@ -35,6 +38,7 @@ import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.rancorcall.RancorSkull;
 import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.SanguiniteEvisceration;
 import net.redreaper.monsterspellbooks.entity.spells.soul_chain.SoulChain;
+import net.redreaper.monsterspellbooks.entity.spells.soul_firebolt.SoulFireBoltProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.soul_scorch.SoulFireField;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.DistortionField;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.SpaceRupture;
@@ -54,6 +58,12 @@ import static net.minecraft.core.registries.Registries.ENTITY_TYPE;
 public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SoulFireBoltProjectile>> SOUL_FIREBOLT_PROJECTILE =
+            ENTITIES.register("soul_firebolt", () -> EntityType.Builder.<SoulFireBoltProjectile>of(SoulFireBoltProjectile::new, MobCategory.MISC)
+                    .sized(.5f, .5f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "soul_firebolt").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<GraveyardHand>> GRAVEYARD_HAND =
             ENTITIES.register("graveyard_hand", () -> EntityType.Builder.<GraveyardHand>of(GraveyardHand::new, MobCategory.MISC)
@@ -114,6 +124,12 @@ public class ModEntities {
                     .sized(.5f, .5f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "small_frenzy_fireball").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SmallBrimstoneFireball>> SMALL_BRIMSTONE_FIREBALL =
+            ENTITIES.register("small_brimstone_fireball", () -> EntityType.Builder.<SmallBrimstoneFireball>of(SmallBrimstoneFireball::new, MobCategory.MISC)
+                    .sized(.5f, .5f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "small_brimstone_fireball").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<SoulChain>> SOUL_CHAIN =
             ENTITIES.register("soul_chain", () -> EntityType.Builder.<SoulChain>of(SoulChain::new, MobCategory.MISC)
@@ -228,6 +244,11 @@ public class ModEntities {
                     .sized(4f, 1.2f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "putrescence_field").toString()));
+    public static final DeferredHolder<EntityType<?>, EntityType<BrimstoneField>> BRIMSTONE_FIELD =
+            ENTITIES.register("brimstone_field", () -> EntityType.Builder.<BrimstoneField>of(BrimstoneField::new, MobCategory.MISC)
+                    .sized(4f, 1.2f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "brimstone_field").toString()));
     public static final DeferredHolder<EntityType<?>, EntityType<DistortionField>> DISTORTION_FIELD =
             ENTITIES.register("distortion_field", () -> EntityType.Builder.<DistortionField>of(DistortionField::new, MobCategory.MISC)
                     .sized(4f, 12f)
@@ -267,6 +288,22 @@ public class ModEntities {
                     sized(.6f, 1.8f)
                     .build(
                             ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "drippler").toString()
+                    ));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SoulWizardEntity>> SOUL_WIZARD =
+            ENTITIES.register("soul_wizard", () -> EntityType.Builder.<SoulWizardEntity>of
+                            (SoulWizardEntity::new, MobCategory.MONSTER).
+                    sized(.6f, .8f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "soul_wizard").toString()
+                    ));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<JungleWhispererEntity>> JUNGLE_WHISPERER =
+            ENTITIES.register("jungle_whisperer", () -> EntityType.Builder.<JungleWhispererEntity>of
+                            (JungleWhispererEntity::new, MobCategory.MONSTER).
+                    sized(.6f, 2.5f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "jungle_whisperer").toString()
                     ));
 
     public static final Supplier<EntityType<VileSkeletonEntity>>VILE_SKELETON=

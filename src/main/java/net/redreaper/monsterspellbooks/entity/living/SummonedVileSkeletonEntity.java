@@ -1,5 +1,6 @@
 package net.redreaper.monsterspellbooks.entity.living;
 
+import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 import io.redspace.ironsspellbooks.entity.mobs.goals.*;
@@ -17,6 +18,7 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 
 import java.util.UUID;
 
@@ -75,6 +77,11 @@ public class SummonedVileSkeletonEntity extends VileSkeletonEntity implements IM
                     25, 0.4, 0.8, 0.4, 0.03, false);
             discard();
         }
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity entity) {
+        return Utils.doMeleeAttack(this, entity, ModSpellRegistry.VILE_SUMMON.get().getDamageSource(this, getSummoner()));
     }
 
     public boolean hurt(DamageSource pSource, float pAmount) {

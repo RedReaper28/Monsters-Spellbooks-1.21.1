@@ -132,4 +132,8 @@ public class FrenziedBurstSpell extends AbstractSpell {
             return (float)((double)5.0F + (double)1.5F * (double)this.getSpellPower(spellLevel, caster) * ((double)0.5F * firePower + (double)0.5F * bloodPower));
         }
     }
+
+    public boolean allowLooting() {
+        return false;
+    }
 }

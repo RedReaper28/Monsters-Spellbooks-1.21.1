@@ -67,7 +67,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         add(ModBlocks.NETHER_PYRITE_ORE.get(),
                 block -> createMultipleOreDrops(ModBlocks.NETHER_PYRITE_ORE.get(), ModItems.NETHER_PYRITE.get(),2,6));
         add(ModBlocks.NETHER_RUBY_ORE.get(),
-                block -> createOreDrop(ModBlocks.VILE_IRON_ORE.get(), ModItems.NETHER_RUBY.get()));
+                block -> createOreDrop(ModBlocks.NETHER_RUBY_ORE.get(), ModItems.NETHER_RUBY.get()));
         add(ModBlocks.VOID_MATTER_ORE.get(),
                 block -> createOreDrop(ModBlocks.VOID_MATTER_ORE.get(), ModItems.VOID_MATTER.get()));
     }

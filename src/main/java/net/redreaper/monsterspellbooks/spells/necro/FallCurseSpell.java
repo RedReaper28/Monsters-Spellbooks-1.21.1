@@ -102,4 +102,8 @@ public class FallCurseSpell extends AbstractSpell {
     public float getRadius(int spellPower, LivingEntity caster) {
         return 15.0F + (float)spellPower * 2;
     }
+
+    public boolean allowLooting() {
+        return false;
+    }
 }

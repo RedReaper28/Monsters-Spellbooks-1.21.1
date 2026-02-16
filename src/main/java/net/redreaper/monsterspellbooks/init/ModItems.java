@@ -102,9 +102,9 @@ public class ModItems {
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>RESIN_HEART= ITEMS.register("resin_heart",
             ()->new Item(new Item.Properties()));
-    public static final DeferredItem<Item> HOMUNCULUS_BLOOD_ORB = ITEMS.register("homunculus_blood_orb",
+    public static final DeferredItem<Item>HOMUNCULUS_BLOOD_ORB = ITEMS.register("homunculus_blood_orb",
             ()->new Item(new Item.Properties()));
-    public static final DeferredItem<Item> RAW_SANGUINITE_VIAL = ITEMS.register("raw_sanguinite_vial",
+    public static final DeferredItem<Item>RAW_SANGUINITE_VIAL = ITEMS.register("raw_sanguinite_vial",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>ELECTRO_CORE= ITEMS.register("electro_core",
             ()->new Item(new Item.Properties()));
@@ -112,7 +112,7 @@ public class ModItems {
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>DWARVEN_ALLOY_COG= ITEMS.register("dwarven_alloy_cog",
             ()->new Item(new Item.Properties()));
-    public static final DeferredItem<Item> DWARVEN_UPGRADE = ITEMS.register("dwarven_upgrade",
+    public static final DeferredItem<Item>DWARVEN_UPGRADE = ITEMS.register("dwarven_upgrade",
             () -> new Item(ItemPropertiesHelper.material()));
     public static final DeferredItem<Item>STRIDER_COTTON_BALL= ITEMS.register("strider_cotton_boll",
             ()->new Item(new Item.Properties().fireResistant()));
@@ -190,6 +190,29 @@ public class ModItems {
             new ExtendedSwordItem(Tiers.IRON, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.MASTERS_KATANA))));
     public static final DeferredItem<AxeItem>PRISMARINE_AXE=ITEMS.register("prismarine_axe", ()->
             new AxeItem(ModToolTiers.PRISMARINE, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.PRISMARINE))));
+
+    public static final DeferredItem<PickaxeItem>WHITE_GOLD_PICKAXE=ITEMS.register("white_gold_pickaxe",
+            ()->new PickaxeItem(ModToolTiers.WHITE_GOLD,new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.WHITE_GOLD,2,-2))));
+    public static final DeferredItem<AxeItem>WHITE_GOLD_AXE=ITEMS.register("white_gold_axe",
+            ()->new AxeItem(ModToolTiers.WHITE_GOLD,new Item.Properties().attributes(AxeItem.createAttributes(ModToolTiers.WHITE_GOLD,4,-2.5f))));
+    public static final DeferredItem<ShovelItem>WHITE_GOLD_SHOVEL=ITEMS.register("white_gold_shovel",
+            ()->new ShovelItem(ModToolTiers.WHITE_GOLD,new Item.Properties().attributes(ShovelItem.createAttributes(ModToolTiers.WHITE_GOLD,0,-2))));
+    public static final DeferredItem<HoeItem>WHITE_GOLD_HOE=ITEMS.register("white_gold_hoe",
+            ()->new HoeItem(ModToolTiers.WHITE_GOLD,new Item.Properties().attributes(HoeItem.createAttributes(ModToolTiers.WHITE_GOLD,0,-2))));
+
+
+    public static final DeferredItem<PickaxeItem>ROSE_GOLD_PICKAXE=ITEMS.register("rose_gold_pickaxe",
+            ()->new PickaxeItem(ModToolTiers.ROSE_GOLD,new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.ROSE_GOLD,4,-2))));
+    public static final DeferredItem<AxeItem>ROSE_GOLD_AXE=ITEMS.register("rose_gold_axe",
+            ()->new AxeItem(ModToolTiers.ROSE_GOLD,new Item.Properties().attributes(AxeItem.createAttributes(ModToolTiers.ROSE_GOLD,8,-3))));
+    public static final DeferredItem<ShovelItem>ROSE_GOLD_SHOVEL=ITEMS.register("rose_gold_shovel",
+            ()->new ShovelItem(ModToolTiers.ROSE_GOLD,new Item.Properties().attributes(ShovelItem.createAttributes(ModToolTiers.ROSE_GOLD,2,-2))));
+    public static final DeferredItem<HoeItem>ROSE_GOLD_HOE=ITEMS.register("rose_gold_hoe",
+            ()->new HoeItem(ModToolTiers.ROSE_GOLD,new Item.Properties().attributes(HoeItem.createAttributes(ModToolTiers.ROSE_GOLD,0,-2))));
+
+
+
+
     public static final DeferredHolder<Item, Item> ORICHALCUM_DAGGER = ITEMS.register("orichalcum_dagger", () ->
             new ExtendedSwordItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_DAGGER))));
     public static final DeferredHolder<Item, Item> ORICHALCUM_GREATSWORD = ITEMS.register("orichalcum_greatsword", () ->
@@ -337,6 +360,7 @@ public class ModItems {
     public static final Supplier<DeferredSpawnEggItem> DRIPPLER_SPAWN_EGG = ITEMS.register("drippler_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DRIPPLER, 5641255, 9386054, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DWARVEN_SPHERE_SPAWN_EGG = ITEMS.register("dwarven_sphere_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DWARVEN_SPHERE, 10050109, 16501864, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DWARVEN_SLICER_SPAWN_EGG = ITEMS.register("dwarven_slicer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DWARVEN_SLICER, 10050109, 16501864, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> JUNGLE_WHISPERER_SPAWN_EGG = ITEMS.register("jungle_whisperer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.JUNGLE_WHISPERER, 6323765, 8601546, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> SHOCK_SPAWN_EGG = ITEMS.register("shock_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.SHOCK, 3873928, 11393785, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> VILE_SKELETON_SPAWN_EGG = ITEMS.register("vile_skeleton_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.VILE_SKELETON, 725001, 3622442, ItemPropertiesHelper.material().stacksTo(64)));
 

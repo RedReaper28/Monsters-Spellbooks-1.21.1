@@ -89,4 +89,8 @@ public class RaigoSpell extends AbstractSpell {
     public int getRadius(int spellLevel, LivingEntity caster) {
         return 5 + (int) getSpellPower(spellLevel, caster);
     }
+
+    public boolean allowLooting() {
+        return false;
+    }
 }

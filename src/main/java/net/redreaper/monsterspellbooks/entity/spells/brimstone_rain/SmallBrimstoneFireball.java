@@ -7,8 +7,8 @@ import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import io.redspace.ironsspellbooks.registries.EntityRegistry;
-import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.core.Holder;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -19,6 +19,9 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceField;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 
 import java.util.Optional;
 
@@ -47,7 +50,7 @@ public class SmallBrimstoneFireball extends AbstractMagicProjectile {
         for (int i = 0; i < count; i++) {
             Vec3 random = Utils.getRandomVec3(0.04);
             Vec3 p = vec.scale(f * i);
-            level().addParticle(ParticleHelper.UNSTABLE_ENDER, this.getX() + random.x + p.x, this.getY() + random.y + p.y, this.getZ() + random.z + p.z, random.x, random.y, random.z);
+            level().addParticle(ModParticleHelper.BRIMSTONE_FIRE, this.getX() + random.x + p.x, this.getY() + random.y + p.y, this.getZ() + random.z + p.z, random.x, random.y, random.z);
         }
     }
 
@@ -73,19 +76,54 @@ public class SmallBrimstoneFireball extends AbstractMagicProjectile {
 
     @Override
     protected void onHit(HitResult hitResult) {
-        if (!this.level().isClientSide) {
-            impactParticles(xOld, yOld, zOld);
-            getImpactSound().ifPresent(this::doImpactSound);
-            float explosionRadius = getExplosionRadius();
-            var entities = level().getEntities(this, this.getBoundingBox().inflate(explosionRadius));
-            for (Entity entity : entities) {
-                double distance = entity.distanceToSqr(hitResult.getLocation());
-                if (distance < explosionRadius * explosionRadius && canHitEntity(entity)) {
+        super.onHit(hitResult);
+        createFireField(hitResult.getLocation());
+        float explosionRadius = getExplosionRadius();
+        var entities = level().getEntities(this, this.getBoundingBox().inflate(explosionRadius));
+        for (Entity entity : entities) {
+            double distance = entity.distanceToSqr(hitResult.getLocation());
+            if (distance < explosionRadius * explosionRadius && canHitEntity(entity)) {
+                if (Utils.hasLineOfSight(level(), hitResult.getLocation(), entity.position().add(0, entity.getEyeHeight() * .5f, 0), true)) {
                     DamageSources.applyDamage(entity, damage, SpellRegistry.STARFALL_SPELL.get().getDamageSource(this, getOwner()));
                 }
             }
-            this.discardHelper(hitResult);
+        }
+        this.discardHelper(hitResult);
+    }
+
+    public void createFireField(Vec3 location) {
+        if (!level().isClientSide) {
+            BrimstoneField fire = new BrimstoneField(level());
+            fire.setOwner(getOwner());
+            fire.setDuration(50);
+            fire.setDamage(aoeDamage);
+            fire.setRadius(getExplosionRadius());
+            fire.setCircular();
+            fire.moveTo(location);
+            level().addFreshEntity(fire);
         }
     }
 
+    float aoeDamage;
+
+    public void setAoeDamage(float damage) {
+        this.aoeDamage = damage;
+    }
+
+    public float getAoeDamage() {
+        return aoeDamage;
+    }
+
+    @Override
+    protected void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putFloat("AoeDamage", aoeDamage);
+    }
+
+    @Override
+    protected void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        this.aoeDamage = tag.getFloat("AoeDamage");
+
+    }
 }

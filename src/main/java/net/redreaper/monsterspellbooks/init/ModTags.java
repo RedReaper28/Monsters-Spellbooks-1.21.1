@@ -16,6 +16,9 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_SANGUINITE_TOOL=createTag("needs_sanguinite_tool");
         public static final TagKey<Block> INCORRECT_FOR_SANGUINITE_TOOL=createTag("incorrect_for_sanguinite_tool");
 
+        public static final TagKey<Block> NEEDS_STONE_LEVEL_TOOL =createTag("needs_stone_level_tool");
+        public static final TagKey<Block> INCORRECT_FOR_STONE_LEVEL_TOOL =createTag("incorrect_for_stone_level_tool");
+
         public static final TagKey<Block> NEEDS_IRON_LEVEL_TOOL =createTag("needs_iron_level_tool");
         public static final TagKey<Block> INCORRECT_FOR_IRON_LEVEL_TOOL =createTag("incorrect_for_iron_level_tool");
 

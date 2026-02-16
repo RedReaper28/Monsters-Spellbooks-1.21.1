@@ -17,6 +17,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.BrimstoneBuzzsawProjectile;
+import net.redreaper.monsterspellbooks.init.ModSounds;
 
 import java.util.List;
 import java.util.Optional;
@@ -67,7 +68,7 @@ public class BrimstoneBuzzsawSpell extends AbstractSpell {
 
     @Override
     public Optional<SoundEvent> getCastFinishSound() {
-        return Optional.of(SoundRegistry.HELLRAZOR_SWING.get());
+        return Optional.of(ModSounds.BRIMSTONE_BUZZSAW_SHOT.get());
     }
 
     @Override
@@ -88,5 +89,9 @@ public class BrimstoneBuzzsawSpell extends AbstractSpell {
     @Override
     public AnimationHolder getCastStartAnimation() {
         return SpellAnimations.ANIMATION_CHARGED_CAST;
+    }
+
+    public boolean allowLooting() {
+        return false;
     }
 }

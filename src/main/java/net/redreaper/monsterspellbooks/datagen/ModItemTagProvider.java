@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-public class    ModItemTagProvider extends ItemTagsProvider {
+public class ModItemTagProvider extends ItemTagsProvider {
     public ModItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTags, @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, blockTags, MonstersSpellbooks.MOD_ID, existingFileHelper);
     }
@@ -41,16 +41,31 @@ public class    ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.STARSCOURGE_SWORD.get())
                 .add(ModItems.DISRUPTION_NAGINATA.get())
                 .add(ModItems.SWORD_OF_COURAGE.get())
-                .add(ModItems.REAPER_SICKLE.get());
+                .add(ModItems.REAPER_SICKLE.get())
+        ;
 
+        tag(ItemTags.PICKAXES)
+                .add(ModItems.WHITE_GOLD_PICKAXE.get())
+                .add(ModItems.ROSE_GOLD_PICKAXE.get())
+        ;
         tag(ItemTags.AXES)
                 .add(ModItems.GREAT_AXEBLADE.get())
+                .add(ModItems.WHITE_GOLD_AXE.get())
+                .add(ModItems.ROSE_GOLD_AXE.get())
                 .add(ModItems.ORICHALCUM_GREATAXE.get())
                 .add(ModItems.ORICHALCUM_AXE.get())
                 .add(ModItems.DWARVEN_GREATAXE.get())
                 .add(ModItems.DWARVEN_AXE.get())
                 .add(ModItems.PRISMARINE_AXE.get())
                 .add(ModItems.SANGUINITE_AXE.get())
+        ;
+        tag(ItemTags.SHOVELS)
+                .add(ModItems.WHITE_GOLD_SHOVEL.get())
+                .add(ModItems.ROSE_GOLD_SHOVEL.get())
+        ;
+        tag(ItemTags.HOES)
+                .add(ModItems.WHITE_GOLD_HOE.get())
+                .add(ModItems.ROSE_GOLD_HOE.get())
         ;
 
         tag(ItemTags.SWORD_ENCHANTABLE)
@@ -62,7 +77,7 @@ public class    ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.MACE_ENCHANTABLE)
                 .add(ModItems.PALLADIN_HAMMER.get())
                 .add(ModItems.ENDERSENT_CRUSHER.get())
-                ;
+        ;
 
         tag(ItemTags.WEAPON_ENCHANTABLE)
                 .add(ModItems.PALLADIN_HAMMER.get())

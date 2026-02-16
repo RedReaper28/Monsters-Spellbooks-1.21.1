@@ -22,6 +22,7 @@ import net.minecraft.world.phys.HitResult;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.guardians_neutralizer.GuardiansNeutralizerVisualEntity;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
+import net.redreaper.monsterspellbooks.init.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -82,7 +83,7 @@ public class GuardiansNeutralizerSpell extends AbstractSpell {
 
     @Override
     public Optional<SoundEvent> getCastFinishSound() {
-        return Optional.of(SoundEvents.GUARDIAN_ATTACK);
+        return Optional.of(ModSounds.GUARDIAN_LASER.get());
     }
 
     @Override

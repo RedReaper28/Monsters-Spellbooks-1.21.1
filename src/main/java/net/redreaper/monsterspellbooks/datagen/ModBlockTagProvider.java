@@ -106,15 +106,33 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.GRAVISTONE.get())
         ;
 
+        tag(ModTags.Blocks.NEEDS_STONE_LEVEL_TOOL)
+                .addTag(BlockTags.NEEDS_STONE_TOOL)
+        ;
+
+        tag(ModTags.Blocks.NEEDS_IRON_LEVEL_TOOL)
+                .addTag(BlockTags.NEEDS_IRON_TOOL)
+        ;
 
         tag(ModTags.Blocks.NEEDS_DIAMOND_LEVEL_TOOL)
                 .addTag(BlockTags.NEEDS_DIAMOND_TOOL)
         ;
 
-        tag(ModTags.Blocks.INCORRECT_FOR_DIAMOND_LEVEL_TOOL)
+        tag(ModTags.Blocks.INCORRECT_FOR_STONE_LEVEL_TOOL)
+                .addTag(BlockTags.INCORRECT_FOR_STONE_TOOL)
+                .remove(ModTags.Blocks.NEEDS_STONE_LEVEL_TOOL)
+        ;
+
+        tag(ModTags.Blocks.INCORRECT_FOR_IRON_LEVEL_TOOL)
                 .addTag(BlockTags.INCORRECT_FOR_IRON_TOOL)
+                .remove(ModTags.Blocks.NEEDS_IRON_LEVEL_TOOL)
+        ;
+
+        tag(ModTags.Blocks.INCORRECT_FOR_DIAMOND_LEVEL_TOOL)
+                .addTag(BlockTags.INCORRECT_FOR_DIAMOND_TOOL)
                 .remove(ModTags.Blocks.NEEDS_DIAMOND_LEVEL_TOOL)
         ;
+
 
         tag(ModTags.Blocks.NEEDS_SANGUINITE_TOOL)
                 .addTag(BlockTags.NEEDS_DIAMOND_TOOL)

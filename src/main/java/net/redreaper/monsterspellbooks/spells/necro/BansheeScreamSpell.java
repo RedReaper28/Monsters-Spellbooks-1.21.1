@@ -9,6 +9,7 @@ import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
+import net.acetheeldritchking.aces_spell_utils.spells.ASSpellAnimations;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -23,6 +24,7 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.effect.FearMobEffect;
 import net.redreaper.monsterspellbooks.effect.OverheatMobEffect;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
+import net.redreaper.monsterspellbooks.init.ModSounds;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 
 import javax.annotation.Nullable;
@@ -68,8 +70,8 @@ public class BansheeScreamSpell extends AbstractSpell {
         return this.getCastTime(spellLevel);
     }
 
-    public Optional<SoundEvent> getCastStartSound() {
-        return Optional.of(SoundEvents.SCULK_SHRIEKER_SHRIEK);
+    public Optional<SoundEvent> getCastFinishSound() {
+        return Optional.of(ModSounds.SOUL_SCREAM.get());
     }
 
     public ResourceLocation getSpellResource() {
@@ -77,7 +79,7 @@ public class BansheeScreamSpell extends AbstractSpell {
     }
 
     public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) (this.getSpellPower(spellLevel, caster) * 5f);
+        return (int) (this.getSpellPower(spellLevel, caster) * 10f);
     }
 
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {

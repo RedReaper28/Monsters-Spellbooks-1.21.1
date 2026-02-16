@@ -72,7 +72,7 @@ public class BrimstoneWrathSpell extends AbstractSpell {
 
     @Override
     public Optional<SoundEvent> getCastStartSound() {
-        return Optional.of(ModSounds.BRIMSTONE_FIRE.get());
+        return Optional.of(ModSounds.BRIMSTONE_WRATH_FIRE.get());
     }
 
     @Override
@@ -135,6 +135,10 @@ public class BrimstoneWrathSpell extends AbstractSpell {
     @Override
     public AnimationHolder getCastStartAnimation() {
         return SpellAnimations.ANIMATION_CONTINUOUS_CAST;
+    }
+
+    public boolean allowLooting() {
+        return false;
     }
 }
 

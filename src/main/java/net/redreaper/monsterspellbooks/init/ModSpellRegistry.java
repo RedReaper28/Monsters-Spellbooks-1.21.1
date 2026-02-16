@@ -101,11 +101,13 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> PUTRESCENCE_MASS = registerSpell(new PutrescenceMassSpell());
     public static final Supplier<AbstractSpell> RANCORCALL = registerSpell(new RancorCallSpell());
     public static final Supplier<AbstractSpell> SOUL_CHAIN = registerSpell(new SoulChainSpell());
+    public static final Supplier<AbstractSpell> SOUL_FIREBOLT = registerSpell(new SoulFireBoltSpell());
     public static final Supplier<AbstractSpell> SOUL_FORM = registerSpell(new SoulFormSpell());
     public static final Supplier<AbstractSpell> SOUL_SCORCH = registerSpell(new SoulScorchSpell());
     public static final Supplier<AbstractSpell> SPECTRAL_BLAST = registerSpell(new SpectralBlastSpell());
     public static final Supplier<AbstractSpell> SPIRIT_STRIKE = registerSpell(new SpiritStrikeSpell());
     public static final Supplier<AbstractSpell> STRAY_GRASP = registerSpell(new StrayGraspSpell());
+    public static final Supplier<AbstractSpell> SUMMON_SOUL_WIZARD = registerSpell(new SummonSoulWizardSpell());
     public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
     public static final Supplier<AbstractSpell> VILE_SUMMON = registerSpell(new VileSummonSpell());
     public static final Supplier<AbstractSpell> WITHER_BOMB = registerSpell(new WitherBombSpell());

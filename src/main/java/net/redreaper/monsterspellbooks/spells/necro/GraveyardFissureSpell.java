@@ -18,6 +18,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.graveyard_fissure.GraveyardHand;
+import net.redreaper.monsterspellbooks.init.ModSounds;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 
 import java.util.List;
@@ -65,7 +66,7 @@ public class GraveyardFissureSpell extends AbstractSpell {
 
     @Override
     public Optional<SoundEvent> getCastStartSound() {
-        return Optional.of(SoundEvents.EVOKER_PREPARE_ATTACK);
+        return Optional.of(ModSounds.GRAVEYARD_FISSURE.get());
     }
 
     @Override
