@@ -25,6 +25,8 @@ import net.redreaper.monsterspellbooks.entity.model.DwarvenSlicer.DwarvenSlicerR
 import net.redreaper.monsterspellbooks.entity.model.DwarvenSphere.DwarvenSphereRenderer;
 import net.redreaper.monsterspellbooks.entity.model.JungleWhisperer.JungleWhispererModel;
 import net.redreaper.monsterspellbooks.entity.model.JungleWhisperer.JungleWhispererRenderer;
+import net.redreaper.monsterspellbooks.entity.model.PoisonQuillVine.PoisonQuillVineModel;
+import net.redreaper.monsterspellbooks.entity.model.PoisonQuillVine.PoisonQuillVineRenderer;
 import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityModel;
 import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityRenderer;
 import net.redreaper.monsterspellbooks.entity.model.SoulWizardEntity.SoulWizardModel;
@@ -45,6 +47,7 @@ import net.redreaper.monsterspellbooks.entity.spells.guardians_neutralizer.Guard
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSwordRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrbRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.poison_quill.PoisonQuillRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMassRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.rancorcall.RancorSkullRenderer;
@@ -106,6 +109,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.HOLY_HAMMER.get(), HolyHammerRenderer::new);
         event.registerEntityRenderer(ModEntities.RANCOR_SKULL.get(), RancorSkullRenderer::new);
         event.registerEntityRenderer(ModEntities.BONE_DAGGER.get(), BoneDaggerRenderer::new);
+        event.registerEntityRenderer(ModEntities.POISON_QUILL.get(), PoisonQuillRenderer::new);
         event.registerEntityRenderer(ModEntities.GRAVEYARD_HAND.get(), GraveyardHandRenderer::new);
         event.registerEntityRenderer(ModEntities.SOUL_FIREBOLT_PROJECTILE.get(), SoulFireBoltRenderer::new);
 
@@ -116,6 +120,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.AEGIS.get(), context -> {return new AegisEntityRenderer(context, new AegisEntityModel());});
         event.registerEntityRenderer(ModEntities.DRIPPLER.get(), context -> {return new DripplerEntityRenderer(context, new DripplerEntityModel());});
         event.registerEntityRenderer(ModEntities.JUNGLE_WHISPERER.get(), context -> {return new JungleWhispererRenderer(context, new JungleWhispererModel());});
+        event.registerEntityRenderer(ModEntities.POISON_QUILL_VINE.get(), context -> {return new PoisonQuillVineRenderer(context, new PoisonQuillVineModel());});
 
         event.registerEntityRenderer(ModEntities.SUMMONED_DEATH_KNIGHT.get(), context -> {return new DeathKnightRenderer(context, new DeathKnightModel());});
         event.registerEntityRenderer(ModEntities.SUMMONED_VILE_SKELETON.get(), VileSkeletonRenderer::new);

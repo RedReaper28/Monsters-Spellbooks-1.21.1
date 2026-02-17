@@ -3,11 +3,11 @@ package net.redreaper.monsterspellbooks.entity.living;
 import io.redspace.ironsspellbooks.IronsSpellbooks;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.entity.mobs.IAnimatedAttacker;
+import io.redspace.ironsspellbooks.entity.mobs.goals.WizardAttackGoal;
 import io.redspace.ironsspellbooks.entity.mobs.goals.melee.AttackAnimationData;
 import net.acetheeldritchking.aces_spell_utils.entity.mobs.UniqueAbstractSpellCastingMob;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -34,6 +34,7 @@ import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.entity.goals.WhispererAnimatedWarlockAttackGoal;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModSounds;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
@@ -105,10 +106,28 @@ public class JungleWhispererEntity extends UniqueAbstractSpellCastingMob impleme
                 .setMeleeAttackInverval(20, 30)
                 .setMeleeBias(0.8f, 2f)
                 .setMeleeMovespeedModifier(1.5f)
-                .setSingleUseSpell(SpellRegistry.ROOT_SPELL.get(), 15, 25, 2, 5)
-                .setSpellQuality(0.5f, 0.15f)
-
-        );
+                .setSingleUseSpell(ModSpellRegistry.SUMMON_POISON_VINE.get(), 15, 25, 1, 2)
+                .setSpellQuality(0.5f, 0.15f));
+        this.goalSelector.addGoal(2, new WizardAttackGoal(this, 1.25f, 30, 55)
+                .setSpells(
+                        // Attack
+                        List.of(
+                                SpellRegistry.ROOT_SPELL.get()
+                        ),
+                        // Defense
+                        List.of(
+                        ),
+                        // Movement
+                        List.of(
+                        ),
+                        // Support
+                        List.of(
+                        )
+                )
+                .setSpellQuality(1.0f, 1.0f)
+                .setIsFlying()
+                .setSpellQuality(0.8f, 0.8f)
+                .setAllowFleeing(true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractIllager.class, true));

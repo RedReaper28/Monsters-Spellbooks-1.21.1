@@ -1,14 +1,9 @@
 package net.redreaper.monsterspellbooks.entity.spells.wither_bomb;
 
-import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
-import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
-import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
-import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import net.minecraft.core.Holder;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -41,12 +36,6 @@ public class WitherBombProjectile extends AbstractMagicProjectile {
         this.setOwner(pShooter);
     }
 
-    int witherDuration;
-
-    public int getWitherDuration() {
-        return witherDuration;
-    }
-
     public void shoot(Vec3 rotation, float inaccuracy) {
         var speed = rotation.length();
         Vec3 offset = Utils.getRandomVec3(1).normalize().scale(inaccuracy);
@@ -62,6 +51,7 @@ public class WitherBombProjectile extends AbstractMagicProjectile {
         double d2 = this.getZ() - vec3.z;
         var count = Mth.clamp((int) (vec3.lengthSqr() * 2), 1, 4);
         for (int i = 0; i < count; i++) {
+//            Vec3 motion = Utils.getRandomVec3(0.7).add(vec3.normalize()).scale(0.25);
             Vec3 random = Utils.getRandomVec3(getBbHeight() * .2f);
             var f = i / ((float) count);
             var x = Mth.lerp(f, d0, this.getX() + vec3.x);
@@ -71,13 +61,18 @@ public class WitherBombProjectile extends AbstractMagicProjectile {
         }
     }
 
+
     @Override
-    public void impactParticles(double x, double y, double z) {
-    }
+    public void impactParticles(double x, double y, double z) {}
 
     @Override
     public float getSpeed() {
-        return 1.5f;
+        return 1.15f;
+    }
+
+    @Override
+    public Optional<Holder<SoundEvent>> getImpactSound() {
+        return Optional.of(SoundEvents.GENERIC_EXPLODE);
     }
 
     @Override
@@ -86,26 +81,25 @@ public class WitherBombProjectile extends AbstractMagicProjectile {
             impactParticles(xOld, yOld, zOld);
             float explosionRadius = getExplosionRadius();
             var explosionRadiusSqr = explosionRadius * explosionRadius;
-            Vec3 losPoint = Utils.raycastForBlock(level(), this.position(), this.position().add(0, 2, 0), ClipContext.Fluid.NONE).getLocation();
             var entities = level().getEntities(this, this.getBoundingBox().inflate(explosionRadius));
-
+            Vec3 losPoint = Utils.raycastForBlock(level(), this.position(), this.position().add(0, 2, 0), ClipContext.Fluid.NONE).getLocation();
             for (Entity entity : entities) {
                 double distanceSqr = entity.distanceToSqr(hitResult.getLocation());
                 if (distanceSqr < explosionRadiusSqr && canHitEntity(entity) && Utils.hasLineOfSight(level(), losPoint, entity.getBoundingBox().getCenter(), true)) {
                     double p = (1 - distanceSqr / explosionRadiusSqr);
                     float damage = (float) (this.damage * p);
+                    DamageSources.applyDamage(entity, damage, ModSpellRegistry.WITHER_BOMB.get().getDamageSource(this, getOwner()));
 
                     if (entity instanceof LivingEntity livingEntity && livingEntity != getOwner())
-                    livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 180, 0));
-                    DamageSources.applyDamage(entity, damage, ModSpellRegistry.WITHER_BOMB.get().getDamageSource(this, getOwner()));
+                        livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 180, 0));
+                }
 
                 }
             }
-        }
-        PacketDistributor.sendToPlayersTrackingEntity(this, new SoulExplosionParticlePacket(hitResult.getLocation().subtract(getDeltaMovement().scale(0.5)), getExplosionRadius()));
-        playSound(SoundEvents.GENERIC_EXPLODE.value(), 4.0F, (1.0F + (this.level().random.nextFloat() - this.level().random.nextFloat()) * 0.2F) * 0.7F);
-            this.discardHelper(hitResult);
-    }
 
-        @Override public Optional<Holder<SoundEvent>> getImpactSound() {return Optional.of(SoundEvents.GENERIC_EXPLODE);}
+            PacketDistributor.sendToPlayersTrackingEntity(this, new SoulExplosionParticlePacket(hitResult.getLocation().subtract(getDeltaMovement().scale(0.5)), getExplosionRadius()));
+            playSound(SoundEvents.GENERIC_EXPLODE.value(), 4.0F, (1.0F + (this.level().random.nextFloat() - this.level().random.nextFloat()) * 0.2F) * 0.7F);
+            this.discardHelper(hitResult);
+        }
 }
+

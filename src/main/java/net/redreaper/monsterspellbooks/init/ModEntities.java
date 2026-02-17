@@ -32,6 +32,7 @@ import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSword
 import net.redreaper.monsterspellbooks.entity.spells.life_drain.LifeDrainProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrb;
 import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.poison_quill.PoisonQuillProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceField;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMass;
 import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoProjectile;
@@ -100,6 +101,12 @@ public class ModEntities {
                     .sized(0.5F, 0.5F)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "bone_dagger").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<PoisonQuillProjectile>> POISON_QUILL =
+            ENTITIES.register("poison_quill", () -> EntityType.Builder.<PoisonQuillProjectile>of(PoisonQuillProjectile::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "poison_quill").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<RancorSkull>> RANCOR_SKULL =
             ENTITIES.register("rancor_skull", () -> EntityType.Builder.<RancorSkull>of(RancorSkull::new, MobCategory.MISC)
@@ -304,6 +311,14 @@ public class ModEntities {
                     sized(.6f, 2.5f)
                     .build(
                             ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "jungle_whisperer").toString()
+                    ));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<PoisonQuillVineEntity>> POISON_QUILL_VINE =
+            ENTITIES.register("poison_quill_vine", () -> EntityType.Builder.<PoisonQuillVineEntity>of
+                            (PoisonQuillVineEntity::new, MobCategory.MONSTER).
+                    sized(.6f, 5.5f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "poison_quill_vine").toString()
                     ));
 
     public static final Supplier<EntityType<VileSkeletonEntity>>VILE_SKELETON=

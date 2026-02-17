@@ -4,6 +4,7 @@ import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.entity.spells.poison_quill.PoisonQuillProjectile;
 import net.redreaper.monsterspellbooks.spells.aero.AirBubbleSpell;
 import net.redreaper.monsterspellbooks.spells.aero.AirPropulsionSpell;
 import net.redreaper.monsterspellbooks.spells.aero.SteamSteamSpell;
@@ -21,6 +22,8 @@ import net.redreaper.monsterspellbooks.spells.ice.TundraTerrainSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.*;
 import net.redreaper.monsterspellbooks.spells.nature.BeastHowlSpell;
 import net.redreaper.monsterspellbooks.spells.nature.MountainCorpseSpell;
+import net.redreaper.monsterspellbooks.spells.nature.PoisonQuillSpell;
+import net.redreaper.monsterspellbooks.spells.nature.SummonPoisonVinesSpell;
 import net.redreaper.monsterspellbooks.spells.necro.*;
 
 import java.util.function.Supplier;
@@ -88,6 +91,8 @@ public class ModSpellRegistry {
     //NATURE
     public static final Supplier<AbstractSpell> BEAST_HOWL = registerSpell(new BeastHowlSpell());
     public static final Supplier<AbstractSpell> MOUNTAIN_CORPSE = registerSpell(new MountainCorpseSpell());
+    public static final Supplier<AbstractSpell> POISON_QUILL = registerSpell(new PoisonQuillSpell());
+    public static final Supplier<AbstractSpell> SUMMON_POISON_VINE = registerSpell(new SummonPoisonVinesSpell());
 
     //NECRO
     public static final Supplier<AbstractSpell> REAPER_ASPECT = registerSpell(new ReaperAspectSpell());

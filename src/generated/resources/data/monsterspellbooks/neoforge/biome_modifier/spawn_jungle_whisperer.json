@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#minecraft:is_jungle",
+  "spawners": {
+    "type": "monsterspellbooks:jungle_whisperer",
+    "maxCount": 3,
+    "minCount": 1,
+    "weight": 10
+  }
+}

@@ -43,8 +43,6 @@ public class ModTags {
 
     public static class Entities{
         public static final TagKey<EntityType<?>> DWARVEN_CONSTRUCT = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "dwarven_construct"));
-        public static final TagKey<EntityType<?>> FEAR_IMMUNE = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "fear_immune"));
-
 
         private static TagKey<EntityType<?>> registerEntityTag(String name) {
             return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, name));

@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "#monsterspellbooks:needs_stone_level_tool"
+  ],
+  "values": [
+    "#minecraft:incorrect_for_stone_tool"
+  ]
+}

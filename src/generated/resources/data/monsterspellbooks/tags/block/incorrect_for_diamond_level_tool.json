@@ -3,6 +3,6 @@
     "#monsterspellbooks:needs_diamond_level_tool"
   ],
   "values": [
-    "#minecraft:incorrect_for_iron_tool"
+    "#minecraft:incorrect_for_diamond_tool"
   ]
 }

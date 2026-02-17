@@ -152,19 +152,13 @@ public class ModCreativeTabs {
 
                         output.accept(ModItems.RESIN_BRICK);
                         output.accept(ModItems.RESIN_HEART);
-                        output.accept(ModItems.HELL_PEPPER);
                         output.accept(ModItems.HOMUNCULUS_BLOOD_ORB);
-                        output.accept(ModItems.RAW_SANGUINITE_VIAL);
                         output.accept(ModItems.ELECTRO_CORE);
                         output.accept(ModItems.DWARVEN_ALLOY_PLATE);
                         output.accept(ModItems.DWARVEN_ALLOY_COG);
                         output.accept(ModItems.DWARVEN_UPGRADE);
-                        output.accept(ModItems.STRIDER_COTTON_BALL);
-                        output.accept(ModItems.STRIDER_COTTON_STRING);
-                        output.accept(ModItems.CINDER_CINNAMON);
-                        output.accept(ModItems.CINDER_CINNAMON_POWDER);
                         output.accept(ModItems.VILE_BONE);
-                        output.accept(ModItems.VILE_CORE);
+                        output.accept(ModItems.RAW_SANGUINITE_VIAL);
                         output.accept(ModItems.PUTRESCENCE_VIAL);
                         output.accept(ModItems.VOID_VIAL);
                         output.accept(ModItems.SUPERIOR_WEAPON_PARTS);
@@ -172,24 +166,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.AERO_RUNE);
                         output.accept(ModItems.NECRO_RUNE);
 
-                        output.accept(ModItems.LEMON);
-                        output.accept(ModItems.LEMON_PIE);
-                        output.accept(ModItems.LEMON_MERINGUEIT);
                         output.accept(ModItems.ROSE_GOLD_APPLE);
-                        output.accept(ModItems.GOLDEN_COD);
-                        output.accept(ModItems.COOKED_GOLDEN_COD);
-                        output.accept(ModItems.HELL_PEPPER);
-                        output.accept(ModItems.SOUL_PEPPER);
-                        output.accept(ModItems.BASALT_RADISH);
-                        output.accept(ModItems.NETHER_CORN);
-                        output.accept(ModItems.NETHER_DOUGH);
-                        output.accept(ModItems.NETHER_TORTILLA);
-                        output.accept(ModItems.NETHER_TORTILLA_CHIPS);
-                        output.accept(ModItems.PAN_DE_MUERTO);
-                        output.accept(ModItems.HOGLIN_CORN_DOG);
-                        output.accept(ModItems.BATTLE_TACO);
-                        output.accept(ModItems.MAGMA_ELOTE);
-                        output.accept(ModItems.GOLD_TRUFFLE_SLICE);
                         output.accept(ModItems.AEGIS_SPAWN_EGG.get());
                         output.accept(ModItems.DRIPPLER_SPAWN_EGG.get());
                         output.accept(ModItems.DWARVEN_SPHERE_SPAWN_EGG.get());

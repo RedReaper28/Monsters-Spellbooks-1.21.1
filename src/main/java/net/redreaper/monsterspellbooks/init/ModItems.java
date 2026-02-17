@@ -118,13 +118,7 @@ public class ModItems {
             ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>STRIDER_COTTON_STRING= ITEMS.register("strider_cotton_string",
             ()->new Item(new Item.Properties().fireResistant()));
-    public static final DeferredItem<Item>CINDER_CINNAMON= ITEMS.register("cinder_cinnamon",
-            ()->new Item(new Item.Properties().fireResistant()));
-    public static final DeferredItem<Item>CINDER_CINNAMON_POWDER= ITEMS.register("cinder_cinnamon_powder",
-            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>VILE_BONE= ITEMS.register("vile_bone",
-            ()->new Item(new Item.Properties().fireResistant()));
-    public static final DeferredItem<Item>VILE_CORE= ITEMS.register("vile_core",
             ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>PUTRESCENCE_VIAL= ITEMS.register("putrescence_vial",
             ()->new Item(new Item.Properties()));
@@ -140,40 +134,9 @@ public class ModItems {
             ()->new Item(new Item.Properties()));
 
 
-    public static final DeferredItem<Item>LEMON=ITEMS.register("lemon",
-            ()->new Item(new Item.Properties().food(ModFoods.LEMON)));
-    public static final DeferredItem<Item>LEMON_PIE=ITEMS.register("lemon_pie",
-            ()->new Item(new Item.Properties().food(ModFoods.LEMON_PIE)));
-    public static final DeferredItem<Item>LEMON_MERINGUEIT=ITEMS.register("lemon_meringueit",
-            ()->new Item(new Item.Properties().food(ModFoods.LEMON_PIE)));
+
     public static final DeferredItem<Item>ROSE_GOLD_APPLE=ITEMS.register("rose_gold_apple",
             ()->new Item(new Item.Properties().food(ModFoods.ROSE_GOLD_APPLE)));
-    public static final DeferredItem<Item>GOLDEN_COD=ITEMS.register("golden_cod",
-            ()->new Item(new Item.Properties().food(ModFoods.GOLDEN_COD)));
-    public static final DeferredItem<Item>COOKED_GOLDEN_COD=ITEMS.register("cooked_golden_cod",
-            ()->new Item(new Item.Properties().food(ModFoods.COOKED_GOLDEN_COD)));
-    public static final DeferredItem<Item>HELL_PEPPER=ITEMS.register("hell_pepper",
-            ()->new Item(new Item.Properties().fireResistant().food(ModFoods.HELL_PEPPER)));
-    public static final DeferredItem<Item>SOUL_PEPPER=ITEMS.register("soul_pepper",
-            ()->new Item(new Item.Properties().fireResistant().food(ModFoods.SOUL_PEPPER)));
-    public static final DeferredItem<Item>BASALT_RADISH=ITEMS.register("basalt_radish",
-            ()->new Item(new Item.Properties().fireResistant().food(ModFoods.BASALT_RADISH)));
-    public static final DeferredItem<Item>NETHER_CORN=ITEMS.register("nether_corn",
-            ()->new Item(new Item.Properties().fireResistant().food(ModFoods.NETHER_CORN)));
-    public static final DeferredItem<Item>NETHER_DOUGH =ITEMS.register("nether_dough",
-            ()->new Item(new Item.Properties().fireResistant()));
-    public static final DeferredItem<Item>NETHER_TORTILLA=ITEMS.register("nether_tortilla",
-            ()->new Item(new Item.Properties().fireResistant().food(ModFoods.NETHER_TORTILLA)));
-    public static final DeferredItem<Item>NETHER_TORTILLA_CHIPS=ITEMS.register("nether_tortilla_chips",
-            ()->new Item(new Item.Properties().fireResistant().food(ModFoods.NETHER_TORTILLA_CHIPS)));
-    public static final DeferredItem<Item>PAN_DE_MUERTO=ITEMS.register("pan_de_muerto",
-            ()->new Item(new Item.Properties().fireResistant().food(ModFoods.PAN_DE_MUERTO)));
-    public static final DeferredItem<Item>HOGLIN_CORN_DOG=ITEMS.register("hoglin_corn_dog",
-            ()->new Item(new Item.Properties().fireResistant().food(ModFoods.HOGLIN_CORN_DOG)));
-    public static final DeferredItem<Item>BATTLE_TACO=ITEMS.register("battle_taco",
-            ()->new Item(new Item.Properties().fireResistant().food(ModFoods.BATTLE_TACO)));
-    public static final DeferredItem<Item>MAGMA_ELOTE=ITEMS.register("magma_elote",
-            ()->new Item(new Item.Properties().food(ModFoods.MAGMA_ELOTE)));
     public static final DeferredItem<Item>GOLD_TRUFFLE_SLICE=ITEMS.register("gold_truffle_slice",
             ()->new Item(new Item.Properties().fireResistant().food(ModFoods.GOLD_TRUFFLE_SLICE)));
 
@@ -209,10 +172,6 @@ public class ModItems {
             ()->new ShovelItem(ModToolTiers.ROSE_GOLD,new Item.Properties().attributes(ShovelItem.createAttributes(ModToolTiers.ROSE_GOLD,2,-2))));
     public static final DeferredItem<HoeItem>ROSE_GOLD_HOE=ITEMS.register("rose_gold_hoe",
             ()->new HoeItem(ModToolTiers.ROSE_GOLD,new Item.Properties().attributes(HoeItem.createAttributes(ModToolTiers.ROSE_GOLD,0,-2))));
-
-
-
-
     public static final DeferredHolder<Item, Item> ORICHALCUM_DAGGER = ITEMS.register("orichalcum_dagger", () ->
             new ExtendedSwordItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_DAGGER))));
     public static final DeferredHolder<Item, Item> ORICHALCUM_GREATSWORD = ITEMS.register("orichalcum_greatsword", () ->
@@ -263,11 +222,11 @@ public class ModItems {
             ReaperSickle::new);
     public static final DeferredItem<Item>ENDERSENT_CRUSHER = ITEMS.register("endersent_crusher",
             EndersentCrusherItem::new);
-    public static final DeferredHolder<Item, Item> BOOK_OF_SOULS = ITEMS.register("book_of_souls",
+    public static final DeferredHolder<Item, Item>BOOK_OF_SOULS = ITEMS.register("book_of_souls",
             BookOfSoulsItem::new);
-    public static final DeferredHolder<Item, Item> FRENZY_KING_BOOK = ITEMS.register("frenzy_king_book",
+    public static final DeferredHolder<Item, Item>FRENZY_KING_BOOK = ITEMS.register("frenzy_king_book",
             FrenzyKingBookItem::new);
-    public static final DeferredHolder<Item, Item> REAPER_LANTERN = ITEMS.register("reaper_lantern",
+    public static final DeferredHolder<Item, Item>REAPER_LANTERN = ITEMS.register("reaper_lantern",
             ReaperLanternSpellBook::new);
 
     public static final Supplier<CurioBaseItem>WITHERWARD_RING = ITEMS.register("witherward_ring",

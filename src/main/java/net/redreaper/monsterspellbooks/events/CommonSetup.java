@@ -24,6 +24,7 @@ public class CommonSetup {
         event.put(ModEntities.AEGIS.get(), AegisEntity.createAttributes().build());
         event.put(ModEntities.DRIPPLER.get(), DripplerEntity.createAttributes().build());
         event.put(ModEntities.JUNGLE_WHISPERER.get(), JungleWhispererEntity.createAttributes().build());
+        event.put(ModEntities.POISON_QUILL_VINE.get(), PoisonQuillVineEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_AEGIS.get(), SummonedAegisEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_VILE_SKELETON.get(), SummonedVileSkeletonEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_DEATH_KNIGHT.get(), DeathKnightEntity.createAttributes().build());
