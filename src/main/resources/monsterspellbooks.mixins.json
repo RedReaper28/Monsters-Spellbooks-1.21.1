@@ -5,6 +5,7 @@
   "plugin": "net.redreaper.monsterspellbooks.mixins.MixinPlugin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "entity.AegisVillageSpawnMixin",
     "spell.GustSpellMixin",
     "spell.RaiseDeadSpellMixin",
     "spell.SacrificeSpellMixin",
