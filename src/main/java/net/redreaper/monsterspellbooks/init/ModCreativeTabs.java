@@ -23,6 +23,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.BOOK_OF_SOULS.get());
                         output.accept(ModItems.FRENZY_KING_BOOK.get());
                         output.accept(ModItems.REAPER_LANTERN.get());
+                        output.accept(ModItems.EYEBLOOSOM_STAFF.get());
                         output.accept(ModItems.VILENOVA_STAFF.get());
                         output.accept(ModItems.BRIMSTONE_OROCHI.get());
                         output.accept(ModItems.GREAT_AXEBLADE.get());
@@ -76,6 +77,9 @@ public class ModCreativeTabs {
 
                         output.accept(ModItems.FIERCE_DEITY_MASK.get());
                         output.accept(ModItems.MAJORAS_MASK.get());
+                        output.accept(ModItems.WILDFIRE_CROWN.get());
+                        output.accept(ModItems.FUNGAL_CAP_RED.get());
+                        output.accept(ModItems.FUNGAL_CAP_BLUE.get());
                         output.accept(ModItems.FLESH_MAIDEN.get());
 
                         output.accept(ModItems.SANGUINITE_HERO_HOOD.get());
@@ -174,6 +178,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.JUNGLE_WHISPERER_SPAWN_EGG.get());
                         output.accept(ModItems.SHOCK_SPAWN_EGG.get());
                         output.accept(ModItems.VILE_SKELETON_SPAWN_EGG.get());
+                        output.accept(ModItems.BLASTLING_SPAWN_EGG.get());
 
 
                     }).build());
@@ -213,6 +218,15 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.WITHER_ALLOY_BLOCK);
                         output.accept(ModBlocks.BLAZESTEEL_BLOCK);
                         output.accept(ModBlocks.VOID_MATTER_ORE);
+
+                        output.accept(ModBlocks.CORAL_LOG);
+                        output.accept(ModBlocks.CORAL_PLANKS);
+
+
+                        output.accept(ModBlocks.PEARl_MARBLE);
+                        output.accept(ModBlocks.POLISHED_PEARl_MARBLE);
+                        output.accept(ModBlocks.PEARl_MARBLE_TILES);
+                        output.accept(ModBlocks.PEARl_MARBLE_PILLAR);
 
                         output.accept(ModBlocks.VILESTONE);
                         output.accept(ModBlocks.GRAVISTONE);

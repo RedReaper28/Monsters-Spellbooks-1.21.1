@@ -101,6 +101,13 @@
   "block.monsterspellbooks.blazesteel_block": "Blazesteel Block",
   "block.monsterspellbooks.void_matter_ore": "Void Matter Ore",
 
+
+  "block.monsterspellbooks.coral_log": "Coral Log",
+  "block.monsterspellbooks.coral_planks": "Coral Planks",
+  "block.monsterspellbooks.pearl_marble": "Pearl Marble",
+  "block.monsterspellbooks.polished_pearl_marble": "Polished Pearl Marble",
+  "block.monsterspellbooks.pearl_marble_tiles": "Pearl Marble Tiles",
+  "block.monsterspellbooks.pearl_marble_pillar": "Pearl Marble Pillar",
   "block.monsterspellbooks.vilestone": "Vilestone",
   "block.monsterspellbooks.gravistone": "Gravistone",
 
@@ -176,6 +183,7 @@
   "item.monsterspellbooks.cross_necklace.desc": "Makes your prayer louder for your deity",
 
   "item.monsterspellbooks.aegis_spawn_egg": "Aegis Spawn Egg",
+  "item.monsterspellbooks.blastling_spawn_egg": "Blastling Spawn Egg",
   "item.monsterspellbooks.drippler_spawn_egg": "Drippler Spawn Egg",
   "item.monsterspellbooks.dwarven_sphere_spawn_egg": "Dwarven Sphere Spawn Egg",
   "item.monsterspellbooks.dwarven_slicer_spawn_egg": "Dwarven Slicer Spawn Egg",
@@ -188,6 +196,9 @@
 
   "item.monsterspellbooks.fierce_deity_mask": "Fierce Deity Mask",
   "item.monsterspellbooks.majoras_mask": "Majoras Mask",
+  "item.monsterspellbooks.wildfire_crown": "WildFire Crown",
+  "item.monsterspellbooks.fun_gal_cap_red": "Red FunGal Cap",
+  "item.monsterspellbooks.fun_gal_cap_blue": "Glowshroom FunGal Cap",
   "item.monsterspellbooks.flesh_maiden": "Flesh Maiden",
   "item.monsterspellbooks.sanguinite_hero_hood": "Sanguinite Hero Hood",
   "item.monsterspellbooks.sanguinite_hero_chestplate": "Sanguinite Hero Chestplate",
@@ -217,6 +228,7 @@
   "item.monsterspellbooks.starscourge_boots": "Starscourge Boots",
 
   "entity.monsterspellbooks.aegis": "Aegis",
+  "entity.monsterspellbooks.blastling": "Blastling",
   "entity.monsterspellbooks.death_knight": "Death Knight",
   "entity.monsterspellbooks.drippler": "Drippler",
   "entity.monsterspellbooks.dwarven_sphere": "Dwarven Sphere",
@@ -305,10 +317,12 @@
   "spell.monsterspellbooks.hysteria.guide": "Go all in,either you die or your opponent does,increases your attack damage and speed and inflicts yourself with Heartstop",
   "spell.monsterspellbooks.sanguinite_evisceration": "Sanguinite Evisceration",
   "spell.monsterspellbooks.sanguinite_evisceration.guide": "Slash forward with your claws to inflict heavy bleeding.The damage scales off of your held weapon´s melee damage",
-  "spell.monsterspellbooks.crush": "Crush",
-  "spell.monsterspellbooks.crush.guide": "Crush your target with a powerful burst of gravitational force to force them to stay on the ground",
   "spell.monsterspellbooks.crushing_presence": "Crushing Presence",
   "spell.monsterspellbooks.crushing_presence.guide": "Manifest your aura into a crushing aura that slows enemies movement and casting speed just by being near them",
+  "spell.monsterspellbooks.crush": "Crush",
+  "spell.monsterspellbooks.crush.guide": "Crush your target with a powerful burst of gravitational force to force them to stay on the ground",
+  "spell.monsterspellbooks.dragon_charge": "Dragon Charge",
+  "spell.monsterspellbooks.dragon_charge.guide": "Manifest and throw an ender charge,exploding on impact and leaving a field of dragon breath where it lands",
   "spell.monsterspellbooks.endersent_smash": "Endersent Smash",
   "spell.monsterspellbooks.endersent_smash.guide": "Smash the ground with the force of an Endersent,making targets susceptible to kinetic damage",
   "spell.monsterspellbooks.gravity_well": "Gravity Well",
@@ -316,11 +330,16 @@
   "spell.monsterspellbooks.gravity_force": "Gravity Force",
   "spell.monsterspellbooks.gravity_force.guide": "Imbue yourself with the power of gravity,increasing your attack damage and speed",
   "spell.monsterspellbooks.space_rupture": "Space Rupture",
-  "spell.monsterspellbooks.space_rupture.guide": "Launch a space distortion ball that explodes on impact to the ground,bouncing off blocks and leaving a distortion field where it lands and damaging creatures it phases through ",
+  "spell.monsterspellbooks.space_rupture.guide": "Launch a space distortion ball that explodes on impact to the ground,bouncing off blocks and damaging creatures it phases through",
   "spell.monsterspellbooks.aegis_patrol": "Aegis Patrol",
   "spell.monsterspellbooks.aegis_patrol.guide": "Summon a squad of holy golems to defeat the force of evil with",
   "spell.monsterspellbooks.divine_intervention": "Divine Intervention",
   "spell.monsterspellbooks.divine_intervention.guide": "Pray for divine intervention,causing a burst of holy energy that knocks down enemies and then calls upon a sunbeam to damage any enemy left nearby",
+
+  "spell.monsterspellbooks.hallow_slash": "Hallow Slash",
+  "spell.monsterspellbooks.hallow_slash.guide": "Slash forward to send out a concentrated blade of holy energy,slicing through creatures.The damage scales off 50% your max HP and 100% your current absorption ",
+
+
   "spell.monsterspellbooks.paladin_throw": "Paladin Throw",
   "spell.monsterspellbooks.paladin_throw.guide": "Launch a holy hammer forward that moves forward,damaging creatures it phases through abd bounces once on blocks.The damage scales off of your held weapon´s melee damage",
   "spell.monsterspellbooks.brimstone_buzzsaw": "Brimstone Buzzsaw",

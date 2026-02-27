@@ -22,12 +22,19 @@ import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import org.jetbrains.annotations.NotNull;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.*;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.HashMap;
 import java.util.Optional;
 import java.util.UUID;
 
-public class SpaceRupture extends AbstractMagicProjectile {
+public class SpaceRupture extends AbstractMagicProjectile implements GeoEntity {
+    private final AnimatableInstanceCache cache;
+    private final RawAnimation idle;
+
     public static final int lifetime = 200;
     int bounces;
     HashMap<UUID, Integer> victims;
@@ -35,6 +42,8 @@ public class SpaceRupture extends AbstractMagicProjectile {
     public SpaceRupture(EntityType<? extends Projectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.victims = new HashMap<>();
+        this.cache = GeckoLibUtil.createInstanceCache(this);
+        this.idle = RawAnimation.begin().thenLoop("idle");
         this.setNoGravity(true);
     }
 
@@ -110,7 +119,6 @@ public class SpaceRupture extends AbstractMagicProjectile {
     @Override
     protected void onHitBlock(@NotNull BlockHitResult pResult) {
         super.onHitBlock(pResult);
-        createDistortionField(pResult.getLocation());
         float explosionRadius = getExplosionRadius();
         var entities = level().getEntities(this, this.getBoundingBox().inflate(explosionRadius));
         for (Entity entity : entities) {
@@ -135,43 +143,21 @@ public class SpaceRupture extends AbstractMagicProjectile {
         }
     }
 
-    public void createDistortionField(Vec3 location) {
-        if (!level().isClientSide) {
-            DistortionField fire = new DistortionField(level());
-            fire.setOwner(getOwner());
-            fire.setDuration(200);
-            fire.setDamage(aoeDamage);
-            fire.setRadius(getExplosionRadius());
-            fire.setCircular();
-            fire.moveTo(location);
-            level().addFreshEntity(fire);
-        }
-    }
-
-    float aoeDamage;
-
-    public void setAoeDamage(float damage) {
-        this.aoeDamage = damage;
-    }
-
-    public float getAoeDamage() {
-        return aoeDamage;
-    }
-
-    @Override
-    protected void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putFloat("AoeDamage", aoeDamage);
-    }
-
-    @Override
-    protected void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        this.aoeDamage = tag.getFloat("AoeDamage");
-    }
-
     @Override
     public Optional<Holder<SoundEvent>> getImpactSound() {
         return Optional.of(SoundEvents.GENERIC_EXPLODE);
+    }
+
+    private PlayState predicate(AnimationState event) {
+        event.getController().setAnimation(this.idle);
+        return PlayState.CONTINUE;
+    }
+
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+        controllerRegistrar.add(new AnimationController(this, "controller", 0, this::predicate));
+    }
+
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
     }
 }

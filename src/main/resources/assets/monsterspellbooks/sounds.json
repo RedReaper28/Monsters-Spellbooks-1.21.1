@@ -72,6 +72,19 @@
       "monsterspellbooks:spell_whisperer_summon_start"
     ]
   },
+  "spell_ender_comet_cast": {
+    "subtitles": "sounds.monsterspellbooks.spell_ender_comet_cast",
+    "sounds": [
+      "monsterspellbooks:spell_ender_comet_cast"
+    ]
+  },
+  "spell_ender_comet_shot": {
+    "subtitles": "sounds.monsterspellbooks.spell_ender_comet_shot",
+    "sounds": [
+      "monsterspellbooks:spell_ender_comet_shot"
+    ]
+  },
+
   "spell_necro_cast": {
   "subtitles": "sounds.monsterspellbooks.spell_necro_cast",
   "sounds": [
@@ -91,6 +104,9 @@
       "monsterspellbooks:entity/whisperer_melee_attack"
     ]
   },
+
+
+
   "whisperer_death": {
     "subtitles": "sounds.monsterspellbooks.whisperer_death",
     "sounds": [
@@ -101,6 +117,30 @@
     "subtitles": "sounds.monsterspellbooks.soul_wizard_hurt",
     "sounds": [
       "monsterspellbooks:entity/soul_wizard_hurt"
+    ]
+  },
+  "blastling_ambient": {
+    "subtitles": "sounds.monsterspellbooks.blastling_ambient",
+    "sounds": [
+      "monsterspellbooks:entity/blastling_ambient"
+    ]
+  },
+  "blastling_step": {
+    "subtitles": "sounds.monsterspellbooks.blastling_step",
+    "sounds": [
+      "monsterspellbooks:entity/blastling_step"
+    ]
+  },
+  "blastling_hurt": {
+    "subtitles": "sounds.monsterspellbooks.blastling_hurt",
+    "sounds": [
+      "monsterspellbooks:entity/blastling_hurt"
+    ]
+  },
+  "blastling_death": {
+    "subtitles": "sounds.monsterspellbooks.blastling_death",
+    "sounds": [
+      "monsterspellbooks:entity/blastling_death"
     ]
   }
 }

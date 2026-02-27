@@ -26,17 +26,21 @@ public class ModSounds {
     public static final Supplier<SoundEvent>GRAVEYARD_FISSURE =registerSoundEvent("spell_graveyard_fissure");
     public static final Supplier<SoundEvent>SOUL_WIZARD_SUMMON =registerSoundEvent("spell_soul_wizard_summon");
     public static final Supplier<SoundEvent>WHISPERER_SUMMON_START =registerSoundEvent("spell_whisperer_summon_start");
+    public static final Supplier<SoundEvent>ENDER_COMET_CAST =registerSoundEvent("spell_ender_comet_cast");
+    public static final Supplier<SoundEvent>ENDER_COMET_SHOT =registerSoundEvent("spell_ender_comet_shot");
 
     public static DeferredHolder<SoundEvent,SoundEvent>BRIMSTONE_BUZZSAW_SHOT =registerSoundEvent("spell_brimstone_sawblade_shot");
     public static DeferredHolder<SoundEvent,SoundEvent>BRIMSTONE_BUZZSAW_HIT =registerSoundEvent("spell_brimstone_sawblade_hit");
-    public static DeferredHolder<SoundEvent, SoundEvent> NECRO_CAST = registerSoundEvent("spell_necro_cast");
+    public static DeferredHolder<SoundEvent,SoundEvent> NECRO_CAST = registerSoundEvent("spell_necro_cast");
 
     public static final Supplier<SoundEvent>WHISPERER_AMBIENT =registerSoundEvent("whisperer_ambient");
     public static final Supplier<SoundEvent>WHISPERER_MELEE_ATTACK =registerSoundEvent("whisperer_melee_attack");
     public static final Supplier<SoundEvent>WHISPERER_DEATH =registerSoundEvent("whisperer_death");
     public static final Supplier<SoundEvent>SOUL_WIZARD_HURT =registerSoundEvent("soul_wizard_hurt");
-
-
+    public static final Supplier<SoundEvent>BLASTLING_AMBIENT =registerSoundEvent("blastling_ambient");
+    public static final Supplier<SoundEvent>BLASTLING_STEP =registerSoundEvent("blastling_step");
+    public static final Supplier<SoundEvent>BLASTLING_HURT =registerSoundEvent("blastling_hurt");
+    public static final Supplier<SoundEvent>BLASTLING_DEATH =registerSoundEvent("blastling_death");
 
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name) {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, name)));

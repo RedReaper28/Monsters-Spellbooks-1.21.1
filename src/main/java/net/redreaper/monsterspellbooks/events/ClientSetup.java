@@ -17,6 +17,8 @@ import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsE
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.model.AegisEntity.AegisEntityModel;
 import net.redreaper.monsterspellbooks.entity.model.AegisEntity.AegisEntityRenderer;
+import net.redreaper.monsterspellbooks.entity.model.Blastling.BlastlingModel;
+import net.redreaper.monsterspellbooks.entity.model.Blastling.BlastlingRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DeathKnight.DeathKnightModel;
 import net.redreaper.monsterspellbooks.entity.model.DeathKnight.DeathKnightRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DripplerEntity.DripplerEntityModel;
@@ -40,10 +42,12 @@ import net.redreaper.monsterspellbooks.entity.spells.bone_dagger.BoneDaggerRende
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.BrimstoneBuzzsawRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.BrimstoneFireballRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouchRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.dragon_charge.DragonChargeRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_storm.FrenzyFireBallRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.graveyard_fissure.GraveyardHandRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.guardians_neutralizer.GuardiansNeutralizerRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.hallow_slash.HallowSlashRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSwordRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrbRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerRenderer;
@@ -88,6 +92,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.ICE_SWORD.get(), IceArsenalSwordRenderer::new);
         event.registerEntityRenderer(ModEntities.ANCIENT_FLASH.get(), AncientFlashRenderer::new);
         event.registerEntityRenderer(ModEntities.VILE_SLASH_PROJECTILE.get(), VileSlashRenderer::new);
+        event.registerEntityRenderer(ModEntities.HALLOW_SLASH_PROJECTILE.get(), HallowSlashRenderer::new);
         event.registerEntityRenderer(ModEntities.STATIC_CLEAVE.get(), StaticCleaveRenderer::new);
         event.registerEntityRenderer(ModEntities.LIFE_DRAIN_PROJECTILE.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.STEAM_STEAM.get(), NoopRenderer::new);
@@ -105,6 +110,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.ANCIENT_LIGHTNING_STRIKE.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.SMALL_FRENZY_FIREBALL.get(), (context) -> new FrenzyFireBallRenderer(context, 0.75f));
         event.registerEntityRenderer(ModEntities.SMALL_BRIMSTONE_FIREBALL.get(), (context) -> new BrimstoneFireballRenderer(context, 0.50f));
+        event.registerEntityRenderer(ModEntities.DRAGON_CHARGE_PROJECTILE.get(), (context) -> new DragonChargeRenderer(context, 1));
         event.registerEntityRenderer(ModEntities.STRAY_GRASP.get(), StrayGraspRenderer::new);
         event.registerEntityRenderer(ModEntities.HOLY_HAMMER.get(), HolyHammerRenderer::new);
         event.registerEntityRenderer(ModEntities.RANCOR_SKULL.get(), RancorSkullRenderer::new);
@@ -120,12 +126,14 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.AEGIS.get(), context -> {return new AegisEntityRenderer(context, new AegisEntityModel());});
         event.registerEntityRenderer(ModEntities.DRIPPLER.get(), context -> {return new DripplerEntityRenderer(context, new DripplerEntityModel());});
         event.registerEntityRenderer(ModEntities.JUNGLE_WHISPERER.get(), context -> {return new JungleWhispererRenderer(context, new JungleWhispererModel());});
-        event.registerEntityRenderer(ModEntities.POISON_QUILL_VINE.get(), context -> {return new PoisonQuillVineRenderer(context, new PoisonQuillVineModel());});
+        event.registerEntityRenderer(ModEntities.BLASTLING.get(), context -> {return new BlastlingRenderer(context, new BlastlingModel());});
 
         event.registerEntityRenderer(ModEntities.SUMMONED_DEATH_KNIGHT.get(), context -> {return new DeathKnightRenderer(context, new DeathKnightModel());});
         event.registerEntityRenderer(ModEntities.SUMMONED_VILE_SKELETON.get(), VileSkeletonRenderer::new);
         event.registerEntityRenderer(ModEntities.SUMMONED_AEGIS.get(), context -> {return new AegisEntityRenderer(context, new AegisEntityModel());});
         event.registerEntityRenderer(ModEntities.SOUL_WIZARD.get(), context -> {return new SoulWizardRenderer(context, new SoulWizardModel());});
+        event.registerEntityRenderer(ModEntities.POISON_QUILL_VINE.get(), context -> {return new PoisonQuillVineRenderer(context, new PoisonQuillVineModel());});
+
     }
 
 
@@ -146,6 +154,7 @@ public static void registerParticles(RegisterParticleProvidersEvent event)
     event.registerSpriteSet(ModParticleTypes.PUTRESCENCE_BUBBLE_PARTICLE.get(), PutrescenceBubbleParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.STEAM.get(), SteamParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.ELECTRIC_SMOKE.get(), ElectricSmokeParticle.Provider::new);
+    event.registerSpriteSet(ModParticleTypes.ENDER_SMOKE.get(), EnderSmokeParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.SOUL_SMOKE.get(), SoulSmokeParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.BONE_FRAGMENTS.get(), BoneFragmentsParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.SPIRIT_STRIKE_PARTICLE.get(), SpiritStrikeParticle.Provider::new);

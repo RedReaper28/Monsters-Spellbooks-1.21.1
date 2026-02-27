@@ -8,6 +8,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.redreaper.monsterspellbooks.init.*;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiRenderer;
+import net.redreaper.monsterspellbooks.item.staves.eyebloosom_staff.EyebloosomStaffRenderer;
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffRenderer;
 import net.redreaper.monsterspellbooks.item.weapons.disruption_nanginata.DisruptionNaginataRenderer;
 import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlRenderer;
@@ -78,6 +79,7 @@ public class MonstersSpellbooks {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            AzItemRendererRegistry.register(EyebloosomStaffRenderer::new, ModItems.EYEBLOOSOM_STAFF.get());
             AzItemRendererRegistry.register(VileNovaStaffRenderer::new, ModItems.VILENOVA_STAFF.get());
             AzItemRendererRegistry.register(BrimstoneOrochiRenderer::new, ModItems.BRIMSTONE_OROCHI.get());
             AzItemRendererRegistry.register(PaladinHammerRenderer::new, ModItems.PALLADIN_HAMMER.get());

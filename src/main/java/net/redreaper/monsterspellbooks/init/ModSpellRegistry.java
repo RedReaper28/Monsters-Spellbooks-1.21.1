@@ -4,7 +4,6 @@ import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.spells.poison_quill.PoisonQuillProjectile;
 import net.redreaper.monsterspellbooks.spells.aero.AirBubbleSpell;
 import net.redreaper.monsterspellbooks.spells.aero.AirPropulsionSpell;
 import net.redreaper.monsterspellbooks.spells.aero.SteamSteamSpell;
@@ -14,6 +13,7 @@ import net.redreaper.monsterspellbooks.spells.ender.*;
 import net.redreaper.monsterspellbooks.spells.fire.*;
 import net.redreaper.monsterspellbooks.spells.holy.AegisPatrolSpell;
 import net.redreaper.monsterspellbooks.spells.holy.DivineInterventionSpell;
+import net.redreaper.monsterspellbooks.spells.holy.HallowSlashSpell;
 import net.redreaper.monsterspellbooks.spells.holy.PaladinThrowSpell;
 import net.redreaper.monsterspellbooks.spells.ice.BlizzardAspectSpell;
 import net.redreaper.monsterspellbooks.spells.ice.FrostCoatingSpell;
@@ -53,6 +53,7 @@ public class ModSpellRegistry {
     //ENDER
     public static final Supplier<AbstractSpell> CRUSH = registerSpell(new CrushSpell());
     public static final Supplier<AbstractSpell> CRUSHING_PRESENCE = registerSpell(new CrushingPresenceSpell());
+    public static final Supplier<AbstractSpell> DRAGON_CHARGE = registerSpell(new DragonChargeSpell());
     public static final Supplier<AbstractSpell> ENDERSENT_SMASH = registerSpell(new EndersentSmashSpell());
     public static final Supplier<AbstractSpell> GRAVITY_FORCE = registerSpell(new GravityForceSpell());
     public static final Supplier<AbstractSpell> GRAVITY_WELL = registerSpell(new GravityWellSpell());
@@ -71,6 +72,7 @@ public class ModSpellRegistry {
     //HOLY
     public static final Supplier<AbstractSpell> AEGIS_PATROL = registerSpell(new AegisPatrolSpell());
     public static final Supplier<AbstractSpell> DIVINE_INTERVENTION = registerSpell(new DivineInterventionSpell());
+    public static final Supplier<AbstractSpell> HALLOW_SLASH = registerSpell(new HallowSlashSpell());
     public static final Supplier<AbstractSpell> PALADIN_THROW = registerSpell(new PaladinThrowSpell());
 
     //ICE

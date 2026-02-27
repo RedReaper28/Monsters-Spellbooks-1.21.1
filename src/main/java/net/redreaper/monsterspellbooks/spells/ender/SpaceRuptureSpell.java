@@ -81,7 +81,6 @@ public class SpaceRuptureSpell extends AbstractSpell {
         orb.setDeltaMovement(orb.getDeltaMovement().add(0, 0.05, 0));
         orb.setExplosionRadius(getRadius(spellLevel, entity));
         orb.setDamage(getDamage(spellLevel, entity));
-        orb.setAoeDamage(getAoeDamage(spellLevel, entity));
         level.addFreshEntity(orb);
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }

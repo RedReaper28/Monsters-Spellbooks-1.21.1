@@ -2,13 +2,11 @@ package net.redreaper.monsterspellbooks.init;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.MagmaBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 
@@ -78,6 +76,21 @@ public class ModBlocks {
             ()->new MagmaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK)));
     public static final DeferredBlock<Block>VOID_MATTER_ORE=registerBlock("void_matter_ore",
             ()->new MagmaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ANCIENT_DEBRIS).sound(SoundType.DEEPSLATE)));
+
+    public static final DeferredBlock<Block>CORAL_LOG=registerBlock("coral_log",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS).sound(SoundType.CORAL_BLOCK)));
+    public static final DeferredBlock<Block>CORAL_PLANKS=registerBlock("coral_planks",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
+
+    public static final DeferredBlock<Block>PEARl_MARBLE=registerBlock("pearl_marble",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE)));
+    public static final DeferredBlock<Block>POLISHED_PEARl_MARBLE=registerBlock("polished_pearl_marble",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS)));
+    public static final DeferredBlock<Block>PEARl_MARBLE_TILES=registerBlock("pearl_marble_tiles",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS)));
+    public static final DeferredBlock<Block>PEARl_MARBLE_PILLAR=registerBlock("pearl_marble_pillar",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE)));
+
 
     public static final DeferredBlock<Block>VILESTONE=registerBlock("vilestone",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE)));

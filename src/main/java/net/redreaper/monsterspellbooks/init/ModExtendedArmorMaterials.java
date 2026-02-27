@@ -40,6 +40,22 @@ public class ModExtendedArmorMaterials {
             0,
             0);
 
+    public static DeferredHolder<ArmorMaterial, ArmorMaterial> WILDFIRE_CROWN = register("wildfire_crown",
+            makeArmorMap(3, 0, 0, 0),
+            15,
+            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            () -> Ingredient.of(ModItems.NETHER_RUBY.get()),
+            0,
+            0);
+
+    public static DeferredHolder<ArmorMaterial, ArmorMaterial> FUNGAL_CAP = register("fungal_cap",
+            makeArmorMap(3, 0, 0, 0),
+            15,
+            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            () -> Ingredient.of(Tags.Items.MUSHROOMS),
+            0,
+            0);
+
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>STARSCOURGE_ARMOR=register("starscourge_armor",
             schoolUpgradedArmorMap(),
             25,

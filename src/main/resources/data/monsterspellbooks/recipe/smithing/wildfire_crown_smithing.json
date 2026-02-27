@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "monsterspellbooks:nether_ruby"
+  },
+  "base": {
+    "item": "irons_spellbooks:tarnished_helmet"
+  },
+  "result": {
+    "components": {
+      "irons_spellbooks:spell_container": {
+        "data": [],
+        "maxSpells": 1,
+        "mustEquip": true,
+        "spellWheel": true
+      }
+    },
+    "count": 1,
+    "id": "monsterspellbooks:wildfire_crown"
+  },
+  "template": {
+    "item": "irons_spellbooks:fire_rune"
+  }
+}

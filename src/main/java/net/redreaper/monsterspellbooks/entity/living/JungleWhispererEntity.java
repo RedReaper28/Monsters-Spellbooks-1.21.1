@@ -25,10 +25,7 @@ import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.IronGolem;
-import net.minecraft.world.entity.monster.AbstractIllager;
 import net.minecraft.world.entity.monster.Enemy;
-import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
-import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.entity.goals.WhispererAnimatedWarlockAttackGoal;
@@ -98,42 +95,30 @@ public class JungleWhispererEntity extends UniqueAbstractSpellCastingMob impleme
     @Override
     public void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new WhispererAnimatedWarlockAttackGoal(this, 1.5F, 20, 30)
+        this.goalSelector.addGoal(2, new WhispererAnimatedWarlockAttackGoal(this, 1.25f, 50, 75)
                 .setMoveset(List.of(
                         new AttackAnimationData(20, "whack", 15)
                 ))
-                .setComboChance(1.5f)
-                .setMeleeAttackInverval(20, 30)
-                .setMeleeBias(0.8f, 2f)
+                .setComboChance(.4f)
+                .setMeleeAttackInverval(10, 30)
                 .setMeleeMovespeedModifier(1.5f)
-                .setSingleUseSpell(ModSpellRegistry.SUMMON_POISON_VINE.get(), 15, 25, 1, 2)
-                .setSpellQuality(0.5f, 0.15f));
-        this.goalSelector.addGoal(2, new WizardAttackGoal(this, 1.25f, 30, 55)
+                .setSingleUseSpell(ModSpellRegistry.SUMMON_POISON_VINE.get(), 30, 50, 1, 2)
                 .setSpells(
                         // Attack
                         List.of(
                                 SpellRegistry.ROOT_SPELL.get()
                         ),
                         // Defense
-                        List.of(
-                        ),
+                        List.of(),
                         // Movement
-                        List.of(
-                        ),
+                        List.of(),
                         // Support
-                        List.of(
-                        )
+                        List.of()
                 )
-                .setSpellQuality(1.0f, 1.0f)
-                .setIsFlying()
-                .setSpellQuality(0.8f, 0.8f)
-                .setAllowFleeing(true));
+                .setAllowFleeing(false));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractIllager.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractPiglin.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, true));
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, VileSkeletonEntity.class).setAlertOthers());
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, JungleWhispererEntity.class).setAlertOthers());
         this.goalSelector.addGoal(6, new RandomStrollGoal(this, 1));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
@@ -205,7 +190,6 @@ public class JungleWhispererEntity extends UniqueAbstractSpellCastingMob impleme
             event.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
-
         return PlayState.STOP;
     }
 
@@ -215,7 +199,6 @@ public class JungleWhispererEntity extends UniqueAbstractSpellCastingMob impleme
 
         if (this.animationToPlay != null)
         {
-            // This should do the custom attack animations
             controller.forceAnimationReset();
             controller.setAnimation(animationToPlay);
             animationToPlay = null;

@@ -24,10 +24,12 @@ import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.Brimstone
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.BrimstoneField;
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.SmallBrimstoneFireball;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouch;
+import net.redreaper.monsterspellbooks.entity.spells.dragon_charge.DragonChargeProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_storm.SmallFrenzyFireBall;
 import net.redreaper.monsterspellbooks.entity.spells.graveyard_fissure.GraveyardHand;
 import net.redreaper.monsterspellbooks.entity.spells.guardians_neutralizer.GuardiansNeutralizerVisualEntity;
+import net.redreaper.monsterspellbooks.entity.spells.hallow_slash.HallowSlashProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSword;
 import net.redreaper.monsterspellbooks.entity.spells.life_drain.LifeDrainProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrb;
@@ -138,6 +140,12 @@ public class ModEntities {
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "small_brimstone_fireball").toString()));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<DragonChargeProjectile>> DRAGON_CHARGE_PROJECTILE =
+            ENTITIES.register("dragon_charge", () -> EntityType.Builder.<DragonChargeProjectile>of(DragonChargeProjectile::new, MobCategory.MISC)
+                    .sized(.5f, .5f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "dragon_charge").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<SoulChain>> SOUL_CHAIN =
             ENTITIES.register("soul_chain", () -> EntityType.Builder.<SoulChain>of(SoulChain::new, MobCategory.MISC)
                     .sized(1f, 1f)
@@ -209,11 +217,18 @@ public class ModEntities {
                     .sized(2f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ancient_flash").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<VileSlashProjectile>> VILE_SLASH_PROJECTILE =
             ENTITIES.register("vile_slash", () -> EntityType.Builder.<VileSlashProjectile>of(VileSlashProjectile::new, MobCategory.MISC)
                     .sized(2f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "vile_slash").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<HallowSlashProjectile>>HALLOW_SLASH_PROJECTILE =
+            ENTITIES.register("hallow_slash", () -> EntityType.Builder.<HallowSlashProjectile>of(HallowSlashProjectile::new, MobCategory.MISC)
+                    .sized(2.5f, 1f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "hallow_slash").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<StaticCleave>> STATIC_CLEAVE =
             ENTITIES.register("static_cleave", () -> EntityType.Builder.<StaticCleave>of(StaticCleave::new, MobCategory.MISC)
@@ -311,6 +326,14 @@ public class ModEntities {
                     sized(.6f, 2.5f)
                     .build(
                             ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "jungle_whisperer").toString()
+                    ));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<BlastlingEntity>> BLASTLING =
+            ENTITIES.register("blastling", () -> EntityType.Builder.<BlastlingEntity>of
+                            (BlastlingEntity::new, MobCategory.MONSTER).
+                    sized(.8f, 2.5f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "blastling").toString()
                     ));
 
     public static final DeferredHolder<EntityType<?>, EntityType<PoisonQuillVineEntity>> POISON_QUILL_VINE =

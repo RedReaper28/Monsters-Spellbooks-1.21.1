@@ -22,6 +22,7 @@ import net.redreaper.monsterspellbooks.item.curios.spellbooks.BookOfSoulsItem;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.FrenzyKingBookItem;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiItem;
+import net.redreaper.monsterspellbooks.item.staves.eyebloosom_staff.EyebloosomStaffIem;
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffItem;
 import net.redreaper.monsterspellbooks.item.weapons.*;
 import net.redreaper.monsterspellbooks.item.weapons.claws_of_calamity.ClawsOfCalamityItem;
@@ -140,6 +141,9 @@ public class ModItems {
     public static final DeferredItem<Item>GOLD_TRUFFLE_SLICE=ITEMS.register("gold_truffle_slice",
             ()->new Item(new Item.Properties().fireResistant().food(ModFoods.GOLD_TRUFFLE_SLICE)));
 
+    public static final DeferredItem<Item>EYEBLOOSOM_STAFF=ITEMS.register("eyebloosom_staff",
+            EyebloosomStaffIem::new);
+
     public static final DeferredItem<Item>VILENOVA_STAFF=ITEMS.register("vilenova_staff",
             VileNovaStaffItem::new);
     public static final DeferredItem<Item>BRIMSTONE_OROCHI=ITEMS.register("brimstone_orochi",
@@ -250,13 +254,16 @@ public class ModItems {
     public static final Supplier<CurioBaseItem>CROSS_NECKLACE = ITEMS.register("cross_necklace",
             CrossNecklaceItem::new);
 
-
-
     public static final DeferredHolder<Item, Item> FIERCE_DEITY_MASK = ITEMS.register("fierce_deity_mask", () ->
             new FierceDeityMaskItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(Rarity.UNCOMMON).durability(ArmorItem.Type.HELMET.getDurability(30))));
     public static final DeferredHolder<Item, Item> MAJORAS_MASK = ITEMS.register("majoras_mask", () ->
             new MajorasMaskArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(Rarity.UNCOMMON).durability(ArmorItem.Type.HELMET.getDurability(30))));
-
+    public static final DeferredHolder<Item, Item> WILDFIRE_CROWN = ITEMS.register("wildfire_crown", () ->
+            new WildFireCrownItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.ARID_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(30))));
+    public static final DeferredHolder<Item, Item> FUNGAL_CAP_RED = ITEMS.register("fun_gal_cap_red", () ->
+            new FunGalCapItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ASRarities.VERDANT_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(30))));
+    public static final DeferredHolder<Item, Item> FUNGAL_CAP_BLUE = ITEMS.register("fun_gal_cap_blue", () ->
+            new FunGalCapBlueItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ASRarities.VERDANT_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(30))));
     public static final DeferredHolder<Item, Item> FLESH_MAIDEN = ITEMS.register("flesh_maiden", () ->
             new FleshMaidenArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ASRarities.ACCURSED_RARITY_PROXY.getValue()).durability(ArmorItem.Type.CHESTPLATE.getDurability(30))));
 
@@ -322,6 +329,7 @@ public class ModItems {
     public static final Supplier<DeferredSpawnEggItem> JUNGLE_WHISPERER_SPAWN_EGG = ITEMS.register("jungle_whisperer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.JUNGLE_WHISPERER, 6323765, 8601546, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> SHOCK_SPAWN_EGG = ITEMS.register("shock_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.SHOCK, 3873928, 11393785, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> VILE_SKELETON_SPAWN_EGG = ITEMS.register("vile_skeleton_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.VILE_SKELETON, 725001, 3622442, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> BLASTLING_SPAWN_EGG = ITEMS.register("blastling_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.BLASTLING, 0, 15077593, ItemPropertiesHelper.material().stacksTo(64)));
 
     public static final DeferredHolder<Item, Item> NECRO_UPGRADE_ORB = ITEMS.register("necro_upgrade_orb", () ->
             new UpgradeOrbItem(ItemPropertiesHelper.material().rarity(Rarity.UNCOMMON).component(ComponentRegistry.UPGRADE_ORB_TYPE, ModUpgradeTypeRegistry.NECRO_SPELL_POWER)));

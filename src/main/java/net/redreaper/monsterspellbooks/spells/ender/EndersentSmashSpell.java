@@ -62,11 +62,10 @@ public class EndersentSmashSpell extends AbstractSpell {
     }
 
     @Override
-    public Optional<SoundEvent> getCastFinishSound() {return Optional.of(SoundEvents.ENDERMAN_DEATH);}
-
-    @Override
     public Optional<SoundEvent> getCastStartSound() {return Optional.of(ModSounds.ENDERSENT_SMASH_CAST.get());}
 
+    @Override
+    public Optional<SoundEvent> getCastFinishSound() {return Optional.of(SoundEvents.ENDERMAN_DEATH);}
 
     @Override
     public CastType getCastType() {

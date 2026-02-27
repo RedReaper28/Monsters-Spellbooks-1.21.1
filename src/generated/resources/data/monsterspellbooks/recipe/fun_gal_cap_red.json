@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:red_mushroom"
+    },
+    "B": {
+      "item": "irons_spellbooks:nature_rune"
+    },
+    "C": {
+      "item": "irons_spellbooks:magic_cloth"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "CBC"
+  ],
+  "result": {
+    "components": {
+      "irons_spellbooks:affinity_data": {
+        "bonuses": {
+          "irons_spellbooks:blaze_storm": 1
+        }
+      }
+    },
+    "count": 1,
+    "id": "monsterspellbooks:fun_gal_cap_red"
+  }
+}

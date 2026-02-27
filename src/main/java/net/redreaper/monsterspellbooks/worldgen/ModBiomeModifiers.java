@@ -27,11 +27,11 @@ public class ModBiomeModifiers {
 
     public static final ResourceKey<BiomeModifier>ADD_GRAVISTONE=registerKey("add_gravistone");
 
-    public static final ResourceKey<BiomeModifier>SPAWN_AEGIS=registerKey("spawn_aegis");
     public static final ResourceKey<BiomeModifier>SPAWN_DRIPPLER=registerKey("spawn_drippler");
     public static final ResourceKey<BiomeModifier>SPAWN_DWARVEN_SPHERE=registerKey("spawn_dwarven_sphere");
     public static final ResourceKey<BiomeModifier>SPAWN_JUNGLE_WHISPERER =registerKey("spawn_jungle_whisperer");
     public static final ResourceKey<BiomeModifier>SPAWN_VILE_SKELETON=registerKey("spawn_vile_skeleton");
+    public static final ResourceKey<BiomeModifier>SPAWN_BLASTLING=registerKey("spawn_blastling");
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
@@ -72,10 +72,6 @@ public class ModBiomeModifiers {
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.GRAVISTONE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_DECORATION));
 
-        context.register(SPAWN_AEGIS, new BiomeModifiers.AddSpawnsBiomeModifier(
-                biomes.getOrThrow(BiomeTags.HAS_VILLAGE_PLAINS),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.AEGIS.get(),2,1,4))));
-
         context.register(SPAWN_DRIPPLER, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                 List.of(new MobSpawnSettings.SpawnerData(ModEntities.DRIPPLER.get(),10,1,2))));
@@ -91,6 +87,10 @@ public class ModBiomeModifiers {
         context.register(SPAWN_JUNGLE_WHISPERER, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_JUNGLE),
                 List.of(new MobSpawnSettings.SpawnerData(ModEntities.JUNGLE_WHISPERER.get(),10,1,3))));
+
+        context.register(SPAWN_BLASTLING, new BiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_END),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.BLASTLING.get(),5,2,4))));
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {

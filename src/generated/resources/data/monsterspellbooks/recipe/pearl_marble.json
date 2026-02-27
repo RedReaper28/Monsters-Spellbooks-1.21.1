@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:poseidon_pearl"
+    },
+    "B": {
+      "item": "monsterspellbooks:raw_oceanite"
+    },
+    "C": {
+      "item": "minecraft:sand"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ABC",
+    "CCC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:pearl_marble"
+  }
+}

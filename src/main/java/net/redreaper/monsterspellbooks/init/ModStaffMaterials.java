@@ -7,6 +7,7 @@ import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
 public class ModStaffMaterials implements IronsWeaponTier {
+    public static ModStaffMaterials EYEBLOOSOM;
     public static ModStaffMaterials VILENOVA;
     public static ModStaffMaterials BRIMSTONE_OROCHI;
     float damage;
@@ -29,6 +30,14 @@ public class ModStaffMaterials implements IronsWeaponTier {
 
     public AttributeContainer[] getAdditionalAttributes() {
         return this.attributeContainers;
+    }
+
+    static {
+        EYEBLOOSOM = new ModStaffMaterials(3.0F, -3.0F, new AttributeContainer[]{
+                new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(AttributeRegistry.ELDRITCH_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(ASAttributeRegistry.MANA_STEAL, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(AttributeRegistry.SPELL_POWER, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE)});
     }
 
     static {

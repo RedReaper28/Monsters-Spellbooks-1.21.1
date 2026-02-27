@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "monsterspellbooks:block/pearl_marble_pillar_top",
+    "side": "monsterspellbooks:block/pearl_marble_pillar"
+  }
+}

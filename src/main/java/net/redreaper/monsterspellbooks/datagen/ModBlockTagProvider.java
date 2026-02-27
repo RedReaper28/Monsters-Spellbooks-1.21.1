@@ -49,8 +49,20 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.WITHER_ALLOY_BLOCK.get())
                 .add(ModBlocks.BLAZESTEEL_BLOCK.get())
                 .add(ModBlocks.VOID_MATTER_ORE.get())
+
+                .add(ModBlocks.PEARl_MARBLE.get())
+                .add(ModBlocks.POLISHED_PEARl_MARBLE.get())
+                .add(ModBlocks.PEARl_MARBLE_TILES.get())
+                .add(ModBlocks.PEARl_MARBLE_PILLAR.get())
+
+
                 .add(ModBlocks.VILESTONE.get())
                 .add(ModBlocks.GRAVISTONE.get())
+        ;
+
+        tag(BlockTags.MINEABLE_WITH_AXE)
+                .add(ModBlocks.CORAL_LOG.get())
+                .add(ModBlocks.CORAL_PLANKS.get())
         ;
 
 
@@ -98,11 +110,24 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.VOID_MATTER_ORE.get())
         ;
 
+        tag(BlockTags.LOGS)
+                .add(ModBlocks.CORAL_LOG.get())
+        ;
+
+        tag(BlockTags.PLANKS)
+                .add(ModBlocks.CORAL_PLANKS.get())
+        ;
+
         tag(BlockTags.PIGLIN_REPELLENTS)
                 .add(ModBlocks.SPECTRITE_BLOCK.get())
         ;
 
+        tag(BlockTags.CORAL_BLOCKS)
+                .add(ModBlocks.CORAL_LOG.get())
+        ;
+
         tag(BlockTags.DRAGON_IMMUNE)
+                .add(ModBlocks.VOID_MATTER_ORE.get())
                 .add(ModBlocks.GRAVISTONE.get())
         ;
 

@@ -44,6 +44,15 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.WITHER_ALLOY_BLOCK.get());
         dropSelf(ModBlocks.BLAZESTEEL_BLOCK.get());
 
+        dropSelf(ModBlocks.CORAL_LOG.get());
+        dropSelf(ModBlocks.CORAL_PLANKS.get());
+
+        dropSelf(ModBlocks.PEARl_MARBLE.get());
+        dropSelf(ModBlocks.POLISHED_PEARl_MARBLE.get());
+        dropSelf(ModBlocks.PEARl_MARBLE_TILES.get());
+        dropSelf(ModBlocks.PEARl_MARBLE_PILLAR.get());
+
+
         dropSelf(ModBlocks.VILESTONE.get());
         dropSelf(ModBlocks.GRAVISTONE.get());
 
