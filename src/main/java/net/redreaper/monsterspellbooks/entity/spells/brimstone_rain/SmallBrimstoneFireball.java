@@ -6,7 +6,6 @@ import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
-import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
@@ -17,9 +16,11 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceField;
+import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 
@@ -32,7 +33,7 @@ public class SmallBrimstoneFireball extends AbstractMagicProjectile {
     }
 
     public SmallBrimstoneFireball(Level pLevel, LivingEntity pShooter) {
-        this(EntityRegistry.COMET.get(), pLevel);
+        this(ModEntities.SMALL_BRIMSTONE_FIREBALL.get(), pLevel);
         this.setOwner(pShooter);
     }
 
@@ -56,7 +57,7 @@ public class SmallBrimstoneFireball extends AbstractMagicProjectile {
 
     @Override
     public void impactParticles(double x, double y, double z) {
-        MagicManager.spawnParticles(level(), new BlastwaveParticleOptions(SpellRegistry.STARFALL_SPELL.get().getSchoolType().getTargetingColor(), 1.25f), x, y, z, 1, 0, 0, 0, 0, true);
+        MagicManager.spawnParticles(level(), new BlastwaveParticleOptions(ModSpellRegistry.BRIMSTONE_RAIN.get().getSchoolType().getTargetingColor(), 1.25f), x, y, z, 1, 0, 0, 0, 0, true);
     }
 
     @Override
@@ -75,20 +76,26 @@ public class SmallBrimstoneFireball extends AbstractMagicProjectile {
     }
 
     @Override
-    protected void onHit(HitResult hitResult) {
-        super.onHit(hitResult);
-        createFireField(hitResult.getLocation());
+    protected void onHitBlock(BlockHitResult blockHitResult) {
+        super.onHitBlock(blockHitResult);
+        createFireField(blockHitResult.getLocation());
         float explosionRadius = getExplosionRadius();
         var entities = level().getEntities(this, this.getBoundingBox().inflate(explosionRadius));
         for (Entity entity : entities) {
-            double distance = entity.distanceToSqr(hitResult.getLocation());
+            double distance = entity.distanceToSqr(blockHitResult.getLocation());
             if (distance < explosionRadius * explosionRadius && canHitEntity(entity)) {
-                if (Utils.hasLineOfSight(level(), hitResult.getLocation(), entity.position().add(0, entity.getEyeHeight() * .5f, 0), true)) {
-                    DamageSources.applyDamage(entity, damage, SpellRegistry.STARFALL_SPELL.get().getDamageSource(this, getOwner()));
-                }
+                DamageSources.applyDamage(entity, damage, ModSpellRegistry.BRIMSTONE_RAIN.get().getDamageSource(this, getOwner()));
             }
         }
-        this.discardHelper(hitResult);
+        this.discardHelper(blockHitResult);
+    }
+
+    @Override
+    protected void onHitEntity(EntityHitResult entityHitResult) {
+        super.onHitEntity(entityHitResult);
+        var target = entityHitResult.getEntity();
+        DamageSources.applyDamage(target, getDamage(), ModSpellRegistry.BRIMSTONE_RAIN.get().getDamageSource(this, getOwner()));
+        pierceOrDiscard();
     }
 
     public void createFireField(Vec3 location) {
@@ -124,6 +131,5 @@ public class SmallBrimstoneFireball extends AbstractMagicProjectile {
     protected void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         this.aoeDamage = tag.getFloat("AoeDamage");
-
     }
 }

@@ -1,0 +1,105 @@
+package net.redreaper.monsterspellbooks.entity.spells.elthor;
+
+import io.redspace.ironsspellbooks.api.magic.MagicData;
+import io.redspace.ironsspellbooks.api.util.Utils;
+import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
+import io.redspace.ironsspellbooks.damage.DamageSources;
+import io.redspace.ironsspellbooks.entity.mobs.AntiMagicSusceptible;
+import io.redspace.ironsspellbooks.entity.spells.AoeEntity;
+import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
+import io.redspace.ironsspellbooks.util.ParticleHelper;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
+import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
+
+public class ElthorBeamEntity extends AoeEntity implements AntiMagicSusceptible {
+
+    @Nullable
+    LivingEntity target;
+
+    public ElthorBeamEntity(EntityType<? extends Projectile> pEntityType, Level pLevel) {
+        super(pEntityType, pLevel);
+        this.setRadius((float) (this.getBoundingBox().getXsize() * .5f));
+        this.setNoGravity(true);
+    }
+
+    public ElthorBeamEntity(Level level) {
+        this(ModEntities.ELTHOR_BEAM.get(), level);
+    }
+
+
+    public static final int WARMUP_TIME = 30;
+    public static final int STAY_TIME = 45;
+
+    @Override
+    public void tick() {
+        if (tickCount == WARMUP_TIME) {
+            if (!level().isClientSide) {
+                checkHits();
+                MagicManager.spawnParticles(level(), ParticleHelper.ELECTRICITY, getX(), getY() + 0.06, getZ(), 50, getRadius() * .7f, .2f, getRadius() * .7f, 0.6f, true);
+                MagicManager.spawnParticles(level(), ParticleHelper.ELECTRIC_SPARKS, getX(), getY() + 0.06, getZ(), 50, getRadius() * .7f, .2f, getRadius() * .7f, 0.6f, true);
+                MagicManager.spawnParticles(level(), ModParticleHelper.ELECTRIC_SMOKE, getX(), getY() + 0.06, getZ(), 50, getRadius() * .7f, .2f, getRadius() * .7f, 0.6f, true);
+                MagicManager.spawnParticles(level(), new BlastwaveParticleOptions(0, 0, 0.4f, 10f), getX(), getY() + 0.06, getZ(), 1, 0, 0, 0, 0, true);
+                level().playSound(null, this.blockPosition(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.NEUTRAL, 4.5f, Utils.random.nextIntBetweenInclusive(9, 11) * .1f);
+            }
+        }
+        if (this.tickCount > STAY_TIME) {
+            discard();
+        }
+    }
+
+    public void setTarget(LivingEntity target) {
+        this.target = target;
+    }
+
+    @Override
+    protected boolean canHitTargetForGroundContext(LivingEntity target) {
+        return true;
+    }
+
+    @Override
+    public void applyEffect(LivingEntity target) {
+        DamageSources.applyDamage(target, getDamage(), ModSpellRegistry.RAIJIN_JUDGEMENT.get().getDamageSource(this, getOwner()));
+    }
+
+    @Override
+    protected Vec3 getInflation() {
+        return new Vec3(2, 2, 2);
+    }
+
+    @Override
+    public float getParticleCount() {
+        return 0f;
+    }
+
+    @Override
+    public void refreshDimensions() {
+        return;
+    }
+
+    @Override
+    public void ambientParticles() {
+        return;
+    }
+
+    @Override
+    public Optional<ParticleOptions> getParticle() {
+        return Optional.empty();
+    }
+
+    @Override
+    public void onAntiMagic(MagicData magicData) {
+        discard();
+    }
+}

@@ -90,7 +90,7 @@ public class ModBiomeModifiers {
 
         context.register(SPAWN_BLASTLING, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_END),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.BLASTLING.get(),5,2,4))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.BLASTLING.get(),5,1,2))));
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {

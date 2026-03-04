@@ -43,6 +43,8 @@ import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.Brimstone
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.BrimstoneFireballRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouchRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.dragon_charge.DragonChargeRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.elthor.ElthorBeamEntity;
+import net.redreaper.monsterspellbooks.entity.spells.elthor.ElthorBeamRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_storm.FrenzyFireBallRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.graveyard_fissure.GraveyardHandRenderer;
@@ -51,12 +53,14 @@ import net.redreaper.monsterspellbooks.entity.spells.hallow_slash.HallowSlashRen
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSwordRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrbRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.plasma_barrage.PlasmaBoltRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.poison_quill.PoisonQuillRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMassRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.rancorcall.RancorSkullRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.SanguiniteEviscerationRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.soul_firebolt.SoulFireBoltRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.space_breaker.SpaceBreakerRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.SpaceRuptureRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.spectral_blast.SpectralBlastRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.static_cleave.StaticCleaveRenderer;
@@ -78,6 +82,7 @@ public class ClientSetup {
     public static void registerRenderer(EntityRenderersEvent.RegisterRenderers event)
     {
         event.registerEntityRenderer(ModEntities.SANGUINITE_EVISCERATION.get(), SanguiniteEviscerationRenderer::new);
+        event.registerEntityRenderer(ModEntities.SPACE_BREAKER.get(), SpaceBreakerRenderer::new);
         event.registerEntityRenderer(ModEntities.BLOOD_PIERCE_VISUAL_ENTITY.get(), BloodPierceRenderer::new);
         event.registerEntityRenderer(ModEntities.CAUTERIZING_TOUCH.get(), CauterizingTouchRenderer::new);
         event.registerEntityRenderer(ModEntities.BRIMSTONE_BUZZSAW_PROJECTILE.get(), BrimstoneBuzzsawRenderer::new);
@@ -105,6 +110,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.SPACE_RUPTURE.get(), SpaceRuptureRenderer::new);
         event.registerEntityRenderer(ModEntities.ANCIENT_LIGHTNING_LANCE_PROJECTILE.get(), AncientLightningLanceRenderer::new);
         event.registerEntityRenderer(ModEntities.RAIGO.get(), RaigoRenderer::new);
+        event.registerEntityRenderer(ModEntities.PLASMA_BOLT.get(), PlasmaBoltRenderer::new);
         event.registerEntityRenderer(ModEntities.BLOOD_THORN.get(), BloodThornRenderer::new);
         event.registerEntityRenderer(ModEntities.SOUL_CHAIN.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.ANCIENT_LIGHTNING_STRIKE.get(), NoopRenderer::new);
@@ -118,6 +124,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.POISON_QUILL.get(), PoisonQuillRenderer::new);
         event.registerEntityRenderer(ModEntities.GRAVEYARD_HAND.get(), GraveyardHandRenderer::new);
         event.registerEntityRenderer(ModEntities.SOUL_FIREBOLT_PROJECTILE.get(), SoulFireBoltRenderer::new);
+        event.registerEntityRenderer(ModEntities.ELTHOR_BEAM.get(), ElthorBeamRenderer::new);
 
         event.registerEntityRenderer(ModEntities.VILE_SKELETON.get(), VileSkeletonRenderer::new);
         event.registerEntityRenderer(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereRenderer::new);
@@ -160,6 +167,7 @@ public static void registerParticles(RegisterParticleProvidersEvent event)
     event.registerSpriteSet(ModParticleTypes.SPIRIT_STRIKE_PARTICLE.get(), SpiritStrikeParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.SOUL_CHAIN_PARTICLE.get(), SoulChainParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.ANCIENT_ZAP_PARTICLE.get(), AncientZapParticle.Provider::new);
+    event.registerSpriteSet(ModParticleTypes.PLASMA_ZAP_PARTICLE.get(), PlasmaZapParticle.Provider::new);
 
 
 }

@@ -11,6 +11,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.particle.AncientZapParticleOption;
+import net.redreaper.monsterspellbooks.particle.PlasmaZapParticleOptions;
 import net.redreaper.monsterspellbooks.particle.SoulChainParticleOptions;
 import net.redreaper.monsterspellbooks.particle.SpiritStrikeParticleOptions;
 
@@ -59,6 +60,16 @@ public class ModParticleTypes {
 
         public StreamCodec<? super RegistryFriendlyByteBuf, AncientZapParticleOption> streamCodec() {
             return AncientZapParticleOption.STREAM_CODEC;
+        }
+    });
+
+    public static final Supplier<ParticleType<PlasmaZapParticleOptions>> PLASMA_ZAP_PARTICLE = PARTICLE_TYPES.register("plasma_zap", () -> new ParticleType<>(false) {
+        public MapCodec<PlasmaZapParticleOptions> codec() {
+            return PlasmaZapParticleOptions.MAP_CODEC;
+        }
+
+        public StreamCodec<? super RegistryFriendlyByteBuf, PlasmaZapParticleOptions> streamCodec() {
+            return PlasmaZapParticleOptions.STREAM_CODEC;
         }
     });
 

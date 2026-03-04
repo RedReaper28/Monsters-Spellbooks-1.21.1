@@ -71,7 +71,7 @@ public class HallowSlashSpell extends AbstractSpell {
     private float getDamage(int spellLevel, LivingEntity caster)
     {
         float baseDamage = ASUtils.getDamageForAttributes(this, caster, spellLevel, Attributes.MAX_HEALTH, 0.50f);
-        float extraDamage = ASUtils.getDamageForAttributes(this, caster, spellLevel, Attributes.MAX_ABSORPTION, 0.25f);
+        float extraDamage = ASUtils.getDamageForAttributes(this, caster, spellLevel, Attributes.MAX_ABSORPTION, 1);
 
         return baseDamage + extraDamage;
     }

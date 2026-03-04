@@ -57,10 +57,12 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> ENDERSENT_SMASH = registerSpell(new EndersentSmashSpell());
     public static final Supplier<AbstractSpell> GRAVITY_FORCE = registerSpell(new GravityForceSpell());
     public static final Supplier<AbstractSpell> GRAVITY_WELL = registerSpell(new GravityWellSpell());
+    public static final Supplier<AbstractSpell> SPACE_BREAKER = registerSpell(new SpaceBreakerSpell());
     public static final Supplier<AbstractSpell> SPACE_RUPTURE = registerSpell(new SpaceRuptureSpell());
 
     //FIRE
     public static final Supplier<AbstractSpell> BRIMSTONE_BUZZSAW = registerSpell(new BrimstoneBuzzsawSpell());
+    public static final Supplier<AbstractSpell> BRIMSTONE_RAIN = registerSpell(new BrimstoneRainSpell());
     public static final Supplier<AbstractSpell> BRIMSTONE_WRATH = registerSpell(new BrimstoneWrathSpell());
     public static final Supplier<AbstractSpell> CAUTERIZING_TOUCH = registerSpell(new CauterizingTouchSpell());
     public static final Supplier<AbstractSpell> FRENZIED_BURST = registerSpell(new FrenziedBurstSpell());
@@ -84,7 +86,10 @@ public class ModSpellRegistry {
     //LIGHTING
     public static final Supplier<AbstractSpell> ANCIENT_FLASH = registerSpell(new AncientFlashSpell());
     public static final Supplier<AbstractSpell> ANCIENT_LANCE = registerSpell(new AncientLightningLanceSpell());
+    public static final Supplier<AbstractSpell> DISCHARGE = registerSpell(new DischargeSpell());
+    public static final Supplier<AbstractSpell> RAIJIN_JUDGEMENT = registerSpell(new RaijinJudgementSpell());
     public static final Supplier<AbstractSpell> GUARDIANS_NEUTRALIZER = registerSpell(new GuardiansNeutralizerSpell());
+    public static final Supplier<AbstractSpell> PLASMA_BARRAGE = registerSpell(new PlasmaBarrageSpell());
     public static final Supplier<AbstractSpell> RAIGO = registerSpell(new RaigoSpell());
     public static final Supplier<AbstractSpell> STATIC_CLEAVE = registerSpell(new StaticCleaveSpell());
     public static final Supplier<AbstractSpell> THUNDER_STEP = registerSpell(new ThunderStepSpell());

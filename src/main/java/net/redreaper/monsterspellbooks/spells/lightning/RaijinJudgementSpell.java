@@ -11,25 +11,24 @@ import net.acetheeldritchking.aces_spell_utils.spells.ASSpellAnimations;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.elthor.ElthorBeamEntity;
 
 import java.util.List;
-import java.util.Optional;
 
 @AutoSpellConfig
-public class RaigoSpell extends AbstractSpell {
-    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "raigo");
+public class RaijinJudgementSpell extends AbstractSpell {
+    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "raijin_judgement");
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.irons_spellbooks.damage", Utils.stringTruncation(getDamage(spellLevel, caster), 2)),
-                Component.translatable("ui.irons_spellbooks.radius", getRadius(spellLevel, caster))
+                Component.translatable("ui.irons_spellbooks.damage", Utils.stringTruncation(getDamage(spellLevel, caster), 2))
         );
     }
 
@@ -37,15 +36,15 @@ public class RaigoSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.RARE)
             .setSchoolResource(SchoolRegistry.LIGHTNING_RESOURCE)
             .setMaxLevel(5)
-            .setCooldownSeconds(25)
+            .setCooldownSeconds(30)
             .build();
 
-    public RaigoSpell() {
-        this.manaCostPerLevel = 15;
-        this.baseSpellPower = 1;
-        this.spellPowerPerLevel = 1;
-        this.castTime = 60;
-        this.baseManaCost = 70;
+    public RaijinJudgementSpell() {
+        this.manaCostPerLevel = 20;
+        this.baseSpellPower = 25;
+        this.spellPowerPerLevel = 2;
+        this.castTime = 30;
+        this.baseManaCost = 50;
     }
 
     @Override
@@ -64,36 +63,29 @@ public class RaigoSpell extends AbstractSpell {
     }
 
     @Override
-    public Optional<SoundEvent> getCastStartSound() {
-        return Optional.of(SoundRegistry.FIREBALL_START.get());
+    public boolean checkPreCastConditions(Level level, int spellLevel, LivingEntity entity, MagicData playerMagicData) {
+        return true;
     }
 
     @Override
-    public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        Vec3 origin = entity.getEyePosition();
+    public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
+        Vec3 spawn = null;
+        ElthorBeamEntity sunbeam = new ElthorBeamEntity(level);
+        HitResult raycast = Utils.raycastForEntity(level, entity, 64, true);
+        spawn = Utils.moveToRelativeGroundLevel(level, raycast.getLocation().subtract(entity.getForward().normalize()).add(0, 2, 0), 3, 18);
 
-        RaigoProjectile fireball = new RaigoProjectile(world, entity);
+        sunbeam.setOwner(entity);
+        sunbeam.moveTo(spawn);
+        sunbeam.setDamage(getDamage(spellLevel, entity));
+        level.addFreshEntity(sunbeam);
+        level.playSound(null, sunbeam.blockPosition(), SoundRegistry.SHOCKWAVE_PREPARE.get(), SoundSource.NEUTRAL, 3.5f, 1);
 
-        fireball.setDamage(getDamage(spellLevel, entity));
-        fireball.setExplosionRadius(getRadius(spellLevel, entity));
-
-        fireball.setPos(origin.add(entity.getForward()).subtract(0, fireball.getBbHeight()-6, 0));
-        fireball.shoot(entity.getLookAngle());
-
-        world.addFreshEntity(fireball);
-        super.onCast(world, spellLevel, entity, castSource, playerMagicData);
+        super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 
-    public float getDamage(int spellLevel, LivingEntity caster) {
-        return 5 + 10 * getSpellPower(spellLevel, caster);
-    }
 
-    public int getRadius(int spellLevel, LivingEntity caster) {
-        return 5 + (int) getSpellPower(spellLevel, caster);
-    }
-
-    public boolean allowLooting() {
-        return false;
+    private float getDamage(int spellLevel, LivingEntity entity) {
+        return this.getSpellPower(spellLevel, entity) * 1.5f;
     }
 
     @Override public AnimationHolder getCastStartAnimation() {return ASSpellAnimations.ANIMATION_OVERHEAD_SWING_START;}
@@ -101,5 +93,4 @@ public class RaigoSpell extends AbstractSpell {
     @Override public AnimationHolder getCastFinishAnimation() {
         return SpellAnimations.ANIMATION_INSTANT_CAST;
     }
-
 }

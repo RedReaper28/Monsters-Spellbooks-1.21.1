@@ -7,6 +7,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.init.ModBlocks;
 import net.redreaper.monsterspellbooks.init.ModItems;
 import org.jetbrains.annotations.Nullable;
 
@@ -116,5 +117,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.PALE_OBSERVER_BOOTS.get())
                 .add(ModItems.FORGE_MASTERPIECE_BOOTS.get())
                 .add(ModItems.STARSCOURGE_BOOTS.get());
+
+        tag(ItemTags.PLANKS)
+                .add(ModBlocks.CORAL_PLANKS.asItem())
+        ;
     }
 }

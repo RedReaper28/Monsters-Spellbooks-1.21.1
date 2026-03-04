@@ -1,9 +1,12 @@
 package net.redreaper.monsterspellbooks.init;
 
 import io.redspace.ironsspellbooks.IronsSpellbooks;
+import io.redspace.ironsspellbooks.entity.spells.comet.Comet;
 import io.redspace.ironsspellbooks.entity.spells.devour_jaw.DevourJaw;
 import io.redspace.ironsspellbooks.entity.spells.fireball.MagicFireball;
+import io.redspace.ironsspellbooks.entity.spells.fireball.SmallMagicFireball;
 import io.redspace.ironsspellbooks.entity.spells.firebolt.FireboltProjectile;
+import io.redspace.ironsspellbooks.entity.spells.sunbeam.SunbeamEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -25,6 +28,7 @@ import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.BrimstoneFie
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.SmallBrimstoneFireball;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouch;
 import net.redreaper.monsterspellbooks.entity.spells.dragon_charge.DragonChargeProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.elthor.ElthorBeamEntity;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_storm.SmallFrenzyFireBall;
 import net.redreaper.monsterspellbooks.entity.spells.graveyard_fissure.GraveyardHand;
@@ -34,6 +38,7 @@ import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSword
 import net.redreaper.monsterspellbooks.entity.spells.life_drain.LifeDrainProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrb;
 import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.plasma_barrage.PlasmaBolt;
 import net.redreaper.monsterspellbooks.entity.spells.poison_quill.PoisonQuillProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceField;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMass;
@@ -43,6 +48,7 @@ import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.Sangu
 import net.redreaper.monsterspellbooks.entity.spells.soul_chain.SoulChain;
 import net.redreaper.monsterspellbooks.entity.spells.soul_firebolt.SoulFireBoltProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.soul_scorch.SoulFireField;
+import net.redreaper.monsterspellbooks.entity.spells.space_breaker.SpaceBreaker;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.DistortionField;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.SpaceRupture;
 import net.redreaper.monsterspellbooks.entity.spells.spectral_blast.SpectralBlastVisualEntity;
@@ -61,6 +67,18 @@ import static net.minecraft.core.registries.Registries.ENTITY_TYPE;
 public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<ElthorBeamEntity>> ELTHOR_BEAM =
+            ENTITIES.register("elthor_beam", () -> EntityType.Builder.<ElthorBeamEntity>of(ElthorBeamEntity::new, MobCategory.MISC)
+                    .sized(2, 14f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "elthor_beam").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<PlasmaBolt>> PLASMA_BOLT =
+            ENTITIES.register("plasma_bolt", () -> EntityType.Builder.<PlasmaBolt>of(PlasmaBolt::new, MobCategory.MISC)
+                    .sized(1, 1)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "plasma_bolt").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<SoulFireBoltProjectile>> SOUL_FIREBOLT_PROJECTILE =
             ENTITIES.register("soul_firebolt", () -> EntityType.Builder.<SoulFireBoltProjectile>of(SoulFireBoltProjectile::new, MobCategory.MISC)
@@ -128,6 +146,7 @@ public class ModEntities {
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ancient_lightning_strike").toString()));
 
+
     public static final DeferredHolder<EntityType<?>, EntityType<SmallFrenzyFireBall>> SMALL_FRENZY_FIREBALL =
             ENTITIES.register("small_frenzy_fireball", () -> EntityType.Builder.<SmallFrenzyFireBall>of(SmallFrenzyFireBall::new, MobCategory.MISC)
                     .sized(.5f, .5f)
@@ -187,6 +206,13 @@ public class ModEntities {
                     .sized(2f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "cauterizing_touch").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SpaceBreaker>>SPACE_BREAKER =
+            ENTITIES.register("space_breaker", () -> EntityType.Builder.<SpaceBreaker>of(SpaceBreaker::new, MobCategory.MISC)
+                    .sized(1.5f, 1)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "space_breaker").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<BrimstoneBuzzsawProjectile>> BRIMSTONE_BUZZSAW_PROJECTILE =
             ENTITIES.register("brimstone_buzzsaw", () -> EntityType.Builder.<BrimstoneBuzzsawProjectile>of(BrimstoneBuzzsawProjectile::new, MobCategory.MISC)
                     .sized(7f, 1f)
@@ -266,6 +292,7 @@ public class ModEntities {
                     .sized(4f, 1.2f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "putrescence_field").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<BrimstoneField>> BRIMSTONE_FIELD =
             ENTITIES.register("brimstone_field", () -> EntityType.Builder.<BrimstoneField>of(BrimstoneField::new, MobCategory.MISC)
                     .sized(4f, 1.2f)

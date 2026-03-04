@@ -1,11 +1,8 @@
 package net.redreaper.monsterspellbooks.entity.spells.dragon_charge;
 
-import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
-import io.redspace.ironsspellbooks.network.particles.FieryExplosionParticlesPacket;
-import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
@@ -24,7 +21,6 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.DistortionField;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
-import net.redreaper.monsterspellbooks.particle.ElectricExplosionParticlesPacket;
 import net.redreaper.monsterspellbooks.particle.EnderExplosionParticlePacket;
 
 import java.util.Optional;

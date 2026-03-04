@@ -29,6 +29,7 @@ public class ModSpellRenderingHelper {
     public static final ResourceLocation BRIMSTONE_CORE = MonstersSpellbooks.id("textures/entity/brimstone_wrath/beacon_beam.png");
     public static final ResourceLocation BRIMSTONE_TWISTING_GLOW = MonstersSpellbooks.id("textures/entity/brimstone_wrath/twisting_glow.png");
     public static final ResourceLocation STRAIGHT_GLOW = MonstersSpellbooks.id("textures/brimstone_wrath/ray/ribbon_glow.png");
+    public static final ResourceLocation ELTHOR_BEAM = MonstersSpellbooks.id("textures/entity/elthor/beam2.png");
 
     public static void renderSpellHelper(SyncedSpellData spellData, LivingEntity castingMob, PoseStack poseStack, MultiBufferSource bufferSource, float partialTicks) {
         if (ModSpellRegistry.BRIMSTONE_WRATH.get().getSpellId().equals(spellData.getCastingSpellId())) {

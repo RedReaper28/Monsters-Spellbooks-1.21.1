@@ -22,14 +22,14 @@ import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
-public class AncientZapParticle extends TextureSheetParticle {
+public class PlasmaZapParticle extends TextureSheetParticle {
     private static final Vector3f ROTATION_VECTOR = Util.make(new Vector3f(0.5F, 0.5F, 0.5F), Vector3f::normalize);
     private static final Vector3f TRANSFORM_VECTOR = new Vector3f(-1.0F, -1.0F, 0.0F);
     private static final float DEGREES_90 = Mth.PI / 2f;
 
     Vec3 destination;
 
-    AncientZapParticle(ClientLevel pLevel, double pX, double pY, double pZ, double xd, double yd, double zd, AncientZapParticleOption options) {
+    PlasmaZapParticle(ClientLevel pLevel, double pX, double pY, double pZ, double xd, double yd, double zd, PlasmaZapParticleOptions options) {
         super(pLevel, pX, pY, pZ, 0, 0, 0);
         this.setSize(1, 1);
         this.quadSize = 1f;
@@ -92,8 +92,7 @@ public class AncientZapParticle extends TextureSheetParticle {
         Vector3f d = new Vector3f(end.x() - start.x(), end.y() - start.y(), end.z() - start.z());
         d.normalize();
         Vec2 heading = new Vec2((float) Math.asin(-d.y()), (float) -Mth.atan2(d.x(), d.z()));
-        //quaternion.mul(Vector3f.XP.rotation((float) Math.asin(-d.y())));
-        //quaternion.mul(Vector3f.YP.rotation((float) Mth.atan2(d.x(), d.z())));
+
         setRGBA(1, 1, 1, 1);
         tube(consumer, partialTick, f, f1, f2, heading, start, end, .06f);
 
@@ -153,7 +152,9 @@ public class AncientZapParticle extends TextureSheetParticle {
 
         for (int i = 0; i < 4; ++i) {
             Vector3f vector3f = avector3f[i];
+//            vector3f.transform(quaternion);
             vector3f.mul(f3);
+            //vector3f.mul(8);
             vector3f.add(f, f1, f2);
         }
 
@@ -204,18 +205,19 @@ public class AncientZapParticle extends TextureSheetParticle {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static class Provider implements ParticleProvider<AncientZapParticleOption> {
+    public static class Provider implements ParticleProvider<PlasmaZapParticleOptions> {
         private final SpriteSet sprite;
 
         public Provider(SpriteSet pSprite) {
             this.sprite = pSprite;
         }
 
-        public Particle createParticle(@NotNull AncientZapParticleOption options, @NotNull ClientLevel pLevel, double pX, double pY, double pZ, double pXSpeed, double pYSpeed, double pZSpeed) {
-            var particle = new AncientZapParticle(pLevel, pX, pY, pZ, pXSpeed, pYSpeed, pZSpeed, options);
+        public Particle createParticle(@NotNull PlasmaZapParticleOptions options, @NotNull ClientLevel pLevel, double pX, double pY, double pZ, double pXSpeed, double pYSpeed, double pZSpeed) {
+            var particle = new PlasmaZapParticle(pLevel, pX, pY, pZ, pXSpeed, pYSpeed, pZSpeed, options);
             particle.pickSprite(this.sprite);
             particle.setAlpha(1.0F);
             return particle;
         }
     }
+
 }
