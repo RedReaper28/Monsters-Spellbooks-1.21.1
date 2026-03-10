@@ -48,8 +48,28 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CORAL_PLANKS.get());
 
         dropSelf(ModBlocks.PEARl_MARBLE.get());
+        dropSelf(ModBlocks.PEARL_MARBLE_STAIRS.get());
+        add(ModBlocks.PEARL_MARBLE_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.PEARL_MARBLE_SLAB.get()));
+        dropSelf(ModBlocks.PEARL_MARBLE_WALL.get());
+
+
+
         dropSelf(ModBlocks.POLISHED_PEARl_MARBLE.get());
+        dropSelf(ModBlocks.POLISHED_PEARL_MARBLE_STAIRS.get());
+        add(ModBlocks.POLISHED_PEARL_MARBLE_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.POLISHED_PEARL_MARBLE_SLAB.get()));
+        dropSelf(ModBlocks.POLISHED_PEARL_MARBLE_WALL.get());
+
+
         dropSelf(ModBlocks.PEARl_MARBLE_TILES.get());
+        dropSelf(ModBlocks.PEARL_MARBLE_TILE_STAIRS.get());
+        add(ModBlocks.PEARL_MARBLE_TILE_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.PEARL_MARBLE_TILE_SLAB.get()));
+        dropSelf(ModBlocks.PEARL_MARBLE_TILE_WALL.get());
+
+
+
         dropSelf(ModBlocks.PEARl_MARBLE_PILLAR.get());
 
 

@@ -110,6 +110,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.VOID_MATTER_ORE.get())
         ;
 
+
+
         tag(BlockTags.LOGS)
                 .add(ModBlocks.CORAL_LOG.get())
         ;
@@ -124,6 +126,18 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.CORAL_BLOCKS)
                 .add(ModBlocks.CORAL_LOG.get())
+        ;
+
+        tag(BlockTags.SLABS)
+                .add(ModBlocks.PEARL_MARBLE_SLAB.get())
+                .add(ModBlocks.POLISHED_PEARL_MARBLE_SLAB.get())
+                .add(ModBlocks.PEARL_MARBLE_TILE_SLAB.get())
+        ;
+
+        tag(BlockTags.WALLS)
+                .add(ModBlocks.PEARL_MARBLE_WALL.get())
+                .add(ModBlocks.POLISHED_PEARL_MARBLE_WALL.get())
+                .add(ModBlocks.PEARL_MARBLE_TILE_WALL.get())
         ;
 
         tag(BlockTags.DRAGON_IMMUNE)

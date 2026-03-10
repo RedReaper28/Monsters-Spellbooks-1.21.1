@@ -34,6 +34,7 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.space_breaker.SpaceBreaker;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.init.ModSounds;
+import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 
 import java.util.List;
 import java.util.Optional;
@@ -121,11 +122,11 @@ public class SpaceBreakerSpell extends AbstractSpell {
                     aoe.setSlownessAmplifier(0);
                     level.addFreshEntity(aoe);
 
-                    ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS,150,3, true, true, true));
-                    ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.STUNNED,150,3, true, true, true));
-                    ((LivingEntity) target).addEffect(new MobEffectInstance(MobEffects.BLINDNESS,150,0, true, true, true));
-                    MagicManager.spawnParticles(level, ParticleHelper.ENDER_SPARKS, target.getX(), target.getY() + target.getBbHeight() * .5f, target.getZ(), 50, target.getBbWidth() * .5f, target.getBbHeight() * .5f, target.getBbWidth() * .5f, .03, false);
-                    MagicManager.spawnParticles(level, ParticleHelper.UNSTABLE_ENDER, target.getX(), target.getY() + target.getBbHeight() * .5f, target.getZ(), 50, target.getBbWidth() * .5f, target.getBbHeight() * .5f, target.getBbWidth() * .5f, .03, false);
+                    ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS,75,1, true, true, true));
+                    ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.STUNNED,75,1, true, true, true));
+                    ((LivingEntity) target).addEffect(new MobEffectInstance(MobEffects.BLINDNESS,75,0, true, true, true));
+                    MagicManager.spawnParticles(level, ModParticleHelper.SPACE_SHARD, target.getX(), target.getY() + target.getBbHeight() * .5f, target.getZ(), 100, target.getBbWidth() * .5f, target.getBbHeight() * .5f, target.getBbWidth() * .5f, 1, false);
+                    MagicManager.spawnParticles(level, ParticleHelper.UNSTABLE_ENDER, target.getX(), target.getY() + target.getBbHeight() * .5f, target.getZ(), 20, target.getBbWidth() * .5f, target.getBbHeight() * .5f, target.getBbWidth() * .5f, 0.3, false);
 
                     for(Entity targetEntity : entities) {
                         if (targetEntity.isAlive() && targetEntity.isPickable() && Utils.hasLineOfSight(entity.level(), smiteLocation.add((double)0.0F, (double)1.0F, (double)0.0F), targetEntity.getBoundingBox().getCenter(), true)) {

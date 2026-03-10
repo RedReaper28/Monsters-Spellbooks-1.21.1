@@ -84,7 +84,24 @@
       "monsterspellbooks:spell_ender_comet_shot"
     ]
   },
-
+  "spell_volt_multishot_cast": {
+    "subtitles": "sounds.monsterspellbooks.spell_volt_multishot_cast",
+    "sounds": [
+      "monsterspellbooks:spell_volt_multishot_cast"
+    ]
+  },
+  "spell_volt_arrow_shot": {
+    "subtitles": "sounds.monsterspellbooks.spell_volt_arrow_shot",
+    "sounds": [
+      "monsterspellbooks:spell_volt_arrow_shot"
+    ]
+  },
+  "spell_volt_arrow_hit": {
+    "subtitles": "sounds.monsterspellbooks.spell_volt_arrow_hit",
+    "sounds": [
+      "monsterspellbooks:spell_volt_arrow_hit"
+    ]
+  },
   "spell_necro_cast": {
   "subtitles": "sounds.monsterspellbooks.spell_necro_cast",
   "sounds": [

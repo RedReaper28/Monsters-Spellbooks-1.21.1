@@ -20,14 +20,24 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.particle.ElectricExplosionParticlesPacket;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 import net.redreaper.monsterspellbooks.particle.SoulExplosionParticlePacket;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.*;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.Optional;
 
-public class WitherBombProjectile extends AbstractMagicProjectile {
+public class WitherBombProjectile extends AbstractMagicProjectile implements GeoEntity {
+    private final AnimatableInstanceCache cache;
+    private final RawAnimation idle;
+
     public WitherBombProjectile(EntityType<? extends Projectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+        this.cache = GeckoLibUtil.createInstanceCache(this);
+        this.idle = RawAnimation.begin().thenLoop("idle");
         this.setNoGravity(true);
     }
 
@@ -88,18 +98,28 @@ public class WitherBombProjectile extends AbstractMagicProjectile {
                 if (distanceSqr < explosionRadiusSqr && canHitEntity(entity) && Utils.hasLineOfSight(level(), losPoint, entity.getBoundingBox().getCenter(), true)) {
                     double p = (1 - distanceSqr / explosionRadiusSqr);
                     float damage = (float) (this.damage * p);
-                    DamageSources.applyDamage(entity, damage, ModSpellRegistry.WITHER_BOMB.get().getDamageSource(this, getOwner()));
-
+                    DamageSources.applyDamage(entity, damage, ModSpellRegistry.RAIGO.get().getDamageSource(this, getOwner()));
                     if (entity instanceof LivingEntity livingEntity && livingEntity != getOwner())
                         livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 180, 0));
                 }
-
-                }
             }
-
             PacketDistributor.sendToPlayersTrackingEntity(this, new SoulExplosionParticlePacket(hitResult.getLocation().subtract(getDeltaMovement().scale(0.5)), getExplosionRadius()));
             playSound(SoundEvents.GENERIC_EXPLODE.value(), 4.0F, (1.0F + (this.level().random.nextFloat() - this.level().random.nextFloat()) * 0.2F) * 0.7F);
             this.discardHelper(hitResult);
         }
+    }
+
+    private PlayState predicate(AnimationState event) {
+        event.getController().setAnimation(this.idle);
+        return PlayState.CONTINUE;
+    }
+
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+        controllerRegistrar.add(new AnimationController(this, "controller", 0, this::predicate));
+    }
+
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
+    }
 }
 

@@ -6,7 +6,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 
@@ -84,12 +83,31 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block>PEARl_MARBLE=registerBlock("pearl_marble",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE)));
+    public static final DeferredBlock <StairBlock>PEARL_MARBLE_STAIRS=registerBlock("pearl_marble_stairs",
+            () -> new StairBlock(ModBlocks.PEARl_MARBLE.get().defaultBlockState(),BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE)));
+    public static final DeferredBlock <SlabBlock>PEARL_MARBLE_SLAB=registerBlock("pearl_marble_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE)));
+    public static final DeferredBlock <WallBlock> PEARL_MARBLE_WALL =registerBlock("pearl_marble_wall",
+            () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE)));
     public static final DeferredBlock<Block>POLISHED_PEARl_MARBLE=registerBlock("polished_pearl_marble",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS)));
+    public static final DeferredBlock <StairBlock>POLISHED_PEARL_MARBLE_STAIRS=registerBlock("polished_pearl_marble_stairs",
+            () -> new StairBlock(ModBlocks.POLISHED_PEARl_MARBLE.get().defaultBlockState(),BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS)));
+    public static final DeferredBlock <SlabBlock>POLISHED_PEARL_MARBLE_SLAB=registerBlock("polished_pearl_marble_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS)));
+    public static final DeferredBlock <WallBlock> POLISHED_PEARL_MARBLE_WALL =registerBlock("polished_pearl_marble_wall",
+            () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS)));
     public static final DeferredBlock<Block>PEARl_MARBLE_TILES=registerBlock("pearl_marble_tiles",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS)));
+    public static final DeferredBlock <StairBlock>PEARL_MARBLE_TILE_STAIRS=registerBlock("pearl_marble_tile_stairs",
+            () -> new StairBlock(ModBlocks.PEARl_MARBLE_TILES.get().defaultBlockState(),BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE)));
+    public static final DeferredBlock <SlabBlock>PEARL_MARBLE_TILE_SLAB=registerBlock("pearl_marble_tile_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE)));
+    public static final DeferredBlock <WallBlock> PEARL_MARBLE_TILE_WALL =registerBlock("pearl_marble_tile_wall",
+            () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE)));
     public static final DeferredBlock<Block>PEARl_MARBLE_PILLAR=registerBlock("pearl_marble_pillar",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE)));
+
 
 
     public static final DeferredBlock<Block>VILESTONE=registerBlock("vilestone",

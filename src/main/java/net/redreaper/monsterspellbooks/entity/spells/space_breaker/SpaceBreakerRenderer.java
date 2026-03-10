@@ -22,8 +22,7 @@ public class SpaceBreakerRenderer extends EntityRenderer<SpaceBreaker> {
             MonstersSpellbooks.id("textures/entity/space_breaker/space_breaker_1.png"),
             MonstersSpellbooks.id("textures/entity/space_breaker/space_breaker_2.png"),
             MonstersSpellbooks.id("textures/entity/space_breaker/space_breaker_3.png"),
-            MonstersSpellbooks.id("textures/entity/space_breaker/space_breaker_4.png"),
-            MonstersSpellbooks.id("textures/entity/space_breaker/space_breaker_5.png")
+            MonstersSpellbooks.id("textures/entity/space_breaker/space_breaker_4.png")
     };
     public SpaceBreakerRenderer(EntityRendererProvider.Context context) {
         super(context);

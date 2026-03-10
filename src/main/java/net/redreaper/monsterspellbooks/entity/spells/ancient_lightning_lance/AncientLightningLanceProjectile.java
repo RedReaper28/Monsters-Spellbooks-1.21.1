@@ -58,7 +58,6 @@ public class AncientLightningLanceProjectile extends AbstractMagicProjectile {
     @Override
     protected void onHit(HitResult hitresult) {
         super.onHit(hitresult);
-        createFireField(hitresult.getLocation());
         float explosionRadius = getExplosionRadius();
         var entities = level().getEntities(this, this.getBoundingBox().inflate(explosionRadius));
         for (Entity entity : entities) {
@@ -72,19 +71,6 @@ public class AncientLightningLanceProjectile extends AbstractMagicProjectile {
             }
         }
         this.discardHelper(hitresult);
-    }
-
-    public void createFireField(Vec3 location) {
-        if (!level().isClientSide) {
-            StaticField fire = new StaticField(level());
-            fire.setOwner(getOwner());
-            fire.setDuration(200);
-            fire.setDamage(aoeDamage);
-            fire.setRadius(getExplosionRadius());
-            fire.setCircular();
-            fire.moveTo(location);
-            level().addFreshEntity(fire);
-        }
     }
 
     float aoeDamage;

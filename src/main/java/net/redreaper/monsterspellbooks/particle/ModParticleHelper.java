@@ -15,5 +15,6 @@ public class ModParticleHelper {
     public static final ParticleOptions SOUL_SMOKE = ModParticleTypes.SOUL_SMOKE.get();
     public static final ParticleOptions ENDER_SMOKE = ModParticleTypes.ENDER_SMOKE.get();
     public static final ParticleOptions BONE_FRAGMENTS = ModParticleTypes.BONE_FRAGMENTS.get();
+    public static final ParticleOptions SPACE_SHARD = ModParticleTypes.SPACE_SHARD.get();
 
 }

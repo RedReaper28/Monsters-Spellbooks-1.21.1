@@ -3,7 +3,9 @@ package net.redreaper.monsterspellbooks.render;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.entity.mobs.abstract_spell_casting_mob.AbstractSpellCastingMob;
+import io.redspace.ironsspellbooks.entity.spells.magic_arrow.MagicArrowRenderer;
 import io.redspace.ironsspellbooks.player.ClientMagicData;
 import io.redspace.ironsspellbooks.util.DefaultBipedBoneIdents;
 import net.minecraft.client.model.HumanoidModel;
@@ -14,6 +16,7 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_lightning_lance.AncientLightningLanceRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.voltaic_multishot.VoltArrowRenderer;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
@@ -47,7 +50,12 @@ private static <T extends LivingEntity> void handleRender(PoseStack poseStack, M
         poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
         AncientLightningLanceRenderer.renderModel(poseStack, bufferSource, entity.tickCount);
     }
-
+    else if (spellId.equals(ModSpellRegistry.VOLTAIC_MULTISHOT.get().getSpellId())) {
+        poseStack.translate(((float) (offhand ? -1 : 1) / 32.0F), .5, 0);
+        poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
+        poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+        VoltArrowRenderer.renderModel(poseStack, bufferSource);
+    }
 }
 
 public static class Geo extends GeoRenderLayer<AbstractSpellCastingMob> {

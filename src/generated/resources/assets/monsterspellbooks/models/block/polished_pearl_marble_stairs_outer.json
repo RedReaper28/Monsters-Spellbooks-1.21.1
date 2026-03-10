@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "monsterspellbooks:block/polished_pearl_marble",
+    "side": "monsterspellbooks:block/polished_pearl_marble",
+    "top": "monsterspellbooks:block/polished_pearl_marble"
+  }
+}

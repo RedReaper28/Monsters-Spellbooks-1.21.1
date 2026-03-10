@@ -55,6 +55,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> CRUSHING_PRESENCE = registerSpell(new CrushingPresenceSpell());
     public static final Supplier<AbstractSpell> DRAGON_CHARGE = registerSpell(new DragonChargeSpell());
     public static final Supplier<AbstractSpell> ENDERSENT_SMASH = registerSpell(new EndersentSmashSpell());
+    public static final Supplier<AbstractSpell> FIRMAMENT_SPLITTER = registerSpell(new FirmamentSplitterSpell());
     public static final Supplier<AbstractSpell> GRAVITY_FORCE = registerSpell(new GravityForceSpell());
     public static final Supplier<AbstractSpell> GRAVITY_WELL = registerSpell(new GravityWellSpell());
     public static final Supplier<AbstractSpell> SPACE_BREAKER = registerSpell(new SpaceBreakerSpell());
@@ -94,6 +95,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> STATIC_CLEAVE = registerSpell(new StaticCleaveSpell());
     public static final Supplier<AbstractSpell> THUNDER_STEP = registerSpell(new ThunderStepSpell());
     public static final Supplier<AbstractSpell> THUNDERSTORM_WAVE = registerSpell(new ThunderstormWaveSpell());
+    public static final Supplier<AbstractSpell> VOLTAIC_MULTISHOT = registerSpell(new VoltaicMultishotSpell());
 
     //NATURE
     public static final Supplier<AbstractSpell> BEAST_HOWL = registerSpell(new BeastHowlSpell());

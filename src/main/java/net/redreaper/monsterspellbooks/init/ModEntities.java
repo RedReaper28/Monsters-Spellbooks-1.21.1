@@ -1,8 +1,10 @@
 package net.redreaper.monsterspellbooks.init;
 
 import io.redspace.ironsspellbooks.IronsSpellbooks;
+import io.redspace.ironsspellbooks.entity.mobs.necromancer.NecromancerEntity;
 import io.redspace.ironsspellbooks.entity.spells.comet.Comet;
 import io.redspace.ironsspellbooks.entity.spells.devour_jaw.DevourJaw;
+import io.redspace.ironsspellbooks.entity.spells.fire_arrow.FireArrowProjectile;
 import io.redspace.ironsspellbooks.entity.spells.fireball.MagicFireball;
 import io.redspace.ironsspellbooks.entity.spells.fireball.SmallMagicFireball;
 import io.redspace.ironsspellbooks.entity.spells.firebolt.FireboltProjectile;
@@ -57,6 +59,7 @@ import net.redreaper.monsterspellbooks.entity.spells.steam_stream.SteamStreamPro
 import net.redreaper.monsterspellbooks.entity.spells.stray_grasp.StrayGraspProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.thunderstorm_wave.AncientLightningStrike;
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.voltaic_multishot.VoltArrowProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.wither_bomb.WitherBombProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.wither_nova.WitherNovaVisualEntity;
 
@@ -67,6 +70,12 @@ import static net.minecraft.core.registries.Registries.ENTITY_TYPE;
 public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<VoltArrowProjectile>> VOLT_ARROW_PROJECTILE =
+            ENTITIES.register("volt_arrow", () -> EntityType.Builder.<VoltArrowProjectile>of(VoltArrowProjectile::new, MobCategory.MISC)
+                    .sized(.8f, .8f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(IronsSpellbooks.MODID, "volt_arrow").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<ElthorBeamEntity>> ELTHOR_BEAM =
             ENTITIES.register("elthor_beam", () -> EntityType.Builder.<ElthorBeamEntity>of(ElthorBeamEntity::new, MobCategory.MISC)
@@ -339,6 +348,12 @@ public class ModEntities {
                             ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "drippler").toString()
                     ));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<SprigganEntity>> SPRIGGAN =
+            ENTITIES.register("spriggan", () -> EntityType.Builder.of(SprigganEntity::new, MobCategory.MONSTER)
+                    .sized(.6f, 2.75f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "spriggan").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<SoulWizardEntity>> SOUL_WIZARD =
             ENTITIES.register("soul_wizard", () -> EntityType.Builder.<SoulWizardEntity>of
                             (SoulWizardEntity::new, MobCategory.MONSTER).
@@ -353,6 +368,14 @@ public class ModEntities {
                     sized(.6f, 2.5f)
                     .build(
                             ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "jungle_whisperer").toString()
+                    ));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<MagmaAtronachEntity>> MAGMA_ATRONACH =
+            ENTITIES.register("magma_atronach", () -> EntityType.Builder.<MagmaAtronachEntity>of
+                            (MagmaAtronachEntity::new, MobCategory.MONSTER).
+                    sized(1f, 4)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "magma_atronach").toString()
                     ));
 
     public static final DeferredHolder<EntityType<?>, EntityType<BlastlingEntity>> BLASTLING =

@@ -59,6 +59,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.DWARVEN_AXE.get())
                 .add(ModItems.PRISMARINE_AXE.get())
                 .add(ModItems.SANGUINITE_AXE.get())
+                .add(ModItems.GORE_CHILD.get())
         ;
         tag(ItemTags.SHOVELS)
                 .add(ModItems.WHITE_GOLD_SHOVEL.get())

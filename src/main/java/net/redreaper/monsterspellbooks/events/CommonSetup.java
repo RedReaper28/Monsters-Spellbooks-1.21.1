@@ -17,13 +17,15 @@ import net.redreaper.monsterspellbooks.init.ModEntities;
 public class CommonSetup {
     @SubscribeEvent
     public static void onAttributeCreateEvent(EntityAttributeCreationEvent event) {
-        event.put(ModEntities.VILE_SKELETON.get(), VileSkeletonEntity.createAttributes().build());
         event.put(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereEntity.createAttributes().build());
         event.put(ModEntities.DWARVEN_SLICER.get(), DwarvenSlicerEntity.createAttributes().build());
         event.put(ModEntities.SHOCK.get(), ShockEntity.createAttributes().build());
         event.put(ModEntities.AEGIS.get(), AegisEntity.createAttributes().build());
         event.put(ModEntities.DRIPPLER.get(), DripplerEntity.createAttributes().build());
+        event.put(ModEntities.SPRIGGAN.get(), SprigganEntity.createAttributes().build());
         event.put(ModEntities.JUNGLE_WHISPERER.get(), JungleWhispererEntity.createAttributes().build());
+        event.put(ModEntities.VILE_SKELETON.get(), VileSkeletonEntity.createAttributes().build());
+        event.put(ModEntities.MAGMA_ATRONACH.get(), MagmaAtronachEntity.createAttributes().build());
         event.put(ModEntities.BLASTLING.get(), BlastlingEntity.createAttributes().build());
         event.put(ModEntities.POISON_QUILL_VINE.get(), PoisonQuillVineEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_AEGIS.get(), SummonedAegisEntity.createAttributes().build());
@@ -40,7 +42,11 @@ public class CommonSetup {
                 (type, serverLevelAccessor, spawnType, blockPos, random) -> Utils.checkMonsterSpawnRules(serverLevelAccessor, spawnType, blockPos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(ModEntities.DWARVEN_SPHERE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(ModEntities.SPRIGGAN.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                (type, serverLevelAccessor, spawnType, blockPos, random) -> Utils.checkMonsterSpawnRules(serverLevelAccessor, spawnType, blockPos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(ModEntities.JUNGLE_WHISPERER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                (type, serverLevelAccessor, spawnType, blockPos, random) -> Utils.checkMonsterSpawnRules(serverLevelAccessor, spawnType, blockPos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(ModEntities.MAGMA_ATRONACH.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (type, serverLevelAccessor, spawnType, blockPos, random) -> Utils.checkMonsterSpawnRules(serverLevelAccessor, spawnType, blockPos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(ModEntities.VILE_SKELETON.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);

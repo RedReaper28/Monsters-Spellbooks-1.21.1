@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "monsterspellbooks:block/polished_pearl_marble_slab"
+    },
+    "type=double": {
+      "model": "monsterspellbooks:block/polished_pearl_marble"
+    },
+    "type=top": {
+      "model": "monsterspellbooks:block/polished_pearl_marble_slab_top"
+    }
+  }
+}

@@ -93,7 +93,7 @@ public class PlasmaBolt extends AbstractMagicProjectile implements GeoEntity {
 
     @Override
     public Optional<Holder<SoundEvent>> getImpactSound() {
-        return Optional.of(SoundRegistry.FIRE_IMPACT);
+        return Optional.of(SoundRegistry.CHAIN_LIGHTNING_CHAIN);
     }
 
     @Override

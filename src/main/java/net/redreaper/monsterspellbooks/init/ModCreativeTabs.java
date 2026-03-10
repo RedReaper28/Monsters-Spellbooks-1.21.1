@@ -58,6 +58,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.PALLADIN_HAMMER.get());
                         output.accept(ModItems.FROSTMOURNE.get());
                         output.accept(ModItems.MAGMATIC_MACUAHUITL.get());
+                        output.accept(ModItems.GORE_CHILD.get());
                         output.accept(ModItems.STARLESS_NIGHT.get());
                         output.accept(ModItems.STARSCOURGE_SWORD.get());
                         output.accept(ModItems.DISRUPTION_NAGINATA.get());
@@ -67,6 +68,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.WITHERWARD_RING.get());
                         output.accept(ModItems.CRITICAL_GLASSES.get());
                         output.accept(ModItems.IGNITION_GLOVE.get());
+                        output.accept(ModItems.THUNDERING_QUIVER.get());
                         output.accept(ModItems.BRIMSTONE_SIGIL.get());
                         output.accept(ModItems.DREADHOUND_TOOTH_NECKLACE.get());
                         output.accept(ModItems.DWARVEN_POWER_CORE.get());
@@ -173,11 +175,13 @@ public class ModCreativeTabs {
                         output.accept(ModItems.ROSE_GOLD_APPLE);
                         output.accept(ModItems.AEGIS_SPAWN_EGG.get());
                         output.accept(ModItems.DRIPPLER_SPAWN_EGG.get());
+                        output.accept(ModItems.SPRIGGAN_SPAWN_EGG.get());
                         output.accept(ModItems.DWARVEN_SPHERE_SPAWN_EGG.get());
                         output.accept(ModItems.DWARVEN_SLICER_SPAWN_EGG.get());
                         output.accept(ModItems.JUNGLE_WHISPERER_SPAWN_EGG.get());
                         output.accept(ModItems.SHOCK_SPAWN_EGG.get());
                         output.accept(ModItems.VILE_SKELETON_SPAWN_EGG.get());
+                        output.accept(ModItems.MAGMA_ATRONACH_SPAWN_EGG.get());
                         output.accept(ModItems.BLASTLING_SPAWN_EGG.get());
 
 
@@ -224,8 +228,19 @@ public class ModCreativeTabs {
 
 
                         output.accept(ModBlocks.PEARl_MARBLE);
+                        output.accept(ModBlocks.PEARL_MARBLE_STAIRS);
+                        output.accept(ModBlocks.PEARL_MARBLE_SLAB);
+                        output.accept(ModBlocks.PEARL_MARBLE_WALL);
                         output.accept(ModBlocks.POLISHED_PEARl_MARBLE);
+                        output.accept(ModBlocks.POLISHED_PEARL_MARBLE_STAIRS);
+                        output.accept(ModBlocks.POLISHED_PEARL_MARBLE_SLAB);
+                        output.accept(ModBlocks.POLISHED_PEARL_MARBLE_WALL);
                         output.accept(ModBlocks.PEARl_MARBLE_TILES);
+
+                        output.accept(ModBlocks.PEARL_MARBLE_TILE_STAIRS);
+                        output.accept(ModBlocks.PEARL_MARBLE_TILE_SLAB);
+                        output.accept(ModBlocks.PEARL_MARBLE_TILE_WALL);
+
                         output.accept(ModBlocks.PEARl_MARBLE_PILLAR);
 
                         output.accept(ModBlocks.VILESTONE);

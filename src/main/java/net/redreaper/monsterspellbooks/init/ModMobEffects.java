@@ -19,7 +19,7 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> OVERHEAT = MOB_EFFECT_DEFERRED_REGISTER.register("overheat", () -> new OverheatMobEffect(MobEffectCategory.BENEFICIAL, 16736559)
             .addAttributeModifier(Attributes.ATTACK_DAMAGE, MonstersSpellbooks.id("mobeffect_overheat"), OverheatMobEffect.ATTACK_DAMAGE_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
             .addAttributeModifier(AttributeRegistry.FIRE_SPELL_POWER, MonstersSpellbooks.id("mobeffect_overheat"), OverheatMobEffect.FIRE_SPELL_POWER_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
-    public static final DeferredHolder<MobEffect, MobEffect> BLOODLUST = MOB_EFFECT_DEFERRED_REGISTER.register("bloodlust", () -> new OverheatMobEffect(MobEffectCategory.BENEFICIAL, 4325376)
+    public static final DeferredHolder<MobEffect, MobEffect> BLOODLUST = MOB_EFFECT_DEFERRED_REGISTER.register("bloodlust", () -> new BloodLustMobEffect(MobEffectCategory.BENEFICIAL, 4325376)
             .addAttributeModifier(Attributes.ATTACK_DAMAGE, MonstersSpellbooks.id("mobeffect_bloodlust"), BloodLustMobEffect.ATTACK_DAMAGE_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
             .addAttributeModifier(Attributes.ATTACK_SPEED, MonstersSpellbooks.id("mobeffect_bloodlust"), BloodLustMobEffect.ATTACK_SPEED_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
             .addAttributeModifier(Attributes.ATTACK_SPEED, MonstersSpellbooks.id("mobeffect_bloodlust"), BloodLustMobEffect.SPEED_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));

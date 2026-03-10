@@ -27,6 +27,10 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
     public static ModExtendedWeaponTiers MAGMATIC_OBSIDIAN = new ModExtendedWeaponTiers(750, 9F, -2.8F, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(Items.BLAZE_POWDER),
             new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
+    public static ModExtendedWeaponTiers BLOOD_STAINED_GOLD = new ModExtendedWeaponTiers(2000, 15, -3, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ItemRegistry.BLOOD_VIAL.get()),
+            new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 2, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
     public static ModExtendedWeaponTiers VOID_OBSIDIAN = new ModExtendedWeaponTiers(2000, 14F, -2.8F, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
             new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
@@ -34,6 +38,7 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 2, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(Attributes.KNOCKBACK_RESISTANCE, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
 
     public static ModExtendedWeaponTiers HALLOWED_STEEL = new ModExtendedWeaponTiers(2000, 11F, -3.0F, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ItemRegistry.DIVINE_PEARL.get()),
             new AttributeContainer(AttributeRegistry.HOLY_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),

@@ -28,6 +28,7 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier>ADD_GRAVISTONE=registerKey("add_gravistone");
 
     public static final ResourceKey<BiomeModifier>SPAWN_DRIPPLER=registerKey("spawn_drippler");
+    public static final ResourceKey<BiomeModifier>SPAWN_SPRIGGAN=registerKey("spawn_spriggan");
     public static final ResourceKey<BiomeModifier>SPAWN_DWARVEN_SPHERE=registerKey("spawn_dwarven_sphere");
     public static final ResourceKey<BiomeModifier>SPAWN_JUNGLE_WHISPERER =registerKey("spawn_jungle_whisperer");
     public static final ResourceKey<BiomeModifier>SPAWN_VILE_SKELETON=registerKey("spawn_vile_skeleton");
@@ -75,6 +76,10 @@ public class ModBiomeModifiers {
         context.register(SPAWN_DRIPPLER, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                 List.of(new MobSpawnSettings.SpawnerData(ModEntities.DRIPPLER.get(),10,1,2))));
+
+        context.register(SPAWN_SPRIGGAN, new BiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_FOREST),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.SPRIGGAN.get(),10,1,1))));
 
         context.register(SPAWN_DWARVEN_SPHERE, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_MOUNTAIN),

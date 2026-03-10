@@ -92,22 +92,14 @@ public class SoulChainParticle extends TextureSheetParticle {
         Vector3f d = new Vector3f(end.x() - start.x(), end.y() - start.y(), end.z() - start.z());
         d.normalize();
         Vec2 heading = new Vec2((float) Math.asin(-d.y()), (float) -Mth.atan2(d.x(), d.z()));
-        //quaternion.mul(Vector3f.XP.rotation((float) Math.asin(-d.y())));
-        //quaternion.mul(Vector3f.YP.rotation((float) Mth.atan2(d.x(), d.z())));
         setRGBA(1, 1, 1, 1);
         tube(consumer, partialTick, f, f1, f2, heading, start, end, .06f);
 
-        setRGBA(.25f, .7f, 1, .3f);
+        setRGBA(1, 1, 1, .3f);
         tube(consumer, partialTick, f, f1, f2, heading, start, end, .11f);
 
-        setRGBA(.25f, .7f, 1, .15f);
+        setRGBA(1, 1, 1, .15f);
         tube(consumer, partialTick, f, f1, f2, heading, start, end, .25f);
-
-        if (randomSource.nextFloat() < chanceToBranch) {
-            Vector3f branch = randomVector3f(randomSource, .5f);
-            branch.add(end); // branch relative to end position
-            drawLightningBeam(consumer, partialTick, f, f1, f2, start, branch, chanceToBranch * .5f, randomSource);
-        }
     }
 
     private void tube(VertexConsumer consumer, float partialTick, float f, float f1, float f2, Vec2 heading, Vector3f start, Vector3f end, float width) {

@@ -16,7 +16,7 @@ public class SpaceBreaker extends AoeEntity {
         super(pEntityType, pLevel);
     }
 
-    public final int ticksPerFrame = 2;
+    public final int ticksPerFrame = 3;
     public final int deathTime = ticksPerFrame * 4;
 
     public SpaceBreaker(Level level, boolean mirrored)

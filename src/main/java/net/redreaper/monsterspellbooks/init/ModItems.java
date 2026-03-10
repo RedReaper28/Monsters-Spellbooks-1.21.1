@@ -14,6 +14,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.item.armor.*;
+import net.redreaper.monsterspellbooks.item.curios.back.ThunderingQuiverItem;
 import net.redreaper.monsterspellbooks.item.curios.elemental_charm.*;
 import net.redreaper.monsterspellbooks.item.curios.hands.IgnitionGloveItem;
 import net.redreaper.monsterspellbooks.item.curios.head.CriticalSorcererGlassesItem;
@@ -29,6 +30,7 @@ import net.redreaper.monsterspellbooks.item.weapons.claws_of_calamity.ClawsOfCal
 import net.redreaper.monsterspellbooks.item.weapons.crescent_blood_rose.CrescentBloodRoseItem;
 import net.redreaper.monsterspellbooks.item.weapons.disruption_nanginata.DisruptionNaginataItem;
 import net.redreaper.monsterspellbooks.item.weapons.endersent_crusher.EndersentCrusherItem;
+import net.redreaper.monsterspellbooks.item.weapons.gore_child.GoreChildItem;
 import net.redreaper.monsterspellbooks.item.weapons.magic_axe.ExtendedAxeItem;
 import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlItem;
 import net.redreaper.monsterspellbooks.item.weapons.paadin_hammer.PaladinHammerItem;
@@ -212,6 +214,8 @@ public class ModItems {
             Frostmourne::new);
     public static final DeferredItem<Item> MAGMATIC_MACUAHUITL = ITEMS.register("magmatic_macuahuitl",
             MagmaticMacuahuitlItem::new);
+    public static final DeferredItem<Item> GORE_CHILD = ITEMS.register("gore_child",
+            GoreChildItem::new);
     public static final DeferredItem<Item>STARLESS_NIGHT = ITEMS.register("starless_night",
             StarlessNight::new);
     public static final DeferredItem<Item>STARSCOURGE_SWORD = ITEMS.register("starscourge_sword",
@@ -239,6 +243,8 @@ public class ModItems {
             CriticalSorcererGlassesItem::new);
     public static final Supplier<CurioBaseItem>IGNITION_GLOVE = ITEMS.register("ignition_gloves",
             IgnitionGloveItem::new);
+    public static final Supplier<CurioBaseItem>THUNDERING_QUIVER = ITEMS.register("thundering_quiver",
+            ThunderingQuiverItem::new);
     public static final Supplier<CurioBaseItem>BRIMSTONE_SIGIL = ITEMS.register("brimstone_sigil",
             BrimstoneSigilItem::new);
     public static final Supplier<CurioBaseItem>DREADHOUND_TOOTH_NECKLACE = ITEMS.register("dreadhound_tooth_necklace",
@@ -327,8 +333,10 @@ public class ModItems {
     public static final Supplier<DeferredSpawnEggItem> DWARVEN_SPHERE_SPAWN_EGG = ITEMS.register("dwarven_sphere_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DWARVEN_SPHERE, 10050109, 16501864, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DWARVEN_SLICER_SPAWN_EGG = ITEMS.register("dwarven_slicer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DWARVEN_SLICER, 10050109, 16501864, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> JUNGLE_WHISPERER_SPAWN_EGG = ITEMS.register("jungle_whisperer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.JUNGLE_WHISPERER, 6323765, 8601546, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> SPRIGGAN_SPAWN_EGG = ITEMS.register("spriggan_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.SPRIGGAN, 3746340, 11992832, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> SHOCK_SPAWN_EGG = ITEMS.register("shock_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.SHOCK, 3873928, 11393785, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> VILE_SKELETON_SPAWN_EGG = ITEMS.register("vile_skeleton_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.VILE_SKELETON, 725001, 3622442, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> MAGMA_ATRONACH_SPAWN_EGG = ITEMS.register("magma_atronach_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.MAGMA_ATRONACH, 1380882, 16734238, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> BLASTLING_SPAWN_EGG = ITEMS.register("blastling_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.BLASTLING, 0, 15077593, ItemPropertiesHelper.material().stacksTo(64)));
 
     public static final DeferredHolder<Item, Item> NECRO_UPGRADE_ORB = ITEMS.register("necro_upgrade_orb", () ->

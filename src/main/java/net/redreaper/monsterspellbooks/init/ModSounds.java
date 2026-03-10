@@ -28,9 +28,12 @@ public class ModSounds {
     public static final Supplier<SoundEvent>WHISPERER_SUMMON_START =registerSoundEvent("spell_whisperer_summon_start");
     public static final Supplier<SoundEvent>ENDER_COMET_CAST =registerSoundEvent("spell_ender_comet_cast");
     public static final Supplier<SoundEvent>ENDER_COMET_SHOT =registerSoundEvent("spell_ender_comet_shot");
+    public static final Supplier<SoundEvent>VOLT_MULTISHOT_CAST =registerSoundEvent("spell_volt_multishot_cast");
 
     public static DeferredHolder<SoundEvent,SoundEvent>BRIMSTONE_BUZZSAW_SHOT =registerSoundEvent("spell_brimstone_sawblade_shot");
     public static DeferredHolder<SoundEvent,SoundEvent>BRIMSTONE_BUZZSAW_HIT =registerSoundEvent("spell_brimstone_sawblade_hit");
+    public static DeferredHolder<SoundEvent,SoundEvent>VOLT_ARROW_SHOT =registerSoundEvent("spell_volt_arrow_shot");
+    public static DeferredHolder<SoundEvent,SoundEvent>VOLT_ARROW_HIT =registerSoundEvent("spell_volt_arrow_hit");
     public static DeferredHolder<SoundEvent,SoundEvent> NECRO_CAST = registerSoundEvent("spell_necro_cast");
 
     public static final Supplier<SoundEvent>WHISPERER_AMBIENT =registerSoundEvent("whisperer_ambient");

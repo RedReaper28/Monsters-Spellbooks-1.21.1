@@ -76,14 +76,7 @@ public class GuardiansNeutralizerSpell extends AbstractSpell {
     }
 
     @Override
-    public Optional<SoundEvent> getCastStartSound() {
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<SoundEvent> getCastFinishSound() {
-        return Optional.of(ModSounds.GUARDIAN_LASER.get());
-    }
+    public Optional<SoundEvent> getCastStartSound() {return Optional.of(ModSounds.GUARDIAN_LASER.get());}
 
     @Override
     public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
