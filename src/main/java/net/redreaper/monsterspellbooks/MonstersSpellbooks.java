@@ -88,6 +88,8 @@ public class MonstersSpellbooks {
             AzItemRendererRegistry.register(GoreChildRenderer::new, ModItems.GORE_CHILD.get());
             AzItemRendererRegistry.register(DisruptionNaginataRenderer::new, ModItems.DISRUPTION_NAGINATA.get());
 
+            ModItemProperties.addCustomItemProperties();
+
         }
     }
 }

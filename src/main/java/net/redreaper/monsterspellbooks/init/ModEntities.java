@@ -1,14 +1,6 @@
 package net.redreaper.monsterspellbooks.init;
 
 import io.redspace.ironsspellbooks.IronsSpellbooks;
-import io.redspace.ironsspellbooks.entity.mobs.necromancer.NecromancerEntity;
-import io.redspace.ironsspellbooks.entity.spells.comet.Comet;
-import io.redspace.ironsspellbooks.entity.spells.devour_jaw.DevourJaw;
-import io.redspace.ironsspellbooks.entity.spells.fire_arrow.FireArrowProjectile;
-import io.redspace.ironsspellbooks.entity.spells.fireball.MagicFireball;
-import io.redspace.ironsspellbooks.entity.spells.fireball.SmallMagicFireball;
-import io.redspace.ironsspellbooks.entity.spells.firebolt.FireboltProjectile;
-import io.redspace.ironsspellbooks.entity.spells.sunbeam.SunbeamEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -37,6 +29,7 @@ import net.redreaper.monsterspellbooks.entity.spells.graveyard_fissure.Graveyard
 import net.redreaper.monsterspellbooks.entity.spells.guardians_neutralizer.GuardiansNeutralizerVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.hallow_slash.HallowSlashProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSword;
+import net.redreaper.monsterspellbooks.entity.spells.infection_slash.InfectionSlashProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.life_drain.LifeDrainProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrb;
 import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerProjectile;
@@ -259,6 +252,12 @@ public class ModEntities {
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "vile_slash").toString()));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<InfectionSlashProjectile>> INFECTION_SLASH_PROJECTILE =
+            ENTITIES.register("infection_slash", () -> EntityType.Builder.<InfectionSlashProjectile>of(InfectionSlashProjectile::new, MobCategory.MISC)
+                    .sized(2f, 2f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "infection_slash").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<HallowSlashProjectile>>HALLOW_SLASH_PROJECTILE =
             ENTITIES.register("hallow_slash", () -> EntityType.Builder.<HallowSlashProjectile>of(HallowSlashProjectile::new, MobCategory.MISC)
                     .sized(2.5f, 1f)
@@ -353,6 +352,18 @@ public class ModEntities {
                     .sized(.6f, 2.75f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "spriggan").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<DraugrVindicatorEntity>> DRAUGR_VINDICATOR=
+            ENTITIES.register("draugr_vindicator", () -> EntityType.Builder.of(DraugrVindicatorEntity::new, MobCategory.MONSTER)
+                    .sized(.6f, 2f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "draugr_vindicator").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<DraugrPillagerEntity>> DRAUGR_PILLAGER=
+            ENTITIES.register("draugr_pillager", () -> EntityType.Builder.of(DraugrPillagerEntity::new, MobCategory.MONSTER)
+                    .sized(.6f, 2f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "draugr_pillager").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<SoulWizardEntity>> SOUL_WIZARD =
             ENTITIES.register("soul_wizard", () -> EntityType.Builder.<SoulWizardEntity>of

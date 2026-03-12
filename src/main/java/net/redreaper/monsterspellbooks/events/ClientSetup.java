@@ -1,7 +1,9 @@
 package net.redreaper.monsterspellbooks.events;
 
 import io.redspace.ironsspellbooks.entity.mobs.necromancer.NecromancerRenderer;
+import io.redspace.ironsspellbooks.entity.mobs.wizards.archevoker.ArchevokerRenderer;
 import io.redspace.ironsspellbooks.fluids.SimpleClientFluidType;
+import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import io.redspace.ironsspellbooks.render.*;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
@@ -22,6 +24,8 @@ import net.redreaper.monsterspellbooks.entity.model.Blastling.BlastlingModel;
 import net.redreaper.monsterspellbooks.entity.model.Blastling.BlastlingRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DeathKnight.DeathKnightModel;
 import net.redreaper.monsterspellbooks.entity.model.DeathKnight.DeathKnightRenderer;
+import net.redreaper.monsterspellbooks.entity.model.DraugrPillagerEntity.DraugrPillagerRenderer;
+import net.redreaper.monsterspellbooks.entity.model.DraugrVindicatorEntity.DraugrVindicatorRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DripplerEntity.DripplerEntityModel;
 import net.redreaper.monsterspellbooks.entity.model.DripplerEntity.DripplerEntityRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DwarvenSlicer.DwarvenSlicerRenderer;
@@ -55,6 +59,7 @@ import net.redreaper.monsterspellbooks.entity.spells.graveyard_fissure.Graveyard
 import net.redreaper.monsterspellbooks.entity.spells.guardians_neutralizer.GuardiansNeutralizerRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.hallow_slash.HallowSlashRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSwordRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.infection_slash.InfectionSlashRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrbRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.plasma_barrage.PlasmaBoltRenderer;
@@ -115,6 +120,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.ANCIENT_LIGHTNING_LANCE_PROJECTILE.get(), AncientLightningLanceRenderer::new);
         event.registerEntityRenderer(ModEntities.RAIGO.get(), RaigoRenderer::new);
         event.registerEntityRenderer(ModEntities.PLASMA_BOLT.get(), PlasmaBoltRenderer::new);
+        event.registerEntityRenderer(ModEntities.INFECTION_SLASH_PROJECTILE.get(), InfectionSlashRenderer::new);
         event.registerEntityRenderer(ModEntities.BLOOD_THORN.get(), BloodThornRenderer::new);
         event.registerEntityRenderer(ModEntities.SOUL_CHAIN.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.ANCIENT_LIGHTNING_STRIKE.get(), NoopRenderer::new);
@@ -140,6 +146,8 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.DRIPPLER.get(), context -> {return new DripplerEntityRenderer(context, new DripplerEntityModel());});
         event.registerEntityRenderer(ModEntities.SPRIGGAN.get(), SprigganRenderer::new);
         event.registerEntityRenderer(ModEntities.JUNGLE_WHISPERER.get(), context -> {return new JungleWhispererRenderer(context, new JungleWhispererModel());});
+        event.registerEntityRenderer(ModEntities.DRAUGR_VINDICATOR.get(), DraugrVindicatorRenderer::new);
+        event.registerEntityRenderer(ModEntities.DRAUGR_PILLAGER.get(), DraugrPillagerRenderer::new);
         event.registerEntityRenderer(ModEntities.MAGMA_ATRONACH.get(), context -> {return new MagmaAtronachRenderer(context, new MagmaAtronachModel());});
         event.registerEntityRenderer(ModEntities.BLASTLING.get(), context -> {return new BlastlingRenderer(context, new BlastlingModel());});
 
@@ -148,7 +156,6 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.SUMMONED_AEGIS.get(), context -> {return new AegisEntityRenderer(context, new AegisEntityModel());});
         event.registerEntityRenderer(ModEntities.SOUL_WIZARD.get(), context -> {return new SoulWizardRenderer(context, new SoulWizardModel());});
         event.registerEntityRenderer(ModEntities.POISON_QUILL_VINE.get(), context -> {return new PoisonQuillVineRenderer(context, new PoisonQuillVineModel());});
-
     }
 
 

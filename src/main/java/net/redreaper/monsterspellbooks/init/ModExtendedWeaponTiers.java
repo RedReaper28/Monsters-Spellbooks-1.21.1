@@ -4,6 +4,7 @@ import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
 import io.redspace.ironsspellbooks.item.weapons.IronsWeaponTier;
 import io.redspace.ironsspellbooks.registries.ItemRegistry;
+import io.redspace.ironsspellbooks.util.ModTags;
 import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -73,15 +74,25 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(ASAttributeRegistry.GOLIATH_SLAYER, 0.01, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
-    public static ModExtendedWeaponTiers POISONED_SPEAR = new ModExtendedWeaponTiers(300, 6F, -3, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModItems.SPECTRITE_INGOT.get()),
+    public static ModExtendedWeaponTiers POISONED_SPEAR = new ModExtendedWeaponTiers(300, 6F, -3, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModTags.NATURE_FOCUS),
             new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(Attributes.ENTITY_INTERACTION_RANGE, 2, AttributeModifier.Operation.ADD_VALUE));
+
+    public static ModExtendedWeaponTiers POISONED_SICKLE = new ModExtendedWeaponTiers(300, 5F, -2.5f, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModTags.NATURE_FOCUS),
+            new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers MASTERS_KATANA = new ModExtendedWeaponTiers(1561, 3F, -2.5f, 25, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModItems.ROSE_GOLD_INGOT.get()),
             new AttributeContainer(Attributes.ENTITY_INTERACTION_RANGE, 0.2, AttributeModifier.Operation.ADD_VALUE));
 
     public static ModExtendedWeaponTiers PRISMARINE = new ModExtendedWeaponTiers(751, 6F, -3F, 10, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(Items.PRISMARINE_SHARD),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.1, AttributeModifier.Operation.ADD_VALUE));
+
+    public static ModExtendedWeaponTiers SNOW_BOW = new ModExtendedWeaponTiers(950, -1, -3, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ItemRegistry.ICE_VENOM_VIAL.get()),
+            new AttributeContainer(AttributeRegistry.ICE_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(ASAttributeRegistry.MAGIC_PROJECTILE_DAMAGE, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static ModExtendedWeaponTiers DEATHSILVER_SWORD = new ModExtendedWeaponTiers(1500, 7F, -2.4f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT),
+            new AttributeContainer(AttributeRegistry.SPELL_RESIST, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers ORICHALCUM_DAGGER = new ModExtendedWeaponTiers(750, 5F, -2.5f, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.1, AttributeModifier.Operation.ADD_VALUE));

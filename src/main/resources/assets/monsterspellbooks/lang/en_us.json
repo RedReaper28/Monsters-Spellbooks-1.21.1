@@ -85,7 +85,6 @@
   "block.monsterspellbooks.blazesteel_block": "Blazesteel Block",
   "block.monsterspellbooks.void_matter_ore": "Void Matter Ore",
 
-
   "block.monsterspellbooks.coral_log": "Coral Log",
   "block.monsterspellbooks.coral_planks": "Coral Planks",
   "block.monsterspellbooks.pearl_marble": "Pearl Marble",
@@ -128,6 +127,7 @@
   "item.monsterspellbooks.sanguinite_scythe": "Sanguinite Scythe",
   "item.monsterspellbooks.sanguinite_axe": "Sanguinite Axe",
   "item.monsterspellbooks.crescent_blood_rose": "Crescent Blood Rose",
+  "item.monsterspellbooks.poison_biter": "Poison Biter",
   "item.monsterspellbooks.poison_glaive": "Poison Glaive",
   "item.monsterspellbooks.claws_of_calamity": "Claws of Calamity",
   "item.monsterspellbooks.duchees_sewing_needle": "Duchees Sewing Needle",
@@ -141,6 +141,7 @@
   "item.monsterspellbooks.disruption_naginata": "Distortion Naginata",
   "item.monsterspellbooks.sword_of_courage": "Sword of Courage",
   "item.monsterspellbooks.reaper_sickle": "Reaper Sickle",
+  "item.monsterspellbooks.snow_bow": "Snow Bow",
   "item.monsterspellbooks.endersent_crusher": "Endersent Crusher",
   "item.monsterspellbooks.eyebloosom_staff": "Eyebloosom Staff",
   "item.monsterspellbooks.vilenova_staff": "Vilenova Staff",
@@ -153,13 +154,10 @@
 
   "item.monsterspellbooks.critical_glasses": "Critical Sorcerer Glasses",
   "item.monsterspellbooks.critical_glasses.desc": "This glasses help you see your opponents weak spot and deal devastating critical damage with your sorcery",
-
   "item.monsterspellbooks.ignition_gloves": "Ignition Gloves",
   "item.monsterspellbooks.ignition_gloves.desc": "The gloves of the legendary Fire Alchemist",
-
   "item.monsterspellbooks.thundering_quiver": "Thundering Quiver",
   "item.monsterspellbooks.thundering_quiver.desc": "Adds 2 extra volt arrows to Voltaic Multishot",
-
   "item.monsterspellbooks.brimstone_sigil": "Brimstone Sigil",
   "item.monsterspellbooks.brimstone_sigil.desc": "Dealing Fire Spell Damage inflicts Brimstone Flame and adds a stack of Immolation",
   "item.monsterspellbooks.brimstone_sigil.immolate.desc": "At 3 Immolation stacks, cause an explosion (%s damage), spreading Immolation",
@@ -179,6 +177,8 @@
 
   "item.monsterspellbooks.aegis_spawn_egg": "Aegis Spawn Egg",
   "item.monsterspellbooks.blastling_spawn_egg": "Blastling Spawn Egg",
+  "item.monsterspellbooks.draugr_vindicator_spawn_egg": "Draugr Vindicator Spawn Egg",
+  "item.monsterspellbooks.draugr_pillager_spawn_egg": "Draugr Pillager Spawn Egg",
   "item.monsterspellbooks.drippler_spawn_egg": "Drippler Spawn Egg",
   "item.monsterspellbooks.spriggan_spawn_egg": "Spriggan Spawn Egg",
   "item.monsterspellbooks.dwarven_sphere_spawn_egg": "Dwarven Sphere Spawn Egg",
@@ -227,6 +227,8 @@
   "entity.monsterspellbooks.aegis": "Aegis",
   "entity.monsterspellbooks.blastling": "Blastling",
   "entity.monsterspellbooks.death_knight": "Death Knight",
+  "entity.monsterspellbooks.draugr_vindicator": "Draugr Vindicator",
+  "entity.monsterspellbooks.draugr_pillager": "Draugr Pillager",
   "entity.monsterspellbooks.drippler": "Drippler",
   "entity.monsterspellbooks.spriggan": "Spriggan",
   "entity.monsterspellbooks.dwarven_sphere": "Dwarven Sphere",
@@ -280,11 +282,16 @@
   "school.monsterspellbooks.aero": "Aero",
 
   "tooltip.monsterspellbooks.poison_glaive": "Hits inflict poison",
+  "tooltip.monsterspellbooks.poison_bite": "Kills summon poison splashes",
   "tooltip.monsterspellbooks.frostmourne_passive_ability": "Dealing Ice Spell Damage inflicts Wither and dealing Necro Spell Damage inflicts Freezing",
   "tooltip.monsterspellbooks.paladin_passive_ability": "A heavy holy hammer that acts just like the mace of the trial chambers",
   "tooltip.monsterspellbooks.magmatic_passive_ability": "15% reduced armor on hit",
   "tooltip.monsterspellbooks.gore_passive_ability": "Gives Bloodlust II on kill",
   "tooltip.monsterspellbooks.endersent_crusher_passive_ability": "A heavy obsidian hammer that acts just like the mace of the trial chambers",
+
+  "tooltip.monsterspellbooks.snow_bow": "Arrow hits inflict freezing",
+
+
   "tooltip.monsterspellbooks.flesh_maiden_passive_ability": "A once beautiful women that got experimented on her wedding day,now makes you immune to the consequences of Heartstop",
 
   "attribute.monsterspellbooks.necro_spell_power": "Necro Spell Power",
@@ -393,6 +400,8 @@
   "spell.monsterspellbooks.voltaic_multishot.guide": "Aim 3 arrow made from electric magic that will deal direct damage on impact and summon lighting strikes for half damage in the impact spot",
   "spell.monsterspellbooks.beast_howl": "Beast Howl",
   "spell.monsterspellbooks.beast_howl.guide": "Release a damaging howl that leaves your targets paralyzed and stunned while you gain a primordial strength",
+  "spell.monsterspellbooks.infection_slash": "Infection Slash",
+  "spell.monsterspellbooks.infection_slash.guide": "Launch a slash of pure toxin that phases through enemies and poisons anything it touches",
   "spell.monsterspellbooks.mountain_corpse": "Mountain Corpse",
   "spell.monsterspellbooks.mountain_corpse.guide": "Increases your size and stats giving you extra attack knockback and knockback resistance",
   "spell.monsterspellbooks.poison_quill": "Poison Quill",

@@ -2,8 +2,8 @@ package net.redreaper.monsterspellbooks.item.weapons;
 
 import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
+import io.redspace.ironsspellbooks.entity.spells.poison_cloud.PoisonSplash;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
-import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
@@ -32,9 +32,17 @@ public class PoisonGlaive extends ExtendedSwordItem {
         lines.add(Component.translatable("tooltip.monsterspellbooks.poison_glaive").withStyle(new ChatFormatting[]{ChatFormatting.GREEN}));
     }
 
-    public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
-        boolean retval = super.hurtEnemy(itemstack, entity, sourceentity);
+    public boolean hurtEnemy(@NotNull ItemStack stack, @NotNull LivingEntity entity, @NotNull LivingEntity sourceentity) {
+        boolean retval = super.hurtEnemy(stack, entity, sourceentity);
         PoisonOnHit.execute(entity);
+        if (entity.isDeadOrDying()) {
+            PoisonSplash cloud = new PoisonSplash(sourceentity.level());
+            cloud.setOwner(sourceentity);
+            cloud.setDuration(200);
+            cloud.setPos(entity.position());
+            cloud.setDamage(10);
+            sourceentity.level().addFreshEntity(cloud);
+        }
         return retval;
     }
 }

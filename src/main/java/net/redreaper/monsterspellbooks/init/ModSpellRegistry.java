@@ -20,10 +20,7 @@ import net.redreaper.monsterspellbooks.spells.ice.FrostCoatingSpell;
 import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
 import net.redreaper.monsterspellbooks.spells.ice.TundraTerrainSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.*;
-import net.redreaper.monsterspellbooks.spells.nature.BeastHowlSpell;
-import net.redreaper.monsterspellbooks.spells.nature.MountainCorpseSpell;
-import net.redreaper.monsterspellbooks.spells.nature.PoisonQuillSpell;
-import net.redreaper.monsterspellbooks.spells.nature.SummonPoisonVinesSpell;
+import net.redreaper.monsterspellbooks.spells.nature.*;
 import net.redreaper.monsterspellbooks.spells.necro.*;
 
 import java.util.function.Supplier;
@@ -99,6 +96,7 @@ public class ModSpellRegistry {
 
     //NATURE
     public static final Supplier<AbstractSpell> BEAST_HOWL = registerSpell(new BeastHowlSpell());
+    public static final Supplier<AbstractSpell> INFECTION_SLASH = registerSpell(new InfectionSlashSpell());
     public static final Supplier<AbstractSpell> MOUNTAIN_CORPSE = registerSpell(new MountainCorpseSpell());
     public static final Supplier<AbstractSpell> POISON_QUILL = registerSpell(new PoisonQuillSpell());
     public static final Supplier<AbstractSpell> SUMMON_POISON_VINE = registerSpell(new SummonPoisonVinesSpell());

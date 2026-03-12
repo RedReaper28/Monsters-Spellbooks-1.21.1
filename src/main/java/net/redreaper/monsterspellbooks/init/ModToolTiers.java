@@ -15,6 +15,9 @@ public class ModToolTiers {
     public static final Tier ROSE_GOLD=new SimpleTier(ModTags.Blocks.INCORRECT_FOR_IRON_LEVEL_TOOL,
             1561,12.0F,0.0F,22,()-> Ingredient.of(ModItems.ROSE_GOLD_INGOT));
 
+    public static final Tier DEATHSILVER=new SimpleTier(ModTags.Blocks.INCORRECT_FOR_DIAMOND_LEVEL_TOOL,
+            1400,6f,8,18,()-> Ingredient.of(ModItems.DEATHSILVER_INGOT));
+
     public static final Tier PRISMARINE=new SimpleTier(ModTags.Blocks.INCORRECT_FOR_DIAMOND_LEVEL_TOOL,
             1400,6f,8,18,()-> Ingredient.of(Items.PRISMARINE_SHARD));
 

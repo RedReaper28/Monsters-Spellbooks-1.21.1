@@ -178,6 +178,8 @@ public class ModItems {
             ()->new ShovelItem(ModToolTiers.ROSE_GOLD,new Item.Properties().attributes(ShovelItem.createAttributes(ModToolTiers.ROSE_GOLD,2,-2))));
     public static final DeferredItem<HoeItem>ROSE_GOLD_HOE=ITEMS.register("rose_gold_hoe",
             ()->new HoeItem(ModToolTiers.ROSE_GOLD,new Item.Properties().attributes(HoeItem.createAttributes(ModToolTiers.ROSE_GOLD,0,-2))));
+
+
     public static final DeferredHolder<Item, Item> ORICHALCUM_DAGGER = ITEMS.register("orichalcum_dagger", () ->
             new ExtendedSwordItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_DAGGER))));
     public static final DeferredHolder<Item, Item> ORICHALCUM_GREATSWORD = ITEMS.register("orichalcum_greatsword", () ->
@@ -200,6 +202,12 @@ public class ModItems {
             ()->new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,0,-3f))));
     public static final DeferredItem<AxeItem>SANGUINITE_AXE=ITEMS.register("sanguinite_axe",
             ()->new AxeItem(ModToolTiers.SANGUINITE,new Item.Properties().attributes(AxeItem.createAttributes(ModToolTiers.SANGUINITE,3,-3.2f))));
+
+    public static final DeferredHolder<Item, Item> DEATHSILVER_SWORD = ITEMS.register("deathsilver_sword", () ->
+            new ExtendedSwordItem(ModToolTiers.DEATHSILVER, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DEATHSILVER_SWORD))));
+
+    public static final DeferredItem<Item>POISON_BITER = ITEMS.register("poison_biter",
+            PoisonBiterItem::new);
     public static final DeferredItem<Item>POISON_GLAIVE = ITEMS.register("poison_glaive",
             PoisonGlaive::new);
     public static final DeferredItem<Item>CRESCENT_BLOOD_ROSE = ITEMS.register("crescent_blood_rose",
@@ -230,6 +238,10 @@ public class ModItems {
             ReaperSickle::new);
     public static final DeferredItem<Item>ENDERSENT_CRUSHER = ITEMS.register("endersent_crusher",
             EndersentCrusherItem::new);
+
+    public static final DeferredHolder<Item, Item>SNOW_BOW = ITEMS.register("snow_bow",
+            SnowBowItem::new);
+
     public static final DeferredHolder<Item, Item>BOOK_OF_SOULS = ITEMS.register("book_of_souls",
             BookOfSoulsItem::new);
     public static final DeferredHolder<Item, Item>FRENZY_KING_BOOK = ITEMS.register("frenzy_king_book",
@@ -334,6 +346,8 @@ public class ModItems {
     public static final Supplier<DeferredSpawnEggItem> DWARVEN_SLICER_SPAWN_EGG = ITEMS.register("dwarven_slicer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DWARVEN_SLICER, 10050109, 16501864, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> JUNGLE_WHISPERER_SPAWN_EGG = ITEMS.register("jungle_whisperer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.JUNGLE_WHISPERER, 6323765, 8601546, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> SPRIGGAN_SPAWN_EGG = ITEMS.register("spriggan_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.SPRIGGAN, 3746340, 11992832, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> DRAUGR_VINDICATOR_SPAWN_EGG = ITEMS.register("draugr_vindicator_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DRAUGR_VINDICATOR, 5932676, 1449245, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> DRAUGR_PILLAGER_SPAWN_EGG = ITEMS.register("draugr_pillager_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DRAUGR_PILLAGER, 5932676, 1449245, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> SHOCK_SPAWN_EGG = ITEMS.register("shock_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.SHOCK, 3873928, 11393785, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> VILE_SKELETON_SPAWN_EGG = ITEMS.register("vile_skeleton_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.VILE_SKELETON, 725001, 3622442, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> MAGMA_ATRONACH_SPAWN_EGG = ITEMS.register("magma_atronach_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.MAGMA_ATRONACH, 1380882, 16734238, ItemPropertiesHelper.material().stacksTo(64)));

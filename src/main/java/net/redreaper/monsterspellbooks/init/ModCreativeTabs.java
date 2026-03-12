@@ -49,7 +49,9 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SANGUINITE_DAGGER.get());
                         output.accept(ModItems.SANGUINITE_SCYTHE.get());
                         output.accept(ModItems.SANGUINITE_AXE.get());
+                        output.accept(ModItems.DEATHSILVER_SWORD.get());
                         output.accept(ModItems.CRESCENT_BLOOD_ROSE.get());
+                        output.accept(ModItems.POISON_BITER.get());
                         output.accept(ModItems.POISON_GLAIVE.get());
                         output.accept(ModItems.CLAWS_OF_CALAMITY.get());
                         output.accept(ModItems.DUCHEES_SEWING_NEEDLE.get());
@@ -64,6 +66,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DISRUPTION_NAGINATA.get());
                         output.accept(ModItems.ENDERSENT_CRUSHER.get());
                         output.accept(ModItems.REAPER_SICKLE.get());
+                        output.accept(ModItems.SNOW_BOW.get());
+
 
                         output.accept(ModItems.WITHERWARD_RING.get());
                         output.accept(ModItems.CRITICAL_GLASSES.get());
@@ -176,6 +180,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.AEGIS_SPAWN_EGG.get());
                         output.accept(ModItems.DRIPPLER_SPAWN_EGG.get());
                         output.accept(ModItems.SPRIGGAN_SPAWN_EGG.get());
+                        output.accept(ModItems.DRAUGR_VINDICATOR_SPAWN_EGG.get());
+                        output.accept(ModItems.DRAUGR_PILLAGER_SPAWN_EGG.get());
                         output.accept(ModItems.DWARVEN_SPHERE_SPAWN_EGG.get());
                         output.accept(ModItems.DWARVEN_SLICER_SPAWN_EGG.get());
                         output.accept(ModItems.JUNGLE_WHISPERER_SPAWN_EGG.get());

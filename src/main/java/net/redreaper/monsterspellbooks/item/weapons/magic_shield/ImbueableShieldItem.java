@@ -5,7 +5,7 @@ import io.redspace.ironsspellbooks.api.spells.ISpellContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 
-public class ImbueableShieldItem  extends ExtendedShieldItem implements IPresetSpellContainer {
+public class ImbueableShieldItem extends ExtendedShieldItem implements IPresetSpellContainer {
     public ImbueableShieldItem(Tier pTier, Properties properties) {
         super(properties);
     }

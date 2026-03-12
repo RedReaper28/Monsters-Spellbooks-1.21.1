@@ -167,6 +167,12 @@ public class ServerEvents {
                     if (event.getSource().is(ModDamageTypes.NECRO_MAGIC))
                         Utils.addFreezeTicks(target, 240);
                 }
+
+                // SnowBow
+                if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.SNOW_BOW)) {
+                    if (event.getSource().is(DamageTypeTags.IS_PROJECTILE))
+                        Utils.addFreezeTicks(target, 120);
+                }
             }
         }
     }

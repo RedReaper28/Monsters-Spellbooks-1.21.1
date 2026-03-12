@@ -2,6 +2,7 @@ package net.redreaper.monsterspellbooks.item.weapons.magic_axe;
 
 import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
 import io.redspace.ironsspellbooks.item.weapons.IronsWeaponTier;
+import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -18,14 +19,14 @@ public class ExtendedAxeItem extends AxeItem {
     public static ItemAttributeModifiers createAttributes(IronsWeaponTier pTier) {
         var builder = ItemAttributeModifiers.builder()
                 .add(
-                        Attributes.ATTACK_DAMAGE,
+                        ASAttributeRegistry.MAGIC_PROJECTILE_DAMAGE,
                         new AttributeModifier(
                                 BASE_ATTACK_DAMAGE_ID, pTier.getAttackDamageBonus(), AttributeModifier.Operation.ADD_VALUE
                         ),
                         EquipmentSlotGroup.MAINHAND
                 )
                 .add(
-                        Attributes.ATTACK_SPEED,
+                        ASAttributeRegistry.MAGIC_PROJECTILE_CRIT_CHANCE,
                         new AttributeModifier(BASE_ATTACK_SPEED_ID, pTier.getSpeed(), AttributeModifier.Operation.ADD_VALUE),
                         EquipmentSlotGroup.MAINHAND
                 );

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "monsterspellbooks:death_knight",
+    "monsterspellbooks:summoned_vile_skeleton",
+    "monsterspellbooks:summoned_aegis",
+    "monsterspellbooks:soul_wizard",
+    "monsterspellbooks:poison_quill_vine"
+  ]
+}

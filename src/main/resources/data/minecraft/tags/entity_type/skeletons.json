@@ -1,4 +1,6 @@
 {
-  "values":
-  ["monsterspellbooks:vile_skeleton"]
+  "replace": false,
+  "values": [
+    "monsterspellbooks:vile_skeleton"
+  ]
 }

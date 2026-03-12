@@ -31,6 +31,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.DWARVEN_WARHAMMER.get())
                 .add(ModItems.SANGUINITE_DAGGER.get())
                 .add(ModItems.SANGUINITE_SCYTHE.get())
+                .add(ModItems.DEATHSILVER_SWORD.get())
+                .add(ModItems.POISON_BITER.get())
                 .add(ModItems.POISON_GLAIVE.get())
                 .add(ModItems.CRESCENT_BLOOD_ROSE.get())
                 .add(ModItems.CLAWS_OF_CALAMITY.get())
@@ -77,6 +79,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
         ;
 
         tag(ItemTags.MACE_ENCHANTABLE)
+                .add(ModItems.PALLADIN_HAMMER.get())
+                .add(ModItems.ENDERSENT_CRUSHER.get())
+        ;
+
+        tag(ItemTags.BOW_ENCHANTABLE)
                 .add(ModItems.PALLADIN_HAMMER.get())
                 .add(ModItems.ENDERSENT_CRUSHER.get())
         ;

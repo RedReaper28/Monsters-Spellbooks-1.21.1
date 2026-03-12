@@ -11,6 +11,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
@@ -127,7 +128,7 @@ public class VileSlashProjectile extends AbstractMagicProjectile implements Anti
                 ModSpellRegistry.VILE_SLASH.get().getDamageSource(this, getOwner()));
         if (pResult.getEntity() instanceof LivingEntity livingTarget)
         {
-            livingTarget.addEffect(new MobEffectInstance(ModMobEffects.SOUL_ROT, 100, 1));
+            livingTarget.addEffect(new MobEffectInstance(ModMobEffects.SOUL_ROT, 160, 1));
         }
     }
 

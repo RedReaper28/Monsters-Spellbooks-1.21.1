@@ -3,7 +3,6 @@ package net.redreaper.monsterspellbooks.init;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
@@ -43,6 +42,7 @@ public class ModTags {
 
     public static class Entities{
         public static final TagKey<EntityType<?>> DWARVEN_CONSTRUCT = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "dwarven_construct"));
+        public static final TagKey<EntityType<?>> DRAUGR_ALLIES = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "draugr_allies"));
 
         private static TagKey<EntityType<?>> registerEntityTag(String name) {
             return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, name));

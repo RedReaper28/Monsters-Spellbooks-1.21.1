@@ -1,29 +1,33 @@
 {
-  "credit": "Made with Blockbench",
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "monsterspellbooks:item/orichalcum_greatsword"
-  },
-  "display": {
-    "thirdperson_righthand": {
-      "rotation": [0, -90, 55],
-      "translation": [0, 10, 0.5],
-      "scale": [1.8, 1.8, 1.3]
-    },
-    "thirdperson_lefthand": {
-      "rotation": [0, 90, -55],
-      "translation": [0, 10, 0.5],
-      "scale": [1.8, 1.8, 1.3]
-    },
-    "firstperson_righthand": {
-      "rotation": [0, -90, 25],
-      "translation": [1.13, 3.2, 1.13],
-      "scale": [1.2, 1.2, 0.68]
-    },
-    "firstperson_lefthand": {
-      "rotation": [0, 90, -25],
-      "translation": [1.13, 3.2, 1.13],
-      "scale": [1.2, 1.2, 0.68]
-    }
-  }
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "monsterspellbooks:item/orichalcum_greatsword"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -90, 55],
+			"translation": [0, 11.5, -0.75],
+			"scale": [1.8, 1.8, 1.3]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, -55],
+			"translation": [0, 11.5, -0.75],
+			"scale": [1.8, 1.8, 1.3]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -90, 25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [1.4, 1.4, 1]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, -25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [1.4, 1.4, 1]
+		},
+		"fixed": {
+			"rotation": [0, 180, 0]
+		}
+	}
 }
