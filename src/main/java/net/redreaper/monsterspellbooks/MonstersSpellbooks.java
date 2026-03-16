@@ -9,6 +9,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.redreaper.monsterspellbooks.init.*;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiRenderer;
 import net.redreaper.monsterspellbooks.item.staves.eyebloosom_staff.EyebloosomStaffRenderer;
+import net.redreaper.monsterspellbooks.item.staves.frozen_commander.FrozenCommanderStaffRenderer;
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffRenderer;
 import net.redreaper.monsterspellbooks.item.weapons.disruption_nanginata.DisruptionNaginataRenderer;
 import net.redreaper.monsterspellbooks.item.weapons.gore_child.GoreChildRenderer;
@@ -81,6 +82,7 @@ public class MonstersSpellbooks {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             AzItemRendererRegistry.register(EyebloosomStaffRenderer::new, ModItems.EYEBLOOSOM_STAFF.get());
+            AzItemRendererRegistry.register(FrozenCommanderStaffRenderer::new, ModItems.FROZEN_COMMANDER_STAFF.get());
             AzItemRendererRegistry.register(VileNovaStaffRenderer::new, ModItems.VILENOVA_STAFF.get());
             AzItemRendererRegistry.register(BrimstoneOrochiRenderer::new, ModItems.BRIMSTONE_OROCHI.get());
             AzItemRendererRegistry.register(PaladinHammerRenderer::new, ModItems.PALLADIN_HAMMER.get());
@@ -89,7 +91,6 @@ public class MonstersSpellbooks {
             AzItemRendererRegistry.register(DisruptionNaginataRenderer::new, ModItems.DISRUPTION_NAGINATA.get());
 
             ModItemProperties.addCustomItemProperties();
-
         }
     }
 }

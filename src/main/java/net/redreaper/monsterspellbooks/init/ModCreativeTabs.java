@@ -24,6 +24,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.FRENZY_KING_BOOK.get());
                         output.accept(ModItems.REAPER_LANTERN.get());
                         output.accept(ModItems.EYEBLOOSOM_STAFF.get());
+                        output.accept(ModItems.FROZEN_COMMANDER_STAFF.get());
                         output.accept(ModItems.VILENOVA_STAFF.get());
                         output.accept(ModItems.BRIMSTONE_OROCHI.get());
                         output.accept(ModItems.GREAT_AXEBLADE.get());
@@ -50,9 +51,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SANGUINITE_SCYTHE.get());
                         output.accept(ModItems.SANGUINITE_AXE.get());
                         output.accept(ModItems.DEATHSILVER_SWORD.get());
+                        output.accept(ModItems.DEATHSILVER_AXE.get());
                         output.accept(ModItems.CRESCENT_BLOOD_ROSE.get());
                         output.accept(ModItems.POISON_BITER.get());
                         output.accept(ModItems.POISON_GLAIVE.get());
+                        output.accept(ModItems.FROST_FANG.get());
                         output.accept(ModItems.CLAWS_OF_CALAMITY.get());
                         output.accept(ModItems.DUCHEES_SEWING_NEEDLE.get());
                         output.accept(ModItems.DUKES_HEARTSTEALER.get());
@@ -88,6 +91,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.FUNGAL_CAP_BLUE.get());
                         output.accept(ModItems.FLESH_MAIDEN.get());
 
+                        output.accept(ModItems.ILLAGER_ENCHANTER_HELMET.get());
+                        output.accept(ModItems.ILLAGER_ENCHANTER_CHESTPLATE.get());
+                        output.accept(ModItems.ILLAGER_ENCHANTER_LEGGINGS.get());
+                        output.accept(ModItems.ILLAGER_ENCHANTER_BOOTS.get());
+
                         output.accept(ModItems.SANGUINITE_HERO_HOOD.get());
                         output.accept(ModItems.SANGUINITE_HERO_CHESTPLATE.get());
                         output.accept(ModItems.SANGUINITE_HERO_LEGGINGS.get());
@@ -97,6 +105,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DWARVEN_ENGINEER_CHESTPLATE.get());
                         output.accept(ModItems.DWARVEN_ENGINEER_LEGGINGS.get());
                         output.accept(ModItems.DWARVEN_ENGINEER_BOOTS.get());
+
+
+                        output.accept(ModItems.DRAUGR_ELITE_HELMET.get());
+                        output.accept(ModItems.DRAUGR_ELITE_CHESTPLATE.get());
+                        output.accept(ModItems.DRAUGR_ELITE_BOOTS.get());
 
                         output.accept(ModItems.DEATH_KNIGHT_HELMET.get());
                         output.accept(ModItems.DEATH_KNIGHT_CHESTPLATE.get());
@@ -180,7 +193,9 @@ public class ModCreativeTabs {
                         output.accept(ModItems.AEGIS_SPAWN_EGG.get());
                         output.accept(ModItems.DRIPPLER_SPAWN_EGG.get());
                         output.accept(ModItems.SPRIGGAN_SPAWN_EGG.get());
+                        output.accept(ModItems.ILLAGER_ENCHANTER_SPAWN_EGG.get());
                         output.accept(ModItems.DRAUGR_VINDICATOR_SPAWN_EGG.get());
+                        output.accept(ModItems.DRAUGR_ELITE_VINDICATOR_SPAWN_EGG.get());
                         output.accept(ModItems.DRAUGR_PILLAGER_SPAWN_EGG.get());
                         output.accept(ModItems.DWARVEN_SPHERE_SPAWN_EGG.get());
                         output.accept(ModItems.DWARVEN_SLICER_SPAWN_EGG.get());

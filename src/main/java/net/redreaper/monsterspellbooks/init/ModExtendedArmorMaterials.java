@@ -88,6 +88,14 @@ public class ModExtendedArmorMaterials {
             0,
             0);
 
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>DEATHSILVER=register("deathsilver",
+            spellcounterArmorMap(),
+            10,
+            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            () -> Ingredient.of(ModItems.DEATHSILVER_INGOT.get()),
+            2,
+            0);
+
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>FROST_DEATHSILVER=register("frost_deathsilver",
             schoolHybridArmorMap(),
             20,
@@ -112,6 +120,14 @@ public class ModExtendedArmorMaterials {
             0,
             0F);
 
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>ENCHANTER=register("enchanter",
+            schoolArmorMap(),
+            10,
+            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            () -> Ingredient.of(ItemRegistry.MAGIC_CLOTH.get()),
+            2,
+            0);
+
     private static DeferredHolder<ArmorMaterial, ArmorMaterial> register(
             String name,
             EnumMap<ArmorItem.Type, Integer> defense,
@@ -135,6 +151,11 @@ public class ModExtendedArmorMaterials {
             typeIntegerEnumMap.put(ArmorItem.Type.BOOTS, boots);
         });
     }
+    static public EnumMap<ArmorItem.Type, Integer> spellcounterArmorMap() {
+        return makeArmorMap(7, 11, 10, 6);
+    }
+
+
     static public EnumMap<ArmorItem.Type, Integer> schoolArmorMap() {
         return makeArmorMap(3, 8, 6, 3);
     }

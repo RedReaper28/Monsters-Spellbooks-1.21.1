@@ -7,12 +7,10 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.init.ModBlocks;
 import net.redreaper.monsterspellbooks.init.ModItems;
-import net.redreaper.monsterspellbooks.init.ModTags;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;

@@ -353,11 +353,24 @@ public class ModEntities {
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "spriggan").toString()));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<IllagerEnchanterEntity>> ILLAGER_ENCHANTER =
+            ENTITIES.register("illager_enchanter", () -> EntityType.Builder.of(IllagerEnchanterEntity::new, MobCategory.MONSTER)
+                    .sized(.6f, 2.75f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "illager_enchanter").toString()));
+
+
     public static final DeferredHolder<EntityType<?>, EntityType<DraugrVindicatorEntity>> DRAUGR_VINDICATOR=
             ENTITIES.register("draugr_vindicator", () -> EntityType.Builder.of(DraugrVindicatorEntity::new, MobCategory.MONSTER)
                     .sized(.6f, 2f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "draugr_vindicator").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<DraugrEliteVindicatorEntity>> DRAUGR_ELITE_VINDICATOR=
+            ENTITIES.register("draugr_elite_vindicator", () -> EntityType.Builder.of(DraugrEliteVindicatorEntity::new, MobCategory.MONSTER)
+                    .sized(.6f, 2f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "draugr_elite_vindicator").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<DraugrPillagerEntity>> DRAUGR_PILLAGER=
             ENTITIES.register("draugr_pillager", () -> EntityType.Builder.of(DraugrPillagerEntity::new, MobCategory.MONSTER)

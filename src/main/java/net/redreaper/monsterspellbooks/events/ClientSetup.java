@@ -1,9 +1,6 @@
 package net.redreaper.monsterspellbooks.events;
 
-import io.redspace.ironsspellbooks.entity.mobs.necromancer.NecromancerRenderer;
-import io.redspace.ironsspellbooks.entity.mobs.wizards.archevoker.ArchevokerRenderer;
 import io.redspace.ironsspellbooks.fluids.SimpleClientFluidType;
-import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import io.redspace.ironsspellbooks.render.*;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
@@ -30,6 +27,7 @@ import net.redreaper.monsterspellbooks.entity.model.DripplerEntity.DripplerEntit
 import net.redreaper.monsterspellbooks.entity.model.DripplerEntity.DripplerEntityRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DwarvenSlicer.DwarvenSlicerRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DwarvenSphere.DwarvenSphereRenderer;
+import net.redreaper.monsterspellbooks.entity.model.IllagerEnchanterEntity.IllagerEnchanterRenderer;
 import net.redreaper.monsterspellbooks.entity.model.JungleWhisperer.JungleWhispererModel;
 import net.redreaper.monsterspellbooks.entity.model.JungleWhisperer.JungleWhispererRenderer;
 import net.redreaper.monsterspellbooks.entity.model.MagmaAtronach.MagmaAtronachModel;
@@ -51,7 +49,6 @@ import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.Brimstone
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.BrimstoneFireballRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouchRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.dragon_charge.DragonChargeRenderer;
-import net.redreaper.monsterspellbooks.entity.spells.elthor.ElthorBeamEntity;
 import net.redreaper.monsterspellbooks.entity.spells.elthor.ElthorBeamRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_storm.FrenzyFireBallRenderer;
@@ -145,8 +142,10 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.AEGIS.get(), context -> {return new AegisEntityRenderer(context, new AegisEntityModel());});
         event.registerEntityRenderer(ModEntities.DRIPPLER.get(), context -> {return new DripplerEntityRenderer(context, new DripplerEntityModel());});
         event.registerEntityRenderer(ModEntities.SPRIGGAN.get(), SprigganRenderer::new);
+        event.registerEntityRenderer(ModEntities.ILLAGER_ENCHANTER.get(), IllagerEnchanterRenderer::new);
         event.registerEntityRenderer(ModEntities.JUNGLE_WHISPERER.get(), context -> {return new JungleWhispererRenderer(context, new JungleWhispererModel());});
         event.registerEntityRenderer(ModEntities.DRAUGR_VINDICATOR.get(), DraugrVindicatorRenderer::new);
+        event.registerEntityRenderer(ModEntities.DRAUGR_ELITE_VINDICATOR.get(), DraugrVindicatorRenderer::new);
         event.registerEntityRenderer(ModEntities.DRAUGR_PILLAGER.get(), DraugrPillagerRenderer::new);
         event.registerEntityRenderer(ModEntities.MAGMA_ATRONACH.get(), context -> {return new MagmaAtronachRenderer(context, new MagmaAtronachModel());});
         event.registerEntityRenderer(ModEntities.BLASTLING.get(), context -> {return new BlastlingRenderer(context, new BlastlingModel());});

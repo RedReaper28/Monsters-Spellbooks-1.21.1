@@ -10,6 +10,7 @@ public class ModStaffMaterials implements IronsWeaponTier {
     public static ModStaffMaterials EYEBLOOSOM;
     public static ModStaffMaterials VILENOVA;
     public static ModStaffMaterials BRIMSTONE_OROCHI;
+    public static ModStaffMaterials FROZEN_COMMANDER;
     float damage;
     float speed;
     AttributeContainer[] attributeContainers;
@@ -51,5 +52,12 @@ public class ModStaffMaterials implements IronsWeaponTier {
         BRIMSTONE_OROCHI = new ModStaffMaterials(3.0F, -3.0F, new AttributeContainer[]{
                 new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(ASAttributeRegistry.MAGIC_PROJECTILE_DAMAGE, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE)});
+    }
+
+    static {
+        FROZEN_COMMANDER = new ModStaffMaterials(10, -3, new AttributeContainer[]{
+                new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(AttributeRegistry.ICE_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(AttributeRegistry.SUMMON_DAMAGE, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE)});
     }
 }

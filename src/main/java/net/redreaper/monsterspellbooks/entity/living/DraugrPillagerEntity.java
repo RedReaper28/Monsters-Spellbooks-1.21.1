@@ -93,6 +93,7 @@ public class DraugrPillagerEntity extends AbstractSpellCastingMob implements Ran
                 .add(Attributes.ATTACK_KNOCKBACK, 1.0)
                 .add(Attributes.ENTITY_INTERACTION_RANGE, 4)
                 .add(Attributes.MAX_HEALTH, 25.0F)
+                .add(Attributes.ARMOR, 5)
                 .add(Attributes.FOLLOW_RANGE, 24.0)
                 .add(Attributes.MOVEMENT_SPEED, 0.25F);
     }

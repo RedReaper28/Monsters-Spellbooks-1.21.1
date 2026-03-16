@@ -34,6 +34,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.DEATHSILVER_SWORD.get())
                 .add(ModItems.POISON_BITER.get())
                 .add(ModItems.POISON_GLAIVE.get())
+                .add(ModItems.FROST_FANG.get())
                 .add(ModItems.CRESCENT_BLOOD_ROSE.get())
                 .add(ModItems.CLAWS_OF_CALAMITY.get())
                 .add(ModItems.DUCHEES_SEWING_NEEDLE.get())
@@ -61,6 +62,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.DWARVEN_AXE.get())
                 .add(ModItems.PRISMARINE_AXE.get())
                 .add(ModItems.SANGUINITE_AXE.get())
+                .add(ModItems.DEATHSILVER_AXE.get())
                 .add(ModItems.GORE_CHILD.get())
         ;
         tag(ItemTags.SHOVELS)
@@ -92,40 +94,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.PALLADIN_HAMMER.get())
                 .add(ModItems.ENDERSENT_CRUSHER.get())
         ;
-        tag(ItemTags.HEAD_ARMOR)
-                .add(ModItems.FIERCE_DEITY_MASK.get())
-                .add(ModItems.MAJORAS_MASK.get())
-                .add(ModItems.SANGUINITE_HERO_HOOD.get())
-                .add(ModItems.DWARVEN_ENGINEER_VISOR.get())
-                .add(ModItems.DEATH_KNIGHT_HELMET.get())
-                .add(ModItems.PALE_OBSERVER_MASK.get())
-                .add(ModItems.FORGE_MASTERPIECE_HELMET.get())
-                .add(ModItems.STARSCOURGE_HELMET.get());
-
-        tag(ItemTags.CHEST_ARMOR)
-                .add(ModItems.SANGUINITE_HERO_CHESTPLATE.get())
-                .add(ModItems.DWARVEN_ENGINEER_CHESTPLATE.get())
-                .add(ModItems.DEATH_KNIGHT_CHESTPLATE.get())
-                .add(ModItems.PALE_OBSERVER_CHESTPLATE.get())
-                .add(ModItems.FORGE_MASTERPIECE_CHESTPLATE.get())
-                .add(ModItems.STARSCOURGE_CHESTPLATE.get());
-
-        tag(ItemTags.LEG_ARMOR)
-                .add(ModItems.SANGUINITE_HERO_LEGGINGS.get())
-                .add(ModItems.DWARVEN_ENGINEER_LEGGINGS.get())
-                .add(ModItems.DEATH_KNIGHT_LEGGINGS.get())
-                .add(ModItems.PALE_OBSERVER_CHESTPLATE.get())
-                .add(ModItems.FORGE_MASTERPIECE_LEGGINGS.get())
-                .add(ModItems.STARSCOURGE_LEGGINGS.get());
-
-        tag(ItemTags.FOOT_ARMOR)
-                .add(ModItems.SANGUINITE_HERO_BOOTS.get())
-                .add(ModItems.DWARVEN_ENGINEER_BOOTS.get())
-                .add(ModItems.DEATH_KNIGHT_BOOTS.get())
-                .add(ModItems.PALE_OBSERVER_BOOTS.get())
-                .add(ModItems.FORGE_MASTERPIECE_BOOTS.get())
-                .add(ModItems.STARSCOURGE_BOOTS.get());
-
         tag(ItemTags.PLANKS)
                 .add(ModBlocks.CORAL_PLANKS.asItem())
         ;

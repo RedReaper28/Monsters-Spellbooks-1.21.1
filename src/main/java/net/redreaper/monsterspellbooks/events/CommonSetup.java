@@ -24,7 +24,9 @@ public class CommonSetup {
         event.put(ModEntities.DRIPPLER.get(), DripplerEntity.createAttributes().build());
         event.put(ModEntities.SPRIGGAN.get(), SprigganEntity.createAttributes().build());
         event.put(ModEntities.JUNGLE_WHISPERER.get(), JungleWhispererEntity.createAttributes().build());
+        event.put(ModEntities.ILLAGER_ENCHANTER.get(), IllagerEnchanterEntity.createAttributes().build());
         event.put(ModEntities.DRAUGR_VINDICATOR.get(), DraugrVindicatorEntity.createAttributes().build());
+        event.put(ModEntities.DRAUGR_ELITE_VINDICATOR.get(), DraugrEliteVindicatorEntity.createAttributes().build());
         event.put(ModEntities.DRAUGR_PILLAGER.get(), DraugrPillagerEntity.createAttributes().build());
         event.put(ModEntities.VILE_SKELETON.get(), VileSkeletonEntity.createAttributes().build());
         event.put(ModEntities.MAGMA_ATRONACH.get(), MagmaAtronachEntity.createAttributes().build());

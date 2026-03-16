@@ -1,6 +1,8 @@
 {
 "replace": false,
 "values": [
+"monsterspellbooks:eyebloosom_staff",
+"monsterspellbooks:frozen_commander_staff",
 "monsterspellbooks:vilenova_staff",
 "monsterspellbooks:brimstone_orochi"
 ]

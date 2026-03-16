@@ -39,9 +39,9 @@ import software.bernie.geckolib.animation.AnimationState;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class DraugrVindicatorEntity extends AbstractSpellCastingMob implements Enemy,IAnimatedAttacker {
+public class DraugrEliteVindicatorEntity extends AbstractSpellCastingMob implements Enemy, IAnimatedAttacker {
 
-    public DraugrVindicatorEntity(EntityType<? extends AbstractSpellCastingMob> pEntityType, Level pLevel) {
+    public DraugrEliteVindicatorEntity(EntityType<? extends AbstractSpellCastingMob> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         xpReward = 25;
     }
@@ -51,15 +51,13 @@ public class DraugrVindicatorEntity extends AbstractSpellCastingMob implements E
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(3, new GenericAnimatedWarlockAttackGoal<>(this, 1.20f, 50, 75)
                 .setMoveset(List.of(
-                        new AttackAnimationData(9, "simple_sword_upward_swipe", 5),
-                        new AttackAnimationData(10, "simple_sword_stab_alternate", 8),
-                        new AttackAnimationData(10, "simple_sword_horizontal_cross_swipe", 8)
+                        new AttackAnimationData(9, "simple_sword_upward_swipe", 5)
                 ))
                 .setComboChance(.4f)
                 .setMeleeAttackInverval(10, 30)
-                .setMeleeMovespeedModifier(1.5f)
+                .setMeleeMovespeedModifier(1.25f)
                 .setSpells(
-                        List.of(SpellRegistry.ICICLE_SPELL.get()),
+                        List.of(SpellRegistry.ICICLE_SPELL.get(),ModSpellRegistry.ICE_ARSENAL.get(),ModSpellRegistry.SOUL_CHAIN.get()),
                         List.of(ModSpellRegistry.FROST_COATING.get()),
                         List.of(),
                         List.of()
@@ -83,16 +81,23 @@ public class DraugrVindicatorEntity extends AbstractSpellCastingMob implements E
 
     @Override
     protected void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
-        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.DEATHSILVER_AXE.get()));
-        this.setDropChance(EquipmentSlot.MAINHAND, 0);
+        this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(ModItems.DRAUGR_ELITE_HELMET.get()));
+        this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(ModItems.DRAUGR_ELITE_CHESTPLATE.get()));
+        this.setItemSlot(EquipmentSlot.FEET, new ItemStack(ModItems.DRAUGR_ELITE_BOOTS.get()));
+        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.DEATHSILVER_SWORD.get()));
+        this.setDropChance(EquipmentSlot.HEAD, 0.15f);
+        this.setDropChance(EquipmentSlot.CHEST, 0.15f);
+        this.setDropChance(EquipmentSlot.FEET, 0.15f);
+        this.setDropChance(EquipmentSlot.MAINHAND, 0.5f);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return LivingEntity.createLivingAttributes()
-                .add(Attributes.ATTACK_DAMAGE, 5.0F)
-                .add(Attributes.ATTACK_KNOCKBACK, 1.0)
+                .add(Attributes.ATTACK_DAMAGE, 7.0F)
+                .add(Attributes.ATTACK_KNOCKBACK, 1.5F)
                 .add(Attributes.ENTITY_INTERACTION_RANGE, 4)
-                .add(Attributes.MAX_HEALTH, 25.0F)
+                .add(Attributes.SCALE, 1.2)
+                .add(Attributes.MAX_HEALTH, 35.0F)
                 .add(Attributes.ARMOR, 10)
                 .add(Attributes.FOLLOW_RANGE, 24.0)
                 .add(Attributes.MOVEMENT_SPEED, 0.35F);
@@ -122,7 +127,7 @@ public class DraugrVindicatorEntity extends AbstractSpellCastingMob implements E
     }
 
     RawAnimation animationToPlay = null;
-    private final AnimationController<DraugrVindicatorEntity> meleeController = new AnimationController<>(this, "keeper_animations", 0, this::predicate);
+    private final AnimationController<DraugrEliteVindicatorEntity> meleeController = new AnimationController<>(this, "keeper_animations", 0, this::predicate);
 
     @Override
     public void playAnimation(String animationId) {
@@ -133,7 +138,7 @@ public class DraugrVindicatorEntity extends AbstractSpellCastingMob implements E
         }
     }
 
-    private PlayState predicate(AnimationState<DraugrVindicatorEntity> animationEvent) {
+    private PlayState predicate(AnimationState<DraugrEliteVindicatorEntity> animationEvent) {
         var controller = animationEvent.getController();
 
         if (this.animationToPlay != null) {
