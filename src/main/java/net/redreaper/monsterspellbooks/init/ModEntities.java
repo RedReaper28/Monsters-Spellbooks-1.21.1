@@ -20,6 +20,7 @@ import net.redreaper.monsterspellbooks.entity.spells.bone_dagger.BoneDaggerProje
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.BrimstoneBuzzsawProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.BrimstoneField;
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.SmallBrimstoneFireball;
+import net.redreaper.monsterspellbooks.entity.spells.bubble_spray.BubbleSprayProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouch;
 import net.redreaper.monsterspellbooks.entity.spells.dragon_charge.DragonChargeProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.elthor.ElthorBeamEntity;
@@ -53,6 +54,7 @@ import net.redreaper.monsterspellbooks.entity.spells.stray_grasp.StrayGraspProje
 import net.redreaper.monsterspellbooks.entity.spells.thunderstorm_wave.AncientLightningStrike;
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.voltaic_multishot.VoltArrowProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.water_trident.WaterTridentProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.wither_bomb.WitherBombProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.wither_nova.WitherNovaVisualEntity;
 
@@ -111,6 +113,12 @@ public class ModEntities {
                     .sized(1, 1)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "stray_grasp").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<WaterTridentProjectile>> WATER_TRIDENT =
+            ENTITIES.register("water_trident", () -> EntityType.Builder.<WaterTridentProjectile>of(WaterTridentProjectile::new, MobCategory.MISC)
+                    .sized(3, 1.5f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "water_trident").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<HolyHammerProjectile>> HOLY_HAMMER =
             ENTITIES.register("holy_hammer", () -> EntityType.Builder.<HolyHammerProjectile>of(HolyHammerProjectile::new, MobCategory.MISC)
@@ -280,6 +288,13 @@ public class ModEntities {
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "life_drain").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<BubbleSprayProjectile>> BUBBLE_SPRAY_PROJECTILE =
+            ENTITIES.register("bubble_spray", () -> EntityType.Builder.<BubbleSprayProjectile>of(BubbleSprayProjectile::new, MobCategory.MISC)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "bubble_spray").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<SteamStreamProjectile>> STEAM_STEAM =
             ENTITIES.register("steam_stream", () -> EntityType.Builder.<SteamStreamProjectile>of(SteamStreamProjectile::new, MobCategory.MISC)
                     .sized(1f, 1f)
@@ -359,6 +374,17 @@ public class ModEntities {
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "illager_enchanter").toString()));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<IllagerIceologerEntity>> ILLAGER_ICEOLOGER =
+            ENTITIES.register("illager_iceologer", () -> EntityType.Builder.of(IllagerIceologerEntity::new, MobCategory.MONSTER)
+                    .sized(.6f, 2.75f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "illager_iceologer").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<DraugrEvokerEntity>> DRAUGR_EVOKER=
+            ENTITIES.register("draugr_evoker", () -> EntityType.Builder.of(DraugrEvokerEntity::new, MobCategory.MONSTER)
+                    .sized(.6f, 2f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "draugr_evoker").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<DraugrVindicatorEntity>> DRAUGR_VINDICATOR=
             ENTITIES.register("draugr_vindicator", () -> EntityType.Builder.of(DraugrVindicatorEntity::new, MobCategory.MONSTER)

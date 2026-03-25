@@ -39,7 +39,6 @@ import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class SpaceBreakerSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "space_breaker");
 

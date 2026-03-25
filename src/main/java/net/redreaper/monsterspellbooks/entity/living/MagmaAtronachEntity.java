@@ -166,7 +166,7 @@ public class MagmaAtronachEntity extends UniqueAbstractSpellCastingMob implement
         controllers.add(castingAnimationController);
     }
 
-    private PlayState predicate(AnimationState<MagmaAtronachEntity> event)
+    public PlayState predicate(AnimationState event)
     {
         if (event.isMoving() && this.animationToPlay == null)
         {

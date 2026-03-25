@@ -20,7 +20,6 @@ import net.redreaper.monsterspellbooks.events.ModUtils;
 
 import java.util.List;
 
-@AutoSpellConfig
 public class HallowSlashSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "hallow_slash");
     private final DefaultConfig defaultConfig = new DefaultConfig()

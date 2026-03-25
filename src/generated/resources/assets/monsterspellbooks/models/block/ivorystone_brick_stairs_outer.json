@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "monsterspellbooks:block/ivorystone_bricks",
+    "side": "monsterspellbooks:block/ivorystone_bricks",
+    "top": "monsterspellbooks:block/ivorystone_bricks"
+  }
+}

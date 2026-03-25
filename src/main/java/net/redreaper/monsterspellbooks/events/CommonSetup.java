@@ -1,6 +1,7 @@
 package net.redreaper.monsterspellbooks.events;
 
 import io.redspace.ironsspellbooks.api.util.Utils;
+import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.monster.Monster;
@@ -25,6 +26,8 @@ public class CommonSetup {
         event.put(ModEntities.SPRIGGAN.get(), SprigganEntity.createAttributes().build());
         event.put(ModEntities.JUNGLE_WHISPERER.get(), JungleWhispererEntity.createAttributes().build());
         event.put(ModEntities.ILLAGER_ENCHANTER.get(), IllagerEnchanterEntity.createAttributes().build());
+        event.put(ModEntities.ILLAGER_ICEOLOGER.get(), IllagerIceologerEntity.createAttributes().build());
+        event.put(ModEntities.DRAUGR_EVOKER.get(), DraugrEvokerEntity.createAttributes().build());
         event.put(ModEntities.DRAUGR_VINDICATOR.get(), DraugrVindicatorEntity.createAttributes().build());
         event.put(ModEntities.DRAUGR_ELITE_VINDICATOR.get(), DraugrEliteVindicatorEntity.createAttributes().build());
         event.put(ModEntities.DRAUGR_PILLAGER.get(), DraugrPillagerEntity.createAttributes().build());
@@ -36,6 +39,7 @@ public class CommonSetup {
         event.put(ModEntities.SUMMONED_VILE_SKELETON.get(), SummonedVileSkeletonEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_DEATH_KNIGHT.get(), DeathKnightEntity.createAttributes().build());
         event.put(ModEntities.SOUL_WIZARD.get(), SoulWizardEntity.createAttributes().build());
+
 
     }
 
@@ -56,6 +60,5 @@ public class CommonSetup {
                 Monster::checkMonsterSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(ModEntities.BLASTLING.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (type, serverLevelAccessor, spawnType, blockPos, random) -> Utils.checkMonsterSpawnRules(serverLevelAccessor, spawnType, blockPos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
-
     }
 }

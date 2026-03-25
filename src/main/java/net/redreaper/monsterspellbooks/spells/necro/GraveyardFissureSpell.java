@@ -24,7 +24,6 @@ import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class GraveyardFissureSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "graveyard_fissure");
 

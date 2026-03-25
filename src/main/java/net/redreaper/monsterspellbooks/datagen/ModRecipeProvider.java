@@ -86,9 +86,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.PEARl_MARBLE_PILLAR, ModBlocks.PEARl_MARBLE);
 
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.IVORYSTONE_STAIRS, ModBlocks.IVORYSTONE);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.IVORYSTONE_SLAB, ModBlocks.IVORYSTONE,2);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.IVORYSTONE_WALL, ModBlocks.IVORYSTONE);
 
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_IVORYSTONE, ModBlocks.IVORYSTONE);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_IVORYSTONE_STAIRS, ModBlocks.POLISHED_IVORYSTONE);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_IVORYSTONE_SLAB, ModBlocks.POLISHED_IVORYSTONE,2);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_IVORYSTONE_WALL, ModBlocks.POLISHED_IVORYSTONE);
 
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.IVORYSTONE_BRICKS, ModBlocks.IVORYSTONE);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.IVORYSTONE_BRICK_STAIRS, ModBlocks.IVORYSTONE_BRICKS);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.IVORYSTONE_BRICK_SLAB, ModBlocks.IVORYSTONE_BRICKS,2);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.IVORYSTONE_BRICK_WALL, ModBlocks.IVORYSTONE_BRICKS);
 
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICKS, ModBlocks.IVORYSTONE_BRICKS);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICK_STAIRS, ModBlocks.CRACKED_IVORYSTONE_BRICKS,2);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICK_SLAB, ModBlocks.CRACKED_IVORYSTONE_BRICKS);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICK_WALL, ModBlocks.CRACKED_IVORYSTONE_BRICKS);
+
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_IVORYSTONE_BRICKS, ModBlocks.IVORYSTONE_BRICKS);
 
     }
 

@@ -1,9 +1,9 @@
 package net.redreaper.monsterspellbooks.entity.model.IllagerEnchanterEntity;
 
-import io.redspace.ironsspellbooks.entity.mobs.abstract_spell_casting_mob.AbstractSpellCastingMobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.redreaper.monsterspellbooks.entity.model.AbstractSpellCastingIllager.AbstractSpellCastingIllagerRenderer;
 
-public class IllagerEnchanterRenderer extends AbstractSpellCastingMobRenderer {
+public class IllagerEnchanterRenderer extends AbstractSpellCastingIllagerRenderer {
 
     public IllagerEnchanterRenderer(EntityRendererProvider.Context context) {
         super(context, new IllagerEnchanterModel());

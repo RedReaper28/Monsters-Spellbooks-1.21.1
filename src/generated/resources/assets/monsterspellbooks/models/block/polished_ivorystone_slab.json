@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "monsterspellbooks:block/polished_ivorystone",
+    "side": "monsterspellbooks:block/polished_ivorystone",
+    "top": "monsterspellbooks:block/polished_ivorystone"
+  }
+}

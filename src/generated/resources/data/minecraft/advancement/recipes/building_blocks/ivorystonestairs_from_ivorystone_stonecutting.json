@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ivorystone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monsterspellbooks:ivorystone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:ivorystonestairs_from_ivorystone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ivorystone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:ivorystonestairs_from_ivorystone_stonecutting"
+    ]
+  }
+}

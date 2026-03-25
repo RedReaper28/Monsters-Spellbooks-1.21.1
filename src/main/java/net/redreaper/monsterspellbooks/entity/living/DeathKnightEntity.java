@@ -190,7 +190,7 @@ public class DeathKnightEntity extends UniqueAbstractSpellCastingMob implements 
         controllers.add(castingAnimationController);
     }
 
-    private PlayState predicate(AnimationState<DeathKnightEntity> event)
+    public PlayState predicate(AnimationState event)
     {
         if (event.isMoving() && this.animationToPlay == null)
         {

@@ -228,7 +228,7 @@ public class ShockEntity extends UniqueAbstractSpellCastingMob implements GeoAni
         controllers.add(castingAnimationController);
     }
 
-    private PlayState predicate(AnimationState<ShockEntity> event)
+    public PlayState predicate(AnimationState event)
     {
         if (event.isMoving() && this.animationToPlay == null)
         {

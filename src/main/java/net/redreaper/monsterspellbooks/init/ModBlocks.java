@@ -109,6 +109,47 @@ public class ModBlocks {
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE)));
 
 
+    public static final DeferredBlock<Block>IVORYSTONE=registerBlock("ivorystone",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
+    public static final DeferredBlock <StairBlock>IVORYSTONE_STAIRS=registerBlock("ivorystonestairs",
+            () -> new StairBlock(ModBlocks.IVORYSTONE.get().defaultBlockState(),BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
+    public static final DeferredBlock <SlabBlock>IVORYSTONE_SLAB=registerBlock("ivorystone_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
+    public static final DeferredBlock <WallBlock> IVORYSTONE_WALL =registerBlock("ivorystone_wall",
+            () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
+
+    public static final DeferredBlock<Block>POLISHED_IVORYSTONE=registerBlock("polished_ivorystone",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE)));
+    public static final DeferredBlock <StairBlock> POLISHED_IVORYSTONE_STAIRS =registerBlock("polished_ivorystone_stairs",
+            () -> new StairBlock(ModBlocks.POLISHED_IVORYSTONE.get().defaultBlockState(),BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE)));
+    public static final DeferredBlock <SlabBlock>POLISHED_IVORYSTONE_SLAB=registerBlock("polished_ivorystone_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE)));
+    public static final DeferredBlock <WallBlock>POLISHED_IVORYSTONE_WALL =registerBlock("polished_ivorystone_wall",
+            () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE)));
+
+    public static final DeferredBlock<Block>IVORYSTONE_BRICKS=registerBlock("ivorystone_bricks",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS)));
+    public static final DeferredBlock <StairBlock> IVORYSTONE_BRICK_STAIRS =registerBlock("ivorystone_brick_stairs",
+            () -> new StairBlock(ModBlocks.IVORYSTONE_BRICKS.get().defaultBlockState(),BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS)));
+    public static final DeferredBlock <SlabBlock> IVORYSTONE_BRICK_SLAB =registerBlock("ivorystone_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS)));
+    public static final DeferredBlock <WallBlock> IVORYSTONE_BRICK_WALL =registerBlock("ivorystone_brick_wall",
+            () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS)));
+
+    public static final DeferredBlock<Block>CRACKED_IVORYSTONE_BRICKS=registerBlock("cracked_ivorystone_bricks",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CRACKED_DEEPSLATE_BRICKS)));
+    public static final DeferredBlock <StairBlock>CRACKED_IVORYSTONE_BRICK_STAIRS =registerBlock("cracked_ivorystone_brick_stairs",
+            () -> new StairBlock(ModBlocks.CRACKED_IVORYSTONE_BRICKS.get().defaultBlockState(),BlockBehaviour.Properties.ofFullCopy(Blocks.CRACKED_DEEPSLATE_BRICKS)));
+    public static final DeferredBlock <SlabBlock>CRACKED_IVORYSTONE_BRICK_SLAB =registerBlock("cracked_ivorystone_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRACKED_DEEPSLATE_BRICKS)));
+    public static final DeferredBlock <WallBlock>CRACKED_IVORYSTONE_BRICK_WALL =registerBlock("cracked_ivorystone_brick_wall",
+            () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.CRACKED_DEEPSLATE_BRICKS)));
+
+    public static final DeferredBlock<Block>CHISELED_IVORYSTONE_BRICKS=registerBlock("chiseled_ivorystone_bricks",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_DEEPSLATE)));
+
+
+
 
     public static final DeferredBlock<Block>VILESTONE=registerBlock("vilestone",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE)));

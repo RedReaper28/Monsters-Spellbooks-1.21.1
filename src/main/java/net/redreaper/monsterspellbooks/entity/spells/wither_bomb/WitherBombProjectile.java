@@ -20,7 +20,6 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
-import net.redreaper.monsterspellbooks.particle.ElectricExplosionParticlesPacket;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 import net.redreaper.monsterspellbooks.particle.SoulExplosionParticlePacket;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -98,7 +97,7 @@ public class WitherBombProjectile extends AbstractMagicProjectile implements Geo
                 if (distanceSqr < explosionRadiusSqr && canHitEntity(entity) && Utils.hasLineOfSight(level(), losPoint, entity.getBoundingBox().getCenter(), true)) {
                     double p = (1 - distanceSqr / explosionRadiusSqr);
                     float damage = (float) (this.damage * p);
-                    DamageSources.applyDamage(entity, damage, ModSpellRegistry.RAIGO.get().getDamageSource(this, getOwner()));
+                    DamageSources.applyDamage(entity, damage, ModSpellRegistry.WITHER_BOMB.get().getDamageSource(this, getOwner()));
                     if (entity instanceof LivingEntity livingEntity && livingEntity != getOwner())
                         livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 180, 0));
                 }

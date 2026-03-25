@@ -4,7 +4,6 @@ import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.entity.mobs.SupportMob;
-import io.redspace.ironsspellbooks.entity.mobs.abstract_spell_casting_mob.AbstractSpellCastingMob;
 import io.redspace.ironsspellbooks.entity.mobs.goals.*;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -15,24 +14,24 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.goal.GoalSelector;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.redreaper.monsterspellbooks.init.ModItems;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class IllagerEnchanterEntity extends AbstractSpellCastingMob implements Enemy, SupportMob {
+public class IllagerEnchanterEntity extends AbstractSpellCastingIllager implements Enemy, SupportMob {
     public GoalSelector supportTargetSelector;
 
-    public IllagerEnchanterEntity(EntityType<? extends AbstractSpellCastingMob> pEntityType, Level pLevel) {
+    public IllagerEnchanterEntity(EntityType<? extends AbstractSpellCastingIllager> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         xpReward = 25;
     }
@@ -42,29 +41,31 @@ public class IllagerEnchanterEntity extends AbstractSpellCastingMob implements E
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new WizardSupportGoal<>(this, 1.25f, 40, 60)
                 .setSpells(
-                        List.of(SpellRegistry.BLESSING_OF_LIFE_SPELL.get(), SpellRegistry.BLESSING_OF_LIFE_SPELL.get(), SpellRegistry.HEALING_CIRCLE_SPELL.get()),
+                        List.of(SpellRegistry.BLESSING_OF_LIFE_SPELL.get(), SpellRegistry.HEALING_CIRCLE_SPELL.get(),ModSpellRegistry.ENCHANTERS_BOOST.get(),ModSpellRegistry.ENCHANTERS_PROTECTION.get()),
                         List.of(SpellRegistry.FORTIFY_SPELL.get())
                 ));
         this.goalSelector.addGoal(3, new WizardAttackGoal(this, 1.25f, 35, 70)
                 .setSpells(
-                        List.of(SpellRegistry.FIRECRACKER_SPELL.get()),
-                        List.of(SpellRegistry.GUST_SPELL.get()),
                         List.of(),
+                        List.of(SpellRegistry.GUST_SPELL.get(),SpellRegistry.COUNTERSPELL_SPELL.get()),
+                        List.of(SpellRegistry.TELEPORT_SPELL.get()),
                         List.of(SpellRegistry.HEAL_SPELL.get()))
                 .setSpellQuality(0.3f, 0.5f)
                 .setDrinksPotions());
-        this.goalSelector.addGoal(3, new PatrolNearLocationGoal(this, 30, .75f));
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(1, new ObtainRaidLeaderBannerGoal<>(this));
+        this.goalSelector.addGoal(3, new PathfindToRaidGoal<>(this));
+        this.goalSelector.addGoal(8, new RandomStrollGoal(this, 0.6));        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(8, new RandomStrollGoal(this, 0.6));
+        this.goalSelector.addGoal(9, new LookAtPlayerGoal(this, Player.class, 15.0F, 1.0F));
+        this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, Mob.class, 15.0F));        this.goalSelector.addGoal(10, new WizardRecoverGoal(this));
+        this.goalSelector.addGoal(2, new Raider.HoldGroundAttackGoal(this, 10.0F));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, Raider.class).setAlertOthers());
         this.goalSelector.addGoal(10, new WizardRecoverGoal(this));
-
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-
         this.supportTargetSelector = new GoalSelector(this.level().getProfilerSupplier());
         this.supportTargetSelector.addGoal(0, new FindSupportableTargetGoal<>(this, LivingEntity.class, true,
                 (mob) ->mob.getHealth() * 1.25f < mob.getMaxHealth() && (mob.getType().is(EntityTypeTags.ILLAGER_FRIENDS)))
         );
     }
-
 
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
@@ -108,7 +109,6 @@ public class IllagerEnchanterEntity extends AbstractSpellCastingMob implements E
         return true;
     }
 
-
     LivingEntity supportTarget;
 
     @org.jetbrains.annotations.Nullable
@@ -127,6 +127,14 @@ public class IllagerEnchanterEntity extends AbstractSpellCastingMob implements E
         super.customServerAiStep();
         if (this.tickCount % 4 == 0 && this.tickCount > 1) {
             this.supportTargetSelector.tick();
+        }
+    }
+
+    public boolean isAlliedTo(Entity entity) {
+        if (super.isAlliedTo(entity)) {
+            return true;
+        } else {
+            return entity.getType().is(EntityTypeTags.ILLAGER_FRIENDS) && this.getTeam() == null && entity.getTeam() == null;
         }
     }
 }

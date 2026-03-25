@@ -6,6 +6,7 @@ import io.redspace.ironsspellbooks.api.spells.ISpellContainer;
 import io.redspace.ironsspellbooks.entity.armor.GenericCustomArmorRenderer;
 import io.redspace.ironsspellbooks.item.armor.ExtendedArmorItem;
 import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
+import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ArmorItem;
@@ -20,6 +21,7 @@ public class FierceDeityMaskItem extends ExtendedArmorItem implements IPresetSpe
     public FierceDeityMaskItem(ArmorItem.Type slot, Properties settings) {
         super(ModExtendedArmorMaterials.FIERCE_DEITY, slot, settings,
                 new AttributeContainer(AttributeRegistry.HOLY_SPELL_POWER, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(ASAttributeRegistry.RITUAL_MAGIC_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.MANA_REGEN, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(Attributes.ATTACK_DAMAGE, 2, AttributeModifier.Operation.ADD_VALUE),
                 new AttributeContainer(Attributes.MAX_HEALTH, 6, AttributeModifier.Operation.ADD_VALUE)

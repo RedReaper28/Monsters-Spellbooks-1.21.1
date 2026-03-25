@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_polished_ivorystone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monsterspellbooks:polished_ivorystone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:polished_ivorystone_wall_from_polished_ivorystone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_polished_ivorystone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:polished_ivorystone_wall_from_polished_ivorystone_stonecutting"
+    ]
+  }
+}

@@ -21,7 +21,6 @@ import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrb;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class NapalmOrbSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "napalm_orb");
 

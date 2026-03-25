@@ -8,7 +8,6 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.init.ModBlocks;
-import net.redreaper.monsterspellbooks.init.ModItems;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -17,9 +16,16 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+
+
         wallItem(ModBlocks.PEARL_MARBLE_WALL, ModBlocks.PEARl_MARBLE);
         wallItem(ModBlocks.POLISHED_PEARL_MARBLE_WALL, ModBlocks.POLISHED_PEARl_MARBLE);
         wallItem(ModBlocks.PEARL_MARBLE_TILE_WALL, ModBlocks.PEARl_MARBLE_TILES);
+
+        wallItem(ModBlocks.IVORYSTONE_WALL, ModBlocks.IVORYSTONE);
+        wallItem(ModBlocks.POLISHED_IVORYSTONE_WALL, ModBlocks.POLISHED_IVORYSTONE);
+        wallItem(ModBlocks.IVORYSTONE_BRICK_WALL, ModBlocks.IVORYSTONE_BRICKS);
+        wallItem(ModBlocks.CRACKED_IVORYSTONE_BRICK_WALL, ModBlocks.CRACKED_IVORYSTONE_BRICKS);
     }
 
     public void buttonItem(DeferredBlock<?> block, DeferredBlock<Block> baseBlock) {

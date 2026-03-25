@@ -128,6 +128,14 @@ public class ModExtendedArmorMaterials {
             2,
             0);
 
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>ICEOLOGER=register("iceologer",
+            schoolArmorMap(),
+            10,
+            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            () -> Ingredient.of(ItemRegistry.MAGIC_CLOTH.get()),
+            2,
+            0);
+
     private static DeferredHolder<ArmorMaterial, ArmorMaterial> register(
             String name,
             EnumMap<ArmorItem.Type, Integer> defense,

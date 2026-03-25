@@ -19,7 +19,6 @@ import net.redreaper.monsterspellbooks.init.ModMobEffects;
 
 import java.util.List;
 
-@AutoSpellConfig
 public class HysteriaSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "hysteria");
 

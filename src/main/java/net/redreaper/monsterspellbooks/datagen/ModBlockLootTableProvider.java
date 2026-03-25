@@ -53,14 +53,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createSlabItemTable(ModBlocks.PEARL_MARBLE_SLAB.get()));
         dropSelf(ModBlocks.PEARL_MARBLE_WALL.get());
 
-
-
         dropSelf(ModBlocks.POLISHED_PEARl_MARBLE.get());
         dropSelf(ModBlocks.POLISHED_PEARL_MARBLE_STAIRS.get());
         add(ModBlocks.POLISHED_PEARL_MARBLE_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.POLISHED_PEARL_MARBLE_SLAB.get()));
         dropSelf(ModBlocks.POLISHED_PEARL_MARBLE_WALL.get());
-
 
         dropSelf(ModBlocks.PEARl_MARBLE_TILES.get());
         dropSelf(ModBlocks.PEARL_MARBLE_TILE_STAIRS.get());
@@ -68,9 +65,33 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createSlabItemTable(ModBlocks.PEARL_MARBLE_TILE_SLAB.get()));
         dropSelf(ModBlocks.PEARL_MARBLE_TILE_WALL.get());
 
-
-
         dropSelf(ModBlocks.PEARl_MARBLE_PILLAR.get());
+
+        dropSelf(ModBlocks.IVORYSTONE.get());
+        dropSelf(ModBlocks.IVORYSTONE_STAIRS.get());
+        add(ModBlocks.IVORYSTONE_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.IVORYSTONE_SLAB.get()));
+        dropSelf(ModBlocks.IVORYSTONE_WALL.get());
+
+        dropSelf(ModBlocks.POLISHED_IVORYSTONE.get());
+        dropSelf(ModBlocks.POLISHED_IVORYSTONE_STAIRS.get());
+        add(ModBlocks.POLISHED_IVORYSTONE_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.POLISHED_IVORYSTONE_SLAB.get()));
+        dropSelf(ModBlocks.POLISHED_IVORYSTONE_WALL.get());
+
+        dropSelf(ModBlocks.IVORYSTONE_BRICKS.get());
+        dropSelf(ModBlocks.IVORYSTONE_BRICK_STAIRS.get());
+        add(ModBlocks.IVORYSTONE_BRICK_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.IVORYSTONE_BRICK_SLAB.get()));
+        dropSelf(ModBlocks.IVORYSTONE_BRICK_WALL.get());
+
+        dropSelf(ModBlocks.CRACKED_IVORYSTONE_BRICKS.get());
+        dropSelf(ModBlocks.CRACKED_IVORYSTONE_BRICK_STAIRS.get());
+        add(ModBlocks.CRACKED_IVORYSTONE_BRICK_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.CRACKED_IVORYSTONE_BRICK_SLAB.get()));
+        dropSelf(ModBlocks.CRACKED_IVORYSTONE_BRICK_WALL.get());
+
+        dropSelf(ModBlocks.CHISELED_IVORYSTONE_BRICKS.get());
 
 
         dropSelf(ModBlocks.VILESTONE.get());

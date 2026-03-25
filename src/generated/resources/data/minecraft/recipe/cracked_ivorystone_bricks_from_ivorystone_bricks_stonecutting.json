@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "monsterspellbooks:ivorystone_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:cracked_ivorystone_bricks"
+  }
+}

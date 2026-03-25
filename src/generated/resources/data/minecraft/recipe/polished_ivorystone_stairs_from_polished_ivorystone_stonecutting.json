@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "monsterspellbooks:polished_ivorystone"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:polished_ivorystone_stairs"
+  }
+}

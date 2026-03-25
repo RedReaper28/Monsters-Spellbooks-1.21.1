@@ -15,7 +15,6 @@ import net.redreaper.monsterspellbooks.entity.spells.poison_quill.PoisonQuillPro
 
 import java.util.List;
 
-@AutoSpellConfig
 public class PoisonQuillSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "poison_quill");
 

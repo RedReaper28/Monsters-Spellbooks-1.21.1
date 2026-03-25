@@ -20,7 +20,6 @@ import net.redreaper.monsterspellbooks.entity.spells.ancient_lightning_lance.Anc
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class AncientLightningLanceSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ancient_lightning_lance");
 

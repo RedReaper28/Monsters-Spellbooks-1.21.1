@@ -51,7 +51,10 @@ public class DraugrEliteVindicatorEntity extends AbstractSpellCastingMob impleme
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(3, new GenericAnimatedWarlockAttackGoal<>(this, 1.20f, 50, 75)
                 .setMoveset(List.of(
-                        new AttackAnimationData(9, "simple_sword_upward_swipe", 5)
+                        new AttackAnimationData(9, "simple_sword_upward_swipe", 5),
+                        new AttackAnimationData(8, "simple_sword_lunge_stab", 6),
+                        new AttackAnimationData(10, "simple_sword_stab_alternate", 8),
+                        new AttackAnimationData(10, "simple_sword_horizontal_cross_swipe", 8)
                 ))
                 .setComboChance(.4f)
                 .setMeleeAttackInverval(10, 30)

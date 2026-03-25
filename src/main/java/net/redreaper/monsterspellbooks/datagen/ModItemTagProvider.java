@@ -25,12 +25,14 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.GREAT_AXEBLADE.get())
                 .add(ModItems.MASTERS_KATANA.get())
                 .add(ModItems.DANCERS_SWORD.get())
+                .add(ModItems.PRISMARINE_CLAYMORE.get())
                 .add(ModItems.ORICHALCUM_DAGGER.get())
                 .add(ModItems.ORICHALCUM_GREATSWORD.get())
                 .add(ModItems.ORICHALCUM_WARHAMMER.get())
                 .add(ModItems.DWARVEN_WARHAMMER.get())
                 .add(ModItems.SANGUINITE_DAGGER.get())
                 .add(ModItems.SANGUINITE_SCYTHE.get())
+                .add(ModItems.DEATHSILVER_DAGGER.get())
                 .add(ModItems.DEATHSILVER_SWORD.get())
                 .add(ModItems.POISON_BITER.get())
                 .add(ModItems.POISON_GLAIVE.get())
@@ -86,8 +88,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         ;
 
         tag(ItemTags.BOW_ENCHANTABLE)
-                .add(ModItems.PALLADIN_HAMMER.get())
-                .add(ModItems.ENDERSENT_CRUSHER.get())
+                .add(ModItems.SNOW_BOW.get())
         ;
 
         tag(ItemTags.WEAPON_ENCHANTABLE)

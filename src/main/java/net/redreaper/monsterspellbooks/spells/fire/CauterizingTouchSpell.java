@@ -33,7 +33,6 @@ import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class CauterizingTouchSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "cauterizing_touch");
 

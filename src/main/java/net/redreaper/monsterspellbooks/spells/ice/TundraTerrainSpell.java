@@ -25,7 +25,6 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class TundraTerrainSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "tundra_terrain");
 

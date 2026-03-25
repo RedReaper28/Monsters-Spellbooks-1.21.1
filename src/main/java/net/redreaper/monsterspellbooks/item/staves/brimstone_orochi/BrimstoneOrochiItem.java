@@ -2,9 +2,8 @@ package net.redreaper.monsterspellbooks.item.staves.brimstone_orochi;
 
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
-import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
-import net.acetheeldritchking.aces_spell_utils.items.example.ASWeaponTiers;
+import net.acetheeldritchking.aces_spell_utils.items.example.items.weapons.ASWeaponTiers;
 import net.acetheeldritchking.aces_spell_utils.items.weapons.MagicGunItem;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.world.entity.Entity;

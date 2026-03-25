@@ -10,11 +10,16 @@ import net.redreaper.monsterspellbooks.spells.aero.SteamSteamSpell;
 import net.redreaper.monsterspellbooks.spells.aero.SuffocateSpell;
 import net.redreaper.monsterspellbooks.spells.blood.*;
 import net.redreaper.monsterspellbooks.spells.ender.*;
+import net.redreaper.monsterspellbooks.spells.evocation.EnchantersBoostSpell;
+import net.redreaper.monsterspellbooks.spells.evocation.EnchantersProtectionSpell;
 import net.redreaper.monsterspellbooks.spells.fire.*;
 import net.redreaper.monsterspellbooks.spells.holy.AegisPatrolSpell;
 import net.redreaper.monsterspellbooks.spells.holy.DivineInterventionSpell;
 import net.redreaper.monsterspellbooks.spells.holy.HallowSlashSpell;
 import net.redreaper.monsterspellbooks.spells.holy.PaladinThrowSpell;
+import net.redreaper.monsterspellbooks.spells.hydro.BubbleSpraySpell;
+import net.redreaper.monsterspellbooks.spells.hydro.GlowInkReleaseSpell;
+import net.redreaper.monsterspellbooks.spells.hydro.WaterTridentSpell;
 import net.redreaper.monsterspellbooks.spells.ice.BlizzardAspectSpell;
 import net.redreaper.monsterspellbooks.spells.ice.FrostCoatingSpell;
 import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
@@ -58,6 +63,10 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> SPACE_BREAKER = registerSpell(new SpaceBreakerSpell());
     public static final Supplier<AbstractSpell> SPACE_RUPTURE = registerSpell(new SpaceRuptureSpell());
 
+    //EVOCATION
+    public static final Supplier<AbstractSpell> ENCHANTERS_BOOST = registerSpell(new EnchantersBoostSpell());
+    public static final Supplier<AbstractSpell> ENCHANTERS_PROTECTION = registerSpell(new EnchantersProtectionSpell());
+
     //FIRE
     public static final Supplier<AbstractSpell> BRIMSTONE_BUZZSAW = registerSpell(new BrimstoneBuzzsawSpell());
     public static final Supplier<AbstractSpell> BRIMSTONE_RAIN = registerSpell(new BrimstoneRainSpell());
@@ -74,6 +83,11 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> DIVINE_INTERVENTION = registerSpell(new DivineInterventionSpell());
     public static final Supplier<AbstractSpell> HALLOW_SLASH = registerSpell(new HallowSlashSpell());
     public static final Supplier<AbstractSpell> PALADIN_THROW = registerSpell(new PaladinThrowSpell());
+
+    //HYDRO
+    public static final Supplier<AbstractSpell> BUBBLE_SPRAY = registerSpell(new BubbleSpraySpell());
+    public static final Supplier<AbstractSpell> GLOW_INK_RELEASE = registerSpell(new GlowInkReleaseSpell());
+    public static final Supplier<AbstractSpell> WATER_TRIDENT = registerSpell(new WaterTridentSpell());
 
     //ICE
     public static final Supplier<AbstractSpell> BLIZZARD_ASPECT = registerSpell(new BlizzardAspectSpell());

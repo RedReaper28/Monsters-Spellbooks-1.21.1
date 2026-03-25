@@ -28,7 +28,6 @@ import net.redreaper.monsterspellbooks.entity.spells.blood_pierce_bullet.BloodPi
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class BloodPierceSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "blood_pierce");
 

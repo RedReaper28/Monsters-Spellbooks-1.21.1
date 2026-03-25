@@ -20,7 +20,6 @@ import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class BlizzardAspectSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "blizzard_aspect");
 

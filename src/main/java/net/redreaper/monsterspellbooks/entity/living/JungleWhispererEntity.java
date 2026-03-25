@@ -174,7 +174,7 @@ public class JungleWhispererEntity extends UniqueAbstractSpellCastingMob impleme
         controllers.add(castingAnimationController);
     }
 
-    private PlayState predicate(AnimationState<JungleWhispererEntity> event)
+    public PlayState predicate(AnimationState event)
     {
         if (event.isMoving() && this.animationToPlay == null)
         {

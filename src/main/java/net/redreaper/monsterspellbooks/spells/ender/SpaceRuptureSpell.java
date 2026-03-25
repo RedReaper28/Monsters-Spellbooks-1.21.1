@@ -19,7 +19,6 @@ import net.redreaper.monsterspellbooks.entity.spells.space_rupture.SpaceRupture;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class SpaceRuptureSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "space_rupture");
 

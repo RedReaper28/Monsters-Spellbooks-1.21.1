@@ -14,6 +14,8 @@ import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffR
 import net.redreaper.monsterspellbooks.item.weapons.disruption_nanginata.DisruptionNaginataRenderer;
 import net.redreaper.monsterspellbooks.item.weapons.gore_child.GoreChildRenderer;
 import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlRenderer;
+import net.redreaper.monsterspellbooks.item.weapons.necromancer_trident.NecromancerTridentItem;
+import net.redreaper.monsterspellbooks.item.weapons.necromancer_trident.NecromancerTridentRenderer;
 import net.redreaper.monsterspellbooks.item.weapons.paadin_hammer.PaladinHammerRenderer;
 import net.redreaper.monsterspellbooks.loot.ModLootModifiers;
 import org.jetbrains.annotations.NotNull;
@@ -86,6 +88,7 @@ public class MonstersSpellbooks {
             AzItemRendererRegistry.register(VileNovaStaffRenderer::new, ModItems.VILENOVA_STAFF.get());
             AzItemRendererRegistry.register(BrimstoneOrochiRenderer::new, ModItems.BRIMSTONE_OROCHI.get());
             AzItemRendererRegistry.register(PaladinHammerRenderer::new, ModItems.PALLADIN_HAMMER.get());
+            AzItemRendererRegistry.register(NecromancerTridentRenderer::new, ModItems.NECROMANCER_TRIDENT.get());
             AzItemRendererRegistry.register(MagmaticMacuahuitlRenderer::new, ModItems.MAGMATIC_MACUAHUITL.get());
             AzItemRendererRegistry.register(GoreChildRenderer::new, ModItems.GORE_CHILD.get());
             AzItemRendererRegistry.register(DisruptionNaginataRenderer::new, ModItems.DISRUPTION_NAGINATA.get());

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "monsterspellbooks:block/polished_ivorystone"
+  }
+}

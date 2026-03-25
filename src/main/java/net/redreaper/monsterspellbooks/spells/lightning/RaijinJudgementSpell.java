@@ -21,7 +21,6 @@ import net.redreaper.monsterspellbooks.entity.spells.elthor.ElthorBeamEntity;
 
 import java.util.List;
 
-@AutoSpellConfig
 public class RaijinJudgementSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "raijin_judgement");
 

@@ -19,7 +19,6 @@ import net.redreaper.monsterspellbooks.init.ModMobEffects;
 
 import java.util.List;
 
-@AutoSpellConfig
 public class OverheatSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "overheat");
 

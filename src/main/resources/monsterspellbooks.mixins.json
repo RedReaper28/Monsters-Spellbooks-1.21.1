@@ -6,6 +6,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "entity.AegisVillageSpawnMixin",
+    "entity.AddCustomRaidMemberMixin",
     "spell.GustSpellMixin",
     "spell.RaiseDeadSpellMixin",
     "spell.SacrificeSpellMixin",

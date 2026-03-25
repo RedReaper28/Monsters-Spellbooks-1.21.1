@@ -21,7 +21,6 @@ import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoProjectile;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class RaigoSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "raigo");
 

@@ -28,7 +28,6 @@ import net.redreaper.monsterspellbooks.init.ModMobEffects;
 
 import java.util.List;
 
-@AutoSpellConfig
 public class DivineInterventionSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "divine_intervention");
 

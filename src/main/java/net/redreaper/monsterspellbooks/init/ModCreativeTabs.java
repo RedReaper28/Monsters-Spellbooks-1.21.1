@@ -20,6 +20,7 @@ public class ModCreativeTabs {
             ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModItems.WITHERWARD_RING.get()))
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_gear"))
                     .displayItems((itemDisplayParameters, output) ->{
+                        output.accept(ModItems.GUARDIAN_SPELLBOOK.get());
                         output.accept(ModItems.BOOK_OF_SOULS.get());
                         output.accept(ModItems.FRENZY_KING_BOOK.get());
                         output.accept(ModItems.REAPER_LANTERN.get());
@@ -30,6 +31,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.GREAT_AXEBLADE.get());
                         output.accept(ModItems.MASTERS_KATANA.get());
                         output.accept(ModItems.DANCERS_SWORD.get());
+                        output.accept(ModItems.PRISMARINE_CLAYMORE.get());
                         output.accept(ModItems.PRISMARINE_AXE.get());
                         output.accept(ModItems.WHITE_GOLD_PICKAXE.get());
                         output.accept(ModItems.WHITE_GOLD_AXE.get());
@@ -50,11 +52,12 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SANGUINITE_DAGGER.get());
                         output.accept(ModItems.SANGUINITE_SCYTHE.get());
                         output.accept(ModItems.SANGUINITE_AXE.get());
+                        output.accept(ModItems.DEATHSILVER_DAGGER.get());
                         output.accept(ModItems.DEATHSILVER_SWORD.get());
                         output.accept(ModItems.DEATHSILVER_AXE.get());
-                        output.accept(ModItems.CRESCENT_BLOOD_ROSE.get());
                         output.accept(ModItems.POISON_BITER.get());
                         output.accept(ModItems.POISON_GLAIVE.get());
+                        output.accept(ModItems.NECROMANCER_TRIDENT.get());
                         output.accept(ModItems.FROST_FANG.get());
                         output.accept(ModItems.CLAWS_OF_CALAMITY.get());
                         output.accept(ModItems.DUCHEES_SEWING_NEEDLE.get());
@@ -70,6 +73,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.ENDERSENT_CRUSHER.get());
                         output.accept(ModItems.REAPER_SICKLE.get());
                         output.accept(ModItems.SNOW_BOW.get());
+
+                        output.accept(ModItems.CRESCENT_BLOOD_ROSE.get());
 
 
                         output.accept(ModItems.WITHERWARD_RING.get());
@@ -91,10 +96,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.FUNGAL_CAP_BLUE.get());
                         output.accept(ModItems.FLESH_MAIDEN.get());
 
-                        output.accept(ModItems.ILLAGER_ENCHANTER_HELMET.get());
-                        output.accept(ModItems.ILLAGER_ENCHANTER_CHESTPLATE.get());
-                        output.accept(ModItems.ILLAGER_ENCHANTER_LEGGINGS.get());
-                        output.accept(ModItems.ILLAGER_ENCHANTER_BOOTS.get());
+                        output.accept(ModItems.DRAUGR_ELITE_HELMET.get());
+                        output.accept(ModItems.DRAUGR_ELITE_CHESTPLATE.get());
+                        output.accept(ModItems.DRAUGR_ELITE_BOOTS.get());
+
+
 
                         output.accept(ModItems.SANGUINITE_HERO_HOOD.get());
                         output.accept(ModItems.SANGUINITE_HERO_CHESTPLATE.get());
@@ -106,10 +112,25 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DWARVEN_ENGINEER_LEGGINGS.get());
                         output.accept(ModItems.DWARVEN_ENGINEER_BOOTS.get());
 
+                        output.accept(ModItems.FORGE_MASTERPIECE_HELMET.get());
+                        output.accept(ModItems.FORGE_MASTERPIECE_CHESTPLATE.get());
+                        output.accept(ModItems.FORGE_MASTERPIECE_LEGGINGS.get());
+                        output.accept(ModItems.FORGE_MASTERPIECE_BOOTS.get());
 
-                        output.accept(ModItems.DRAUGR_ELITE_HELMET.get());
-                        output.accept(ModItems.DRAUGR_ELITE_CHESTPLATE.get());
-                        output.accept(ModItems.DRAUGR_ELITE_BOOTS.get());
+                        output.accept(ModItems.STARSCOURGE_HELMET.get());
+                        output.accept(ModItems.STARSCOURGE_CHESTPLATE.get());
+                        output.accept(ModItems.STARSCOURGE_LEGGINGS.get());
+                        output.accept(ModItems.STARSCOURGE_BOOTS.get());
+
+                        output.accept(ModItems.ILLAGER_ENCHANTER_HELMET.get());
+                        output.accept(ModItems.ILLAGER_ENCHANTER_CHESTPLATE.get());
+                        output.accept(ModItems.ILLAGER_ENCHANTER_LEGGINGS.get());
+                        output.accept(ModItems.ILLAGER_ENCHANTER_BOOTS.get());
+
+                        output.accept(ModItems.ILLAGER_ICEOLOGER_HELMET.get());
+                        output.accept(ModItems.ILLAGER_ICEOLOGER_CHESTPLATE.get());
+                        output.accept(ModItems.ILLAGER_ICEOLOGER_LEGGINGS.get());
+                        output.accept(ModItems.ILLAGER_ICEOLOGER_BOOTS.get());
 
                         output.accept(ModItems.DEATH_KNIGHT_HELMET.get());
                         output.accept(ModItems.DEATH_KNIGHT_CHESTPLATE.get());
@@ -120,16 +141,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.PALE_OBSERVER_CHESTPLATE.get());
                         output.accept(ModItems.PALE_OBSERVER_LEGGINGS.get());
                         output.accept(ModItems.PALE_OBSERVER_BOOTS.get());
-
-                        output.accept(ModItems.FORGE_MASTERPIECE_HELMET.get());
-                        output.accept(ModItems.FORGE_MASTERPIECE_CHESTPLATE.get());
-                        output.accept(ModItems.FORGE_MASTERPIECE_LEGGINGS.get());
-                        output.accept(ModItems.FORGE_MASTERPIECE_BOOTS.get());
-
-                        output.accept(ModItems.STARSCOURGE_HELMET.get());
-                        output.accept(ModItems.STARSCOURGE_CHESTPLATE.get());
-                        output.accept(ModItems.STARSCOURGE_LEGGINGS.get());
-                        output.accept(ModItems.STARSCOURGE_BOOTS.get());
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_MATERIALS_TAB=CREATIVE_MODE_TAB.register("monsters_and_materials_tab",
@@ -152,6 +163,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DEATHSILVER_INGOT);
                         output.accept(ModItems.DEATHSILVER_NUGGET);
                         output.accept(ModItems.SANGUINITE_INGOT);
+                        output.accept(ModItems.ILLAGERITE_INGOT);
+                        output.accept(ModItems.ILLAGERITE_NUGGETS);
                         output.accept(ModItems.DWARVEN_ALLOY_SCRAP);
                         output.accept(ModItems.DWARVEN_ALLOY_INGOT);
                         output.accept(ModItems.DWARVEN_ALLOY_NUGGET);
@@ -166,6 +179,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.VILE_IRON_NUGGET);
                         output.accept(ModItems.NETHER_PYRITE);
                         output.accept(ModItems.NETHER_RUBY);
+
                         output.accept(ModItems.SPECTRITE_INGOT);
                         output.accept(ModItems.BLAZESTEEL_INGOT);
                         output.accept(ModItems.WITHER_ALLOY_INGOT);
@@ -194,6 +208,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DRIPPLER_SPAWN_EGG.get());
                         output.accept(ModItems.SPRIGGAN_SPAWN_EGG.get());
                         output.accept(ModItems.ILLAGER_ENCHANTER_SPAWN_EGG.get());
+                        output.accept(ModItems.ILLAGER_ICEOLOGER_SPAWN_EGG.get());
+                        output.accept(ModItems.DRAUGR_EVOKER_SPAWN_EGG.get());
                         output.accept(ModItems.DRAUGR_VINDICATOR_SPAWN_EGG.get());
                         output.accept(ModItems.DRAUGR_ELITE_VINDICATOR_SPAWN_EGG.get());
                         output.accept(ModItems.DRAUGR_PILLAGER_SPAWN_EGG.get());
@@ -204,8 +220,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.VILE_SKELETON_SPAWN_EGG.get());
                         output.accept(ModItems.MAGMA_ATRONACH_SPAWN_EGG.get());
                         output.accept(ModItems.BLASTLING_SPAWN_EGG.get());
-
-
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_BLOCKS_TAB=CREATIVE_MODE_TAB.register("monsters_and_blocks_tab",
@@ -263,6 +277,28 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.PEARL_MARBLE_TILE_WALL);
 
                         output.accept(ModBlocks.PEARl_MARBLE_PILLAR);
+
+                        output.accept(ModBlocks.IVORYSTONE);
+                        output.accept(ModBlocks.IVORYSTONE_STAIRS);
+                        output.accept(ModBlocks.IVORYSTONE_SLAB);
+                        output.accept(ModBlocks.IVORYSTONE_WALL);
+
+                        output.accept(ModBlocks.POLISHED_IVORYSTONE);
+                        output.accept(ModBlocks.POLISHED_IVORYSTONE_STAIRS);
+                        output.accept(ModBlocks.POLISHED_IVORYSTONE_SLAB);
+                        output.accept(ModBlocks.POLISHED_IVORYSTONE_WALL);
+
+                        output.accept(ModBlocks.IVORYSTONE_BRICKS);
+                        output.accept(ModBlocks.IVORYSTONE_BRICK_STAIRS);
+                        output.accept(ModBlocks.IVORYSTONE_BRICK_SLAB);
+                        output.accept(ModBlocks.IVORYSTONE_BRICK_WALL);
+
+                        output.accept(ModBlocks.CRACKED_IVORYSTONE_BRICKS);
+                        output.accept(ModBlocks.CRACKED_IVORYSTONE_BRICK_STAIRS);
+                        output.accept(ModBlocks.CRACKED_IVORYSTONE_BRICK_SLAB);
+                        output.accept(ModBlocks.CRACKED_IVORYSTONE_BRICK_WALL);
+
+                        output.accept(ModBlocks.CHISELED_IVORYSTONE_BRICKS);
 
                         output.accept(ModBlocks.VILESTONE);
                         output.accept(ModBlocks.GRAVISTONE);

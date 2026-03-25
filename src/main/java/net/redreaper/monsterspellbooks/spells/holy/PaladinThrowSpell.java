@@ -17,7 +17,6 @@ import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerPro
 
 import java.util.List;
 
-@AutoSpellConfig
 public class PaladinThrowSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "paladin_throw");
 
