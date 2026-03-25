@@ -1,27 +1,24 @@
 {
+  "type": "minecraft:entity",
   "pools": [
     {
       "rolls": 1,
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        },
-        {
-          "condition": "minecraft:random_chance_with_enchanted_bonus",
-          "enchantment": "minecraft:looting",
-          "unenchanted_chance": 0.1,
-          "enchanted_chance": {
-            "type": "minecraft:linear",
-            "base": 0.1,
-            "per_level_above_first": 0.1
-          }
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "monsterspellbooks:guardian_spell_book"
+          "name": "monsterspellbooks:guardian_spell_book",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.65
+            }
+          ]
         }
       ]
     }
