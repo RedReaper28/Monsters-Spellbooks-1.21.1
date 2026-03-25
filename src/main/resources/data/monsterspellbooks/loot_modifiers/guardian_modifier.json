@@ -1,0 +1,10 @@
+{
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:entities/guardian"
+    }
+  ],
+  "type": "monsterspellbooks:add_to_table",
+  "loot_table": "monsterspellbooks:entities/additional_guardian_loot"
+}
