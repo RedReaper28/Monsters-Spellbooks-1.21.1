@@ -26,6 +26,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         wallItem(ModBlocks.POLISHED_IVORYSTONE_WALL, ModBlocks.POLISHED_IVORYSTONE);
         wallItem(ModBlocks.IVORYSTONE_BRICK_WALL, ModBlocks.IVORYSTONE_BRICKS);
         wallItem(ModBlocks.CRACKED_IVORYSTONE_BRICK_WALL, ModBlocks.CRACKED_IVORYSTONE_BRICKS);
+        wallItem(ModBlocks.FROST_IVORYSTONE_BRICK_WALL, ModBlocks.FROST_IVORYSTONE_BRICKS);
+        wallItem(ModBlocks.VILESTONE_WALL, ModBlocks.VILESTONE);
+        wallItem(ModBlocks.VILESTONE_BRICK_WALL, ModBlocks.VILESTONE_BRICKS);
     }
 
     public void buttonItem(DeferredBlock<?> block, DeferredBlock<Block> baseBlock) {

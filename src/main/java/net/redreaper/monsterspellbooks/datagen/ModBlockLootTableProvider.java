@@ -93,8 +93,27 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         dropSelf(ModBlocks.CHISELED_IVORYSTONE_BRICKS.get());
 
+        dropSelf(ModBlocks.FROST_IVORYSTONE_BRICKS.get());
+        dropSelf(ModBlocks.FROST_IVORYSTONE_BRICK_STAIRS.get());
+        add(ModBlocks.FROST_IVORYSTONE_BRICK_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.FROST_IVORYSTONE_BRICK_SLAB.get()));
+        dropSelf(ModBlocks.FROST_IVORYSTONE_BRICK_WALL.get());
 
         dropSelf(ModBlocks.VILESTONE.get());
+        dropSelf(ModBlocks.VILESTONE_STAIRS.get());
+        add(ModBlocks.VILESTONE_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.VILESTONE_SLAB.get()));
+        dropSelf(ModBlocks.VILESTONE_WALL.get());
+
+        dropSelf(ModBlocks.VILESTONE_BRICKS.get());
+        dropSelf(ModBlocks.VILESTONE_BRICK_STAIRS.get());
+        add(ModBlocks.VILESTONE_BRICK_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.VILESTONE_BRICK_SLAB.get()));
+        dropSelf(ModBlocks.VILESTONE_BRICK_WALL.get());
+
+        dropSelf(ModBlocks.CHISELED_VILESTONE_BRICKS.get());
+
+
         dropSelf(ModBlocks.GRAVISTONE.get());
 
         add(ModBlocks.OCEANITE_ORE_CLAY.get(),

@@ -148,11 +148,36 @@ public class ModBlocks {
     public static final DeferredBlock<Block>CHISELED_IVORYSTONE_BRICKS=registerBlock("chiseled_ivorystone_bricks",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_DEEPSLATE)));
 
-
-
+    public static final DeferredBlock<Block>FROST_IVORYSTONE_BRICKS=registerBlock("frost_ivorystone_bricks",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_DEEPSLATE)));
+    public static final DeferredBlock <StairBlock>FROST_IVORYSTONE_BRICK_STAIRS =registerBlock("frost_ivorystone_brick_stairs",
+            () -> new StairBlock(ModBlocks.FROST_IVORYSTONE_BRICKS.get().defaultBlockState(),BlockBehaviour.Properties.ofFullCopy(Blocks.CRACKED_DEEPSLATE_BRICKS)));
+    public static final DeferredBlock <SlabBlock>FROST_IVORYSTONE_BRICK_SLAB =registerBlock("frost_ivorystone_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRACKED_DEEPSLATE_BRICKS)));
+    public static final DeferredBlock <WallBlock>FROST_IVORYSTONE_BRICK_WALL =registerBlock("frost_ivorystone_brick_wall",
+            () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.CRACKED_DEEPSLATE_BRICKS)));
 
     public static final DeferredBlock<Block>VILESTONE=registerBlock("vilestone",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE)));
+    public static final DeferredBlock <StairBlock>VILESTONE_STAIRS =registerBlock("vilestone_stairs",
+            () -> new StairBlock(ModBlocks.VILESTONE.get().defaultBlockState(),BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE)));
+    public static final DeferredBlock <SlabBlock> VILESTONE_SLAB =registerBlock("vilestone_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE)));
+    public static final DeferredBlock <WallBlock> VILESTONE_WALL =registerBlock("vilestone_wall",
+            () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE)));
+
+    public static final DeferredBlock<Block>VILESTONE_BRICKS=registerBlock("vilestone_bricks",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_BRICKS)));
+    public static final DeferredBlock <StairBlock>VILESTONE_BRICK_STAIRS =registerBlock("vilestone_brick_stairs",
+            () -> new StairBlock(ModBlocks.VILESTONE_BRICKS.get().defaultBlockState(),BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_BRICKS)));
+    public static final DeferredBlock <SlabBlock> VILESTONE_BRICK_SLAB =registerBlock("vilestone_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_BRICKS)));
+    public static final DeferredBlock <WallBlock> VILESTONE_BRICK_WALL =registerBlock("vilestone_brick_wall",
+            () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_BRICKS)));
+
+    public static final DeferredBlock<Block>CHISELED_VILESTONE_BRICKS=registerBlock("chiseled_vilestone_bricks",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_POLISHED_BLACKSTONE)));
+
     public static final DeferredBlock<Block>GRAVISTONE=registerBlock("gravistone",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
 

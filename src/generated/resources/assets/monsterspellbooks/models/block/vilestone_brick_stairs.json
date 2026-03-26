@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "monsterspellbooks:block/vilestone_bricks",
+    "side": "monsterspellbooks:block/vilestone_bricks",
+    "top": "monsterspellbooks:block/vilestone_bricks"
+  }
+}

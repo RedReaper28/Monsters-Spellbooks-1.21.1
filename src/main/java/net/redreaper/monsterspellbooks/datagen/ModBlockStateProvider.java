@@ -55,7 +55,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.CHISELED_IVORYSTONE_BRICKS);
 
+        blockWithItem(ModBlocks.FROST_IVORYSTONE_BRICKS);
+        stairsBlock(ModBlocks.FROST_IVORYSTONE_BRICK_STAIRS.get(),blockTexture(ModBlocks.FROST_IVORYSTONE_BRICKS.get()));
+        slabBlock(ModBlocks.FROST_IVORYSTONE_BRICK_SLAB.get(),blockTexture(ModBlocks.FROST_IVORYSTONE_BRICKS.get()),blockTexture(ModBlocks.FROST_IVORYSTONE_BRICKS.get()));
+        wallBlock(ModBlocks.FROST_IVORYSTONE_BRICK_WALL.get(),blockTexture(ModBlocks.FROST_IVORYSTONE_BRICKS.get()));
+
         blockWithItem(ModBlocks.VILESTONE);
+        stairsBlock(ModBlocks.VILESTONE_STAIRS.get(),blockTexture(ModBlocks.VILESTONE.get()));
+        slabBlock(ModBlocks.VILESTONE_SLAB.get(),blockTexture(ModBlocks.VILESTONE.get()),blockTexture(ModBlocks.VILESTONE.get()));
+        wallBlock(ModBlocks.VILESTONE_WALL.get(),blockTexture(ModBlocks.VILESTONE.get()));
+
+        blockWithItem(ModBlocks.VILESTONE_BRICKS);
+        stairsBlock(ModBlocks.VILESTONE_BRICK_STAIRS.get(),blockTexture(ModBlocks.VILESTONE_BRICKS.get()));
+        slabBlock(ModBlocks.VILESTONE_BRICK_SLAB.get(),blockTexture(ModBlocks.VILESTONE_BRICKS.get()),blockTexture(ModBlocks.VILESTONE_BRICKS.get()));
+        wallBlock(ModBlocks.VILESTONE_BRICK_WALL.get(),blockTexture(ModBlocks.VILESTONE_BRICKS.get()));
+
+        blockWithItem(ModBlocks.CHISELED_VILESTONE_BRICKS);
+
         blockWithItem(ModBlocks.GRAVISTONE);
 
         blockItem(ModBlocks.PEARL_MARBLE_STAIRS);
@@ -79,6 +95,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.CRACKED_IVORYSTONE_BRICK_STAIRS);
         blockItem(ModBlocks.CRACKED_IVORYSTONE_BRICK_SLAB);
 
+        blockItem(ModBlocks.FROST_IVORYSTONE_BRICK_STAIRS);
+        blockItem(ModBlocks.FROST_IVORYSTONE_BRICK_SLAB);
+
+        blockItem(ModBlocks.VILESTONE_STAIRS);
+        blockItem(ModBlocks.VILESTONE_SLAB);
+
+        blockItem(ModBlocks.VILESTONE_BRICK_STAIRS);
+        blockItem(ModBlocks.VILESTONE_BRICK_SLAB);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock){

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:vilestone_brick_slab_from_vilestone_bricks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vilestone_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monsterspellbooks:vilestone_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_vilestone_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:vilestone_brick_slab_from_vilestone_bricks_stonecutting"
+    ]
+  }
+}

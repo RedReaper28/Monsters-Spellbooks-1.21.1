@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "monsterspellbooks:block/vilestone_brick_slab"
+    },
+    "type=double": {
+      "model": "monsterspellbooks:block/vilestone_bricks"
+    },
+    "type=top": {
+      "model": "monsterspellbooks:block/vilestone_brick_slab_top"
+    }
+  }
+}

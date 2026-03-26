@@ -1,11 +1,14 @@
 package net.redreaper.monsterspellbooks;
 
+import io.redspace.ironsspellbooks.render.SpellBookCurioRenderer;
 import mod.azure.azurelib.common.animation.cache.AzIdentityRegistry;
 import mod.azure.azurelib.common.render.item.AzItemRendererRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.redreaper.monsterspellbooks.entity.curios.ReaperLanternCurioItemRenderer;
+import net.redreaper.monsterspellbooks.entity.curios.ReaperLanternCurioRenderer;
 import net.redreaper.monsterspellbooks.init.*;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiRenderer;
 import net.redreaper.monsterspellbooks.item.staves.eyebloosom_staff.EyebloosomStaffRenderer;
@@ -14,7 +17,6 @@ import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffR
 import net.redreaper.monsterspellbooks.item.weapons.disruption_nanginata.DisruptionNaginataRenderer;
 import net.redreaper.monsterspellbooks.item.weapons.gore_child.GoreChildRenderer;
 import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlRenderer;
-import net.redreaper.monsterspellbooks.item.weapons.necromancer_trident.NecromancerTridentItem;
 import net.redreaper.monsterspellbooks.item.weapons.necromancer_trident.NecromancerTridentRenderer;
 import net.redreaper.monsterspellbooks.item.weapons.paadin_hammer.PaladinHammerRenderer;
 import net.redreaper.monsterspellbooks.loot.ModLootModifiers;
@@ -30,6 +32,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 @Mod(MonstersSpellbooks.MOD_ID)
 public class MonstersSpellbooks {
@@ -83,6 +86,27 @@ public class MonstersSpellbooks {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+
+            // curios
+            event.enqueueWork(() -> {
+                // Curio Rendering
+                CuriosRendererRegistry.register(
+                        ModItems.REAPER_LANTERN.get(), ReaperLanternCurioRenderer::new
+                );
+
+                CuriosRendererRegistry.register(
+                        ModItems.GUARDIAN_SPELLBOOK.get(), SpellBookCurioRenderer::new
+                );
+
+                CuriosRendererRegistry.register(
+                        ModItems.FRENZY_KING_BOOK.get(), SpellBookCurioRenderer::new
+                );
+
+                CuriosRendererRegistry.register(
+                        ModItems.BOOK_OF_SOULS.get(), SpellBookCurioRenderer::new
+                );
+            });
+
             AzItemRendererRegistry.register(EyebloosomStaffRenderer::new, ModItems.EYEBLOOSOM_STAFF.get());
             AzItemRendererRegistry.register(FrozenCommanderStaffRenderer::new, ModItems.FROZEN_COMMANDER_STAFF.get());
             AzItemRendererRegistry.register(VileNovaStaffRenderer::new, ModItems.VILENOVA_STAFF.get());

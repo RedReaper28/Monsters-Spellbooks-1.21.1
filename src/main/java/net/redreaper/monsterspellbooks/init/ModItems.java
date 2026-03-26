@@ -260,7 +260,6 @@ public class ModItems {
 
     public static final DeferredHolder<Item, Item>GUARDIAN_SPELLBOOK = ITEMS.register("guardian_spell_book",
             GuardianSpellBook::new);
-
     public static final DeferredHolder<Item, Item>BOOK_OF_SOULS = ITEMS.register("book_of_souls",
             BookOfSoulsItem::new);
     public static final DeferredHolder<Item, Item>FRENZY_KING_BOOK = ITEMS.register("frenzy_king_book",

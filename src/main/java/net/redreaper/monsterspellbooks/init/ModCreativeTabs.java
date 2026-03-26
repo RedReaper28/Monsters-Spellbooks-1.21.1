@@ -74,21 +74,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.REAPER_SICKLE.get());
                         output.accept(ModItems.SNOW_BOW.get());
 
-                        output.accept(ModItems.CRESCENT_BLOOD_ROSE.get());
-
-
-                        output.accept(ModItems.WITHERWARD_RING.get());
-                        output.accept(ModItems.CRITICAL_GLASSES.get());
-                        output.accept(ModItems.IGNITION_GLOVE.get());
-                        output.accept(ModItems.THUNDERING_QUIVER.get());
-                        output.accept(ModItems.BRIMSTONE_SIGIL.get());
-                        output.accept(ModItems.DREADHOUND_TOOTH_NECKLACE.get());
-                        output.accept(ModItems.DWARVEN_POWER_CORE.get());
-                        output.accept(ModItems.OBSIDIAN_MEDAL.get());
-                        output.accept(ModItems.ORB_SOUL.get());
-                        output.accept(ModItems.BLIZZARD_CALLER.get());
-                        output.accept(ModItems.CROSS_NECKLACE.get());
-
                         output.accept(ModItems.FIERCE_DEITY_MASK.get());
                         output.accept(ModItems.MAJORAS_MASK.get());
                         output.accept(ModItems.WILDFIRE_CROWN.get());
@@ -99,8 +84,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DRAUGR_ELITE_HELMET.get());
                         output.accept(ModItems.DRAUGR_ELITE_CHESTPLATE.get());
                         output.accept(ModItems.DRAUGR_ELITE_BOOTS.get());
-
-
 
                         output.accept(ModItems.SANGUINITE_HERO_HOOD.get());
                         output.accept(ModItems.SANGUINITE_HERO_CHESTPLATE.get());
@@ -141,6 +124,18 @@ public class ModCreativeTabs {
                         output.accept(ModItems.PALE_OBSERVER_CHESTPLATE.get());
                         output.accept(ModItems.PALE_OBSERVER_LEGGINGS.get());
                         output.accept(ModItems.PALE_OBSERVER_BOOTS.get());
+
+                        output.accept(ModItems.WITHERWARD_RING.get());
+                        output.accept(ModItems.CRITICAL_GLASSES.get());
+                        output.accept(ModItems.IGNITION_GLOVE.get());
+                        output.accept(ModItems.THUNDERING_QUIVER.get());
+                        output.accept(ModItems.BRIMSTONE_SIGIL.get());
+                        output.accept(ModItems.DREADHOUND_TOOTH_NECKLACE.get());
+                        output.accept(ModItems.DWARVEN_POWER_CORE.get());
+                        output.accept(ModItems.OBSIDIAN_MEDAL.get());
+                        output.accept(ModItems.ORB_SOUL.get());
+                        output.accept(ModItems.BLIZZARD_CALLER.get());
+                        output.accept(ModItems.CROSS_NECKLACE.get());
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_MATERIALS_TAB=CREATIVE_MODE_TAB.register("monsters_and_materials_tab",
@@ -300,7 +295,23 @@ public class ModCreativeTabs {
 
                         output.accept(ModBlocks.CHISELED_IVORYSTONE_BRICKS);
 
+                        output.accept(ModBlocks.FROST_IVORYSTONE_BRICKS);
+                        output.accept(ModBlocks.FROST_IVORYSTONE_BRICK_STAIRS);
+                        output.accept(ModBlocks.FROST_IVORYSTONE_BRICK_SLAB);
+                        output.accept(ModBlocks.FROST_IVORYSTONE_BRICK_WALL);
+
                         output.accept(ModBlocks.VILESTONE);
+                        output.accept(ModBlocks.VILESTONE_STAIRS);
+                        output.accept(ModBlocks.VILESTONE_SLAB);
+                        output.accept(ModBlocks.VILESTONE_WALL);
+
+                        output.accept(ModBlocks.VILESTONE_BRICKS);
+                        output.accept(ModBlocks.VILESTONE_BRICK_STAIRS);
+                        output.accept(ModBlocks.VILESTONE_BRICK_SLAB);
+                        output.accept(ModBlocks.VILESTONE_BRICK_WALL);
+                        output.accept(ModBlocks.CHISELED_VILESTONE_BRICKS);
+
+
                         output.accept(ModBlocks.GRAVISTONE);
                     }).build());
     public static void register(IEventBus eventBus){

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "monsterspellbooks:block/frost_ivorystone_brick_slab"
+    },
+    "type=double": {
+      "model": "monsterspellbooks:block/frost_ivorystone_bricks"
+    },
+    "type=top": {
+      "model": "monsterspellbooks:block/frost_ivorystone_brick_slab_top"
+    }
+  }
+}

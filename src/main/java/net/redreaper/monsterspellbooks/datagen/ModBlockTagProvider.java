@@ -51,17 +51,53 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.VOID_MATTER_ORE.get())
 
                 .add(ModBlocks.PEARl_MARBLE.get())
+                .add(ModBlocks.PEARL_MARBLE_STAIRS.get())
+                .add(ModBlocks.PEARL_MARBLE_SLAB.get())
+                .add(ModBlocks.PEARL_MARBLE_WALL.get())
                 .add(ModBlocks.POLISHED_PEARl_MARBLE.get())
+                .add(ModBlocks.POLISHED_PEARL_MARBLE_STAIRS.get())
+                .add(ModBlocks.POLISHED_PEARL_MARBLE_SLAB.get())
+                .add(ModBlocks.POLISHED_PEARL_MARBLE_WALL.get())
                 .add(ModBlocks.PEARl_MARBLE_TILES.get())
+                .add(ModBlocks.PEARL_MARBLE_TILE_STAIRS.get())
+                .add(ModBlocks.PEARL_MARBLE_TILE_SLAB.get())
+                .add(ModBlocks.PEARL_MARBLE_TILE_WALL.get())
                 .add(ModBlocks.PEARl_MARBLE_PILLAR.get())
 
                 .add(ModBlocks.IVORYSTONE.get())
+                .add(ModBlocks.IVORYSTONE.get())
+                .add(ModBlocks.IVORYSTONE_STAIRS.get())
+                .add(ModBlocks.IVORYSTONE_SLAB.get())
+                .add(ModBlocks.IVORYSTONE_WALL.get())
                 .add(ModBlocks.POLISHED_IVORYSTONE.get())
+                .add(ModBlocks.POLISHED_IVORYSTONE_STAIRS.get())
+                .add(ModBlocks.POLISHED_IVORYSTONE_SLAB.get())
+                .add(ModBlocks.POLISHED_IVORYSTONE_WALL.get())
                 .add(ModBlocks.IVORYSTONE_BRICKS.get())
+                .add(ModBlocks.IVORYSTONE_BRICK_STAIRS.get())
+                .add(ModBlocks.IVORYSTONE_BRICK_SLAB.get())
+                .add(ModBlocks.IVORYSTONE_BRICK_WALL.get())
                 .add(ModBlocks.CRACKED_IVORYSTONE_BRICKS.get())
+                .add(ModBlocks.CRACKED_IVORYSTONE_BRICK_STAIRS.get())
+                .add(ModBlocks.CRACKED_IVORYSTONE_BRICK_SLAB.get())
+                .add(ModBlocks.CRACKED_IVORYSTONE_BRICK_WALL.get())
                 .add(ModBlocks.CHISELED_IVORYSTONE_BRICKS.get())
+                .add(ModBlocks.FROST_IVORYSTONE_BRICKS.get())
+                .add(ModBlocks.FROST_IVORYSTONE_BRICK_STAIRS.get())
+                .add(ModBlocks.FROST_IVORYSTONE_BRICK_SLAB.get())
+                .add(ModBlocks.FROST_IVORYSTONE_BRICK_WALL.get())
 
                 .add(ModBlocks.VILESTONE.get())
+                .add(ModBlocks.VILESTONE_STAIRS.get())
+                .add(ModBlocks.VILESTONE_SLAB.get())
+                .add(ModBlocks.VILESTONE_WALL.get())
+
+                .add(ModBlocks.VILESTONE_BRICKS.get())
+                .add(ModBlocks.VILESTONE_BRICK_STAIRS.get())
+                .add(ModBlocks.VILESTONE_BRICK_SLAB.get())
+                .add(ModBlocks.VILESTONE_BRICK_WALL.get())
+                .add(ModBlocks.CHISELED_VILESTONE_BRICKS.get())
+
                 .add(ModBlocks.GRAVISTONE.get())
         ;
 
@@ -133,6 +169,22 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.CORAL_LOG.get())
         ;
 
+        tag(BlockTags.STAIRS)
+                .add(ModBlocks.PEARL_MARBLE_STAIRS.get())
+                .add(ModBlocks.POLISHED_PEARL_MARBLE_STAIRS.get())
+                .add(ModBlocks.PEARL_MARBLE_TILE_STAIRS.get())
+
+                .add(ModBlocks.IVORYSTONE_STAIRS.get())
+                .add(ModBlocks.POLISHED_IVORYSTONE_STAIRS.get())
+                .add(ModBlocks.IVORYSTONE_BRICK_STAIRS.get())
+                .add(ModBlocks.CRACKED_IVORYSTONE_BRICK_STAIRS.get())
+                .add(ModBlocks.FROST_IVORYSTONE_BRICK_STAIRS.get())
+
+                .add(ModBlocks.VILESTONE_STAIRS.get())
+                .add(ModBlocks.VILESTONE_BRICK_STAIRS.get())
+
+        ;
+
         tag(BlockTags.SLABS)
                 .add(ModBlocks.PEARL_MARBLE_SLAB.get())
                 .add(ModBlocks.POLISHED_PEARL_MARBLE_SLAB.get())
@@ -142,6 +194,10 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.POLISHED_IVORYSTONE_SLAB.get())
                 .add(ModBlocks.IVORYSTONE_BRICK_SLAB.get())
                 .add(ModBlocks.CRACKED_IVORYSTONE_BRICK_SLAB.get())
+                .add(ModBlocks.FROST_IVORYSTONE_BRICK_SLAB.get())
+
+                .add(ModBlocks.VILESTONE_SLAB.get())
+                .add(ModBlocks.VILESTONE_BRICK_SLAB.get())
         ;
 
         tag(BlockTags.WALLS)
@@ -153,6 +209,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.POLISHED_IVORYSTONE_WALL.get())
                 .add(ModBlocks.IVORYSTONE_BRICK_WALL.get())
                 .add(ModBlocks.CRACKED_IVORYSTONE_BRICK_WALL.get())
+                .add(ModBlocks.FROST_IVORYSTONE_BRICK_WALL.get())
+
+
+                .add(ModBlocks.VILESTONE_WALL.get())
+
+                .add(ModBlocks.VILESTONE_BRICK_WALL.get())
         ;
 
         tag(BlockTags.DRAGON_IMMUNE)

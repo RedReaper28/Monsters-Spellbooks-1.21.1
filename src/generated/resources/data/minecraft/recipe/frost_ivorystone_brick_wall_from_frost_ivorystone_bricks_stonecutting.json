@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "monsterspellbooks:frost_ivorystone_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:frost_ivorystone_brick_wall"
+  }
+}

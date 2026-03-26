@@ -101,12 +101,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.IVORYSTONE_BRICK_WALL, ModBlocks.IVORYSTONE_BRICKS);
 
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICKS, ModBlocks.IVORYSTONE_BRICKS);
-        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICK_STAIRS, ModBlocks.CRACKED_IVORYSTONE_BRICKS,2);
-        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICK_SLAB, ModBlocks.CRACKED_IVORYSTONE_BRICKS);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICK_SLAB, ModBlocks.CRACKED_IVORYSTONE_BRICKS,2);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICK_STAIRS, ModBlocks.CRACKED_IVORYSTONE_BRICKS);
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICK_WALL, ModBlocks.CRACKED_IVORYSTONE_BRICKS);
 
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FROST_IVORYSTONE_BRICK_SLAB, ModBlocks.FROST_IVORYSTONE_BRICKS,2);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FROST_IVORYSTONE_BRICK_STAIRS, ModBlocks.FROST_IVORYSTONE_BRICKS);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FROST_IVORYSTONE_BRICK_WALL, ModBlocks.FROST_IVORYSTONE_BRICKS);
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_IVORYSTONE_BRICKS, ModBlocks.IVORYSTONE_BRICKS);
 
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.VILESTONE_SLAB, ModBlocks.VILESTONE,2);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.VILESTONE_STAIRS, ModBlocks.VILESTONE);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.VILESTONE_WALL, ModBlocks.VILESTONE);
+
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.VILESTONE_BRICKS, ModBlocks.VILESTONE);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.VILESTONE_BRICK_SLAB, ModBlocks.VILESTONE_BRICKS,2);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.VILESTONE_BRICK_STAIRS, ModBlocks.VILESTONE_BRICKS);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.VILESTONE_BRICK_WALL, ModBlocks.VILESTONE_BRICKS);
+
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_VILESTONE_BRICKS, ModBlocks.VILESTONE_BRICKS);
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

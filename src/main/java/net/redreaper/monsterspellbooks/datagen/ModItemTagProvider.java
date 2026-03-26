@@ -98,5 +98,10 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.PLANKS)
                 .add(ModBlocks.CORAL_PLANKS.asItem())
         ;
+
+        tag(ItemTags.STONE_TOOL_MATERIALS)
+                .add(ModBlocks.VILESTONE.asItem())
+                .add(ModBlocks.IVORYSTONE.asItem())
+        ;
     }
 }
