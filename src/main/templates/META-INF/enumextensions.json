@@ -1,0 +1,59 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "MONSTERSPELLBOOKS_RARITY_ILLAGER",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "net/redreaper/monsterspellbooks/utils/ModRarities",
+        "field": "ILLAGER_RARITY_PROXY"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "MONSTERSPELLBOOKS_RARITY_PRISMARINE",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "net/redreaper/monsterspellbooks/utils/ModRarities",
+        "field": "PRISMARINE_RARITY_PROXY"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "MONSTERSPELLBOOKS_RARITY_SOUL",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "net/redreaper/monsterspellbooks/utils/ModRarities",
+        "field": "SOUL_RARITY_PROXY"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "MONSTERSPELLBOOKS_RARITY_DWARVEN",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "net/redreaper/monsterspellbooks/utils/ModRarities",
+        "field": "DWARVEN_RARITY_PROXY"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "MONSTERSPELLBOOKS_RARITY_BRIMSTONE",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "net/redreaper/monsterspellbooks/utils/ModRarities",
+        "field": "BRIMSTONE_RARITY_PROXY"
+      }
+    },
+
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "MONSTERSPELLBOOKS_RARITY_SANGUINITE",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "net/redreaper/monsterspellbooks/utils/ModRarities",
+        "field": "SANGUINITE_RARITY_PROXY"
+      }
+    }
+  ]
+}

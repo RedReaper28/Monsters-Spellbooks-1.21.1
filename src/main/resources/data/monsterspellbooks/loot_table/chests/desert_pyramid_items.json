@@ -23,6 +23,23 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "monsterspellbooks:poison_biter",
+          "weight": 2
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.45
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
           "name": "monsterspellbooks:dancers_sword",
           "weight": 2
         }

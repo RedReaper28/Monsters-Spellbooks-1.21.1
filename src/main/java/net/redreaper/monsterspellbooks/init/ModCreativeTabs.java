@@ -20,6 +20,7 @@ public class ModCreativeTabs {
             ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModItems.WITHERWARD_RING.get()))
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_gear"))
                     .displayItems((itemDisplayParameters, output) ->{
+                        output.accept(ModItems.ENCHANTING_TOME.get());
                         output.accept(ModItems.GUARDIAN_SPELLBOOK.get());
                         output.accept(ModItems.BOOK_OF_SOULS.get());
                         output.accept(ModItems.FRENZY_KING_BOOK.get());
@@ -66,7 +67,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.PALLADIN_HAMMER.get());
                         output.accept(ModItems.FROSTMOURNE.get());
                         output.accept(ModItems.MAGMATIC_MACUAHUITL.get());
-                        output.accept(ModItems.GORE_CHILD.get());
                         output.accept(ModItems.STARLESS_NIGHT.get());
                         output.accept(ModItems.STARSCOURGE_SWORD.get());
                         output.accept(ModItems.DISRUPTION_NAGINATA.get());
@@ -84,6 +84,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DRAUGR_ELITE_HELMET.get());
                         output.accept(ModItems.DRAUGR_ELITE_CHESTPLATE.get());
                         output.accept(ModItems.DRAUGR_ELITE_BOOTS.get());
+
+                        output.accept(ModItems.NECROMANCER_HELMET.get());
+                        output.accept(ModItems.NECROMANCER_CHESTPLATE.get());
+                        output.accept(ModItems.NECROMANCER_LEGGINGS.get());
+                        output.accept(ModItems.NECROMANCER_BOOTS.get());
 
                         output.accept(ModItems.SANGUINITE_HERO_HOOD.get());
                         output.accept(ModItems.SANGUINITE_HERO_CHESTPLATE.get());
@@ -212,6 +217,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DWARVEN_SLICER_SPAWN_EGG.get());
                         output.accept(ModItems.JUNGLE_WHISPERER_SPAWN_EGG.get());
                         output.accept(ModItems.SHOCK_SPAWN_EGG.get());
+                        output.accept(ModItems.PRISMARINE_KEEPER_SPAWN_EGG.get());
                         output.accept(ModItems.VILE_SKELETON_SPAWN_EGG.get());
                         output.accept(ModItems.MAGMA_ATRONACH_SPAWN_EGG.get());
                         output.accept(ModItems.BLASTLING_SPAWN_EGG.get());
@@ -289,10 +295,6 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.IVORYSTONE_BRICK_WALL);
 
                         output.accept(ModBlocks.CRACKED_IVORYSTONE_BRICKS);
-                        output.accept(ModBlocks.CRACKED_IVORYSTONE_BRICK_STAIRS);
-                        output.accept(ModBlocks.CRACKED_IVORYSTONE_BRICK_SLAB);
-                        output.accept(ModBlocks.CRACKED_IVORYSTONE_BRICK_WALL);
-
                         output.accept(ModBlocks.CHISELED_IVORYSTONE_BRICKS);
 
                         output.accept(ModBlocks.FROST_IVORYSTONE_BRICKS);

@@ -1,4 +1,4 @@
-package net.redreaper.monsterspellbooks.entity.curios;
+package net.redreaper.monsterspellbooks.entity.curios.orb_soul;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -14,12 +14,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
+import net.redreaper.monsterspellbooks.entity.curios.obsidian_medal.ObsidianMedalCurioItemRenderer;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.client.ICurioRenderer;
 
 @OnlyIn(Dist.CLIENT)
-public class ReaperLanternCurioRenderer implements ICurioRenderer {
-    private final ReaperLanternCurioItemRenderer curioRenderer = new ReaperLanternCurioItemRenderer();
+public class OrbSoulCurioRenderer implements ICurioRenderer {
+    private final OrbSoulCurioItemRenderer curioRenderer = new OrbSoulCurioItemRenderer();
 
     @Override
     public <T extends LivingEntity, M extends EntityModel<T>> void render(
@@ -43,7 +44,7 @@ public class ReaperLanternCurioRenderer implements ICurioRenderer {
         curioRenderer.prepForRender(entity, stack, EquipmentSlot.CHEST, (HumanoidModel<?>) renderLayerParent.getModel());
 
         AzBakedModel model = curioRenderer.provider().provideBakedModel(entity, stack);
-        ResourceLocation textureLocation = ReaperLanternCurioItemRenderer.TEX;
+        ResourceLocation textureLocation = OrbSoulCurioItemRenderer.TEX;
         RenderType renderType = RenderType.entityCutout(textureLocation);
         VertexConsumer buffer = renderTypeBuffer.getBuffer(renderType);
 

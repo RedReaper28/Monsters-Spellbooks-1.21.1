@@ -5,6 +5,7 @@ import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.AnimationHolder;
 import io.redspace.ironsspellbooks.api.util.Utils;
+import net.acetheeldritchking.aces_spell_utils.utils.ASUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -12,15 +13,16 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class LichdomSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "lichdom");
 
@@ -72,7 +74,17 @@ public class LichdomSpell extends AbstractSpell {
 
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        entity.addEffect(new MobEffectInstance(ModMobEffects.LICHDOM, (int) (getSpellPower(spellLevel, entity) * 20),0, false, false, true));
+        if (entity instanceof Player player) {
+            boolean hasSoulOrb = ASUtils.hasCurio((Player) entity, ModItems.ORB_SOUL.get());
+            if (hasSoulOrb) {
+                entity.addEffect(new MobEffectInstance(ModMobEffects.LICHDOM, (int) (getSpellPower(spellLevel, entity) * 20), 0, false, false, true));
+            } else {
+                entity.addEffect(new MobEffectInstance(ModMobEffects.CURSE, (int) (getSpellPower(spellLevel, entity) * 5), 0, false, false, true));
+            }
+        }
+        else {
+            entity.addEffect(new MobEffectInstance(ModMobEffects.LICHDOM, 20 * 120, 0, false, false, true));
+        }
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 

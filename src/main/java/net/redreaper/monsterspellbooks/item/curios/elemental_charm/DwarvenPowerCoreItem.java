@@ -27,6 +27,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import net.redreaper.monsterspellbooks.item.armor.FleshMaidenArmorItem;
+import net.redreaper.monsterspellbooks.utils.ModRarities;
 import org.jetbrains.annotations.NotNull;
 import top.theillusivec4.curios.api.SlotContext;
 
@@ -35,7 +36,7 @@ import java.util.Map;
 
 public class DwarvenPowerCoreItem  extends ImbueableCurioItem {
     public DwarvenPowerCoreItem() {
-        super(ItemPropertiesHelper.equipment().stacksTo(1).fireResistant().rarity(ASRarities.AQUATIC_RARITY_PROXY.getValue()), Curios.NECKLACE_SLOT);
+        super(ItemPropertiesHelper.equipment().stacksTo(1).fireResistant().rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()), Curios.NECKLACE_SLOT);
     }
 
     public Multimap<Holder<Attribute>, AttributeModifier> getAttributeModifiers(SlotContext slotContext, ResourceLocation id, ItemStack stack) {

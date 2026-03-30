@@ -219,10 +219,20 @@ public class ServerEvents {
             if (livingEntity.hasEffect(ModMobEffects.LICHDOM)) {
                 event.setCanceled(true);
                 livingEntity.removeEffect(ModMobEffects.LICHDOM);
+                livingEntity.addEffect(new MobEffectInstance(ModMobEffects.SOUL_FORM, 150 ,4));
+                livingEntity.addEffect(new MobEffectInstance(ModMobEffects.CURSE, 150 ,0));
                 livingEntity.setHealth(10.0F);
-                livingEntity.addEffect(new MobEffectInstance(ModMobEffects.SOUL_FORM, 200 ,4));
-                livingEntity.addEffect(new MobEffectInstance(ModMobEffects.CURSE, 200 ,0));
                 livingEntity.level().playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.WITHER_DEATH, SoundSource.NEUTRAL, .8F, 1.3F);
+            }
+
+            if (livingEntity.hasEffect(ModMobEffects.EFFECT_OF_UNDYING)) {
+                event.setCanceled(true);
+                livingEntity.removeEffect(ModMobEffects.EFFECT_OF_UNDYING);
+                livingEntity.setHealth(01.0F);
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900 ,1));
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800 ,0));
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100 ,1));
+                livingEntity.level().playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.TOTEM_USE, SoundSource.NEUTRAL, .8F, 1.3F);
             }
         }
     }

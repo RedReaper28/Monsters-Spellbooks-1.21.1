@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:deathsilver_dagger"
+    },
+    "B": {
+      "item": "irons_spellbooks:ice_venom_vial"
+    },
+    "C": {
+      "item": "monsterspellbooks:superior_weapon_parts"
+    }
+  },
+  "pattern": [
+    "  B",
+    "BAB",
+    "CB "
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:frost_fang"
+  }
+}

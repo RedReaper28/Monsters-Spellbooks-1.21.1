@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:deathsilver_ingot"
+    },
+    "B": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "AA",
+    "AB",
+    " B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:deathsilver_axe"
+  }
+}

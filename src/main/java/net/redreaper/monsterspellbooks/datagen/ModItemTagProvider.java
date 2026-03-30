@@ -36,6 +36,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.DEATHSILVER_SWORD.get())
                 .add(ModItems.POISON_BITER.get())
                 .add(ModItems.POISON_GLAIVE.get())
+                .add(ModItems.NECROMANCER_TRIDENT.get())
                 .add(ModItems.FROST_FANG.get())
                 .add(ModItems.CRESCENT_BLOOD_ROSE.get())
                 .add(ModItems.CLAWS_OF_CALAMITY.get())

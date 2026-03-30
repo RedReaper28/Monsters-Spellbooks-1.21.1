@@ -31,10 +31,12 @@ public class CommonSetup {
         event.put(ModEntities.DRAUGR_VINDICATOR.get(), DraugrVindicatorEntity.createAttributes().build());
         event.put(ModEntities.DRAUGR_ELITE_VINDICATOR.get(), DraugrEliteVindicatorEntity.createAttributes().build());
         event.put(ModEntities.DRAUGR_PILLAGER.get(), DraugrPillagerEntity.createAttributes().build());
+        event.put(ModEntities.PRISMARINE_KEEPER.get(), PrismarineKeeper.createAttributes().build());
         event.put(ModEntities.VILE_SKELETON.get(), VileSkeletonEntity.createAttributes().build());
         event.put(ModEntities.MAGMA_ATRONACH.get(), MagmaAtronachEntity.createAttributes().build());
         event.put(ModEntities.BLASTLING.get(), BlastlingEntity.createAttributes().build());
         event.put(ModEntities.POISON_QUILL_VINE.get(), PoisonQuillVineEntity.createAttributes().build());
+        event.put(ModEntities.SUMMONED_PRISMARINE_KEEPER.get(), SummonedPrismarineKeeper.createAttributes().build());
         event.put(ModEntities.SUMMONED_AEGIS.get(), SummonedAegisEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_VILE_SKELETON.get(), SummonedVileSkeletonEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_DEATH_KNIGHT.get(), DeathKnightEntity.createAttributes().build());

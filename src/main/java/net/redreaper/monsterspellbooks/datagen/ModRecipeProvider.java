@@ -41,6 +41,38 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C',Items.SAND)
                 .unlockedBy("has_material", has(ModItems.POSEIDON_PEARL.get())).save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DEATHSILVER_SWORD.get())
+                .pattern("A")
+                .pattern("A")
+                .pattern("B")
+                .define('A',ModItems.DEATHSILVER_INGOT.get())
+                .define('B',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.DEATHSILVER_INGOT.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DEATHSILVER_DAGGER.get())
+                .pattern(" A")
+                .pattern("B ")
+                .define('A',ModItems.DEATHSILVER_INGOT.get())
+                .define('B',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.DEATHSILVER_INGOT.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DEATHSILVER_AXE.get())
+                .pattern("AA")
+                .pattern("AB")
+                .pattern(" B")
+                .define('A',ModItems.DEATHSILVER_INGOT.get())
+                .define('B',Items.STICK)
+                .unlockedBy("has_material", has(ModItems.DEATHSILVER_INGOT.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FROST_FANG.get())
+                .pattern("  B")
+                .pattern("BA ")
+                .pattern("CB ")
+                .define('A',ModItems.DEATHSILVER_DAGGER.get())
+                .define('B',ItemRegistry.ICE_VENOM_VIAL.get())
+                .define('C',ModItems.SUPERIOR_WEAPON_PARTS.get())
+                .unlockedBy("has_material", has(ModItems.DEATHSILVER_DAGGER.get())).save(recipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FUNGAL_CAP_RED.get())
                 .pattern("AAA")
                 .pattern("CBC")
@@ -48,6 +80,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('B',ItemRegistry.NATURE_RUNE.get())
                 .define('C',ItemRegistry.MAGIC_CLOTH.get())
                 .unlockedBy("has_material", has(ItemRegistry.NATURE_RUNE.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IGNITION_GLOVE.get())
+                .pattern(" B ")
+                .pattern("ACA")
+                .pattern("AAA")
+                .define('A',ItemRegistry.MAGIC_CLOTH.get())
+                .define('B',ItemRegistry.MITHRIL_WEAVE.get())
+                .define('C',ItemRegistry.FIRE_RUNE.get())
+                .unlockedBy("has_material", has(ItemRegistry.MITHRIL_WEAVE.get())).save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.PEARl_MARBLE_PILLAR.get())
                 .pattern("A")
@@ -101,14 +142,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.IVORYSTONE_BRICK_WALL, ModBlocks.IVORYSTONE_BRICKS);
 
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICKS, ModBlocks.IVORYSTONE_BRICKS);
-        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICK_SLAB, ModBlocks.CRACKED_IVORYSTONE_BRICKS,2);
-        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICK_STAIRS, ModBlocks.CRACKED_IVORYSTONE_BRICKS);
-        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_IVORYSTONE_BRICK_WALL, ModBlocks.CRACKED_IVORYSTONE_BRICKS);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_IVORYSTONE_BRICKS, ModBlocks.IVORYSTONE_BRICKS);
 
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FROST_IVORYSTONE_BRICK_SLAB, ModBlocks.FROST_IVORYSTONE_BRICKS,2);
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FROST_IVORYSTONE_BRICK_STAIRS, ModBlocks.FROST_IVORYSTONE_BRICKS);
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FROST_IVORYSTONE_BRICK_WALL, ModBlocks.FROST_IVORYSTONE_BRICKS);
-        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_IVORYSTONE_BRICKS, ModBlocks.IVORYSTONE_BRICKS);
 
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.VILESTONE_SLAB, ModBlocks.VILESTONE,2);
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.VILESTONE_STAIRS, ModBlocks.VILESTONE);

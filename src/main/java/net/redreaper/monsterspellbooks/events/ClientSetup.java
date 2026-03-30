@@ -36,6 +36,7 @@ import net.redreaper.monsterspellbooks.entity.model.MagmaAtronach.MagmaAtronachM
 import net.redreaper.monsterspellbooks.entity.model.MagmaAtronach.MagmaAtronachRenderer;
 import net.redreaper.monsterspellbooks.entity.model.PoisonQuillVine.PoisonQuillVineModel;
 import net.redreaper.monsterspellbooks.entity.model.PoisonQuillVine.PoisonQuillVineRenderer;
+import net.redreaper.monsterspellbooks.entity.model.PrismarineKeeper.PrismarineKeeperRenderer;
 import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityModel;
 import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityRenderer;
 import net.redreaper.monsterspellbooks.entity.model.SoulWizardEntity.SoulWizardModel;
@@ -59,6 +60,7 @@ import net.redreaper.monsterspellbooks.entity.spells.guardians_neutralizer.Guard
 import net.redreaper.monsterspellbooks.entity.spells.hallow_slash.HallowSlashRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSwordRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.infection_slash.InfectionSlashRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.ink_bomb.InkBombRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrbRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.plasma_barrage.PlasmaBoltRenderer;
@@ -66,6 +68,7 @@ import net.redreaper.monsterspellbooks.entity.spells.poison_quill.PoisonQuillRen
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMassRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.rancorcall.RancorSkullRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.razorblade_typhoon.RazorbladeTyphoonRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.SanguiniteEviscerationRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.soul_firebolt.SoulFireBoltRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.space_breaker.SpaceBreakerRenderer;
@@ -133,6 +136,8 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.HOLY_HAMMER.get(), HolyHammerRenderer::new);
         event.registerEntityRenderer(ModEntities.RANCOR_SKULL.get(), RancorSkullRenderer::new);
         event.registerEntityRenderer(ModEntities.WITHER_BOMB.get(), WitherBombRenderer::new);
+        event.registerEntityRenderer(ModEntities.INK_BOMB.get(), InkBombRenderer::new);
+        event.registerEntityRenderer(ModEntities.RAZORBLADE_TYPHOON.get(), RazorbladeTyphoonRenderer::new);
         event.registerEntityRenderer(ModEntities.BONE_DAGGER.get(), BoneDaggerRenderer::new);
         event.registerEntityRenderer(ModEntities.POISON_QUILL.get(), PoisonQuillRenderer::new);
         event.registerEntityRenderer(ModEntities.GRAVEYARD_HAND.get(), GraveyardHandRenderer::new);
@@ -154,9 +159,11 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.DRAUGR_VINDICATOR.get(), DraugrVindicatorRenderer::new);
         event.registerEntityRenderer(ModEntities.DRAUGR_ELITE_VINDICATOR.get(), DraugrVindicatorRenderer::new);
         event.registerEntityRenderer(ModEntities.DRAUGR_PILLAGER.get(), DraugrPillagerRenderer::new);
+        event.registerEntityRenderer(ModEntities.PRISMARINE_KEEPER.get(), PrismarineKeeperRenderer::new);
         event.registerEntityRenderer(ModEntities.MAGMA_ATRONACH.get(), context -> {return new MagmaAtronachRenderer(context, new MagmaAtronachModel());});
         event.registerEntityRenderer(ModEntities.BLASTLING.get(), context -> {return new BlastlingRenderer(context, new BlastlingModel());});
 
+        event.registerEntityRenderer(ModEntities.SUMMONED_PRISMARINE_KEEPER.get(), PrismarineKeeperRenderer::new);
         event.registerEntityRenderer(ModEntities.SUMMONED_DEATH_KNIGHT.get(), context -> {return new DeathKnightRenderer(context, new DeathKnightModel());});
         event.registerEntityRenderer(ModEntities.SUMMONED_VILE_SKELETON.get(), VileSkeletonRenderer::new);
         event.registerEntityRenderer(ModEntities.SUMMONED_AEGIS.get(), context -> {return new AegisEntityRenderer(context, new AegisEntityModel());});

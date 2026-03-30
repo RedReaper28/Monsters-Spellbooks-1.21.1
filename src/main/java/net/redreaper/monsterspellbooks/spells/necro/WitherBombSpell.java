@@ -20,7 +20,6 @@ import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class WitherBombSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "wither_bomb");
     private final DefaultConfig defaultConfig = new DefaultConfig()
@@ -66,22 +65,23 @@ public class WitherBombSpell extends AbstractSpell {
     }
 
     @Override
-    public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        var recasts = playerMagicData.getPlayerRecasts();
-        if (!recasts.hasRecastForSpell(getSpellId())) {
-            recasts.addRecast(new RecastInstance(getSpellId(), spellLevel, getRecastCount(spellLevel, entity), 120, castSource, null), playerMagicData);
+    public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
+        if (!world.isClientSide) {
+            Vec3 look = entity.getLookAngle();
+            int[] angles = new int[]{0, -60, 60};
+            for (int angle : angles) {
+                WitherBombProjectile fireball = new WitherBombProjectile(world, entity);
+                fireball.setOwner(entity);
+                fireball.setDamage(this.getDamage(spellLevel, entity));
+                fireball.setExplosionRadius(this.getRadius(spellLevel, entity));
+                fireball.setPos(entity.position().add((double) 0.0F, (double) entity.getEyeHeight() - (double) fireball.getBbHeight() * (double) 0.5F, (double) 0.0F));
+                Vec3 dir = look.yRot((float) Math.toRadians((double) angle));
+                fireball.shoot(dir.x, dir.y, dir.z, 1.25F, 0.0F);
+                fireball.setCursorHoming(true);
+                world.addFreshEntity(fireball);
+                super.onCast(world, spellLevel, entity, castSource, playerMagicData);
+            }
         }
-        Vec3 origin = entity.getEyePosition().add(entity.getForward().normalize().scale(.2f)).subtract(0, 0.15, 0);
-        WitherBombProjectile fireball = new WitherBombProjectile(level, entity);
-        fireball.setPos(origin.subtract(0, fireball.getBbHeight(), 0));
-        var inaccuracy = 0.4f;
-        Vec3 vec = entity.getForward().add(0,0.2,0).normalize(); // adjust for inaccuracy sometimes hitting the ground
-        fireball.shoot(vec.scale(.5f), inaccuracy);
-        fireball.setDamage(getDamage(spellLevel, entity));
-        fireball.setExplosionRadius(getRadius(spellLevel, entity));
-        fireball.setCursorHoming(true);
-        level.addFreshEntity(fireball);
-        super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 
 

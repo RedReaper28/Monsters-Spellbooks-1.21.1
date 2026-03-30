@@ -21,6 +21,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.redreaper.monsterspellbooks.init.ModAtributeRegistry;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.utils.ModRarities;
 import org.jetbrains.annotations.NotNull;
 import top.theillusivec4.curios.api.SlotContext;
 
@@ -29,7 +30,7 @@ import java.util.Map;
 
 public class OrbOFSoulsItem extends ImbueableCurioItem {
     public OrbOFSoulsItem() {
-        super(ItemPropertiesHelper.equipment().stacksTo(1).fireResistant().rarity(ASRarities.VERDANT_RARITY_PROXY.getValue()), Curios.NECKLACE_SLOT);
+        super(ItemPropertiesHelper.equipment().stacksTo(1).fireResistant().rarity(ModRarities.SOUL_RARITY_PROXY.getValue()), Curios.NECKLACE_SLOT);
     }
 
     public Multimap<Holder<Attribute>, AttributeModifier> getAttributeModifiers(SlotContext slotContext, ResourceLocation id, ItemStack stack) {

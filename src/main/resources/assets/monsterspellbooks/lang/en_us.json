@@ -140,6 +140,8 @@
   "block.monsterspellbooks.frost_ivorystone_brick_wall": "Frozen Ivorystone Brick Wall",
 
   "block.monsterspellbooks.vilestone": "Vilestone",
+  "block.monsterspellbooks.vilestone_bricks": "Vilestone Bricks",
+  "block.monsterspellbooks.chiseled_vilestone_bricks": "Chiseled Vilestone Bricks",
   "block.monsterspellbooks.gravistone": "Gravistone",
 
   "item.monsterspellbooks.dancers_sword": "Dancers Sword",
@@ -193,6 +195,7 @@
   "item.monsterspellbooks.frozen_commander_staff": "Frozen Commander Staff",
   "item.monsterspellbooks.vilenova_staff": "Vilenova Staff",
   "item.monsterspellbooks.brimstone_orochi": "Brimstone Orochi",
+  "item.monsterspellbooks.enchanter_spell_book": "Tome of Enchanting",
   "item.monsterspellbooks.guardian_spell_book": "Guardian Instruction Manual",
   "item.monsterspellbooks.book_of_souls": "Book Of Souls",
   "item.monsterspellbooks.frenzy_king_book": "The King in Yellow Flames",
@@ -236,6 +239,7 @@
   "item.monsterspellbooks.jungle_whisperer_spawn_egg": "Jungle Whisperer Spawn Egg",
   "item.monsterspellbooks.illager_enchanter_spawn_egg": "Illager Enchanter Spawn Egg",
   "item.monsterspellbooks.illager_iceologer_spawn_egg": "Illager Iceologer Spawn Egg",
+  "item.monsterspellbooks.prismarine_keeper_spawn_egg": "Prismarine Keeper Spawn Egg",
   "item.monsterspellbooks.magma_atronach_spawn_egg": "Magma Atronach Spawn Egg",
   "item.monsterspellbooks.shock_spawn_egg": "Shock Spawn Egg",
   "item.monsterspellbooks.vile_skeleton_spawn_egg": "Vile Skeleton Spawn Egg",
@@ -268,6 +272,10 @@
   "item.monsterspellbooks.draugr_elite_helmet": "Draugr Elite Helmet",
   "item.monsterspellbooks.draugr_elite_chestplate": "Draugr Elite Chestplate",
   "item.monsterspellbooks.draugr_elite_boots": "Draugr Elite Boots",
+  "item.monsterspellbooks.necromancer_helmet": "Necromancer Crown",
+  "item.monsterspellbooks.necromancer_chestplate": "Necromancer Robe",
+  "item.monsterspellbooks.necromancer_leggings": "Necromancer Leggings",
+  "item.monsterspellbooks.necromancer_boots": "Necromancer Shoes",
   "item.monsterspellbooks.death_knight_helmet": "Death knight Helmet",
   "item.monsterspellbooks.death_knight_chestplate": "Death knight Chestplate",
   "item.monsterspellbooks.death_knight_leggings": "Death knight Leggings",
@@ -298,6 +306,7 @@
   "entity.monsterspellbooks.illager_enchanter": "Illager Enchanter",
   "entity.monsterspellbooks.illager_iceologer": "Illager Iceologer",
   "entity.monsterspellbooks.jungle_whisperer": "Jungle Whisperer",
+  "entity.monsterspellbooks.prismarine_keeper": "Prismarine Keeper",
   "entity.monsterspellbooks.magma_atronach": "Magma Atronach",
   "entity.monsterspellbooks.poison_quill_vine": "Poison Quill Vine",
   "entity.monsterspellbooks.shock": "Shock",
@@ -426,6 +435,12 @@
   "spell.monsterspellbooks.bubble_spray.guide": "Hold to spew a cone of bubbles forwards",
   "spell.monsterspellbooks.glow_ink_release": "Glow Ink Release",
   "spell.monsterspellbooks.glow_ink_release.guide": "Release glowing ink,marking and stunning the creatures around you.Deals no damage",
+  "spell.monsterspellbooks.ink_bomb": "Ink Bomb",
+  "spell.monsterspellbooks.ink_bomb.guide": "Spit an ink bomb.splashing around upon impact and causing minor damage and blinding creatures",
+  "spell.monsterspellbooks.razor_typhoon": "Razorblade Typhoon",
+  "spell.monsterspellbooks.razor_typhoon.guide": "Launch a searing razorblade made of water which home towards your cursor,or the creature your cursor is targeting and damages enemies it pierces and bounces off blocks",
+  "spell.monsterspellbooks.summon_prismarine_squad": "Summon Prismarine Squad",
+  "spell.monsterspellbooks.summon_prismarine_squad.guide": "Cast to summon prismarine soldiers to follow,protect and fight for you",
   "spell.monsterspellbooks.water_trident": "Water Trident",
   "spell.monsterspellbooks.water_trident.guide": "Launch a trident made of water that has no gravity",
   "spell.monsterspellbooks.brimstone_buzzsaw": "Brimstone Buzzsaw",
@@ -502,7 +517,7 @@
   "spell.monsterspellbooks.life_drain": "Life Drain",
   "spell.monsterspellbooks.life_drain.guide": "Absorb the life force of your target,making them weak while healing you for 100% of the damage done",
   "spell.monsterspellbooks.lichdom": "Lichdom",
-  "spell.monsterspellbooks.lichdom.guide": "Abandon your humanity to gain the ability to resurrect once and gain soul form once the effect is activated",
+  "spell.monsterspellbooks.lichdom.guide": "Abandon your humanity to gain the ability to resurrect once and gain soul form once the effect is activated.Trying to cast it without Orb Of Souls will curse the caster",
   "spell.monsterspellbooks.putrescence_mass": "Putrescence Mass",
   "spell.monsterspellbooks.putrescence_mass.guide": "Launch a mass made from putrescence ,dissolving on impact and leaving a field of putrescence where it lands",
   "spell.monsterspellbooks.rancorcall": "Rancorcall",
@@ -539,5 +554,7 @@
   "fluid_type.monsterspellbooks.void_fluid": "Void Fluid",
 
   "curios.identifier.elemental_charm": "Elemental Charm",
-  "curios.modifiers.elemental_charm": "Elemental Charm"
+  "curios.modifiers.elemental_charm": "Elemental Charm",
+
+  "rarity.monsterspellbooks_rarity_illager.name": "Illagerite"
 }

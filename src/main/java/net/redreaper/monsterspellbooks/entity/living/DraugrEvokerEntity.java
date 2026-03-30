@@ -5,7 +5,6 @@ import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.entity.mobs.abstract_spell_casting_mob.AbstractSpellCastingMob;
 import io.redspace.ironsspellbooks.entity.mobs.goals.*;
-import io.redspace.ironsspellbooks.registries.ItemRegistry;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
@@ -74,7 +73,7 @@ public class DraugrEvokerEntity extends AbstractSpellCastingMob implements Enemy
         this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(ModItems.DRAUGR_ELITE_CHESTPLATE.get()));
         this.setItemSlot(EquipmentSlot.LEGS, new ItemStack(ModItems.DEATH_KNIGHT_LEGGINGS.get()));
         this.setItemSlot(EquipmentSlot.FEET, new ItemStack(ModItems.DEATH_KNIGHT_BOOTS.get()));
-        this.setDropChance(EquipmentSlot.MAINHAND, 0.0F);
+        this.setDropChance(EquipmentSlot.MAINHAND, 0.25F);
         this.setDropChance(EquipmentSlot.HEAD, 0.0F);
         this.setDropChance(EquipmentSlot.CHEST, 0.0F);
         this.setDropChance(EquipmentSlot.LEGS, 0.0F);
@@ -87,8 +86,8 @@ public class DraugrEvokerEntity extends AbstractSpellCastingMob implements Enemy
                 .add(Attributes.ATTACK_KNOCKBACK, 0.0)
                 .add(Attributes.MAX_HEALTH, 60.0)
                 .add(Attributes.FOLLOW_RANGE, 24.0)
-                .add(AttributeRegistry.ICE_SPELL_POWER, 20)
-                .add(ModAtributeRegistry.NECRO_MAGIC_POWER, 2)
+                .add(AttributeRegistry.ICE_SPELL_POWER, 15)
+                .add(ModAtributeRegistry.NECRO_MAGIC_POWER, 10)
                 .add(AttributeRegistry.CAST_TIME_REDUCTION, 2)
                 .add(Attributes.MOVEMENT_SPEED, .20);
     }

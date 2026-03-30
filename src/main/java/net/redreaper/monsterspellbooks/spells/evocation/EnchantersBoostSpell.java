@@ -97,7 +97,7 @@ public class EnchantersBoostSpell extends AbstractSpell {
     }
 
     public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) (getSpellPower(spellLevel, caster) * 25);
+        return (int) 20 * 120;
     }
 
     @Override

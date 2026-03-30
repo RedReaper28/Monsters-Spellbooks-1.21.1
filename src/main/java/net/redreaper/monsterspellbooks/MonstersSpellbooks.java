@@ -7,8 +7,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.redreaper.monsterspellbooks.entity.curios.ReaperLanternCurioItemRenderer;
-import net.redreaper.monsterspellbooks.entity.curios.ReaperLanternCurioRenderer;
+import net.redreaper.monsterspellbooks.entity.curios.critical_glasses.CriticalGlassesCurioRenderer;
+import net.redreaper.monsterspellbooks.entity.curios.ignition_gloves.IgnitionGlovesCurioRenderer;
+import net.redreaper.monsterspellbooks.entity.curios.obsidian_medal.ObsidianMedalCurioRenderer;
+import net.redreaper.monsterspellbooks.entity.curios.orb_soul.OrbSoulCurioRenderer;
+import net.redreaper.monsterspellbooks.entity.curios.reaper_lantern.ReaperLanternCurioRenderer;
+import net.redreaper.monsterspellbooks.entity.curios.thundering_quiver.ThunderingQuiverCurioRenderer;
 import net.redreaper.monsterspellbooks.init.*;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiRenderer;
 import net.redreaper.monsterspellbooks.item.staves.eyebloosom_staff.EyebloosomStaffRenderer;
@@ -86,25 +90,48 @@ public class MonstersSpellbooks {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
-            // curios
+            // Curio Rendering
             event.enqueueWork(() -> {
-                // Curio Rendering
+
+                CuriosRendererRegistry.register(
+                    ModItems.GUARDIAN_SPELLBOOK.get(), SpellBookCurioRenderer::new
+                );
+
+                CuriosRendererRegistry.register(
+                        ModItems.ENCHANTING_TOME.get(), SpellBookCurioRenderer::new
+                );
+                CuriosRendererRegistry.register(
+                        ModItems.BOOK_OF_SOULS.get(), SpellBookCurioRenderer::new
+                );
+
+                CuriosRendererRegistry.register(
+                    ModItems.FRENZY_KING_BOOK.get(), SpellBookCurioRenderer::new
+                );
+
                 CuriosRendererRegistry.register(
                         ModItems.REAPER_LANTERN.get(), ReaperLanternCurioRenderer::new
                 );
 
                 CuriosRendererRegistry.register(
-                        ModItems.GUARDIAN_SPELLBOOK.get(), SpellBookCurioRenderer::new
+                        ModItems.CRITICAL_GLASSES.get(), CriticalGlassesCurioRenderer::new
                 );
 
                 CuriosRendererRegistry.register(
-                        ModItems.FRENZY_KING_BOOK.get(), SpellBookCurioRenderer::new
+                        ModItems.IGNITION_GLOVE.get(), IgnitionGlovesCurioRenderer::new
                 );
 
                 CuriosRendererRegistry.register(
-                        ModItems.BOOK_OF_SOULS.get(), SpellBookCurioRenderer::new
+                        ModItems.THUNDERING_QUIVER.get(), ThunderingQuiverCurioRenderer::new
                 );
+
+                CuriosRendererRegistry.register(
+                        ModItems.OBSIDIAN_MEDAL.get(), ObsidianMedalCurioRenderer::new
+                );
+
+                CuriosRendererRegistry.register(
+                        ModItems.ORB_SOUL.get(), OrbSoulCurioRenderer::new
+                );
+
             });
 
             AzItemRendererRegistry.register(EyebloosomStaffRenderer::new, ModItems.EYEBLOOSOM_STAFF.get());

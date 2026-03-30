@@ -35,6 +35,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.entity.spells.water_trident.WaterTridentProjectile;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
+import net.redreaper.monsterspellbooks.utils.ModRarities;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -47,7 +48,7 @@ public class NecromancerTridentItem extends MagicSwordItem implements UniqueItem
 
     public NecromancerTridentItem() {
         super(ModExtendedWeaponTiers.NECROMANCER_PRISMARINE,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.AQUATIC_RARITY_PROXY.getValue())
+                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ModRarities.PRISMARINE_RARITY_PROXY.getValue())
                         .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.NECROMANCER_PRISMARINE)),
                 SpellDataRegistryHolder.of(
                         new SpellDataRegistryHolder(SpellRegistry.VOLT_STRIKE_SPELL, 8)

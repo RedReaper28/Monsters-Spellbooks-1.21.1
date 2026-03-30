@@ -64,7 +64,7 @@ public class FunGalCapBlueItem extends ImbuableChestplateArmorItem implements IP
     public void initializeSpellContainer(ItemStack itemStack) {
         if (itemStack != null) {
             super.initializeSpellContainer(itemStack);
-            itemStack.set(ComponentRegistry.AFFINITY_COMPONENT, new AffinityData(Map.of(SpellRegistry.BLAZE_STORM_SPELL.get().getSpellResource(), 1)));
+            itemStack.set(ComponentRegistry.AFFINITY_COMPONENT, new AffinityData(Map.of(SpellRegistry.GLUTTONY_SPELL.get().getSpellResource(), 1)));
         }
     }
 
@@ -74,7 +74,7 @@ public class FunGalCapBlueItem extends ImbuableChestplateArmorItem implements IP
         public static void onModifySpellLevel(ModifySpellLevelEvent event) {
             LivingEntity caster = event.getEntity();
             if (caster != null) {
-                if (event.getSpell() == SpellRegistry.BLAZE_STORM_SPELL.get()) {
+                if (event.getSpell() == SpellRegistry.GLUTTONY_SPELL.get()) {
                     ItemStack chestItem = caster.getItemBySlot(EquipmentSlot.HEAD);
                     if (chestItem.getItem() instanceof WildFireCrownItem) {
                         event.addLevels(1);

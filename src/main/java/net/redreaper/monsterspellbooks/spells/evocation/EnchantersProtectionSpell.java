@@ -76,11 +76,11 @@ public class EnchantersProtectionSpell extends AbstractSpell {
         if (playerMagicData.getAdditionalCastData() instanceof TargetEntityCastData healTargetingData) {
             var targetEntity = healTargetingData.getTarget((ServerLevel) world);
             if (targetEntity != null) {
-                targetEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, getDuration(spellLevel, entity), 1));
-                targetEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, getDuration(spellLevel, entity), 1));
-                targetEntity.addEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, getDuration(spellLevel, entity), 3));
-                targetEntity.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, getDuration(spellLevel, entity), 3));
-                targetEntity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, getDuration(spellLevel, entity), 0));
+                targetEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 120, 1));
+                targetEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20 * 120, 1));
+                targetEntity.addEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 20 * 120, 3));
+                targetEntity.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 20 * 120, 3));
+                targetEntity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 20 * 120, 0));
                 PacketDistributor.sendToPlayersTrackingEntityAndSelf(targetEntity, new HealParticlesPacket(targetEntity.position()));
             }
         }
@@ -99,7 +99,7 @@ public class EnchantersProtectionSpell extends AbstractSpell {
     }
 
     public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) (getSpellPower(spellLevel, caster) * 25);
+        return (int) 20 * 120;
     }
 
     @Override

@@ -56,7 +56,7 @@ public class FunGalCapItem extends ImbuableChestplateArmorItem implements IPrese
     public void initializeSpellContainer(ItemStack itemStack) {
         if (itemStack != null) {
             super.initializeSpellContainer(itemStack);
-            itemStack.set(ComponentRegistry.AFFINITY_COMPONENT, new AffinityData(Map.of(SpellRegistry.BLAZE_STORM_SPELL.get().getSpellResource(), 1)));
+            itemStack.set(ComponentRegistry.AFFINITY_COMPONENT, new AffinityData(Map.of(SpellRegistry.BLIGHT_SPELL.get().getSpellResource(), 1)));
         }
     }
 
@@ -66,9 +66,9 @@ public class FunGalCapItem extends ImbuableChestplateArmorItem implements IPrese
         public static void onModifySpellLevel(ModifySpellLevelEvent event) {
             LivingEntity caster = event.getEntity();
             if (caster != null) {
-                if (event.getSpell() == SpellRegistry.BLAZE_STORM_SPELL.get()) {
+                if (event.getSpell() == SpellRegistry.BLIGHT_SPELL.get()) {
                     ItemStack chestItem = caster.getItemBySlot(EquipmentSlot.HEAD);
-                    if (chestItem.getItem() instanceof WildFireCrownItem) {
+                    if (chestItem.getItem() instanceof FunGalCapItem) {
                         event.addLevels(1);
                     }
 

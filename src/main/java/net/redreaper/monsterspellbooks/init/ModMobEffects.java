@@ -29,6 +29,7 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> SPACE_ANCHORED = MOB_EFFECT_DEFERRED_REGISTER.register("space_anchored", SpaceAnchoredMobEffect::new);
     public static final DeferredHolder<MobEffect, MobEffect> FLIGHT = MOB_EFFECT_DEFERRED_REGISTER.register("flight", FlightMobEffect::new);
     public static final DeferredHolder<MobEffect, MobEffect> LICHDOM = MOB_EFFECT_DEFERRED_REGISTER.register("lichdom", LichdomMobEffect::new);
+    public static final DeferredHolder<MobEffect, MobEffect> EFFECT_OF_UNDYING = MOB_EFFECT_DEFERRED_REGISTER.register("effect_of_undying", EffectOfUndyingEffect::new);
     public static final DeferredHolder<MobEffect,MobEffect>  SOUL_ROT=MOB_EFFECT_DEFERRED_REGISTER.register("soul_rot",SoulRotMobEffect::new);
     public static final DeferredHolder<MobEffect, MobEffect> BLIZZARD_ASPECT = MOB_EFFECT_DEFERRED_REGISTER.register("blizzard_aspect", () -> new BlizzardAspectMobEffect(MobEffectCategory.BENEFICIAL, 6653361));
     public static final DeferredHolder<MobEffect, MobEffect> CRUSHING_PRESENCE = MOB_EFFECT_DEFERRED_REGISTER.register("crushing_presence", () -> new CrushingPresenceMobEffect(MobEffectCategory.BENEFICIAL, 4798975));

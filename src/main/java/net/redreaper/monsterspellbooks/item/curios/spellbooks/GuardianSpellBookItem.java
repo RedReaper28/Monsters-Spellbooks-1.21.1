@@ -13,14 +13,15 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.utils.ModRarities;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Map;
 
-public class GuardianSpellBook extends SpellBook {
-    public GuardianSpellBook() {
-        super(10, ItemPropertiesHelper.equipment().fireResistant().stacksTo(1).rarity(ASRarities.AQUATIC_RARITY_PROXY.getValue()));
+public class GuardianSpellBookItem extends SpellBook {
+    public GuardianSpellBookItem() {
+        super(10, ItemPropertiesHelper.equipment().fireResistant().stacksTo(1).rarity(ModRarities.PRISMARINE_RARITY_PROXY.getValue()));
         withSpellbookAttributes(new AttributeContainer(AttributeRegistry.MAX_MANA, 200, AttributeModifier.Operation.ADD_VALUE),
                 new AttributeContainer(ASAttributeRegistry.HYDRO_MAGIC_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     }

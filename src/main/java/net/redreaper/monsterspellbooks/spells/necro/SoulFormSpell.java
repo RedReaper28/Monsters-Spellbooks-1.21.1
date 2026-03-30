@@ -18,7 +18,6 @@ import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 
 import java.util.List;
 
-@AutoSpellConfig
 public class SoulFormSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "soul_form");
 

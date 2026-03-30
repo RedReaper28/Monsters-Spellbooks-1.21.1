@@ -16,7 +16,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.hallow_slash.HallowSlashProjectile;
-import net.redreaper.monsterspellbooks.events.ModUtils;
+import net.redreaper.monsterspellbooks.utils.ModUtils;
 
 import java.util.List;
 

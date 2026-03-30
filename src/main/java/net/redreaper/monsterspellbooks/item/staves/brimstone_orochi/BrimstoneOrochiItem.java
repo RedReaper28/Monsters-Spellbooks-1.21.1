@@ -5,20 +5,20 @@ import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.acetheeldritchking.aces_spell_utils.items.example.items.weapons.ASWeaponTiers;
 import net.acetheeldritchking.aces_spell_utils.items.weapons.MagicGunItem;
-import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.init.ModDispatcher;
 import net.redreaper.monsterspellbooks.init.ModStaffMaterials;
+import net.redreaper.monsterspellbooks.utils.ModRarities;
 
 public class BrimstoneOrochiItem extends MagicGunItem {
     public final ModDispatcher dispatcher = new ModDispatcher();
     public BrimstoneOrochiItem() {
         super(
                 ASWeaponTiers.EXAMPLE_GUN,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.ARID_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModStaffMaterials.BRIMSTONE_OROCHI)),
+                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ModRarities.BRIMSTONE_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModStaffMaterials.BRIMSTONE_OROCHI)),
                 SpellDataRegistryHolder.of(
                 )
         );

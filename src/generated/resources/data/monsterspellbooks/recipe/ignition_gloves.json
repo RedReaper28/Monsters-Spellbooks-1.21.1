@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "irons_spellbooks:magic_cloth"
+    },
+    "B": {
+      "item": "irons_spellbooks:mithril_weave"
+    },
+    "C": {
+      "item": "irons_spellbooks:fire_rune"
+    }
+  },
+  "pattern": [
+    " B ",
+    "ACA",
+    "AAA"
+  ],
+  "result": {
+    "components": {
+      "irons_spellbooks:affinity_data": {
+        "bonuses": {
+          "irons_spellbooks:scorch": 3
+        }
+      },
+      "irons_spellbooks:spell_container": {
+        "data": [],
+        "maxSpells": 1,
+        "mustEquip": false,
+        "spellWheel": true
+      }
+    },
+    "count": 1,
+    "id": "monsterspellbooks:ignition_gloves"
+  }
+}

@@ -20,8 +20,9 @@ import net.redreaper.monsterspellbooks.item.curios.hands.IgnitionGloveItem;
 import net.redreaper.monsterspellbooks.item.curios.head.CriticalSorcererGlassesItem;
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.BookOfSoulsItem;
+import net.redreaper.monsterspellbooks.item.curios.spellbooks.EnchantingTomeItem;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.FrenzyKingBookItem;
-import net.redreaper.monsterspellbooks.item.curios.spellbooks.GuardianSpellBook;
+import net.redreaper.monsterspellbooks.item.curios.spellbooks.GuardianSpellBookItem;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiItem;
 import net.redreaper.monsterspellbooks.item.staves.eyebloosom_staff.EyebloosomStaffIem;
@@ -37,6 +38,7 @@ import net.redreaper.monsterspellbooks.item.weapons.magic_axe.ExtendedAxeItem;
 import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlItem;
 import net.redreaper.monsterspellbooks.item.weapons.necromancer_trident.NecromancerTridentItem;
 import net.redreaper.monsterspellbooks.item.weapons.paadin_hammer.PaladinHammerItem;
+import net.redreaper.monsterspellbooks.utils.ModRarities;
 
 import java.util.function.Supplier;
 
@@ -166,9 +168,9 @@ public class ModItems {
             new ExtendedSwordItem(Tiers.IRON, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.MASTERS_KATANA))));
 
     public static final DeferredHolder<Item, Item> PRISMARINE_CLAYMORE = ITEMS.register("prismarine_claymore", () ->
-            new AxeItem(ModToolTiers.PRISMARINE, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.PRISMARINE_CLAYMORE))));
+            new AxeItem(ModToolTiers.PRISMARINE, ItemPropertiesHelper.equipment().rarity(ModRarities.PRISMARINE_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.PRISMARINE_CLAYMORE))));
     public static final DeferredItem<AxeItem>PRISMARINE_AXE=ITEMS.register("prismarine_axe", ()->
-            new AxeItem(ModToolTiers.PRISMARINE, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.PRISMARINE_AXE))));
+            new AxeItem(ModToolTiers.PRISMARINE, ItemPropertiesHelper.equipment().rarity(ModRarities.PRISMARINE_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.PRISMARINE_AXE))));
     public static final DeferredItem<PickaxeItem>WHITE_GOLD_PICKAXE=ITEMS.register("white_gold_pickaxe",
             ()->new PickaxeItem(ModToolTiers.WHITE_GOLD,new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.WHITE_GOLD,2,-2))));
     public static final DeferredItem<AxeItem>WHITE_GOLD_AXE=ITEMS.register("white_gold_axe",
@@ -196,17 +198,17 @@ public class ModItems {
     public static final DeferredItem<AxeItem>ORICHALCUM_AXE=ITEMS.register("orichalcum_axe", ()->
             new AxeItem(ModToolTiers.ORICHALCUM, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_AXE))));
     public static final DeferredHolder<Item, Item> DWARVEN_GREATAXE = ITEMS.register("dwarven_greataxe", () ->
-            new ExtendedAxeItem(ModToolTiers.DWARVEN_ALLOY, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DWARVEN_GREATAXE))));
+            new ExtendedAxeItem(ModToolTiers.DWARVEN_ALLOY, ItemPropertiesHelper.equipment().rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DWARVEN_GREATAXE))));
     public static final DeferredHolder<Item, Item> DWARVEN_WARHAMMER = ITEMS.register("dwarven_warhammer", () ->
-            new ExtendedAxeItem(ModToolTiers.DWARVEN_ALLOY, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DWARVEN_WARHAMMER))));
+            new ExtendedAxeItem(ModToolTiers.DWARVEN_ALLOY, ItemPropertiesHelper.equipment().rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DWARVEN_WARHAMMER))));
     public static final DeferredItem<AxeItem>DWARVEN_AXE=ITEMS.register("dwarven_axe", ()->
-            new AxeItem(ModToolTiers.DWARVEN_ALLOY, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DWARVEN_AXE))));
+            new AxeItem(ModToolTiers.DWARVEN_ALLOY, ItemPropertiesHelper.equipment().rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DWARVEN_AXE))));
     public static final DeferredItem<SwordItem>SANGUINITE_DAGGER=ITEMS.register("sanguinite_dagger", ()->
-            new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,-3,-2.5f))));
+            new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,-3,-2.5f))));
     public static final DeferredItem<SwordItem>SANGUINITE_SCYTHE=ITEMS.register("sanguinite_scythe",
-            ()->new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,0,-3f))));
+            ()->new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,0,-3f))));
     public static final DeferredItem<AxeItem>SANGUINITE_AXE=ITEMS.register("sanguinite_axe",
-            ()->new AxeItem(ModToolTiers.SANGUINITE,new Item.Properties().attributes(AxeItem.createAttributes(ModToolTiers.SANGUINITE,3,-3.2f))));
+            ()->new AxeItem(ModToolTiers.SANGUINITE,new Item.Properties().rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).attributes(AxeItem.createAttributes(ModToolTiers.SANGUINITE,3,-3.2f))));
 
     public static final DeferredHolder<Item, Item> DEATHSILVER_DAGGER = ITEMS.register("deathsilver_dagger", () ->
             new ExtendedSwordItem(ModToolTiers.DEATHSILVER, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DEATHSILVER_DAGGER))));
@@ -258,8 +260,10 @@ public class ModItems {
     public static final DeferredHolder<Item, Item>SNOW_BOW = ITEMS.register("snow_bow",
             SnowBowItem::new);
 
+    public static final DeferredHolder<Item, Item>ENCHANTING_TOME = ITEMS.register("enchanter_spell_book",
+            EnchantingTomeItem::new);
     public static final DeferredHolder<Item, Item>GUARDIAN_SPELLBOOK = ITEMS.register("guardian_spell_book",
-            GuardianSpellBook::new);
+            GuardianSpellBookItem::new);
     public static final DeferredHolder<Item, Item>BOOK_OF_SOULS = ITEMS.register("book_of_souls",
             BookOfSoulsItem::new);
     public static final DeferredHolder<Item, Item>FRENZY_KING_BOOK = ITEMS.register("frenzy_king_book",
@@ -303,42 +307,50 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> FLESH_MAIDEN = ITEMS.register("flesh_maiden", () ->
             new FleshMaidenArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ASRarities.ACCURSED_RARITY_PROXY.getValue()).durability(ArmorItem.Type.CHESTPLATE.getDurability(30))));
 
+    public static final DeferredHolder<Item, Item> NECROMANCER_HELMET = ITEMS.register("necromancer_helmet", () ->
+            new NecromancerArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ModRarities.SOUL_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(37))));
+    public static final DeferredHolder<Item, Item>NECROMANCER_CHESTPLATE = ITEMS.register("necromancer_chestplate", () ->
+            new NecromancerArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ModRarities.SOUL_RARITY_PROXY.getValue()).durability(ArmorItem.Type.CHESTPLATE.getDurability(37))));
+    public static final DeferredHolder<Item, Item> NECROMANCER_LEGGINGS = ITEMS.register("necromancer_leggings", () ->
+            new NecromancerArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.SOUL_RARITY_PROXY.getValue()).durability(ArmorItem.Type.LEGGINGS.getDurability(37))));
+    public static final DeferredHolder<Item, Item> NECROMANCER_BOOTS = ITEMS.register("necromancer_boots", () ->
+            new NecromancerArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.SOUL_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(37))));
+
     public static final DeferredHolder<Item, Item> ILLAGER_ENCHANTER_HELMET = ITEMS.register("illager_enchanter_helmet", () ->
-            new IllagerEnchanterArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(48))));
+            new IllagerEnchanterArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(48))));
     public static final DeferredHolder<Item, Item> ILLAGER_ENCHANTER_CHESTPLATE = ITEMS.register("illager_enchanter_chestplate", () ->
-            new IllagerEnchanterArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
+            new IllagerEnchanterArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
     public static final DeferredHolder<Item, Item> ILLAGER_ENCHANTER_LEGGINGS = ITEMS.register("illager_enchanter_leggings", () ->
-            new IllagerEnchanterArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
+            new IllagerEnchanterArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
     public static final DeferredHolder<Item, Item> ILLAGER_ENCHANTER_BOOTS = ITEMS.register("illager_enchanter_boots", () ->
-            new IllagerEnchanterArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(48))));
+            new IllagerEnchanterArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
     public static final DeferredHolder<Item, Item> ILLAGER_ICEOLOGER_HELMET = ITEMS.register("illager_iceologer_helmet", () ->
-            new IllagerIceologerArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(48))));
+            new IllagerIceologerArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(48))));
     public static final DeferredHolder<Item, Item> ILLAGER_ICEOLOGER_CHESTPLATE = ITEMS.register("illager_iceologer_chestplate", () ->
-            new IllagerIceologerArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
+            new IllagerIceologerArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
     public static final DeferredHolder<Item, Item> ILLAGER_ICEOLOGER_LEGGINGS = ITEMS.register("illager_iceologer_leggings", () ->
-            new IllagerIceologerArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
+            new IllagerIceologerArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
     public static final DeferredHolder<Item, Item> ILLAGER_ICEOLOGER_BOOTS = ITEMS.register("illager_iceologer_boots", () ->
-            new IllagerIceologerArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(48))));
+            new IllagerIceologerArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
     public static final DeferredHolder<Item, Item> SANGUINITE_HERO_HOOD = ITEMS.register("sanguinite_hero_hood", () ->
-            new SanguiniteHeroArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(48))));
+            new SanguiniteHeroArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(48))));
     public static final DeferredHolder<Item, Item> SANGUINITE_HERO_CHESTPLATE = ITEMS.register("sanguinite_hero_chestplate", () ->
-            new SanguiniteHeroArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
+            new SanguiniteHeroArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
     public static final DeferredHolder<Item, Item> SANGUINITE_HERO_LEGGINGS = ITEMS.register("sanguinite_hero_leggings", () ->
-            new SanguiniteHeroArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
+            new SanguiniteHeroArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
     public static final DeferredHolder<Item, Item> SANGUINITE_HERO_BOOTS = ITEMS.register("sanguinite_hero_boots", () ->
-            new SanguiniteHeroArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(48))));
+            new SanguiniteHeroArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
     public static final DeferredHolder<Item, Item> DWARVEN_ENGINEER_VISOR = ITEMS.register("dwarven_engineer_visor", () ->
-            new DwarvenEngineerArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(48))));
+            new DwarvenEngineerArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(48))));
     public static final DeferredHolder<Item, Item> DWARVEN_ENGINEER_CHESTPLATE = ITEMS.register("dwarven_engineer_chestplate", () ->
-            new DwarvenEngineerArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
+            new DwarvenEngineerArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
     public static final DeferredHolder<Item, Item> DWARVEN_ENGINEER_LEGGINGS = ITEMS.register("dwarven_engineer_leggings", () ->
-            new DwarvenEngineerArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
+            new DwarvenEngineerArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
     public static final DeferredHolder<Item, Item> DWARVEN_ENGINEER_BOOTS = ITEMS.register("dwarven_engineer_boots", () ->
-            new DwarvenEngineerArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(48))));
-
+            new DwarvenEngineerArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
     public static final DeferredHolder<Item, Item> DRAUGR_ELITE_HELMET = ITEMS.register("draugr_elite_helmet", () ->
             new DraugrEliteArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(45))));
@@ -356,7 +368,6 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> DEATH_KNIGHT_BOOTS = ITEMS.register("death_knight_boots", () ->
             new DeathKnightArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(37))));
 
-
     public static final DeferredHolder<Item, Item> PALE_OBSERVER_MASK = ITEMS.register("pale_observer_mask", () ->
             new PaleObserverArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(37))));
     public static final DeferredHolder<Item, Item>PALE_OBSERVER_CHESTPLATE = ITEMS.register("pale_observer_chestplate", () ->
@@ -367,22 +378,22 @@ public class ModItems {
             new PaleObserverArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(37))));
 
     public static final DeferredHolder<Item, Item> FORGE_MASTERPIECE_HELMET = ITEMS.register("forge_masterpiece_helmet", () ->
-            new ForgeMasterpieceArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).fireResistant().durability(ArmorItem.Type.HELMET.getDurability(48))));
+            new ForgeMasterpieceArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ModRarities.BRIMSTONE_RARITY_PROXY.getValue()).fireResistant().durability(ArmorItem.Type.HELMET.getDurability(48))));
     public static final DeferredHolder<Item, Item> FORGE_MASTERPIECE_CHESTPLATE = ITEMS.register("forge_masterpiece_chestplate", () ->
-            new ForgeMasterpieceArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).fireResistant().durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
+            new ForgeMasterpieceArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ModRarities.BRIMSTONE_RARITY_PROXY.getValue()).fireResistant().durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
     public static final DeferredHolder<Item, Item> FORGE_MASTERPIECE_LEGGINGS = ITEMS.register("forge_masterpiece_leggings", () ->
-            new ForgeMasterpieceArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).fireResistant().durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
+            new ForgeMasterpieceArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.BRIMSTONE_RARITY_PROXY.getValue()).fireResistant().durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
     public static final DeferredHolder<Item, Item> FORGE_MASTERPIECE_BOOTS = ITEMS.register("forge_masterpiece_boots", () ->
-            new ForgeMasterpieceArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).fireResistant().durability(ArmorItem.Type.BOOTS.getDurability(48))));
+            new ForgeMasterpieceArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.BRIMSTONE_RARITY_PROXY.getValue()).fireResistant().durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
     public static final DeferredHolder<Item, Item> STARSCOURGE_HELMET = ITEMS.register("starscourge_helmet", () ->
-            new StarscourgeArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(48))));
+            new StarscourgeArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(48))));
     public static final DeferredHolder<Item, Item> STARSCOURGE_CHESTPLATE = ITEMS.register("starscourge_chestplate", () ->
-            new StarscourgeArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
+            new StarscourgeArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
     public static final DeferredHolder<Item, Item> STARSCOURGE_LEGGINGS = ITEMS.register("starscourge_leggings", () ->
-            new StarscourgeArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
+            new StarscourgeArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
     public static final DeferredHolder<Item, Item> STARSCOURGE_BOOTS = ITEMS.register("starscourge_boots", () ->
-            new StarscourgeArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(48))));
+            new StarscourgeArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
     public static final Supplier<DeferredSpawnEggItem> AEGIS_SPAWN_EGG = ITEMS.register("aegis_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.AEGIS, 5526633, 9864548, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DRIPPLER_SPAWN_EGG = ITEMS.register("drippler_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DRIPPLER, 5641255, 9386054, ItemPropertiesHelper.material().stacksTo(64)));
@@ -397,6 +408,7 @@ public class ModItems {
     public static final Supplier<DeferredSpawnEggItem> DRAUGR_ELITE_VINDICATOR_SPAWN_EGG = ITEMS.register("draugr_elite_vindicator_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DRAUGR_ELITE_VINDICATOR, 5932676, 1449245, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DRAUGR_PILLAGER_SPAWN_EGG = ITEMS.register("draugr_pillager_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DRAUGR_PILLAGER, 5932676, 1449245, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> SHOCK_SPAWN_EGG = ITEMS.register("shock_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.SHOCK, 3873928, 11393785, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> PRISMARINE_KEEPER_SPAWN_EGG = ITEMS.register("prismarine_keeper_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.PRISMARINE_KEEPER, 4887415, 1387045, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> VILE_SKELETON_SPAWN_EGG = ITEMS.register("vile_skeleton_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.VILE_SKELETON, 725001, 3622442, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> MAGMA_ATRONACH_SPAWN_EGG = ITEMS.register("magma_atronach_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.MAGMA_ATRONACH, 1380882, 16734238, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> BLASTLING_SPAWN_EGG = ITEMS.register("blastling_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.BLASTLING, 0, 15077593, ItemPropertiesHelper.material().stacksTo(64)));

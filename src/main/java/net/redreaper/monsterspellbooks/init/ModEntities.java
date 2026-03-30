@@ -1,6 +1,7 @@
 package net.redreaper.monsterspellbooks.init;
 
 import io.redspace.ironsspellbooks.IronsSpellbooks;
+import io.redspace.ironsspellbooks.entity.mobs.keeper.KeeperEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -31,6 +32,7 @@ import net.redreaper.monsterspellbooks.entity.spells.guardians_neutralizer.Guard
 import net.redreaper.monsterspellbooks.entity.spells.hallow_slash.HallowSlashProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSword;
 import net.redreaper.monsterspellbooks.entity.spells.infection_slash.InfectionSlashProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.ink_bomb.InkBombProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.life_drain.LifeDrainProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrb;
 import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerProjectile;
@@ -40,6 +42,7 @@ import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.Putrescenc
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMass;
 import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.rancorcall.RancorSkull;
+import net.redreaper.monsterspellbooks.entity.spells.razorblade_typhoon.RazorbladeTyphoonProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.SanguiniteEvisceration;
 import net.redreaper.monsterspellbooks.entity.spells.soul_chain.SoulChain;
 import net.redreaper.monsterspellbooks.entity.spells.soul_firebolt.SoulFireBoltProjectile;
@@ -66,11 +69,32 @@ public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
 
+    public static final DeferredHolder<EntityType<?>, EntityType<PrismarineKeeper>> PRISMARINE_KEEPER =
+            ENTITIES.register("prismarine_keeper", () -> EntityType.Builder.<PrismarineKeeper>of(PrismarineKeeper::new, MobCategory.MONSTER)
+                    .sized(.85f, 2.3f)
+                    .clientTrackingRange(64)
+                    .eyeHeight(2.3f)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "prismarine_keeper").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SummonedPrismarineKeeper>> SUMMONED_PRISMARINE_KEEPER =
+            ENTITIES.register("summoned_prismarine_keeper", () -> EntityType.Builder.<SummonedPrismarineKeeper>of(SummonedPrismarineKeeper::new, MobCategory.MONSTER)
+                    .sized(.85f, 2.3f)
+                    .clientTrackingRange(64)
+                    .eyeHeight(2.3f)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "summoned_prismarine_keeper").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<InkBombProjectile>> INK_BOMB =
+            ENTITIES.register("ink_bomb", () -> EntityType.Builder.<InkBombProjectile>of(InkBombProjectile::new, MobCategory.MISC)
+                    .sized(0.75F, 0.75F)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ink_bomb").toString()));
+
+
     public static final DeferredHolder<EntityType<?>, EntityType<VoltArrowProjectile>> VOLT_ARROW_PROJECTILE =
             ENTITIES.register("volt_arrow", () -> EntityType.Builder.<VoltArrowProjectile>of(VoltArrowProjectile::new, MobCategory.MISC)
                     .sized(.8f, .8f)
                     .clientTrackingRange(64)
-                    .build(ResourceLocation.fromNamespaceAndPath(IronsSpellbooks.MODID, "volt_arrow").toString()));
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "volt_arrow").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<ElthorBeamEntity>> ELTHOR_BEAM =
             ENTITIES.register("elthor_beam", () -> EntityType.Builder.<ElthorBeamEntity>of(ElthorBeamEntity::new, MobCategory.MISC)
@@ -300,11 +324,19 @@ public class ModEntities {
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "steam_stream").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<WitherBombProjectile>> WITHER_BOMB =
             ENTITIES.register("wither_bomb", () -> EntityType.Builder.<WitherBombProjectile>of(WitherBombProjectile::new, MobCategory.MISC)
                     .sized(1f, 1f)
                     .clientTrackingRange(4)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "wither_bomb").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<RazorbladeTyphoonProjectile>> RAZORBLADE_TYPHOON =
+            ENTITIES.register("razorblade_typhoon", () -> EntityType.Builder.<RazorbladeTyphoonProjectile>of(RazorbladeTyphoonProjectile::new, MobCategory.MISC)
+                    .sized(4f, 1f)
+                    .clientTrackingRange(4)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "razorblade_typhoon").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<NapalmOrb>> NAPALM_ORB =
             ENTITIES.register("napalm_orb", () -> EntityType.Builder.<NapalmOrb>of(NapalmOrb::new, MobCategory.MISC)
                     .sized(0.75F, 0.75F)

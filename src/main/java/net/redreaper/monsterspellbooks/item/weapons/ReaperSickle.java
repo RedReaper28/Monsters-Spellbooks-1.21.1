@@ -19,6 +19,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.utils.ModRarities;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class ReaperSickle extends MagicSwordItem implements UniqueItem {
     public ReaperSickle() {
         super(
                 ModExtendedWeaponTiers.SPECTRITE,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.VERDANT_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.SPECTRITE)),
+                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ModRarities.SOUL_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.SPECTRITE)),
                 SpellDataRegistryHolder.of(
                         new SpellDataRegistryHolder(ModSpellRegistry.VILE_SLASH, 5))
         );

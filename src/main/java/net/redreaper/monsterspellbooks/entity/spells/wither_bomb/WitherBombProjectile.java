@@ -70,7 +70,6 @@ public class WitherBombProjectile extends AbstractMagicProjectile implements Geo
         }
     }
 
-
     @Override
     public void impactParticles(double x, double y, double z) {}
 

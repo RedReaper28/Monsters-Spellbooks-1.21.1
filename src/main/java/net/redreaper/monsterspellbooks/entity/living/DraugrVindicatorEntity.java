@@ -1,6 +1,7 @@
 package net.redreaper.monsterspellbooks.entity.living;
 
 import io.redspace.ironsspellbooks.IronsSpellbooks;
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.entity.mobs.IAnimatedAttacker;
@@ -94,7 +95,9 @@ public class DraugrVindicatorEntity extends AbstractSpellCastingMob implements E
                 .add(Attributes.MAX_HEALTH, 25.0F)
                 .add(Attributes.ARMOR, 10)
                 .add(Attributes.FOLLOW_RANGE, 24.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.35F);
+                .add(Attributes.MOVEMENT_SPEED, 0.35F)
+                .add(AttributeRegistry.ICE_SPELL_POWER, 2.5);
+
     }
 
 

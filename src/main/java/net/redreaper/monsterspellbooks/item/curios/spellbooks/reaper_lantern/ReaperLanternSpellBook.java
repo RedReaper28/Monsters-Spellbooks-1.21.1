@@ -16,6 +16,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.redreaper.monsterspellbooks.init.ModAtributeRegistry;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.utils.ModRarities;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
@@ -31,7 +32,7 @@ public class ReaperLanternSpellBook extends SpellBook implements GeoItem {
     private final AnimationController<ReaperLanternSpellBook> animationController = new AnimationController<>(this, "controller", 0, this::predicate);
 
     public ReaperLanternSpellBook() {
-        super(12, ItemPropertiesHelper.equipment().fireResistant().stacksTo(1).rarity(ASRarities.VERDANT_RARITY_PROXY.getValue()));
+        super(12, ItemPropertiesHelper.equipment().fireResistant().stacksTo(1).rarity(ModRarities.SOUL_RARITY_PROXY.getValue()));
         withSpellbookAttributes(new AttributeContainer(AttributeRegistry.MAX_MANA, 200, AttributeModifier.Operation.ADD_VALUE),
         new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
         new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));

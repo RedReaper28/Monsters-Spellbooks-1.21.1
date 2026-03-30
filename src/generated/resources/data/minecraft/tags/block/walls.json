@@ -6,6 +6,9 @@
     "monsterspellbooks:ivorystone_wall",
     "monsterspellbooks:polished_ivorystone_wall",
     "monsterspellbooks:ivorystone_brick_wall",
-    "monsterspellbooks:cracked_ivorystone_brick_wall"
+    "monsterspellbooks:cracked_ivorystone_brick_wall",
+    "monsterspellbooks:frost_ivorystone_brick_wall",
+    "monsterspellbooks:vilestone_wall",
+    "monsterspellbooks:vilestone_brick_wall"
   ]
 }

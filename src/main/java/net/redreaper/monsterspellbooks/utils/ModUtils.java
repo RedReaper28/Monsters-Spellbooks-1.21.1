@@ -1,4 +1,4 @@
-package net.redreaper.monsterspellbooks.events;
+package net.redreaper.monsterspellbooks.utils;
 
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.world.entity.LivingEntity;

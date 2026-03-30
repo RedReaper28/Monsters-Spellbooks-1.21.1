@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "monsterspellbooks:illagerite_ingot"
+  },
+  "base": {
+    "item": "irons_spellbooks:cryomancer_boots"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:illager_iceologer_boots"
+  },
+  "template": {
+    "item": "monsterspellbooks:upgrade_rune"
+  }
+}

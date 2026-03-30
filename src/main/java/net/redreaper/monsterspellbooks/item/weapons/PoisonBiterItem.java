@@ -13,6 +13,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -27,7 +28,7 @@ public class PoisonBiterItem extends MagicSwordItem {
     public PoisonBiterItem() {
         super(
                 ModExtendedWeaponTiers.POISONED_SICKLE,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.VERDANT_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.POISONED_SICKLE)),
+                ItemPropertiesHelper.equipment(1).fireResistant().rarity(Rarity.EPIC).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.POISONED_SICKLE)),
                 SpellDataRegistryHolder.of(
                         new SpellDataRegistryHolder(ModSpellRegistry.INFECTION_SLASH, 5))
         );

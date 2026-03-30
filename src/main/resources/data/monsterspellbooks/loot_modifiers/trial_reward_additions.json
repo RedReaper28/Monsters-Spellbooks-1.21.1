@@ -1,0 +1,10 @@
+{
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chests/trial_chambers/reward"
+    }
+  ],
+  "type": "monsterspellbooks:add_to_table",
+  "loot_table": "monsterspellbooks:chests/trial_chambers/thundering_quiver"
+}

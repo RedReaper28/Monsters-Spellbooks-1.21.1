@@ -31,8 +31,7 @@ public class GlowInkReleaseSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "glow_ink_release");
 
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
-        return List.of(Component.translatable("ui.irons_spellbooks.damage", new Object[]{Utils.stringTruncation((double) this.getDamage(spellLevel, caster), 2)}),
-                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(spellLevel, caster), 2)),
+        return List.of(Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(spellLevel, caster), 2)),
                 Component.translatable("ui.irons_spellbooks.radius", new Object[]{Utils.stringTruncation((double) this.getRadius(spellLevel, caster), 2)})
         );
     }
