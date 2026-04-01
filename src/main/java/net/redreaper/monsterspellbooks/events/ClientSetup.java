@@ -74,6 +74,8 @@ import net.redreaper.monsterspellbooks.entity.spells.soul_firebolt.SoulFireBoltR
 import net.redreaper.monsterspellbooks.entity.spells.space_breaker.SpaceBreakerRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.SpaceRuptureRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.spectral_blast.SpectralBlastRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.CaveSpiderFangRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.IceSpiderFangRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.static_cleave.StaticCleaveRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.stray_grasp.StrayGraspRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashRenderer;
@@ -140,6 +142,8 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.RAZORBLADE_TYPHOON.get(), RazorbladeTyphoonRenderer::new);
         event.registerEntityRenderer(ModEntities.BONE_DAGGER.get(), BoneDaggerRenderer::new);
         event.registerEntityRenderer(ModEntities.POISON_QUILL.get(), PoisonQuillRenderer::new);
+        event.registerEntityRenderer(ModEntities.CAVE_SPIDER_FANG.get(), CaveSpiderFangRenderer::new);
+        event.registerEntityRenderer(ModEntities.ICE_SPIDER_FANG.get(), IceSpiderFangRenderer::new);
         event.registerEntityRenderer(ModEntities.GRAVEYARD_HAND.get(), GraveyardHandRenderer::new);
         event.registerEntityRenderer(ModEntities.SOUL_FIREBOLT_PROJECTILE.get(), SoulFireBoltRenderer::new);
         event.registerEntityRenderer(ModEntities.ELTHOR_BEAM.get(), ElthorBeamRenderer::new);
@@ -194,6 +198,7 @@ public static void registerParticles(RegisterParticleProvidersEvent event)
     event.registerSpriteSet(ModParticleTypes.BONE_FRAGMENTS.get(), BoneFragmentsParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.SPACE_SHARD.get(), SpaceShardParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.HYDRO_BUBBLE.get(), HydroBubbleParticle.Provider::new);
+    event.registerSpriteSet(ModParticleTypes.ACIDIC_VENOM_BUBBLE.get(), AcidicVenomBubbleParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.SPIRIT_STRIKE_PARTICLE.get(), SpiritStrikeParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.SOUL_CHAIN_PARTICLE.get(), SoulChainParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.ANCIENT_ZAP_PARTICLE.get(), AncientZapParticle.Provider::new);

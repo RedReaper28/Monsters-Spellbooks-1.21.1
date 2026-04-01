@@ -1,0 +1,6 @@
+{
+  "parent": "monsterspellbooks:item/red_snake_bow",
+  "textures": {
+    "layer0": "monsterspellbooks:item/red_snake_bow_pulling_2"
+  }
+}

@@ -42,7 +42,6 @@ import software.bernie.geckolib.animation.AnimationState;
 import javax.annotation.Nullable;
 
 public class DraugrPillagerEntity extends AbstractSpellCastingMob implements RangedAttackMob,Enemy, IAnimatedAttacker {
-
     private static final int HARD_ATTACK_INTERVAL = 20;
     private static final int NORMAL_ATTACK_INTERVAL = 40;
     private final RangedBowAttackGoal<DraugrPillagerEntity> bowGoal = new RangedBowAttackGoal<>(this, (double)1.0F, 20, 15.0F);

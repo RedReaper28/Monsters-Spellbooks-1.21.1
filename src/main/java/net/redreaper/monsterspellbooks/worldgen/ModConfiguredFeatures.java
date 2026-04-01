@@ -27,6 +27,7 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?,?>>VOID_ORE_KEY=registerKey("void_ruby_ore");
 
     public static final ResourceKey<ConfiguredFeature<?,?>>GRAVISTONE_KEY=registerKey("gravistone");
+    public static final ResourceKey<ConfiguredFeature<?,?>>IVORYSTONE_KEY=registerKey("ivorystone");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneReplaceables=new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -38,6 +39,10 @@ public class ModConfiguredFeatures {
         List<OreConfiguration.TargetBlockState>orichalcumOres=List.of(
                 OreConfiguration.target(stoneReplaceables, ModBlocks.ORICHALCUM_ORE.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_ORICHALCUM_ORE.get().defaultBlockState()));
+
+        List<OreConfiguration.TargetBlockState>ivoryStone=List.of(
+                OreConfiguration.target(stoneReplaceables, ModBlocks.IVORYSTONE.get().defaultBlockState()),
+                OreConfiguration.target(deepslateReplaceables, ModBlocks.IVORYSTONE.get().defaultBlockState()));
 
         register(context,ORICHALCUM_ORE_KEY,Feature.ORE,new OreConfiguration(orichalcumOres,5));
         register(context,PEARL_ORE_KEY,Feature.ORE,new OreConfiguration(sandReplaceables,
@@ -53,6 +58,8 @@ public class ModConfiguredFeatures {
 
         register(context,GRAVISTONE_KEY,Feature.ORE,new OreConfiguration(endReplaceables,
                 ModBlocks.GRAVISTONE.get().defaultBlockState(),15));
+
+        register(context,IVORYSTONE_KEY,Feature.ORE,new OreConfiguration(ivoryStone,30));
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

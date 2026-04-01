@@ -1,7 +1,5 @@
 package net.redreaper.monsterspellbooks.init;
 
-import io.redspace.ironsspellbooks.IronsSpellbooks;
-import io.redspace.ironsspellbooks.entity.mobs.keeper.KeeperEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -51,6 +49,8 @@ import net.redreaper.monsterspellbooks.entity.spells.space_breaker.SpaceBreaker;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.DistortionField;
 import net.redreaper.monsterspellbooks.entity.spells.space_rupture.SpaceRupture;
 import net.redreaper.monsterspellbooks.entity.spells.spectral_blast.SpectralBlastVisualEntity;
+import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.CaveSpiderFangProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.IceSpiderFangProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.static_cleave.StaticCleave;
 import net.redreaper.monsterspellbooks.entity.spells.steam_stream.SteamStreamProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.stray_grasp.StrayGraspProjectile;
@@ -68,6 +68,12 @@ import static net.minecraft.core.registries.Registries.ENTITY_TYPE;
 public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<RedSnakeWitherSkeletonEntity>> REDSNAKE_WITHER_SKELETON =
+            ENTITIES.register("redsnake_wither_skeleton", () -> EntityType.Builder.<RedSnakeWitherSkeletonEntity>of(RedSnakeWitherSkeletonEntity::new, MobCategory.MONSTER)
+                    .sized(1.5f, .95f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "redsnake_wither_skeleton").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<PrismarineKeeper>> PRISMARINE_KEEPER =
             ENTITIES.register("prismarine_keeper", () -> EntityType.Builder.<PrismarineKeeper>of(PrismarineKeeper::new, MobCategory.MONSTER)
@@ -161,6 +167,18 @@ public class ModEntities {
                     .sized(0.5F, 0.5F)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "poison_quill").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<CaveSpiderFangProjectile>> CAVE_SPIDER_FANG =
+            ENTITIES.register("cave_spider_fang", () -> EntityType.Builder.<CaveSpiderFangProjectile>of(CaveSpiderFangProjectile::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "cave_spider_fang").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<IceSpiderFangProjectile>> ICE_SPIDER_FANG =
+            ENTITIES.register("ice_spider_fang", () -> EntityType.Builder.<IceSpiderFangProjectile>of(IceSpiderFangProjectile::new, MobCategory.MISC)
+                    .sized(1.5f, 1.5f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ice_spider_fang").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<RancorSkull>> RANCOR_SKULL =
             ENTITIES.register("rancor_skull", () -> EntityType.Builder.<RancorSkull>of(RancorSkull::new, MobCategory.MISC)

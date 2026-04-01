@@ -34,6 +34,7 @@ import net.redreaper.monsterspellbooks.effect.StaticMobEffect;
 import net.redreaper.monsterspellbooks.init.ModDamageTypes;
 import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
+import net.redreaper.monsterspellbooks.item.curios.spellbooks.DiseaseEncyclopediaItem;
 
 import java.util.Objects;
 
@@ -42,16 +43,12 @@ public class ServerEvents {
     @SubscribeEvent
     public static void onLivingHealEvent(LivingHealEvent event) {
         MobEffectInstance antihealEffect = event.getEntity().getEffect(ModMobEffects.HEAL_CUT);
+        MobEffectInstance antiheal2Effect = event.getEntity().getEffect(ModMobEffects.ACIDIC_VENOM);
         MobEffectInstance disabledEffect = event.getEntity().getEffect(MobEffectRegistry.HEARTSTOP);
 
-
-        if (antihealEffect != null) {
-            event.setCanceled(true);
-        }
-
-        if (disabledEffect != null) {
-            event.setCanceled(true);
-        }
+        if (antihealEffect != null) {event.setCanceled(true);}
+        if (antiheal2Effect!= null) {event.setCanceled(true);}
+        if (disabledEffect != null) {event.setCanceled(true);}
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -173,6 +170,12 @@ public class ServerEvents {
                     if (event.getSource().is(DamageTypeTags.IS_PROJECTILE))
                         Utils.addFreezeTicks(target, 120);
                 }
+
+                // RedSnake
+                if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.RED_SNAKE_BOW)) {
+                    if (event.getSource().is(DamageTypeTags.IS_PROJECTILE))
+                        ImmolateEffect.addImmolateStack(target, sourceEntity);
+                }
             }
         }
     }
@@ -184,8 +187,7 @@ public class ServerEvents {
         var source = event.getSource();
         var attacker = event.getSource().getEntity();
 
-
-        if (attacker instanceof Player) {
+        if (attacker instanceof Player livingAttacker1) {
             if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
                 if (ASUtils.hasCurio((Player) livingAttacker, ModItems.BRIMSTONE_SIGIL.get())) {
                     ImmolateEffect.addImmolateStack(livingEntity, livingAttacker);
@@ -209,6 +211,44 @@ public class ServerEvents {
 
                 }
             }
+
+            if (attacker instanceof Player player) {
+                // Disease Encyclopedia
+                if (ASUtils.hasCurio(player, ModItems.DISEASE_ENCYCLOPEDIA.get()) && (!player.getCooldowns().isOnCooldown(ModItems.DISEASE_ENCYCLOPEDIA.get()))) {
+                    int randomNum = (int) (Math.random() * 11); // 0 to 3
+                    if (randomNum ==1 ) {
+                        entity.addEffect(new MobEffectInstance(ModMobEffects.MADNESS, 200, 1, true, true, true));
+                    }
+                    if (randomNum == 2) {
+                        entity.addEffect(new MobEffectInstance(MobEffectRegistry.BLIGHT, 200, 2, true, true, true));
+                    }
+                    if (randomNum == 3) {
+                        entity.addEffect(new MobEffectInstance(MobEffectRegistry.SLOWED, 200, 1, true, true, true));
+                    }
+                    if (randomNum == 4) {
+                        entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0, true, true, true));
+                    }
+                    if (randomNum == 5) {
+                        entity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, 150, 1, true, true, true));
+                    }
+                    if (randomNum == 6) {
+                        entity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 1, true, true, true));
+                    }
+                    if (randomNum == 7) {
+                        entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 150, 0, true, true, true));
+                    }
+                    if (randomNum == 8) {
+                        entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 1, true, true, true));
+                    }
+                    if (randomNum == 9) {
+                        entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 300, 3, true, true, true));
+                    }
+                    if (randomNum == 10) {
+                        entity.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 3, true, true, true));
+                    }
+                    player.getCooldowns().addCooldown(ModItems.DISEASE_ENCYCLOPEDIA.get(), DiseaseEncyclopediaItem.COOLDOWN);
+                }
+            }
         }
     }
 
@@ -228,6 +268,7 @@ public class ServerEvents {
             if (livingEntity.hasEffect(ModMobEffects.EFFECT_OF_UNDYING)) {
                 event.setCanceled(true);
                 livingEntity.removeEffect(ModMobEffects.EFFECT_OF_UNDYING);
+                livingEntity.removeEffectsCuredBy(net.neoforged.neoforge.common.EffectCures.PROTECTED_BY_TOTEM);
                 livingEntity.setHealth(01.0F);
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900 ,1));
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800 ,0));

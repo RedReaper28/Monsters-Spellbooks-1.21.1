@@ -20,7 +20,7 @@
     "components": {
       "irons_spellbooks:affinity_data": {
         "bonuses": {
-          "irons_spellbooks:blaze_storm": 1
+          "irons_spellbooks:blight": 1
         }
       }
     },

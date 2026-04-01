@@ -109,6 +109,10 @@ public class MonstersSpellbooks {
                 );
 
                 CuriosRendererRegistry.register(
+                        ModItems.DISEASE_ENCYCLOPEDIA.get(), SpellBookCurioRenderer::new
+                );
+
+                CuriosRendererRegistry.register(
                         ModItems.REAPER_LANTERN.get(), ReaperLanternCurioRenderer::new
                 );
 

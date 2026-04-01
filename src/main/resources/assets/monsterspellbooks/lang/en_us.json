@@ -190,6 +190,7 @@
   "item.monsterspellbooks.sword_of_courage": "Sword of Courage",
   "item.monsterspellbooks.reaper_sickle": "Reaper Sickle",
   "item.monsterspellbooks.snow_bow": "Snow Bow",
+  "item.monsterspellbooks.red_snake_bow": "Red Snake Bow",
   "item.monsterspellbooks.endersent_crusher": "Endersent Crusher",
   "item.monsterspellbooks.eyebloosom_staff": "Eyebloosom Staff",
   "item.monsterspellbooks.frozen_commander_staff": "Frozen Commander Staff",
@@ -199,6 +200,8 @@
   "item.monsterspellbooks.guardian_spell_book": "Guardian Instruction Manual",
   "item.monsterspellbooks.book_of_souls": "Book Of Souls",
   "item.monsterspellbooks.frenzy_king_book": "The King in Yellow Flames",
+  "item.monsterspellbooks.disease_encyclopedia": "Encyclopedia of Diseases",
+  "item.monsterspellbooks.disease_encyclopedia.desc": "Inflict one of 10 random debuffs when causing damage",
   "item.monsterspellbooks.reaper_lantern": "Reaper Lantern",
   "item.monsterspellbooks.witherward_ring": "WitherWard Ring",
   "item.monsterspellbooks.witherward_ring.desc": "Grants wither immunity",
@@ -318,6 +321,7 @@
   "entity.monsterspellbooks.summoned_aegis": "Summoned Aegis",
 
   "effect.monsterspellbooks.bleeding": "Bleeding",
+  "effect.monsterspellbooks.acidic_venom": "Acidic Venom",
   "effect.monsterspellbooks.blizzard_aspect": "Aspect of the Blizzard",
   "effect.monsterspellbooks.bloodlust": "Bloodlust",
   "effect.monsterspellbooks.brimstone_flame": "Brimstone Flame",
@@ -366,6 +370,7 @@
   "tooltip.monsterspellbooks.endersent_crusher_passive_ability": "A heavy obsidian hammer that acts just like the mace of the trial chambers",
 
   "tooltip.monsterspellbooks.snow_bow": "Arrow hits inflict freezing",
+  "tooltip.monsterspellbooks.red_snake": "Arrow hits add a stack of Immolation",
 
 
   "tooltip.monsterspellbooks.flesh_maiden_passive_ability": "A once beautiful women that got experimented on her wedding day,now makes you immune to the consequences of Heartstop",

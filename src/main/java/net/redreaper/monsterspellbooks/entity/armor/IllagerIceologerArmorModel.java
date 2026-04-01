@@ -24,6 +24,6 @@ public class  IllagerIceologerArmorModel extends GeoModel<IllagerIceologerArmorI
 
     @Override
     public ResourceLocation getAnimationResource(IllagerIceologerArmorItem animatable) {
-        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "animations/wizard_armor_animation.json");
+        return ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "animations/wizard_armor_animation.json");
     }
 }

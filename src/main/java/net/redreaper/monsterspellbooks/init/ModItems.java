@@ -19,10 +19,7 @@ import net.redreaper.monsterspellbooks.item.curios.elemental_charm.*;
 import net.redreaper.monsterspellbooks.item.curios.hands.IgnitionGloveItem;
 import net.redreaper.monsterspellbooks.item.curios.head.CriticalSorcererGlassesItem;
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
-import net.redreaper.monsterspellbooks.item.curios.spellbooks.BookOfSoulsItem;
-import net.redreaper.monsterspellbooks.item.curios.spellbooks.EnchantingTomeItem;
-import net.redreaper.monsterspellbooks.item.curios.spellbooks.FrenzyKingBookItem;
-import net.redreaper.monsterspellbooks.item.curios.spellbooks.GuardianSpellBookItem;
+import net.redreaper.monsterspellbooks.item.curios.spellbooks.*;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiItem;
 import net.redreaper.monsterspellbooks.item.staves.eyebloosom_staff.EyebloosomStaffIem;
@@ -260,6 +257,9 @@ public class ModItems {
     public static final DeferredHolder<Item, Item>SNOW_BOW = ITEMS.register("snow_bow",
             SnowBowItem::new);
 
+    public static final DeferredHolder<Item, Item> RED_SNAKE_BOW = ITEMS.register("red_snake_bow",
+            RedSnakeBowItem::new);
+
     public static final DeferredHolder<Item, Item>ENCHANTING_TOME = ITEMS.register("enchanter_spell_book",
             EnchantingTomeItem::new);
     public static final DeferredHolder<Item, Item>GUARDIAN_SPELLBOOK = ITEMS.register("guardian_spell_book",
@@ -268,6 +268,8 @@ public class ModItems {
             BookOfSoulsItem::new);
     public static final DeferredHolder<Item, Item>FRENZY_KING_BOOK = ITEMS.register("frenzy_king_book",
             FrenzyKingBookItem::new);
+    public static final DeferredHolder<Item, Item>DISEASE_ENCYCLOPEDIA = ITEMS.register("disease_encyclopedia",
+            DiseaseEncyclopediaItem::new);
     public static final DeferredHolder<Item, Item>REAPER_LANTERN = ITEMS.register("reaper_lantern",
             ReaperLanternSpellBook::new);
 

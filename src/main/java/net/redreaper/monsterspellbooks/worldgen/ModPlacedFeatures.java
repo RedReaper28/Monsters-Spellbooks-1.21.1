@@ -24,6 +24,7 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature>VOID_ORE_PLACED_KEY=registerKey("void_ore_placed");
 
     public static final ResourceKey<PlacedFeature>GRAVISTONE_PLACED_KEY=registerKey("gravistone_placed");
+    public static final ResourceKey<PlacedFeature>IVORYSTONE_PLACED_KEY=registerKey("ivorystone_placed");
 
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
@@ -48,6 +49,9 @@ public class ModPlacedFeatures {
                 ModOrePlacement.commonOrePlacement(4, HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
 
         register(context,GRAVISTONE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.GRAVISTONE_KEY),
+                ModOrePlacement.commonOrePlacement(10, HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
+
+        register(context,IVORYSTONE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.IVORYSTONE_KEY),
                 ModOrePlacement.commonOrePlacement(10, HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
     }
 

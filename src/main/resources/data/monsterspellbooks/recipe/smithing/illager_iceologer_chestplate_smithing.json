@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "monsterspellbooks:illagerite_ingot"
+    "tag": "monsterspellbooks:illager_material"
   },
   "base": {
     "item": "irons_spellbooks:cryomancer_chestplate"

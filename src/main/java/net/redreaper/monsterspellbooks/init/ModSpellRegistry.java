@@ -116,6 +116,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> INFECTION_SLASH = registerSpell(new InfectionSlashSpell());
     public static final Supplier<AbstractSpell> MOUNTAIN_CORPSE = registerSpell(new MountainCorpseSpell());
     public static final Supplier<AbstractSpell> POISON_QUILL = registerSpell(new PoisonQuillSpell());
+    public static final Supplier<AbstractSpell> SPIDER_FANGS = registerSpell(new SpiderFangsSpell());
     public static final Supplier<AbstractSpell> SUMMON_POISON_VINE = registerSpell(new SummonPoisonVinesSpell());
 
     //NECRO

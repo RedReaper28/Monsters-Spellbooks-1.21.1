@@ -81,6 +81,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block>CORAL_PLANKS=registerBlock("coral_planks",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
 
+    public static final DeferredBlock<Block>CHISELED_PRISMARINE_BRICKS=registerBlock("chiseled_prismarine_bricks",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS)));
+
     public static final DeferredBlock<Block>PEARl_MARBLE=registerBlock("pearl_marble",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE)));
     public static final DeferredBlock <StairBlock>PEARL_MARBLE_STAIRS=registerBlock("pearl_marble_stairs",
@@ -117,7 +120,6 @@ public class ModBlocks {
             () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
     public static final DeferredBlock <WallBlock> IVORYSTONE_WALL =registerBlock("ivorystone_wall",
             () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
-
     public static final DeferredBlock<Block>POLISHED_IVORYSTONE=registerBlock("polished_ivorystone",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE)));
     public static final DeferredBlock <StairBlock> POLISHED_IVORYSTONE_STAIRS =registerBlock("polished_ivorystone_stairs",
@@ -126,7 +128,6 @@ public class ModBlocks {
             () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE)));
     public static final DeferredBlock <WallBlock>POLISHED_IVORYSTONE_WALL =registerBlock("polished_ivorystone_wall",
             () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE)));
-
     public static final DeferredBlock<Block>IVORYSTONE_BRICKS=registerBlock("ivorystone_bricks",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS)));
     public static final DeferredBlock <StairBlock> IVORYSTONE_BRICK_STAIRS =registerBlock("ivorystone_brick_stairs",
@@ -135,7 +136,6 @@ public class ModBlocks {
             () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS)));
     public static final DeferredBlock <WallBlock> IVORYSTONE_BRICK_WALL =registerBlock("ivorystone_brick_wall",
             () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS)));
-
     public static final DeferredBlock<Block>CRACKED_IVORYSTONE_BRICKS=registerBlock("cracked_ivorystone_bricks",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CRACKED_DEEPSLATE_BRICKS)));
     public static final DeferredBlock <StairBlock>CRACKED_IVORYSTONE_BRICK_STAIRS =registerBlock("cracked_ivorystone_brick_stairs",
@@ -144,10 +144,8 @@ public class ModBlocks {
             () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRACKED_DEEPSLATE_BRICKS)));
     public static final DeferredBlock <WallBlock>CRACKED_IVORYSTONE_BRICK_WALL =registerBlock("cracked_ivorystone_brick_wall",
             () -> new WallBlock (BlockBehaviour.Properties.ofFullCopy(Blocks.CRACKED_DEEPSLATE_BRICKS)));
-
     public static final DeferredBlock<Block>CHISELED_IVORYSTONE_BRICKS=registerBlock("chiseled_ivorystone_bricks",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_DEEPSLATE)));
-
     public static final DeferredBlock<Block>FROST_IVORYSTONE_BRICKS=registerBlock("frost_ivorystone_bricks",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_DEEPSLATE)));
     public static final DeferredBlock <StairBlock>FROST_IVORYSTONE_BRICK_STAIRS =registerBlock("frost_ivorystone_brick_stairs",

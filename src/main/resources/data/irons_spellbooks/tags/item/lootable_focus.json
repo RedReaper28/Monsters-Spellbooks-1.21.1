@@ -1,7 +1,9 @@
 {
   "replace": false,
+  "values": [
+  ],
   "remove": [
-    "monsterspellbooks:vile_bone" ,
+    "#monsterspellbooks:necro_focus",
     "minecraft:breeze_rod"
   ]
 }

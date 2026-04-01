@@ -26,6 +26,7 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
@@ -42,7 +43,7 @@ import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class AegisEntity extends PathfinderMob implements GeoEntity {
+public class AegisEntity extends AbstractGolem implements GeoEntity {
     public static final EntityDataAccessor<Boolean> SHOOT;
     public static final EntityDataAccessor<String> ANIMATION;
     public static final EntityDataAccessor<String> TEXTURE;
@@ -160,14 +161,14 @@ public class AegisEntity extends PathfinderMob implements GeoEntity {
     {
         return LivingEntity.createLivingAttributes()
                 .add(Attributes.ATTACK_DAMAGE, 15.5)
-                .add(Attributes.ATTACK_KNOCKBACK, 3.5)
+                .add(Attributes.ATTACK_KNOCKBACK, 1.5)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 5.0)
                 .add(Attributes.MAX_HEALTH, 80.0)
-                .add(Attributes.FOLLOW_RANGE, 100.0)
-                .add(Attributes.ENTITY_INTERACTION_RANGE, 3.0)
+                .add(Attributes.FOLLOW_RANGE, 20.0)
+                .add(Attributes.ENTITY_INTERACTION_RANGE, 2.5)
                 .add(Attributes.MOVEMENT_SPEED, 0.25)
-                .add(Attributes.FLYING_SPEED, 0.50)
-                .add(AttributeRegistry.SPELL_RESIST, 1.1)
+                .add(Attributes.FLYING_SPEED, 1.0)
+                .add(AttributeRegistry.SPELL_RESIST, 1.5)
                 ;
     }
 

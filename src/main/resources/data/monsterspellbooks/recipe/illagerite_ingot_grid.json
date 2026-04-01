@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "minecraft:diamond"
+      "tag": "c:ingots/silver"
     },
     "C": {
       "item": "minecraft:iron_ingot"

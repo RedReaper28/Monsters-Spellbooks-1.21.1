@@ -24,6 +24,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.GUARDIAN_SPELLBOOK.get());
                         output.accept(ModItems.BOOK_OF_SOULS.get());
                         output.accept(ModItems.FRENZY_KING_BOOK.get());
+                        output.accept(ModItems.DISEASE_ENCYCLOPEDIA.get());
                         output.accept(ModItems.REAPER_LANTERN.get());
                         output.accept(ModItems.EYEBLOOSOM_STAFF.get());
                         output.accept(ModItems.FROZEN_COMMANDER_STAFF.get());
@@ -73,6 +74,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.ENDERSENT_CRUSHER.get());
                         output.accept(ModItems.REAPER_SICKLE.get());
                         output.accept(ModItems.SNOW_BOW.get());
+                        output.accept(ModItems.RED_SNAKE_BOW.get());
 
                         output.accept(ModItems.FIERCE_DEITY_MASK.get());
                         output.accept(ModItems.MAJORAS_MASK.get());
@@ -261,7 +263,6 @@ public class ModCreativeTabs {
 
                         output.accept(ModBlocks.CORAL_LOG);
                         output.accept(ModBlocks.CORAL_PLANKS);
-
 
                         output.accept(ModBlocks.PEARl_MARBLE);
                         output.accept(ModBlocks.PEARL_MARBLE_STAIRS);

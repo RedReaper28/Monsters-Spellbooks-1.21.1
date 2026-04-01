@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "monsterspellbooks:illagerite_ingot",
+    {
+      "id": "hazennstuff:silver_scraps",
+      "required": false
+    },
+    {
+      "id": "galosphere:silver_ingot",
+      "required": false
+    }
+  ]
+}

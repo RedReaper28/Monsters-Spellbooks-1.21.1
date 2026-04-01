@@ -7,6 +7,7 @@ import net.minecraft.world.item.Item;
 public class ModItemProperties {
     public static void addCustomItemProperties(){
         makeCustomBow(ModItems.SNOW_BOW.get());
+        makeCustomBow(ModItems.RED_SNAKE_BOW.get());
     }
 
 

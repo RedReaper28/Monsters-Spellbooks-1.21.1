@@ -5,6 +5,7 @@ import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.WitherSkeleton;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -14,10 +15,12 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.living.*;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 
+@SuppressWarnings("removal")
 @EventBusSubscriber(modid = MonstersSpellbooks.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class CommonSetup {
     @SubscribeEvent
     public static void onAttributeCreateEvent(EntityAttributeCreationEvent event) {
+        event.put(ModEntities.REDSNAKE_WITHER_SKELETON.get(), WitherSkeleton.createAttributes().build());
         event.put(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereEntity.createAttributes().build());
         event.put(ModEntities.DWARVEN_SLICER.get(), DwarvenSlicerEntity.createAttributes().build());
         event.put(ModEntities.SHOCK.get(), ShockEntity.createAttributes().build());

@@ -90,12 +90,25 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.BOW_ENCHANTABLE)
                 .add(ModItems.SNOW_BOW.get())
+                .add(ModItems.RED_SNAKE_BOW.get())
         ;
 
         tag(ItemTags.WEAPON_ENCHANTABLE)
                 .add(ModItems.PALLADIN_HAMMER.get())
                 .add(ModItems.ENDERSENT_CRUSHER.get())
         ;
+
+        tag(ItemTags.FREEZE_IMMUNE_WEARABLES)
+                .add(ModItems.ILLAGER_ICEOLOGER_HELMET.get())
+                .add(ModItems.ILLAGER_ICEOLOGER_CHESTPLATE.get())
+                .add(ModItems.ILLAGER_ICEOLOGER_LEGGINGS.get())
+                .add(ModItems.ILLAGER_ICEOLOGER_BOOTS.get())
+                .add(ModItems.DEATH_KNIGHT_HELMET.get())
+                .add(ModItems.DEATH_KNIGHT_CHESTPLATE.get())
+                .add(ModItems.DEATH_KNIGHT_LEGGINGS.get())
+                .add(ModItems.DEATH_KNIGHT_BOOTS.get())
+        ;
+
         tag(ItemTags.PLANKS)
                 .add(ModBlocks.CORAL_PLANKS.asItem())
         ;
@@ -104,5 +117,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModBlocks.VILESTONE.asItem())
                 .add(ModBlocks.IVORYSTONE.asItem())
         ;
+
+
+
     }
 }

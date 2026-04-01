@@ -12,13 +12,13 @@
       "item": "irons_spellbooks:ruined_book"
     },
     "D": {
-      "item": "irons_spellbooks:magic_cloth"
+      "item": "irons_spellbooks:mithril_scrap"
     }
   },
   "pattern": [
     "AAA",
-    "BCB",
-    "DDD"
+    "DCD",
+    "BBB"
   ],
   "result": {
     "id": "monsterspellbooks:frenzy_king_book",
