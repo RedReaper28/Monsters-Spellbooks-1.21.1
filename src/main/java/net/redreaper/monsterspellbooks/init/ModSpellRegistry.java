@@ -4,10 +4,7 @@ import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.spells.aero.AirBubbleSpell;
-import net.redreaper.monsterspellbooks.spells.aero.AirPropulsionSpell;
-import net.redreaper.monsterspellbooks.spells.aero.SteamSteamSpell;
-import net.redreaper.monsterspellbooks.spells.aero.SuffocateSpell;
+import net.redreaper.monsterspellbooks.spells.aero.*;
 import net.redreaper.monsterspellbooks.spells.blood.*;
 import net.redreaper.monsterspellbooks.spells.ender.*;
 import net.redreaper.monsterspellbooks.spells.evocation.EnchantersBoostSpell;
@@ -41,6 +38,7 @@ public class ModSpellRegistry {
     //AERO
     public static final Supplier<AbstractSpell> AIR_BUBBLE = registerSpell(new AirBubbleSpell());
     public static final Supplier<AbstractSpell> AIR_PROPULSION = registerSpell(new AirPropulsionSpell());
+    public static final Supplier<AbstractSpell> FORCEFUL_WIND = registerSpell(new ForcefulWindSpell());
     public static final Supplier<AbstractSpell> STEAM_STREAM = registerSpell(new SteamSteamSpell());
     public static final Supplier<AbstractSpell> SUFFOCATE = registerSpell(new SuffocateSpell());
 
@@ -52,8 +50,9 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> SANGUINITE_EVISCERATION = registerSpell(new SanguiniteEviscerationSpell());
 
     //ENDER
-    public static final Supplier<AbstractSpell> CRUSH = registerSpell(new CrushSpell());
+    public static final Supplier<AbstractSpell> CORRUPTED_BEACON_RAY = registerSpell(new CorruptedBeaconRaySpell());
     public static final Supplier<AbstractSpell> CRUSHING_PRESENCE = registerSpell(new CrushingPresenceSpell());
+    public static final Supplier<AbstractSpell> CRUSH = registerSpell(new CrushSpell());
     public static final Supplier<AbstractSpell> DRAGON_CHARGE = registerSpell(new DragonChargeSpell());
     public static final Supplier<AbstractSpell> ENDERSENT_SMASH = registerSpell(new EndersentSmashSpell());
     public static final Supplier<AbstractSpell> FIRMAMENT_SPLITTER = registerSpell(new FirmamentSplitterSpell());
@@ -113,8 +112,10 @@ public class ModSpellRegistry {
 
     //NATURE
     public static final Supplier<AbstractSpell> BEAST_HOWL = registerSpell(new BeastHowlSpell());
+    public static final Supplier<AbstractSpell> BLAST_FUNGUS = registerSpell(new BlastFungusSpell());
     public static final Supplier<AbstractSpell> INFECTION_SLASH = registerSpell(new InfectionSlashSpell());
     public static final Supplier<AbstractSpell> MOUNTAIN_CORPSE = registerSpell(new MountainCorpseSpell());
+    public static final Supplier<AbstractSpell> PALE_THORN = registerSpell(new PaleThornSpell());
     public static final Supplier<AbstractSpell> POISON_QUILL = registerSpell(new PoisonQuillSpell());
     public static final Supplier<AbstractSpell> SPIDER_FANGS = registerSpell(new SpiderFangsSpell());
     public static final Supplier<AbstractSpell> SUMMON_POISON_VINE = registerSpell(new SummonPoisonVinesSpell());

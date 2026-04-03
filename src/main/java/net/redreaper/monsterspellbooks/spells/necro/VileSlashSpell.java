@@ -14,13 +14,12 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashProjectileNew;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-@AutoSpellConfig
 public class VileSlashSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "vile_slash");
     private final DefaultConfig defaultConfig = new DefaultConfig()
@@ -60,7 +59,7 @@ public class VileSlashSpell extends AbstractSpell {
 
     @Override
     public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        VileSlashProjectile vileSlash = new VileSlashProjectile(world, entity);
+        VileSlashProjectileNew vileSlash = new VileSlashProjectileNew(world, entity);
         vileSlash.setPos(entity.getEyePosition());
         vileSlash.shoot(entity.getLookAngle());
         vileSlash.setDamage(getSpellPower(spellLevel, entity));

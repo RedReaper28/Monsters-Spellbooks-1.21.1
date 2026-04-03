@@ -6,5 +6,5 @@
     }
   ],
   "type": "monsterspellbooks:add_to_table",
-  "loot_table": "monsterspellbooks:chests/trial_chambers/thundering_quiver"
+  "loot_table": "monsterspellbooks:chests/trial_chambers/trial_reward_items"
 }

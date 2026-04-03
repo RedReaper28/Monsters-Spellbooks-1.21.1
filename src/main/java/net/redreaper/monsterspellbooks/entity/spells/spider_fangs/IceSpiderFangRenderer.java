@@ -27,8 +27,4 @@ public class IceSpiderFangRenderer extends GeoEntityRenderer<IceSpiderFangProjec
         poseStack.mulPose(Axis.XP.rotationDegrees(xRot));
         super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, colour);
     }
-
-    public RenderType getRenderType(IceSpiderFangProjectile animatable, ResourceLocation texture, @Nullable MultiBufferSource bufferSource, float partialTick) {
-        return RenderType.eyes(texture);
-    }
 }

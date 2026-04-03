@@ -33,6 +33,7 @@ public class ModParticleTypes {
     public static final Supplier<SimpleParticleType> STEAM = PARTICLE_TYPES.register("steam", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> ELECTRIC_SMOKE = PARTICLE_TYPES.register("electric_smoke", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> ENDER_SMOKE = PARTICLE_TYPES.register("ender_smoke", () -> new SimpleParticleType(false));
+    public static final Supplier<SimpleParticleType> POISON_SMOKE = PARTICLE_TYPES.register("poison_smoke", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> SOUL_SMOKE = PARTICLE_TYPES.register("soul_smoke", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> BONE_FRAGMENTS = PARTICLE_TYPES.register("bone_fragments", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> SPACE_SHARD = PARTICLE_TYPES.register("space_shard", () -> new SimpleParticleType(false));

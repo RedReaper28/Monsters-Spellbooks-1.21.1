@@ -43,4 +43,10 @@ public class ModRarities {
             (UnaryOperator<Style>) ((style) -> style.withColor(16716189))
     );
 
+    public static final EnumProxy<Rarity> WIND_RARITY_PROXY = new EnumProxy<>(Rarity.class,
+            -1,
+            "monsterspellbooks:wind",
+            (UnaryOperator<Style>) ((style) -> style.withColor(11904458))
+    );
+
 }

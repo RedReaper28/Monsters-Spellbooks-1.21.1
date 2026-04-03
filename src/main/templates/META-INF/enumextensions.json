@@ -54,6 +54,15 @@
         "class": "net/redreaper/monsterspellbooks/utils/ModRarities",
         "field": "SANGUINITE_RARITY_PROXY"
       }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "MONSTERSPELLBOOKS_RARITY_WIND",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "net/redreaper/monsterspellbooks/utils/ModRarities",
+        "field": "WIND_RARITY_PROXY"
+      }
     }
   ]
 }

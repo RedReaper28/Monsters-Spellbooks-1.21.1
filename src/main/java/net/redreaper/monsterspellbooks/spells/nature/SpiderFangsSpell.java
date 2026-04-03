@@ -20,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.CaveSpiderFangProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.ChaurusMandiblesProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.IceSpiderFangProjectile;
 import net.redreaper.monsterspellbooks.init.ModItems;
 
@@ -81,7 +82,7 @@ public class SpiderFangsSpell extends AbstractSpell {
             Vec3 look = entity.getLookAngle();
 
             boolean hasIceSpellBook = ASUtils.hasCurio((Player) entity, ItemRegistry.ICE_SPELL_BOOK.get());
-            boolean hasPoisonSpellBook = ASUtils.hasCurio((Player) entity, ModItems.DISEASE_ENCYCLOPEDIA.get());
+            boolean hasPaleSpellBook = ASUtils.hasCurio((Player) entity, ModItems.DISEASE_ENCYCLOPEDIA.get());
             if (hasIceSpellBook) {
                 int[] angles = new int[]{15,-15};
                 for (int angle : angles) {
@@ -93,12 +94,12 @@ public class SpiderFangsSpell extends AbstractSpell {
                     dagger.shoot(dir.x, dir.y, dir.z, 1.25F, 0.0F);
                     world.addFreshEntity(dagger);
                 }
-            } else if (hasPoisonSpellBook){
+            } else if (hasPaleSpellBook){
                 int[] angles2 = new int[]{0};
                 for (int angle : angles2) {
-                    CaveSpiderFangProjectile dagger = new CaveSpiderFangProjectile(world, entity);
+                    ChaurusMandiblesProjectile dagger = new ChaurusMandiblesProjectile(world, entity);
                     dagger.shoot(entity.getLookAngle());
-                    dagger.setDamage(getDamage(spellLevel, entity));
+                    dagger.setDamage(getDamagePale(spellLevel, entity));
                     dagger.setPos(entity.position().add((double) 0.0F, (double) entity.getEyeHeight() - (double) dagger.getBbHeight() * (double) 0.5F, (double) 0.0F));
                     Vec3 dir = look.yRot((float) Math.toRadians((double) angle));
                     dagger.shoot(dir.x, dir.y, dir.z, 1.25F, 0.0F);
@@ -127,6 +128,11 @@ public class SpiderFangsSpell extends AbstractSpell {
 
     public float getDamageIce(int spellLevel, LivingEntity caster) {
         double icePower = caster.getAttributeValue(AttributeRegistry.ICE_SPELL_POWER);
+        return (float) (getSpellPower(spellLevel, caster)+icePower);
+    }
+
+    public float getDamagePale(int spellLevel, LivingEntity caster) {
+        double icePower = caster.getAttributeValue(AttributeRegistry.ELDRITCH_SPELL_POWER);
         return (float) (getSpellPower(spellLevel, caster)+icePower);
     }
 

@@ -100,6 +100,11 @@ public class MonstersSpellbooks {
                 CuriosRendererRegistry.register(
                         ModItems.ENCHANTING_TOME.get(), SpellBookCurioRenderer::new
                 );
+
+                CuriosRendererRegistry.register(
+                        ModItems.UPDRAFT_TOME.get(), SpellBookCurioRenderer::new
+                );
+
                 CuriosRendererRegistry.register(
                         ModItems.BOOK_OF_SOULS.get(), SpellBookCurioRenderer::new
                 );

@@ -15,6 +15,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.item.armor.*;
 import net.redreaper.monsterspellbooks.item.curios.back.ThunderingQuiverItem;
+import net.redreaper.monsterspellbooks.item.curios.belt.WitheredTotemItem;
 import net.redreaper.monsterspellbooks.item.curios.elemental_charm.*;
 import net.redreaper.monsterspellbooks.item.curios.hands.IgnitionGloveItem;
 import net.redreaper.monsterspellbooks.item.curios.head.CriticalSorcererGlassesItem;
@@ -264,6 +265,8 @@ public class ModItems {
             EnchantingTomeItem::new);
     public static final DeferredHolder<Item, Item>GUARDIAN_SPELLBOOK = ITEMS.register("guardian_spell_book",
             GuardianSpellBookItem::new);
+    public static final DeferredHolder<Item, Item>UPDRAFT_TOME = ITEMS.register("updraft_tome",
+            UpdraftTomeItem::new);
     public static final DeferredHolder<Item, Item>BOOK_OF_SOULS = ITEMS.register("book_of_souls",
             BookOfSoulsItem::new);
     public static final DeferredHolder<Item, Item>FRENZY_KING_BOOK = ITEMS.register("frenzy_king_book",
@@ -275,10 +278,12 @@ public class ModItems {
 
     public static final Supplier<CurioBaseItem>WITHERWARD_RING = ITEMS.register("witherward_ring",
             WitherWardCurio::new);
-    public static final Supplier<CurioBaseItem>CRITICAL_GLASSES = ITEMS.register("critical_glasses",
-            CriticalSorcererGlassesItem::new);
+    public static final Supplier<CurioBaseItem>WITHERED_TOTEM = ITEMS.register("withered_totem",
+            WitheredTotemItem::new);
     public static final Supplier<CurioBaseItem>IGNITION_GLOVE = ITEMS.register("ignition_gloves",
             IgnitionGloveItem::new);
+    public static final Supplier<CurioBaseItem>CRITICAL_GLASSES = ITEMS.register("critical_glasses",
+            CriticalSorcererGlassesItem::new);
     public static final Supplier<CurioBaseItem>THUNDERING_QUIVER = ITEMS.register("thundering_quiver",
             ThunderingQuiverItem::new);
     public static final Supplier<CurioBaseItem>BRIMSTONE_SIGIL = ITEMS.register("brimstone_sigil",

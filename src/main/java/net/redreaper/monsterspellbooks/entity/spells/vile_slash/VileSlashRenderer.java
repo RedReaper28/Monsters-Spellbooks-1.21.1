@@ -2,65 +2,29 @@ package net.redreaper.monsterspellbooks.entity.spells.vile_slash;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.renderer.LightTexture;
-import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import org.joml.Matrix3f;
-import org.joml.Matrix4f;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
-import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-
-import java.util.Random;
-
-
-public class VileSlashRenderer extends EntityRenderer<VileSlashProjectile> {
-    private static final ResourceLocation TEXTURE = MonstersSpellbooks.id("textures/entity/vile_slash/vile_slash_large.png");
+import software.bernie.geckolib.cache.object.BakedGeoModel;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 
-    public VileSlashRenderer(Context context) {
-        super(context);
+
+public class VileSlashRenderer extends GeoEntityRenderer<VileSlashProjectileNew> {
+    public VileSlashRenderer(EntityRendererProvider.Context context) {
+        super(context, new VileSlashModel());
+        this.shadowRadius = 0.0F;
     }
 
-    @Override
-    public void render(VileSlashProjectile pEntity, float pEntityYaw, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
-        pPoseStack.pushPose();
-
-        PoseStack.Pose pose = pPoseStack.last();
-
-        pPoseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTick, pEntity.yRotO, pEntity.getYRot())));
-        pPoseStack.mulPose(Axis.XP.rotationDegrees(-Mth.lerp(pPartialTick, pEntity.xRotO, pEntity.getXRot())));
-        float randomZ = new Random(31L * pEntity.getId()).nextInt(-5, 5);
-        pPoseStack.mulPose(Axis.XP.rotationDegrees(randomZ));
-
-        drawSlash(pose, pEntity, pBuffer, pEntity.getBbWidth() * 1.5F);
-
-        pPoseStack.popPose();
-
-        super.render(pEntity, pEntityYaw, pPartialTick, pPoseStack, pBuffer, pPackedLight);
+    public void preRender(PoseStack poseStack, VileSlashProjectileNew animatable, BakedGeoModel model, @Nullable MultiBufferSource bufferSource, @Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour) {
+        Vec3 motion = animatable.getDeltaMovement();
+        float xRot = (float)(-(Mth.atan2(motion.y, motion.horizontalDistance()) * (180D / Math.PI)));
+        float yRot = -((float)(Mth.atan2(motion.z, motion.x) * (double)(180F / (float)Math.PI)) + 90.0F) + 180.0F;
+        poseStack.mulPose(Axis.YP.rotationDegrees(yRot));
+        poseStack.mulPose(Axis.XP.rotationDegrees(xRot));
+        super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, colour);
     }
-
-    private void drawSlash(PoseStack.Pose pose, VileSlashProjectile entity, MultiBufferSource bufferSource, float width)
-    {
-        Matrix4f poseMatrix = pose.pose();
-        Matrix3f normalMatrix = pose.normal();
-
-        VertexConsumer consumer = bufferSource.getBuffer(RenderType.entityCutoutNoCull(getTextureLocation(entity)));
-        float halfWidth = width * 0.5F;
-        float height = entity.getBbHeight() * 0.5F;
-
-        consumer.addVertex(poseMatrix, -halfWidth, height, -halfWidth).setColor(255, 255, 255, 255).setUv(0f,1f).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0f, 1f, 0f);
-        consumer.addVertex(poseMatrix, halfWidth, height, -halfWidth).setColor(255, 255, 255, 255).setUv(1f,1f).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0f, 1f, 0f);
-        consumer.addVertex(poseMatrix, halfWidth, height, halfWidth).setColor(255, 255, 255, 255).setUv(1f,0f).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0f, 1f, 0f);
-        consumer.addVertex(poseMatrix, -halfWidth, height, halfWidth).setColor(255, 255, 255, 255).setUv(0f,0f).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0f, 1f, 0f);
-    }
-
-    public ResourceLocation getTextureLocation(VileSlashProjectile entity) {
-        return TEXTURE;
-    }
-
 }

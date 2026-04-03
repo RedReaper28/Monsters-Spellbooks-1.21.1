@@ -45,7 +45,7 @@ public class ModSpellSchools  {
             (
                     AERO_RESOURCE,
                     ModTags.Items.AERO_FOCUS,
-                    Component.translatable("school.monsterspellbooks.aero").withStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)),
+                    Component.translatable("school.monsterspellbooks.aero").withStyle(Style.EMPTY.withColor(11904458)),
                     ModAtributeRegistry.AERO_MAGIC_POWER,
                     ModAtributeRegistry.AERO_MAGIC_RESIST,
                     SoundRegistry.GUST_CAST,

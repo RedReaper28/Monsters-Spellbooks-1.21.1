@@ -13,7 +13,24 @@
       "conditions": [
         {
           "condition": "minecraft:random_chance",
-          "chance": 0.30
+          "chance": 0.15
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "monsterspellbooks:updraft_tome",
+          "weight": 3
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.20
         }
       ],
       "rolls": 1.0

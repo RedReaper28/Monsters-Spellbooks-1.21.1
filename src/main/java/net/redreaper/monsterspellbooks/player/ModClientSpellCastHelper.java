@@ -149,6 +149,51 @@ public class ModClientSpellCastHelper {
         });
     }
 
+    public static void handleClientboundPoisonExplosion(Vec3 pos, float radius) {
+        MinecraftInstanceHelper.ifPlayerPresent(player -> {
+            var level = player.level();
+            var x = pos.x;
+            var y = pos.y;
+            var z = pos.z;
+            //Blastwave
+            level.addParticle(new BlastwaveParticleOptions(new Vector3f(1, .6f, 0.3f), radius + 1), x, y, z, 0, 0, 0);
+            //Billowing wave
+            int c = (int) (6.28 * radius) * 2;
+            float step = 360f / c * Mth.DEG_TO_RAD;
+            float speed = (0.06f + 0.01f * radius) * 2;
+            for (int i = 0; i < c; i++) {
+                Vec3 vec3 = new Vec3(Mth.cos(step * i), 0, Mth.sin(step * i)).scale(speed);
+                Vec3 posOffset = Utils.getRandomVec3(.5f).add(vec3.scale(10));
+                vec3 = vec3.add(Utils.getRandomVec3(0.01));
+                level.addParticle(ParticleHelper.ACID, x + posOffset.x, y + posOffset.y, z + posOffset.z, vec3.x, vec3.y, vec3.z);
+            }
+            //Smoke Cloud
+            int cloudDensity = 50 + (int) (25 * radius);
+            for (int i = 0; i < cloudDensity; i++) {
+                Vec3 posOffset = Utils.getRandomVec3(1).scale(radius * .125f);
+                Vec3 motion = posOffset.normalize().scale(speed * .5f);
+                posOffset = posOffset.add(motion.scale(Utils.getRandomScaled(1)));
+                motion = motion.add(Utils.getRandomVec3(speed * .1f));
+                level.addParticle(ModParticleHelper.POISON_SMOKE, x + posOffset.x, y + posOffset.y, z + posOffset.z, motion.x, motion.y, motion.z);
+            }
+            //Cloud
+            for (int i = 0; i < cloudDensity; i += 2) {
+                Vec3 posOffset = Utils.getRandomVec3(1).scale(radius * .4f);
+                Vec3 motion = posOffset.normalize().scale(speed * .5f);
+                motion = motion.add(Utils.getRandomVec3(0.25));
+                level.addParticle(ParticleHelper.ACID, true, x + posOffset.x, y + posOffset.y, z + posOffset.z, motion.x, motion.y, motion.z);
+                level.addParticle(ParticleHelper.ACID_BUBBLE, x + posOffset.x * .5f, y + posOffset.y * .5f, z + posOffset.z * .5f, motion.x, motion.y, motion.z);
+            }
+            //Sparks
+            for (int i = 0; i < cloudDensity; i += 2) {
+                Vec3 posOffset = Utils.getRandomVec3(radius).scale(.2f);
+                Vec3 motion = posOffset.normalize().scale(0.8);
+                motion = motion.add(Utils.getRandomVec3(0.18));
+                level.addParticle(ParticleHelper.POISON_CLOUD, x + posOffset.x * .5f, y + posOffset.y * .5f, z + posOffset.z * .5f, motion.x, motion.y, motion.z);
+            }
+        });
+    }
+
     public static void handleClientboundThunderStep(Vec3 pos1, Vec3 pos2) {
         var player = Minecraft.getInstance().player;
 

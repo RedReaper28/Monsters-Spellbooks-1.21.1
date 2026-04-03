@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class FrenzyKingBookItem extends SpellBook {
     public FrenzyKingBookItem() {
-        super(10, ItemPropertiesHelper.equipment().fireResistant().stacksTo(1).rarity(ASRarities.SCULK_RARITY_PROXY.getValue()));
+        super(12, ItemPropertiesHelper.equipment().fireResistant().stacksTo(1).rarity(ASRarities.SCULK_RARITY_PROXY.getValue()));
         withSpellbookAttributes(new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
         new AttributeContainer(AttributeRegistry.ELDRITCH_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.MAX_MANA, 200, AttributeModifier.Operation.ADD_VALUE));

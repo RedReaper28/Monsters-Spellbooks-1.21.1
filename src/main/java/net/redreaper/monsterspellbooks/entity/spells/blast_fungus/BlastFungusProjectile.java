@@ -1,0 +1,93 @@
+package net.redreaper.monsterspellbooks.entity.spells.blast_fungus;
+
+import io.redspace.ironsspellbooks.api.util.Utils;
+import io.redspace.ironsspellbooks.damage.DamageSources;
+import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
+import net.minecraft.core.Holder;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.network.PacketDistributor;
+import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.particle.PoisonExplosionParticlePacket;
+
+import java.util.Optional;
+
+public class BlastFungusProjectile extends AbstractMagicProjectile {
+    public BlastFungusProjectile(EntityType<? extends Projectile> pEntityType, Level pLevel) {
+        super(pEntityType, pLevel);
+    }
+
+    public BlastFungusProjectile(Level level, LivingEntity shooter) {
+        this(ModEntities.BLAST_FUNGUS_PROJECTILE.get(), level);
+        setOwner(shooter);
+    }
+
+    @Override
+    public void trailParticles() {
+        Vec3 vec3 = getDeltaMovement();
+        double d0 = this.getX() - vec3.x;
+        double d1 = this.getY() - vec3.y;
+        double d2 = this.getZ() - vec3.z;
+        var count = Mth.clamp((int) (vec3.lengthSqr() * 2), 1, 4);
+        for (int i = 0; i < count; i++) {
+            Vec3 random = Utils.getRandomVec3(getBbHeight() * .2f);
+            var f = i / ((float) count);
+            var x = Mth.lerp(f, d0, this.getX() + vec3.x);
+            var y = Mth.lerp(f, d1, this.getY() + vec3.y);
+            var z = Mth.lerp(f, d2, this.getZ() + vec3.z);
+            this.level().addParticle(ParticleTypes.SPORE_BLOSSOM_AIR, true,x - random.x, y + getBbHeight() * .5f - random.y, z - random.z, 0,0,0/*motion.x * .5f, motion.y * .5f, motion.z * .5f*/);
+        }
+    }
+
+    @Override
+    public void impactParticles(double x, double y, double z) {
+    }
+
+    @Override
+    public float getSpeed() {
+        return 1;
+    }
+
+    @Override
+    protected void onHit(HitResult hitResult) {
+        if (!this.level().isClientSide) {
+            impactParticles(xOld, yOld, zOld);
+            float explosionRadius = getExplosionRadius();
+            var explosionRadiusSqr = explosionRadius * explosionRadius;
+            var entities = level().getEntities(this, this.getBoundingBox().inflate(explosionRadius));
+            Vec3 losPoint = Utils.raycastForBlock(level(), this.position(), this.position().add(0, 2, 0), ClipContext.Fluid.NONE).getLocation();
+            for (Entity entity : entities) {
+                double distanceSqr = entity.distanceToSqr(hitResult.getLocation());
+                if (distanceSqr < explosionRadiusSqr && canHitEntity(entity) && Utils.hasLineOfSight(level(), losPoint, entity.getBoundingBox().getCenter(), true)) {
+                    double p = (1 - distanceSqr / explosionRadiusSqr);
+                    float damage = (float) (this.damage * p);
+                    DamageSources.applyDamage(entity, damage, ModSpellRegistry.BLAST_FUNGUS.get().getDamageSource(this, getOwner()));
+                    if (entity instanceof LivingEntity livingEntity && livingEntity != getOwner())
+                        livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 180, 1));
+                }
+            }
+            PacketDistributor.sendToPlayersTrackingEntity(this, new PoisonExplosionParticlePacket(hitResult.getLocation().subtract(getDeltaMovement().scale(0.5)), getExplosionRadius()));
+            playSound(SoundEvents.GENERIC_EXPLODE.value(), 4.0F, (1.0F + (this.level().random.nextFloat() - this.level().random.nextFloat()) * 0.2F) * 0.7F);
+            this.discardHelper(hitResult);
+        }
+    }
+
+    @Override
+    public Optional<Holder<SoundEvent>> getImpactSound() {
+        return Optional.of(SoundEvents.GENERIC_EXPLODE);
+    }
+}
+

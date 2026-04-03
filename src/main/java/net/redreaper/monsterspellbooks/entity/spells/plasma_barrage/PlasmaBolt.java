@@ -1,12 +1,10 @@
 package net.redreaper.monsterspellbooks.entity.spells.plasma_barrage;
 
-import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.config.ServerConfigs;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
-import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.core.BlockPos;
@@ -75,14 +73,12 @@ public class PlasmaBolt extends AbstractMagicProjectile implements GeoEntity {
             var x = Mth.lerp(f, d0, this.getX());
             var y = Mth.lerp(f, d1, this.getY());
             var z = Mth.lerp(f, d2, this.getZ());
-            this.level().addParticle(ParticleHelper.EMBERS, x - random.x, y + 0.5D - random.y, z - random.z, random.x * .5f, random.y * .5f, random.z * .5f);
-            this.level().addParticle(ParticleHelper.ELECTRICITY, x - random.x, y + 0.5D - random.y, z - random.z, random.x * .5f, random.y * .5f, random.z * .5f);
+            this.level().addParticle(ParticleHelper.ELECTRIC_SPARKS, x - random.x, y + 0.5D - random.y, z - random.z, random.x * .5f, random.y * .5f, random.z * .5f);
         }
     }
 
     @Override
     public void impactParticles(double x, double y, double z) {
-        MagicManager.spawnParticles(level(), ParticleHelper.FIERY_SPARKS, x, y, z, 5, 0, 0, 0, 0.25, true);
         MagicManager.spawnParticles(level(), ParticleHelper.ELECTRIC_SPARKS, x, y, z, 5, 0, 0, 0, 0.25, false);
     }
 
