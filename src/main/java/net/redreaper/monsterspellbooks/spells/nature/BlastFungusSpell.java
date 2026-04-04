@@ -66,7 +66,7 @@ public class BlastFungusSpell extends AbstractSpell {
 
     @Override
     public Optional<SoundEvent> getCastStartSound() {
-        return Optional.of(SoundRegistry.FIREBALL_START.get());
+        return Optional.of(SoundRegistry.ACID_ORB_CHARGE.get());
     }
 
     @Override

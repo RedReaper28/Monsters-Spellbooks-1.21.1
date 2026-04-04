@@ -106,7 +106,7 @@ public class WitherNovaSpell extends AbstractSpell {
                 getCastTime(spellLevel), 2, false, false, false));
         CameraShakeManager.addCameraShake(new CameraShakeData(level, 30, entity.position(), 10));
 
-        var hitResult = Utils.raycastForEntity(level, entity, getRange(spellLevel, entity), true, .15f);
+        var hitResult = Utils.raycastForEntity(level, entity, getRange(spellLevel, entity), true, .50f);
         level.addFreshEntity(new WitherNovaVisualEntity(level, entity.getEyePosition(), hitResult.getLocation(), entity));
         if (hitResult.getType() == HitResult.Type.ENTITY) {
             int i = getDuration(spellLevel, entity);

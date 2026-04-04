@@ -29,7 +29,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class SummonSoulWizardSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "summon_soul_wizard");
     private final DefaultConfig defaultConfig = new DefaultConfig()

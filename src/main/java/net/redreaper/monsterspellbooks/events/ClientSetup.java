@@ -82,6 +82,7 @@ import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.ChaurusMandibl
 import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.IceSpiderFangRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.static_cleave.StaticCleaveRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.stray_grasp.StrayGraspRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.torment_arrow.TormentArrowRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.voltaic_multishot.VoltArrowRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.water_trident.WaterTridentRenderer;
@@ -156,6 +157,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.SOUL_FIREBOLT_PROJECTILE.get(), SoulFireBoltRenderer::new);
         event.registerEntityRenderer(ModEntities.ELTHOR_BEAM.get(), ElthorBeamRenderer::new);
         event.registerEntityRenderer(ModEntities.VOLT_ARROW_PROJECTILE.get(), VoltArrowRenderer::new);
+        event.registerEntityRenderer(ModEntities.TORMENT_ARROW_PROJECTILE.get(), TormentArrowRenderer::new);
 
         event.registerEntityRenderer(ModEntities.VILE_SKELETON.get(), VileSkeletonRenderer::new);
         event.registerEntityRenderer(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereRenderer::new);

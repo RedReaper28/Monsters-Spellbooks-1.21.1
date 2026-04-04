@@ -104,6 +104,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> RAIJIN_JUDGEMENT = registerSpell(new RaijinJudgementSpell());
     public static final Supplier<AbstractSpell> GUARDIANS_NEUTRALIZER = registerSpell(new GuardiansNeutralizerSpell());
     public static final Supplier<AbstractSpell> PLASMA_BARRAGE = registerSpell(new PlasmaBarrageSpell());
+    public static final Supplier<AbstractSpell> PLASMA_PULSE = registerSpell(new PlasmaPulseSpell());
     public static final Supplier<AbstractSpell> RAIGO = registerSpell(new RaigoSpell());
     public static final Supplier<AbstractSpell> STATIC_CLEAVE = registerSpell(new StaticCleaveSpell());
     public static final Supplier<AbstractSpell> THUNDER_STEP = registerSpell(new ThunderStepSpell());
@@ -139,6 +140,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> SPIRIT_STRIKE = registerSpell(new SpiritStrikeSpell());
     public static final Supplier<AbstractSpell> STRAY_GRASP = registerSpell(new StrayGraspSpell());
     public static final Supplier<AbstractSpell> SUMMON_SOUL_WIZARD = registerSpell(new SummonSoulWizardSpell());
+    public static final Supplier<AbstractSpell> TORMENT_ARROW = registerSpell(new TormentArrowSpell());
     public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
     public static final Supplier<AbstractSpell> VILE_SUMMON = registerSpell(new VileSummonSpell());
     public static final Supplier<AbstractSpell> WITHER_BOMB = registerSpell(new WitherBombSpell());

@@ -102,6 +102,35 @@
       "monsterspellbooks:spell_volt_arrow_hit"
     ]
   },
+
+  "spell_corrupted_beacon_fire": {
+    "subtitles": "sounds.monsterspellbooks.spell_corrupted_beacon_fire",
+    "sounds": [
+      "monsterspellbooks:spell_corrupted_beacon_fire"
+    ]
+  },
+
+  "spell_corrupted_beacon_loop": {
+    "subtitles": "sounds.monsterspellbooks.spell_corrupted_beacon_loop",
+    "sounds": [
+      "monsterspellbooks:spell_corrupted_beacon_loop"
+    ]
+  },
+
+  "spell_evocation_boost": {
+    "subtitles": "sounds.monsterspellbooks.spell_evocation_boost",
+    "sounds": [
+      "monsterspellbooks:spell_evocation_boost"
+    ]
+  },
+
+  "spell_spore_explosion": {
+    "subtitles": "sounds.monsterspellbooks.spell_spore_explosion",
+    "sounds": [
+      "monsterspellbooks:spell_spore_explosion"
+    ]
+  },
+
   "spell_necro_cast": {
   "subtitles": "sounds.monsterspellbooks.spell_necro_cast",
   "sounds": [

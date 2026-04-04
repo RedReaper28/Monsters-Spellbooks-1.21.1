@@ -114,7 +114,7 @@ public class BrimstoneWrathSpell extends AbstractSpell {
 
     @Override
     public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {
-        return super.getDamageSource(projectile, attacker).setFireTicks(50).setIFrames(0);
+        return super.getDamageSource(projectile, attacker).setFireTicks(50);
     }
 
     public static float getRange(int level) {

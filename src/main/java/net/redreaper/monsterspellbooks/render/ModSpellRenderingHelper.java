@@ -7,7 +7,6 @@ import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.SyncedSpellData;
 import io.redspace.ironsspellbooks.spells.CastingMobAimingData;
-import io.redspace.ironsspellbooks.spells.blood.RayOfSiphoningSpell;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -20,21 +19,23 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.spells.ender.CorruptedBeaconRaySpell;
 import net.redreaper.monsterspellbooks.spells.fire.BrimstoneWrathSpell;
+import net.redreaper.monsterspellbooks.spells.lightning.PlasmaPulseSpell;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
 @OnlyIn(Dist.CLIENT)
 public class ModSpellRenderingHelper {
-    public static final ResourceLocation SOLID = MonstersSpellbooks.id("textures/entity/brimstone_wrath/solid.png");
     public static final ResourceLocation BRIMSTONE_CORE = MonstersSpellbooks.id("textures/entity/brimstone_wrath/beacon_beam.png");
     public static final ResourceLocation BRIMSTONE_TWISTING_GLOW = MonstersSpellbooks.id("textures/entity/brimstone_wrath/twisting_glow.png");
 
     public static final ResourceLocation CORRUPTED_CORE = MonstersSpellbooks.id("textures/entity/corrupted_beacon_ray/beacon_beam.png");
     public static final ResourceLocation CORRUPTED_TWISTING_GLOW = MonstersSpellbooks.id("textures/entity/corrupted_beacon_ray/twisting_glow.png");
 
+    public static final ResourceLocation PLASMA_CORE = MonstersSpellbooks.id("textures/entity/plasma_pulse/beacon_beam.png");
+    public static final ResourceLocation PLASMA_TWISTING_GLOW = MonstersSpellbooks.id("textures/entity/plasma_pulse/twisting_glow.png");
 
-    public static final ResourceLocation STRAIGHT_GLOW = MonstersSpellbooks.id("textures/brimstone_wrath/ray/ribbon_glow.png");
     public static final ResourceLocation ELTHOR_BEAM = MonstersSpellbooks.id("textures/entity/elthor/beam2.png");
 
     public static void renderSpellHelper(SyncedSpellData spellData, LivingEntity castingMob, PoseStack poseStack, MultiBufferSource bufferSource, float partialTicks) {
@@ -44,6 +45,10 @@ public class ModSpellRenderingHelper {
 
         if (ModSpellRegistry.CORRUPTED_BEACON_RAY.get().getSpellId().equals(spellData.getCastingSpellId())) {
             renderCorruptedRay(castingMob, poseStack, bufferSource, partialTicks);
+        }
+
+        if (ModSpellRegistry.PLASMA_PULSE.get().getSpellId().equals(spellData.getCastingSpellId())) {
+            renderPlasmaRay(castingMob, poseStack, bufferSource, partialTicks);
         }
     }
 
@@ -77,7 +82,7 @@ public class ModSpellRenderingHelper {
 
         float dx = (float) dir.x;
         float dz = (float) dir.z;
-        float yRot = (float) Mth.atan2(dz, dx) - 1.5707f; // for some reason, we are rotated 90 degrees the wrong way. subtracting 2 pi here.
+        float yRot = (float) Mth.atan2(dz, dx) - 1.5707f;
         float dxz = Mth.sqrt(dx * dx + dz * dz);
         float dy = (float) dir.y;
         float xRot = (float) Mth.atan2(dy, dxz);
@@ -89,11 +94,9 @@ public class ModSpellRenderingHelper {
                     Mth.sin(deltaTicks * .8f + 100) * .02f,
                     Mth.cos(deltaTicks * .8f) * .02f
             );
-            //end = dir.scale(Math.min(j, distance)).add(wiggle);
             end = new Vec3(0, 0, Math.min(j, distance)).add(wiggle);
             VertexConsumer inner = bufferSource.getBuffer(RenderType.entityTranslucent(BRIMSTONE_CORE, true));
             drawHull(start, end, radius, radius, pose, inner, r, g, b, a, min, max);
-            //drawHull(start, end, .25f, .25f, pose, outer, r / 2, g / 2, b / 2, a / 2);
             VertexConsumer outer = bufferSource.getBuffer(RenderType.entityTranslucent(BRIMSTONE_TWISTING_GLOW));
             drawQuad(start, end, radius * 4f, 0, pose, outer, r, g, b, a, min, max);
             drawQuad(start, end, 0, radius * 4f, pose, outer, r, g, b, a, min, max);
@@ -108,13 +111,13 @@ public class ModSpellRenderingHelper {
         poseStack.translate(0, entity.getEyeHeight() * .8f, 0);
 
         var pose = poseStack.last();
-        Vec3 start = Vec3.ZERO;//caster.getEyePosition(partialTicks);
+        Vec3 start = Vec3.ZERO;
         Vec3 end;
         Vec3 rayEndPos;
         if (entity instanceof Mob mob && MagicData.getPlayerMagicData(mob).getAdditionalCastData() instanceof CastingMobAimingData aimingData) {
             rayEndPos = aimingData.getAimPosition(partialTicks);
         } else {
-            rayEndPos = Utils.raycastForEntity(entity.level(), entity, RayOfSiphoningSpell.getRange(0), true).getLocation();
+            rayEndPos = Utils.raycastForEntity(entity.level(), entity, CorruptedBeaconRaySpell.getRange(0), true).getLocation();
         }
         float distance = (float) entity.getEyePosition().distanceTo(rayEndPos);
         float radius = .12f;
@@ -130,18 +133,12 @@ public class ModSpellRenderingHelper {
 
         var dir = entity.getLookAngle().normalize();
 
-        //y rotation is a triangle of x and z axis
         float dx = (float) dir.x;
         float dz = (float) dir.z;
-        //angle = atan o/a
         float yRot = (float) Mth.atan2(dz, dx) - 1.5707f; // for some reason, we are rotated 90 degrees the wrong way. subtracting 2 pi here.
-        //IronsSpellbooks.LOGGER.debug("yRot: {}", yRot);
-        //x rotation is a triangle of xz and y axis
         float dxz = Mth.sqrt(dx * dx + dz * dz);
         float dy = (float) dir.y;
-        //angle = atan o/a
         float xRot = (float) Mth.atan2(dy, dxz);
-        //IronsSpellbooks.LOGGER.debug("xRot: {}", xRot);
         poseStack.mulPose(Axis.YP.rotation(-yRot));
         poseStack.mulPose(Axis.XP.rotation(-xRot));
         for (float j = 1; j <= distance; j += .5f) {
@@ -150,11 +147,9 @@ public class ModSpellRenderingHelper {
                     Mth.sin(deltaTicks * .8f + 100) * .02f,
                     Mth.cos(deltaTicks * .8f) * .02f
             );
-            //end = dir.scale(Math.min(j, distance)).add(wiggle);
             end = new Vec3(0, 0, Math.min(j, distance)).add(wiggle);
             VertexConsumer inner = bufferSource.getBuffer(RenderType.entityTranslucent(CORRUPTED_CORE, true));
             drawHull(start, end, radius, radius, pose, inner, r, g, b, a, min, max);
-            //drawHull(start, end, .25f, .25f, pose, outer, r / 2, g / 2, b / 2, a / 2);
             VertexConsumer outer = bufferSource.getBuffer(RenderType.entityTranslucent(CORRUPTED_TWISTING_GLOW));
             drawQuad(start, end, radius * 4f, 0, pose, outer, r, g, b, a, min, max);
             drawQuad(start, end, 0, radius * 4f, pose, outer, r, g, b, a, min, max);
@@ -163,6 +158,61 @@ public class ModSpellRenderingHelper {
         }
         poseStack.popPose();
     }
+
+    public static void renderPlasmaRay(LivingEntity entity, PoseStack poseStack, MultiBufferSource bufferSource, float partialTicks) {
+        poseStack.pushPose();
+        poseStack.translate(0, entity.getEyeHeight() * .8f, 0);
+
+        var pose = poseStack.last();
+        Vec3 start = Vec3.ZERO;
+        Vec3 end;
+        Vec3 rayEndPos;
+        if (entity instanceof Mob mob && MagicData.getPlayerMagicData(mob).getAdditionalCastData() instanceof CastingMobAimingData aimingData) {
+            rayEndPos = aimingData.getAimPosition(partialTicks);
+        } else {
+            rayEndPos = Utils.raycastForEntity(entity.level(), entity, CorruptedBeaconRaySpell.getRange(0), true).getLocation();
+        }
+        float distance = (float) entity.getEyePosition().distanceTo(rayEndPos);
+        float radius = .12f;
+        int r = (int) (255 * .7f);
+        int g = (int) (255 * 0f);
+        int b = (int) (255 * 0f);
+        int a = (int) (255 * 1f);
+
+        float deltaTicks = entity.tickCount + partialTicks;
+        float deltaUV = -deltaTicks % 10;
+        float max = Mth.frac(deltaUV * 0.2F - (float) Mth.floor(deltaUV * 0.1F));
+        float min = -1.0F + max;
+
+        var dir = entity.getLookAngle().normalize();
+
+        float dx = (float) dir.x;
+        float dz = (float) dir.z;
+        float yRot = (float) Mth.atan2(dz, dx) - 1.5707f; // for some reason, we are rotated 90 degrees the wrong way. subtracting 2 pi here.
+        float dxz = Mth.sqrt(dx * dx + dz * dz);
+        float dy = (float) dir.y;
+        float xRot = (float) Mth.atan2(dy, dxz);
+        poseStack.mulPose(Axis.YP.rotation(-yRot));
+        poseStack.mulPose(Axis.XP.rotation(-xRot));
+        for (float j = 1; j <= distance; j += .5f) {
+            Vec3 wiggle = new Vec3(
+                    Mth.sin(deltaTicks * .8f) * .02f,
+                    Mth.sin(deltaTicks * .8f + 100) * .02f,
+                    Mth.cos(deltaTicks * .8f) * .02f
+            );
+            end = new Vec3(0, 0, Math.min(j, distance)).add(wiggle);
+            VertexConsumer inner = bufferSource.getBuffer(RenderType.entityTranslucent(PLASMA_CORE, true));
+            drawHull(start, end, radius, radius, pose, inner, r, g, b, a, min, max);
+            VertexConsumer outer = bufferSource.getBuffer(RenderType.entityTranslucent(PLASMA_TWISTING_GLOW));
+            drawQuad(start, end, radius * 4f, 0, pose, outer, r, g, b, a, min, max);
+            drawQuad(start, end, 0, radius * 4f, pose, outer, r, g, b, a, min, max);
+            start = end;
+
+        }
+        poseStack.popPose();
+    }
+
+
 
 
     public static void drawHull(Vec3 from, Vec3 to, float width, float height, PoseStack.Pose pose, VertexConsumer consumer, int r, int g, int b, int a, float uvMin, float uvMax) {

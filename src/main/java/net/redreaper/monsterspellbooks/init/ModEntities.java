@@ -64,6 +64,7 @@ import net.redreaper.monsterspellbooks.entity.spells.voltaic_multishot.VoltArrow
 import net.redreaper.monsterspellbooks.entity.spells.water_trident.WaterTridentProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.wither_bomb.WitherBombProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.wither_nova.WitherNovaVisualEntity;
+import net.redreaper.monsterspellbooks.entity.spells.torment_arrow.TormentArrowProjectile;
 
 import java.util.function.Supplier;
 
@@ -72,6 +73,12 @@ import static net.minecraft.core.registries.Registries.ENTITY_TYPE;
 public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<TormentArrowProjectile>> TORMENT_ARROW_PROJECTILE =
+            ENTITIES.register("torment_arrow", () -> EntityType.Builder.<TormentArrowProjectile>of(TormentArrowProjectile::new, MobCategory.MISC)
+                    .sized(.8f, .8f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "torment_arrow").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<RedSnakeWitherSkeletonEntity>> REDSNAKE_WITHER_SKELETON =
             ENTITIES.register("redsnake_wither_skeleton", () -> EntityType.Builder.<RedSnakeWitherSkeletonEntity>of(RedSnakeWitherSkeletonEntity::new, MobCategory.MONSTER)

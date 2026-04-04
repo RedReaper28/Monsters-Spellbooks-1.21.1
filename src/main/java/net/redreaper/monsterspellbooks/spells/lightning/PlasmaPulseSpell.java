@@ -1,10 +1,12 @@
-package net.redreaper.monsterspellbooks.spells.ender;
+package net.redreaper.monsterspellbooks.spells.lightning;
 
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.AnimationHolder;
+import io.redspace.ironsspellbooks.api.util.CameraShakeData;
+import io.redspace.ironsspellbooks.api.util.CameraShakeManager;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
@@ -13,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -22,19 +25,20 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.effect.VoidTouchedEffect;
+import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.init.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Optional;
 
-public class CorruptedBeaconRaySpell extends AbstractSpell {
-    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "corrupted_beacon_ray");
+public class PlasmaPulseSpell extends AbstractSpell {
+    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "plasma_pulse");
     private final DefaultConfig defaultConfig = new DefaultConfig()
-            .setMinRarity(SpellRarity.EPIC)
-            .setSchoolResource(SchoolRegistry.ENDER_RESOURCE)
-            .setMaxLevel(10)
-            .setCooldownSeconds(25)
+            .setMinRarity(SpellRarity.LEGENDARY)
+            .setSchoolResource(SchoolRegistry.LIGHTNING_RESOURCE)
+            .setMaxLevel(3)
+            .setCooldownSeconds(120)
             .build();
 
     @Override
@@ -43,12 +47,12 @@ public class CorruptedBeaconRaySpell extends AbstractSpell {
                 Component.translatable("ui.irons_spellbooks.distance", Utils.stringTruncation(getRange(spellLevel), 1)));
     }
 
-    public CorruptedBeaconRaySpell() {
-        this.manaCostPerLevel = 2;
-        this.baseSpellPower = 1;
-        this.spellPowerPerLevel = 1;
-        this.castTime = 75;
-        this.baseManaCost = 20;
+    public PlasmaPulseSpell() {
+        this.manaCostPerLevel = 10;
+        this.baseSpellPower = 15;
+        this.spellPowerPerLevel = 10;
+        this.castTime = 50;
+        this.baseManaCost = 25;
     }
 
     @Override
@@ -68,7 +72,7 @@ public class CorruptedBeaconRaySpell extends AbstractSpell {
 
     @Override
     public Optional<SoundEvent> getCastStartSound() {
-        return Optional.of(ModSounds.CORRUPTED_BEACON_FIRE.get());
+        return Optional.of(ModSounds.ENERGY_FIRE.get());
     }
 
     @Override
@@ -98,7 +102,6 @@ public class CorruptedBeaconRaySpell extends AbstractSpell {
             Entity target = ((EntityHitResult) hitResult).getEntity();
             if (target.canBeHitByProjectile()) {
                 if (DamageSources.applyDamage(target, getTickDamage(spellLevel, entity), getDamageSource(entity))) {
-                    VoidTouchedEffect.addVoidStack((LivingEntity) target, entity);
                 }
             }
         }
@@ -107,11 +110,11 @@ public class CorruptedBeaconRaySpell extends AbstractSpell {
 
     @Override
     public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {
-        return super.getDamageSource(projectile, attacker);
+        return super.getDamageSource(projectile, attacker).setIFrames(0);
     }
 
     public static float getRange(int level) {
-        return 40;
+        return 25;
     }
 
     private float getTickDamage(int spellLevel, LivingEntity caster)
@@ -133,4 +136,5 @@ public class CorruptedBeaconRaySpell extends AbstractSpell {
         return false;
     }
 }
+
 
