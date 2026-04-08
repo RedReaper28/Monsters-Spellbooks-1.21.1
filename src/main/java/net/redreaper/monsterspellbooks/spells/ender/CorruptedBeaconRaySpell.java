@@ -107,7 +107,7 @@ public class CorruptedBeaconRaySpell extends AbstractSpell {
 
     @Override
     public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {
-        return super.getDamageSource(projectile, attacker);
+        return super.getDamageSource(projectile, attacker).setIFrames(0);
     }
 
     public static float getRange(int level) {

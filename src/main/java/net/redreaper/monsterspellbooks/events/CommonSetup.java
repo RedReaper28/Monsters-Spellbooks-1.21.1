@@ -44,8 +44,7 @@ public class CommonSetup {
         event.put(ModEntities.SUMMONED_VILE_SKELETON.get(), SummonedVileSkeletonEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_DEATH_KNIGHT.get(), DeathKnightEntity.createAttributes().build());
         event.put(ModEntities.SOUL_WIZARD.get(), SoulWizardEntity.createAttributes().build());
-
-
+        event.put(ModEntities.DWARVEN_SWARM_DRONE.get(), DwarvenSwarmDroneEntity.createAttributes().build());
     }
 
     @SubscribeEvent

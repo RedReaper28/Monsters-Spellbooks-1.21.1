@@ -34,6 +34,9 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
     public static ModExtendedWeaponTiers VOID_OBSIDIAN = new ModExtendedWeaponTiers(2000, 11F, -2.8F, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
             new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
+    public static ModExtendedWeaponTiers CULTIST_KNIFE = new ModExtendedWeaponTiers(750, 6F, -2.6F, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
+            new AttributeContainer(ASAttributeRegistry.RITUAL_MAGIC_POWER, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
     public static ModExtendedWeaponTiers HEAVY_VOID_OBSIDIAN = new ModExtendedWeaponTiers(2000, 11, -3.4f, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
             new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 2, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),

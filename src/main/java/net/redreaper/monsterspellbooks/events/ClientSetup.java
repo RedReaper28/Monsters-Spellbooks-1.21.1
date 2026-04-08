@@ -28,6 +28,8 @@ import net.redreaper.monsterspellbooks.entity.model.DripplerEntity.DripplerEntit
 import net.redreaper.monsterspellbooks.entity.model.DripplerEntity.DripplerEntityRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DwarvenSlicer.DwarvenSlicerRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DwarvenSphere.DwarvenSphereRenderer;
+import net.redreaper.monsterspellbooks.entity.model.DwarvenSwarmDroneEntity.DwarvenSwarmDroneModel;
+import net.redreaper.monsterspellbooks.entity.model.DwarvenSwarmDroneEntity.DwarvenSwarmDroneRenderer;
 import net.redreaper.monsterspellbooks.entity.model.IllagerEnchanterEntity.IllagerEnchanterRenderer;
 import net.redreaper.monsterspellbooks.entity.model.IllagerIceologerEntity.IllagerIceologerRenderer;
 import net.redreaper.monsterspellbooks.entity.model.JungleWhisperer.JungleWhispererModel;
@@ -183,6 +185,8 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.SUMMONED_AEGIS.get(), context -> {return new AegisEntityRenderer(context, new AegisEntityModel());});
         event.registerEntityRenderer(ModEntities.SOUL_WIZARD.get(), context -> {return new SoulWizardRenderer(context, new SoulWizardModel());});
         event.registerEntityRenderer(ModEntities.POISON_QUILL_VINE.get(), context -> {return new PoisonQuillVineRenderer(context, new PoisonQuillVineModel());});
+        event.registerEntityRenderer(ModEntities.DWARVEN_SWARM_DRONE.get(), context -> {return new DwarvenSwarmDroneRenderer(context, new DwarvenSwarmDroneModel());});
+
     }
 
 
@@ -228,8 +232,6 @@ public static void registerParticles(RegisterParticleProvidersEvent event)
         event.registerLayerDefinition(WitherNovaRenderer.MODEL_LAYER_LOCATION, WitherNovaRenderer::createBodyLayer);
         event.registerLayerDefinition(NapalmOrbRenderer.MODEL_LAYER_LOCATION, NapalmOrbRenderer::createBodyLayer);
         event.registerLayerDefinition(SoulFireBoltRenderer.MODEL_LAYER_LOCATION, SoulFireBoltRenderer::createBodyLayer);
-
-
     }
 
     @SubscribeEvent

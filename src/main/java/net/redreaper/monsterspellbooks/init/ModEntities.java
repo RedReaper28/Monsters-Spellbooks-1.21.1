@@ -498,6 +498,14 @@ public class ModEntities {
                             ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "soul_wizard").toString()
                     ));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<DwarvenSwarmDroneEntity>> DWARVEN_SWARM_DRONE =
+            ENTITIES.register("dwarven_swarm_drone", () -> EntityType.Builder.<DwarvenSwarmDroneEntity>of
+                            (DwarvenSwarmDroneEntity::new, MobCategory.MONSTER).
+                    sized(.6f, .8f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "dwarven_swarm_drone").toString()
+                    ));
+
     public static final DeferredHolder<EntityType<?>, EntityType<JungleWhispererEntity>> JUNGLE_WHISPERER =
             ENTITIES.register("jungle_whisperer", () -> EntityType.Builder.<JungleWhispererEntity>of
                             (JungleWhispererEntity::new, MobCategory.MONSTER).

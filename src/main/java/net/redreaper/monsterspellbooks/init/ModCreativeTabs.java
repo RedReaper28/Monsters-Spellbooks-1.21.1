@@ -113,6 +113,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.STARSCOURGE_LEGGINGS.get());
                         output.accept(ModItems.STARSCOURGE_BOOTS.get());
 
+                        output.accept(ModItems.HEROBRINE_CULTIST_HELMET.get());
+                        output.accept(ModItems.HEROBRINE_CULTIST_CHESTPLATE.get());
+                        output.accept(ModItems.HEROBRINE_CULTIST_LEGGINGS.get());
+                        output.accept(ModItems.HEROBRINE_CULTIST_BOOTS.get());
+
                         output.accept(ModItems.ILLAGER_ENCHANTER_HELMET.get());
                         output.accept(ModItems.ILLAGER_ENCHANTER_CHESTPLATE.get());
                         output.accept(ModItems.ILLAGER_ENCHANTER_LEGGINGS.get());

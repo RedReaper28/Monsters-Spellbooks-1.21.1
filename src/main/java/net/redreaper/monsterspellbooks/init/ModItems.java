@@ -359,6 +359,17 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> DWARVEN_ENGINEER_BOOTS = ITEMS.register("dwarven_engineer_boots", () ->
             new DwarvenEngineerArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
+
+    public static final DeferredHolder<Item, Item> HEROBRINE_CULTIST_HELMET = ITEMS.register("herobrine_cultist_helmet", () ->
+            new HerobrineCultistArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ASRarities.FORBIDDEN_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(48))));
+    public static final DeferredHolder<Item, Item> HEROBRINE_CULTIST_CHESTPLATE = ITEMS.register("herobrine_cultist_chestplate", () ->
+            new HerobrineCultistArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ASRarities.FORBIDDEN_RARITY_PROXY.getValue()).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
+    public static final DeferredHolder<Item, Item> HEROBRINE_CULTIST_LEGGINGS = ITEMS.register("herobrine_cultist_leggings", () ->
+            new HerobrineCultistArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).rarity(ASRarities.FORBIDDEN_RARITY_PROXY.getValue()).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
+    public static final DeferredHolder<Item, Item> HEROBRINE_CULTIST_BOOTS = ITEMS.register("herobrine_cultist_boots", () ->
+            new HerobrineCultistArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ASRarities.FORBIDDEN_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(48))));
+
+
     public static final DeferredHolder<Item, Item> DRAUGR_ELITE_HELMET = ITEMS.register("draugr_elite_helmet", () ->
             new DraugrEliteArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(45))));
     public static final DeferredHolder<Item, Item>DRAUGR_ELITE_CHESTPLATE = ITEMS.register("draugr_elite_chestplate", () ->

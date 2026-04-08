@@ -25,6 +25,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.EventHooks;
 import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 
 import javax.annotation.Nullable;
@@ -206,7 +207,7 @@ public class TormentArrowProjectile extends AbstractMagicProjectile {
     protected void onHitEntity(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();
         if (!victims.contains(entity)) {
-            DamageSources.applyDamage(entity, damage, SpellRegistry.MAGIC_ARROW_SPELL.get().getDamageSource(this, getOwner()));
+            DamageSources.applyDamage(entity, damage, ModSpellRegistry.TORMENT_ARROW.get().getDamageSource(this, getOwner()));
             victims.add(entity);
         }
         if (getPierceLevel() != 0) {

@@ -23,6 +23,7 @@ import net.redreaper.monsterspellbooks.spells.ice.TundraTerrainSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.*;
 import net.redreaper.monsterspellbooks.spells.nature.*;
 import net.redreaper.monsterspellbooks.spells.necro.*;
+import net.redreaper.monsterspellbooks.spells.technomancy.SummonDwarvenDronesSpell;
 
 import java.util.function.Supplier;
 
@@ -35,12 +36,14 @@ public class ModSpellRegistry {
     public static Supplier<AbstractSpell> registerSpell(AbstractSpell spell) {
         return SPELLS.register(spell.getSpellName(), () -> spell);
     }
+
     //AERO
     public static final Supplier<AbstractSpell> AIR_BUBBLE = registerSpell(new AirBubbleSpell());
     public static final Supplier<AbstractSpell> AIR_PROPULSION = registerSpell(new AirPropulsionSpell());
     public static final Supplier<AbstractSpell> FORCEFUL_WIND = registerSpell(new ForcefulWindSpell());
     public static final Supplier<AbstractSpell> STEAM_STREAM = registerSpell(new SteamSteamSpell());
     public static final Supplier<AbstractSpell> SUFFOCATE = registerSpell(new SuffocateSpell());
+    public static final Supplier<AbstractSpell> WIND_WAVE = registerSpell(new WindWaveSpell());
 
     //BLOOD
     public static final Supplier<AbstractSpell> ANTICOAGULATION = registerSpell(new AnticoagulationSpell());
@@ -145,6 +148,9 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> VILE_SUMMON = registerSpell(new VileSummonSpell());
     public static final Supplier<AbstractSpell> WITHER_BOMB = registerSpell(new WitherBombSpell());
     public static final Supplier<AbstractSpell> WITHER_NOVA = registerSpell(new WitherNovaSpell());
+
+    //TECHNOMANCY
+    public static final Supplier<AbstractSpell> SUMMON_DWARVEN_DRONES = registerSpell(new SummonDwarvenDronesSpell());
 
     public static void register(IEventBus eventBus)
     {

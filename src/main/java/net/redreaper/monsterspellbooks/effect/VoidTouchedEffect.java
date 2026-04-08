@@ -26,7 +26,7 @@ import java.util.WeakHashMap;
 
 @EventBusSubscriber
 public class VoidTouchedEffect extends MagicMobEffect implements ISyncedMobEffect {
-    public static final float DAMAGE_PER_LEVEL = 0.05F;
+    public static final float DAMAGE_PER_LEVEL = 0.10F;
     private static final Map<LivingEntity, Entity> EFFECT_CREDIT = new WeakHashMap<>();
 
     public VoidTouchedEffect(MobEffectCategory pCategory, int pColor) {
