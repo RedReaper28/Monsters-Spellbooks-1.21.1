@@ -6,16 +6,13 @@
       "item": "monsterspellbooks:orichalcum_ingot"
     },
     "B": {
-      "item": "monsterspellbooks:orichalcum_block"
-    },
-    "C": {
       "item": "minecraft:stick"
     }
   },
   "pattern": [
+    " AA",
     " BA",
-    " CB",
-    "C  "
+    "B  "
   ],
   "result": {
     "count": 1,

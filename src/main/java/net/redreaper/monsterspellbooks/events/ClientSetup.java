@@ -30,6 +30,7 @@ import net.redreaper.monsterspellbooks.entity.model.DwarvenSlicer.DwarvenSlicerR
 import net.redreaper.monsterspellbooks.entity.model.DwarvenSphere.DwarvenSphereRenderer;
 import net.redreaper.monsterspellbooks.entity.model.DwarvenSwarmDroneEntity.DwarvenSwarmDroneModel;
 import net.redreaper.monsterspellbooks.entity.model.DwarvenSwarmDroneEntity.DwarvenSwarmDroneRenderer;
+import net.redreaper.monsterspellbooks.entity.model.HerobrineCultistEntity.HerobrineCultistRenderer;
 import net.redreaper.monsterspellbooks.entity.model.IllagerEnchanterEntity.IllagerEnchanterRenderer;
 import net.redreaper.monsterspellbooks.entity.model.IllagerIceologerEntity.IllagerIceologerRenderer;
 import net.redreaper.monsterspellbooks.entity.model.JungleWhisperer.JungleWhispererModel;
@@ -82,6 +83,7 @@ import net.redreaper.monsterspellbooks.entity.spells.spectral_blast.SpectralBlas
 import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.CaveSpiderFangRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.ChaurusMandiblesRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.IceSpiderFangRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.spinblade.DwarvenSpinbladeRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.static_cleave.StaticCleaveRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.stray_grasp.StrayGraspRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.torment_arrow.TormentArrowRenderer;
@@ -160,6 +162,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.ELTHOR_BEAM.get(), ElthorBeamRenderer::new);
         event.registerEntityRenderer(ModEntities.VOLT_ARROW_PROJECTILE.get(), VoltArrowRenderer::new);
         event.registerEntityRenderer(ModEntities.TORMENT_ARROW_PROJECTILE.get(), TormentArrowRenderer::new);
+        event.registerEntityRenderer(ModEntities.DWARVEN_SPINBLADE.get(), DwarvenSpinbladeRenderer::new);
 
         event.registerEntityRenderer(ModEntities.VILE_SKELETON.get(), VileSkeletonRenderer::new);
         event.registerEntityRenderer(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereRenderer::new);
@@ -168,6 +171,10 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.AEGIS.get(), context -> {return new AegisEntityRenderer(context, new AegisEntityModel());});
         event.registerEntityRenderer(ModEntities.DRIPPLER.get(), context -> {return new DripplerEntityRenderer(context, new DripplerEntityModel());});
         event.registerEntityRenderer(ModEntities.SPRIGGAN.get(), SprigganRenderer::new);
+
+        event.registerEntityRenderer(ModEntities.HEROBRINE_CULTIST_MAGE.get(), HerobrineCultistRenderer::new);
+        event.registerEntityRenderer(ModEntities.HEROBRINE_CULTIST_ASSASSIN.get(), HerobrineCultistRenderer::new);
+
         event.registerEntityRenderer(ModEntities.ILLAGER_ENCHANTER.get(), IllagerEnchanterRenderer::new);
         event.registerEntityRenderer(ModEntities.ILLAGER_ICEOLOGER.get(), IllagerIceologerRenderer::new);
         event.registerEntityRenderer(ModEntities.JUNGLE_WHISPERER.get(), context -> {return new JungleWhispererRenderer(context, new JungleWhispererModel());});

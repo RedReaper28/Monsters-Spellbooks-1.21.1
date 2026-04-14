@@ -23,6 +23,7 @@ import net.redreaper.monsterspellbooks.spells.ice.TundraTerrainSpell;
 import net.redreaper.monsterspellbooks.spells.lightning.*;
 import net.redreaper.monsterspellbooks.spells.nature.*;
 import net.redreaper.monsterspellbooks.spells.necro.*;
+import net.redreaper.monsterspellbooks.spells.technomancy.SpinbladeSpell;
 import net.redreaper.monsterspellbooks.spells.technomancy.SummonDwarvenDronesSpell;
 
 import java.util.function.Supplier;
@@ -113,6 +114,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> THUNDER_STEP = registerSpell(new ThunderStepSpell());
     public static final Supplier<AbstractSpell> THUNDERSTORM_WAVE = registerSpell(new ThunderstormWaveSpell());
     public static final Supplier<AbstractSpell> VOLTAIC_MULTISHOT = registerSpell(new VoltaicMultishotSpell());
+    public static final Supplier<AbstractSpell> ZAP = registerSpell(new ZapSpell());
 
     //NATURE
     public static final Supplier<AbstractSpell> BEAST_HOWL = registerSpell(new BeastHowlSpell());
@@ -150,6 +152,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> WITHER_NOVA = registerSpell(new WitherNovaSpell());
 
     //TECHNOMANCY
+    public static final Supplier<AbstractSpell> SPINBLADE = registerSpell(new SpinbladeSpell());
     public static final Supplier<AbstractSpell> SUMMON_DWARVEN_DRONES = registerSpell(new SummonDwarvenDronesSpell());
 
     public static void register(IEventBus eventBus)

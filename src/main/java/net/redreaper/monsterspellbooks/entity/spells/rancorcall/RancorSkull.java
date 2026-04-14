@@ -6,8 +6,10 @@ import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import net.minecraft.core.Holder;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -23,6 +25,7 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import javax.annotation.Nullable;
 import java.util.Optional;
 
 public class RancorSkull extends AbstractMagicProjectile implements GeoEntity {
@@ -70,7 +73,6 @@ public class RancorSkull extends AbstractMagicProjectile implements GeoEntity {
         super.onHitEntity(entityHitResult);
         if (DamageSources.applyDamage(entityHitResult.getEntity(), damage, ModSpellRegistry.RANCORCALL.get().getDamageSource(this, getOwner()))) {
             if (entityHitResult.getEntity() instanceof LivingEntity livingEntity) {
-                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.GUIDING_BOLT, 5 * 20));
             }
         }
         pierceOrDiscard();
@@ -80,6 +82,24 @@ public class RancorSkull extends AbstractMagicProjectile implements GeoEntity {
     protected void onHit(HitResult pResult) {
         super.onHit(pResult);
         discardHelper(pResult);
+    }
+
+    @Nullable
+    public Entity getHomingTarget() {
+        if (this.cachedHomingTarget != null && !this.cachedHomingTarget.isRemoved()) {
+            return this.cachedHomingTarget;
+        } else if (this.homingTargetUUID != null && this.level() instanceof ServerLevel) {
+            this.cachedHomingTarget = ((ServerLevel) this.level()).getEntity(this.homingTargetUUID);
+            return this.cachedHomingTarget;
+        } else {
+            return null;
+        }
+    }
+
+    public void setHomingTarget(LivingEntity entity) {
+        this.homingTargetUUID = entity.getUUID();
+        this.cachedHomingTarget = entity;
+        setCursorHoming(false);
     }
 
     private PlayState predicate(AnimationState event) {

@@ -36,6 +36,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DANCERS_SWORD.get());
                         output.accept(ModItems.PRISMARINE_CLAYMORE.get());
                         output.accept(ModItems.PRISMARINE_AXE.get());
+                        output.accept(ModItems.CULTIST_KNIFE.get());
                         output.accept(ModItems.WHITE_GOLD_PICKAXE.get());
                         output.accept(ModItems.WHITE_GOLD_AXE.get());
                         output.accept(ModItems.WHITE_GOLD_SHOVEL.get());
@@ -218,6 +219,10 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SPRIGGAN_SPAWN_EGG.get());
                         output.accept(ModItems.ILLAGER_ENCHANTER_SPAWN_EGG.get());
                         output.accept(ModItems.ILLAGER_ICEOLOGER_SPAWN_EGG.get());
+
+                        output.accept(ModItems.HEROBRINE_CULTIST_MAGE_SPAWN_EGG.get());
+                        output.accept(ModItems.HEROBRINE_CULTIST_ASSASSIN_SPAWN_EGG.get());
+
                         output.accept(ModItems.DRAUGR_EVOKER_SPAWN_EGG.get());
                         output.accept(ModItems.DRAUGR_VINDICATOR_SPAWN_EGG.get());
                         output.accept(ModItems.DRAUGR_ELITE_VINDICATOR_SPAWN_EGG.get());

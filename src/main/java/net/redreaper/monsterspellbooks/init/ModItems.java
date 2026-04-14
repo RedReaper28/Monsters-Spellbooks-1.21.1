@@ -169,6 +169,10 @@ public class ModItems {
             new AxeItem(ModToolTiers.PRISMARINE, ItemPropertiesHelper.equipment().rarity(ModRarities.PRISMARINE_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.PRISMARINE_CLAYMORE))));
     public static final DeferredItem<AxeItem>PRISMARINE_AXE=ITEMS.register("prismarine_axe", ()->
             new AxeItem(ModToolTiers.PRISMARINE, ItemPropertiesHelper.equipment().rarity(ModRarities.PRISMARINE_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.PRISMARINE_AXE))));
+
+    public static final DeferredItem<Item>CULTIST_KNIFE=ITEMS.register("cultist_knife",
+            CultistKnifeItem::new);
+
     public static final DeferredItem<PickaxeItem>WHITE_GOLD_PICKAXE=ITEMS.register("white_gold_pickaxe",
             ()->new PickaxeItem(ModToolTiers.WHITE_GOLD,new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.WHITE_GOLD,2,-2))));
     public static final DeferredItem<AxeItem>WHITE_GOLD_AXE=ITEMS.register("white_gold_axe",
@@ -420,6 +424,10 @@ public class ModItems {
     public static final Supplier<DeferredSpawnEggItem> JUNGLE_WHISPERER_SPAWN_EGG = ITEMS.register("jungle_whisperer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.JUNGLE_WHISPERER, 6323765, 8601546, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> ILLAGER_ENCHANTER_SPAWN_EGG = ITEMS.register("illager_enchanter_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.ILLAGER_ENCHANTER, 9804699, 9053763, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> ILLAGER_ICEOLOGER_SPAWN_EGG = ITEMS.register("illager_iceologer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.ILLAGER_ICEOLOGER, 9804699, 927571, ItemPropertiesHelper.material().stacksTo(64)));
+
+    public static final Supplier<DeferredSpawnEggItem> HEROBRINE_CULTIST_MAGE_SPAWN_EGG = ITEMS.register("herobrine_cultist_mage_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.HEROBRINE_CULTIST_MAGE, 8653859, 16108583, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> HEROBRINE_CULTIST_ASSASSIN_SPAWN_EGG = ITEMS.register("herobrine_cultist_assassin_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.HEROBRINE_CULTIST_ASSASSIN, 8653859, 16108583, ItemPropertiesHelper.material().stacksTo(64)));
+
     public static final Supplier<DeferredSpawnEggItem> SPRIGGAN_SPAWN_EGG = ITEMS.register("spriggan_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.SPRIGGAN, 3746340, 11992832, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DRAUGR_EVOKER_SPAWN_EGG = ITEMS.register("draugr_evoker_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DRAUGR_EVOKER, 5932676, 1449245, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DRAUGR_VINDICATOR_SPAWN_EGG = ITEMS.register("draugr_vindicator_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DRAUGR_VINDICATOR, 5932676, 1449245, ItemPropertiesHelper.material().stacksTo(64)));
@@ -430,6 +438,7 @@ public class ModItems {
     public static final Supplier<DeferredSpawnEggItem> VILE_SKELETON_SPAWN_EGG = ITEMS.register("vile_skeleton_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.VILE_SKELETON, 725001, 3622442, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> MAGMA_ATRONACH_SPAWN_EGG = ITEMS.register("magma_atronach_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.MAGMA_ATRONACH, 1380882, 16734238, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> BLASTLING_SPAWN_EGG = ITEMS.register("blastling_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.BLASTLING, 0, 15077593, ItemPropertiesHelper.material().stacksTo(64)));
+
 
     public static final DeferredHolder<Item, Item> NECRO_UPGRADE_ORB = ITEMS.register("necro_upgrade_orb", () ->
             new UpgradeOrbItem(ItemPropertiesHelper.material().rarity(Rarity.UNCOMMON).component(ComponentRegistry.UPGRADE_ORB_TYPE, ModUpgradeTypeRegistry.NECRO_SPELL_POWER)));

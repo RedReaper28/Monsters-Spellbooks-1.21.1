@@ -19,6 +19,5 @@ public class PayloadHandler {
         payloadRegistrar.playToClient(EnderExplosionParticlePacket.TYPE, EnderExplosionParticlePacket.STREAM_CODEC, EnderExplosionParticlePacket::handle);
         payloadRegistrar.playToClient(PoisonExplosionParticlePacket.TYPE, PoisonExplosionParticlePacket.STREAM_CODEC, PoisonExplosionParticlePacket::handle);
         payloadRegistrar.playToClient(ThunderStepParticlePacket.TYPE, ThunderStepParticlePacket.STREAM_CODEC, ThunderStepParticlePacket::handle);
-
     }
 }

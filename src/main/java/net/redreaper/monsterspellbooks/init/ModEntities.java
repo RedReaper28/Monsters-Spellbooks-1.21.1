@@ -8,6 +8,8 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.living.*;
+import net.redreaper.monsterspellbooks.entity.living.herobrine_cult.HerobrineCultistAssassinEntity;
+import net.redreaper.monsterspellbooks.entity.living.herobrine_cult.HerobrineCultistMageEntity;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlash;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_lightning_lance.AncientLightningLanceProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_lightning_lance.StaticField;
@@ -55,6 +57,7 @@ import net.redreaper.monsterspellbooks.entity.spells.spectral_blast.SpectralBlas
 import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.CaveSpiderFangProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.ChaurusMandiblesProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.spider_fangs.IceSpiderFangProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.spinblade.DwarvenSpinbladeProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.static_cleave.StaticCleave;
 import net.redreaper.monsterspellbooks.entity.spells.steam_stream.SteamStreamProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.stray_grasp.StrayGraspProjectile;
@@ -74,11 +77,29 @@ public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
 
+    public static final DeferredHolder<EntityType<?>, EntityType<HerobrineCultistMageEntity>> HEROBRINE_CULTIST_MAGE =
+            ENTITIES.register("herobrine_cultist_mage", () -> EntityType.Builder.of(HerobrineCultistMageEntity::new, MobCategory.MONSTER)
+                    .sized(.6f, 1.8f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "herobrine_cultist_mage").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<HerobrineCultistAssassinEntity>> HEROBRINE_CULTIST_ASSASSIN =
+            ENTITIES.register("herobrine_cultist_assassin", () -> EntityType.Builder.of(HerobrineCultistAssassinEntity::new, MobCategory.MONSTER)
+                    .sized(.6f, 1.8f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "herobrine_cultist_assassin").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<TormentArrowProjectile>> TORMENT_ARROW_PROJECTILE =
             ENTITIES.register("torment_arrow", () -> EntityType.Builder.<TormentArrowProjectile>of(TormentArrowProjectile::new, MobCategory.MISC)
                     .sized(.8f, .8f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "torment_arrow").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<DwarvenSpinbladeProjectile>> DWARVEN_SPINBLADE =
+            ENTITIES.register("dwarven_spinblade", () -> EntityType.Builder.<DwarvenSpinbladeProjectile>of(DwarvenSpinbladeProjectile::new, MobCategory.MISC)
+                    .sized(.8f, .8f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "dwarven_spinblade").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<RedSnakeWitherSkeletonEntity>> REDSNAKE_WITHER_SKELETON =
             ENTITIES.register("redsnake_wither_skeleton", () -> EntityType.Builder.<RedSnakeWitherSkeletonEntity>of(RedSnakeWitherSkeletonEntity::new, MobCategory.MONSTER)

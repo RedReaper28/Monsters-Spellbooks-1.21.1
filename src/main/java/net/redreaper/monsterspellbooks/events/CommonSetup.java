@@ -1,9 +1,7 @@
 package net.redreaper.monsterspellbooks.events;
 
 import io.redspace.ironsspellbooks.api.util.Utils;
-import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.WitherSkeleton;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -13,6 +11,8 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.living.*;
+import net.redreaper.monsterspellbooks.entity.living.herobrine_cult.HerobrineCultistAssassinEntity;
+import net.redreaper.monsterspellbooks.entity.living.herobrine_cult.HerobrineCultistMageEntity;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 
 @SuppressWarnings("removal")
@@ -28,6 +28,8 @@ public class CommonSetup {
         event.put(ModEntities.DRIPPLER.get(), DripplerEntity.createAttributes().build());
         event.put(ModEntities.SPRIGGAN.get(), SprigganEntity.createAttributes().build());
         event.put(ModEntities.JUNGLE_WHISPERER.get(), JungleWhispererEntity.createAttributes().build());
+        event.put(ModEntities.HEROBRINE_CULTIST_MAGE.get(), HerobrineCultistMageEntity.createAttributes().build());
+        event.put(ModEntities.HEROBRINE_CULTIST_ASSASSIN.get(), HerobrineCultistAssassinEntity.createAttributes().build());
         event.put(ModEntities.ILLAGER_ENCHANTER.get(), IllagerEnchanterEntity.createAttributes().build());
         event.put(ModEntities.ILLAGER_ICEOLOGER.get(), IllagerIceologerEntity.createAttributes().build());
         event.put(ModEntities.DRAUGR_EVOKER.get(), DraugrEvokerEntity.createAttributes().build());

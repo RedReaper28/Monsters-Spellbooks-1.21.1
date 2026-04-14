@@ -12,6 +12,4 @@ public class CultistKnifeItem extends ExtendedSwordItem {
                 ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.FORBIDDEN_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.CULTIST_KNIFE))
         );
     }
-
-
 }

@@ -2,6 +2,7 @@ package net.redreaper.monsterspellbooks.entity.living;
 
 import io.redspace.ironsspellbooks.api.entity.IMagicEntity;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
@@ -91,7 +92,7 @@ public class DwarvenSwarmDroneEntity extends UniqueAbstractSpellCastingMob imple
                 .setSpells(
                         // Attack
                         List.of(
-                                ModSpellRegistry.PLASMA_BARRAGE.get()
+                                ModSpellRegistry.ZAP.get(), SpellRegistry.BALL_LIGHTNING_SPELL.get()
                         ),
                         // Defense
                         List.of(),
@@ -99,7 +100,7 @@ public class DwarvenSwarmDroneEntity extends UniqueAbstractSpellCastingMob imple
                         List.of(),
                         // Support
                         List.of()
-                ).setSingleUseSpell(ModSpellRegistry.PLASMA_PULSE.get(), 100, 250, 2, 4)
+                )
                 .setSpellQuality(1.0f, 1.0f)
                 .setIsFlying()
                 .setSpellQuality(0.8f, 0.8f)

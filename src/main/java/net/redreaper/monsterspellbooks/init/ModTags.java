@@ -46,6 +46,7 @@ public class ModTags {
         public static final TagKey<EntityType<?>> ELEMENTAL = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "elemental"));
         public static final TagKey<EntityType<?>> HOMUNCULUS = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "homunculus"));
         public static final TagKey<EntityType<?>> DRAUGR_ALLIES = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "draugr_allies"));
+        public static final TagKey<EntityType<?>> HEROBRINE_CULTIST = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "herobrine_cultist"));
 
         private static TagKey<EntityType<?>> registerEntityTag(String name) {
             return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, name));

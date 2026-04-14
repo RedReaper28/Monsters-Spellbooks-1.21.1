@@ -26,6 +26,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.MASTERS_KATANA.get())
                 .add(ModItems.DANCERS_SWORD.get())
                 .add(ModItems.PRISMARINE_CLAYMORE.get())
+                .add(ModItems.CULTIST_KNIFE.get())
                 .add(ModItems.ORICHALCUM_DAGGER.get())
                 .add(ModItems.ORICHALCUM_GREATSWORD.get())
                 .add(ModItems.ORICHALCUM_WARHAMMER.get())

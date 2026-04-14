@@ -93,6 +93,7 @@ public class ServerEvents {
                 entityTarget.setRemainingFireTicks(50);
             }
         }
+
         if (entityAttacker instanceof LivingEntity livingAttacker) {
             if (entityTarget.hasEffect(ModMobEffects.OVERHEAT)) {
                 livingAttacker.setRemainingFireTicks(50);
@@ -127,8 +128,9 @@ public class ServerEvents {
                 return;
             }
 
-            if (livingEntity.hasEffect(ModMobEffects.SOUL_FORM)) {
+            if (livingEntity.hasEffect(ModMobEffects.SOUL_FORM) && !event.getSource().is(ISSDamageTypes.HOLY_MAGIC)) {
                 event.setCanceled(true);
+                return;
             }
         }
     }
@@ -208,44 +210,23 @@ public class ServerEvents {
                             StaticMobEffect.addStaticStack((LivingEntity) attacker, attacker);
                         }
                     }
-
                 }
             }
 
             if (attacker instanceof Player player) {
                 // Disease Encyclopedia
                 if (ASUtils.hasCurio(player, ModItems.DISEASE_ENCYCLOPEDIA.get()) && (!player.getCooldowns().isOnCooldown(ModItems.DISEASE_ENCYCLOPEDIA.get()))) {
-                    int randomNum = (int) (Math.random() * 11); // 0 to 3
-                    if (randomNum ==1 ) {
-                        entity.addEffect(new MobEffectInstance(ModMobEffects.MADNESS, 200, 1, true, true, true));
-                    }
-                    if (randomNum == 2) {
-                        entity.addEffect(new MobEffectInstance(MobEffectRegistry.BLIGHT, 200, 2, true, true, true));
-                    }
-                    if (randomNum == 3) {
-                        entity.addEffect(new MobEffectInstance(MobEffectRegistry.SLOWED, 200, 1, true, true, true));
-                    }
-                    if (randomNum == 4) {
-                        entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0, true, true, true));
-                    }
-                    if (randomNum == 5) {
-                        entity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, 150, 1, true, true, true));
-                    }
-                    if (randomNum == 6) {
-                        entity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 1, true, true, true));
-                    }
-                    if (randomNum == 7) {
-                        entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 150, 0, true, true, true));
-                    }
-                    if (randomNum == 8) {
-                        entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 1, true, true, true));
-                    }
-                    if (randomNum == 9) {
-                        entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 300, 3, true, true, true));
-                    }
-                    if (randomNum == 10) {
-                        entity.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 3, true, true, true));
-                    }
+                    int randomNum = (int) (Math.random() * 11); // 0 to 10
+                    if (randomNum ==1 ) {entity.addEffect(new MobEffectInstance(ModMobEffects.MADNESS, 200, 1, true, true, true));}
+                    if (randomNum == 2) {entity.addEffect(new MobEffectInstance(MobEffectRegistry.BLIGHT, 200, 2, true, true, true));}
+                    if (randomNum == 3) {entity.addEffect(new MobEffectInstance(MobEffectRegistry.SLOWED, 200, 1, true, true, true));}
+                    if (randomNum == 4) {entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0, true, true, true));}
+                    if (randomNum == 5) {entity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, 150, 1, true, true, true));}
+                    if (randomNum == 6) {entity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 1, true, true, true));}
+                    if (randomNum == 7) {entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 150, 0, true, true, true));}
+                    if (randomNum == 8) {entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 1, true, true, true));}
+                    if (randomNum == 9) {entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 300, 3, true, true, true));}
+                    if (randomNum == 10) {entity.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 3, true, true, true));}
                     player.getCooldowns().addCooldown(ModItems.DISEASE_ENCYCLOPEDIA.get(), DiseaseEncyclopediaItem.COOLDOWN);
                 }
             }

@@ -6,6 +6,7 @@ import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -26,6 +27,7 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Optional;
 import java.util.UUID;
@@ -152,4 +154,23 @@ public class RazorbladeTyphoonProjectile extends AbstractMagicProjectile impleme
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.cache;
     }
+
+    @Nullable
+    public Entity getHomingTarget() {
+        if (this.cachedHomingTarget != null && !this.cachedHomingTarget.isRemoved()) {
+            return this.cachedHomingTarget;
+        } else if (this.homingTargetUUID != null && this.level() instanceof ServerLevel) {
+            this.cachedHomingTarget = ((ServerLevel) this.level()).getEntity(this.homingTargetUUID);
+            return this.cachedHomingTarget;
+        } else {
+            return null;
+        }
+    }
+
+    public void setHomingTarget(LivingEntity entity) {
+        this.homingTargetUUID = entity.getUUID();
+        this.cachedHomingTarget = entity;
+        setCursorHoming(false);
+    }
+
 }

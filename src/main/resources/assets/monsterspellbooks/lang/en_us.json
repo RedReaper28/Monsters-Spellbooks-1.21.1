@@ -149,6 +149,7 @@
   "item.monsterspellbooks.masters_katana": "Masters katana",
   "item.monsterspellbooks.prismarine_claymore": "Prismarine Claymore",
   "item.monsterspellbooks.prismarine_axe": "Prismarine Axe",
+  "item.monsterspellbooks.cultist_knife": "Cultist Knife",
   "item.monsterspellbooks.white_gold_pickaxe": "White Gold Pickaxe",
   "item.monsterspellbooks.white_gold_axe": "White Gold Axe",
   "item.monsterspellbooks.white_gold_shovel": "White Gold Shovel",
@@ -246,6 +247,8 @@
   "item.monsterspellbooks.jungle_whisperer_spawn_egg": "Jungle Whisperer Spawn Egg",
   "item.monsterspellbooks.illager_enchanter_spawn_egg": "Illager Enchanter Spawn Egg",
   "item.monsterspellbooks.illager_iceologer_spawn_egg": "Illager Iceologer Spawn Egg",
+  "item.monsterspellbooks.herobrine_cultist_mage_spawn_egg": "Herobrine Cultist Mage Spawn Egg",
+  "item.monsterspellbooks.herobrine_cultist_assassin_spawn_egg": "Herobrine Cultist Assassin Spawn Egg",
   "item.monsterspellbooks.prismarine_keeper_spawn_egg": "Prismarine Keeper Spawn Egg",
   "item.monsterspellbooks.magma_atronach_spawn_egg": "Magma Atronach Spawn Egg",
   "item.monsterspellbooks.shock_spawn_egg": "Shock Spawn Egg",
@@ -276,7 +279,6 @@
   "item.monsterspellbooks.dwarven_engineer_chestplate": "Dwarven Engineer Chestplate",
   "item.monsterspellbooks.dwarven_engineer_leggings": "Dwarven Engineer Leggings",
   "item.monsterspellbooks.dwarven_engineer_boots": "Dwarven Engineer Boots",
-
   "item.monsterspellbooks.herobrine_cultist_helmet": "Herobrine Cultist Mask",
   "item.monsterspellbooks.herobrine_cultist_chestplate": "Herobrine Cultist Coat",
   "item.monsterspellbooks.herobrine_cultist_leggings": "Herobrine Cultist Leggings",
@@ -315,6 +317,9 @@
   "entity.monsterspellbooks.drippler": "Drippler",
   "entity.monsterspellbooks.dwarven_slicer": "Dwarven Slicer",
   "entity.monsterspellbooks.dwarven_sphere": "Dwarven Sphere",
+  "entity.monsterspellbooks.dwarven_swarm_drone": "Dwarven Swarm Drone",
+  "entity.monsterspellbooks.herobrine_cultist_mage": "Herobrine Cultist Mage",
+  "entity.monsterspellbooks.herobrine_cultist_assassin": "Herobrine Cultist Assassin",
   "entity.monsterspellbooks.illager_enchanter": "Illager Enchanter",
   "entity.monsterspellbooks.illager_iceologer": "Illager Iceologer",
   "entity.monsterspellbooks.jungle_whisperer": "Jungle Whisperer",
@@ -516,6 +521,8 @@
   "spell.monsterspellbooks.thunderstorm_wave.guide": "Conjure a protective ancient thunderstorm around you like an ancient electromancer would do",
   "spell.monsterspellbooks.voltaic_multishot": "Voltaic Multishot",
   "spell.monsterspellbooks.voltaic_multishot.guide": "Aim 3 arrow made from electric magic that will deal direct damage on impact and summon lighting strikes for half damage in the impact spot",
+  "spell.monsterspellbooks.zap": "Zap",
+  "spell.monsterspellbooks.zap.guide": "A weak but long ranged beam of static that deals small damage on impact",
   "spell.monsterspellbooks.beast_howl": "Beast Howl",
   "spell.monsterspellbooks.beast_howl.guide": "Release a damaging howl that leaves your targets paralyzed and stunned while you gain a primordial strength",
   "spell.monsterspellbooks.blast_fungus": "Blast Fungus",
@@ -588,5 +595,10 @@
   "curios.identifier.elemental_charm": "Elemental Charm",
   "curios.modifiers.elemental_charm": "Elemental Charm",
 
-  "rarity.monsterspellbooks_rarity_illager.name": "Illagerite"
+  "rarity.monsterspellbooks_rarity_illager.name": "Illagerite",
+  "rarity.monsterspellbooks_rarity_prismarine.name": "Prismarine",
+  "rarity.monsterspellbooks_rarity_dwarven.name": "Dwarven",
+  "rarity.monsterspellbooks_rarity_brimstone.name": "Brimstone",
+  "rarity.monsterspellbooks_rarity_sanguinite.name": "Sanguinite",
+  "rarity.monsterspellbooks_rarity_wind.name": "Wind"
 }
