@@ -16,10 +16,7 @@ import net.redreaper.monsterspellbooks.spells.holy.DivineInterventionSpell;
 import net.redreaper.monsterspellbooks.spells.holy.HallowSlashSpell;
 import net.redreaper.monsterspellbooks.spells.holy.PaladinThrowSpell;
 import net.redreaper.monsterspellbooks.spells.hydro.*;
-import net.redreaper.monsterspellbooks.spells.ice.BlizzardAspectSpell;
-import net.redreaper.monsterspellbooks.spells.ice.FrostCoatingSpell;
-import net.redreaper.monsterspellbooks.spells.ice.IceArsenalSpell;
-import net.redreaper.monsterspellbooks.spells.ice.TundraTerrainSpell;
+import net.redreaper.monsterspellbooks.spells.ice.*;
 import net.redreaper.monsterspellbooks.spells.lightning.*;
 import net.redreaper.monsterspellbooks.spells.nature.*;
 import net.redreaper.monsterspellbooks.spells.necro.*;
@@ -41,9 +38,11 @@ public class ModSpellRegistry {
     //AERO
     public static final Supplier<AbstractSpell> AIR_BUBBLE = registerSpell(new AirBubbleSpell());
     public static final Supplier<AbstractSpell> AIR_PROPULSION = registerSpell(new AirPropulsionSpell());
+    public static final Supplier<AbstractSpell> CLOUD_DASH = registerSpell(new CloudDashSpell());
     public static final Supplier<AbstractSpell> FORCEFUL_WIND = registerSpell(new ForcefulWindSpell());
     public static final Supplier<AbstractSpell> STEAM_STREAM = registerSpell(new SteamSteamSpell());
     public static final Supplier<AbstractSpell> SUFFOCATE = registerSpell(new SuffocateSpell());
+    public static final Supplier<AbstractSpell> WIND_CHARGE = registerSpell(new WindChargeSpell());
     public static final Supplier<AbstractSpell> WIND_WAVE = registerSpell(new WindWaveSpell());
 
     //BLOOD
@@ -62,6 +61,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> FIRMAMENT_SPLITTER = registerSpell(new FirmamentSplitterSpell());
     public static final Supplier<AbstractSpell> GRAVITY_FORCE = registerSpell(new GravityForceSpell());
     public static final Supplier<AbstractSpell> GRAVITY_WELL = registerSpell(new GravityWellSpell());
+    public static final Supplier<AbstractSpell> OBSIDIAN_ARSENAL = registerSpell(new ObsidianArsenalSpell());
     public static final Supplier<AbstractSpell> SPACE_BREAKER = registerSpell(new SpaceBreakerSpell());
     public static final Supplier<AbstractSpell> SPACE_RUPTURE = registerSpell(new SpaceRuptureSpell());
 
@@ -92,13 +92,16 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> GLOW_INK_RELEASE = registerSpell(new GlowInkReleaseSpell());
     public static final Supplier<AbstractSpell> INK_BOMB = registerSpell(new InkBombSpell());
     public static final Supplier<AbstractSpell> RAZORBLADE_TYPHOON = registerSpell(new RazorbladeTyphoonSpell());
+    public static final Supplier<AbstractSpell> RIPTIDE_DASH = registerSpell(new RiptideDashSpell());
     public static final Supplier<AbstractSpell> SUMMON_PRISMARINE_SQUAD = registerSpell(new SummonPrismarineSquadSpell());
     public static final Supplier<AbstractSpell> WATER_TRIDENT = registerSpell(new WaterTridentSpell());
 
     //ICE
     public static final Supplier<AbstractSpell> BLIZZARD_ASPECT = registerSpell(new BlizzardAspectSpell());
+    public static final Supplier<AbstractSpell> FROST_BREATH = registerSpell(new FrostBreathSpell());
     public static final Supplier<AbstractSpell> FROST_COATING = registerSpell(new FrostCoatingSpell());
     public static final Supplier<AbstractSpell> ICE_ARSENAL = registerSpell(new IceArsenalSpell());
+    public static final Supplier<AbstractSpell> SUMMON_ICE_HYDRA = registerSpell(new SummonIceHydraSpell());
     public static final Supplier<AbstractSpell> TUNDRA_TERRAIN = registerSpell(new TundraTerrainSpell());
 
     //LIGHTING
@@ -108,7 +111,6 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> RAIJIN_JUDGEMENT = registerSpell(new RaijinJudgementSpell());
     public static final Supplier<AbstractSpell> GUARDIANS_NEUTRALIZER = registerSpell(new GuardiansNeutralizerSpell());
     public static final Supplier<AbstractSpell> PLASMA_BARRAGE = registerSpell(new PlasmaBarrageSpell());
-    public static final Supplier<AbstractSpell> PLASMA_PULSE = registerSpell(new PlasmaPulseSpell());
     public static final Supplier<AbstractSpell> RAIGO = registerSpell(new RaigoSpell());
     public static final Supplier<AbstractSpell> STATIC_CLEAVE = registerSpell(new StaticCleaveSpell());
     public static final Supplier<AbstractSpell> THUNDER_STEP = registerSpell(new ThunderStepSpell());

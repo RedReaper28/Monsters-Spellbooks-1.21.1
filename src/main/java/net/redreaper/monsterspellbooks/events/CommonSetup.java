@@ -11,8 +11,15 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.living.*;
+import net.redreaper.monsterspellbooks.entity.living.draugr.DraugrEliteVindicatorEntity;
+import net.redreaper.monsterspellbooks.entity.living.draugr.DraugrEvokerEntity;
+import net.redreaper.monsterspellbooks.entity.living.draugr.DraugrPillagerEntity;
+import net.redreaper.monsterspellbooks.entity.living.draugr.DraugrVindicatorEntity;
 import net.redreaper.monsterspellbooks.entity.living.herobrine_cult.HerobrineCultistAssassinEntity;
 import net.redreaper.monsterspellbooks.entity.living.herobrine_cult.HerobrineCultistMageEntity;
+import net.redreaper.monsterspellbooks.entity.living.illagers.IllagerEnchanterEntity;
+import net.redreaper.monsterspellbooks.entity.living.illagers.IllagerIceologerEntity;
+import net.redreaper.monsterspellbooks.entity.living.summons.*;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 
 @SuppressWarnings("removal")
@@ -47,6 +54,7 @@ public class CommonSetup {
         event.put(ModEntities.SUMMONED_DEATH_KNIGHT.get(), DeathKnightEntity.createAttributes().build());
         event.put(ModEntities.SOUL_WIZARD.get(), SoulWizardEntity.createAttributes().build());
         event.put(ModEntities.DWARVEN_SWARM_DRONE.get(), DwarvenSwarmDroneEntity.createAttributes().build());
+        event.put(ModEntities.ICE_SERPEANT.get(), IceSerpeantEntity.createAttributes().build());
     }
 
     @SubscribeEvent

@@ -6,14 +6,14 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 
 public class ModDispatcher {
-    private static final AzCommand IDLE_COMMAND;
+
+    private static final AzCommand IDLE_COMMAND = AzCommand.create(
+            "base_controller",
+            "idle",
+            AzPlayBehaviors.LOOP
+    );
 
     public void idle(Entity entity, ItemStack itemStack) {
         IDLE_COMMAND.sendForItem(entity, itemStack);
     }
-
-    static {
-        IDLE_COMMAND = AzCommand.create("base_controller", "idle", AzPlayBehaviors.LOOP);
-    }
-
 }

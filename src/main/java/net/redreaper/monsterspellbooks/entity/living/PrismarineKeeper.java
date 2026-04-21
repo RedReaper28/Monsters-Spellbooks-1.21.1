@@ -83,7 +83,7 @@ public class PrismarineKeeper extends AbstractSpellCastingMob implements IAnimat
         this.goalSelector.addGoal(7, new RandomStrollGoal(this, (double)1.0F));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Mob.class, true, (entity) -> (entity.getType().is(EntityTypeTags.AXOLOTL_HUNT_TARGETS))));
     }

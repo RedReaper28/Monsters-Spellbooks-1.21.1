@@ -8,8 +8,15 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.living.*;
+import net.redreaper.monsterspellbooks.entity.living.draugr.DraugrEliteVindicatorEntity;
+import net.redreaper.monsterspellbooks.entity.living.draugr.DraugrEvokerEntity;
+import net.redreaper.monsterspellbooks.entity.living.draugr.DraugrPillagerEntity;
+import net.redreaper.monsterspellbooks.entity.living.draugr.DraugrVindicatorEntity;
 import net.redreaper.monsterspellbooks.entity.living.herobrine_cult.HerobrineCultistAssassinEntity;
 import net.redreaper.monsterspellbooks.entity.living.herobrine_cult.HerobrineCultistMageEntity;
+import net.redreaper.monsterspellbooks.entity.living.illagers.IllagerEnchanterEntity;
+import net.redreaper.monsterspellbooks.entity.living.illagers.IllagerIceologerEntity;
+import net.redreaper.monsterspellbooks.entity.living.summons.*;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlash;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_lightning_lance.AncientLightningLanceProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_lightning_lance.StaticField;
@@ -29,6 +36,7 @@ import net.redreaper.monsterspellbooks.entity.spells.elthor.ElthorBeamEntity;
 import net.redreaper.monsterspellbooks.entity.spells.forceful_wind.ForcefulWindProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_storm.SmallFrenzyFireBall;
+import net.redreaper.monsterspellbooks.entity.spells.frost_breath.FrostBreathEntity;
 import net.redreaper.monsterspellbooks.entity.spells.graveyard_fissure.GraveyardHand;
 import net.redreaper.monsterspellbooks.entity.spells.guardians_neutralizer.GuardiansNeutralizerVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.hallow_slash.HallowSlashProjectile;
@@ -37,6 +45,9 @@ import net.redreaper.monsterspellbooks.entity.spells.infection_slash.InfectionSl
 import net.redreaper.monsterspellbooks.entity.spells.ink_bomb.InkBombProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.life_drain.LifeDrainProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrb;
+import net.redreaper.monsterspellbooks.entity.spells.obsidian_arsenal.ObsidianArrowProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.obsidian_arsenal.ObsidianArrowVolleyEntity;
+import net.redreaper.monsterspellbooks.entity.spells.obsidian_arsenal.SmallObsidianArrowProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.pale_thorn.PaleThornVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.plasma_barrage.PlasmaBolt;
@@ -65,6 +76,7 @@ import net.redreaper.monsterspellbooks.entity.spells.thunderstorm_wave.AncientLi
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashProjectileNew;
 import net.redreaper.monsterspellbooks.entity.spells.voltaic_multishot.VoltArrowProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.water_trident.WaterTridentProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.wind_charge.ExtendedWindCharge;
 import net.redreaper.monsterspellbooks.entity.spells.wither_bomb.WitherBombProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.wither_nova.WitherNovaVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.torment_arrow.TormentArrowProjectile;
@@ -76,6 +88,24 @@ import static net.minecraft.core.registries.Registries.ENTITY_TYPE;
 public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SmallObsidianArrowProjectile>> SMALL_OBSIDIAN_ARROW_PROJECTILE =
+            ENTITIES.register("small_obsidian_arrow", () -> EntityType.Builder.<SmallObsidianArrowProjectile>of(SmallObsidianArrowProjectile::new, MobCategory.MISC)
+                    .sized(.8f, .8f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "small_obsidian_arrow").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<ObsidianArrowProjectile>> OBSIDIAN_ARROW_PROJECTILE =
+            ENTITIES.register("obsidian_arrow", () -> EntityType.Builder.<ObsidianArrowProjectile>of(ObsidianArrowProjectile::new, MobCategory.MISC)
+                    .sized(.8f, .8f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "obsidian_arrow").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<ObsidianArrowVolleyEntity>> OBSIDIAN_ARROW_VOLLEY_ENTITY =
+            ENTITIES.register("obsidian_arrow_volley", () -> EntityType.Builder.<ObsidianArrowVolleyEntity>of(ObsidianArrowVolleyEntity::new, MobCategory.MISC)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "obsidian_arrow_volley").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<HerobrineCultistMageEntity>> HEROBRINE_CULTIST_MAGE =
             ENTITIES.register("herobrine_cultist_mage", () -> EntityType.Builder.of(HerobrineCultistMageEntity::new, MobCategory.MONSTER)
@@ -194,6 +224,12 @@ public class ModEntities {
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "holy_hammer").toString()));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<ExtendedWindCharge>> EXTENDED_WIND_CHARGE =
+            ENTITIES.register("extended_wind_charge", () -> EntityType.Builder.<ExtendedWindCharge>of(ExtendedWindCharge::new, MobCategory.MISC)
+                    .sized(0.3125F, 0.3125F)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "extended_wind_charge").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<ForcefulWindProjectile>> FORCEFUL_WIND =
             ENTITIES.register("forceful_wind", () -> EntityType.Builder.<ForcefulWindProjectile>of(ForcefulWindProjectile::new, MobCategory.MISC)
                     .sized(1.5f, 2f)
@@ -248,6 +284,11 @@ public class ModEntities {
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ancient_lightning_strike").toString()));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<FrostBreathEntity>> FROST_BREATH =
+            ENTITIES.register("frost_breath", () -> EntityType.Builder.<FrostBreathEntity>of(FrostBreathEntity::new, MobCategory.MISC)
+                    .sized(1, 1)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "frost_breath").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<SmallFrenzyFireBall>> SMALL_FRENZY_FIREBALL =
             ENTITIES.register("small_frenzy_fireball", () -> EntityType.Builder.<SmallFrenzyFireBall>of(SmallFrenzyFireBall::new, MobCategory.MISC)
@@ -557,6 +598,14 @@ public class ModEntities {
                     sized(.6f, 5.5f)
                     .build(
                             ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "poison_quill_vine").toString()
+                    ));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<IceSerpeantEntity>> ICE_SERPEANT =
+            ENTITIES.register("ice_serpeant", () -> EntityType.Builder.<IceSerpeantEntity>of
+                            (IceSerpeantEntity::new, MobCategory.MONSTER).
+                    sized(.6f, 1.5f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ice_serpeant").toString()
                     ));
 
     public static final Supplier<EntityType<VileSkeletonEntity>>VILE_SKELETON=

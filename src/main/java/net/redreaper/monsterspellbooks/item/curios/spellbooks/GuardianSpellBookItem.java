@@ -25,25 +25,4 @@ public class GuardianSpellBookItem extends SpellBook {
         withSpellbookAttributes(new AttributeContainer(AttributeRegistry.MAX_MANA, 200, AttributeModifier.Operation.ADD_VALUE),
                 new AttributeContainer(ASAttributeRegistry.HYDRO_MAGIC_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     }
-    @Override
-    public void appendHoverText(@NotNull ItemStack itemStack, TooltipContext context, @NotNull List<Component> lines, @NotNull TooltipFlag flag) {
-        super.appendHoverText(itemStack, context, lines, flag);
-        var affinityData = AffinityData.getAffinityData(itemStack);
-        if (!affinityData.affinityData().isEmpty()) {
-            int i = TooltipsUtils.indexOfComponent(lines, "tooltip.irons_spellbooks.spellbook_spell_count");
-            lines.addAll(i < 0 ? lines.size() : i + 1, affinityData.getDescriptionComponent());
-        }
-    }
-
-    @Override
-    public void initializeSpellContainer(ItemStack itemStack) {
-        if (itemStack == null) {
-            return;
-        }
-
-        super.initializeSpellContainer(itemStack);
-        AffinityData.set(itemStack, new AffinityData(Map.of(
-                ModSpellRegistry.GUARDIANS_NEUTRALIZER.get().getSpellResource(), 1
-        )));
-    }
 }

@@ -23,7 +23,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.NeoForge;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.living.SummonedPrismarineKeeper;
+import net.redreaper.monsterspellbooks.entity.living.summons.SummonedPrismarineKeeper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

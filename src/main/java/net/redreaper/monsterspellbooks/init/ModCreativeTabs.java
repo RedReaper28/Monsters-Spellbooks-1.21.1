@@ -256,6 +256,7 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.ORICHALCUM_BLOCK);
                         output.accept(ModBlocks.DEATHSILVER_BLOCK);
                         output.accept(ModBlocks.SANGUINITE_BLOCK);
+                        output.accept(ModBlocks.ILLAGERITE_BLOCK);
                         output.accept(ModBlocks.DWARVEN_ALLOY_BLOCK);
                         output.accept(ModBlocks.WHITE_GOLD_BLOCK);
                         output.accept(ModBlocks.SCORCHED_METAL_ORE);
@@ -275,6 +276,8 @@ public class ModCreativeTabs {
 
                         output.accept(ModBlocks.CORAL_LOG);
                         output.accept(ModBlocks.CORAL_PLANKS);
+
+                        output.accept(ModBlocks.CHISELED_PRISMARINE_BRICKS);
 
                         output.accept(ModBlocks.PEARl_MARBLE);
                         output.accept(ModBlocks.PEARL_MARBLE_STAIRS);

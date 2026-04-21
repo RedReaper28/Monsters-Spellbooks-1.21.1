@@ -117,6 +117,13 @@
     ]
   },
 
+  "spell_wind_wave": {
+    "subtitles": "sounds.monsterspellbooks.spell_wind_wave",
+    "sounds": [
+      "monsterspellbooks:spell_wind_wave"
+    ]
+  },
+
   "spell_evocation_boost": {
     "subtitles": "sounds.monsterspellbooks.spell_evocation_boost",
     "sounds": [

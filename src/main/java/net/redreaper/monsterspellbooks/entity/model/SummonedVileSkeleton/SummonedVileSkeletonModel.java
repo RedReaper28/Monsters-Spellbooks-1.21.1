@@ -2,7 +2,7 @@ package net.redreaper.monsterspellbooks.entity.model.SummonedVileSkeleton;
 
 import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.living.SummonedVileSkeletonEntity;
+import net.redreaper.monsterspellbooks.entity.living.summons.SummonedVileSkeletonEntity;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.constant.DataTickets;

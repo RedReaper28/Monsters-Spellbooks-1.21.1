@@ -31,6 +31,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.RAW_ORICHALCUM_BLOCK.get());
         dropSelf(ModBlocks.ORICHALCUM_BLOCK.get());
         dropSelf(ModBlocks.DEATHSILVER_BLOCK.get());
+        dropSelf(ModBlocks.ILLAGERITE_BLOCK.get());
         dropSelf(ModBlocks.SANGUINITE_BLOCK.get());
         dropSelf(ModBlocks.DWARVEN_ALLOY_BLOCK.get());
         dropSelf(ModBlocks.WHITE_GOLD_BLOCK.get());
@@ -46,6 +47,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         dropSelf(ModBlocks.CORAL_LOG.get());
         dropSelf(ModBlocks.CORAL_PLANKS.get());
+
+        dropSelf(ModBlocks.CHISELED_PRISMARINE_BRICKS.get());
 
         dropSelf(ModBlocks.PEARl_MARBLE.get());
         dropSelf(ModBlocks.PEARL_MARBLE_STAIRS.get());

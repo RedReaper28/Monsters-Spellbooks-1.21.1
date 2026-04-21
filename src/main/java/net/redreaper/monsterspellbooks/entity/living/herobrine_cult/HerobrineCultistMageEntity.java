@@ -102,7 +102,7 @@ public class HerobrineCultistMageEntity extends HerobrineCultistEntity implement
     protected void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
         this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(ModItems.HEROBRINE_CULTIST_HELMET.get()));
         this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(ModItems.HEROBRINE_CULTIST_CHESTPLATE.get()));
-        this.setDropChance(EquipmentSlot.HEAD, 0);
+        this.setDropChance(EquipmentSlot.HEAD, 0.05f);
         this.setDropChance(EquipmentSlot.CHEST, 0);
     }
 

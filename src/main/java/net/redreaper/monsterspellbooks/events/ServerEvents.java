@@ -150,12 +150,6 @@ public class ServerEvents {
                         target.addEffect(new MobEffectInstance(ModMobEffects.BRIMSTONE_FLAME, 60, 0, true, true, true));
                 }
 
-                // Dreadhound Necklace
-                if (ASUtils.hasCurio(player, ModItems.DREADHOUND_TOOTH_NECKLACE.get())) {
-                    if (event.getSource().is(ISSDamageTypes.BLOOD_MAGIC))
-                        target.addEffect(new MobEffectInstance(ModMobEffects.BLEEDING, 120, 1, true, true, true));
-                }
-
                 // Frostmourne
                 if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FROSTMOURNE)) {
                     if (event.getSource().is(ISSDamageTypes.ICE_MAGIC))
@@ -175,8 +169,11 @@ public class ServerEvents {
 
                 // RedSnake
                 if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.RED_SNAKE_BOW)) {
+                    int randomNum = (int) (Math.random() * 5); // 0 to 10
                     if (event.getSource().is(DamageTypeTags.IS_PROJECTILE))
-                        ImmolateEffect.addImmolateStack(target, sourceEntity);
+                        if (randomNum ==1 ) {
+                            ImmolateEffect.addImmolateStack(target, sourceEntity);
+                        }
                 }
             }
         }

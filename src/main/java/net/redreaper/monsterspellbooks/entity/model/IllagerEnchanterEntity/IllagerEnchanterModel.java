@@ -3,7 +3,7 @@ package net.redreaper.monsterspellbooks.entity.model.IllagerEnchanterEntity;
 import io.redspace.ironsspellbooks.IronsSpellbooks;
 import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.living.AbstractSpellCastingIllager;
+import net.redreaper.monsterspellbooks.entity.living.illagers.AbstractSpellCastingIllager;
 import net.redreaper.monsterspellbooks.entity.model.AbstractSpellCastingIllager.AbstractSpellCastingIllagerModel;
 
 public class IllagerEnchanterModel extends AbstractSpellCastingIllagerModel {

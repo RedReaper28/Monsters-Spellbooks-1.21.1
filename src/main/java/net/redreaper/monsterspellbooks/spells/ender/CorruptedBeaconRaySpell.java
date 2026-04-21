@@ -47,7 +47,7 @@ public class CorruptedBeaconRaySpell extends AbstractSpell {
         this.manaCostPerLevel = 2;
         this.baseSpellPower = 1;
         this.spellPowerPerLevel = 1;
-        this.castTime = 75;
+        this.castTime = 90;
         this.baseManaCost = 20;
     }
 

@@ -38,13 +38,13 @@ public class ForcefulWindSpell extends AbstractSpell {
         this.manaCostPerLevel = 5;
         this.baseSpellPower = 20;
         this.spellPowerPerLevel = 2;
-        this.castTime = 0;
+        this.castTime = 20;
         this.baseManaCost = 50;
     }
 
     @Override
     public CastType getCastType() {
-        return CastType.INSTANT;
+        return CastType.LONG;
     }
 
     @Override

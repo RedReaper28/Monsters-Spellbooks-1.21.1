@@ -1,6 +1,7 @@
 package net.redreaper.monsterspellbooks.init;
 
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import io.redspace.ironsspellbooks.effect.BurningDashEffect;
 import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffect;
@@ -28,6 +29,10 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> HEAL_CUT = MOB_EFFECT_DEFERRED_REGISTER.register("heal_cut", HealCutMobEffect::new);
     public static final DeferredHolder<MobEffect, MobEffect> SPACE_ANCHORED = MOB_EFFECT_DEFERRED_REGISTER.register("space_anchored", SpaceAnchoredMobEffect::new);
     public static final DeferredHolder<MobEffect, MobEffect> FLIGHT = MOB_EFFECT_DEFERRED_REGISTER.register("flight", FlightMobEffect::new);
+
+    public static final DeferredHolder<MobEffect, MobEffect> RIPTIDE_DASH = MOB_EFFECT_DEFERRED_REGISTER.register("riptide_dash", () -> new RiptideDashMobEffect(MobEffectCategory.BENEFICIAL, 8028868));
+
+
     public static final DeferredHolder<MobEffect, MobEffect> LICHDOM = MOB_EFFECT_DEFERRED_REGISTER.register("lichdom", LichdomMobEffect::new);
     public static final DeferredHolder<MobEffect, MobEffect> EFFECT_OF_UNDYING = MOB_EFFECT_DEFERRED_REGISTER.register("effect_of_undying", EffectOfUndyingEffect::new);
     public static final DeferredHolder<MobEffect,MobEffect>  SOUL_ROT=MOB_EFFECT_DEFERRED_REGISTER.register("soul_rot",SoulRotMobEffect::new);

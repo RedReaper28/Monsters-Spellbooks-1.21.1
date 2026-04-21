@@ -83,7 +83,7 @@
 				}
 			}
 		},
-		"walk": {
+		"walking": {
 			"loop": true,
 			"animation_length": 2,
 			"bones": {
@@ -614,7 +614,7 @@
 				}
 			}
 		},
-		"continous_cast": {
+		"continuous_cast": {
 			"animation_length": 0.75,
 			"bones": {
 				"all": {

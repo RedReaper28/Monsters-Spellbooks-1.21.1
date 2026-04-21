@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "monsterspellbooks:draugr_camp",
+      "weight": 5
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 35,
+    "separation": 23,
+    "salt": 6129841846
+  }
+}

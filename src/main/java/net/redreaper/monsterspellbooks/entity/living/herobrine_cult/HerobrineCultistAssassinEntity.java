@@ -117,7 +117,7 @@ public class HerobrineCultistAssassinEntity extends HerobrineCultistEntity imple
         this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(ModItems.HEROBRINE_CULTIST_HELMET.get()));
         this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(ItemRegistry.CULTIST_CHESTPLATE.get()));
         this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.CULTIST_KNIFE.get()));
-        this.setDropChance(EquipmentSlot.HEAD, 0);
+        this.setDropChance(EquipmentSlot.HEAD, 0.5F);
         this.setDropChance(EquipmentSlot.CHEST, 0);
         this.setDropChance(EquipmentSlot.MAINHAND, 0.5F);
     }

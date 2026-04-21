@@ -15,8 +15,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        blockWithItem(ModBlocks.ILLAGERITE_BLOCK);
+
         blockWithItem(ModBlocks.CORAL_LOG);
         blockWithItem(ModBlocks.CORAL_PLANKS);
+
+        blockWithItem(ModBlocks.CHISELED_PRISMARINE_BRICKS);
+
+
 
         blockWithItem(ModBlocks.PEARl_MARBLE);
         stairsBlock(ModBlocks.PEARL_MARBLE_STAIRS.get(),blockTexture(ModBlocks.PEARl_MARBLE.get()));

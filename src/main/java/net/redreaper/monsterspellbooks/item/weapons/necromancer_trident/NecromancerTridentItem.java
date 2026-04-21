@@ -6,15 +6,10 @@ import io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
-import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.item.UniqueItem;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
-import io.redspace.ironsspellbooks.util.MinecraftInstanceHelper;
 import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
-import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.Holder;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
 import net.minecraft.server.level.ServerLevel;
@@ -30,28 +25,26 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.entity.spells.water_trident.WaterTridentProjectile;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import net.redreaper.monsterspellbooks.utils.ModRarities;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 
 public class NecromancerTridentItem extends MagicSwordItem implements UniqueItem {
-    public int MAX_MANA_COST = 100;
-    public int BASE_SPIRIT_POWER_SCALE = 10;
+    public int MAX_MANA_COST = 50;
+    public int BASE_POWER_SCALE = 10;
 
     public NecromancerTridentItem() {
         super(ModExtendedWeaponTiers.NECROMANCER_PRISMARINE,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ModRarities.PRISMARINE_RARITY_PROXY.getValue())
+                ItemPropertiesHelper.equipment(10).fireResistant().rarity(ModRarities.PRISMARINE_RARITY_PROXY.getValue())
                         .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.NECROMANCER_PRISMARINE)),
                 SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(SpellRegistry.VOLT_STRIKE_SPELL, 8)
+                        new SpellDataRegistryHolder(ModSpellRegistry.RIPTIDE_DASH, 8)
                 )
         );
     }
@@ -67,11 +60,6 @@ public class NecromancerTridentItem extends MagicSwordItem implements UniqueItem
     }
 
     @Override
-    public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
-        return super.supportsEnchantment(stack, enchantment) ||enchantment.is(Enchantments.CHANNELING);
-    }
-
-    @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity livingEntity, int use) {
         if (livingEntity instanceof Player player) {
             int i = this.getUseDuration(stack, livingEntity) - use;
@@ -80,7 +68,7 @@ public class NecromancerTridentItem extends MagicSwordItem implements UniqueItem
             }
 
             float f = getPowerForTime(i);
-            float damage = (f * (float) (player.getAttributeValue(ASAttributeRegistry.HYDRO_MAGIC_POWER) * (BASE_SPIRIT_POWER_SCALE + getHydroPowerScale(stack, livingEntity))));
+            float damage = (f * (float) (player.getAttributeValue(ASAttributeRegistry.HYDRO_MAGIC_POWER) * (BASE_POWER_SCALE + getHydroPowerScale(stack, livingEntity))));
             WaterTridentProjectile spiritArrow = new WaterTridentProjectile(level, livingEntity);
             spiritArrow.setPos(player.position().add(0, 1.5, 0));
             spiritArrow.shoot(player.getLookAngle());
@@ -110,7 +98,7 @@ public class NecromancerTridentItem extends MagicSwordItem implements UniqueItem
 
     public static int getManaOnUse(ItemStack stack, LivingEntity livingEntity) {
         if (livingEntity.level() instanceof ServerLevel serverLevel) {
-            int manaUseAmount = 50;
+            int manaUseAmount = 0;
             return Mth.floor(manaUseAmount);
         } else return 0;
     }

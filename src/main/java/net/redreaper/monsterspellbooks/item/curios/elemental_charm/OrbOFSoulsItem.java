@@ -4,22 +4,24 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import io.redspace.ironsspellbooks.compat.Curios;
 import io.redspace.ironsspellbooks.registries.ComponentRegistry;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.acetheeldritchking.aces_spell_utils.items.curios.ImbueableCurioItem;
 import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
-import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.init.ModAtributeRegistry;
+import net.redreaper.monsterspellbooks.init.ModDispatcher;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import net.redreaper.monsterspellbooks.utils.ModRarities;
 import org.jetbrains.annotations.NotNull;
@@ -29,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 
 public class OrbOFSoulsItem extends ImbueableCurioItem {
+    public final ModDispatcher dispatcher = new ModDispatcher();
     public OrbOFSoulsItem() {
         super(ItemPropertiesHelper.equipment().stacksTo(1).fireResistant().rarity(ModRarities.SOUL_RARITY_PROXY.getValue()), Curios.NECKLACE_SLOT);
     }
@@ -54,7 +57,13 @@ public class OrbOFSoulsItem extends ImbueableCurioItem {
     public void initializeSpellContainer(ItemStack itemStack) {
         if (itemStack != null) {
             super.initializeSpellContainer(itemStack);
-            itemStack.set(ComponentRegistry.AFFINITY_COMPONENT, new AffinityData(Map.of(((AbstractSpell) ModSpellRegistry.LICHDOM.get()).getSpellResource(), 1)));
+            itemStack.set(ComponentRegistry.AFFINITY_COMPONENT, new AffinityData(Map.of(ModSpellRegistry.LICHDOM.get().getSpellResource(), 1)));
+        }
+    }
+
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+        if (!level.isClientSide && entity instanceof Player player) {
+            this.dispatcher.idle(player, stack);
         }
     }
 }

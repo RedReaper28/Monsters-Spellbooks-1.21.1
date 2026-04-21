@@ -21,7 +21,6 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import net.redreaper.monsterspellbooks.spells.ender.CorruptedBeaconRaySpell;
 import net.redreaper.monsterspellbooks.spells.fire.BrimstoneWrathSpell;
-import net.redreaper.monsterspellbooks.spells.lightning.PlasmaPulseSpell;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
@@ -45,10 +44,6 @@ public class ModSpellRenderingHelper {
 
         if (ModSpellRegistry.CORRUPTED_BEACON_RAY.get().getSpellId().equals(spellData.getCastingSpellId())) {
             renderCorruptedRay(castingMob, poseStack, bufferSource, partialTicks);
-        }
-
-        if (ModSpellRegistry.PLASMA_PULSE.get().getSpellId().equals(spellData.getCastingSpellId())) {
-            renderPlasmaRay(castingMob, poseStack, bufferSource, partialTicks);
         }
     }
 

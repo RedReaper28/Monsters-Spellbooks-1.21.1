@@ -33,6 +33,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ORICHALCUM_BLOCK.get())
                 .add(ModBlocks.DEATHSILVER_BLOCK.get())
                 .add(ModBlocks.SANGUINITE_BLOCK.get())
+                .add(ModBlocks.ILLAGERITE_BLOCK.get())
                 .add(ModBlocks.DWARVEN_ALLOY_BLOCK.get())
                 .add(ModBlocks.WHITE_GOLD_BLOCK.get())
                 .add(ModBlocks.SCORCHED_METAL_ORE.get())
@@ -64,6 +65,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.PEARL_MARBLE_TILE_WALL.get())
                 .add(ModBlocks.PEARl_MARBLE_PILLAR.get())
 
+                .add(ModBlocks.CHISELED_PRISMARINE_BRICKS.get())
                 .add(ModBlocks.IVORYSTONE.get())
                 .add(ModBlocks.IVORYSTONE.get())
                 .add(ModBlocks.IVORYSTONE_STAIRS.get())
@@ -139,6 +141,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ORICHALCUM_BLOCK.get())
                 .add(ModBlocks.DEATHSILVER_BLOCK.get())
                 .add(ModBlocks.SANGUINITE_BLOCK.get())
+                .add(ModBlocks.ILLAGERITE_BLOCK.get())
                 .add(ModBlocks.DWARVEN_ALLOY_BLOCK.get())
                 .add(ModBlocks.NETHER_RUBY_ORE.get())
                 .add(ModBlocks.NETHER_RUBY_BLOCK.get())

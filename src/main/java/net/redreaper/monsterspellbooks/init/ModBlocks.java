@@ -42,6 +42,10 @@ public class ModBlocks {
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.METAL)));
     public static final DeferredBlock<Block>SANGUINITE_BLOCK=registerBlock("sanguinite_block",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.NETHERITE_BLOCK)));
+
+    public static final DeferredBlock<Block>ILLAGERITE_BLOCK=registerBlock("illagerite_block",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.COPPER)));
+
     public static final DeferredBlock<Block>DWARVEN_ALLOY_BLOCK =registerBlock("dwarven_alloy_block",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.NETHERITE_BLOCK)));
 

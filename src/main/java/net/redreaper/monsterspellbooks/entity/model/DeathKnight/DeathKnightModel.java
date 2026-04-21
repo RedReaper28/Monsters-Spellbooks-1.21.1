@@ -2,7 +2,7 @@ package net.redreaper.monsterspellbooks.entity.model.DeathKnight;
 
 import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.living.DeathKnightEntity;
+import net.redreaper.monsterspellbooks.entity.living.summons.DeathKnightEntity;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 

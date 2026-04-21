@@ -67,8 +67,7 @@ public class VileSlashProjectileNew extends AbstractMagicProjectile implements G
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
-        DamageSources.applyDamage(pResult.getEntity(), getDamage(),
-                ModSpellRegistry.VILE_SLASH.get().getDamageSource(this, getOwner()));
+        DamageSources.applyDamage(pResult.getEntity(), getDamage(),ModSpellRegistry.VILE_SLASH.get().getDamageSource(this, getOwner()));
         if (pResult.getEntity() instanceof LivingEntity livingTarget)
         {
             livingTarget.addEffect(new MobEffectInstance(ModMobEffects.SOUL_ROT, 160, 1));

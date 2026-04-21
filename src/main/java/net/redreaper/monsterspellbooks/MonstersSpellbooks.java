@@ -2,6 +2,7 @@ package net.redreaper.monsterspellbooks;
 
 import io.redspace.ironsspellbooks.render.SpellBookCurioRenderer;
 import mod.azure.azurelib.common.animation.cache.AzIdentityRegistry;
+import mod.azure.azurelib.common.render.armor.AzArmorRendererRegistry;
 import mod.azure.azurelib.common.render.item.AzItemRendererRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
@@ -10,6 +11,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.redreaper.monsterspellbooks.entity.curios.critical_glasses.CriticalGlassesCurioRenderer;
 import net.redreaper.monsterspellbooks.entity.curios.ignition_gloves.IgnitionGlovesCurioRenderer;
 import net.redreaper.monsterspellbooks.entity.curios.obsidian_medal.ObsidianMedalCurioRenderer;
+import net.redreaper.monsterspellbooks.entity.curios.orb_soul.OrbSoulCurioItemRenderer;
 import net.redreaper.monsterspellbooks.entity.curios.orb_soul.OrbSoulCurioRenderer;
 import net.redreaper.monsterspellbooks.entity.curios.reaper_lantern.ReaperLanternCurioRenderer;
 import net.redreaper.monsterspellbooks.entity.curios.thundering_quiver.ThunderingQuiverCurioRenderer;
@@ -34,7 +36,6 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
@@ -44,8 +45,6 @@ public class MonstersSpellbooks {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public MonstersSpellbooks(IEventBus modEventBus, ModContainer modContainer) {
-        modEventBus.addListener(this::addCreative);
-
         NeoForge.EVENT_BUS.register(this);
 
         ModCreativeTabs.register(modEventBus);
@@ -62,23 +61,22 @@ public class MonstersSpellbooks {
         ModFluids.register(modEventBus);
         ModLootModifiers.register(modEventBus);
 
+        modEventBus.addListener(this::commonSetup);
+
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
-    public static ResourceLocation id(@NotNull String path)
-    {
-        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, path);
-    }
+
 
     private void commonSetup(FMLCommonSetupEvent event) {
+        // Animation Registry
         AzIdentityRegistry.register(
                 ModItems.VILENOVA_STAFF.get(),
-                ModItems.BRIMSTONE_OROCHI.get()
+                ModItems.BRIMSTONE_OROCHI.get(),
+                ModItems.EYEBLOOSOM_STAFF.get(),
+
+                ModItems.ORB_SOUL.get()
         );
-    }
-
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
     }
 
     @SubscribeEvent
@@ -90,58 +88,26 @@ public class MonstersSpellbooks {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            ModItemProperties.addCustomItemProperties();
             // Curio Rendering
             event.enqueueWork(() -> {
-
-                CuriosRendererRegistry.register(
-                    ModItems.GUARDIAN_SPELLBOOK.get(), SpellBookCurioRenderer::new
-                );
-
-                CuriosRendererRegistry.register(
-                        ModItems.ENCHANTING_TOME.get(), SpellBookCurioRenderer::new
-                );
-
-                CuriosRendererRegistry.register(
-                        ModItems.UPDRAFT_TOME.get(), SpellBookCurioRenderer::new
-                );
-
-                CuriosRendererRegistry.register(
-                        ModItems.BOOK_OF_SOULS.get(), SpellBookCurioRenderer::new
-                );
-
-                CuriosRendererRegistry.register(
-                    ModItems.FRENZY_KING_BOOK.get(), SpellBookCurioRenderer::new
-                );
-
-                CuriosRendererRegistry.register(
-                        ModItems.DISEASE_ENCYCLOPEDIA.get(), SpellBookCurioRenderer::new
-                );
-
-                CuriosRendererRegistry.register(
-                        ModItems.REAPER_LANTERN.get(), ReaperLanternCurioRenderer::new
-                );
-
-                CuriosRendererRegistry.register(
-                        ModItems.CRITICAL_GLASSES.get(), CriticalGlassesCurioRenderer::new
-                );
-
-                CuriosRendererRegistry.register(
-                        ModItems.IGNITION_GLOVE.get(), IgnitionGlovesCurioRenderer::new
-                );
-
-                CuriosRendererRegistry.register(
-                        ModItems.THUNDERING_QUIVER.get(), ThunderingQuiverCurioRenderer::new
-                );
-
-                CuriosRendererRegistry.register(
-                        ModItems.OBSIDIAN_MEDAL.get(), ObsidianMedalCurioRenderer::new
-                );
-
-                CuriosRendererRegistry.register(
-                        ModItems.ORB_SOUL.get(), OrbSoulCurioRenderer::new
-                );
-
+                CuriosRendererRegistry.register(ModItems.GUARDIAN_SPELLBOOK.get(), SpellBookCurioRenderer::new);
+                CuriosRendererRegistry.register(ModItems.ENCHANTING_TOME.get(), SpellBookCurioRenderer::new);
+                CuriosRendererRegistry.register(ModItems.UPDRAFT_TOME.get(), SpellBookCurioRenderer::new);
+                CuriosRendererRegistry.register(ModItems.BOOK_OF_SOULS.get(), SpellBookCurioRenderer::new);
+                CuriosRendererRegistry.register(ModItems.FRENZY_KING_BOOK.get(), SpellBookCurioRenderer::new);
+                CuriosRendererRegistry.register(ModItems.DISEASE_ENCYCLOPEDIA.get(), SpellBookCurioRenderer::new);
+                CuriosRendererRegistry.register(ModItems.REAPER_LANTERN.get(), ReaperLanternCurioRenderer::new);
+                CuriosRendererRegistry.register(ModItems.CRITICAL_GLASSES.get(), CriticalGlassesCurioRenderer::new);
+                CuriosRendererRegistry.register(ModItems.IGNITION_GLOVE.get(), IgnitionGlovesCurioRenderer::new);
+                CuriosRendererRegistry.register(ModItems.THUNDERING_QUIVER.get(), ThunderingQuiverCurioRenderer::new);
+                CuriosRendererRegistry.register(ModItems.OBSIDIAN_MEDAL.get(), ObsidianMedalCurioRenderer::new);
             });
+
+            AzArmorRendererRegistry.register(OrbSoulCurioItemRenderer::new, ModItems.ORB_SOUL.get());
+            CuriosRendererRegistry.register(
+                        ModItems.ORB_SOUL.get(), OrbSoulCurioRenderer::new
+            );
 
             AzItemRendererRegistry.register(EyebloosomStaffRenderer::new, ModItems.EYEBLOOSOM_STAFF.get());
             AzItemRendererRegistry.register(FrozenCommanderStaffRenderer::new, ModItems.FROZEN_COMMANDER_STAFF.get());
@@ -153,7 +119,19 @@ public class MonstersSpellbooks {
             AzItemRendererRegistry.register(GoreChildRenderer::new, ModItems.GORE_CHILD.get());
             AzItemRendererRegistry.register(DisruptionNaginataRenderer::new, ModItems.DISRUPTION_NAGINATA.get());
 
-            ModItemProperties.addCustomItemProperties();
+            // Animation Registry
+            AzIdentityRegistry.register(
+                    ModItems.VILENOVA_STAFF.get(),
+                    ModItems.BRIMSTONE_OROCHI.get(),
+                    ModItems.EYEBLOOSOM_STAFF.get(),
+
+                    ModItems.ORB_SOUL.get()
+            );
         }
+    }
+
+    public static ResourceLocation id(@NotNull String path)
+    {
+        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, path);
     }
 }

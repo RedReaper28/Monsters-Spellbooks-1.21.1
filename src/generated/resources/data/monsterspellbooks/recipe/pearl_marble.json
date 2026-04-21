@@ -13,12 +13,12 @@
     }
   },
   "pattern": [
-    "AAA",
-    "ABC",
+    "BBB",
+    "BAC",
     "CCC"
   ],
   "result": {
-    "count": 1,
+    "count": 9,
     "id": "monsterspellbooks:pearl_marble"
   }
 }

@@ -29,6 +29,5 @@ public class ModDamageTypes {
         context.register(SNOW_CLOUD, new DamageType(PUTRESCENCE_FIELD.location().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0f));
         context.register(PUTRESCENCE_FIELD, new DamageType(PUTRESCENCE_FIELD.location().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0f));
         context.register(DISTORTION_FIELD, new DamageType(DISTORTION_FIELD.location().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0f));
-
     }
 }

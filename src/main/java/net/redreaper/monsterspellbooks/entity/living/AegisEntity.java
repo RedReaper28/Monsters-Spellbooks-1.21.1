@@ -152,7 +152,7 @@ public class AegisEntity extends AbstractGolem implements GeoEntity {
         this.goalSelector.addGoal(5, new RoamVillageGoal(this, 30, 1f));
         this.goalSelector.addGoal(7, new PatrolNearLocationGoal(this, 30, 1f));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
         this.targetSelector.addGoal(2, new GenericDefendVillageTargetGoal(this));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Mob.class, 5, false, false, (mob) -> mob instanceof Enemy && !(mob instanceof Creeper)));
     }

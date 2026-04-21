@@ -10,6 +10,7 @@ import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
+import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -28,6 +29,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.init.ModSounds;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import org.jetbrains.annotations.Nullable;
 
@@ -62,6 +64,8 @@ public class WindWaveSpell extends AbstractSpell {
     @Override
     public Optional<SoundEvent> getCastStartSound() {return Optional.of(SoundEvents.WIND_CHARGE_THROW);}
 
+    @Override
+    public Optional<SoundEvent> getCastFinishSound() {return Optional.of(ModSounds.WIND_WAVE.get());}
 
     @Override
     public CastType getCastType() {

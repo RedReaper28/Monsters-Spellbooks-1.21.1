@@ -22,6 +22,7 @@ import net.neoforged.neoforge.client.event.RenderLivingEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import net.redreaper.monsterspellbooks.render.ModSpellRenderingHelper;
+import net.redreaper.monsterspellbooks.spells.hydro.RiptideDashSpell;
 import net.redreaper.monsterspellbooks.spells.necro.WitherNovaSpell;
 
 import java.util.List;
@@ -52,7 +53,12 @@ public class ClientPlayerEvents {
                     if (spellData.getCastingSpellId().equals(ModSpellRegistry.WITHER_NOVA.get().getSpellId())) {
                             WitherNovaSpell.ambientParticles(livingEntity, spellData);
                     }
-                });
+
+                    if (livingEntity.isAutoSpinAttack() && spellData.getSpinAttackType() == SpinAttackType.RIPTIDE) {
+                        RiptideDashSpell.ambientParticles(level, livingEntity);
+                    }
+                }
+                );
             }
         }
     }

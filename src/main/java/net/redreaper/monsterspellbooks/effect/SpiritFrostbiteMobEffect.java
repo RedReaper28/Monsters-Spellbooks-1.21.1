@@ -11,18 +11,37 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.NeoForgeMod;
+import net.redreaper.monsterspellbooks.init.ModMobEffects;
+
+import java.util.Map;
+import java.util.WeakHashMap;
 
 public class SpiritFrostbiteMobEffect extends MagicMobEffect implements ISyncedMobEffect {
-    public static final float SLOWNESS_PER_LEVEL =  -0.05F;
-    public static final float CAST_TIME_PER_LEVEL =  -0.05F;
-    public static final float ATTACK_SLOWNESS_PER_LEVEL =  -0.05F;
-    public static final float MANA_SLOWNESS_PER_LEVEL =  -0.05F;
+    public static final float SLOWNESS_PER_LEVEL =  -0.15F;
+    public static final float CAST_TIME_PER_LEVEL =  -0.15F;
+    public static final float ATTACK_SLOWNESS_PER_LEVEL =  -0.15F;
+    public static final float MANA_SLOWNESS_PER_LEVEL =  -0.15F;
+    private static final Map<LivingEntity, Entity> EFFECT_CREDIT = new WeakHashMap<>();
 
     public SpiritFrostbiteMobEffect(MobEffectCategory mobEffectCategory, int color) {
         super(mobEffectCategory, color);
+    }
+
+
+    public static MobEffectInstance addFrostStack(LivingEntity entity) {
+        MobEffectInstance previous = entity.getEffect(ModMobEffects.SPIRIT_FROSTBITE);
+        MobEffectInstance inst;
+        if (previous != null) {
+            inst = new MobEffectInstance(ModMobEffects.SPIRIT_FROSTBITE, 20 * 5, previous.getAmplifier() + 1, previous.isAmbient(), previous.isVisible(), previous.showIcon());
+        } else {
+            inst = new MobEffectInstance(ModMobEffects.SPIRIT_FROSTBITE, 20 * 5, 0, false, true, true);
+        }
+        entity.addEffect(inst);
+        return inst;
     }
 
 

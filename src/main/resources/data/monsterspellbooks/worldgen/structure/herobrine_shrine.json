@@ -17,7 +17,7 @@
     "minecraft:windswept_forest",
     "minecraft:grove"
   ],
-  "terrain_adaptation": "beard_thin",
+  "terrain_adaptation": "beard_box",
   "spawn_overrides": {
     "monster": {
       "bounding_box": "piece",
@@ -26,13 +26,13 @@
           "type": "monsterspellbooks:herobrine_cultist_assassin",
           "maxCount": 3,
           "minCount": 2,
-          "weight": 15
+          "weight": 5
         },
         {
           "type": "monsterspellbooks:herobrine_cultist_mage",
           "maxCount":2,
           "minCount": 1,
-          "weight": 25
+          "weight": 2
         }
       ]
     }

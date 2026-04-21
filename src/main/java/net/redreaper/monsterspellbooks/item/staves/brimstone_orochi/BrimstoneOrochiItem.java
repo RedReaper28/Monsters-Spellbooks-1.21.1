@@ -43,6 +43,5 @@ public class BrimstoneOrochiItem extends MagicGunItem {
         if (!level.isClientSide && entity instanceof Player player) {
             this.dispatcher.idle(player, stack);
         }
-
     }
 }

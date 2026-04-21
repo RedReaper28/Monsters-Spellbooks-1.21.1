@@ -22,7 +22,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.NeoForge;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.living.DwarvenSwarmDroneEntity;
+import net.redreaper.monsterspellbooks.entity.living.summons.DwarvenSwarmDroneEntity;
 import net.redreaper.monsterspellbooks.init.ModSounds;
 import org.jetbrains.annotations.Nullable;
 

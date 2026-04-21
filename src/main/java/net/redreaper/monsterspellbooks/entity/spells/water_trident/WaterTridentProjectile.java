@@ -18,6 +18,7 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
@@ -43,7 +44,7 @@ public class WaterTridentProjectile extends AbstractMagicProjectile implements G
     @Override
     public void trailParticles() {
         Vec3 vec3 = this.position().subtract(getDeltaMovement());
-        level().addParticle(ParticleTypes.BUBBLE, vec3.x, vec3.y, vec3.z, 0, 0, 0);
+        level().addParticle(ModParticleHelper.HYDRO_BUBBLE, vec3.x, vec3.y, vec3.z, 0, 0, 0);
     }
 
     public void setRotation(float x, float y) {
@@ -56,7 +57,7 @@ public class WaterTridentProjectile extends AbstractMagicProjectile implements G
 
     @Override
     public void impactParticles(double x, double y, double z) {
-        MagicManager.spawnParticles(level(), ParticleTypes.BUBBLE, x, y, z, 5, .1, .1, .1, 0.5, true);
+        MagicManager.spawnParticles(level(), ModParticleHelper.HYDRO_BUBBLE, x, y, z, 5, .1, .1, .1, 0.5, true);
         MagicManager.spawnParticles(level(), ParticleTypes.FALLING_WATER, x, y, z, 75, .1, .1, .1, .5, false);
     }
 

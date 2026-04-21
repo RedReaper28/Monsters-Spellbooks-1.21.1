@@ -23,7 +23,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.NeoForge;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.living.SummonedAegisEntity;
+import net.redreaper.monsterspellbooks.entity.living.summons.SummonedAegisEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

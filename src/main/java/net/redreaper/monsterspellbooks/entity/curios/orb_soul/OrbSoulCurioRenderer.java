@@ -43,6 +43,8 @@ public class OrbSoulCurioRenderer implements ICurioRenderer {
 
         curioRenderer.prepForRender(entity, stack, EquipmentSlot.CHEST, (HumanoidModel<?>) renderLayerParent.getModel());
 
+        matrixStack.translate(0.0D, -0.4D, 0.0D); // x = sideways, y = up/down, z = forward/back
+
         AzBakedModel model = curioRenderer.provider().provideBakedModel(entity, stack);
         ResourceLocation textureLocation = OrbSoulCurioItemRenderer.TEX;
         RenderType renderType = RenderType.entityCutout(textureLocation);

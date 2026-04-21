@@ -26,4 +26,5 @@ public class ImbueableBowItem extends ExtendedBowItem implements IPresetSpellCon
             }
         }
     }
+
 }

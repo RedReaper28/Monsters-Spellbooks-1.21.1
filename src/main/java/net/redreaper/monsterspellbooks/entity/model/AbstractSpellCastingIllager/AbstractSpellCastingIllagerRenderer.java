@@ -12,7 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
-import net.redreaper.monsterspellbooks.entity.living.AbstractSpellCastingIllager;
+import net.redreaper.monsterspellbooks.entity.living.illagers.AbstractSpellCastingIllager;
 import org.jetbrains.annotations.Nullable;
 
 public class AbstractSpellCastingIllagerRenderer extends HumanoidRenderer<AbstractSpellCastingIllager> {

@@ -8,7 +8,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.WalkAnimationState;
 import net.minecraft.world.phys.Vec3;
-import net.redreaper.monsterspellbooks.entity.living.AbstractSpellCastingIllager;
+import net.redreaper.monsterspellbooks.entity.living.illagers.AbstractSpellCastingIllager;
 import org.joml.Vector2f;
 import software.bernie.geckolib.animatable.GeoReplacedEntity;
 import software.bernie.geckolib.animation.AnimationState;

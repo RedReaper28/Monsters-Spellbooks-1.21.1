@@ -113,7 +113,7 @@ public class BlastlingEntity extends UniqueAbstractSpellCastingMob implements Ge
                 .setSpellQuality(0.8f, 0.8f)
                 .setAllowFleeing(true)
         );
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this, EnderMan.class).setAlertOthers());
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this, BlastlingEntity.class).setAlertOthers());
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
