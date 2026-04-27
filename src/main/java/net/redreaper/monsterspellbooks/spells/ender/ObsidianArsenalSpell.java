@@ -33,6 +33,7 @@ public class ObsidianArsenalSpell extends AbstractSpell {
             .setSchoolResource(SchoolRegistry.ENDER_RESOURCE)
             .setMaxLevel(10)
             .setCooldownSeconds(8)
+            .setAllowCrafting(false)
             .build();
 
     public ObsidianArsenalSpell() {
@@ -41,6 +42,10 @@ public class ObsidianArsenalSpell extends AbstractSpell {
         this.spellPowerPerLevel = 5;
         this.castTime = 15;
         this.baseManaCost = 40;
+    }
+
+    @Override public boolean allowLooting() {
+        return false;
     }
 
     @Override

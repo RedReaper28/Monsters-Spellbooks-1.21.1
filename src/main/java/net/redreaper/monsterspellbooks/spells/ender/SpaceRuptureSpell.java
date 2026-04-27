@@ -42,13 +42,13 @@ public class SpaceRuptureSpell extends AbstractSpell {
         this.manaCostPerLevel = 15;
         this.baseSpellPower = 30;
         this.spellPowerPerLevel = 5;
-        this.castTime = 0;
+        this.castTime = 15;
         this.baseManaCost = 50;
     }
 
     @Override
     public CastType getCastType() {
-        return CastType.INSTANT;
+        return CastType.LONG;
     }
 
     @Override
@@ -88,11 +88,11 @@ public class SpaceRuptureSpell extends AbstractSpell {
         return 1.5f + getEntityPowerMultiplier(caster);
     }
 
-    public float getDamage(int spellLevel, LivingEntity caster) {
-        return baseSpellPower * getEntityPowerMultiplier(caster);
+    private float getDamage(int spellLevel, LivingEntity entity) {
+        return getSpellPower(spellLevel, entity) * .25f;
     }
 
     public float getAoeDamage(int spellLevel, LivingEntity caster) {
-        return 1 + getSpellPower(spellLevel, caster) * .1f;
+        return getDamage(spellLevel, caster) * .5f;
     }
 }

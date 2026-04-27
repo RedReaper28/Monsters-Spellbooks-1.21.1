@@ -16,14 +16,15 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
+import net.redreaper.monsterspellbooks.init.ModTags;
+import net.redreaper.monsterspellbooks.spells.AbstractTaggedSpell;
 
 import java.util.List;
 import java.util.Optional;
 
-public class LichdomSpell extends AbstractSpell {
+public class LichdomSpell extends AbstractTaggedSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "lichdom");
 
     @Override
@@ -75,8 +76,8 @@ public class LichdomSpell extends AbstractSpell {
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         if (entity instanceof Player player) {
-            boolean hasSoulOrb = ASUtils.hasCurio((Player) entity, ModItems.ORB_SOUL.get());
-            if (hasSoulOrb) {
+            boolean hasLichdomKey =  hasTaggedItem(entity, ModTags.Items.LICHDOM_KEYS);
+            if (hasLichdomKey) {
                 entity.addEffect(new MobEffectInstance(ModMobEffects.LICHDOM, (int) (getSpellPower(spellLevel, entity) * 20), 0, false, false, true));
             } else {
                 entity.addEffect(new MobEffectInstance(ModMobEffects.CURSE, (int) (getSpellPower(spellLevel, entity) * 5), 0, false, false, true));

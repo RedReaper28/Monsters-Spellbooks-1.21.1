@@ -32,6 +32,7 @@ public class SoulFireBoltSpell extends AbstractSpell {
             .setSchoolResource(ModSpellSchools.NECRO_RESOURCE)
             .setMaxLevel(1)
             .setCooldownSeconds(1)
+            .setAllowCrafting(false)
             .build();
 
     public SoulFireBoltSpell() {
@@ -57,6 +58,10 @@ public class SoulFireBoltSpell extends AbstractSpell {
         return spellId;
     }
 
+    public boolean allowLooting() {
+        return false;
+    }
+
     @Override
     public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         SoulFireBoltProjectile firebolt = new SoulFireBoltProjectile(world, entity);
@@ -75,12 +80,6 @@ public class SoulFireBoltSpell extends AbstractSpell {
     public boolean canBeCraftedBy(Player player) {
         return false;
     }
-
-    public boolean allowCrafting() {
-        return false;
-    }
-
-    public boolean allowLooting() {return false;}
 
     private float getDamage(int spellLevel, LivingEntity entity) {
         return getSpellPower(spellLevel, entity) * .5f;

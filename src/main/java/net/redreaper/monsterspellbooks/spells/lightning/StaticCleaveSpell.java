@@ -41,18 +41,15 @@ public class StaticCleaveSpell extends AbstractSpell {
         this.baseManaCost = 25;
     }
 
-    @Override
-    public CastType getCastType() {
+    @Override public CastType getCastType() {
         return CastType.INSTANT;
     }
 
-    @Override
-    public DefaultConfig getDefaultConfig() {
+    @Override public DefaultConfig getDefaultConfig() {
         return defaultConfig;
     }
 
-    @Override
-    public ResourceLocation getSpellResource() {
+    @Override public ResourceLocation getSpellResource() {
         return spellId;
     }
 
@@ -68,11 +65,10 @@ public class StaticCleaveSpell extends AbstractSpell {
 
     @Override
     public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {
-        return super.getDamageSource(projectile, attacker).setLifestealPercent(.5f);
+        return super.getDamageSource(projectile, attacker);
     }
 
-    @Override
-    public AnimationHolder getCastStartAnimation() {
+    @Override public AnimationHolder getCastStartAnimation() {
         return SpellAnimations.SLASH_ANIMATION;
     }
 }

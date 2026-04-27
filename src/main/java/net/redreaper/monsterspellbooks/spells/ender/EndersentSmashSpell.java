@@ -16,6 +16,7 @@ import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -24,10 +25,12 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.init.ModSounds;
 import org.jetbrains.annotations.Nullable;
@@ -89,30 +92,34 @@ public class EndersentSmashSpell extends AbstractSpell {
         return spellId;
     }
 
-    @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        float radius = 5.0F;
-        float range = 1.7F;
-        MagicManager.spawnParticles(level, new BlastwaveParticleOptions(SchoolRegistry.ENDER.get().getTargetingColor(), radius), entity.getX(), entity.getY() + .165f, entity.getZ(), 1, 0, 0, 0, 0, true);
-        Vec3 smiteLocation = Utils.raycastForBlock(entity.level(), entity.getEyePosition(), entity.getEyePosition().add(entity.getForward().multiply((double)range, (double)0.0F, (double)range)), ClipContext.Fluid.NONE).getLocation();
-        List<Entity> entities = entity.level().getEntities(entity, AABB.ofSize(smiteLocation, (double)(radius * 2.0F), (double)(radius * 4.0F), (double)(radius * 2.0F)));
-        SpellDamageSource damageSource = this.getDamageSource(entity);
+        float radius = 5f;
+        float range = 1.7f;
+        Vec3 smiteLocation = Utils.raycastForBlock(entity.level(), entity.getEyePosition(), entity.getEyePosition().add(entity.getForward().multiply(range, 0, range)), ClipContext.Fluid.NONE).getLocation();
+        Vec3 particleLocation = entity.level().clip(new ClipContext(smiteLocation, smiteLocation.add(0, -2, 0), ClipContext.Block.VISUAL, ClipContext.Fluid.NONE, CollisionContext.empty())).getLocation().add(0, 0.1, 0);
+        MagicManager.spawnParticles(entity.level(), new BlastwaveParticleOptions(SchoolRegistry.ENDER.get().getTargetingColor(), radius * 2),
+                particleLocation.x, particleLocation.y, particleLocation.z, 1, 0, 0, 0, 0, true);
+        var entities = entity.level().getEntities(entity, AABB.ofSize(smiteLocation, radius * 2, radius * 4, radius * 2));
+        var damageSource = this.getDamageSource(entity);
+
         EarthquakeAoe aoe = new EarthquakeAoe(level);
         aoe.moveTo(smiteLocation);
         aoe.setOwner(entity);
         aoe.setCircular();
-        aoe.setRadius(6.0F);
+        aoe.setRadius(6);
         aoe.setDuration(20);
-        aoe.setDamage(0.0F);
+        aoe.setDamage(0);
         aoe.setSlownessAmplifier(0);
         level.addFreshEntity(aoe);
 
-        for(Entity targetEntity : entities) {
-            if (targetEntity.isAlive() && targetEntity.isPickable() && Utils.hasLineOfSight(entity.level(), smiteLocation.add((double)0.0F, (double)1.0F, (double)0.0F), targetEntity.getBoundingBox().getCenter(), true) && DamageSources.applyDamage(targetEntity, this.getDamage(spellLevel, entity), damageSource)) {
-                this.handleKnockback(entity, (LivingEntity)targetEntity, spellLevel);
+        for (Entity targetEntity : entities) {
+            if (targetEntity instanceof LivingEntity && targetEntity.isPickable() && Utils.hasLineOfSight(entity.level(), smiteLocation.add(0, 1, 0), targetEntity.getBoundingBox().getCenter(), true)) {
+                if (DamageSources.applyDamage(targetEntity, getDamage(spellLevel, entity), damageSource)) {
+                    handleKnockback(entity,(LivingEntity) targetEntity,spellLevel);
+                    EnchantmentHelper.doPostAttackEffects((ServerLevel) entity.level(), targetEntity, damageSource);
+                }
             }
         }
-
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 

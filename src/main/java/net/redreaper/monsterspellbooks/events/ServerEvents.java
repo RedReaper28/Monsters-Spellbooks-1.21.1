@@ -1,5 +1,6 @@
 package net.redreaper.monsterspellbooks.events;
 
+import dev.kosmx.playerAnim.core.impl.event.EventResult;
 import io.redspace.ironsspellbooks.api.entity.IMagicEntity;
 import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;

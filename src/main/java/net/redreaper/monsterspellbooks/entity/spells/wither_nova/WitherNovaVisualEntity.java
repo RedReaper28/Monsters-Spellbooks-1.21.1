@@ -22,7 +22,7 @@ public class WitherNovaVisualEntity extends Entity implements IEntityWithComplex
 
     public WitherNovaVisualEntity(Level level, Vec3 start, Vec3 end, LivingEntity owner) {
         super(ModEntities.WITHER_NOVA_VISUAL_ENTITY.get(), level);
-        this.setPos(start.subtract(0, .5f, 0));
+        this.setPos(start.subtract(0, .75f, 0));
         this.distance = (float) start.distanceTo(end);
         this.setRot(owner.getYRot(), owner.getXRot());
     }

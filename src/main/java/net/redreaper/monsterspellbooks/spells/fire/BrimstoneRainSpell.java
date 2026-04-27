@@ -104,7 +104,6 @@ public class BrimstoneRainSpell extends AbstractSpell {
                 fireball.setExplosionRadius(2f);
                 level.addFreshEntity(fireball);
             }
-
             super.onCast(level, spellLevel, entity, castSource, playerMagicData);
         }
     }

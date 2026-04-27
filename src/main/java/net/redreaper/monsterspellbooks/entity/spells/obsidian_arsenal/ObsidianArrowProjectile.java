@@ -134,14 +134,12 @@ public class ObsidianArrowProjectile extends AbstractMagicProjectile {
             Vec3 raycastTarget =location.add(0, 5, 0);
             Vec3 spawnLocation = Utils.raycastForBlock(level(), location, raycastTarget, ClipContext.Fluid.NONE).getLocation();
             spawnLocation = spawnLocation.subtract(location).scale(.9f).add(location);
-            float dx = Mth.sqrt((float) ((spawnLocation.x - location.x) * (spawnLocation.x - location.x) + (spawnLocation.z - location.z) * (spawnLocation.z - location.z)));
 
             ObsidianArrowVolleyEntity arrowVolleyEntity = new ObsidianArrowVolleyEntity(ModEntities.OBSIDIAN_ARROW_VOLLEY_ENTITY.get(), level());
             arrowVolleyEntity.moveTo(spawnLocation);
             arrowVolleyEntity.setYRot(90);
             arrowVolleyEntity.setXRot(90);
-            arrowVolleyEntity.setXRot(90);
-            arrowVolleyEntity.setDamage(getAoeDamage());
+            arrowVolleyEntity.setDamage(getDamage());
             arrowVolleyEntity.setArrowsPerRow(10);
             arrowVolleyEntity.setRows(10);
             arrowVolleyEntity.setOwner(getOwner());

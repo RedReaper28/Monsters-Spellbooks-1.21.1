@@ -19,5 +19,6 @@ public class ModParticleHelper {
     public static final ParticleOptions SPACE_SHARD = ModParticleTypes.SPACE_SHARD.get();
     public static final ParticleOptions HYDRO_BUBBLE = ModParticleTypes.HYDRO_BUBBLE.get();
     public static final ParticleOptions ACIDIC_VENOM_BUBBLE = ModParticleTypes.ACIDIC_VENOM_BUBBLE.get();
+    public static final ParticleOptions VITAL_SPARKS = ModParticleTypes.VITAL_SPARKS.get();
 
 }

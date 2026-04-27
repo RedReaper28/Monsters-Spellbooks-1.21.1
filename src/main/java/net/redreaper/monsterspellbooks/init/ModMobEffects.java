@@ -1,7 +1,6 @@
 package net.redreaper.monsterspellbooks.init;
 
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import io.redspace.ironsspellbooks.effect.BurningDashEffect;
 import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffect;
@@ -16,6 +15,9 @@ import net.redreaper.monsterspellbooks.effect.*;
 
 public class ModMobEffects {
     public static final DeferredRegister<MobEffect>MOB_EFFECT_DEFERRED_REGISTER = DeferredRegister.create(Registries.MOB_EFFECT, MonstersSpellbooks.MOD_ID);
+
+
+    public static final DeferredHolder<MobEffect, MobEffect> ORBITAL_SNOWBALL = MOB_EFFECT_DEFERRED_REGISTER.register("orbital_snowball", () -> new OrbitalSnowballEffect(MobEffectCategory.BENEFICIAL, 57744 ));
 
     public static final DeferredHolder<MobEffect, MobEffect> OVERHEAT = MOB_EFFECT_DEFERRED_REGISTER.register("overheat", () -> new OverheatMobEffect(MobEffectCategory.BENEFICIAL, 16736559)
             .addAttributeModifier(Attributes.ATTACK_DAMAGE, MonstersSpellbooks.id("mobeffect_overheat"), OverheatMobEffect.ATTACK_DAMAGE_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)

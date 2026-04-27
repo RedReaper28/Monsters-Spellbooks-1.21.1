@@ -33,6 +33,7 @@ public class DragonChargeProjectile extends AbstractMagicProjectile {
 
     public DragonChargeProjectile(Level pLevel, LivingEntity pShooter) {
         this(ModEntities.DRAGON_CHARGE_PROJECTILE.get(), pLevel);
+
         this.setOwner(pShooter);
     }
 

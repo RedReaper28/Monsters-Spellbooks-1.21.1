@@ -12,6 +12,7 @@ import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -20,6 +21,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
 import net.minecraft.util.Mth;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.entity.spells.pale_thorn.PaleThornVisualEntity;
 
 public class FrenziedBurstRenderer extends EntityRenderer<FrenziedBurstVisualEntity> {
 
@@ -73,13 +75,13 @@ public class FrenziedBurstRenderer extends EntityRenderer<FrenziedBurstVisualEnt
                 this.body.render(poseStack, consumer, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, FastColor.ARGB32.color((int) (alpha * 255),255,255,255));
                 poseStack.popPose();
             }
-            consumer = bufferSource.getBuffer(RenderHelper.CustomerRenderType.darkGlow(TEXTURE_CORE));
+            consumer = bufferSource.getBuffer(RenderType.entityCutoutNoCull(TEXTURE_CORE));
             {
                 poseStack.pushPose();
                 float expansion = Mth.clampedLerp(1, 0, f / (lifetime - 5));
                 poseStack.scale(expansion, 1, expansion);
                 poseStack.mulPose(Axis.YP.rotationDegrees(f * -10));
-                this.body.render(poseStack, consumer, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, -1);
+                this.body.render(poseStack, consumer, LightTexture.FULL_BLOCK, OverlayTexture.NO_OVERLAY, -1);
                 poseStack.popPose();
             }
         }

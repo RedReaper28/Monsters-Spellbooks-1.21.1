@@ -2,7 +2,7 @@ package net.redreaper.monsterspellbooks.entity.model.PoisonQuillVine;
 
 import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.living.PoisonQuillVineEntity;
+import net.redreaper.monsterspellbooks.entity.living.summons.PoisonQuillVineEntity;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 

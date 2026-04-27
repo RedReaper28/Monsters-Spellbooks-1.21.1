@@ -170,19 +170,19 @@ public class IceSerpeantEntity extends UniqueAbstractSpellCastingMob implements 
         return Utils.doMeleeAttack(this, entity, ModSpellRegistry.SUMMON_ICE_HYDRA.get().getDamageSource(this, getSummoner()));
     }
 
-    @Override
-    public boolean dampensVibrations() {
-        return true;
-    }
+    @Override public boolean dampensVibrations() {return true;}
 
-    @Override
-    public boolean canBeAffected(MobEffectInstance effectInstance) {
+    @Override public boolean canBeAffected(MobEffectInstance effectInstance) {
         return false;
     }
 
-    public boolean hurt(DamageSource pSource, float pAmount) {
-        return this.shouldIgnoreDamage(pSource) ? false : super.hurt(pSource, pAmount);
+    public boolean hurt(DamageSource pSource, float pAmount) {return this.shouldIgnoreDamage(pSource) ? false : super.hurt(pSource, pAmount);}
+
+    @Override public boolean isPushable() {
+        return false;
     }
+
+    @Override public void push(Entity pEntity) {}
 
     // Geckolib & Animations
     @Override

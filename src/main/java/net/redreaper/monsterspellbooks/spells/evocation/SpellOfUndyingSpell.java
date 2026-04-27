@@ -43,8 +43,7 @@ public class SpellOfUndyingSpell extends AbstractSpell {
         this.baseManaCost = 10;
     }
 
-    @Override
-    public boolean allowLooting() {
+    @Override public boolean allowLooting() {
         return false;
     }
 

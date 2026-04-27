@@ -26,11 +26,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.BOOK_OF_SOULS.get());
                         output.accept(ModItems.FRENZY_KING_BOOK.get());
                         output.accept(ModItems.DISEASE_ENCYCLOPEDIA.get());
-                        output.accept(ModItems.REAPER_LANTERN.get());
-                        output.accept(ModItems.EYEBLOOSOM_STAFF.get());
-                        output.accept(ModItems.FROZEN_COMMANDER_STAFF.get());
                         output.accept(ModItems.VILENOVA_STAFF.get());
-                        output.accept(ModItems.BRIMSTONE_OROCHI.get());
                         output.accept(ModItems.GREAT_AXEBLADE.get());
                         output.accept(ModItems.MASTERS_KATANA.get());
                         output.accept(ModItems.DANCERS_SWORD.get());
@@ -61,25 +57,16 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DEATHSILVER_AXE.get());
                         output.accept(ModItems.POISON_BITER.get());
                         output.accept(ModItems.POISON_GLAIVE.get());
-                        output.accept(ModItems.NECROMANCER_TRIDENT.get());
                         output.accept(ModItems.FROST_FANG.get());
                         output.accept(ModItems.CLAWS_OF_CALAMITY.get());
-                        output.accept(ModItems.DUCHEES_SEWING_NEEDLE.get());
-                        output.accept(ModItems.DUKES_HEARTSTEALER.get());
-                        output.accept(ModItems.SWORD_OF_COURAGE.get());
                         output.accept(ModItems.PALLADIN_HAMMER.get());
-                        output.accept(ModItems.FROSTMOURNE.get());
                         output.accept(ModItems.MAGMATIC_MACUAHUITL.get());
                         output.accept(ModItems.STARLESS_NIGHT.get());
                         output.accept(ModItems.STARSCOURGE_SWORD.get());
                         output.accept(ModItems.DISRUPTION_NAGINATA.get());
                         output.accept(ModItems.ENDERSENT_CRUSHER.get());
-                        output.accept(ModItems.REAPER_SICKLE.get());
                         output.accept(ModItems.SNOW_BOW.get());
-                        output.accept(ModItems.RED_SNAKE_BOW.get());
 
-                        output.accept(ModItems.FIERCE_DEITY_MASK.get());
-                        output.accept(ModItems.MAJORAS_MASK.get());
                         output.accept(ModItems.WILDFIRE_CROWN.get());
                         output.accept(ModItems.FUNGAL_CAP_RED.get());
                         output.accept(ModItems.FUNGAL_CAP_BLUE.get());
@@ -134,22 +121,12 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DEATH_KNIGHT_LEGGINGS.get());
                         output.accept(ModItems.DEATH_KNIGHT_BOOTS.get());
 
-                        output.accept(ModItems.PALE_OBSERVER_MASK.get());
-                        output.accept(ModItems.PALE_OBSERVER_CHESTPLATE.get());
-                        output.accept(ModItems.PALE_OBSERVER_LEGGINGS.get());
-                        output.accept(ModItems.PALE_OBSERVER_BOOTS.get());
-
                         output.accept(ModItems.WITHERWARD_RING.get());
-                        output.accept(ModItems.WITHERED_TOTEM.get());
                         output.accept(ModItems.CRITICAL_GLASSES.get());
                         output.accept(ModItems.IGNITION_GLOVE.get());
                         output.accept(ModItems.THUNDERING_QUIVER.get());
                         output.accept(ModItems.BRIMSTONE_SIGIL.get());
-                        output.accept(ModItems.DREADHOUND_TOOTH_NECKLACE.get());
-                        output.accept(ModItems.DWARVEN_POWER_CORE.get());
                         output.accept(ModItems.OBSIDIAN_MEDAL.get());
-                        output.accept(ModItems.ORB_SOUL.get());
-                        output.accept(ModItems.BLIZZARD_CALLER.get());
                         output.accept(ModItems.CROSS_NECKLACE.get());
                     }).build());
 
@@ -190,20 +167,14 @@ public class ModCreativeTabs {
                         output.accept(ModItems.NETHER_PYRITE);
                         output.accept(ModItems.NETHER_RUBY);
 
-                        output.accept(ModItems.SPECTRITE_INGOT);
                         output.accept(ModItems.BLAZESTEEL_INGOT);
                         output.accept(ModItems.WITHER_ALLOY_INGOT);
                         output.accept(ModItems.WITHER_ALLOY_NUGGET);
                         output.accept(ModItems.VOID_MATTER);
                         output.accept(ModItems.VOID_OBSIDIAN_INGOT);
 
-                        output.accept(ModItems.RESIN_BRICK);
-                        output.accept(ModItems.RESIN_HEART);
                         output.accept(ModItems.HOMUNCULUS_BLOOD_ORB);
-                        output.accept(ModItems.ELECTRO_CORE);
                         output.accept(ModItems.DWARVEN_ALLOY_PLATE);
-                        output.accept(ModItems.DWARVEN_ALLOY_COG);
-                        output.accept(ModItems.DWARVEN_UPGRADE);
                         output.accept(ModItems.VILE_BONE);
                         output.accept(ModItems.RAW_SANGUINITE_VIAL);
                         output.accept(ModItems.PUTRESCENCE_VIAL);

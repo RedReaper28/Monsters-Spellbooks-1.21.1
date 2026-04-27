@@ -35,6 +35,7 @@ public class FrostBreathSpell extends AbstractSpell {
             .setSchoolResource(SchoolRegistry.ICE_RESOURCE)
             .setMaxLevel(1)
             .setCooldownSeconds(1)
+            .setAllowCrafting(false)
             .build();
 
     @Override
@@ -60,10 +61,6 @@ public class FrostBreathSpell extends AbstractSpell {
 
     public ResourceLocation getSpellResource() {
         return this.spellId;
-    }
-
-    public boolean allowCrafting() {
-        return false;
     }
 
     public boolean allowLooting() {

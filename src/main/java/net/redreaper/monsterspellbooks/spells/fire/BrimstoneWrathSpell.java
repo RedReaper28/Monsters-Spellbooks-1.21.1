@@ -50,32 +50,29 @@ public class BrimstoneWrathSpell extends AbstractSpell {
         this.manaCostPerLevel = 10;
         this.baseSpellPower = 15;
         this.spellPowerPerLevel = 10;
-        this.castTime = 50;
+        this.castTime = 50-5;
         this.baseManaCost = 25;
     }
 
-    @Override
-    public CastType getCastType() {
+    @Override public int getCastTime(int spellLevel) {
+        return castTime + 5 * spellLevel;
+    }
+
+    @Override public CastType getCastType() {
         return CastType.CONTINUOUS;
     }
 
-    @Override
-    public DefaultConfig getDefaultConfig() {
+    @Override public DefaultConfig getDefaultConfig() {
         return defaultConfig;
     }
 
-    @Override
-    public ResourceLocation getSpellResource() {
+    @Override public ResourceLocation getSpellResource() {
         return spellId;
     }
 
-    @Override
-    public Optional<SoundEvent> getCastStartSound() {
-        return Optional.of(ModSounds.BRIMSTONE_WRATH_FIRE.get());
-    }
+    @Override public Optional<SoundEvent> getCastStartSound() {return Optional.of(ModSounds.BRIMSTONE_WRATH_FIRE.get());}
 
-    @Override
-    public ICastDataSerializable getEmptyCastData() {
+    @Override public ICastDataSerializable getEmptyCastData() {
         return new CastingMobAimingData();
     }
 
@@ -92,15 +89,13 @@ public class BrimstoneWrathSpell extends AbstractSpell {
 
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        entity.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS,
-                80, 2, true, true, true));
+        entity.addEffect(new MobEffectInstance(ModMobEffects.FOCUS, 20, 2, true, true, true));
         CameraShakeManager.addCameraShake(new CameraShakeData(level, 30, entity.position(), 10));
-
         Vec3 forward = entity.getForward();
         if (playerMagicData.getAdditionalCastData() instanceof CastingMobAimingData aimData && entity instanceof Mob mob) {
             forward = aimData.getForward(entity);
         }
-        var hitResult = Utils.raycastForEntity(level, entity, entity.getEyePosition(), entity.getEyePosition().add(forward.scale(getRange(spellLevel))), true, .15f, Utils::canHitWithRaycast);
+        var hitResult = Utils.raycastForEntity(level, entity, entity.getEyePosition(), entity.getEyePosition().add(forward.scale(getRange(spellLevel))), true, .25f, Utils::canHitWithRaycast);
         if (hitResult.getType() == HitResult.Type.ENTITY) {
             Entity target = ((EntityHitResult) hitResult).getEntity();
             if (target instanceof LivingEntity) {
@@ -123,7 +118,7 @@ public class BrimstoneWrathSpell extends AbstractSpell {
 
     private float getTickDamage(int spellLevel, LivingEntity caster)
     {
-        return (float) (1 * getSpellPower(spellLevel, caster));
+        return 1 * getSpellPower(spellLevel, caster);
     }
 
     @Override
@@ -131,8 +126,7 @@ public class BrimstoneWrathSpell extends AbstractSpell {
         return mob.distanceToSqr(target) > (getRange(spellLevel) * getRange(spellLevel)) * 1.2;
     }
 
-    @Override
-    public AnimationHolder getCastStartAnimation() {
+    @Override public AnimationHolder getCastStartAnimation() {
         return SpellAnimations.ANIMATION_CONTINUOUS_CAST;
     }
 

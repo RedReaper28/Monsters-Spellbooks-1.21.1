@@ -10,6 +10,7 @@ import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.capabilities.magic.SyncedSpellData;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
+import io.redspace.ironsspellbooks.spells.CastingMobAimingData;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -19,6 +20,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -41,9 +43,7 @@ public class WitherNovaSpell extends AbstractSpell {
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
                 Component.translatable("ui.irons_spellbooks.damage", Utils.stringTruncation(getDamage(spellLevel, caster), 2)),
-                Component.translatable("ui.irons_spellbooks.distance", Utils.stringTruncation(getRange(spellLevel, caster), 1)),
-                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(spellLevel, caster), 2))
-        );
+                Component.translatable("ui.irons_spellbooks.distance", Utils.stringTruncation(getRange(spellLevel), 1)));
     }
 
     private final DefaultConfig defaultConfig = new DefaultConfig()
@@ -87,50 +87,28 @@ public class WitherNovaSpell extends AbstractSpell {
     }
 
     @Override
-    public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        super.onCast(world, spellLevel, entity, castSource, playerMagicData);
-    }
+    public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
+        entity.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS, 80, 2, true, true, true));
+        entity.addEffect(new MobEffectInstance(ModMobEffects.FOCUS, 20, 2, true, true, true));
 
-    @Override
-    public void onServerCastTick(Level level, int spellLevel, LivingEntity entity, @Nullable MagicData playerMagicData) {
-        if (playerMagicData != null && (playerMagicData.getCastDurationRemaining() + 1) % 5 == 0) {
-            shot(level, spellLevel, entity);
-        }
-    }
-
-    public void shot(Level level, int spellLevel, @NotNull LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS,
-                80, 2, true, true, true));
-        entity.addEffect(new MobEffectInstance(ModMobEffects.FOCUS,
-                getCastTime(spellLevel), 2, false, false, false));
         CameraShakeManager.addCameraShake(new CameraShakeData(level, 30, entity.position(), 10));
-
-        var hitResult = Utils.raycastForEntity(level, entity, getRange(spellLevel, entity), true, .50f);
-        level.addFreshEntity(new WitherNovaVisualEntity(level, entity.getEyePosition(), hitResult.getLocation(), entity));
+        Vec3 forward = entity.getForward();
+        if (playerMagicData.getAdditionalCastData() instanceof CastingMobAimingData aimData && entity instanceof Mob mob) {
+            forward = aimData.getForward(entity);
+        }
+        var hitResult = Utils.raycastForEntity(level, entity, entity.getEyePosition(), entity.getEyePosition().add(forward.scale(getRange(spellLevel))), true, .50f, Utils::canHitWithRaycast);
         if (hitResult.getType() == HitResult.Type.ENTITY) {
-            int i = getDuration(spellLevel, entity);
             Entity target = ((EntityHitResult) hitResult).getEntity();
             if (target instanceof LivingEntity) {
-                DamageSources.applyDamage(target, this.getDamage(spellLevel, entity), this.getDamageSource(entity));
-                ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.SOUL_ROT,i,0, false, true, true));
-                ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.SOUL_REND,i,getAmplifier(spellLevel, entity), false, true, true));
-                MagicManager.spawnParticles(level, ParticleHelper.ENDER_SPARKS, hitResult.getLocation().x, target.getY(), hitResult.getLocation().z, 4, 0, 0, 0, .3, true);
+                if (DamageSources.applyDamage(target, getDamage(spellLevel, entity), getDamageSource(entity))) {
+                    ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.SOUL_REND,20,0, false, true, true));
+                }
             }
-        } else if (hitResult.getType() == HitResult.Type.BLOCK) {
-            MagicManager.spawnParticles(level, ParticleHelper.VOID_TENTACLE_FOG, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z, 4, 0, 0, 0, .3, true);
         }
-        MagicManager.spawnParticles(level, ParticleHelper.VOID_TENTACLE_FOG, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z, 50, 0, 0, 0, .3, false);
+        super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 
-    public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) (getSpellPower(spellLevel, caster) * 5);
-    }
-
-    public int getAmplifier(int spellLevel, LivingEntity entity) {
-        return 2 + (spellLevel - 1) / 4;
-    }
-
-    public static float getRange(int level, LivingEntity caster) {
+    public static float getRange(int level) {
         return 100;
     }
 
@@ -156,5 +134,4 @@ public class WitherNovaSpell extends AbstractSpell {
     public boolean allowLooting() {
         return false;
     }
-
 }

@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.living.PoisonQuillVineEntity;
+import net.redreaper.monsterspellbooks.entity.living.summons.PoisonQuillVineEntity;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;

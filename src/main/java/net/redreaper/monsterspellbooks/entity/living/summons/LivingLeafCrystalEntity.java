@@ -1,4 +1,4 @@
-package net.redreaper.monsterspellbooks.entity.living;
+package net.redreaper.monsterspellbooks.entity.living.summons;
 
 import io.redspace.ironsspellbooks.api.entity.IMagicEntity;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
@@ -7,7 +7,6 @@ import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 import io.redspace.ironsspellbooks.entity.mobs.goals.*;
 import io.redspace.ironsspellbooks.util.OwnerHelper;
-import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.acetheeldritchking.aces_spell_utils.entity.mobs.UniqueAbstractSpellCastingMob;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.DifficultyInstance;
@@ -16,14 +15,13 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.control.LookControl;
-import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.util.GeckoLibUtil;
@@ -31,84 +29,34 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.List;
 import java.util.UUID;
 
-public class PoisonQuillVineEntity extends UniqueAbstractSpellCastingMob implements IMagicSummon, GeoAnimatable, IMagicEntity {
-
+public class LivingLeafCrystalEntity extends UniqueAbstractSpellCastingMob implements IMagicSummon, GeoAnimatable, IMagicEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     protected LivingEntity cachedSummoner;
     protected UUID summonerUUID;
 
-    public PoisonQuillVineEntity(EntityType<? extends PathfinderMob> pEntityType, Level pLevel) {
+    public LivingLeafCrystalEntity(EntityType<? extends PathfinderMob> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         xpReward = 0;
-        this.lookControl = createLookControl();
-        this.moveControl = createMoveControl();
     }
 
-    public PoisonQuillVineEntity(Level level, LivingEntity owner) {
-        this(ModEntities.POISON_QUILL_VINE.get(), level);
-    }
-
-    protected LookControl createLookControl()
-    {
-        return new LookControl(this)
-        {
-            @Override
-            protected float rotateTowards(float from, float to, float maxDelta) {
-                return super.rotateTowards(from, to, maxDelta * 2.5F);
-            }
-
-            @Override
-            protected boolean resetXRotOnTick() {
-                return getTarget() == null;
-            }
-        };
-    }
-
-    protected MoveControl createMoveControl()
-    {
-        return new MoveControl(this)
-        {
-            @Override
-            protected float rotlerp(float sourceAngle, float targetAngle, float maximumChange) {
-                double x = this.wantedX - this.mob.getX();
-                double z = this.wantedZ - this.mob.getZ();
-
-                if (x * x + z * z < 0.5F)
-                {
-                    return sourceAngle;
-                }
-                else
-                {
-                    return super.rotlerp(sourceAngle, targetAngle, maximumChange * 0.25F);
-                }
-            }
-        };
+    public LivingLeafCrystalEntity(Level level, LivingEntity owner) {
+        this(ModEntities.LIVING_LEAF_CRYSTAL.get(), level);
     }
 
     @Override
     public @org.jetbrains.annotations.Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @org.jetbrains.annotations.Nullable SpawnGroupData spawnGroupData) {
-        this.setNoGravity(false);
+        this.setNoGravity(true);
         return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
     }
 
     @Override
     protected void registerGoals() {
-
         this.goalSelector.addGoal(3, new WizardAttackGoal(this, 1.25f, 30, 55)
                 .setSpells(
-                        // Attack
-                        List.of(
-                                ModSpellRegistry.POISON_QUILL.get()
-                        ),
-                        // Defense
-                        List.of(
-                        ),
-                        // Movement
-                        List.of(
-                        ),
-                        // Support
-                        List.of(
-                        )
+                        List.of(ModSpellRegistry.VITAL_BLAST.get()),
+                        List.of(),
+                        List.of(),
+                        List.of()
                 )
                 .setSpellQuality(1.0f, 1.0f)
                 .setIsFlying()
@@ -125,17 +73,15 @@ public class PoisonQuillVineEntity extends UniqueAbstractSpellCastingMob impleme
         this.targetSelector.addGoal(4, (new GenericHurtByTargetGoal(this, (entity) -> entity == getSummoner())).setAlertOthers());
     }
 
-    public static AttributeSupplier.Builder createAttributes()
-    {
+    public static AttributeSupplier.Builder createAttributes() {
         return LivingEntity.createLivingAttributes()
                 .add(Attributes.ATTACK_DAMAGE, 10.5)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 100.0)
                 .add(Attributes.MAX_HEALTH, 50.0)
-                .add(Attributes.FOLLOW_RANGE, 45.0)
+                .add(Attributes.FOLLOW_RANGE, 25.0)
                 .add(Attributes.ENTITY_INTERACTION_RANGE, 3.0)
                 .add(Attributes.MOVEMENT_SPEED, 0)
-                .add(AttributeRegistry.SPELL_POWER, 1)
-                .add(AttributeRegistry.SPELL_RESIST, 1)
+                .add(Attributes.GRAVITY, 0)
                 ;
     }
 
@@ -157,9 +103,8 @@ public class PoisonQuillVineEntity extends UniqueAbstractSpellCastingMob impleme
 
     @Override
     public void onUnSummon() {
-        if (!this.level().isClientSide)
-        {
-            MagicManager.spawnParticles(this.level(), ParticleHelper.POISON_CLOUD,
+        if (!this.level().isClientSide) {
+            MagicManager.spawnParticles(this.level(), ModParticleHelper.VITAL_SPARKS,
                     getX(), getY(), getZ(),
                     25, 0.4, 0.8, 0.4, 0.03, false);
             discard();
@@ -168,7 +113,7 @@ public class PoisonQuillVineEntity extends UniqueAbstractSpellCastingMob impleme
 
     @Override
     public boolean doHurtTarget(Entity entity) {
-        return Utils.doMeleeAttack(this, entity, ModSpellRegistry.SUMMON_POISON_VINE.get().getDamageSource(this, getSummoner()));
+        return Utils.doMeleeAttack(this, entity, ModSpellRegistry.LEAF_CRYSTAL.get().getDamageSource(this, getSummoner()));
     }
 
     @Override
@@ -177,31 +122,70 @@ public class PoisonQuillVineEntity extends UniqueAbstractSpellCastingMob impleme
     }
 
     @Override
-    public boolean canBeAffected(MobEffectInstance effectInstance) {
+    public boolean canBeAffected(MobEffectInstance effectInstance) {return false;}
+
+    public boolean hurt(DamageSource pSource, float pAmount) {return !this.shouldIgnoreDamage(pSource) && super.hurt(pSource, pAmount);}
+
+    public boolean isPushedByFluid() {
         return false;
     }
 
-    public boolean hurt(DamageSource pSource, float pAmount) {
-        return this.shouldIgnoreDamage(pSource) ? false : super.hurt(pSource, pAmount);
+    public boolean isOnFire() {
+        return false;
     }
 
-    // Geckolib & Animations
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.cache;
+    public boolean canCollideWith(Entity entity) {
+        return true;
     }
 
-    // NBT
-    @Override
-    public void readAdditionalSaveData(CompoundTag pCompound) {
-        super.readAdditionalSaveData(pCompound);
-        this.summonerUUID = OwnerHelper.deserializeOwner(pCompound);
+    public boolean canBeHitByProjectile() {
+        return true;
     }
 
-    @Override
-    public void addAdditionalSaveData(CompoundTag pCompound) {
-        super.addAdditionalSaveData(pCompound);
-        OwnerHelper.serializeOwner(pCompound, summonerUUID);
+    public boolean isPushable() {
+        return false;
     }
-}
+
+    public void push(Entity pEntity) {}
+
+    public boolean canBeCollidedWith() {
+        return false;
+    }
+
+    public boolean canChangeDimensions(Level oldLevel, Level newLevel) {
+        return false;
+    }
+
+    public void tick() {
+        super.tick();
+        if (this.getSummoner() != null) {
+            var owner = this.getSummoner();
+            this.setPos(owner.getX(), owner.getY()+2, owner.getZ());
+        }
+
+        if (this.getSummoner() != null && !this.getSummoner().isAlive()) {
+            this.discard();
+        }
+    }
+
+        // Geckolib & Animations
+        @Override
+        public AnimatableInstanceCache getAnimatableInstanceCache () {
+            return this.cache;
+        }
+
+        // NBT
+        @Override
+        public void readAdditionalSaveData (CompoundTag pCompound){
+            super.readAdditionalSaveData(pCompound);
+            this.summonerUUID = OwnerHelper.deserializeOwner(pCompound);
+        }
+
+        @Override
+        public void addAdditionalSaveData (CompoundTag pCompound){
+            super.addAdditionalSaveData(pCompound);
+            OwnerHelper.serializeOwner(pCompound, summonerUUID);
+        }
+    }
+
 
