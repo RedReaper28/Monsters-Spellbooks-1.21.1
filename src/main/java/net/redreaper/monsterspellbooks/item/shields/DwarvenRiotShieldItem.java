@@ -4,7 +4,6 @@ import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.entity.spells.ChainLightning;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
-import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -18,6 +17,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingShieldBlockEvent;
 import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.item.extended.magic_shield.ExtendedShieldItem;
+import net.redreaper.monsterspellbooks.utils.ModRarities;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -28,27 +28,28 @@ public class DwarvenRiotShieldItem extends ExtendedShieldItem {
     public static final int PASSIVE_COOLDOWN = 15 * 20;
 
     public DwarvenRiotShieldItem() {
-        super(ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.FORBIDDEN_RARITY_PROXY.getValue()));
+        super(ItemPropertiesHelper.equipment(1).fireResistant().rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()));
     }
 
     @SubscribeEvent
     public static void onDamageBlock(LivingShieldBlockEvent event) {
-        LivingEntity entityTarget = event.getEntity();
-        Entity entityAttacker = event.getDamageSource().getDirectEntity();
-        ItemStack offhandItem = entityTarget.getOffhandItem();
-        if (offhandItem.getItem() instanceof DwarvenRiotShieldItem && (!(entityTarget instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.DWARVEN_SHIELD.get()))) {
-            if (entityTarget instanceof LivingEntity livingAttacker) {
-                double baseDamage = damageFor(entityTarget);
-                ChainLightning chainLightning = new ChainLightning(livingAttacker.level(), livingAttacker, entityTarget);
+        LivingEntity entityBlocker = event.getEntity();
+        ItemStack offhandItem = entityBlocker.getOffhandItem();
+        if (offhandItem.getItem() instanceof DwarvenRiotShieldItem && (!(entityBlocker instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.DWARVEN_SHIELD.get()))) {
+            if (entityBlocker.isCrouching()){
+            if (entityBlocker instanceof LivingEntity livingAttacker) {
+                double baseDamage = damageFor(entityBlocker);
+                ChainLightning chainLightning = new ChainLightning(livingAttacker.level(), livingAttacker, entityBlocker);
                 chainLightning.setDamage((float) baseDamage);
                 chainLightning.range = 15;
                 chainLightning.maxConnections = 5;
                 livingAttacker.level().addFreshEntity(chainLightning);
             }
 
-            if (entityTarget instanceof Player player) {
-                player.getCooldowns().getCooldownPercent(ModItems.DWARVEN_SHIELD.get(), DwarvenRiotShieldItem.PASSIVE_COOLDOWN);
+            if (entityBlocker instanceof Player player) {
+                player.getCooldowns().addCooldown(ModItems.DWARVEN_SHIELD.get(), DwarvenRiotShieldItem.PASSIVE_COOLDOWN);
             }
+        }
         }
     }
 
@@ -64,7 +65,7 @@ public class DwarvenRiotShieldItem extends ExtendedShieldItem {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
         if (Screen.hasShiftDown()) {
             tooltipComponents.add(Component.translatable("tooltip.irons_spellbooks.passive_ability", new Object[]{Component.literal(Utils.timeFromTicks((float)this.getPassiveCooldownTicks(), 1)).withStyle(ChatFormatting.LIGHT_PURPLE)}).withStyle(ChatFormatting.DARK_PURPLE));
-            tooltipComponents.add(Component.literal(" ").append(Component.translatable(this.getDescriptionId() + ".desc")).withStyle(ChatFormatting.BLUE));
+            tooltipComponents.add(Component.literal(" ").append(Component.translatable(this.getDescriptionId() + ".desc")).withStyle(ChatFormatting.AQUA));
         }
         else {
             tooltipComponents.add(Component.translatable("item.aces_spell_utils.more_details1").withStyle(ChatFormatting.GRAY));

@@ -13,6 +13,18 @@ public class ModDispatcher {
             AzPlayBehaviors.LOOP
     );
 
+    private static final AzCommand ELYTRA_FLIGHT_COMMAND = AzCommand.create(
+            "base_controller",
+            "flying",
+            AzPlayBehaviors.LOOP
+    );
+
+    private static final AzCommand SHIELD_BLOCKING_COMMAND = AzCommand.create(
+            "base_controller",
+            "blocking",
+            AzPlayBehaviors.LOOP
+    );
+
     public void idle(Entity entity, ItemStack itemStack) {
         IDLE_COMMAND.sendForItem(entity, itemStack);
     }

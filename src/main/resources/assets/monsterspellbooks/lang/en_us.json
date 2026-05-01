@@ -210,12 +210,14 @@
   "item.monsterspellbooks.disease_encyclopedia": "Encyclopedia of Diseases",
   "item.monsterspellbooks.disease_encyclopedia.desc": "Inflict one of 10 random debuffs when causing damage",
   "item.monsterspellbooks.reaper_lantern": "Reaper Lantern",
+
+  "item.monsterspellbooks.dwarven_shield": "Dwarven Riot Shield",
+  "item.monsterspellbooks.dwarven_shield.desc": "Blocking while croutching releases a burst of energy and forces the shield to recharge",
+
   "item.monsterspellbooks.witherward_ring": "WitherWard Ring",
   "item.monsterspellbooks.witherward_ring.desc": "Grants wither immunity",
-
   "item.monsterspellbooks.withered_totem": "Wither Totem",
   "item.monsterspellbooks.withered_totem.desc": "Turns Wither Bomb into a 3 charge recastable spell",
-
   "item.monsterspellbooks.critical_glasses": "Critical Sorcerer Glasses",
   "item.monsterspellbooks.critical_glasses.desc": "This glasses help you see your opponents weak spot and deal devastating critical damage with your sorcery",
   "item.monsterspellbooks.ignition_gloves": "Ignition Gloves",
