@@ -8,12 +8,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
-import net.redreaper.monsterspellbooks.item.weapons.magic_bow.ImbueableBowItem;
+import net.redreaper.monsterspellbooks.item.extended.magic_bow.ImbueableBowItem;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class RedSnakeBowItem extends ImbueableBowItem {
+    public static final int COOLDOWN = 15 * 20;
     public RedSnakeBowItem() {
         super(ModExtendedWeaponTiers.RED_SNAKE,
                 ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.ARID_RARITY_PROXY.getValue())

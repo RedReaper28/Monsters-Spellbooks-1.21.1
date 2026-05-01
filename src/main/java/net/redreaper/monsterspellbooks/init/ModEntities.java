@@ -20,6 +20,7 @@ import net.redreaper.monsterspellbooks.entity.living.summons.*;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlash;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_lightning_lance.AncientLightningLanceProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_lightning_lance.StaticField;
+import net.redreaper.monsterspellbooks.entity.spells.at_shield.AtShield;
 import net.redreaper.monsterspellbooks.entity.spells.blast_fungus.BlastFungusProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.blizzard_aspect.PowderSnowSplash;
 import net.redreaper.monsterspellbooks.entity.spells.blizzard_aspect.SnowCloud;
@@ -32,6 +33,7 @@ import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.SmallBrimsto
 import net.redreaper.monsterspellbooks.entity.spells.bubble_spray.BubbleSprayProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouch;
 import net.redreaper.monsterspellbooks.entity.spells.dragon_charge.DragonChargeProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.effervescence_bubble.EffervescenceBubbleProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.elthor.ElthorBeamEntity;
 import net.redreaper.monsterspellbooks.entity.spells.forceful_wind.ForcefulWindProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstVisualEntity;
@@ -45,7 +47,7 @@ import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSword
 import net.redreaper.monsterspellbooks.entity.spells.infection_slash.InfectionSlashProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.ink_bomb.InkBombProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.leaf_crystal.LeafCrystalEntity;
-import net.redreaper.monsterspellbooks.entity.spells.life_drain.SoulRiverProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.life_drain.LifeDrainProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.napalm_orb.NapalmOrb;
 import net.redreaper.monsterspellbooks.entity.spells.obsidian_arsenal.ObsidianArrowProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.obsidian_arsenal.ObsidianArrowVolleyEntity;
@@ -54,6 +56,7 @@ import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerPro
 import net.redreaper.monsterspellbooks.entity.spells.pale_thorn.PaleThornVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.plasma_barrage.PlasmaBolt;
 import net.redreaper.monsterspellbooks.entity.spells.poison_quill.PoisonQuillProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.predatory_scream.PredatoryScreamProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceField;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMass;
 import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoProjectile;
@@ -61,6 +64,7 @@ import net.redreaper.monsterspellbooks.entity.spells.rancorcall.RancorSkull;
 import net.redreaper.monsterspellbooks.entity.spells.razorblade_typhoon.RazorbladeTyphoonProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.redstone_mines.RedstoneMinesProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.SanguiniteEvisceration;
+import net.redreaper.monsterspellbooks.entity.spells.soul_casting_field.SoulCastingFieldAOE;
 import net.redreaper.monsterspellbooks.entity.spells.soul_chain.SoulChain;
 import net.redreaper.monsterspellbooks.entity.spells.soul_firebolt.SoulFireBoltProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.soul_scorch.SoulFireField;
@@ -92,6 +96,18 @@ import static net.minecraft.core.registries.Registries.ENTITY_TYPE;
 public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SoulCastingFieldAOE>>SOUL_CASTING_FIELD =
+            ENTITIES.register("soul_casting_field", () -> EntityType.Builder.<SoulCastingFieldAOE>of(SoulCastingFieldAOE::new, MobCategory.MISC)
+                    .sized(7f, 1.2f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "soul_casting_field").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<AtShield>>AT_SHIELD =
+            ENTITIES.register("at_shield", () -> EntityType.Builder.<AtShield>of(AtShield::new, MobCategory.MISC)
+                    .sized(2, 3)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "at_shield").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<RedstoneMinesProjectile>> REDSTONE_MINES =
             ENTITIES.register("redstone_mines", () -> EntityType.Builder.<RedstoneMinesProjectile>of(RedstoneMinesProjectile::new, MobCategory.MISC)
@@ -445,8 +461,15 @@ public class ModEntities {
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "spectral_blast").toString()));
-    public static final DeferredHolder<EntityType<?>, EntityType<SoulRiverProjectile>> SOUL_RIVER_PROJECTILE =
-            ENTITIES.register("life_drain", () -> EntityType.Builder.<SoulRiverProjectile>of(SoulRiverProjectile::new, MobCategory.MISC)
+
+    public static final DeferredHolder<EntityType<?>, EntityType<PredatoryScreamProjectile>> PREDATORY_SCREAM =
+            ENTITIES.register("predatory_scream", () -> EntityType.Builder.<PredatoryScreamProjectile>of(PredatoryScreamProjectile::new, MobCategory.MISC)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "predatory_scream").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<LifeDrainProjectile>> SOUL_RIVER_PROJECTILE =
+            ENTITIES.register("life_drain", () -> EntityType.Builder.<LifeDrainProjectile>of(LifeDrainProjectile::new, MobCategory.MISC)
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "life_drain").toString()));
@@ -511,6 +534,12 @@ public class ModEntities {
                     .sized(0.75F, 0.75F)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "putrescence_mass").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<EffervescenceBubbleProjectile>> EFFERVESCENCE_BUBBLE =
+            ENTITIES.register("effervescence_bubble", () -> EntityType.Builder.<EffervescenceBubbleProjectile>of(EffervescenceBubbleProjectile::new, MobCategory.MISC)
+                    .sized(0.75F, 0.75F)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "effervescence_bubble").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<BlastFungusProjectile>> BLAST_FUNGUS_PROJECTILE =
             ENTITIES.register("blast_fungus_projectile", () -> EntityType.Builder.<BlastFungusProjectile>of(BlastFungusProjectile::new, MobCategory.MISC)

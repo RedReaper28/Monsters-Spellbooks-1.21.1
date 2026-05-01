@@ -29,6 +29,6 @@ public class PoisonQuillRenderer extends GeoEntityRenderer<PoisonQuillProjectile
     }
 
     public RenderType getRenderType(PoisonQuillProjectile animatable, ResourceLocation texture, @Nullable MultiBufferSource bufferSource, float partialTick) {
-        return RenderType.eyes(texture);
+        return RenderType.entityCutout(texture);
     }
 }

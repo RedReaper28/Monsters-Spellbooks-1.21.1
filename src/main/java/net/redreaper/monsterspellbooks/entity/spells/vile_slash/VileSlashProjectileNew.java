@@ -89,7 +89,6 @@ public class VileSlashProjectileNew extends AbstractMagicProjectile implements G
         MagicManager.spawnParticles(level(), ModParticleHelper.REAPER_FIRE, this.getX(), this.getY(), this.getZ(), 1, 0, 0, 0, 0.1, true);
     }
 
-
     private PlayState predicate(AnimationState event) {
         event.getController().setAnimation(this.idle);
         return PlayState.CONTINUE;

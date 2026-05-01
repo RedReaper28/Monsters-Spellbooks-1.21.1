@@ -1,6 +1,5 @@
 package net.redreaper.monsterspellbooks.item.weapons;
 
-import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
@@ -9,7 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
-import net.redreaper.monsterspellbooks.item.weapons.magic_bow.ImbueableBowItem;
+import net.redreaper.monsterspellbooks.item.extended.magic_bow.ImbueableBowItem;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;

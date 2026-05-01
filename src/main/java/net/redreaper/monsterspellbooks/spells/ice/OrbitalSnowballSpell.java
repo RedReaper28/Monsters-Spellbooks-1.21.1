@@ -32,6 +32,7 @@ public class OrbitalSnowballSpell extends AbstractSpell {
             .setSchoolResource(SchoolRegistry.ICE_RESOURCE)
             .setMaxLevel(1)
             .setCooldownSeconds(40)
+            .setAllowCrafting(false)
             .build();
 
     public OrbitalSnowballSpell() {
@@ -41,6 +42,8 @@ public class OrbitalSnowballSpell extends AbstractSpell {
         this.castTime = 40;
         this.baseManaCost = 100;
     }
+
+    public boolean allowLooting() {return false;}
 
     public CastType getCastType() {
         return CastType.LONG;

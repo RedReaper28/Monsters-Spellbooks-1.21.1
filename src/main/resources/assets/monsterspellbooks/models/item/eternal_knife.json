@@ -1,0 +1,19 @@
+{
+  "parent": "item/handheld",
+  "render_type": "cutout",
+  "textures": {
+    "layer0": "monsterspellbooks:item/eternal_knife",
+    "layer1": "monsterspellbooks:item/eternal_knife_e"
+  },
+  "loader": "neoforge:item_layers",
+  "neoforge_data": {
+    "layers": {
+      "1": {
+        "color": "FFFFFFFF",
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      }
+    }
+  }
+}

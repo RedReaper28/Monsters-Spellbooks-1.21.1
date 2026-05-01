@@ -17,7 +17,7 @@ public class ModCreativeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MonstersSpellbooks.MOD_ID);
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_GEAR_TAB=CREATIVE_MODE_TAB.register("monsters_and_gear_tab",
-            ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModItems.WITHERWARD_RING.get()))
+            ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModItems.BOOK_OF_SOULS.get()))
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_gear"))
                     .displayItems((itemDisplayParameters, output) ->{
                         output.accept(ModItems.ENCHANTING_TOME.get());
@@ -33,6 +33,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.PRISMARINE_CLAYMORE.get());
                         output.accept(ModItems.PRISMARINE_AXE.get());
                         output.accept(ModItems.CULTIST_KNIFE.get());
+                        output.accept(ModItems.ETERNAL_KNIFE.get());
                         output.accept(ModItems.WHITE_GOLD_PICKAXE.get());
                         output.accept(ModItems.WHITE_GOLD_AXE.get());
                         output.accept(ModItems.WHITE_GOLD_SHOVEL.get());
@@ -62,6 +63,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.PALLADIN_HAMMER.get());
                         output.accept(ModItems.MAGMATIC_MACUAHUITL.get());
                         output.accept(ModItems.STARLESS_NIGHT.get());
+                        output.accept(ModItems.VOID_TOUCHED_BLADE.get());
                         output.accept(ModItems.STARSCOURGE_SWORD.get());
                         output.accept(ModItems.DISRUPTION_NAGINATA.get());
                         output.accept(ModItems.ENDERSENT_CRUSHER.get());
@@ -121,6 +123,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DEATH_KNIGHT_LEGGINGS.get());
                         output.accept(ModItems.DEATH_KNIGHT_BOOTS.get());
 
+                        output.accept(ModItems.DWARVEN_SHIELD.get());
+
                         output.accept(ModItems.WITHERWARD_RING.get());
                         output.accept(ModItems.CRITICAL_GLASSES.get());
                         output.accept(ModItems.IGNITION_GLOVE.get());
@@ -131,7 +135,7 @@ public class ModCreativeTabs {
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_MATERIALS_TAB=CREATIVE_MODE_TAB.register("monsters_and_materials_tab",
-            ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModItems.SCORCHED_METAL_INGOT.get()))
+            ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModItems.VILE_BONE.get()))
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID,"monsters_and_gear_tab"))
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_materials"))
                     .displayItems((itemDisplayParameters, output) ->{
@@ -209,7 +213,7 @@ public class ModCreativeTabs {
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_BLOCKS_TAB=CREATIVE_MODE_TAB.register("monsters_and_blocks_tab",
-            ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModBlocks.SCORCHED_METAL_BLOCK.get()))
+            ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModBlocks.SPECTRITE_BLOCK.get()))
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID,"monsters_and_materials_tab"))
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_blocks"))
                     .displayItems((itemDisplayParameters, output) ->{

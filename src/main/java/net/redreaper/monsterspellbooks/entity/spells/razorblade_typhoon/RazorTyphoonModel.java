@@ -1,8 +1,6 @@
 package net.redreaper.monsterspellbooks.entity.spells.razorblade_typhoon;
 
 import net.minecraft.resources.ResourceLocation;
-import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoProjectile;
-import net.redreaper.monsterspellbooks.entity.spells.wither_bomb.WitherBombProjectile;
 import software.bernie.geckolib.model.GeoModel;
 
 public class RazorTyphoonModel extends GeoModel<RazorbladeTyphoonProjectile> {

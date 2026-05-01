@@ -12,11 +12,13 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
 public class LeafCrystalRenderer extends GeoEntityRenderer<LeafCrystalEntity> {
     public LeafCrystalRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new LeafCrystalModel());
         this.shadowRadius = 0.0F;
+        this.addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 
     public void preRender(PoseStack poseStack, LeafCrystalEntity animatable, BakedGeoModel model, @Nullable MultiBufferSource bufferSource, @Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour) {

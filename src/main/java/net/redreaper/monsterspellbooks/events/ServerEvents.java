@@ -1,12 +1,14 @@
 package net.redreaper.monsterspellbooks.events;
 
-import dev.kosmx.playerAnim.core.impl.event.EventResult;
 import io.redspace.ironsspellbooks.api.entity.IMagicEntity;
 import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
+import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
+import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import io.redspace.ironsspellbooks.effect.ImmolateEffect;
+import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import net.acetheeldritchking.aces_spell_utils.utils.ASUtils;
 import net.minecraft.network.chat.Component;
@@ -16,12 +18,15 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -32,10 +37,16 @@ import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.redreaper.monsterspellbooks.effect.HemorrhageMobEffect;
 import net.redreaper.monsterspellbooks.effect.StaticMobEffect;
+import net.redreaper.monsterspellbooks.effect.VoidTouchedEffect;
 import net.redreaper.monsterspellbooks.init.ModDamageTypes;
 import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
+import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.DiseaseEncyclopediaItem;
+import net.redreaper.monsterspellbooks.item.weapons.EternalKnifeItem;
+import net.redreaper.monsterspellbooks.item.weapons.ReaperSickle;
+import net.redreaper.monsterspellbooks.item.weapons.VoidTouchedBladeItem;
+import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlItem;
 
 import java.util.Objects;
 
@@ -164,17 +175,103 @@ public class ServerEvents {
 
                 // SnowBow
                 if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.SNOW_BOW)) {
-                    if (event.getSource().is(DamageTypeTags.IS_PROJECTILE))
+                    if (event.getSource().is(DamageTypes.ARROW))
                         Utils.addFreezeTicks(target, 120);
                 }
 
                 // RedSnake
                 if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.RED_SNAKE_BOW)) {
                     int randomNum = (int) (Math.random() * 5); // 0 to 10
-                    if (event.getSource().is(DamageTypeTags.IS_PROJECTILE))
+                    if (event.getSource().is(DamageTypes.ARROW))
                         if (randomNum ==1 ) {
                             ImmolateEffect.addImmolateStack(target, sourceEntity);
                         }
+                }
+            }
+        }
+        if (sourceEntity instanceof LivingEntity livingEntity)
+        {
+            ItemStack mainhandItem = livingEntity.getMainHandItem();
+            ItemStack offhandItem = livingEntity.getOffhandItem();
+            if (mainhandItem.getItem() instanceof EternalKnifeItem && (!(livingEntity instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.ETERNAL_KNIFE.get())))
+            {
+                // Etneral Knife - Entities with over 25% of their health are inflicted with Mana Rend
+                final float MAX_HEALTH = target.getMaxHealth();
+                float baseHealth = target.getHealth();
+                double percent = (baseHealth/MAX_HEALTH) * 100;
+
+                if (percent > 25)
+                {
+                    MagicManager.spawnParticles(target.level(), new BlastwaveParticleOptions(ModSpellSchools.NECRO.get().getTargetingColor(), 1.5f), target.getX(), target.getY() + 0.165F, target.getZ(), 1, 0, 0, 0, 0, true);
+                    if (target instanceof LivingEntity livingTarget)
+                    {
+                        livingTarget.addEffect(new MobEffectInstance(ModMobEffects.SOUL_REND, 8*20, 1, true, true, true));
+                    }
+
+                    if (livingEntity instanceof Player player)
+                    {
+                        player.getCooldowns().addCooldown(ModItems.ETERNAL_KNIFE.get(), EternalKnifeItem.COOLDOWN);
+                    }
+                }
+            }
+
+            if (mainhandItem.getItem() instanceof MagmaticMacuahuitlItem && (!(livingEntity instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.MAGMATIC_MACUAHUITL.get())))
+            {
+                // Magmatic Macuahuitl - Hit enemies are inflicted with Rend
+                {
+                    MagicManager.spawnParticles(target.level(), new BlastwaveParticleOptions(SchoolRegistry.FIRE.get().getTargetingColor(), 1.5f), target.getX(), target.getY() + 0.165F, target.getZ(), 1, 0, 0, 0, 0, true);
+                    if (target instanceof LivingEntity livingTarget)
+                    {
+                        livingTarget.addEffect(new MobEffectInstance(MobEffectRegistry.REND, 10*20, 6, true, true, true));
+                    }
+
+                    if (livingEntity instanceof Player player)
+                    {
+                        player.getCooldowns().addCooldown(ModItems.MAGMATIC_MACUAHUITL.get(), MagmaticMacuahuitlItem.COOLDOWN);
+                    }
+                }
+            }
+
+            if (mainhandItem.getItem() instanceof VoidTouchedBladeItem && (!(livingEntity instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.VOID_TOUCHED_BLADE.get())))
+            {
+                // Void Touched Blade - Hit enemies get a stack of Void Touched
+                {
+                    MagicManager.spawnParticles(target.level(), new BlastwaveParticleOptions(SchoolRegistry.ENDER.get().getTargetingColor(), 1.5f), target.getX(), target.getY() + 0.165F, target.getZ(), 1, 0, 0, 0, 0, true);
+                    if (target instanceof LivingEntity livingTarget)
+                    {
+                        VoidTouchedEffect.addVoidStack(livingTarget, livingEntity);
+                    }
+
+                    if (livingEntity instanceof Player player)
+                    {
+                        player.getCooldowns().addCooldown(ModItems.VOID_TOUCHED_BLADE.get(), VoidTouchedBladeItem.COOLDOWN);
+                    }
+                }
+            }
+        }
+    }
+
+
+    @SubscribeEvent
+    public static void onLivingDeathEvent(LivingDeathEvent event)
+    {
+        LivingEntity target = event.getEntity();
+        Entity attacker = event.getSource().getEntity();
+
+        if (attacker instanceof LivingEntity livingAttacker)
+        {
+            ItemStack mainhandItem = livingAttacker.getMainHandItem();
+
+            // Reaper Sickle
+            if (mainhandItem.getItem() instanceof ReaperSickle && (!(attacker instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.REAPER_SICKLE.get())))
+            {
+                if (target instanceof LivingEntity livingTarget)
+                {
+                    livingAttacker.addEffect(new MobEffectInstance(MobEffectRegistry.INSTANT_MANA, 0*20, 2, false, false, true));
+                }
+                if (attacker instanceof Player player)
+                {
+                    player.getCooldowns().addCooldown(ModItems.REAPER_SICKLE.get(), ReaperSickle.COOLDOWN);
                 }
             }
         }

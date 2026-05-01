@@ -32,9 +32,7 @@ public class ModSounds {
     public static final Supplier<SoundEvent>CORRUPTED_BEACON_FIRE =registerSoundEvent("spell_corrupted_beacon_fire");
     public static final Supplier<SoundEvent>CORRUPTED_BEACON_LOOP =registerSoundEvent("spell_corrupted_beacon_loop");
     public static final Supplier<SoundEvent>WIND_WAVE =registerSoundEvent("spell_wind_wave");
-
     public static final Supplier<SoundEvent>EVOCATION_BOOST =registerSoundEvent("spell_evocation_boost");
-
     public static final Supplier<SoundEvent>SPORE_EXPLOSION =registerSoundEvent("spell_spore_explosion");
 
     public static DeferredHolder<SoundEvent,SoundEvent>BRIMSTONE_BUZZSAW_SHOT =registerSoundEvent("spell_brimstone_sawblade_shot");

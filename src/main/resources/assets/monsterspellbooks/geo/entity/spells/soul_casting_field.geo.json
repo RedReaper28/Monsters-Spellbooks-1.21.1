@@ -1,0 +1,65 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.soul_casting_field",
+				"texture_width": 128,
+				"texture_height": 64,
+				"visible_bounds_width": 14,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "soul_casting_field2",
+					"pivot": [0.25, 2.1875, 0.25]
+				},
+				{
+					"name": "sigil",
+					"parent": "soul_casting_field2",
+					"pivot": [0, 0.375, 0],
+					"cubes": [
+						{
+							"origin": [-64, 0.5, -63],
+							"size": [128, 0.1, 126],
+							"pivot": [0, 0.5, 0],
+							"rotation": [0, 45, 0],
+							"uv": {
+								"north": {"uv": [64, 32], "uv_size": [32, 0]},
+								"east": {"uv": [32, 32], "uv_size": [32, 0]},
+								"south": {"uv": [128, 32], "uv_size": [32, 0]},
+								"west": {"uv": [96, 32], "uv_size": [32, 0]},
+								"up": {"uv": [0, 0], "uv_size": [32, 32]},
+								"down": {"uv": [0, 32], "uv_size": [32, -32]}
+							}
+						},
+						{
+							"origin": [-64, 0.25, -63],
+							"size": [128, 0.1, 126],
+							"uv": {
+								"north": {"uv": [0, 32], "uv_size": [32, 0]},
+								"east": {"uv": [-32, 32], "uv_size": [32, 0]},
+								"south": {"uv": [64, 32], "uv_size": [32, 0]},
+								"west": {"uv": [32, 32], "uv_size": [32, 0]},
+								"up": {"uv": [64, 0], "uv_size": [32, 32]},
+								"down": {"uv": [96, 32], "uv_size": [32, -32]}
+							}
+						}
+					]
+				},
+				{
+					"name": "walls",
+					"parent": "soul_casting_field2",
+					"pivot": [0.5, 4, 0.5],
+					"cubes": [
+						{"origin": [-90, 0, -90], "size": [180, 8, 0], "uv": [-91, 37]},
+						{"origin": [90, 0, -90], "size": [0, 8, 180], "uv": [-88, -143]},
+						{"origin": [-90, 0, -90], "size": [0, 8, 180], "uv": [-88, -143]},
+						{"origin": [-90, 0, 90], "size": [180, 8, 0], "uv": [-89, 37]}
+					]
+				}
+			]
+		}
+	]
+}

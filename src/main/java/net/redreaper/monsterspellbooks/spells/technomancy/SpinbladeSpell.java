@@ -39,7 +39,7 @@ public class SpinbladeSpell extends AbstractSpell {
         this.manaCostPerLevel = 4;
         this.baseSpellPower = 10;
         this.spellPowerPerLevel = 1;
-        this.castTime = 0;
+        this.castTime = 60;
         this.baseManaCost = 20;
     }
 
@@ -50,7 +50,7 @@ public class SpinbladeSpell extends AbstractSpell {
 
     @Override
     public CastType getCastType() {
-        return CastType.INSTANT;
+        return CastType.LONG;
     }
 
     @Override

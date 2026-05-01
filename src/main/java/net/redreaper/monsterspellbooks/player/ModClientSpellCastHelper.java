@@ -8,12 +8,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 import net.redreaper.monsterspellbooks.spells.lightning.ThunderStepSpell;
-import org.joml.Vector3f;
 
 public class ModClientSpellCastHelper {
-
     public static void handleClientboundElectricExplosion(Vec3 pos, float radius) {
         MinecraftInstanceHelper.ifPlayerPresent(player -> {
             var level = player.level();
@@ -21,7 +20,7 @@ public class ModClientSpellCastHelper {
             var y = pos.y;
             var z = pos.z;
             //Blastwave
-            level.addParticle(new BlastwaveParticleOptions(new Vector3f(1, .6f, 0.3f), radius + 1), x, y, z, 0, 0, 0);
+            level.addParticle(new BlastwaveParticleOptions(ModSpellRegistry.THUNDER_STEP.get().getSchoolType().getTargetingColor(), radius + 1), x, y, z, 0, 0, 0);
             //Billowing wave
             int c = (int) (6.28 * radius) * 2;
             float step = 360f / c * Mth.DEG_TO_RAD;
@@ -66,7 +65,7 @@ public class ModClientSpellCastHelper {
             var y = pos.y;
             var z = pos.z;
             //Blastwave
-            level.addParticle(new BlastwaveParticleOptions(new Vector3f(1, .6f, 0.3f), radius + 1), x, y, z, 0, 0, 0);
+            level.addParticle(new BlastwaveParticleOptions(ModSpellRegistry.BONE_DAGGER.get().getSchoolType().getTargetingColor(), radius + 1), x, y, z, 0, 0, 0);
             //Billowing wave
             int c = (int) (6.28 * radius) * 2;
             float step = 360f / c * Mth.DEG_TO_RAD;
@@ -104,6 +103,50 @@ public class ModClientSpellCastHelper {
         });
     }
 
+    public static void handleClientboundBubbleExplosion(Vec3 pos, float radius) {
+        MinecraftInstanceHelper.ifPlayerPresent(player -> {
+            var level = player.level();
+            var x = pos.x;
+            var y = pos.y;
+            var z = pos.z;
+            //Blastwave
+            level.addParticle(new BlastwaveParticleOptions(ModSpellRegistry.EFFERVESCENCE_BUBBLE.get().getSchoolType().getTargetingColor(), radius + 1), x, y, z, 0, 0, 0);
+            //Billowing wave
+            int c = (int) (6.28 * radius) * 2;
+            float step = 360f / c * Mth.DEG_TO_RAD;
+            float speed = (0.06f + 0.01f * radius) * 2;
+            for (int i = 0; i < c; i++) {
+                Vec3 vec3 = new Vec3(Mth.cos(step * i), 0, Mth.sin(step * i)).scale(speed);
+                Vec3 posOffset = Utils.getRandomVec3(.5f).add(vec3.scale(10));
+                vec3 = vec3.add(Utils.getRandomVec3(0.01));
+                level.addParticle(ModParticleHelper.HYDRO_BUBBLE, x + posOffset.x, y + posOffset.y, z + posOffset.z, vec3.x, vec3.y, vec3.z);
+            }
+            //Smoke Cloud
+            int cloudDensity = 50 + (int) (25 * radius);
+            for (int i = 0; i < cloudDensity; i++) {
+                Vec3 posOffset = Utils.getRandomVec3(1).scale(radius * .125f);
+                Vec3 motion = posOffset.normalize().scale(speed * .5f);
+                posOffset = posOffset.add(motion.scale(Utils.getRandomScaled(1)));
+                motion = motion.add(Utils.getRandomVec3(speed * .1f));
+                level.addParticle(ParticleTypes.BUBBLE_POP, x + posOffset.x, y + posOffset.y, z + posOffset.z, motion.x, motion.y, motion.z);
+            }
+            //Cloud
+            for (int i = 0; i < cloudDensity; i += 2) {
+                Vec3 posOffset = Utils.getRandomVec3(1).scale(radius * .4f);
+                Vec3 motion = posOffset.normalize().scale(speed * .5f);
+                motion = motion.add(Utils.getRandomVec3(0.25));
+                level.addParticle(ParticleTypes.BUBBLE_COLUMN_UP, true, x + posOffset.x, y + posOffset.y, z + posOffset.z, motion.x, motion.y, motion.z);
+            }
+            //Sparks
+            for (int i = 0; i < cloudDensity; i += 2) {
+                Vec3 posOffset = Utils.getRandomVec3(radius).scale(.2f);
+                Vec3 motion = posOffset.normalize().scale(0.8);
+                motion = motion.add(Utils.getRandomVec3(0.18));
+                level.addParticle(ParticleTypes.FALLING_WATER, x + posOffset.x * .5f, y + posOffset.y * .5f, z + posOffset.z * .5f, motion.x, motion.y, motion.z);
+            }
+        });
+    }
+
     public static void handleClientboundEnderExplosion(Vec3 pos, float radius) {
         MinecraftInstanceHelper.ifPlayerPresent(player -> {
             var level = player.level();
@@ -111,7 +154,7 @@ public class ModClientSpellCastHelper {
             var y = pos.y;
             var z = pos.z;
             //Blastwave
-            level.addParticle(new BlastwaveParticleOptions(new Vector3f(1, .6f, 0.3f), radius + 1), x, y, z, 0, 0, 0);
+            level.addParticle(new BlastwaveParticleOptions(ModSpellRegistry.DRAGON_CHARGE.get().getSchoolType().getTargetingColor(), radius + 1), x, y, z, 0, 0, 0);
             //Billowing wave
             int c = (int) (6.28 * radius) * 2;
             float step = 360f / c * Mth.DEG_TO_RAD;
@@ -156,7 +199,7 @@ public class ModClientSpellCastHelper {
             var y = pos.y;
             var z = pos.z;
             //Blastwave
-            level.addParticle(new BlastwaveParticleOptions(new Vector3f(1, .6f, 0.3f), radius + 1), x, y, z, 0, 0, 0);
+            level.addParticle(new BlastwaveParticleOptions(ModSpellRegistry.BLAST_FUNGUS.get().getSchoolType().getTargetingColor(), radius + 1), x, y, z, 0, 0, 0);
             //Billowing wave
             int c = (int) (6.28 * radius) * 2;
             float step = 360f / c * Mth.DEG_TO_RAD;
@@ -192,6 +235,18 @@ public class ModClientSpellCastHelper {
                 level.addParticle(ParticleHelper.POISON_CLOUD, x + posOffset.x * .5f, y + posOffset.y * .5f, z + posOffset.z * .5f, motion.x, motion.y, motion.z);
             }
         });
+    }
+
+    public static void handleClientboundSoulRiverParticles(Vec3 pos1, Vec3 pos2) {
+        if (Minecraft.getInstance().player == null)
+            return;
+        var level = Minecraft.getInstance().player.level();
+        Vec3 direction = pos2.subtract(pos1).scale(.1f);
+        for (int i = 0; i < 40; i++) {
+            Vec3 scaledDirection = direction.scale(1 + Utils.getRandomScaled(.35));
+            Vec3 random = new Vec3(Utils.getRandomScaled(.08f), Utils.getRandomScaled(.08f), Utils.getRandomScaled(.08f));
+            level.addParticle(ParticleTypes.SOUL, pos1.x, pos1.y, pos1.z, scaledDirection.x + random.x, scaledDirection.y + random.y, scaledDirection.z + random.z);
+        }
     }
 
     public static void handleClientboundThunderStep(Vec3 pos1, Vec3 pos2) {

@@ -18,7 +18,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
-import net.redreaper.monsterspellbooks.item.weapons.magic_axe.PresetImbueAxeItem;
+import net.redreaper.monsterspellbooks.item.extended.magic_axe.PresetImbueAxeItem;
 import net.redreaper.monsterspellbooks.procedures.effectsonhit.BloodlustOnHit;
 import org.jetbrains.annotations.NotNull;
 
@@ -55,8 +55,6 @@ public class GoreChildItem extends PresetImbueAxeItem implements UniqueItem {
         lines.add(Component.translatable("tooltip.monsterspellbooks.gore_passive_ability").withStyle(new ChatFormatting[]{ChatFormatting.DARK_RED}));
 
     }
-
-
 
     @EventBusSubscriber({Dist.CLIENT})
     public class SpellEvents {

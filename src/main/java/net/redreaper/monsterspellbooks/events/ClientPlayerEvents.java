@@ -1,15 +1,8 @@
 package net.redreaper.monsterspellbooks.events;
 
 import io.redspace.ironsspellbooks.api.entity.IMagicEntity;
-import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
-import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.player.ClientMagicData;
 import io.redspace.ironsspellbooks.player.SpinAttackType;
-import io.redspace.ironsspellbooks.spells.blood.RayOfSiphoningSpell;
-import io.redspace.ironsspellbooks.spells.ender.RecallSpell;
-import io.redspace.ironsspellbooks.spells.fire.BurningDashSpell;
-import io.redspace.ironsspellbooks.spells.fire.RaiseHellSpell;
-import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.world.entity.Entity;

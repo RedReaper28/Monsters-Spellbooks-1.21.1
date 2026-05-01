@@ -31,6 +31,7 @@ public class LifeCrystalSpell extends AbstractSpell {
             .setSchoolResource(SchoolRegistry.NATURE_RESOURCE)
             .setMaxLevel(1)
             .setCooldownSeconds(40)
+            .setAllowCrafting(false)
             .build();
 
     public LifeCrystalSpell() {
@@ -40,6 +41,8 @@ public class LifeCrystalSpell extends AbstractSpell {
         this.castTime = 40;
         this.baseManaCost = 100;
     }
+
+    public boolean allowLooting() {return false;}
 
     public CastType getCastType() {
         return CastType.LONG;

@@ -17,9 +17,9 @@ import software.bernie.geckolib.renderer.GeoArmorRenderer;
 public class IllagerIceologerArmorItem extends ImbuableChestplateArmorItem implements IArmorCapeProvider {
     public IllagerIceologerArmorItem(Type slot, Properties settings) {
         super(ModExtendedArmorMaterials.ICEOLOGER, slot, settings,
+                new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE),
                 new AttributeContainer(AttributeRegistry.ICE_SPELL_POWER,0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                new AttributeContainer(AttributeRegistry.EVOCATION_SPELL_POWER,0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE)
+                new AttributeContainer(AttributeRegistry.EVOCATION_SPELL_POWER,0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE)
         );
     }
 

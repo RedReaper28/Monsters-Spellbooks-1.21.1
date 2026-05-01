@@ -1,7 +1,6 @@
 package net.redreaper.monsterspellbooks.entity.spells.space_rupture;
 
 import net.minecraft.resources.ResourceLocation;
-import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoProjectile;
 import software.bernie.geckolib.model.GeoModel;
 
 public class SpaceRuptureModel extends GeoModel<SpaceRupture> {

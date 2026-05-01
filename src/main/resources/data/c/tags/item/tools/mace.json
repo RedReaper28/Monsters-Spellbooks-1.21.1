@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "monsterspellbooks:endersent_crusher"
+    "monsterspellbooks:endersent_crusher",
+    "monsterspellbooks:paladin_hammer"
   ]
 }

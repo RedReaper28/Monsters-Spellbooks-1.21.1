@@ -19,7 +19,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.frosted_snowbolt.FrostedSnowboltProjectile;
-import net.redreaper.monsterspellbooks.entity.spells.soul_firebolt.SoulFireBoltProjectile;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -48,6 +47,8 @@ public class FrostedSnowboltSpell extends AbstractSpell {
         this.baseManaCost = 10;
     }
 
+    public boolean allowLooting() {return false;}
+
     @Override
     public CastType getCastType() {
         return CastType.INSTANT;
@@ -62,8 +63,6 @@ public class FrostedSnowboltSpell extends AbstractSpell {
     public ResourceLocation getSpellResource() {
         return spellId;
     }
-
-    public boolean allowLooting() {return false;}
 
     @Override
     public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {

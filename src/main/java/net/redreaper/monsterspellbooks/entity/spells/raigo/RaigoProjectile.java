@@ -93,7 +93,7 @@ public class RaigoProjectile extends AbstractMagicProjectile implements GeoEntit
     }
 
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController(this, "controller", 0, this::predicate));
+        controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
     }
 
     public AnimatableInstanceCache getAnimatableInstanceCache() {

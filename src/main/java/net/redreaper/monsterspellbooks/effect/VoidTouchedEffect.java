@@ -37,9 +37,9 @@ public class VoidTouchedEffect extends MagicMobEffect implements ISyncedMobEffec
         MobEffectInstance previous = entity.getEffect(ModMobEffects.VOID_TOUCHED);
         MobEffectInstance inst;
         if (previous != null) {
-            inst = new MobEffectInstance(ModMobEffects.VOID_TOUCHED, 20 * 5, previous.getAmplifier() + 1, previous.isAmbient(), previous.isVisible(), previous.showIcon());
+            inst = new MobEffectInstance(ModMobEffects.VOID_TOUCHED, 7 * 20, previous.getAmplifier() + 1, previous.isAmbient(), previous.isVisible(), previous.showIcon());
         } else {
-            inst = new MobEffectInstance(ModMobEffects.VOID_TOUCHED, 20 * 5, 0, false, true, true);
+            inst = new MobEffectInstance(ModMobEffects.VOID_TOUCHED, 7 * 20, 0, false, true, true);
         }
         if (afflicter != null) {
             EFFECT_CREDIT.put(entity, afflicter);

@@ -22,6 +22,7 @@ import net.redreaper.monsterspellbooks.item.curios.head.CriticalSorcererGlassesI
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.*;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
+import net.redreaper.monsterspellbooks.item.shields.DwarvenRiotShieldItem;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiItem;
 import net.redreaper.monsterspellbooks.item.staves.eyebloosom_staff.EyebloosomStaffIem;
 import net.redreaper.monsterspellbooks.item.staves.frozen_commander.FrozenCommanderStaffItem;
@@ -32,7 +33,7 @@ import net.redreaper.monsterspellbooks.item.weapons.crescent_blood_rose.Crescent
 import net.redreaper.monsterspellbooks.item.weapons.disruption_nanginata.DisruptionNaginataItem;
 import net.redreaper.monsterspellbooks.item.weapons.endersent_crusher.EndersentCrusherItem;
 import net.redreaper.monsterspellbooks.item.weapons.gore_child.GoreChildItem;
-import net.redreaper.monsterspellbooks.item.weapons.magic_axe.ExtendedAxeItem;
+import net.redreaper.monsterspellbooks.item.extended.magic_axe.ExtendedAxeItem;
 import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlItem;
 import net.redreaper.monsterspellbooks.item.weapons.necromancer_trident.NecromancerTridentItem;
 import net.redreaper.monsterspellbooks.item.weapons.paadin_hammer.PaladinHammerItem;
@@ -172,6 +173,11 @@ public class ModItems {
 
     public static final DeferredItem<Item>CULTIST_KNIFE=ITEMS.register("cultist_knife",
             CultistKnifeItem::new);
+    public static final DeferredItem<Item>ETERNAL_KNIFE=ITEMS.register("eternal_knife",
+            EternalKnifeItem::new);
+
+    public static final DeferredItem<Item>DWARVEN_SHIELD=ITEMS.register("dwarven_shield",
+            DwarvenRiotShieldItem::new);
 
     public static final DeferredItem<PickaxeItem>WHITE_GOLD_PICKAXE=ITEMS.register("white_gold_pickaxe",
             ()->new PickaxeItem(ModToolTiers.WHITE_GOLD,new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.WHITE_GOLD,2,-2))));
@@ -246,6 +252,8 @@ public class ModItems {
             GoreChildItem::new);
     public static final DeferredItem<Item>STARLESS_NIGHT = ITEMS.register("starless_night",
             StarlessNight::new);
+    public static final DeferredItem<Item>VOID_TOUCHED_BLADE = ITEMS.register("void_touched_blade",
+            VoidTouchedBladeItem::new);
     public static final DeferredItem<Item>STARSCOURGE_SWORD = ITEMS.register("starscourge_sword",
             StarscourgeSword::new);
     public static final DeferredItem<Item>DISRUPTION_NAGINATA = ITEMS.register("disruption_naginata",
