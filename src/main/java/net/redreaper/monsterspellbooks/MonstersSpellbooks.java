@@ -16,6 +16,7 @@ import net.redreaper.monsterspellbooks.entity.curios.orb_soul.OrbSoulCurioRender
 import net.redreaper.monsterspellbooks.entity.curios.reaper_lantern.ReaperLanternCurioRenderer;
 import net.redreaper.monsterspellbooks.entity.curios.thundering_quiver.ThunderingQuiverCurioRenderer;
 import net.redreaper.monsterspellbooks.init.*;
+import net.redreaper.monsterspellbooks.item.shields.dwarven_riot_shield.DwarvenRiotShieldRenderer;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiRenderer;
 import net.redreaper.monsterspellbooks.item.staves.eyebloosom_staff.EyebloosomStaffRenderer;
 import net.redreaper.monsterspellbooks.item.staves.frozen_commander.FrozenCommanderStaffRenderer;
@@ -41,7 +42,7 @@ import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 @Mod(MonstersSpellbooks.MOD_ID)
 public class MonstersSpellbooks {
-        public static final String MOD_ID = "monsterspellbooks";
+            public static final String MOD_ID = "monsterspellbooks";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public MonstersSpellbooks(IEventBus modEventBus, ModContainer modContainer) {
@@ -74,6 +75,8 @@ public class MonstersSpellbooks {
                 ModItems.VILENOVA_STAFF.get(),
                 ModItems.BRIMSTONE_OROCHI.get(),
                 ModItems.EYEBLOOSOM_STAFF.get(),
+
+                ModItems.DWARVEN_SHIELD.get(),
 
                 ModItems.ORB_SOUL.get()
         );
@@ -118,12 +121,15 @@ public class MonstersSpellbooks {
             AzItemRendererRegistry.register(MagmaticMacuahuitlRenderer::new, ModItems.MAGMATIC_MACUAHUITL.get());
             AzItemRendererRegistry.register(GoreChildRenderer::new, ModItems.GORE_CHILD.get());
             AzItemRendererRegistry.register(DisruptionNaginataRenderer::new, ModItems.DISRUPTION_NAGINATA.get());
+            AzItemRendererRegistry.register(DwarvenRiotShieldRenderer::new, ModItems.DWARVEN_SHIELD.get());
 
             // Animation Registry
             AzIdentityRegistry.register(
                     ModItems.VILENOVA_STAFF.get(),
                     ModItems.BRIMSTONE_OROCHI.get(),
                     ModItems.EYEBLOOSOM_STAFF.get(),
+
+                    ModItems.DWARVEN_SHIELD.get(),
 
                     ModItems.ORB_SOUL.get()
             );

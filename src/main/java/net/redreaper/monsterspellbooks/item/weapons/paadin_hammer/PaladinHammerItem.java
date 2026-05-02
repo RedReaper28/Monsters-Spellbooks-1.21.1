@@ -19,8 +19,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
-import net.redreaper.monsterspellbooks.procedures.effectsonhit.BloodlustOnHit;
-import net.redreaper.monsterspellbooks.procedures.effectsonhit.PaladinProtectionOnHit;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;

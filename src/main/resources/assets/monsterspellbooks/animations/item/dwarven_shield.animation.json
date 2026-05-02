@@ -1,0 +1,157 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"block_release": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"energy": {
+					"scale": {
+						"0.0": {
+							"vector": [1, 2, 2]
+						},
+						"0.25": {
+							"vector": [1, 1, 1]
+						}
+					}
+				},
+				"pole1": {
+					"scale": {
+						"0.0": {
+							"vector": [1, 1, 2]
+						},
+						"0.25": {
+							"vector": [1, 1, 1]
+						}
+					}
+				},
+				"pole2": {
+					"scale": {
+						"0.0": {
+							"vector": [1, 2, 1]
+						},
+						"0.25": {
+							"vector": [1, 1, 1]
+						}
+					}
+				},
+				"poles3": {
+					"position": {
+						"0.0": {
+							"vector": [0, 5, 5]
+						},
+						"0.25": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"poles4": {
+					"position": {
+						"0.0": {
+							"vector": [0, -5, 5]
+						},
+						"0.25": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"poles5": {
+					"position": {
+						"0.0": {
+							"vector": [0, -5, -5]
+						},
+						"0.25": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"poles6": {
+					"position": {
+						"0.0": {
+							"vector": [0, 5, -5]
+						},
+						"0.25": {
+							"vector": [0, 0, 0]
+						}
+					}
+				}
+			}
+		},
+		"block": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"energy": {
+					"scale": {
+						"0.0": {
+							"vector": [1, 1, 1]
+						},
+						"0.25": {
+							"vector": [1, 2, 2]
+						}
+					}
+				},
+				"pole1": {
+					"scale": {
+						"0.0": {
+							"vector": [1, 1, 1]
+						},
+						"0.25": {
+							"vector": [1, 1, 2]
+						}
+					}
+				},
+				"pole2": {
+					"scale": {
+						"0.0": {
+							"vector": [1, 1, 1]
+						},
+						"0.25": {
+							"vector": [1, 2, 1]
+						}
+					}
+				},
+				"poles3": {
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [0, 5, 5]
+						}
+					}
+				},
+				"poles4": {
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [0, -5, 5]
+						}
+					}
+				},
+				"poles5": {
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [0, -5, -5]
+						}
+					}
+				},
+				"poles6": {
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [0, 5, -5]
+						}
+					}
+				}
+			}
+		}
+	}
+}

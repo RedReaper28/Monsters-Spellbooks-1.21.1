@@ -22,7 +22,7 @@ import net.redreaper.monsterspellbooks.item.curios.head.CriticalSorcererGlassesI
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.*;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
-import net.redreaper.monsterspellbooks.item.shields.DwarvenRiotShieldItem;
+import net.redreaper.monsterspellbooks.item.shields.dwarven_riot_shield.DwarvenRiotShieldItem;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiItem;
 import net.redreaper.monsterspellbooks.item.staves.eyebloosom_staff.EyebloosomStaffIem;
 import net.redreaper.monsterspellbooks.item.staves.frozen_commander.FrozenCommanderStaffItem;

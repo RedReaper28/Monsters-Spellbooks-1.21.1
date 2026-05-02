@@ -19,13 +19,31 @@ public class ModDispatcher {
             AzPlayBehaviors.LOOP
     );
 
+    private static final AzCommand SHIELD_BLOCKING_RELEASE_COMMAND = AzCommand.create(
+            "base_controller",
+            "block_release",
+            AzPlayBehaviors.HOLD_ON_LAST_FRAME
+    );
+
     private static final AzCommand SHIELD_BLOCKING_COMMAND = AzCommand.create(
             "base_controller",
-            "blocking",
-            AzPlayBehaviors.LOOP
+            "block",
+            AzPlayBehaviors.HOLD_ON_LAST_FRAME
     );
 
     public void idle(Entity entity, ItemStack itemStack) {
         IDLE_COMMAND.sendForItem(entity, itemStack);
+    }
+
+    public void flight(Entity entity, ItemStack itemStack) {
+        ELYTRA_FLIGHT_COMMAND.sendForItem(entity, itemStack);
+    }
+
+    public void block_release (Entity entity, ItemStack itemStack) {
+        SHIELD_BLOCKING_RELEASE_COMMAND.sendForItem(entity, itemStack);
+    }
+
+    public void block (Entity entity, ItemStack itemStack) {
+        SHIELD_BLOCKING_COMMAND.sendForItem(entity, itemStack);
     }
 }
