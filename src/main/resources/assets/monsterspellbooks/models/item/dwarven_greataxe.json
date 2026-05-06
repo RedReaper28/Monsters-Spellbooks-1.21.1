@@ -1,29 +1,18 @@
 {
-	"credit": "Made with Blockbench",
-	"parent": "item/handheld",
-	"textures": {
-		"layer0": "monsterspellbooks:item/dwarven_greataxe"
+	"parent": "minecraft:item/handheld",
+	"loader": "neoforge:separate_transforms",
+	"base": {
+		"parent": "monsterspellbooks:item/dwarven_greataxe_hand"
 	},
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [0, -90, 55],
-			"translation": [0, 2, 0.5],
-			"scale": [2, 2, 0.85]
+	"perspectives": {
+		"gui": {
+			"parent": "monsterspellbooks:item/dwarven_greataxe_gui"
 		},
-		"thirdperson_lefthand": {
-			"rotation": [0, 90, -55],
-			"translation": [0, 2, 0.5],
-			"scale": [2, 2, 0.85]
+		"ground": {
+			"parent": "monsterspellbooks:item/dwarven_greataxe_gui"
 		},
-		"firstperson_righthand": {
-			"rotation": [0, -90, 25],
-			"translation": [1.13, 3.2, 1.13],
-			"scale": [1.2, 1.2, 0.68]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 90, -25],
-			"translation": [1.13, 3.2, 1.13],
-			"scale": [1.2, 1.2, 0.68]
+		"fixed": {
+			"parent": "monsterspellbooks:item/dwarven_greataxe_gui"
 		}
 	}
 }

@@ -20,7 +20,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
-import net.redreaper.monsterspellbooks.item.weapons.Frostmourne;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
@@ -39,7 +38,7 @@ public class ClawsOfCalamityItem extends MagicSwordItem implements GeoItem, Uniq
         super(ModExtendedWeaponTiers.FORBIDDEN_TOOL,
                 ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.ACCURSED_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.FORBIDDEN_TOOL)),
                 SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(ModSpellRegistry.ANCIENT_FLASH, 3)
+                        new SpellDataRegistryHolder(ModSpellRegistry.PRIMORDIAL_FLASH, 3)
                 )
         );
     }
@@ -50,7 +49,7 @@ public class ClawsOfCalamityItem extends MagicSwordItem implements GeoItem, Uniq
         }
 
         super.initializeSpellContainer(itemStack);
-        AffinityData.setAffinityData(itemStack, ModSpellRegistry.ANCIENT_FLASH.get(),1);
+        AffinityData.setAffinityData(itemStack, ModSpellRegistry.PRIMORDIAL_FLASH.get(),1);
     }
 
     @Override
@@ -69,7 +68,7 @@ public class ClawsOfCalamityItem extends MagicSwordItem implements GeoItem, Uniq
         public static void onModifySpellLevel(ModifySpellLevelEvent event) {
             LivingEntity caster = event.getEntity();
             if (caster != null) {
-                if (event.getSpell() == ModSpellRegistry.ANCIENT_FLASH.get()) {
+                if (event.getSpell() == ModSpellRegistry.PRIMORDIAL_FLASH.get()) {
                     ItemStack mainHand = caster.getMainHandItem();
                     ItemStack offHand = caster.getOffhandItem();
                     boolean usingKnives = mainHand.getItem() instanceof ClawsOfCalamityItem || offHand.getItem() instanceof ClawsOfCalamityItem;

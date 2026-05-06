@@ -5,12 +5,15 @@ import io.redspace.ironsspellbooks.render.*;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.NoopRenderer;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.resources.PlayerSkin;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
@@ -53,7 +56,6 @@ import net.redreaper.monsterspellbooks.entity.model.SoulWizardEntity.SoulWizardR
 import net.redreaper.monsterspellbooks.entity.model.Spriggan.SprigganRenderer;
 import net.redreaper.monsterspellbooks.entity.model.VileSkeleton.VileSkeletonRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlashRenderer;
-import net.redreaper.monsterspellbooks.entity.spells.ancient_lightning_lance.AncientLightningLanceRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.at_shield.AtShieldRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.blast_fungus.BlastFungusRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.blood_pierce_bullet.BloodPierceRenderer;
@@ -64,7 +66,7 @@ import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.BrimstoneFir
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouchRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.dragon_charge.DragonChargeRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.effervescence_bubble.EffervescenceBubbleRenderer;
-import net.redreaper.monsterspellbooks.entity.spells.elthor.ElthorBeamRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.rajins_judment.ElthorBeamRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.forceful_wind.ForcefulWindRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_storm.FrenzyFireBallRenderer;
@@ -82,7 +84,7 @@ import net.redreaper.monsterspellbooks.entity.spells.obsidian_arsenal.ObsidianAr
 import net.redreaper.monsterspellbooks.entity.spells.obsidian_arsenal.SmallObsidianArrowRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.pale_thorn.PaleThornRenderer;
-import net.redreaper.monsterspellbooks.entity.spells.plasma_barrage.PlasmaBoltRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.redstone_lasers.PlasmaBoltRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.poison_quill.PoisonQuillRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceMassRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoRenderer;
@@ -111,6 +113,7 @@ import net.redreaper.monsterspellbooks.entity.spells.wither_bomb.WitherBombRende
 import net.redreaper.monsterspellbooks.entity.spells.wither_nova.WitherNovaRenderer;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModFluids;
+import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.init.ModParticleTypes;
 import net.redreaper.monsterspellbooks.particle.*;
 import net.redreaper.monsterspellbooks.render.ModChargeSpellLayer;
@@ -154,7 +157,6 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.BLAST_FUNGUS_PROJECTILE.get(), BlastFungusRenderer::new);
         event.registerEntityRenderer(ModEntities.EFFERVESCENCE_BUBBLE.get(), EffervescenceBubbleRenderer::new);
         event.registerEntityRenderer(ModEntities.SPACE_RUPTURE.get(), SpaceRuptureRenderer::new);
-        event.registerEntityRenderer(ModEntities.ANCIENT_LIGHTNING_LANCE_PROJECTILE.get(), AncientLightningLanceRenderer::new);
         event.registerEntityRenderer(ModEntities.RAIGO.get(), RaigoRenderer::new);
         event.registerEntityRenderer(ModEntities.AT_SHIELD.get(), AtShieldRenderer::new);
         event.registerEntityRenderer(ModEntities.PLASMA_BOLT.get(), PlasmaBoltRenderer::new);
@@ -239,6 +241,7 @@ public class ClientSetup {
 public static void registerParticles(RegisterParticleProvidersEvent event)
 {
     event.registerSpriteSet(ModParticleTypes.ANCIENT_SPARKS_PARTICLE.get(), AncientSparksParticle.Provider::new);
+    event.registerSpriteSet(ModParticleTypes.REDSTONE_SPARKS_PARTICLE.get(), RedstoneSparksParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.REAPER_FIRE_PARTICLE.get(), ReaperFireParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.REAPER_EMBERS_PARTICLE.get(), ReaperEmberParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.FRENZY_FIRE_PARTICLE.get(), FrenzyFireParticle.Provider::new);
@@ -261,9 +264,7 @@ public static void registerParticles(RegisterParticleProvidersEvent event)
     event.registerSpriteSet(ModParticleTypes.SPIRIT_STRIKE_PARTICLE.get(), SpiritStrikeParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.SOUL_CHAIN_PARTICLE.get(), SoulChainParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.ANCIENT_ZAP_PARTICLE.get(), AncientZapParticle.Provider::new);
-    event.registerSpriteSet(ModParticleTypes.PLASMA_ZAP_PARTICLE.get(), PlasmaZapParticle.Provider::new);
-
-
+    event.registerSpriteSet(ModParticleTypes.REDSTONE_ZAP_PARTICLE.get(), RedstoneZapParticle.Provider::new);
 }
 
     @SubscribeEvent
@@ -305,6 +306,13 @@ public static void registerParticles(RegisterParticleProvidersEvent event)
         if (render instanceof LivingEntityRenderer livingRenderer) {
             livingRenderer.addLayer(new ModChargeSpellLayer.Vanilla<>(livingRenderer));
         }
+    }
+
+    @SubscribeEvent
+    public static void onFMLClientSetup(FMLClientSetupEvent event) {
+        ItemProperties.register(ModItems.DWARVEN_SHIELD.get(), ResourceLocation.withDefaultNamespace("blocking"), (itemStack, level, entity, useDur) ->
+                entity != null && entity.isUsingItem() && entity.getUseItem() == itemStack ? 1.0F : 0.0F
+        );
     }
 }
 

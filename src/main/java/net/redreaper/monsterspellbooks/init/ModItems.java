@@ -252,6 +252,8 @@ public class ModItems {
             GoreChildItem::new);
     public static final DeferredItem<Item>STARLESS_NIGHT = ITEMS.register("starless_night",
             StarlessNight::new);
+    public static final DeferredItem<Item>SWIFT_STRIKER = ITEMS.register("swift_striker",
+            SwiftStriker::new);
     public static final DeferredItem<Item>VOID_TOUCHED_BLADE = ITEMS.register("void_touched_blade",
             VoidTouchedBladeItem::new);
     public static final DeferredItem<Item>STARSCOURGE_SWORD = ITEMS.register("starscourge_sword",

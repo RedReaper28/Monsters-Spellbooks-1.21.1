@@ -17,7 +17,7 @@ public class RedSnakeBowItem extends ImbueableBowItem {
     public static final int COOLDOWN = 15 * 20;
     public RedSnakeBowItem() {
         super(ModExtendedWeaponTiers.RED_SNAKE,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.ARID_RARITY_PROXY.getValue())
+                ItemPropertiesHelper.equipment(1).fireResistant().durability(451).rarity(ASRarities.ARID_RARITY_PROXY.getValue())
                         .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.RED_SNAKE))
         );
     }

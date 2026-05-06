@@ -8,50 +8,50 @@
   "display": {
     "thirdperson_righthand": {
       "rotation": [
-        -12.5,
-        45,
-        90
+        30,
+        60,
+        6
       ],
       "translation": [
-        -1,
-        0.5,
-        3.75
+        3,
+        2.5,
+        -1
       ]
     },
     "thirdperson_lefthand": {
       "rotation": [
-        -12.5,
-        -45,
-        -90
+        30,
+        -120,
+        0
       ],
       "translation": [
-        -1,
-        0.5,
-        3.75
+        3,
+        2.5,
+        -1
       ]
     },
     "firstperson_righthand": {
       "rotation": [
-        12.5,
-        90,
-        0
+        -90,
+        60,
+        90
       ],
       "translation": [
-        -3.5,
+        -2,
         3.5,
-        3.25
+        2.5
       ]
     },
     "firstperson_lefthand": {
       "rotation": [
-        12.5,
-        -90,
-        0
+        90,
+        -60,
+        90
       ],
       "translation": [
-        -3.5,
+        -2,
         3.5,
-        3.25
+        2.5
       ]
     },
     "ground": {

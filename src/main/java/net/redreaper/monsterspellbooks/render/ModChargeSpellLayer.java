@@ -45,12 +45,7 @@ public static class Vanilla<T extends LivingEntity, M extends HumanoidModel<T>> 
 }
 
 private static <T extends LivingEntity> void handleRender(PoseStack poseStack, MultiBufferSource bufferSource, int pPackedLight, T entity, String spellId, boolean offhand) {
-    if (spellId.equals(ModSpellRegistry.ANCIENT_LANCE.get().getSpellId())) {
-        poseStack.translate((double) ((float) (offhand ? -1 : 1) / 32.0F) - .125, .5, 0);
-        poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
-        AncientLightningLanceRenderer.renderModel(poseStack, bufferSource, entity.tickCount);
-    }
-    else if (spellId.equals(ModSpellRegistry.VOLTAIC_MULTISHOT.get().getSpellId())) {
+     if (spellId.equals(ModSpellRegistry.VOLTAIC_MULTISHOT.get().getSpellId())) {
         poseStack.translate(((float) (offhand ? -1 : 1) / 32.0F), .5, 0);
         poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
         poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));

@@ -17,7 +17,7 @@ import org.joml.Matrix4f;
 import java.util.Random;
 
 public class AncientFlashRenderer extends EntityRenderer<AncientFlash> {
-    private static final ResourceLocation TEXTURE = MonstersSpellbooks.id("textures/entity/ancient_flash/ancient_flash.png");
+    private static final ResourceLocation TEXTURE = MonstersSpellbooks.id("textures/entity/primordial_flash/primordial_flash.png");
 
     public AncientFlashRenderer(EntityRendererProvider.Context context) {
         super(context);

@@ -17,7 +17,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.spells.elthor.ElthorBeamEntity;
+import net.redreaper.monsterspellbooks.entity.spells.rajins_judment.ElthorBeamEntity;
 
 import java.util.List;
 

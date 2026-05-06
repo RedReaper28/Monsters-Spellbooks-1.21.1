@@ -47,7 +47,15 @@ public class ModMobEffects {
             .addAttributeModifier(Attributes.GRAVITY, MonstersSpellbooks.id("mobeffect_heavy_body"), HeavyBodyMobEffect.GRAVITY_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE));
     public static final DeferredHolder<MobEffect, MobEffect> STUNNED = MOB_EFFECT_DEFERRED_REGISTER.register("stunned", () -> new StunnedMobEffect(MobEffectCategory.HARMFUL, 1315355)
             .addAttributeModifier(Attributes.ATTACK_SPEED, MonstersSpellbooks.id("mobeffect_stunned"), StunnedMobEffect.ATTACK_SLOWNESS_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+
+    public static final DeferredHolder<MobEffect, MobEffect> QUICK_STRIKE = MOB_EFFECT_DEFERRED_REGISTER.register("quick_strike", () -> new QuickStrikeMobEffect(MobEffectCategory.BENEFICIAL, 1315355)
+            .addAttributeModifier(Attributes.ATTACK_SPEED, MonstersSpellbooks.id("mobeffect_quick_strike"), QuickStrikeMobEffect.ATTACK_SPEED_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+
+
     public static final DeferredHolder<MobEffect, MobEffect> REAPER_ASPECT = MOB_EFFECT_DEFERRED_REGISTER.register("reaper_aspect", () -> new ReaperAspectMobEffect(MobEffectCategory.BENEFICIAL, 57744 ));
+    public static final DeferredHolder<MobEffect, MobEffect> FEARSOME = MOB_EFFECT_DEFERRED_REGISTER.register("fearsome", () -> new FearsomeMobEffect(MobEffectCategory.BENEFICIAL, 1315355 ));
+    public static final DeferredHolder<MobEffect, MobEffect> CHARMING = MOB_EFFECT_DEFERRED_REGISTER.register("charming", () -> new CharmingMobEffect(MobEffectCategory.BENEFICIAL, 15497727 ));
+    public static final DeferredHolder<MobEffect, MobEffect> SHADOW_SHIFT = MOB_EFFECT_DEFERRED_REGISTER.register("shadow_shift", () -> new ShadowShiftMobEffect(MobEffectCategory.BENEFICIAL, 8467669 ));
 
     public static final DeferredHolder<MobEffect, MobEffect> PALADINS_DEFENSE = MOB_EFFECT_DEFERRED_REGISTER.register("paladins_defense", () -> new PaladinDefenseMobEffect(MobEffectCategory.BENEFICIAL, 12691004 ));
 

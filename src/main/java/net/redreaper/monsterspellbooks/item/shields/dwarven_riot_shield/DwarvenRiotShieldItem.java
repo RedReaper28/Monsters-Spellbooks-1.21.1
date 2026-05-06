@@ -1,26 +1,38 @@
 package net.redreaper.monsterspellbooks.item.shields.dwarven_riot_shield;
 
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
+import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
+import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.ChainLightning;
+import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.event.entity.living.LivingShieldBlockEvent;
+import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.init.ModDispatcher;
 import net.redreaper.monsterspellbooks.init.ModItems;
+import net.redreaper.monsterspellbooks.init.ModMobEffects;
+import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import net.redreaper.monsterspellbooks.item.extended.magic_shield.ExtendedShieldItem;
 import net.redreaper.monsterspellbooks.utils.ModRarities;
 import org.jetbrains.annotations.Nullable;
@@ -34,7 +46,11 @@ public class DwarvenRiotShieldItem extends ExtendedShieldItem {
     public static final int COOLDOWN = 10 * 20;
 
     public DwarvenRiotShieldItem() {
-        super(ItemPropertiesHelper.equipment(1).fireResistant().rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()));
+        super(ItemPropertiesHelper.equipment(1).fireResistant().durability(1541).rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()));
+    }
+
+    public UseAnim getUseAnimation(ItemStack p_77661_1_) {
+        return UseAnim.BLOCK;
     }
 
     @SubscribeEvent
@@ -44,6 +60,7 @@ public class DwarvenRiotShieldItem extends ExtendedShieldItem {
             ItemStack offhandItem = entityBlocker.getItemInHand(interactionhand);
             if (offhandItem.getItem() instanceof DwarvenRiotShieldItem && (!(entityBlocker instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.DWARVEN_SHIELD.get()))) {
                 if (entityBlocker.isCrouching()) {
+                    MagicManager.spawnParticles(entityBlocker.level(), new BlastwaveParticleOptions(SchoolRegistry.LIGHTNING.get().getTargetingColor(), 5f), entityBlocker.getX(), entityBlocker.getY() + 0.325F, entityBlocker.getZ(), 1, 0, 0, 0, 0, true);
                     if (entityBlocker instanceof LivingEntity livingAttacker) {
                         double baseDamage = damageFor(entityBlocker);
                         ChainLightning chainLightning = new ChainLightning(livingAttacker.level(), livingAttacker, entityBlocker);
@@ -74,7 +91,7 @@ public class DwarvenRiotShieldItem extends ExtendedShieldItem {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
         if (Screen.hasShiftDown()) {
             tooltipComponents.add(Component.translatable("tooltip.irons_spellbooks.passive_ability", new Object[]{Component.literal(Utils.timeFromTicks((float) this.getPassiveCooldownTicks(), 1)).withStyle(ChatFormatting.LIGHT_PURPLE)}).withStyle(ChatFormatting.DARK_PURPLE));
-            tooltipComponents.add(Component.literal(" ").append(Component.translatable(this.getDescriptionId() + ".desc")).withStyle(ChatFormatting.AQUA));
+            tooltipComponents.add(Component.literal(" ").append(Component.translatable(this.getDescriptionId() + ".desc")).withStyle(ChatFormatting.BLUE));
         } else {
             tooltipComponents.add(Component.translatable("item.aces_spell_utils.more_details1").withStyle(ChatFormatting.GRAY));
         }

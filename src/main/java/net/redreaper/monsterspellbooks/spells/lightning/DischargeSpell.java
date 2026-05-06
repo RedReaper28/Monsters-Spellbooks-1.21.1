@@ -32,7 +32,7 @@ import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.utils.ModUtils;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
-import net.redreaper.monsterspellbooks.particle.PlasmaZapParticleOptions;
+import net.redreaper.monsterspellbooks.particle.RedstoneZapParticleOptions;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
 
@@ -103,7 +103,6 @@ public class DischargeSpell extends AbstractSpell {
         float radius = getRadius(spellLevel, entity);
         Vector3f edge = new Vector3f(.7f, 1f, 1f);
         Vector3f center = new Vector3f(1, 1f, 1f);
-        //this is immaculately stupid
         MagicManager.spawnParticles(level, new BlastwaveParticleOptions(edge, radius * 1.02f), entity.getX(), entity.getY() + .15f, entity.getZ(), 1, 0, 0, 0, 0, true);
         MagicManager.spawnParticles(level, new BlastwaveParticleOptions(edge, radius * 0.98f), entity.getX(), entity.getY() + .15f, entity.getZ(), 1, 0, 0, 0, 0, true);
         MagicManager.spawnParticles(level, new BlastwaveParticleOptions(center, radius), entity.getX(), entity.getY() + .165f, entity.getZ(), 1, 0, 0, 0, 0, true);
@@ -119,7 +118,7 @@ public class DischargeSpell extends AbstractSpell {
         level.getEntities(entity, entity.getBoundingBox().inflate(radius, radius, radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, true)).forEach(target -> {
             if (target instanceof LivingEntity livingEntity && canHit(entity, target) && livingEntity.distanceToSqr(entity) < radius * radius) {
                 Vec3 dest = livingEntity.getBoundingBox().getCenter();
-                ((ServerLevel) level).sendParticles(new PlasmaZapParticleOptions(dest), start.x, start.y, start.z, 1, 0, 0, 0, 0);
+                ((ServerLevel) level).sendParticles(new RedstoneZapParticleOptions(dest), start.x, start.y, start.z, 1, 0, 0, 0, 0);
                 MagicManager.spawnParticles(level, ParticleHelper.FIERY_SPARKS, livingEntity.getX(), livingEntity.getY() + livingEntity.getBbHeight() / 2, livingEntity.getZ(), 10, livingEntity.getBbWidth() / 3, livingEntity.getBbHeight() / 3, livingEntity.getBbWidth() / 3, 0.1, false);
                 DamageSources.applyDamage(target, damage, getDamageSource(entity));
                 if (target instanceof Creeper creeper) {
@@ -129,7 +128,7 @@ public class DischargeSpell extends AbstractSpell {
         });
         for (int i = 0; i < 7; i++) {
             Vec3 dest = start.add(Utils.getRandomVec3(1).multiply(4, 2.5, 4).add(0, 4, 0));
-            ((ServerLevel) level).sendParticles(new PlasmaZapParticleOptions(dest), start.x, start.y, start.z, 1, 0, 0, 0, 0);
+            ((ServerLevel) level).sendParticles(new RedstoneZapParticleOptions(dest), start.x, start.y, start.z, 1, 0, 0, 0, 0);
         }
     }
 

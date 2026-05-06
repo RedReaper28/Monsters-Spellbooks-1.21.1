@@ -92,7 +92,7 @@ public class DwarvenSwarmDroneEntity extends UniqueAbstractSpellCastingMob imple
                 .setSpells(
                         // Attack
                         List.of(
-                                ModSpellRegistry.ZAP.get(), SpellRegistry.BALL_LIGHTNING_SPELL.get()
+                                ModSpellRegistry.ZAP.get()
                         ),
                         // Defense
                         List.of(),

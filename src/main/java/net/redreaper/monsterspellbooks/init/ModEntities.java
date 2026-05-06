@@ -18,7 +18,6 @@ import net.redreaper.monsterspellbooks.entity.living.illagers.IllagerEnchanterEn
 import net.redreaper.monsterspellbooks.entity.living.illagers.IllagerIceologerEntity;
 import net.redreaper.monsterspellbooks.entity.living.summons.*;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlash;
-import net.redreaper.monsterspellbooks.entity.spells.ancient_lightning_lance.AncientLightningLanceProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_lightning_lance.StaticField;
 import net.redreaper.monsterspellbooks.entity.spells.at_shield.AtShield;
 import net.redreaper.monsterspellbooks.entity.spells.blast_fungus.BlastFungusProjectile;
@@ -34,7 +33,7 @@ import net.redreaper.monsterspellbooks.entity.spells.bubble_spray.BubbleSprayPro
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouch;
 import net.redreaper.monsterspellbooks.entity.spells.dragon_charge.DragonChargeProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.effervescence_bubble.EffervescenceBubbleProjectile;
-import net.redreaper.monsterspellbooks.entity.spells.elthor.ElthorBeamEntity;
+import net.redreaper.monsterspellbooks.entity.spells.rajins_judment.ElthorBeamEntity;
 import net.redreaper.monsterspellbooks.entity.spells.forceful_wind.ForcefulWindProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_burst.FrenziedBurstVisualEntity;
 import net.redreaper.monsterspellbooks.entity.spells.frenzied_storm.SmallFrenzyFireBall;
@@ -54,7 +53,7 @@ import net.redreaper.monsterspellbooks.entity.spells.obsidian_arsenal.ObsidianAr
 import net.redreaper.monsterspellbooks.entity.spells.obsidian_arsenal.SmallObsidianArrowProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.pale_thorn.PaleThornVisualEntity;
-import net.redreaper.monsterspellbooks.entity.spells.plasma_barrage.PlasmaBolt;
+import net.redreaper.monsterspellbooks.entity.spells.redstone_lasers.PlasmaBolt;
 import net.redreaper.monsterspellbooks.entity.spells.poison_quill.PoisonQuillProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.predatory_scream.PredatoryScreamProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceField;
@@ -232,12 +231,6 @@ public class ModEntities {
                     .sized(4f, 4f)
                     .clientTrackingRange(4)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "raigo").toString()));
-
-    public static final DeferredHolder<EntityType<?>, EntityType<AncientLightningLanceProjectile>> ANCIENT_LIGHTNING_LANCE_PROJECTILE =
-            ENTITIES.register("ancient_lightning_lance", () -> EntityType.Builder.<AncientLightningLanceProjectile>of(AncientLightningLanceProjectile::new, MobCategory.MISC)
-                    .sized(1.25f, 1.25f)
-                    .clientTrackingRange(64)
-                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ancient_lightning_lance").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<StrayGraspProjectile>> STRAY_GRASP =
             ENTITIES.register("stray_grasp", () -> EntityType.Builder.<StrayGraspProjectile>of(StrayGraspProjectile::new, MobCategory.MISC)
@@ -432,6 +425,7 @@ public class ModEntities {
                     .sized(3.5f, 4f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "powder_snow_splash").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<AncientFlash>> ANCIENT_FLASH =
             ENTITIES.register("ancient_flash", () -> EntityType.Builder.<AncientFlash>of(AncientFlash::new, MobCategory.MISC)
                     .sized(2f, 1f)

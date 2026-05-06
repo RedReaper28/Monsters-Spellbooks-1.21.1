@@ -63,6 +63,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.PALLADIN_HAMMER.get());
                         output.accept(ModItems.MAGMATIC_MACUAHUITL.get());
                         output.accept(ModItems.STARLESS_NIGHT.get());
+                        output.accept(ModItems.SWIFT_STRIKER.get());
                         output.accept(ModItems.VOID_TOUCHED_BLADE.get());
                         output.accept(ModItems.STARSCOURGE_SWORD.get());
                         output.accept(ModItems.DISRUPTION_NAGINATA.get());

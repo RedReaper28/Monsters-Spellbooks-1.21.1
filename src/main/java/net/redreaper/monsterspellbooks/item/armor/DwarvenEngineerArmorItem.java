@@ -22,7 +22,6 @@ public class DwarvenEngineerArmorItem extends ImbuableExtendedGeoArmorItem {
         super(ModExtendedArmorMaterials.DWARVEN_ENGINEER, slot, settings,
                 new AttributeContainer(AttributeRegistry.LIGHTNING_SPELL_POWER,0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(ASAttributeRegistry.TECHNOMANCY_MAGIC_POWER,0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                new AttributeContainer(AttributeRegistry.LIGHTNING_MAGIC_RESIST, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.MANA_REGEN, 0.10F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.CAST_TIME_REDUCTION, 0.10F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE)

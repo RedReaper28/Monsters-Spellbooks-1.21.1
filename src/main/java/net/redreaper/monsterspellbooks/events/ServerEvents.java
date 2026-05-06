@@ -43,9 +43,7 @@ import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.DiseaseEncyclopediaItem;
-import net.redreaper.monsterspellbooks.item.weapons.EternalKnifeItem;
-import net.redreaper.monsterspellbooks.item.weapons.ReaperSickle;
-import net.redreaper.monsterspellbooks.item.weapons.VoidTouchedBladeItem;
+import net.redreaper.monsterspellbooks.item.weapons.*;
 import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlItem;
 
 import java.util.Objects;
@@ -248,6 +246,24 @@ public class ServerEvents {
                     }
                 }
             }
+
+            if (mainhandItem.getItem() instanceof SwiftStriker && (!(livingEntity instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.SWIFT_STRIKER.get())))
+            {
+                // Swift Striker - Reset attack cooldown
+                {
+                    MagicManager.spawnParticles(target.level(), new BlastwaveParticleOptions(SchoolRegistry.ENDER.get().getTargetingColor(), 1.5f), target.getX(), target.getY() + 0.165F, target.getZ(), 1, 0, 0, 0, 0, true);
+                    if (target instanceof LivingEntity livingTarget)
+                    {
+                        livingEntity.addEffect(new MobEffectInstance(ModMobEffects.QUICK_STRIKE, 1*20, 3, false, false, true));
+                    }
+
+                    if (livingEntity instanceof Player player)
+                    {
+                        player.getCooldowns().addCooldown(ModItems.SWIFT_STRIKER.get(), SwiftStriker.COOLDOWN);
+                    }
+                }
+            }
+
         }
     }
 
@@ -267,11 +283,24 @@ public class ServerEvents {
             {
                 if (target instanceof LivingEntity livingTarget)
                 {
-                    livingAttacker.addEffect(new MobEffectInstance(MobEffectRegistry.INSTANT_MANA, 0*20, 2, false, false, true));
+                    livingAttacker.addEffect(new MobEffectInstance(MobEffectRegistry.INSTANT_MANA, 0, 2, false, false, true));
                 }
                 if (attacker instanceof Player player)
                 {
                     player.getCooldowns().addCooldown(ModItems.REAPER_SICKLE.get(), ReaperSickle.COOLDOWN);
+                }
+            }
+
+            //Heartstealer
+            if (mainhandItem.getItem() instanceof DukesHeartstealer && (!(attacker instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.DUKES_HEARTSTEALER.get())))
+            {
+                if (target instanceof LivingEntity livingTarget)
+                {
+                    livingAttacker.addEffect(new MobEffectInstance(MobEffectRegistry.VIGOR, 30*20, 2, false, false, true));
+                }
+                if (attacker instanceof Player player)
+                {
+                    player.getCooldowns().addCooldown(ModItems.DUKES_HEARTSTEALER.get(), DukesHeartstealer.COOLDOWN);
                 }
             }
         }

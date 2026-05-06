@@ -1,7 +1,6 @@
 package net.redreaper.monsterspellbooks.init;
 
 import com.mojang.serialization.MapCodec;
-import io.redspace.ironsspellbooks.particle.ZapParticleOption;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
@@ -11,7 +10,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.particle.AncientZapParticleOption;
-import net.redreaper.monsterspellbooks.particle.PlasmaZapParticleOptions;
+import net.redreaper.monsterspellbooks.particle.RedstoneZapParticleOptions;
 import net.redreaper.monsterspellbooks.particle.SoulChainParticleOptions;
 import net.redreaper.monsterspellbooks.particle.SpiritStrikeParticleOptions;
 
@@ -21,6 +20,7 @@ public class ModParticleTypes {
     public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = DeferredRegister.create(Registries.PARTICLE_TYPE, MonstersSpellbooks.MOD_ID);
 
     public static final Supplier<SimpleParticleType> ANCIENT_SPARKS_PARTICLE = PARTICLE_TYPES.register("ancient_sparks", () -> new SimpleParticleType(false));
+    public static final Supplier<SimpleParticleType> REDSTONE_SPARKS_PARTICLE = PARTICLE_TYPES.register("redstone_sparks", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> REAPER_FIRE_PARTICLE = PARTICLE_TYPES.register("reaper_fire", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> REAPER_EMBERS_PARTICLE = PARTICLE_TYPES.register("reaper_embers", () -> new SimpleParticleType(false));
     public static final Supplier<SimpleParticleType> FRENZY_FIRE_PARTICLE = PARTICLE_TYPES.register("frenzy_fire", () -> new SimpleParticleType(false));
@@ -68,13 +68,13 @@ public class ModParticleTypes {
         }
     });
 
-    public static final Supplier<ParticleType<PlasmaZapParticleOptions>> PLASMA_ZAP_PARTICLE = PARTICLE_TYPES.register("plasma_zap", () -> new ParticleType<>(false) {
-        public MapCodec<PlasmaZapParticleOptions> codec() {
-            return PlasmaZapParticleOptions.MAP_CODEC;
+    public static final Supplier<ParticleType<RedstoneZapParticleOptions>> REDSTONE_ZAP_PARTICLE = PARTICLE_TYPES.register("redstone_zap", () -> new ParticleType<>(false) {
+        public MapCodec<RedstoneZapParticleOptions> codec() {
+            return RedstoneZapParticleOptions.MAP_CODEC;
         }
 
-        public StreamCodec<? super RegistryFriendlyByteBuf, PlasmaZapParticleOptions> streamCodec() {
-            return PlasmaZapParticleOptions.STREAM_CODEC;
+        public StreamCodec<? super RegistryFriendlyByteBuf, RedstoneZapParticleOptions> streamCodec() {
+            return RedstoneZapParticleOptions.STREAM_CODEC;
         }
     });
 

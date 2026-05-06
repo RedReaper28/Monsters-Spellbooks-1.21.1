@@ -42,7 +42,7 @@ import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 @Mod(MonstersSpellbooks.MOD_ID)
 public class MonstersSpellbooks {
-            public static final String MOD_ID = "monsterspellbooks";
+    public static final String MOD_ID = "monsterspellbooks";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public MonstersSpellbooks(IEventBus modEventBus, ModContainer modContainer) {
@@ -91,6 +91,7 @@ public class MonstersSpellbooks {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+
             ModItemProperties.addCustomItemProperties();
             // Curio Rendering
             event.enqueueWork(() -> {

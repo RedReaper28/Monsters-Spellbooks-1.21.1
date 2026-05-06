@@ -61,15 +61,24 @@ public class VileSlashSpell extends AbstractSpell {
     public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         VileSlashProjectileNew vileSlash = new VileSlashProjectileNew(world, entity);
         vileSlash.setPos(entity.getEyePosition());
-        vileSlash.shoot(entity.getLookAngle());
+        vileSlash.setDelay(getDelay(spellLevel,entity));
         vileSlash.setDamage(getSpellPower(spellLevel, entity));
+        vileSlash.getSpeed();
+        vileSlash.setNoGravity(true);
+        vileSlash.setDeltaMovement(0, 0, 0);
+        vileSlash.moveTo(entity.getX() - 1, entity.getY() + 1, entity.getZ());
+        vileSlash.absRotateTo(entity.getYRot(),entity.getXRot());
         world.addFreshEntity(vileSlash);
         super.onCast(world, spellLevel, entity, castSource, playerMagicData);
     }
 
     @Override
     public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {
-        return super.getDamageSource(projectile, attacker).setLifestealPercent(.5f);
+        return super.getDamageSource(projectile, attacker);
+    }
+
+    public int getDelay(int spellLevel, LivingEntity caster) {
+        return (int) (200 /(getSpellPower(spellLevel, caster)));
     }
 
     @Override

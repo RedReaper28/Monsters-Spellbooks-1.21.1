@@ -56,6 +56,6 @@ public class StaticField extends AoeEntity {
 
     @Override
     public Optional<ParticleOptions> getParticle() {
-        return Optional.of(ModParticleHelper.ANCIENT_SPARKS);
+        return Optional.of(ModParticleHelper.REDSTONE_SPARKS);
     }
 }

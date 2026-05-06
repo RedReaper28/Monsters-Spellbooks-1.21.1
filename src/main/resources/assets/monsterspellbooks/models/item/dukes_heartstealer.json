@@ -1,36 +1,18 @@
 {
-	"format_version": "1.21.6",
-	"credit": "Made with Blockbench",
-	"parent": "item/handheld",
-	"textures": {
-		"layer0": "monsterspellbooks:item/dukes_heartstealer"
+	"parent": "minecraft:item/handheld",
+	"loader": "neoforge:separate_transforms",
+	"base": {
+		"parent": "monsterspellbooks:item/dukes_heartstealer_hand"
 	},
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [0, -90, 55],
-			"translation": [0, 10.5, 0],
-			"scale": [1.5, 1.5, 1.5]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [0, 90, -55],
-			"translation": [0, 10.5, 0],
-			"scale": [1.5, 1.5, 1.5]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, -90, 25],
-			"translation": [1, 4.5, 1.25],
-			"scale": [2.3, 2.3, 2.3]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 90, -25],
-			"translation": [1, 4.5, 1.25],
-			"scale": [2.3, 2.3, 2.3]
+	"perspectives": {
+		"gui": {
+			"parent": "monsterspellbooks:item/dukes_heartstealer_gui"
 		},
 		"ground": {
-			"scale": [0.44336, 0.4668, 0.5625]
+			"parent": "monsterspellbooks:item/dukes_heartstealer_gui"
 		},
-		"gui": {
-			"translation": [0, 0.25, 0]
+		"fixed": {
+			"parent": "monsterspellbooks:item/dukes_heartstealer_gui"
 		}
 	}
 }

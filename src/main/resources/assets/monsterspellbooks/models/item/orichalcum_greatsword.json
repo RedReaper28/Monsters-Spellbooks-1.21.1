@@ -1,33 +1,18 @@
 {
-	"format_version": "1.21.11",
-	"credit": "Made with Blockbench",
-	"parent": "item/handheld",
-	"textures": {
-		"layer0": "monsterspellbooks:item/orichalcum_greatsword"
+	"parent": "minecraft:item/handheld",
+	"loader": "neoforge:separate_transforms",
+	"base": {
+		"parent": "monsterspellbooks:item/orichalcum_greatsword_hand"
 	},
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [0, -90, 55],
-			"translation": [0, 11.5, -0.75],
-			"scale": [1.8, 1.8, 1.3]
+	"perspectives": {
+		"gui": {
+			"parent": "monsterspellbooks:item/orichalcum_greatsword_gui"
 		},
-		"thirdperson_lefthand": {
-			"rotation": [0, 90, -55],
-			"translation": [0, 11.5, -0.75],
-			"scale": [1.8, 1.8, 1.3]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, -90, 25],
-			"translation": [1.13, 3.2, 1.13],
-			"scale": [1.4, 1.4, 1]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 90, -25],
-			"translation": [1.13, 3.2, 1.13],
-			"scale": [1.4, 1.4, 1]
+		"ground": {
+			"parent": "monsterspellbooks:item/orichalcum_greatsword_gui"
 		},
 		"fixed": {
-			"rotation": [0, 180, 0]
+			"parent": "monsterspellbooks:item/orichalcum_greatsword_gui"
 		}
 	}
 }

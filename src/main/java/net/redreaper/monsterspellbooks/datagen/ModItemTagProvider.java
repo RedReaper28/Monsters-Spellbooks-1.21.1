@@ -49,6 +49,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.STARLESS_NIGHT.get())
                 .add(ModItems.STARSCOURGE_SWORD.get())
                 .add(ModItems.VOID_TOUCHED_BLADE.get())
+                .add(ModItems.SWIFT_STRIKER.get())
                 .add(ModItems.DISRUPTION_NAGINATA.get())
                 .add(ModItems.SWORD_OF_COURAGE.get())
                 .add(ModItems.REAPER_SICKLE.get())
@@ -94,6 +95,10 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.BOW_ENCHANTABLE)
                 .add(ModItems.SNOW_BOW.get())
                 .add(ModItems.RED_SNAKE_BOW.get())
+        ;
+
+        tag(ItemTags.DURABILITY_ENCHANTABLE)
+                .add(ModItems.DWARVEN_SHIELD.get())
         ;
 
         tag(ItemTags.WEAPON_ENCHANTABLE)

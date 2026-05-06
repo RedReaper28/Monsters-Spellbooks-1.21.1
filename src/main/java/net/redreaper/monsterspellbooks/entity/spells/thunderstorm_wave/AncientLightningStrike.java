@@ -6,7 +6,6 @@ import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AoeEntity;
 import io.redspace.ironsspellbooks.particle.ShockwaveParticleOptions;
-import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.core.particles.ParticleOptions;
@@ -48,7 +47,7 @@ public class AncientLightningStrike extends AoeEntity {
             Vec3 location = this.position().add(0, vfxHeight, 0);
             MagicManager.spawnParticles(level(), ParticleHelper.FOG_THUNDER_DARK, location.x, location.y, location.z, light, 1, 1, 1, 1, true);
             MagicManager.spawnParticles(level(), ParticleHelper.FOG_THUNDER_DARK, location.x, location.y, location.z, total - light, 1, 1, 1, 1, true);
-            MagicManager.spawnParticles(level(), new ShockwaveParticleOptions(SchoolRegistry.BLOOD.get().getTargetingColor(), chargeTime * -1.5f * .05f, true), getX(), getY(), getZ(), 1, 0, 0, 0, 0, true);
+            MagicManager.spawnParticles(level(), new ShockwaveParticleOptions(SchoolRegistry.HOLY.get().getTargetingColor(), chargeTime * -1.5f * .05f, true), getX(), getY(), getZ(), 1, 0, 0, 0, 0, true);
         }
         if (tickCount == chargeTime) {
             checkHits();

@@ -77,7 +77,7 @@ public class StaticCleave extends AbstractMagicProjectile implements AntiMagicSu
                 double dx = Math.random() * speed * 2 - speed;
                 double dy = Math.random() * speed * 2 - speed;
                 double dz = Math.random() * speed * 5 - speed;
-                level().addParticle(ModParticleTypes.ANCIENT_SPARKS_PARTICLE.get(), false, x + rotX + dx, y + dy, z + rotZ + dz, dx, dy, dz);
+                level().addParticle(ModParticleTypes.REDSTONE_SPARKS_PARTICLE.get(), false, x + rotX + dx, y + dy, z + rotZ + dz, dx, dy, dz);
             }
         }
     }
@@ -109,7 +109,7 @@ public class StaticCleave extends AbstractMagicProjectile implements AntiMagicSu
 
     @Override
     public void impactParticles(double x, double y, double z) {
-        MagicManager.spawnParticles(level(), ModParticleHelper.ANCIENT_SPARKS, x, y, z, 1, 0, 0, 0, 0.1, true);
+        MagicManager.spawnParticles(level(), ModParticleHelper.REDSTONE_SPARKS, x, y, z, 1, 0, 0, 0, 0.1, true);
     }
 
     @Override
@@ -144,7 +144,7 @@ public class StaticCleave extends AbstractMagicProjectile implements AntiMagicSu
 
     @Override
     public void onAntiMagic(MagicData playerMagicData) {
-        MagicManager.spawnParticles(level(), ModParticleHelper.ANCIENT_SPARKS, this.getX(), this.getY(), this.getZ(), 1, 0, 0, 0, 0.1, true);
+        MagicManager.spawnParticles(level(), ModParticleHelper.REDSTONE_SPARKS, this.getX(), this.getY(), this.getZ(), 1, 0, 0, 0, 0.1, true);
     }
 
     @Override

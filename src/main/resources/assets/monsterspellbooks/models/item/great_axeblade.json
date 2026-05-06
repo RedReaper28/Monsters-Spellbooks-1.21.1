@@ -1,37 +1,18 @@
 {
-	"format_version": "1.21.6",
-	"credit": "Made with Blockbench",
-	"parent": "item/handheld",
-	"textures": {
-		"layer0": "monsterspellbooks:item/great_axeblade"
+	"parent": "minecraft:item/handheld",
+	"loader": "neoforge:separate_transforms",
+	"base": {
+		"parent": "monsterspellbooks:item/great_axeblade_hand"
 	},
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [0, -90, 55],
-			"translation": [0, 12.25, -1.25],
-			"scale": [1.8, 1.8, 1.3]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [0, 90, -55],
-			"translation": [0, 12.25, -1.25],
-			"scale": [1.8, 1.8, 1.3]
-		},
-		"firstperson_righthand": {
-			"rotation": [-28, -90, 0],
-			"translation": [1.13, 4.45, 1.13],
-			"scale": [1.65313, 1.54766, 0.68]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 90, -25],
-			"translation": [1.13, 4.45, 1.13],
-			"scale": [1.65313, 1.54766, 0.68]
+	"perspectives": {
+		"gui": {
+			"parent": "monsterspellbooks:item/great_axeblade_gui"
 		},
 		"ground": {
-			"translation": [0, 2.5, 0],
-			"scale": [0.8457, 0.70898, 1]
+			"parent": "monsterspellbooks:item/great_axeblade_gui"
 		},
-		"gui": {
-			"scale": [0.91016, 0.9043, 1]
+		"fixed": {
+			"parent": "monsterspellbooks:item/great_axeblade_gui"
 		}
 	}
 }

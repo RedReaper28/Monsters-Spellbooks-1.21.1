@@ -49,7 +49,7 @@ public class StaticCleaveRenderer extends EntityRenderer<StaticCleave> {
         Matrix4f poseMatrix = pose.pose();
         Matrix3f normalMatrix = pose.normal();
 
-        VertexConsumer consumer = bufferSource.getBuffer(RenderType.entityCutoutNoCull(getTextureLocation(entity)));
+        VertexConsumer consumer = bufferSource.getBuffer(RenderType.entityTranslucent(getTextureLocation(entity)));
         float halfWidth = width * 0.5F;
         float height = entity.getBbHeight() * 0.5F;
 

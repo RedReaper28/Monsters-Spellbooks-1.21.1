@@ -10,7 +10,9 @@ import io.redspace.ironsspellbooks.api.spells.SpellRarity;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
+import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -21,6 +23,8 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -75,17 +79,20 @@ public class ZapSpell extends AbstractSpell {
             Entity target = ((EntityHitResult) hitResult).getEntity();
             if (target instanceof LivingEntity) {
                 DamageSources.applyDamage(target, this.getDamage(spellLevel, entity), this.getDamageSource(entity));
-                MagicManager.spawnParticles(level, ParticleHelper.ELECTRICITY, hitResult.getLocation().x, target.getY(), hitResult.getLocation().z, 4, 0, 0, 0, .3, true);
+                MagicManager.spawnParticles(level, ModParticleHelper.REDSTONE_SPARKS, hitResult.getLocation().x, target.getY(), hitResult.getLocation().z, 4, 0, 0, 0, .3, true);
+                MagicManager.spawnParticles(level, DustParticleOptions.REDSTONE, hitResult.getLocation().x, target.getY(), hitResult.getLocation().z, 4, 0, 0, 0, .3, true);
             }
         } else if (hitResult.getType() == HitResult.Type.BLOCK) {
-            MagicManager.spawnParticles(level, ParticleHelper.ELECTRIC_SPARKS, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z, 4, 0, 0, 0, .3, true);
+            MagicManager.spawnParticles(level, ModParticleHelper.REDSTONE_SPARKS, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z, 4, 0, 0, 0, .3, true);
         }
-        MagicManager.spawnParticles(level, ParticleHelper.ELECTRIC_SPARKS, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z, 50, 0, 0, 0, .3, false);
+        MagicManager.spawnParticles(level, ParticleHelper.FIERY_SPARKS, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z, 50, 0, 0, 0, .3, false);
+        MagicManager.spawnParticles(level, DustParticleOptions.REDSTONE, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z, 50, 0, 0, 0, .3, false);
 
         double distance = entity.position().distanceTo(hitResult.getLocation());
         for (float i = 1; i < distance; i += .5f) {
             Vec3 pos = entity.getEyePosition().add(forward.scale(i));
-            MagicManager.spawnParticles(level, ParticleHelper.ELECTRICITY, pos.x, pos.y, pos.z, 1, 0, 0, 0, 0, false);
+            MagicManager.spawnParticles(level, ModParticleHelper.REDSTONE_SPARKS, pos.x, pos.y, pos.z, 1, 0, 0, 0, 0, false);
+            MagicManager.spawnParticles(level, DustParticleOptions.REDSTONE, pos.x, pos.y, pos.z, 15, 0, 0, 0, 0, false);
         }
 
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
@@ -101,6 +108,11 @@ public class ZapSpell extends AbstractSpell {
 
     private float getDamage(int spellLevel, LivingEntity caster) {
         return getSpellPower(spellLevel, caster);
+    }
+
+    @Override
+    public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {
+        return super.getDamageSource(projectile, attacker).setIFrames(0);
     }
 }
 
