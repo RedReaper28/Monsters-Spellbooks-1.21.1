@@ -81,10 +81,8 @@ public class DischargeSpell extends AbstractSpell {
         return spellId;
     }
 
-    @Override public Optional<SoundEvent> getCastStartSound() {return Optional.of(SoundRegistry.SHOCKWAVE_PREPARE.get());}
-
-    @Override public Optional<SoundEvent> getCastFinishSound() {
-        return Optional.empty();
+    public Optional<SoundEvent> getCastFinishSound() {
+        return Optional.of(SoundRegistry.ELECTROCUTE_LOOP.get());
     }
 
     @Override

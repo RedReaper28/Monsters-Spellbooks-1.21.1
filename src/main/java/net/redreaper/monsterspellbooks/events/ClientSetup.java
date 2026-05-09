@@ -49,6 +49,8 @@ import net.redreaper.monsterspellbooks.entity.model.OrbitalSnowballEntity.Orbita
 import net.redreaper.monsterspellbooks.entity.model.PoisonQuillVine.PoisonQuillVineModel;
 import net.redreaper.monsterspellbooks.entity.model.PoisonQuillVine.PoisonQuillVineRenderer;
 import net.redreaper.monsterspellbooks.entity.model.PrismarineKeeper.PrismarineKeeperRenderer;
+import net.redreaper.monsterspellbooks.entity.model.RedstoneElementalEntity.RedstoneElementalModel;
+import net.redreaper.monsterspellbooks.entity.model.RedstoneElementalEntity.RedstoneElementalRenderer;
 import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityModel;
 import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityRenderer;
 import net.redreaper.monsterspellbooks.entity.model.SoulWizardEntity.SoulWizardModel;
@@ -163,6 +165,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.INFECTION_SLASH_PROJECTILE.get(), InfectionSlashRenderer::new);
         event.registerEntityRenderer(ModEntities.BLOOD_THORN.get(), BloodThornRenderer::new);
         event.registerEntityRenderer(ModEntities.SOUL_CHAIN.get(), NoopRenderer::new);
+        event.registerEntityRenderer(ModEntities.REDSTONE_CHAIN_LIGHTNING.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.ANCIENT_LIGHTNING_STRIKE.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.FROST_BREATH.get(), (context) -> new FrostBreathRenderer(context, 1));
         event.registerEntityRenderer(ModEntities.SMALL_FRENZY_FIREBALL.get(), (context) -> new FrenzyFireBallRenderer(context, 0.75f));
@@ -232,6 +235,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.ORBITAL_SNOWBALL.get(), context -> {return new OrbitalSnowballRenderer(context, new OrbitalSnowballModel());});
         event.registerEntityRenderer(ModEntities.ICE_SERPEANT.get(), context -> {return new IceSerpeantRenderer(context, new IceSerpeantModel());});
         event.registerEntityRenderer(ModEntities.DWARVEN_SWARM_DRONE.get(), context -> {return new DwarvenSwarmDroneRenderer(context, new DwarvenSwarmDroneModel());});
+        event.registerEntityRenderer(ModEntities.REDSTONE_ELEMENTAL.get(), context -> {return new RedstoneElementalRenderer(context, new RedstoneElementalModel());});
     }
 
 

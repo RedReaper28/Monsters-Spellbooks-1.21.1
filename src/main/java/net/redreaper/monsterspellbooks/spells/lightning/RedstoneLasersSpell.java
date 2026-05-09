@@ -19,13 +19,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.spells.redstone_lasers.PlasmaBolt;
+import net.redreaper.monsterspellbooks.entity.spells.redstone_lasers.RedstoneBolt;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Optional;
 
-public class RedstoneLasers extends AbstractSpell {
+public class RedstoneLasersSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "redstone_lasers");
 
     @Override
@@ -40,7 +40,7 @@ public class RedstoneLasers extends AbstractSpell {
             .setCooldownSeconds(25)
             .build();
 
-    public RedstoneLasers() {
+    public RedstoneLasersSpell() {
         this.manaCostPerLevel = 2;
         this.baseSpellPower = 5;
         this.spellPowerPerLevel = 1;
@@ -102,7 +102,7 @@ public class RedstoneLasers extends AbstractSpell {
 
     public void shootBlazeFireball(Level world, int spellLevel, LivingEntity entity) {
         Vec3 origin = entity.getEyePosition().add(entity.getForward().normalize().scale(.4f));
-        PlasmaBolt fireball = new PlasmaBolt(world, entity);
+        RedstoneBolt fireball = new RedstoneBolt(world, entity);
         fireball.setPos(origin.subtract(0, fireball.getBbHeight(), 0));
         fireball.shoot(entity.getLookAngle(), .01f);
         fireball.setDamage(getDamage(spellLevel, entity));

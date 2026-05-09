@@ -171,13 +171,16 @@ public class ModCreativeTabs {
                         output.accept(ModItems.VILE_IRON_NUGGET);
                         output.accept(ModItems.NETHER_PYRITE);
                         output.accept(ModItems.NETHER_RUBY);
-
                         output.accept(ModItems.BLAZESTEEL_INGOT);
                         output.accept(ModItems.WITHER_ALLOY_INGOT);
                         output.accept(ModItems.WITHER_ALLOY_NUGGET);
+
                         output.accept(ModItems.VOID_MATTER);
                         output.accept(ModItems.VOID_OBSIDIAN_INGOT);
 
+                        output.accept(ModItems.REDSTONE_CRYSTAL);
+                        output.accept(ModItems.PRISMARINE_GEM);
+                        output.accept(ModItems.WISEWOOD_BONE);
                         output.accept(ModItems.HOMUNCULUS_BLOOD_ORB);
                         output.accept(ModItems.DWARVEN_ALLOY_PLATE);
                         output.accept(ModItems.VILE_BONE);
@@ -206,7 +209,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DWARVEN_SPHERE_SPAWN_EGG.get());
                         output.accept(ModItems.DWARVEN_SLICER_SPAWN_EGG.get());
                         output.accept(ModItems.JUNGLE_WHISPERER_SPAWN_EGG.get());
-                        output.accept(ModItems.SHOCK_SPAWN_EGG.get());
+                        output.accept(ModItems.REDSTONE_ELEMENTAL_SPAWN_EGG.get());
                         output.accept(ModItems.PRISMARINE_KEEPER_SPAWN_EGG.get());
                         output.accept(ModItems.VILE_SKELETON_SPAWN_EGG.get());
                         output.accept(ModItems.MAGMA_ATRONACH_SPAWN_EGG.get());
@@ -214,7 +217,7 @@ public class ModCreativeTabs {
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_BLOCKS_TAB=CREATIVE_MODE_TAB.register("monsters_and_blocks_tab",
-            ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModBlocks.SPECTRITE_BLOCK.get()))
+            ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModBlocks.WITHER_ALLOY_BLOCK.get()))
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID,"monsters_and_materials_tab"))
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_blocks"))
                     .displayItems((itemDisplayParameters, output) ->{
@@ -245,7 +248,6 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.NETHER_PYRITE_BLOCK);
                         output.accept(ModBlocks.NETHER_RUBY_ORE);
                         output.accept(ModBlocks.NETHER_RUBY_BLOCK);
-                        output.accept(ModBlocks.SPECTRITE_BLOCK);
                         output.accept(ModBlocks.WITHER_ALLOY_BLOCK);
                         output.accept(ModBlocks.BLAZESTEEL_BLOCK);
                         output.accept(ModBlocks.VOID_MATTER_ORE);
@@ -293,20 +295,6 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.FROST_IVORYSTONE_BRICK_STAIRS);
                         output.accept(ModBlocks.FROST_IVORYSTONE_BRICK_SLAB);
                         output.accept(ModBlocks.FROST_IVORYSTONE_BRICK_WALL);
-
-                        output.accept(ModBlocks.VILESTONE);
-                        output.accept(ModBlocks.VILESTONE_STAIRS);
-                        output.accept(ModBlocks.VILESTONE_SLAB);
-                        output.accept(ModBlocks.VILESTONE_WALL);
-
-                        output.accept(ModBlocks.VILESTONE_BRICKS);
-                        output.accept(ModBlocks.VILESTONE_BRICK_STAIRS);
-                        output.accept(ModBlocks.VILESTONE_BRICK_SLAB);
-                        output.accept(ModBlocks.VILESTONE_BRICK_WALL);
-                        output.accept(ModBlocks.CHISELED_VILESTONE_BRICKS);
-
-
-                        output.accept(ModBlocks.GRAVISTONE);
                     }).build());
     public static void register(IEventBus eventBus){
         CREATIVE_MODE_TAB.register(eventBus);

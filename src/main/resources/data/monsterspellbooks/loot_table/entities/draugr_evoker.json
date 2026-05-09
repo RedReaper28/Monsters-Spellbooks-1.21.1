@@ -21,7 +21,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:emerald",
+          "name": "monsterspellbooks:orb_soul",
           "conditions": [
             {
               "condition": "minecraft:random_chance_with_enchanted_bonus",

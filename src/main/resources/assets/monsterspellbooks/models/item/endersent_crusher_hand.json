@@ -1,0 +1,107 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    64,
+    64
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        5.75,
+        1.5
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        5.75,
+        1.5
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        12,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        0.75,
+        0.75
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        12,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        0.75,
+        0.75
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        -180
+      ],
+      "translation": [
+        0,
+        18.75,
+        0
+      ],
+      "scale": [
+        0.47656,
+        0.66406,
+        0.86523
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        -37.75
+      ],
+      "translation": [
+        -2,
+        -2.5,
+        0
+      ],
+      "scale": [
+        0.43359,
+        0.37305,
+        1
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        -1,
+        0
+      ],
+      "scale": [
+        0.50195,
+        0.40234,
+        0.78516
+      ]
+    }
+  },
+  "textures": {
+    "particle": "monsterspellbooks:item/weapons/endersent_crusher"
+  }
+}

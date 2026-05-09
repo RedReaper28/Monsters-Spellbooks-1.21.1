@@ -118,8 +118,15 @@ public class ModItems {
             () -> new Item(ItemPropertiesHelper.material()));
     public static final DeferredItem<Item>RAW_SANGUINITE_VIAL = ITEMS.register("raw_sanguinite_vial",
             () -> new Item(ItemPropertiesHelper.material()));
-    public static final DeferredItem<Item>ELECTRO_CORE= ITEMS.register("electro_core",
+    public static final DeferredItem<Item>REDSTONE_CRYSTAL= ITEMS.register("redstone_crystal",
             ()->new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item>PRISMARINE_GEM= ITEMS.register("prismarine_gem",
+            ()->new Item(new Item.Properties().rarity(ModRarities.PRISMARINE_RARITY_PROXY.getValue())));
+
+    public static final DeferredItem<Item>WISEWOOD_BONE= ITEMS.register("wisewood_bone",
+            ()->new Item(new Item.Properties()));
+
     public static final DeferredItem<Item>DWARVEN_ALLOY_PLATE= ITEMS.register("dwarven_alloy_plate",
             () -> new Item(ItemPropertiesHelper.material()));
     public static final DeferredItem<Item>DWARVEN_ALLOY_COG= ITEMS.register("dwarven_alloy_cog",
@@ -373,7 +380,6 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> DWARVEN_ENGINEER_BOOTS = ITEMS.register("dwarven_engineer_boots", () ->
             new DwarvenEngineerArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
-
     public static final DeferredHolder<Item, Item> HEROBRINE_CULTIST_HELMET = ITEMS.register("herobrine_cultist_helmet", () ->
             new HerobrineCultistArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ASRarities.FORBIDDEN_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(48))));
     public static final DeferredHolder<Item, Item> HEROBRINE_CULTIST_CHESTPLATE = ITEMS.register("herobrine_cultist_chestplate", () ->
@@ -443,7 +449,7 @@ public class ModItems {
     public static final Supplier<DeferredSpawnEggItem> DRAUGR_VINDICATOR_SPAWN_EGG = ITEMS.register("draugr_vindicator_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DRAUGR_VINDICATOR, 5932676, 1449245, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DRAUGR_ELITE_VINDICATOR_SPAWN_EGG = ITEMS.register("draugr_elite_vindicator_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DRAUGR_ELITE_VINDICATOR, 5932676, 1449245, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DRAUGR_PILLAGER_SPAWN_EGG = ITEMS.register("draugr_pillager_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DRAUGR_PILLAGER, 5932676, 1449245, ItemPropertiesHelper.material().stacksTo(64)));
-    public static final Supplier<DeferredSpawnEggItem> SHOCK_SPAWN_EGG = ITEMS.register("shock_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.SHOCK, 3873928, 11393785, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> REDSTONE_ELEMENTAL_SPAWN_EGG = ITEMS.register("redstone_elemental_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.REDSTONE_ELEMENTAL, 6579049, 15081480, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> PRISMARINE_KEEPER_SPAWN_EGG = ITEMS.register("prismarine_keeper_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.PRISMARINE_KEEPER, 4887415, 1387045, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> VILE_SKELETON_SPAWN_EGG = ITEMS.register("vile_skeleton_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.VILE_SKELETON, 725001, 3622442, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> MAGMA_ATRONACH_SPAWN_EGG = ITEMS.register("magma_atronach_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.MAGMA_ATRONACH, 1380882, 16734238, ItemPropertiesHelper.material().stacksTo(64)));

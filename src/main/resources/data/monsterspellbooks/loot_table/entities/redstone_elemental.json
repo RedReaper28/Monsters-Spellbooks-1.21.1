@@ -3,15 +3,21 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:granite"
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 5.0,
+                "min": 3.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:redstone"
         }
       ],
       "rolls": 1.0
@@ -21,7 +27,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "monsterspellbooks:electro_core",
+          "name": "monsterspellbooks:redstone_crystal",
           "conditions": [
             {
               "condition": "minecraft:random_chance_with_enchanted_bonus",

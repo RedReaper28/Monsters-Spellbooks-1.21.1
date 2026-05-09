@@ -101,7 +101,7 @@ public class DripplerEntity extends UniqueAbstractSpellCastingMob implements Geo
         return LivingEntity.createLivingAttributes()
                 .add(Attributes.ATTACK_DAMAGE, 5.0)
                 .add(Attributes.MAX_HEALTH, 10.0)
-                .add(Attributes.FOLLOW_RANGE, 45.0)
+                .add(Attributes.FOLLOW_RANGE, 25.0)
                 .add(Attributes.ENTITY_INTERACTION_RANGE, 8.0)
                 .add(Attributes.MOVEMENT_SPEED, .2)
                 .add(Attributes.FLYING_SPEED, 0.25)

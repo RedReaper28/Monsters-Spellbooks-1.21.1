@@ -13,14 +13,14 @@ import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-public class PlasmaBoltRenderer extends GeoEntityRenderer<PlasmaBolt> {
+public class PlasmaBoltRenderer extends GeoEntityRenderer<RedstoneBolt> {
     public PlasmaBoltRenderer(EntityRendererProvider.Context context) {
         super(context, new PlasmaBoltModel());
         this.shadowRadius = 0.0F;
         this.addRenderLayer(new PlasmaBoltEmissiveLayer(this));
     }
 
-    public void preRender(PoseStack poseStack, PlasmaBolt animatable, BakedGeoModel model, @Nullable MultiBufferSource bufferSource, @Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour) {
+    public void preRender(PoseStack poseStack, RedstoneBolt animatable, BakedGeoModel model, @Nullable MultiBufferSource bufferSource, @Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour) {
         Vec3 motion = animatable.getDeltaMovement();
         float xRot = (float)(-(Mth.atan2(motion.y, motion.horizontalDistance()) * (180D / Math.PI)));
         float yRot = -((float)(Mth.atan2(motion.z, motion.x) * (double)(180F / (float)Math.PI)) + 90.0F) + 180.0F;
@@ -29,7 +29,7 @@ public class PlasmaBoltRenderer extends GeoEntityRenderer<PlasmaBolt> {
         super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, colour);
     }
 
-    public RenderType getRenderType(PlasmaBolt animatable, ResourceLocation texture, @Nullable MultiBufferSource bufferSource, float partialTick) {
+    public RenderType getRenderType(RedstoneBolt animatable, ResourceLocation texture, @Nullable MultiBufferSource bufferSource, float partialTick) {
         return RenderType.entityCutout(texture);
     }
 }

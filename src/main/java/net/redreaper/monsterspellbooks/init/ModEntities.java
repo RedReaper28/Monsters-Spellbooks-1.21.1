@@ -53,7 +53,6 @@ import net.redreaper.monsterspellbooks.entity.spells.obsidian_arsenal.ObsidianAr
 import net.redreaper.monsterspellbooks.entity.spells.obsidian_arsenal.SmallObsidianArrowProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.paladin_throw.HolyHammerProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.pale_thorn.PaleThornVisualEntity;
-import net.redreaper.monsterspellbooks.entity.spells.redstone_lasers.PlasmaBolt;
 import net.redreaper.monsterspellbooks.entity.spells.poison_quill.PoisonQuillProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.predatory_scream.PredatoryScreamProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.PutrescenceField;
@@ -61,6 +60,7 @@ import net.redreaper.monsterspellbooks.entity.spells.putrescence_mass.Putrescenc
 import net.redreaper.monsterspellbooks.entity.spells.raigo.RaigoProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.rancorcall.RancorSkull;
 import net.redreaper.monsterspellbooks.entity.spells.razorblade_typhoon.RazorbladeTyphoonProjectile;
+import net.redreaper.monsterspellbooks.entity.spells.redstone_lasers.RedstoneBolt;
 import net.redreaper.monsterspellbooks.entity.spells.redstone_mines.RedstoneMinesProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.sangunite_eviceration.SanguiniteEvisceration;
 import net.redreaper.monsterspellbooks.entity.spells.soul_casting_field.SoulCastingFieldAOE;
@@ -202,8 +202,8 @@ public class ModEntities {
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "elthor_beam").toString()));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<PlasmaBolt>> PLASMA_BOLT =
-            ENTITIES.register("plasma_bolt", () -> EntityType.Builder.<PlasmaBolt>of(PlasmaBolt::new, MobCategory.MISC)
+    public static final DeferredHolder<EntityType<?>, EntityType<RedstoneBolt>> PLASMA_BOLT =
+            ENTITIES.register("plasma_bolt", () -> EntityType.Builder.<RedstoneBolt>of(RedstoneBolt::new, MobCategory.MISC)
                     .sized(1, 1)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "plasma_bolt").toString()));
@@ -339,6 +339,12 @@ public class ModEntities {
                     .sized(.5f, .5f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "dragon_charge").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SoulChain>> REDSTONE_CHAIN_LIGHTNING =
+            ENTITIES.register("redstone_chain_lightning", () -> EntityType.Builder.<SoulChain>of(SoulChain::new, MobCategory.MISC)
+                    .sized(1f, 1f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "redstone_chain_lightning").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<SoulChain>> SOUL_CHAIN =
             ENTITIES.register("soul_chain", () -> EntityType.Builder.<SoulChain>of(SoulChain::new, MobCategory.MISC)
@@ -550,14 +556,23 @@ public class ModEntities {
     public static final Supplier<EntityType<DwarvenSlicerEntity>>DWARVEN_SLICER=
             ENTITIES.register("dwarven_slicer",()->EntityType.Builder.of(DwarvenSlicerEntity::new,MobCategory.MONSTER)
                     .sized(0.6F, 0.50f).build("dwarven_slicer"));
+
     public static final DeferredHolder<EntityType<?>, EntityType<ShockEntity>> SHOCK =
             ENTITIES.register("shock", () -> EntityType.Builder.<ShockEntity>of(ShockEntity::new, MobCategory.MONSTER).
                     sized(.6f, .80f).build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "shock").toString()));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<RedstoneElementalEntity>> REDSTONE_ELEMENTAL =
+            ENTITIES.register("redstone_elemental", () -> EntityType.Builder.<RedstoneElementalEntity>of
+                            (RedstoneElementalEntity::new, MobCategory.MONSTER).
+                    sized(.6f, .8f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "redstone_elemental").toString()
+                    ));
+
     public static final DeferredHolder<EntityType<?>, EntityType<DripplerEntity>> DRIPPLER =
             ENTITIES.register("drippler", () -> EntityType.Builder.<DripplerEntity>of
                             (DripplerEntity::new, MobCategory.MONSTER).
-                    sized(.6f, 1.8f)
+                    sized(.6f, .8f)
                     .build(
                             ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "drippler").toString()
                     ));

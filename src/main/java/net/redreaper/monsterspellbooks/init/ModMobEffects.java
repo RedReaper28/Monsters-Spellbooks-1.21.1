@@ -55,7 +55,7 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> REAPER_ASPECT = MOB_EFFECT_DEFERRED_REGISTER.register("reaper_aspect", () -> new ReaperAspectMobEffect(MobEffectCategory.BENEFICIAL, 57744 ));
     public static final DeferredHolder<MobEffect, MobEffect> FEARSOME = MOB_EFFECT_DEFERRED_REGISTER.register("fearsome", () -> new FearsomeMobEffect(MobEffectCategory.BENEFICIAL, 1315355 ));
     public static final DeferredHolder<MobEffect, MobEffect> CHARMING = MOB_EFFECT_DEFERRED_REGISTER.register("charming", () -> new CharmingMobEffect(MobEffectCategory.BENEFICIAL, 15497727 ));
-    public static final DeferredHolder<MobEffect, MobEffect> SHADOW_SHIFT = MOB_EFFECT_DEFERRED_REGISTER.register("shadow_shift", () -> new ShadowShiftMobEffect(MobEffectCategory.BENEFICIAL, 8467669 ));
+    public static final DeferredHolder<MobEffect, MobEffect> SHADOW_SHROUD = MOB_EFFECT_DEFERRED_REGISTER.register("shadow_shroud", () -> new ShadowShroudMobEffect(MobEffectCategory.BENEFICIAL, 8467669 ));
 
     public static final DeferredHolder<MobEffect, MobEffect> PALADINS_DEFENSE = MOB_EFFECT_DEFERRED_REGISTER.register("paladins_defense", () -> new PaladinDefenseMobEffect(MobEffectCategory.BENEFICIAL, 12691004 ));
 
@@ -65,7 +65,7 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> SUFFOCATION = MOB_EFFECT_DEFERRED_REGISTER.register("suffocation", () -> new SuffocationMobEffect(MobEffectCategory.HARMFUL, 8028868));
     public static final DeferredHolder<MobEffect, MobEffect> BRIMSTONE_FLAME = MOB_EFFECT_DEFERRED_REGISTER.register("brimstone_flame", () -> new BrimstoneFlameMobEffect(MobEffectCategory.HARMFUL, 14896975));
     public static final DeferredHolder<MobEffect, MobEffect> HEMORRHAGE = MOB_EFFECT_DEFERRED_REGISTER.register("hemorrhage", () -> new HemorrhageMobEffect(MobEffectCategory.HARMFUL, 16711680));
-    public static final DeferredHolder<MobEffect, MobEffect> STATIC = MOB_EFFECT_DEFERRED_REGISTER.register("static", () -> new StaticMobEffect(MobEffectCategory.HARMFUL, 3093151));
+    public static final DeferredHolder<MobEffect, MobEffect> STATIC = MOB_EFFECT_DEFERRED_REGISTER.register("static", () -> new StaticMobEffect(MobEffectCategory.HARMFUL, 15081480));
     public static final DeferredHolder<MobEffect, MobEffect> LETHARGY = MOB_EFFECT_DEFERRED_REGISTER.register("lethargy", () -> new LethargyMobEffect(MobEffectCategory.HARMFUL, 1315355)
             .addAttributeModifier(Attributes.MAX_HEALTH, MonstersSpellbooks.id("mobeffect_lethargy"), LethargyMobEffect.LIFE_DRAIN_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     public static final DeferredHolder<MobEffect, MobEffect> INFLAMMABLE = MOB_EFFECT_DEFERRED_REGISTER.register("inflammable", () -> new InflammableMobEffect(MobEffectCategory.HARMFUL, 16736038)

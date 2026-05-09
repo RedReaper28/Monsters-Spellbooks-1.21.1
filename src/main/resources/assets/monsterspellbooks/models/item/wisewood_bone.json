@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "monsterspellbooks:item/electro_core"
+    "layer0": "monsterspellbooks:item/wisewood_bone"
   }
 }

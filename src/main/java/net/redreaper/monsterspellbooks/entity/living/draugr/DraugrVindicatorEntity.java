@@ -92,13 +92,12 @@ public class DraugrVindicatorEntity extends DraugrIllagerEntity implements Enemy
         return LivingEntity.createLivingAttributes()
                 .add(Attributes.ATTACK_DAMAGE, 5.0F)
                 .add(Attributes.ATTACK_KNOCKBACK, 1.0)
-                .add(Attributes.ENTITY_INTERACTION_RANGE, 4)
+                .add(Attributes.ENTITY_INTERACTION_RANGE, 1.5)
                 .add(Attributes.MAX_HEALTH, 25.0F)
                 .add(Attributes.ARMOR, 10)
                 .add(Attributes.FOLLOW_RANGE, 24.0)
                 .add(Attributes.MOVEMENT_SPEED, 0.35F)
                 .add(AttributeRegistry.ICE_SPELL_POWER, 2.5);
-
     }
 
 

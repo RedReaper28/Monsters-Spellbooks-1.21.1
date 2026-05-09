@@ -13,6 +13,7 @@ import net.acetheeldritchking.aces_spell_utils.entity.mobs.UniqueAbstractSpellCa
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -92,7 +93,7 @@ public class DwarvenSwarmDroneEntity extends UniqueAbstractSpellCastingMob imple
                 .setSpells(
                         // Attack
                         List.of(
-                                ModSpellRegistry.ZAP.get()
+                                ModSpellRegistry.REDSTONE_BOLT.get()
                         ),
                         // Defense
                         List.of(),
@@ -119,7 +120,7 @@ public class DwarvenSwarmDroneEntity extends UniqueAbstractSpellCastingMob imple
     }
 
     public @NotNull SoundEvent getHurtSound(@NotNull DamageSource damageSource) {
-        return ModSounds.SOUL_WIZARD_HURT.get();
+        return SoundEvents.IRON_GOLEM_HURT;
     }
 
     public static AttributeSupplier.Builder createAttributes()

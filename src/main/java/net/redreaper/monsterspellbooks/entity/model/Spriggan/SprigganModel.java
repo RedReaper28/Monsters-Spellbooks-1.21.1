@@ -6,7 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 
 public class SprigganModel extends AbstractSpellCastingMobModel {
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "textures/entity/spriggan.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "textures/entity/living/spriggan/spriggan.png");
     private static final ResourceLocation MODEL = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "geo/entity/spriggan.geo.json");
 
     @Override

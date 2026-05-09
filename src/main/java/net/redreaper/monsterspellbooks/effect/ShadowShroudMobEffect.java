@@ -2,7 +2,6 @@ package net.redreaper.monsterspellbooks.effect;
 
 import io.redspace.ironsspellbooks.effect.ISyncedMobEffect;
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
-import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -15,13 +14,14 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 
 @EventBusSubscriber
-public class ShadowShiftMobEffect extends MagicMobEffect implements ISyncedMobEffect {
-    public ShadowShiftMobEffect(MobEffectCategory pCategory, int pColor) {
+public class ShadowShroudMobEffect extends MagicMobEffect implements ISyncedMobEffect {
+    public static final float DAMAGE_PER_LEVEL = 2;
+    public ShadowShroudMobEffect(MobEffectCategory pCategory, int pColor) {
         super(pCategory, pColor);
     }
 
     @Override
-    public boolean applyEffectTick(LivingEntity livingEntity, int pAmplifier) {
+    public void onEffectAdded(LivingEntity livingEntity, int pAmplifier) {
         super.onEffectAdded(livingEntity, pAmplifier);
 
         var targetingCondition = TargetingConditions.forCombat().ignoreLineOfSight().selector(e -> {
@@ -34,18 +34,21 @@ public class ShadowShiftMobEffect extends MagicMobEffect implements ISyncedMobEf
                     entityTargetingCaster.targetSelector.getAvailableGoals().forEach(WrappedGoal::stop);
                     entityTargetingCaster.getBrain().eraseMemory(MemoryModuleType.ATTACK_TARGET);
                 });
-        return true;
     }
 
     @SubscribeEvent
-    public static void onDealDamage(LivingIncomingDamageEvent event) {
-        if (event.getSource().getEntity() instanceof LivingEntity livingAttacker && livingAttacker.hasEffect(ModMobEffects.SHADOW_SHIFT)) {
-            livingAttacker.removeEffect(ModMobEffects.SHADOW_SHIFT);
+    public static void increaseDamage(LivingIncomingDamageEvent event) {
+        var attacker = event.getSource().getEntity();
+        if (attacker instanceof LivingEntity livingAttacker) {
+            if (livingAttacker.hasEffect(ModMobEffects.SHADOW_SHROUD)) {
+                    int lvl = livingAttacker.getEffect(ModMobEffects.SHADOW_SHROUD).getAmplifier() + 1;
+                    float before = event.getAmount();
+                    float multiplier = ShadowShroudMobEffect.DAMAGE_PER_LEVEL * lvl;
+                    event.setAmount(event.getAmount() * multiplier);
+            }
+            livingAttacker.removeEffect(ModMobEffects.SHADOW_SHROUD);
         }
-    }
 
-    @Override
-    public boolean shouldApplyEffectTickThisTick(int tickCount, int amplifier) {
-        return true;
     }
 }
+

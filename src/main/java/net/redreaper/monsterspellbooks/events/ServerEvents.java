@@ -26,7 +26,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -314,13 +313,6 @@ public class ServerEvents {
         var attacker = event.getSource().getEntity();
 
         if (attacker instanceof Player livingAttacker1) {
-            if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
-                if (ASUtils.hasCurio((Player) livingAttacker, ModItems.BRIMSTONE_SIGIL.get())) {
-                    ImmolateEffect.addImmolateStack(livingEntity, livingAttacker);
-                }
-            }
-
-
             if (attacker instanceof Player) {
                 if (event.getSource().is(ISSDamageTypes.BLOOD_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
                     if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DREADHOUND_TOOTH_NECKLACE.get())) {
@@ -328,13 +320,11 @@ public class ServerEvents {
                     }
                 }
 
-                if (attacker instanceof Player) {
-                    if (event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
-                        if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DWARVEN_POWER_CORE.get())) {
-                            StaticMobEffect.addStaticStack((LivingEntity) attacker, attacker);
+                if (event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
+                    if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DWARVEN_POWER_CORE.get())) {
+                        StaticMobEffect.addStaticStack((LivingEntity) attacker, attacker);
                         }
                     }
-                }
             }
 
             if (attacker instanceof Player player) {

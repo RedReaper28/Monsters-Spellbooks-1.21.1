@@ -10,8 +10,8 @@ import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
 
-public class PlasmaBoltEmissiveLayer extends GeoRenderLayer<PlasmaBolt> {
-    public PlasmaBoltEmissiveLayer(GeoEntityRenderer<PlasmaBolt> renderer) {
+public class PlasmaBoltEmissiveLayer extends GeoRenderLayer<RedstoneBolt> {
+    public PlasmaBoltEmissiveLayer(GeoEntityRenderer<RedstoneBolt> renderer) {
         super(renderer);
     }
 
@@ -19,7 +19,7 @@ public class PlasmaBoltEmissiveLayer extends GeoRenderLayer<PlasmaBolt> {
         return RenderType.entityCutout(texture);
     }
 
-    public void render(PoseStack poseStack, PlasmaBolt animatable, BakedGeoModel bakedModel, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, float partialTick, int packedLight, int packedOverlay) {
+    public void render(PoseStack poseStack, RedstoneBolt animatable, BakedGeoModel bakedModel, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, float partialTick, int packedLight, int packedOverlay) {
         if (!animatable.isInvisible()) {
             int frameCount = 4;
             int frame = animatable.tickCount % frameCount;

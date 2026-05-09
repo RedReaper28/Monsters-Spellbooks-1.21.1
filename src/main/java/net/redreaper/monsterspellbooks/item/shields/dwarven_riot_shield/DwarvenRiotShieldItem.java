@@ -4,19 +4,13 @@ import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
-import io.redspace.ironsspellbooks.damage.DamageSources;
-import io.redspace.ironsspellbooks.entity.spells.ChainLightning;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -26,17 +20,13 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.event.entity.living.LivingShieldBlockEvent;
-import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.entity.spells.redstone_mines.RedstoneExplosionEntity;
 import net.redreaper.monsterspellbooks.init.ModDispatcher;
 import net.redreaper.monsterspellbooks.init.ModItems;
-import net.redreaper.monsterspellbooks.init.ModMobEffects;
-import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import net.redreaper.monsterspellbooks.item.extended.magic_shield.ExtendedShieldItem;
 import net.redreaper.monsterspellbooks.utils.ModRarities;
 import org.jetbrains.annotations.Nullable;
-import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
@@ -63,7 +53,7 @@ public class DwarvenRiotShieldItem extends ExtendedShieldItem {
                     MagicManager.spawnParticles(entityBlocker.level(), new BlastwaveParticleOptions(SchoolRegistry.LIGHTNING.get().getTargetingColor(), 5f), entityBlocker.getX(), entityBlocker.getY() + 0.325F, entityBlocker.getZ(), 1, 0, 0, 0, 0, true);
                     if (entityBlocker instanceof LivingEntity livingAttacker) {
                         double baseDamage = damageFor(entityBlocker);
-                        ChainLightning chainLightning = new ChainLightning(livingAttacker.level(), livingAttacker, entityBlocker);
+                        RedstoneExplosionEntity chainLightning = new RedstoneExplosionEntity(livingAttacker.level(), livingAttacker, entityBlocker);
                         chainLightning.setDamage((float) baseDamage);
                         chainLightning.range = 15;
                         chainLightning.maxConnections = 5;

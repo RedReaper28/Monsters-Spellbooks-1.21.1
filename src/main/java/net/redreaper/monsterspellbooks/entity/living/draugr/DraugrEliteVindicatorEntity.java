@@ -99,7 +99,7 @@ public class DraugrEliteVindicatorEntity extends DraugrIllagerEntity implements 
         return LivingEntity.createLivingAttributes()
                 .add(Attributes.ATTACK_DAMAGE, 7.0F)
                 .add(Attributes.ATTACK_KNOCKBACK, 1.5F)
-                .add(Attributes.ENTITY_INTERACTION_RANGE, 4)
+                .add(Attributes.ENTITY_INTERACTION_RANGE, 2)
                 .add(Attributes.SCALE, 1.2)
                 .add(Attributes.MAX_HEALTH, 35.0F)
                 .add(Attributes.ARMOR, 10)

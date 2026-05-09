@@ -4,7 +4,6 @@ import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import io.redspace.ironsspellbooks.effect.ISyncedMobEffect;
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
-import io.redspace.ironsspellbooks.entity.spells.ChainLightning;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.core.particles.ParticleOptions;
@@ -14,7 +13,9 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
+import net.redreaper.monsterspellbooks.entity.spells.redstone_mines.RedstoneExplosionEntity;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
+import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
@@ -53,7 +54,7 @@ public class StaticMobEffect extends MagicMobEffect implements ISyncedMobEffect 
         int amplifier = instance.getAmplifier();
         ParticleOptions particle = ParticleHelper.ELECTRIC_SPARKS;
         if (amplifier >= 1) {
-            particle = ParticleHelper.ELECTRICITY;
+            particle = ModParticleHelper.REDSTONE_SPARKS;
         }
         var random = livingEntity.getRandom();
         for (int i = 0; i < 2; i++) {
@@ -83,7 +84,7 @@ public class StaticMobEffect extends MagicMobEffect implements ISyncedMobEffect 
 
         if (livingEntity instanceof LivingEntity livingAttacker) {
             double baseDamage = damageFor(attacker);
-            ChainLightning chainLightning = new ChainLightning(livingAttacker.level(), livingAttacker, livingEntity);
+            RedstoneExplosionEntity chainLightning = new RedstoneExplosionEntity(livingAttacker.level(), livingAttacker, livingEntity);
             chainLightning.setDamage((float) baseDamage);
             chainLightning.range = 15;
             chainLightning.maxConnections = 5;

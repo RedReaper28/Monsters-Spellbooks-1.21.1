@@ -34,19 +34,19 @@ import java.util.HashMap;
 import java.util.Optional;
 import java.util.UUID;
 
-public class PlasmaBolt extends AbstractMagicProjectile implements GeoEntity {
+public class RedstoneBolt extends AbstractMagicProjectile implements GeoEntity {
     private final AnimatableInstanceCache cache;
     private final RawAnimation idle;
     public static final int lifetime = 100;
     HashMap<UUID, Integer> victims;
-    public PlasmaBolt(EntityType<? extends Projectile> pEntityType, Level pLevel) {
+    public RedstoneBolt(EntityType<? extends Projectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.cache = GeckoLibUtil.createInstanceCache(this);
         this.idle = RawAnimation.begin().thenLoop("idle");
         this.victims = new HashMap<>();
         this.setNoGravity(true);    }
 
-    public PlasmaBolt(Level pLevel, LivingEntity pShooter) {
+    public RedstoneBolt(Level pLevel, LivingEntity pShooter) {
         this(ModEntities.PLASMA_BOLT.get(), pLevel);
         this.setOwner(pShooter);
     }
@@ -123,7 +123,7 @@ public class PlasmaBolt extends AbstractMagicProjectile implements GeoEntity {
         if (target instanceof LivingEntity livingEntity) {
             DamageSources.ignoreNextKnockback(livingEntity);
         }
-        DamageSources.applyDamage(target, getDamage(), ModSpellRegistry.REDSTONE_LASER.get().getDamageSource(this, getOwner()));
+        DamageSources.applyDamage(target, getDamage(), ModSpellRegistry.REDSTONE_BOLT.get().getDamageSource(this, getOwner()));
         victims.put(target.getUUID(), target.tickCount);
     }
 

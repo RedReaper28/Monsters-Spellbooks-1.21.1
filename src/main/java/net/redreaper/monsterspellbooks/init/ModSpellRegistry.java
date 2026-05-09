@@ -108,9 +108,11 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> PRIMORDIAL_FLASH = registerSpell(new PrimordialFlashSpell());
     public static final Supplier<AbstractSpell> DISCHARGE = registerSpell(new DischargeSpell());
     public static final Supplier<AbstractSpell> RAIJIN_JUDGEMENT = registerSpell(new RaijinJudgementSpell());
+    public static final Supplier<AbstractSpell> REDSTONE_BOLT = registerSpell(new RedstoneBoltSpell());
     public static final Supplier<AbstractSpell> REDSTONE_MINES = registerSpell(new RedstoneMinesSpell());
     public static final Supplier<AbstractSpell> GUARDIANS_NEUTRALIZER = registerSpell(new GuardiansNeutralizerSpell());
-    public static final Supplier<AbstractSpell> REDSTONE_LASER = registerSpell(new RedstoneLasers());
+    public static final Supplier<AbstractSpell> REDSTONE_CHAIN = registerSpell(new RedstoneChainSpell());
+    public static final Supplier<AbstractSpell> REDSTONE_LASERS = registerSpell(new RedstoneLasersSpell());
     public static final Supplier<AbstractSpell> RAIGO = registerSpell(new RaigoSpell());
     public static final Supplier<AbstractSpell> STATIC_CLEAVE = registerSpell(new StaticCleaveSpell());
     public static final Supplier<AbstractSpell> THUNDER_STEP = registerSpell(new ThunderStepSpell());

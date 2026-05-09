@@ -31,6 +31,7 @@ public class CommonSetup {
         event.put(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereEntity.createAttributes().build());
         event.put(ModEntities.DWARVEN_SLICER.get(), DwarvenSlicerEntity.createAttributes().build());
         event.put(ModEntities.SHOCK.get(), ShockEntity.createAttributes().build());
+        event.put(ModEntities.REDSTONE_ELEMENTAL.get(), RedstoneElementalEntity.createAttributes().build());
         event.put(ModEntities.AEGIS.get(), AegisEntity.createAttributes().build());
         event.put(ModEntities.DRIPPLER.get(), DripplerEntity.createAttributes().build());
         event.put(ModEntities.SPRIGGAN.get(), SprigganEntity.createAttributes().build());

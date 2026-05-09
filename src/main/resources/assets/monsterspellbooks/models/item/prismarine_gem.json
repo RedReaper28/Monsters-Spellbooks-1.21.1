@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "monsterspellbooks:item/nether_corn"
+    "layer0": "monsterspellbooks:item/prismarine_gem"
   }
 }

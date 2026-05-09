@@ -21,25 +21,30 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "monsterspellbooks:homunculus_blood_orb",
-          "conditions": [
+          "functions": [
             {
-              "condition": "minecraft:random_chance_with_enchanted_bonus",
-              "enchantment": "minecraft:looting",
-              "unenchanted_chance": 0.50,
-              "enchanted_chance": {
-                "type": "minecraft:linear",
-                "base": 0.75,
-                "per_level_above_first": 0.25
-              }
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
             },
             {
-              "condition": "minecraft:killed_by_player"
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "enchantment": "minecraft:looting",
+              "function": "minecraft:enchanted_count_increase"
             }
-          ]
+          ],
+          "name": "monsterspellbooks:homunculus_blood_orb"
         }
       ],
-      "rolls": 1
+      "rolls": 1.0
     }
   ]
 }
