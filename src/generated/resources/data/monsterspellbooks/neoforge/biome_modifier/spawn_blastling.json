@@ -3,7 +3,7 @@
   "biomes": "#minecraft:is_end",
   "spawners": {
     "type": "monsterspellbooks:blastling",
-    "maxCount": 2,
+    "maxCount": 1,
     "minCount": 1,
     "weight": 5
   }

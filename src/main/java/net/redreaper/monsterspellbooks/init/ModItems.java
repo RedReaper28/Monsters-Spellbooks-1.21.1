@@ -353,6 +353,15 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> ILLAGER_ENCHANTER_BOOTS = ITEMS.register("illager_enchanter_boots", () ->
             new IllagerEnchanterArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
+    public static final DeferredHolder<Item, Item> ILLAGER_EMBER_ROBE_HELMET = ITEMS.register("illager_ember_robe_helmet", () ->
+            new IllagerEmberRobeArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(48))));
+    public static final DeferredHolder<Item, Item> ILLAGER_EMBER_ROBE_CHESTPLATE = ITEMS.register("illager_ember_robe_chestplate", () ->
+            new IllagerEmberRobeArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
+    public static final DeferredHolder<Item, Item> ILLAGER_EMBER_ROBE_LEGGINGS = ITEMS.register("illager_ember_robe_leggings", () ->
+            new IllagerEmberRobeArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
+    public static final DeferredHolder<Item, Item> ILLAGER_EMBER_ROBE_BOOTS = ITEMS.register("illager_ember_robe_boots", () ->
+            new IllagerEmberRobeArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(48))));
+
     public static final DeferredHolder<Item, Item> ILLAGER_ICEOLOGER_HELMET = ITEMS.register("illager_iceologer_helmet", () ->
             new IllagerIceologerArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(48))));
     public static final DeferredHolder<Item, Item> ILLAGER_ICEOLOGER_CHESTPLATE = ITEMS.register("illager_iceologer_chestplate", () ->
@@ -440,6 +449,7 @@ public class ModItems {
     public static final Supplier<DeferredSpawnEggItem> JUNGLE_WHISPERER_SPAWN_EGG = ITEMS.register("jungle_whisperer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.JUNGLE_WHISPERER, 6323765, 8601546, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> ILLAGER_ENCHANTER_SPAWN_EGG = ITEMS.register("illager_enchanter_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.ILLAGER_ENCHANTER, 9804699, 9053763, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> ILLAGER_ICEOLOGER_SPAWN_EGG = ITEMS.register("illager_iceologer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.ILLAGER_ICEOLOGER, 9804699, 927571, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> ILLAGER_FIREOLOGER_SPAWN_EGG = ITEMS.register("illager_fireologer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.ILLAGER_FIREOLOGER, 9804699, 8257536, ItemPropertiesHelper.material().stacksTo(64)));
 
     public static final Supplier<DeferredSpawnEggItem> HEROBRINE_CULTIST_MAGE_SPAWN_EGG = ITEMS.register("herobrine_cultist_mage_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.HEROBRINE_CULTIST_MAGE, 8653859, 16108583, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> HEROBRINE_CULTIST_ASSASSIN_SPAWN_EGG = ITEMS.register("herobrine_cultist_assassin_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.HEROBRINE_CULTIST_ASSASSIN, 8653859, 16108583, ItemPropertiesHelper.material().stacksTo(64)));

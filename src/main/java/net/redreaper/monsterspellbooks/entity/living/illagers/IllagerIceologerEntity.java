@@ -64,6 +64,7 @@ public class IllagerIceologerEntity extends AbstractSpellCastingIllager implemen
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, AegisEntity.class, true));
+
     }
 
 

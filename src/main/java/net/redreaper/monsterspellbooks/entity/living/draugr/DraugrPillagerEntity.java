@@ -108,8 +108,7 @@ public class DraugrPillagerEntity extends DraugrIllagerEntity implements RangedA
         return SoundEvents.PILLAGER_HURT;
     }
 
-    @Override
-    protected boolean shouldDespawnInPeaceful() {
+    @Override protected boolean shouldDespawnInPeaceful() {
         return true;
     }
 

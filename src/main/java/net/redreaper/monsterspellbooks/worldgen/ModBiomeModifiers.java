@@ -85,23 +85,23 @@ public class ModBiomeModifiers {
 
         context.register(SPAWN_SPRIGGAN, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_FOREST),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.SPRIGGAN.get(),10,1,1))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.SPRIGGAN.get(),15,1,1))));
 
         context.register(SPAWN_DWARVEN_SPHERE, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_MOUNTAIN),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DWARVEN_SPHERE.get(),10,1,2))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DWARVEN_SPHERE.get(),15,1,1))));
 
         context.register(SPAWN_VILE_SKELETON, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.HAS_NETHER_FOSSIL),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.VILE_SKELETON.get(),15,3,6))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.VILE_SKELETON.get(),10,3,5))));
 
         context.register(SPAWN_JUNGLE_WHISPERER, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_JUNGLE),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.JUNGLE_WHISPERER.get(),10,1,3))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.JUNGLE_WHISPERER.get(),10,1,2))));
 
         context.register(SPAWN_BLASTLING, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_END),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.BLASTLING.get(),5,1,2))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.BLASTLING.get(),5,1,1))));
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {

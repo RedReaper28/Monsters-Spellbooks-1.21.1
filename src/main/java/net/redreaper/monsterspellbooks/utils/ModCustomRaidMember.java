@@ -15,5 +15,9 @@ public class ModCustomRaidMember {
     public static final int[] ICEOLOGER_COUNT_IN_WAVES = {0, 0, 0, 0, 0, 1, 1, 2};
     public static Raid.RaiderType ICEOLOGER;
 
+    public static final String FIREOLOGER_INTERNAL_NAME = "illager_fireologer";
+    public static final int[] FIREOLOGER_COUNT_IN_WAVES = {0, 0, 0, 0, 0, 0, 1, 2};
+    public static Raid.RaiderType FIREOLOGER;
+
 
 }

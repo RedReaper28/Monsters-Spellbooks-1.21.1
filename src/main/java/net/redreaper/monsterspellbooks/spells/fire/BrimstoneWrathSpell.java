@@ -89,7 +89,7 @@ public class BrimstoneWrathSpell extends AbstractSpell {
 
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        entity.addEffect(new MobEffectInstance(ModMobEffects.FOCUS, 20, 2, true, true, true));
+        entity.addEffect(new MobEffectInstance(ModMobEffects.FOCUS, 20, 0, true, true, true));
         CameraShakeManager.addCameraShake(new CameraShakeData(level, 30, entity.position(), 10));
         Vec3 forward = entity.getForward();
         if (playerMagicData.getAdditionalCastData() instanceof CastingMobAimingData aimData && entity instanceof Mob mob) {

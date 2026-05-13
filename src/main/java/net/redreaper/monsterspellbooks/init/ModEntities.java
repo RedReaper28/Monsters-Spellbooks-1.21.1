@@ -15,6 +15,7 @@ import net.redreaper.monsterspellbooks.entity.living.draugr.DraugrVindicatorEnti
 import net.redreaper.monsterspellbooks.entity.living.herobrine_cult.HerobrineCultistAssassinEntity;
 import net.redreaper.monsterspellbooks.entity.living.herobrine_cult.HerobrineCultistMageEntity;
 import net.redreaper.monsterspellbooks.entity.living.illagers.IllagerEnchanterEntity;
+import net.redreaper.monsterspellbooks.entity.living.illagers.IllagerFireologerEntity;
 import net.redreaper.monsterspellbooks.entity.living.illagers.IllagerIceologerEntity;
 import net.redreaper.monsterspellbooks.entity.living.summons.*;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlash;
@@ -550,9 +551,13 @@ public class ModEntities {
     public static final Supplier<EntityType<AegisEntity>>AEGIS=
             ENTITIES.register("aegis", () -> EntityType.Builder.of(AegisEntity::new, MobCategory.MONSTER).
                     sized(.8f, 1.8f).build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "aegis").toString()));
+
     public static final Supplier<EntityType<DwarvenSphereEntity>>DWARVEN_SPHERE=
-            ENTITIES.register("dwarven_sphere",()->EntityType.Builder.of(DwarvenSphereEntity::new,MobCategory.MONSTER)
-                    .sized(0.8F, 2.5F).build("dwarven_sphere"));
+            ENTITIES.register("dwarven_sphere", () -> EntityType.Builder.<DwarvenSphereEntity>of(DwarvenSphereEntity::new, MobCategory.MISC)
+                    .sized(2, 3F)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "dwarven_sphere").toString()));
+
     public static final Supplier<EntityType<DwarvenSlicerEntity>>DWARVEN_SLICER=
             ENTITIES.register("dwarven_slicer",()->EntityType.Builder.of(DwarvenSlicerEntity::new,MobCategory.MONSTER)
                     .sized(0.6F, 0.50f).build("dwarven_slicer"));
@@ -594,6 +599,12 @@ public class ModEntities {
                     .sized(.6f, 2.75f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "illager_iceologer").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<IllagerFireologerEntity>> ILLAGER_FIREOLOGER =
+            ENTITIES.register("illager_fireologer", () -> EntityType.Builder.of(IllagerFireologerEntity::new, MobCategory.MONSTER)
+                    .sized(.6f, 2.75f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "illager_fireologer").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<DraugrEvokerEntity>> DRAUGR_EVOKER=
             ENTITIES.register("draugr_evoker", () -> EntityType.Builder.of(DraugrEvokerEntity::new, MobCategory.MONSTER)

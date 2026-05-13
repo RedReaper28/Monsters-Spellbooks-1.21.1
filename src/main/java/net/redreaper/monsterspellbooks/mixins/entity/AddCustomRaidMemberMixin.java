@@ -68,6 +68,15 @@ public class AddCustomRaidMemberMixin
         ModCustomRaidMember.ICEOLOGER = iceologerRaidMember;
         raidMembers.add(iceologerRaidMember);
 
+        var fireologerRaidMember = newRaidMember(
+                ModCustomRaidMember.FIREOLOGER_INTERNAL_NAME,
+                lastRaidMember.ordinal() + 3,
+                ModEntities.ILLAGER_FIREOLOGER.get(),
+                ModCustomRaidMember.FIREOLOGER_COUNT_IN_WAVES
+        );
+        ModCustomRaidMember.FIREOLOGER = fireologerRaidMember;
+        raidMembers.add(fireologerRaidMember);
+
         $VALUES = raidMembers.toArray(new Raid.RaiderType[0]);
     }
 }

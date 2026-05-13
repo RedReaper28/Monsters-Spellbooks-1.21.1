@@ -18,6 +18,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -37,11 +38,9 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.redreaper.monsterspellbooks.effect.HemorrhageMobEffect;
 import net.redreaper.monsterspellbooks.effect.StaticMobEffect;
 import net.redreaper.monsterspellbooks.effect.VoidTouchedEffect;
-import net.redreaper.monsterspellbooks.init.ModDamageTypes;
-import net.redreaper.monsterspellbooks.init.ModItems;
-import net.redreaper.monsterspellbooks.init.ModMobEffects;
-import net.redreaper.monsterspellbooks.init.ModSpellSchools;
+import net.redreaper.monsterspellbooks.init.*;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.DiseaseEncyclopediaItem;
+import net.redreaper.monsterspellbooks.item.staves.frozen_commander.FrozenCommanderStaffItem;
 import net.redreaper.monsterspellbooks.item.weapons.*;
 import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlItem;
 
@@ -125,24 +124,22 @@ public class ServerEvents {
     @SubscribeEvent
     public static void onLivingIncomingDamage(LivingIncomingDamageEvent event) {
         var livingEntity = event.getEntity();
-        if ((livingEntity instanceof ServerPlayer) || (livingEntity instanceof IMagicEntity)) {
-            if (ModItems.BRIMSTONE_SIGIL.get().isEquippedBy(livingEntity) && event.getSource().is(DamageTypeTags.IS_FIRE)) {
-                event.getEntity().clearFire();
-                event.setCanceled(true);
-                return;
-            }
+        var attacker = event.getSource().getEntity();
+        ItemStack mainhandItem = livingEntity.getMainHandItem();
 
+        if ((livingEntity instanceof ServerPlayer) || (livingEntity instanceof IMagicEntity)) {
             if (livingEntity.getItemBySlot(EquipmentSlot.CHEST).is(ModItems.FLESH_MAIDEN) && event.getSource().is(ISSDamageTypes.HEARTSTOP)) {
                 event.setCanceled(true);
-                return;
             }
 
             if (livingEntity.hasEffect(ModMobEffects.SOUL_FORM) && !event.getSource().is(ISSDamageTypes.HOLY_MAGIC)) {
                 event.setCanceled(true);
-                return;
             }
         }
+        return;
+
     }
+
 
     @SubscribeEvent
     public static void livingDamageEventPost(LivingDamageEvent.Post event) {

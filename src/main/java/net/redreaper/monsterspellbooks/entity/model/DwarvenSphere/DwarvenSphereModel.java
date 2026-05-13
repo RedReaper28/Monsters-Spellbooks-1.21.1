@@ -11,15 +11,15 @@ import software.bernie.geckolib.model.data.EntityModelData;
 
 public class DwarvenSphereModel extends GeoModel<DwarvenSphereEntity> {
     public ResourceLocation getAnimationResource(DwarvenSphereEntity entity) {
-        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "animations/entity/dwarven_sphere.animation.json");
+        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "animations/entity/dwarven_centurion.animation.json");
     }
 
     public ResourceLocation getModelResource(DwarvenSphereEntity entity) {
-        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "geo/entity/dwarven_sphere.geo.json");
+        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "geo/entity/dwarven_centurion.geo.json");
     }
 
     public ResourceLocation getTextureResource(DwarvenSphereEntity entity) {
-        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "textures/entity/dwarven_sphere.png");
+        return ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "textures/entity/living/dwarven_centurion/dwarven_centurion.png");
     }
 
     public void setCustomAnimations(DwarvenSphereEntity animatable, long instanceId, AnimationState animationState) {

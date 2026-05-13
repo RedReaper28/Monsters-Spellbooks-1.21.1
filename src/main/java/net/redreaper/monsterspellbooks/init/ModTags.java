@@ -37,6 +37,8 @@ public class ModTags {
 
         public static final TagKey<Item> LICHDOM_KEYS=createTag("lichdom_keys");
 
+        public static final TagKey<Item> DEATHSILVER_WEAPONS=createTag("deathsilver_weapons");
+
         private static TagKey<Item>createTag(String name){
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID,name));
         }

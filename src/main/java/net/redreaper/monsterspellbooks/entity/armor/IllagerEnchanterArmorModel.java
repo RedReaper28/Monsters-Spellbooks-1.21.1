@@ -2,7 +2,6 @@ package net.redreaper.monsterspellbooks.entity.armor;
 
 import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.item.armor.DraugrEliteArmorItem;
 import net.redreaper.monsterspellbooks.item.armor.IllagerEnchanterArmorItem;
 import software.bernie.geckolib.model.DefaultedItemGeoModel;
 

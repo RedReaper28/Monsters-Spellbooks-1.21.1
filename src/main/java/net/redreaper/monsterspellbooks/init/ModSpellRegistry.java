@@ -61,6 +61,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> OBSIDIAN_ARSENAL = registerSpell(new ObsidianArsenalSpell());
     public static final Supplier<AbstractSpell> SPACE_BREAKER = registerSpell(new SpaceBreakerSpell());
     public static final Supplier<AbstractSpell> SPACE_RUPTURE = registerSpell(new SpaceRuptureSpell());
+    public static final Supplier<AbstractSpell> UNSTABLE_TELEPORT = registerSpell(new UnstableTeleportSpell());
 
     //EVOCATION
     public static final Supplier<AbstractSpell> ENCHANTERS_BOOST = registerSpell(new EnchantersBoostSpell());

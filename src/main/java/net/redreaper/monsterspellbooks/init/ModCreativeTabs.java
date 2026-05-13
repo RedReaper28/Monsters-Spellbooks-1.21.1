@@ -114,6 +114,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.ILLAGER_ENCHANTER_LEGGINGS.get());
                         output.accept(ModItems.ILLAGER_ENCHANTER_BOOTS.get());
 
+                        output.accept(ModItems.ILLAGER_EMBER_ROBE_HELMET.get());
+                        output.accept(ModItems.ILLAGER_EMBER_ROBE_CHESTPLATE.get());
+                        output.accept(ModItems.ILLAGER_EMBER_ROBE_LEGGINGS.get());
+                        output.accept(ModItems.ILLAGER_EMBER_ROBE_BOOTS.get());
+
                         output.accept(ModItems.ILLAGER_ICEOLOGER_HELMET.get());
                         output.accept(ModItems.ILLAGER_ICEOLOGER_CHESTPLATE.get());
                         output.accept(ModItems.ILLAGER_ICEOLOGER_LEGGINGS.get());
@@ -198,6 +203,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SPRIGGAN_SPAWN_EGG.get());
                         output.accept(ModItems.ILLAGER_ENCHANTER_SPAWN_EGG.get());
                         output.accept(ModItems.ILLAGER_ICEOLOGER_SPAWN_EGG.get());
+                        output.accept(ModItems.ILLAGER_FIREOLOGER_SPAWN_EGG.get());
 
                         output.accept(ModItems.HEROBRINE_CULTIST_MAGE_SPAWN_EGG.get());
                         output.accept(ModItems.HEROBRINE_CULTIST_ASSASSIN_SPAWN_EGG.get());
