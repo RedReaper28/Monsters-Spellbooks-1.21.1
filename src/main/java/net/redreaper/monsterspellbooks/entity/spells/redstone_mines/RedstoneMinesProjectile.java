@@ -83,7 +83,7 @@ public class RedstoneMinesProjectile extends AbstractMagicProjectile implements 
                 }
             }
             this.level().playSound(null, this.blockPosition(), SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.NEUTRAL, 3.5F, (float)Utils.random.nextIntBetweenInclusive(9, 11) * 0.3F);
-            MagicManager.spawnParticles(this.level(), ModParticleTypes.ANCIENT_SPARKS_PARTICLE.get(), this.getX(), this.getY() + (double)this.getExplosionRadius(), this.getZ(), 100, (double)1.0F, (double)1.0F, (double)1.0F, (double)0.5F, true);
+            MagicManager.spawnParticles(this.level(), ModParticleTypes.REDSTONE_SPARKS_PARTICLE.get(), this.getX(), this.getY() + (double)this.getExplosionRadius(), this.getZ(), 100, (double)1.0F, (double)1.0F, (double)1.0F, (double)0.5F, true);
             this.discard();
         }
     }

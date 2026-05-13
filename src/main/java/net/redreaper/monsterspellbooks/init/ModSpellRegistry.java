@@ -78,6 +78,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> FRENZY_SURGE = registerSpell(new FrenzySurgeSpell());
     public static final Supplier<AbstractSpell> NAPALM_ORB = registerSpell(new NapalmOrbSpell());
     public static final Supplier<AbstractSpell> OVERHEAT = registerSpell(new OverheatSpell());
+    public static final Supplier<AbstractSpell> WRATH = registerSpell(new WrathSpell());
 
     //HOLY
     public static final Supplier<AbstractSpell> AEGIS_PATROL = registerSpell(new AegisPatrolSpell());

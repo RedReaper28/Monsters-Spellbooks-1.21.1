@@ -1,5 +1,7 @@
 package net.redreaper.monsterspellbooks.init;
 
+import io.redspace.ironsspellbooks.IronsSpellbooks;
+import io.redspace.ironsspellbooks.entity.spells.wisp.WispEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -96,6 +98,12 @@ import static net.minecraft.core.registries.Registries.ENTITY_TYPE;
 public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<WrathEntity>> WRATH =
+            ENTITIES.register("wrath", () -> EntityType.Builder.<WrathEntity>of(WrathEntity::new, MobCategory.MISC)
+                    .sized(.5f, .5f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "wrath").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<SoulCastingFieldAOE>>SOUL_CASTING_FIELD =
             ENTITIES.register("soul_casting_field", () -> EntityType.Builder.<SoulCastingFieldAOE>of(SoulCastingFieldAOE::new, MobCategory.MISC)

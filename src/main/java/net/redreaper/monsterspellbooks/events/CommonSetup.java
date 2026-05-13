@@ -53,6 +53,7 @@ public class CommonSetup {
         event.put(ModEntities.POISON_QUILL_VINE.get(), PoisonQuillVineEntity.createAttributes().build());
         event.put(ModEntities.LIVING_LEAF_CRYSTAL.get(), LivingLeafCrystalEntity.createAttributes().build());
         event.put(ModEntities.ORBITAL_SNOWBALL.get(), OrbitalSnowballEntity.createAttributes().build());
+        event.put(ModEntities.WRATH.get(), WrathEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_PRISMARINE_KEEPER.get(), SummonedPrismarineKeeper.createAttributes().build());
         event.put(ModEntities.SUMMONED_AEGIS.get(), SummonedAegisEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_VILE_SKELETON.get(), SummonedVileSkeletonEntity.createAttributes().build());
