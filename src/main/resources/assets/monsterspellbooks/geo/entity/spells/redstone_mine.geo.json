@@ -1,0 +1,79 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.redstone_mine",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 6,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "all",
+					"pivot": [0, 8, 0],
+					"cubes": [
+						{"origin": [-8, 0, -8], "size": [16, 16, 16], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "glow",
+					"parent": "all",
+					"pivot": [0, 8, 0],
+					"cubes": [
+						{
+							"origin": [-9, 17, -9],
+							"size": [18, 0, 18],
+							"uv": {
+								"up": {"uv": [16, 48], "uv_size": [16, 16]},
+								"down": {"uv": [0, 64], "uv_size": [16, -16]}
+							}
+						},
+						{
+							"origin": [-9, -1, -9],
+							"size": [18, 0, 18],
+							"uv": {
+								"up": {"uv": [0, 48], "uv_size": [16, 16]},
+								"down": {"uv": [16, 64], "uv_size": [16, -16]}
+							}
+						},
+						{
+							"origin": [-9, -1, -9],
+							"size": [18, 18, 0],
+							"uv": {
+								"north": {"uv": [16, 48], "uv_size": [16, 16]},
+								"south": {"uv": [0, 48], "uv_size": [16, 16]}
+							}
+						},
+						{
+							"origin": [-9, -1, -9],
+							"size": [0, 18, 18],
+							"uv": {
+								"east": {"uv": [16, 48], "uv_size": [16, 16]},
+								"west": {"uv": [0, 48], "uv_size": [16, 16]}
+							}
+						},
+						{
+							"origin": [9, -1, -9],
+							"size": [0, 18, 18],
+							"uv": {
+								"east": {"uv": [16, 48], "uv_size": [-16, 16]},
+								"west": {"uv": [32, 48], "uv_size": [-16, 16]}
+							}
+						},
+						{
+							"origin": [-9, -1, 9],
+							"size": [18, 18, 0],
+							"uv": {
+								"north": {"uv": [16, 48], "uv_size": [-16, 16]},
+								"south": {"uv": [32, 48], "uv_size": [-16, 16]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

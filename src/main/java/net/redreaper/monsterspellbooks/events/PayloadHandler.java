@@ -8,7 +8,7 @@ import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.particle.*;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = MonstersSpellbooks.MOD_ID)
-public class PayloadHandler {
+public class    PayloadHandler {
     @SubscribeEvent
     public static void register(final RegisterPayloadHandlersEvent event) {
         final PayloadRegistrar payloadRegistrar = event.registrar(MonstersSpellbooks.MOD_ID).versioned("1.0.0").optional();

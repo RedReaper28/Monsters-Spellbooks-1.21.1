@@ -19,16 +19,25 @@ import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModParticleTypes;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
-import net.redreaper.monsterspellbooks.particle.AncientZapParticleOption;
+import net.redreaper.monsterspellbooks.particle.RedstoneZapParticleOptions;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.*;
+import software.bernie.geckolib.animation.AnimationState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.Optional;
 
-public class RedstoneMinesProjectile extends AbstractMagicProjectile implements AntiMagicSusceptible {
+public class RedstoneMinesProjectile extends AbstractMagicProjectile implements AntiMagicSusceptible, GeoEntity {
     private int duration;
+    private final AnimatableInstanceCache cache;
+    private final RawAnimation idle;
 
     public RedstoneMinesProjectile(EntityType<? extends Projectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.duration = 100;
+        this.cache = GeckoLibUtil.createInstanceCache(this);
+        this.idle = RawAnimation.begin().thenLoop("idle");
         this.setNoGravity(true);
     }
 
@@ -42,7 +51,7 @@ public class RedstoneMinesProjectile extends AbstractMagicProjectile implements 
         Vec3 pos = this.getBoundingBox().getCenter().add(this.getDeltaMovement());
         Vec3 random = Utils.getRandomVec3((double)0.25F).add(pos);
         pos = pos.add(this.getDeltaMovement());
-        this.level().addParticle(new AncientZapParticleOption(random), pos.x, pos.y, pos.z, (double)0.0F, (double)0.0F, (double)0.0F);
+        this.level().addParticle(new RedstoneZapParticleOptions(random), pos.x, pos.y, pos.z, (double)0.0F, (double)0.0F, (double)0.0F);
     }
 
     @Override public void impactParticles(double x, double y, double z) {}
@@ -86,5 +95,18 @@ public class RedstoneMinesProjectile extends AbstractMagicProjectile implements 
             MagicManager.spawnParticles(this.level(), ModParticleTypes.REDSTONE_SPARKS_PARTICLE.get(), this.getX(), this.getY() + (double)this.getExplosionRadius(), this.getZ(), 100, (double)1.0F, (double)1.0F, (double)1.0F, (double)0.5F, true);
             this.discard();
         }
+    }
+
+    private PlayState predicate(AnimationState event) {
+        event.getController().setAnimation(this.idle);
+        return PlayState.CONTINUE;
+    }
+
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+        controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
+    }
+
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
     }
 }

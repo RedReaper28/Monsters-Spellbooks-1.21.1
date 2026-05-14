@@ -60,7 +60,6 @@ import net.redreaper.monsterspellbooks.entity.model.Spriggan.SprigganRenderer;
 import net.redreaper.monsterspellbooks.entity.model.VileSkeleton.VileSkeletonRenderer;
 import net.redreaper.monsterspellbooks.entity.model.WrathEmtity.WrathRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlashRenderer;
-import net.redreaper.monsterspellbooks.entity.spells.at_shield.AtShieldRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.blast_fungus.BlastFungusRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.blood_pierce_bullet.BloodPierceRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.blood_thorn.BloodThornRenderer;
@@ -162,7 +161,6 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.EFFERVESCENCE_BUBBLE.get(), EffervescenceBubbleRenderer::new);
         event.registerEntityRenderer(ModEntities.SPACE_RUPTURE.get(), SpaceRuptureRenderer::new);
         event.registerEntityRenderer(ModEntities.RAIGO.get(), RaigoRenderer::new);
-        event.registerEntityRenderer(ModEntities.AT_SHIELD.get(), AtShieldRenderer::new);
         event.registerEntityRenderer(ModEntities.PLASMA_BOLT.get(), PlasmaBoltRenderer::new);
         event.registerEntityRenderer(ModEntities.INFECTION_SLASH_PROJECTILE.get(), InfectionSlashRenderer::new);
         event.registerEntityRenderer(ModEntities.BLOOD_THORN.get(), BloodThornRenderer::new);
@@ -280,7 +278,6 @@ public static void registerParticles(RegisterParticleProvidersEvent event)
         event.registerLayerDefinition(GuardiansNeutralizerRenderer.MODEL_LAYER_LOCATION, GuardiansNeutralizerRenderer::createBodyLayer);
         event.registerLayerDefinition(WitherNovaRenderer.MODEL_LAYER_LOCATION, WitherNovaRenderer::createBodyLayer);
         event.registerLayerDefinition(NapalmOrbRenderer.MODEL_LAYER_LOCATION, NapalmOrbRenderer::createBodyLayer);
-        event.registerLayerDefinition(RedstoneMinesRenderer.MODEL_LAYER_LOCATION, RedstoneMinesRenderer::createBodyLayer);
         event.registerLayerDefinition(SoulFireBoltRenderer.MODEL_LAYER_LOCATION, SoulFireBoltRenderer::createBodyLayer);
     }
 

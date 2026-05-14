@@ -1,7 +1,5 @@
 package net.redreaper.monsterspellbooks.init;
 
-import io.redspace.ironsspellbooks.IronsSpellbooks;
-import io.redspace.ironsspellbooks.entity.spells.wisp.WispEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -22,7 +20,6 @@ import net.redreaper.monsterspellbooks.entity.living.illagers.IllagerIceologerEn
 import net.redreaper.monsterspellbooks.entity.living.summons.*;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlash;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_lightning_lance.StaticField;
-import net.redreaper.monsterspellbooks.entity.spells.at_shield.AtShield;
 import net.redreaper.monsterspellbooks.entity.spells.blast_fungus.BlastFungusProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.blizzard_aspect.PowderSnowSplash;
 import net.redreaper.monsterspellbooks.entity.spells.blizzard_aspect.SnowCloud;
@@ -110,12 +107,6 @@ public class ModEntities {
                     .sized(7f, 1.2f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "soul_casting_field").toString()));
-
-    public static final DeferredHolder<EntityType<?>, EntityType<AtShield>>AT_SHIELD =
-            ENTITIES.register("at_shield", () -> EntityType.Builder.<AtShield>of(AtShield::new, MobCategory.MISC)
-                    .sized(2, 3)
-                    .clientTrackingRange(64)
-                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "at_shield").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<RedstoneMinesProjectile>> REDSTONE_MINES =
             ENTITIES.register("redstone_mines", () -> EntityType.Builder.<RedstoneMinesProjectile>of(RedstoneMinesProjectile::new, MobCategory.MISC)

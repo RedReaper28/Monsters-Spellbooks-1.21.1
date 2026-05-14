@@ -17,8 +17,6 @@ import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.DamageTypeTags;
-import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -40,7 +38,6 @@ import net.redreaper.monsterspellbooks.effect.StaticMobEffect;
 import net.redreaper.monsterspellbooks.effect.VoidTouchedEffect;
 import net.redreaper.monsterspellbooks.init.*;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.DiseaseEncyclopediaItem;
-import net.redreaper.monsterspellbooks.item.staves.frozen_commander.FrozenCommanderStaffItem;
 import net.redreaper.monsterspellbooks.item.weapons.*;
 import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlItem;
 
@@ -124,20 +121,18 @@ public class ServerEvents {
     @SubscribeEvent
     public static void onLivingIncomingDamage(LivingIncomingDamageEvent event) {
         var livingEntity = event.getEntity();
-        var attacker = event.getSource().getEntity();
-        ItemStack mainhandItem = livingEntity.getMainHandItem();
 
         if ((livingEntity instanceof ServerPlayer) || (livingEntity instanceof IMagicEntity)) {
             if (livingEntity.getItemBySlot(EquipmentSlot.CHEST).is(ModItems.FLESH_MAIDEN) && event.getSource().is(ISSDamageTypes.HEARTSTOP)) {
                 event.setCanceled(true);
+                return;
             }
 
             if (livingEntity.hasEffect(ModMobEffects.SOUL_FORM) && !event.getSource().is(ISSDamageTypes.HOLY_MAGIC)) {
                 event.setCanceled(true);
+                return;
             }
         }
-        return;
-
     }
 
 
@@ -320,8 +315,8 @@ public class ServerEvents {
                 if (event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
                     if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DWARVEN_POWER_CORE.get())) {
                         StaticMobEffect.addStaticStack((LivingEntity) attacker, attacker);
-                        }
                     }
+                }
             }
 
             if (attacker instanceof Player player) {
@@ -369,6 +364,8 @@ public class ServerEvents {
             }
         }
     }
+
+
 }
 
 

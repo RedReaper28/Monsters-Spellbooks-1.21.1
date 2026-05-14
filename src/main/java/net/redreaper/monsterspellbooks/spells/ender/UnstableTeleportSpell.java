@@ -103,7 +103,6 @@ public class UnstableTeleportSpell extends AbstractSpell {
         MagicManager.spawnParticles(level, ParticleHelper.ENDER_SPARKS, entity.getX(), entity.getY() + 1, entity.getZ(), 80, .25, .25, .25, 0.7f + radius * .1f, false);
         CameraShakeManager.addCameraShake(new CameraShakeData(level, 30, entity.position(), radius * 2));
 
-
         Vec3 start = entity.getBoundingBox().getCenter();
         float damage = getDamage(spellLevel, entity);
         level.getEntities(entity, entity.getBoundingBox().inflate(radius, radius, radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, true)).forEach(target -> {
