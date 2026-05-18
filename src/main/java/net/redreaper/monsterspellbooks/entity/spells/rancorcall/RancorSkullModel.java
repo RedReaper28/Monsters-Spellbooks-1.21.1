@@ -16,6 +16,6 @@ public class RancorSkullModel extends GeoModel<RancorSkull> {
     }
 
     public ResourceLocation getAnimationResource(RancorSkull animatable) {
-        return ResourceLocation.fromNamespaceAndPath("monsterspellbooks", "animations/entity/spells/rancor_skull_.animation.json");
+        return ResourceLocation.fromNamespaceAndPath("monsterspellbooks", "animations/entity/spells/rancor_skull.animation.json");
     }
 }

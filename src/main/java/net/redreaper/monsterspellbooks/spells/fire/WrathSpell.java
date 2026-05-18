@@ -9,6 +9,7 @@ import io.redspace.ironsspellbooks.api.spells.CastType;
 import io.redspace.ironsspellbooks.api.spells.SpellRarity;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.TargetEntityCastData;
+import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -16,6 +17,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
@@ -39,7 +41,6 @@ public class WrathSpell extends AbstractSpell {
             .setSchoolResource(SchoolRegistry.FIRE_RESOURCE)
             .setMaxLevel(10)
             .setCooldownSeconds(3)
-            .setAllowCrafting(false)
             .build();
 
     public WrathSpell() {
@@ -63,10 +64,6 @@ public class WrathSpell extends AbstractSpell {
     @Override
     public ResourceLocation getSpellResource() {
         return spellId;
-    }
-
-    public boolean allowLooting() {
-        return false;
     }
 
     @Override
@@ -114,6 +111,10 @@ public class WrathSpell extends AbstractSpell {
         return 3 + getEntityPowerMultiplier(caster);
     }
 
+    @Override
+    public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {
+        return super.getDamageSource(projectile, attacker).setFireTicks(60);
+    }
 
     private float getDistance(int spellLevel, LivingEntity sourceEntity) {
         return getSpellPower(spellLevel, sourceEntity) * 5;

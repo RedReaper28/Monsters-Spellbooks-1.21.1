@@ -16,6 +16,6 @@ public class WitherBombModel extends GeoModel<WitherBombProjectile> {
     }
 
     public ResourceLocation getAnimationResource(WitherBombProjectile animatable) {
-        return ResourceLocation.fromNamespaceAndPath("monsterspellbooks", "animations/entity/spells/rancor_skull_.animation.json");
+        return ResourceLocation.fromNamespaceAndPath("monsterspellbooks", "animations/entity/spells/rancor_skull.animation.json");
     }
 }

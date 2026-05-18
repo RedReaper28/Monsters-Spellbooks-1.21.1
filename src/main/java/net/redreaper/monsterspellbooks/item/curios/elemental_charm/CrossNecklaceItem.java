@@ -8,6 +8,7 @@ import io.redspace.ironsspellbooks.entity.spells.sunbeam.SunbeamEntity;
 import io.redspace.ironsspellbooks.item.curios.PassiveAbilityCurio;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
+import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -38,6 +39,7 @@ public class CrossNecklaceItem extends PassiveAbilityCurio {
         Multimap<Holder<Attribute>, AttributeModifier> attr = LinkedHashMultimap.create();
         attr.put(AttributeRegistry.HOLY_SPELL_POWER, new AttributeModifier(id, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
         attr.put(AttributeRegistry.CAST_TIME_REDUCTION, new AttributeModifier(id, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+        attr.put(ASAttributeRegistry.EVASIVE, new AttributeModifier(id, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
         return attr;
     }
 
@@ -48,14 +50,16 @@ public class CrossNecklaceItem extends PassiveAbilityCurio {
         var CHARM = ((CrossNecklaceItem) ModItems.CROSS_NECKLACE.get());
         if (target instanceof ServerPlayer serverPlayer) {
             if (CHARM.isEquippedBy(serverPlayer) && CHARM.tryProcCooldown(serverPlayer)) {
-                double baseDamage = damageFor(target);
-                Vec3 spawn = sourceEntity.position();
-                SunbeamEntity sunbeam = new SunbeamEntity(target.level());
-                sunbeam.setOwner(target);
-                sunbeam.moveTo(spawn);
-                sunbeam.setDamage((float) baseDamage);
-                target.level().addFreshEntity(sunbeam);
-                target.level().playSound(null, sunbeam.blockPosition(), SoundRegistry.SUNBEAM_WINDUP.get(), SoundSource.NEUTRAL, 3.5f, 1);
+                if (sourceEntity instanceof LivingEntity) {
+                    double baseDamage = damageFor(target);
+                    Vec3 spawn = sourceEntity.position();
+                    SunbeamEntity sunbeam = new SunbeamEntity(target.level());
+                    sunbeam.setOwner(target);
+                    sunbeam.moveTo(spawn);
+                    sunbeam.setDamage((float) baseDamage);
+                    target.level().addFreshEntity(sunbeam);
+                    target.level().playSound(null, sunbeam.blockPosition(), SoundRegistry.SUNBEAM_WINDUP.get(), SoundSource.NEUTRAL, 3.5f, 1);
+                }
             }
         }
     }

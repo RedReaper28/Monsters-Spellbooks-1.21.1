@@ -48,7 +48,7 @@ public class WrathEntity extends PathfinderMob implements GeoEntity {
     @Nullable
     private Entity cachedOwner;
 
-    private final RawAnimation animation = RawAnimation.begin().thenPlay("animation.wisp.flying");
+    private final RawAnimation animation = RawAnimation.begin().thenPlay("idle");
 
     private Vec3 targetSearchStart;
     private Vec3 lastTickPos;

@@ -415,15 +415,6 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> DEATH_KNIGHT_BOOTS = ITEMS.register("death_knight_boots", () ->
             new DeathKnightArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(37))));
 
-    public static final DeferredHolder<Item, Item> PALE_OBSERVER_MASK = ITEMS.register("pale_observer_mask", () ->
-            new PaleObserverArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(37))));
-    public static final DeferredHolder<Item, Item>PALE_OBSERVER_CHESTPLATE = ITEMS.register("pale_observer_chestplate", () ->
-            new PaleObserverArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(37))));
-    public static final DeferredHolder<Item, Item> PALE_OBSERVER_LEGGINGS = ITEMS.register("pale_observer_leggings", () ->
-            new PaleObserverArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(37))));
-    public static final DeferredHolder<Item, Item> PALE_OBSERVER_BOOTS = ITEMS.register("pale_observer_boots", () ->
-            new PaleObserverArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(37))));
-
     public static final DeferredHolder<Item, Item> FORGE_MASTERPIECE_HELMET = ITEMS.register("forge_masterpiece_helmet", () ->
             new ForgeMasterpieceArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ModRarities.BRIMSTONE_RARITY_PROXY.getValue()).fireResistant().durability(ArmorItem.Type.HELMET.getDurability(48))));
     public static final DeferredHolder<Item, Item> FORGE_MASTERPIECE_CHESTPLATE = ITEMS.register("forge_masterpiece_chestplate", () ->
