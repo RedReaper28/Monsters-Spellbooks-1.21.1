@@ -122,7 +122,7 @@ public class WrathEntity extends PathfinderMob implements GeoEntity {
                     for (Entity entity : entities) {
                         double distanceSqr = entity.distanceToSqr(bb.getCenter());
                         if (distanceSqr < explosionRadiusSqr && hasLineOfSight(entity) && Utils.hasLineOfSight(level(), losPoint, entity.getBoundingBox().getCenter(), true)) {
-                            DamageSources.applyDamage(entity, damageAmount, ModSpellRegistry.REDSTONE_MINES.get().getDamageSource(this, cachedOwner));
+                            DamageSources.applyDamage(entity, damageAmount, ModSpellRegistry.WRATH.get().getDamageSource(this, cachedOwner));
                         }
                     }
                     var p = target.getEyePosition();

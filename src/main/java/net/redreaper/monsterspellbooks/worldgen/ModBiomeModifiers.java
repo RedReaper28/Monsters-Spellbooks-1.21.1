@@ -33,6 +33,8 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier>SPAWN_DWARVEN_SPHERE=registerKey("spawn_dwarven_sphere");
     public static final ResourceKey<BiomeModifier>SPAWN_JUNGLE_WHISPERER =registerKey("spawn_jungle_whisperer");
     public static final ResourceKey<BiomeModifier>SPAWN_VILE_SKELETON=registerKey("spawn_vile_skeleton");
+    public static final ResourceKey<BiomeModifier>SPAWN_SOUL_WRAITH=registerKey("spawn_soul_wraith");
+    public static final ResourceKey<BiomeModifier>SPAWN_WITHER_WARLOCK=registerKey("spawn_wither_warlock");
     public static final ResourceKey<BiomeModifier>SPAWN_BLASTLING=registerKey("spawn_blastling");
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
@@ -89,11 +91,19 @@ public class ModBiomeModifiers {
 
         context.register(SPAWN_DWARVEN_SPHERE, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_MOUNTAIN),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DWARVEN_SPHERE.get(),15,1,1))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DWARVEN_SPHERE.get(),15,1,3))));
+
+        context.register(SPAWN_WITHER_WARLOCK, new BiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_NETHER),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.WITHER_WARLOCK.get(),18,1,1))));
 
         context.register(SPAWN_VILE_SKELETON, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.HAS_NETHER_FOSSIL),
                 List.of(new MobSpawnSettings.SpawnerData(ModEntities.VILE_SKELETON.get(),10,3,5))));
+
+        context.register(SPAWN_SOUL_WRAITH, new BiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.HAS_NETHER_FOSSIL),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.SOUL_WRAITH.get(),15,1,1))));
 
         context.register(SPAWN_JUNGLE_WHISPERER, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_JUNGLE),
@@ -101,7 +111,7 @@ public class ModBiomeModifiers {
 
         context.register(SPAWN_BLASTLING, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_END),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.BLASTLING.get(),5,1,1))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.BLASTLING.get(),2,1,1))));
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {

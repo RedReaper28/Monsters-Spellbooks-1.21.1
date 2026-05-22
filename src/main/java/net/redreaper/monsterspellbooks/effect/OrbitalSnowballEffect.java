@@ -1,5 +1,6 @@
 package net.redreaper.monsterspellbooks.effect;
 
+import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.core.Direction;
@@ -25,11 +26,12 @@ public class OrbitalSnowballEffect extends MagicMobEffect {
 
     @SubscribeEvent
     public static void handleAbility(LivingIncomingDamageEvent event) {
-        if(event.getSource().getEntity() != null) {
+        if (event.getSource().getEntity() != null) {
             if (!internalCooldowns.containsKey(event.getSource().getEntity().getUUID())) {
                 internalCooldowns.put(event.getSource().getEntity().getUUID(), 0);
             }
             if (event.getSource().getEntity() instanceof LivingEntity living && living.hasEffect(ModMobEffects.ORBITAL_SNOWBALL)) {
+                if (event.getSource() instanceof SpellDamageSource && internalCooldowns.get(event.getSource().getEntity().getUUID()) == 0) {
                     LivingEntity victimPlayer = event.getEntity();
                     Level world = living.level();
                     FrostedSnowboltProjectile bullet = new FrostedSnowboltProjectile(living.level(), living, victimPlayer, Direction.Axis.X);
@@ -37,6 +39,7 @@ public class OrbitalSnowballEffect extends MagicMobEffect {
                     bullet.setPos(living.getBoundingBox().getCenter().add((double) 0.0F, (double) (bullet.getBbHeight() * 3F), (double) 0.0F));
                     world.addFreshEntity(bullet);
                     internalCooldowns.replace(living.getUUID(), 120);
+                }
             }
         }
     }

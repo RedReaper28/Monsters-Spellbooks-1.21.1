@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "monsterspellbooks:vile_skeleton"
+    "monsterspellbooks:vile_skeleton",
+    "monsterspellbooks:wither_warlock"
   ]
 }

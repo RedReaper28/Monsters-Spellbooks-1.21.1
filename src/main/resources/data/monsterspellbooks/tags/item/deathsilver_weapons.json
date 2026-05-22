@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "monsterspellbooks:deathsilver_sword",
+    "monsterspellbooks:deathsilver_dagger",
+    "monsterspellbooks:deathsilver_axe",
+    "monsterspellbooks:frozen_commander_staff"
+  ]
+}

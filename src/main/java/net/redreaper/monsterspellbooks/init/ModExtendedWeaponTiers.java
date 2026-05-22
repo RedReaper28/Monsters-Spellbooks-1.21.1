@@ -92,7 +92,10 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(AttributeRegistry.ICE_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers MASTERS_KATANA = new ModExtendedWeaponTiers(1561, 3F, -2.0f, 25, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModItems.ROSE_GOLD_INGOT.get()),
-            new AttributeContainer(Attributes.ENTITY_INTERACTION_RANGE, 0.2, AttributeModifier.Operation.ADD_VALUE));
+            new AttributeContainer(ASAttributeRegistry.MAGIC_DAMAGE_CRIT_CHANCE, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static ModExtendedWeaponTiers DANCERS_SWORD = new ModExtendedWeaponTiers(751, 5F, -1.2f, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(Items.IRON_INGOT),
+            new AttributeContainer(Attributes.MOVEMENT_SPEED, 0.2, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers PRISMARINE_CLAYMORE = new ModExtendedWeaponTiers(751, 7F, -2.8F, 10, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(Items.PRISMARINE_SHARD),
             new AttributeContainer(Attributes.WATER_MOVEMENT_EFFICIENCY, 0.15, AttributeModifier.Operation.ADD_VALUE),

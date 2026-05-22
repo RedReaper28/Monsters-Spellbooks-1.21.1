@@ -18,6 +18,8 @@ public class ModMobEffects {
 
 
     public static final DeferredHolder<MobEffect, MobEffect> ORBITAL_SNOWBALL = MOB_EFFECT_DEFERRED_REGISTER.register("orbital_snowball", () -> new OrbitalSnowballEffect(MobEffectCategory.BENEFICIAL, 57744 ));
+    public static final DeferredHolder<MobEffect, MobEffect> SPECTRAL_REINFORCEMENT = MOB_EFFECT_DEFERRED_REGISTER.register("spectral_reinforcement", () -> new SpectralReinforcementMobEffect(MobEffectCategory.BENEFICIAL, 8585181 ));
+    public static final DeferredHolder<MobEffect, MobEffect> DIVINE_PROTECTION = MOB_EFFECT_DEFERRED_REGISTER.register("divine_protection", () -> new DivineProtectionMobEffect(MobEffectCategory.BENEFICIAL, 16772429 ));
 
     public static final DeferredHolder<MobEffect, MobEffect> OVERHEAT = MOB_EFFECT_DEFERRED_REGISTER.register("overheat", () -> new OverheatMobEffect(MobEffectCategory.BENEFICIAL, 16736559)
             .addAttributeModifier(Attributes.ATTACK_DAMAGE, MonstersSpellbooks.id("mobeffect_overheat"), OverheatMobEffect.ATTACK_DAMAGE_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
@@ -48,9 +50,8 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> STUNNED = MOB_EFFECT_DEFERRED_REGISTER.register("stunned", () -> new StunnedMobEffect(MobEffectCategory.HARMFUL, 1315355)
             .addAttributeModifier(Attributes.ATTACK_SPEED, MonstersSpellbooks.id("mobeffect_stunned"), StunnedMobEffect.ATTACK_SLOWNESS_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
-    public static final DeferredHolder<MobEffect, MobEffect> QUICK_STRIKE = MOB_EFFECT_DEFERRED_REGISTER.register("quick_strike", () -> new QuickStrikeMobEffect(MobEffectCategory.BENEFICIAL, 1315355)
-            .addAttributeModifier(Attributes.ATTACK_SPEED, MonstersSpellbooks.id("mobeffect_quick_strike"), QuickStrikeMobEffect.ATTACK_SPEED_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
-
+    public static final DeferredHolder<MobEffect, MobEffect> RAMPAGING = MOB_EFFECT_DEFERRED_REGISTER.register("rampaging", () -> new RampagingMobEffect(MobEffectCategory.BENEFICIAL, 1315355)
+            .addAttributeModifier(Attributes.ATTACK_SPEED, MonstersSpellbooks.id("mobeffect_rampaging"), RampagingMobEffect.ATTACK_SPEED_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
     public static final DeferredHolder<MobEffect, MobEffect> REAPER_ASPECT = MOB_EFFECT_DEFERRED_REGISTER.register("reaper_aspect", () -> new ReaperAspectMobEffect(MobEffectCategory.BENEFICIAL, 57744 ));
     public static final DeferredHolder<MobEffect, MobEffect> FEARSOME = MOB_EFFECT_DEFERRED_REGISTER.register("fearsome", () -> new FearsomeMobEffect(MobEffectCategory.BENEFICIAL, 1315355 ));
@@ -90,8 +91,6 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> MANA_ABSORPTION = MOB_EFFECT_DEFERRED_REGISTER.register("mana_absorption", () -> new ManaAbsorptionMobEffect(MobEffectCategory.BENEFICIAL, 4259780)
             .addAttributeModifier(ASAttributeRegistry.MANA_STEAL, MonstersSpellbooks.id("mobeffect_mana_absorption"), ManaAbsorptionMobEffect.MANA_STEAL_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
-    public static final DeferredHolder<MobEffect, MobEffect> DIVINE_PROTECTION = MOB_EFFECT_DEFERRED_REGISTER.register("divine_protection", () -> new DivineProtectionMobEffect(MobEffectCategory.BENEFICIAL, 16777084)
-            .addAttributeModifier(ASAttributeRegistry.EVASIVE, MonstersSpellbooks.id("mobeffect_divine_protection"), DivineProtectionMobEffect.EVASION_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE));
     public static final DeferredHolder<MobEffect, MobEffect> SOUL_FORM = MOB_EFFECT_DEFERRED_REGISTER.register("soul_form", () -> new SoulFormMobEffect(MobEffectCategory.BENEFICIAL, 6354426)
             .addAttributeModifier(ASAttributeRegistry.EVASIVE, MonstersSpellbooks.id("mobeffect_soul_form"), SoulFormMobEffect.EVASION_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE)
             .addAttributeModifier(Attributes.MOVEMENT_SPEED, MonstersSpellbooks.id("mobeffect_soul_form"), SoulFormMobEffect.SPEED_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)

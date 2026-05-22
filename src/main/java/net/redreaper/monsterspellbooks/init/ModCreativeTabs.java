@@ -26,6 +26,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.BOOK_OF_SOULS.get());
                         output.accept(ModItems.FRENZY_KING_BOOK.get());
                         output.accept(ModItems.DISEASE_ENCYCLOPEDIA.get());
+                        output.accept(ModItems.REAPER_LANTERN.get());
                         output.accept(ModItems.VILENOVA_STAFF.get());
                         output.accept(ModItems.GREAT_AXEBLADE.get());
                         output.accept(ModItems.MASTERS_KATANA.get());
@@ -62,6 +63,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.CLAWS_OF_CALAMITY.get());
                         output.accept(ModItems.PALLADIN_HAMMER.get());
                         output.accept(ModItems.MAGMATIC_MACUAHUITL.get());
+                        output.accept(ModItems.REAPER_SICKLE.get());
                         output.accept(ModItems.STARLESS_NIGHT.get());
                         output.accept(ModItems.SWIFT_STRIKER.get());
                         output.accept(ModItems.VOID_TOUCHED_BLADE.get());
@@ -176,6 +178,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.VILE_IRON_NUGGET);
                         output.accept(ModItems.NETHER_PYRITE);
                         output.accept(ModItems.NETHER_RUBY);
+                        output.accept(ModItems.SPECTRITE_INGOT);
                         output.accept(ModItems.BLAZESTEEL_INGOT);
                         output.accept(ModItems.WITHER_ALLOY_INGOT);
                         output.accept(ModItems.WITHER_ALLOY_NUGGET);
@@ -189,6 +192,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.HOMUNCULUS_BLOOD_ORB);
                         output.accept(ModItems.DWARVEN_ALLOY_PLATE);
                         output.accept(ModItems.VILE_BONE);
+                        output.accept(ModItems.ECTOPLASM_BALL);
+                        output.accept(ModItems.ECTOPLASM_VIAL);
                         output.accept(ModItems.RAW_SANGUINITE_VIAL);
                         output.accept(ModItems.PUTRESCENCE_VIAL);
                         output.accept(ModItems.VOID_VIAL);
@@ -216,6 +221,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DWARVEN_SLICER_SPAWN_EGG.get());
                         output.accept(ModItems.JUNGLE_WHISPERER_SPAWN_EGG.get());
                         output.accept(ModItems.REDSTONE_ELEMENTAL_SPAWN_EGG.get());
+                        output.accept(ModItems.SOUL_WRAITH_SPAWN_EGG.get());
+                        output.accept(ModItems.WITHER_WARLOCK_SPAWN_EGG.get());
                         output.accept(ModItems.PRISMARINE_KEEPER_SPAWN_EGG.get());
                         output.accept(ModItems.VILE_SKELETON_SPAWN_EGG.get());
                         output.accept(ModItems.MAGMA_ATRONACH_SPAWN_EGG.get());
@@ -255,6 +262,7 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.NETHER_RUBY_ORE);
                         output.accept(ModBlocks.NETHER_RUBY_BLOCK);
                         output.accept(ModBlocks.WITHER_ALLOY_BLOCK);
+                        output.accept(ModBlocks.SPECTRITE_BLOCK);
                         output.accept(ModBlocks.BLAZESTEEL_BLOCK);
                         output.accept(ModBlocks.VOID_MATTER_ORE);
 

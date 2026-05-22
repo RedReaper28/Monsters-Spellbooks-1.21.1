@@ -56,8 +56,11 @@ import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityModel
 import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityRenderer;
 import net.redreaper.monsterspellbooks.entity.model.SoulWizardEntity.SoulWizardModel;
 import net.redreaper.monsterspellbooks.entity.model.SoulWizardEntity.SoulWizardRenderer;
+import net.redreaper.monsterspellbooks.entity.model.SoulWraithEntity.SoulWraithModel;
+import net.redreaper.monsterspellbooks.entity.model.SoulWraithEntity.SoulWraithRenderer;
 import net.redreaper.monsterspellbooks.entity.model.Spriggan.SprigganRenderer;
 import net.redreaper.monsterspellbooks.entity.model.VileSkeleton.VileSkeletonRenderer;
+import net.redreaper.monsterspellbooks.entity.model.WitherWarlockEntity.WitherWarlockRenderer;
 import net.redreaper.monsterspellbooks.entity.model.WrathEmtity.WrathRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlashRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.blast_fungus.BlastFungusRenderer;
@@ -67,6 +70,7 @@ import net.redreaper.monsterspellbooks.entity.spells.bone_dagger.BoneDaggerRende
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_buzzsaw.BrimstoneBuzzsawRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.BrimstoneFireballRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouchRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.divine_intervention.DivineSwordRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.dragon_charge.DragonChargeRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.effervescence_bubble.EffervescenceBubbleRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.rajins_judment.ElthorBeamRenderer;
@@ -161,6 +165,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.EFFERVESCENCE_BUBBLE.get(), EffervescenceBubbleRenderer::new);
         event.registerEntityRenderer(ModEntities.SPACE_RUPTURE.get(), SpaceRuptureRenderer::new);
         event.registerEntityRenderer(ModEntities.RAIGO.get(), RaigoRenderer::new);
+        event.registerEntityRenderer(ModEntities.DIVINE_SWORD.get(), DivineSwordRenderer::new);
         event.registerEntityRenderer(ModEntities.PLASMA_BOLT.get(), PlasmaBoltRenderer::new);
         event.registerEntityRenderer(ModEntities.INFECTION_SLASH_PROJECTILE.get(), InfectionSlashRenderer::new);
         event.registerEntityRenderer(ModEntities.BLOOD_THORN.get(), BloodThornRenderer::new);
@@ -207,6 +212,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.AEGIS.get(), context -> {return new AegisEntityRenderer(context, new AegisEntityModel());});
         event.registerEntityRenderer(ModEntities.DRIPPLER.get(), context -> {return new DripplerEntityRenderer(context, new DripplerEntityModel());});
         event.registerEntityRenderer(ModEntities.SPRIGGAN.get(), SprigganRenderer::new);
+        event.registerEntityRenderer(ModEntities.WITHER_WARLOCK.get(), WitherWarlockRenderer::new);
         event.registerEntityRenderer(ModEntities.HEROBRINE_CULTIST_MAGE.get(), HerobrineCultistRenderer::new);
         event.registerEntityRenderer(ModEntities.HEROBRINE_CULTIST_ASSASSIN.get(), HerobrineCultistRenderer::new);
         event.registerEntityRenderer(ModEntities.ILLAGER_ENCHANTER.get(), IllagerEnchanterRenderer::new);
@@ -233,6 +239,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.ICE_SERPEANT.get(), context -> {return new IceSerpeantRenderer(context, new IceSerpeantModel());});
         event.registerEntityRenderer(ModEntities.DWARVEN_SWARM_DRONE.get(), context -> {return new DwarvenSwarmDroneRenderer(context, new DwarvenSwarmDroneModel());});
         event.registerEntityRenderer(ModEntities.REDSTONE_ELEMENTAL.get(), context -> {return new RedstoneElementalRenderer(context, new RedstoneElementalModel());});
+        event.registerEntityRenderer(ModEntities.SOUL_WRAITH.get(), context -> {return new SoulWraithRenderer(context, new SoulWraithModel());});
     }
 
 
@@ -262,6 +269,7 @@ public static void registerParticles(RegisterParticleProvidersEvent event)
     event.registerSpriteSet(ModParticleTypes.HYDRO_BUBBLE.get(), HydroBubbleParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.ACIDIC_VENOM_BUBBLE.get(), AcidicVenomBubbleParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.VITAL_SPARKS.get(), VitalSparksParticle.Provider::new);
+    event.registerSpriteSet(ModParticleTypes.SIMPLE_SOUL_CHAIN.get(), SimpleSoulChainParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.SPIRIT_STRIKE_PARTICLE.get(), SpiritStrikeParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.SOUL_CHAIN_PARTICLE.get(), SoulChainParticle.Provider::new);
     event.registerSpriteSet(ModParticleTypes.ANCIENT_ZAP_PARTICLE.get(), AncientZapParticle.Provider::new);
@@ -285,6 +293,7 @@ public static void registerParticles(RegisterParticleProvidersEvent event)
     public static void registerClientExtensions(RegisterClientExtensionsEvent event) {
         event.registerFluidType(new SimpleClientFluidType(MonstersSpellbooks.id("block/raw_sanguinite")), ModFluids.RAW_SANGUINITE_TYPE);
         event.registerFluidType(new SimpleClientFluidType(MonstersSpellbooks.id("block/putrescence")), ModFluids.PUTRESCENCE_TYPE);
+        event.registerFluidType(new SimpleClientFluidType(MonstersSpellbooks.id("block/ectoplasm")), ModFluids.ECTOPLASM_TYPE);
         event.registerFluidType(new SimpleClientFluidType(MonstersSpellbooks.id("block/void_fluid")), ModFluids.VOID_FLUID_TYPE);
     }
 

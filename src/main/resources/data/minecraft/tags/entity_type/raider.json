@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "monsterspellbooks:illager_enchanter",
-    "monsterspellbooks:illager_iceologer"
+    "monsterspellbooks:illager_iceologer",
+    "monsterspellbooks:illager_fireologer"
+
   ]
 }

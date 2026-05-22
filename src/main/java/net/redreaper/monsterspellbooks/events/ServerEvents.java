@@ -17,6 +17,7 @@ import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -121,6 +122,7 @@ public class ServerEvents {
     @SubscribeEvent
     public static void onLivingIncomingDamage(LivingIncomingDamageEvent event) {
         var livingEntity = event.getEntity();
+        var target = event.getEntity();
 
         if ((livingEntity instanceof ServerPlayer) || (livingEntity instanceof IMagicEntity)) {
             if (livingEntity.getItemBySlot(EquipmentSlot.CHEST).is(ModItems.FLESH_MAIDEN) && event.getSource().is(ISSDamageTypes.HEARTSTOP)) {
@@ -131,6 +133,17 @@ public class ServerEvents {
             if (livingEntity.hasEffect(ModMobEffects.SOUL_FORM) && !event.getSource().is(ISSDamageTypes.HOLY_MAGIC)) {
                 event.setCanceled(true);
                 return;
+            }
+        }
+
+        if (event.getSource().getEntity() instanceof LivingEntity livingAttacker )
+        {
+            if (!target.getType().is(EntityTypeTags.UNDEAD)) {
+                if (livingAttacker.getItemBySlot(EquipmentSlot.MAINHAND).is(ModTags.Items.DEATHSILVER_WEAPONS)) {
+                    float baseDamage = event.getOriginalAmount();
+                    float newDamage = baseDamage * 1.50f;
+                    event.setAmount(newDamage);
+                }
             }
         }
     }
@@ -238,22 +251,6 @@ public class ServerEvents {
                 }
             }
 
-            if (mainhandItem.getItem() instanceof SwiftStriker && (!(livingEntity instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.SWIFT_STRIKER.get())))
-            {
-                // Swift Striker - Reset attack cooldown
-                {
-                    MagicManager.spawnParticles(target.level(), new BlastwaveParticleOptions(SchoolRegistry.ENDER.get().getTargetingColor(), 1.5f), target.getX(), target.getY() + 0.165F, target.getZ(), 1, 0, 0, 0, 0, true);
-                    if (target instanceof LivingEntity livingTarget)
-                    {
-                        livingEntity.addEffect(new MobEffectInstance(ModMobEffects.QUICK_STRIKE, 1*20, 3, false, false, true));
-                    }
-
-                    if (livingEntity instanceof Player player)
-                    {
-                        player.getCooldowns().addCooldown(ModItems.SWIFT_STRIKER.get(), SwiftStriker.COOLDOWN);
-                    }
-                }
-            }
 
         }
     }
@@ -294,6 +291,20 @@ public class ServerEvents {
                     player.getCooldowns().addCooldown(ModItems.DUKES_HEARTSTEALER.get(), DukesHeartstealer.COOLDOWN);
                 }
             }
+
+            //DancerSword
+            if (mainhandItem.getItem() instanceof DancerSwordItem && (!(attacker instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.DANCERS_SWORD.get())))
+            {
+                if (target instanceof LivingEntity livingTarget)
+                {
+                    livingAttacker.addEffect(new MobEffectInstance(ModMobEffects.RAMPAGING, 15*20, 2, false, false, true));
+                }
+                if (attacker instanceof Player player)
+                {
+                    player.getCooldowns().addCooldown(ModItems.DANCERS_SWORD.get(), DancerSwordItem.COOLDOWN);
+                }
+            }
+
         }
     }
 

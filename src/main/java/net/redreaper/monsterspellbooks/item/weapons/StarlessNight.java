@@ -72,4 +72,9 @@ public class StarlessNight extends MagicSwordItem implements UniqueItem {
             }
         }
     }
+
+    @Override
+    public boolean isDamageable(ItemStack stack) {
+        return false;
+    }
 }

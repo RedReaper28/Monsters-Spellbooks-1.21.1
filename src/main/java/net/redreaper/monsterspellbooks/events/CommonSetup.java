@@ -33,9 +33,11 @@ public class CommonSetup {
         event.put(ModEntities.DWARVEN_SLICER.get(), DwarvenSlicerEntity.createAttributes().build());
         event.put(ModEntities.SHOCK.get(), ShockEntity.createAttributes().build());
         event.put(ModEntities.REDSTONE_ELEMENTAL.get(), RedstoneElementalEntity.createAttributes().build());
+        event.put(ModEntities.SOUL_WRAITH.get(), SoulWraithEntity.createAttributes().build());
         event.put(ModEntities.AEGIS.get(), AegisEntity.createAttributes().build());
         event.put(ModEntities.DRIPPLER.get(), DripplerEntity.createAttributes().build());
         event.put(ModEntities.SPRIGGAN.get(), SprigganEntity.createAttributes().build());
+        event.put(ModEntities.WITHER_WARLOCK.get(), WitherWarlockEntity.createAttributes().build());
         event.put(ModEntities.JUNGLE_WHISPERER.get(), JungleWhispererEntity.createAttributes().build());
         event.put(ModEntities.HEROBRINE_CULTIST_MAGE.get(), HerobrineCultistMageEntity.createAttributes().build());
         event.put(ModEntities.HEROBRINE_CULTIST_ASSASSIN.get(), HerobrineCultistAssassinEntity.createAttributes().build());
@@ -75,6 +77,8 @@ public class CommonSetup {
         event.register(ModEntities.JUNGLE_WHISPERER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (type, serverLevelAccessor, spawnType, blockPos, random) -> Utils.checkMonsterSpawnRules(serverLevelAccessor, spawnType, blockPos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(ModEntities.MAGMA_ATRONACH.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                (type, serverLevelAccessor, spawnType, blockPos, random) -> Utils.checkMonsterSpawnRules(serverLevelAccessor, spawnType, blockPos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(ModEntities.SOUL_WRAITH.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (type, serverLevelAccessor, spawnType, blockPos, random) -> Utils.checkMonsterSpawnRules(serverLevelAccessor, spawnType, blockPos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(ModEntities.VILE_SKELETON.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE);

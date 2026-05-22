@@ -147,6 +147,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> SOUL_CASTING_FIELD = registerSpell(new SoulCastingFieldSpell());
     public static final Supplier<AbstractSpell> SOUL_CHAIN = registerSpell(new SoulChainSpell());
     public static final Supplier<AbstractSpell> SOUL_FIREBOLT = registerSpell(new SoulFireBoltSpell());
+    public static final Supplier<AbstractSpell> SOUL_FIRE_TELEPORT = registerSpell(new SoulFireTeleportSpell());
     public static final Supplier<AbstractSpell> SOUL_FORM = registerSpell(new SoulFormSpell());
     public static final Supplier<AbstractSpell> SOUL_SCORCH = registerSpell(new SoulScorchSpell());
     public static final Supplier<AbstractSpell> SPECTRAL_BLAST = registerSpell(new SpectralBlastSpell());

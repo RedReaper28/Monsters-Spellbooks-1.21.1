@@ -10,7 +10,6 @@ import io.redspace.ironsspellbooks.entity.mobs.wizards.GenericAnimatedWarlockAtt
 import io.redspace.ironsspellbooks.entity.mobs.wizards.fire_boss.NotIdioticNavigation;
 import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
-import io.redspace.ironsspellbooks.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.DamageTypeTags;
@@ -42,6 +41,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.init.ModTags;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.animation.AnimationState;
 
@@ -115,6 +115,14 @@ public class PrismarineKeeper extends AbstractSpellCastingMob implements IAnimat
                 }
             }
         };
+    }
+
+    public boolean isAlliedTo(Entity entity) {
+        if (super.isAlliedTo(entity)) {
+            return true;
+        } else {
+            return entity.getType().is(ModTags.Entities.PRISMARINE_CONSTRUCT) && this.getTeam() == null && entity.getTeam() == null;
+        }
     }
 
     protected SoundEvent getAmbientSound() {

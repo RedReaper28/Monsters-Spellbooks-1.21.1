@@ -42,7 +42,7 @@ public class DraugrEvokerEntity extends DraugrIllagerEntity implements Enemy {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new SpellBarrageGoal(this, ModSpellRegistry.SUMMON_ICE_HYDRA.get(), 1, 3, 100, 260, 1));
+        this.goalSelector.addGoal(1, new SpellBarrageGoal(this, SpellRegistry.ICICLE_SPELL.get(), 4, 6, 100, 260, 1));
         this.goalSelector.addGoal(2, new WizardAttackGoal(this, 1.5f, 30, 80)
                 .setSpells(
                         List.of(SpellRegistry.FANG_STRIKE_SPELL.get(), SpellRegistry.ICE_SPIKES_SPELL.get(),SpellRegistry.COUNTERSPELL_SPELL.get(),ModSpellRegistry.STRAY_GRASP.get()),
@@ -50,7 +50,7 @@ public class DraugrEvokerEntity extends DraugrIllagerEntity implements Enemy {
                         List.of(),
                         List.of())
                 .setSpellQuality(.4f, .6f)
-                .setSingleUseSpell(ModSpellRegistry.LICHDOM.get(), 150, 200, 1, 1)
+                .setSingleUseSpell(ModSpellRegistry.SUMMON_ICE_HYDRA.get(), 150, 200, 3, 4)
                 .setDrinksPotions());
         this.goalSelector.addGoal(3, new PatrolNearLocationGoal(this, 30, .75f));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));

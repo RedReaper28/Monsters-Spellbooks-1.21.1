@@ -41,4 +41,9 @@ public class VoidTouchedBladeItem extends MagicSwordItem {
     protected int getPassiveCooldownTicks() {
         return 5 * 20;
     }
+
+    @Override
+    public boolean isDamageable(ItemStack stack) {
+        return false;
+    }
 }

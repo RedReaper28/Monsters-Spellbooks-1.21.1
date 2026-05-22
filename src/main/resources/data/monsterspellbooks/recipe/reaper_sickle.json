@@ -7,12 +7,15 @@
     },
     "B": {
       "item": "monsterspellbooks:wither_alloy_ingot"
+    },
+    "C": {
+      "item": "monsterspellbooks:poison_biter"
     }
   },
   "pattern": [
     "AAB",
     " B ",
-    "B  "
+    "C  "
   ],
   "result": {
     "components": {

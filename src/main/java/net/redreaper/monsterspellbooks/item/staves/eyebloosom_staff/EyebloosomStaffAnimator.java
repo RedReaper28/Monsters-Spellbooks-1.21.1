@@ -7,14 +7,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-    public class EyebloosomStaffAnimator extends AzItemAnimator {
-        private static final ResourceLocation ANIMATIONS = ResourceLocation.fromNamespaceAndPath("monsterspellbooks", "animations/item/eyebloom_staff.animation.json");
+    public class EyebloosomStaffAnimator {
 
-        public void registerControllers(AzAnimationControllerContainer<ItemStack> animationControllerContainer) {
-            animationControllerContainer.add(AzAnimationController.builder(this, "base_controller").build(), new AzAnimationController[0]);
-        }
-
-        public @NotNull ResourceLocation getAnimationLocation(ItemStack animatable) {
-            return ANIMATIONS;
-        }
     }

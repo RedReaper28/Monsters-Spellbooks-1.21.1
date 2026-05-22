@@ -1,5 +1,7 @@
 package net.redreaper.monsterspellbooks.init;
 
+import io.redspace.ironsspellbooks.IronsSpellbooks;
+import io.redspace.ironsspellbooks.entity.spells.fireball.MagicFireball;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -31,6 +33,7 @@ import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.BrimstoneFie
 import net.redreaper.monsterspellbooks.entity.spells.brimstone_rain.SmallBrimstoneFireball;
 import net.redreaper.monsterspellbooks.entity.spells.bubble_spray.BubbleSprayProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.cauterizing_touch.CauterizingTouch;
+import net.redreaper.monsterspellbooks.entity.spells.divine_intervention.DivineSwordProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.dragon_charge.DragonChargeProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.effervescence_bubble.EffervescenceBubbleProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.rajins_judment.ElthorBeamEntity;
@@ -95,6 +98,12 @@ import static net.minecraft.core.registries.Registries.ENTITY_TYPE;
 public class ModEntities {
     private static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(ENTITY_TYPE, MonstersSpellbooks.MOD_ID);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<DivineSwordProjectile>> DIVINE_SWORD =
+            ENTITIES.register("divine_sword", () -> EntityType.Builder.<DivineSwordProjectile>of(DivineSwordProjectile::new, MobCategory.MISC)
+                    .sized(1f, 1.5f)
+                    .clientTrackingRange(4)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "divine_sword").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<WrathEntity>> WRATH =
             ENTITIES.register("wrath", () -> EntityType.Builder.<WrathEntity>of(WrathEntity::new, MobCategory.MISC)
@@ -573,6 +582,14 @@ public class ModEntities {
                             ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "redstone_elemental").toString()
                     ));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<SoulWraithEntity>> SOUL_WRAITH =
+            ENTITIES.register("soul_wraith", () -> EntityType.Builder.<SoulWraithEntity>of
+                            (SoulWraithEntity::new, MobCategory.MONSTER).
+                    sized(.6f, 1.8f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "soul_wraith").toString()
+                    ));
+
     public static final DeferredHolder<EntityType<?>, EntityType<DripplerEntity>> DRIPPLER =
             ENTITIES.register("drippler", () -> EntityType.Builder.<DripplerEntity>of
                             (DripplerEntity::new, MobCategory.MONSTER).
@@ -586,6 +603,12 @@ public class ModEntities {
                     .sized(.6f, 2.75f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "spriggan").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<WitherWarlockEntity>> WITHER_WARLOCK =
+            ENTITIES.register("wither_warlock", () -> EntityType.Builder.of(WitherWarlockEntity::new, MobCategory.MONSTER)
+                    .sized(.6f, 2.75f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "wither_warlock").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<IllagerEnchanterEntity>> ILLAGER_ENCHANTER =
             ENTITIES.register("illager_enchanter", () -> EntityType.Builder.of(IllagerEnchanterEntity::new, MobCategory.MONSTER)

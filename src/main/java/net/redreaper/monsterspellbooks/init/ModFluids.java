@@ -26,10 +26,12 @@ public class ModFluids {
 
     public static final DeferredHolder<FluidType, FluidType> RAW_SANGUINITE_TYPE = FLUID_TYPES.register("raw_sanguinite", () -> new FluidType(FluidType.Properties.create()));
     public static final DeferredHolder<FluidType, FluidType> PUTRESCENCE_TYPE = FLUID_TYPES.register("putrescence", () -> new FluidType(FluidType.Properties.create()));
+    public static final DeferredHolder<FluidType, FluidType> ECTOPLASM_TYPE = FLUID_TYPES.register("ectoplasm", () -> new FluidType(FluidType.Properties.create()));
     public static final DeferredHolder<FluidType, FluidType> VOID_FLUID_TYPE = FLUID_TYPES.register("void_fluid", () -> new FluidType(FluidType.Properties.create()));
 
     public static final DeferredHolder<Fluid, NoopFluid> RAW_SANGUINITE = registerNoop("raw_sanguinite", RAW_SANGUINITE_TYPE::value);
     public static final DeferredHolder<Fluid, NoopFluid> PUTRESCENCE = registerNoop("putrescence", PUTRESCENCE_TYPE::value);
+    public static final DeferredHolder<Fluid, NoopFluid> ECTOPLASM = registerNoop("ectoplasm", ECTOPLASM_TYPE::value);
     public static final DeferredHolder<Fluid, NoopFluid> VOID_FLUID = registerNoop("void_fluid", VOID_FLUID_TYPE::value);
 
 
@@ -40,4 +42,5 @@ public class ModFluids {
         FLUIDS.register(name, () -> new NoopFluid(properties));
         return holder;
     }
+
 }

@@ -8,6 +8,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.block.EctoplasmFluidBlock;
 
 import java.util.function.Supplier;
 
@@ -84,7 +85,6 @@ public class ModBlocks {
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS).sound(SoundType.CORAL_BLOCK)));
     public static final DeferredBlock<Block>CORAL_PLANKS=registerBlock("coral_planks",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
-
     public static final DeferredBlock<Block>CHISELED_PRISMARINE_BRICKS=registerBlock("chiseled_prismarine_bricks",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS)));
 

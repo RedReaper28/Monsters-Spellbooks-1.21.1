@@ -18,7 +18,6 @@ import net.redreaper.monsterspellbooks.entity.curios.thundering_quiver.Thunderin
 import net.redreaper.monsterspellbooks.init.*;
 import net.redreaper.monsterspellbooks.item.shields.dwarven_riot_shield.DwarvenRiotShieldRenderer;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiRenderer;
-import net.redreaper.monsterspellbooks.item.staves.eyebloosom_staff.EyebloosomStaffRenderer;
 import net.redreaper.monsterspellbooks.item.staves.frozen_commander.FrozenCommanderStaffRenderer;
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffRenderer;
 import net.redreaper.monsterspellbooks.item.weapons.disruption_nanginata.DisruptionNaginataRenderer;
@@ -74,7 +73,6 @@ public class MonstersSpellbooks {
         AzIdentityRegistry.register(
                 ModItems.VILENOVA_STAFF.get(),
                 ModItems.BRIMSTONE_OROCHI.get(),
-                ModItems.EYEBLOOSOM_STAFF.get(),
 
                 ModItems.DWARVEN_SHIELD.get(),
 
@@ -113,7 +111,6 @@ public class MonstersSpellbooks {
                         ModItems.ORB_SOUL.get(), OrbSoulCurioRenderer::new
             );
 
-            AzItemRendererRegistry.register(EyebloosomStaffRenderer::new, ModItems.EYEBLOOSOM_STAFF.get());
             AzItemRendererRegistry.register(FrozenCommanderStaffRenderer::new, ModItems.FROZEN_COMMANDER_STAFF.get());
             AzItemRendererRegistry.register(VileNovaStaffRenderer::new, ModItems.VILENOVA_STAFF.get());
             AzItemRendererRegistry.register(BrimstoneOrochiRenderer::new, ModItems.BRIMSTONE_OROCHI.get());
@@ -128,7 +125,6 @@ public class MonstersSpellbooks {
             AzIdentityRegistry.register(
                     ModItems.VILENOVA_STAFF.get(),
                     ModItems.BRIMSTONE_OROCHI.get(),
-                    ModItems.EYEBLOOSOM_STAFF.get(),
 
                     ModItems.DWARVEN_SHIELD.get(),
 

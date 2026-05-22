@@ -12,17 +12,5 @@ import net.redreaper.monsterspellbooks.init.ModDispatcher;
 import net.redreaper.monsterspellbooks.init.ModStaffMaterials;
 
 
-public class EyebloosomStaffIem extends StaffItem {
-    public final ModDispatcher dispatcher = new ModDispatcher();
-
-    public EyebloosomStaffIem() {
-        super(ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.VERDANT_RARITY_PROXY.getValue())
-                .attributes(ExtendedSwordItem.createAttributes(ModStaffMaterials.EYEBLOOSOM)));
-    }
-
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
-        if (!level.isClientSide && entity instanceof Player player) {
-            this.dispatcher.idle(player, stack);
-        }
-    }
+public class EyebloosomStaffIem {
 }
