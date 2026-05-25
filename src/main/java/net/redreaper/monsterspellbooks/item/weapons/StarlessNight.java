@@ -13,13 +13,11 @@ import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
-import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -29,8 +27,7 @@ public class StarlessNight extends MagicSwordItem implements UniqueItem {
         super(
                 ModExtendedWeaponTiers.VOID_OBSIDIAN,
                 ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.VOID_OBSIDIAN)),
-                SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(SpellRegistry.ECHOING_STRIKES_SPELL, 5))
+                SpellDataRegistryHolder.of(new SpellDataRegistryHolder(SpellRegistry.ECHOING_STRIKES_SPELL, 5))
         );
     }
 

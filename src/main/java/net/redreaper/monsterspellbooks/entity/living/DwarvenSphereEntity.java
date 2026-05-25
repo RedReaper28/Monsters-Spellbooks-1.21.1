@@ -52,7 +52,6 @@ public class DwarvenSphereEntity extends UniqueAbstractSpellCastingMob implement
     public DwarvenSphereEntity(Level level, LivingEntity owner) {
         this(ModEntities.DWARVEN_SPHERE.get(), level);
     }
-
     protected LookControl createLookControl()
     {
         return new LookControl(this)

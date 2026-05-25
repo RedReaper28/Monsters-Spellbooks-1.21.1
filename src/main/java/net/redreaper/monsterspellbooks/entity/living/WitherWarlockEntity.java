@@ -43,8 +43,8 @@ public class WitherWarlockEntity extends AbstractSpellCastingMob implements Enem
     protected void registerGoals() {
         this.goalSelector.addGoal(4, new WizardAttackGoal(this, 1.25f, 35, 80)
                 .setSpells(
-                        List.of(ModSpellRegistry.BONE_DAGGER.get(), ModSpellRegistry.LIFE_DRAIN.get(), ModSpellRegistry.RANCORCALL.get()),
-                        List.of(ModSpellRegistry.BANSHEE_SCREAM.get()),
+                        List.of(ModSpellRegistry.TORMENT_ARROW.get(), ModSpellRegistry.LIFE_DRAIN.get(), ModSpellRegistry.RANCORCALL.get()),
+                        List.of(),
                         List.of(),
                         List.of(SpellRegistry.SLOW_SPELL.get())
                 )

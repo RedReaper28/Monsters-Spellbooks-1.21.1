@@ -4,7 +4,7 @@
   "spawners": {
     "type": "monsterspellbooks:dwarven_sphere",
     "maxCount": 3,
-    "minCount": 1,
-    "weight": 15
+    "minCount": 2,
+    "weight": 20
   }
 }

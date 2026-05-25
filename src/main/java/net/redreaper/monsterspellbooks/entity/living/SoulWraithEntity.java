@@ -81,7 +81,7 @@ public class SoulWraithEntity extends UniqueAbstractSpellCastingMob implements G
     public void registerGoals() {
         this.goalSelector.addGoal(3, new WizardAttackGoal(this, 0.75f, 30, 55)
                 .setSpells(
-                        List.of(ModSpellRegistry.SOUL_FIREBOLT.get(),ModSpellRegistry.SOUL_SCORCH.get()),
+                        List.of(ModSpellRegistry.SOUL_FIREBOLT.get(),ModSpellRegistry.SOUL_FIREBOLT.get(),ModSpellRegistry.SOUL_FIREBOLT.get(),ModSpellRegistry.SOUL_SCORCH.get()),
                         List.of(),
                         List.of(ModSpellRegistry.SOUL_FIRE_TELEPORT.get()),
                         List.of()

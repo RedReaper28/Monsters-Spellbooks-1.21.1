@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:prismarine_gem"
+    },
+    "B": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "C": {
+      "item": "monsterspellbooks:coral_planks"
+    }
+  },
+  "pattern": [
+    "  B",
+    "AB ",
+    "CA "
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:prismarine_claymore"
+  }
+}

@@ -198,11 +198,6 @@ public class ServerEvents {
             if (mainhandItem.getItem() instanceof EternalKnifeItem && (!(livingEntity instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.ETERNAL_KNIFE.get())))
             {
                 // Etneral Knife - Entities with over 25% of their health are inflicted with Mana Rend
-                final float MAX_HEALTH = target.getMaxHealth();
-                float baseHealth = target.getHealth();
-                double percent = (baseHealth/MAX_HEALTH) * 100;
-
-                if (percent > 25)
                 {
                     MagicManager.spawnParticles(target.level(), new BlastwaveParticleOptions(ModSpellSchools.NECRO.get().getTargetingColor(), 1.5f), target.getX(), target.getY() + 0.165F, target.getZ(), 1, 0, 0, 0, 0, true);
                     if (target instanceof LivingEntity livingTarget)

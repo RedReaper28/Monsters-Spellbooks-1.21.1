@@ -81,14 +81,6 @@ public class ModExtendedArmorMaterials {
             5,
             0F);
 
-    public static DeferredHolder<ArmorMaterial,ArmorMaterial>PALE_OBSERVER=register("pale_observer_armor",
-            schoolHybridArmorMap(),
-            20,
-            SoundRegistry.OAKSKIN_CAST,
-            () -> Ingredient.of(ModItems.RESIN_BRICK.get()),
-            0,
-            0);
-
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>DEATHSILVER=register("deathsilver",
             spellcounterArmorMap(),
             10,

@@ -10,12 +10,15 @@
     },
     "C": {
       "item": "monsterspellbooks:poison_biter"
+    },
+    "D": {
+      "item": "monsterspellbooks:superior_weapon_parts"
     }
   },
   "pattern": [
     "AAB",
-    " B ",
-    "C  "
+    " C ",
+    "D  "
   ],
   "result": {
     "components": {

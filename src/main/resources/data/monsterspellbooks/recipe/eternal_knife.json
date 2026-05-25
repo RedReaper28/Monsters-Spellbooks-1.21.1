@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:cultist_knife"
+    },
+    "B": {
+      "item": "monsterspellbooks:ectoplasm_vial"
+    },
+    "C": {
+      "item": "monsterspellbooks:superior_weapon_parts"
+    }
+  },
+  "pattern": [
+    "  B",
+    "BA ",
+    "CB "
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:eternal_knife"
+  }
+}

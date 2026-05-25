@@ -429,6 +429,15 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> STARSCOURGE_BOOTS = ITEMS.register("starscourge_boots", () ->
             new StarscourgeArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(48))));
 
+    public static final DeferredHolder<Item, Item> UNSTABLE_ROBES_HELMET = ITEMS.register("unstable_robes_helmet", () ->
+            new UnstableRobeArmorItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).durability(ArmorItem.Type.HELMET.getDurability(48))));
+    public static final DeferredHolder<Item, Item> UNSTABLE_ROBES_CHESTPLATE = ITEMS.register("unstable_robes_chestplate", () ->
+            new UnstableRobeArmorItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).durability(ArmorItem.Type.CHESTPLATE.getDurability(48))));
+    public static final DeferredHolder<Item, Item> UNSTABLE_ROBES_LEGGINGS = ITEMS.register("unstable_robes_leggings", () ->
+            new UnstableRobeArmorItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).durability(ArmorItem.Type.LEGGINGS.getDurability(48))));
+    public static final DeferredHolder<Item, Item> UNSTABLE_ROBES_BOOTS = ITEMS.register("unstable_robes_boots", () ->
+            new UnstableRobeArmorItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).durability(ArmorItem.Type.BOOTS.getDurability(48))));
+
     public static final Supplier<DeferredSpawnEggItem> AEGIS_SPAWN_EGG = ITEMS.register("aegis_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.AEGIS, 5526633, 9864548, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DRIPPLER_SPAWN_EGG = ITEMS.register("drippler_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DRIPPLER, 5641255, 9386054, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DWARVEN_SPHERE_SPAWN_EGG = ITEMS.register("dwarven_sphere_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DWARVEN_SPHERE, 10050109, 16501864, ItemPropertiesHelper.material().stacksTo(64)));

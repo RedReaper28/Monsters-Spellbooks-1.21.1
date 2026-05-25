@@ -81,6 +81,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DRAUGR_ELITE_CHESTPLATE.get());
                         output.accept(ModItems.DRAUGR_ELITE_BOOTS.get());
 
+                        output.accept(ModItems.UNSTABLE_ROBES_HELMET.get());
+                        output.accept(ModItems.UNSTABLE_ROBES_CHESTPLATE.get());
+                        output.accept(ModItems.UNSTABLE_ROBES_LEGGINGS.get());
+                        output.accept(ModItems.UNSTABLE_ROBES_BOOTS.get());
+
                         output.accept(ModItems.NECROMANCER_HELMET.get());
                         output.accept(ModItems.NECROMANCER_CHESTPLATE.get());
                         output.accept(ModItems.NECROMANCER_LEGGINGS.get());

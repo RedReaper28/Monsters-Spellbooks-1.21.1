@@ -15,7 +15,7 @@ import java.util.List;
 
 public class SnowBowItem extends ImbueableBowItem {
     public SnowBowItem() {
-        super(ModExtendedWeaponTiers.SNOW_BOW,
+        super(
                 ItemPropertiesHelper.equipment(1).fireResistant().durability(451).rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue())
                         .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.SNOW_BOW))
         );

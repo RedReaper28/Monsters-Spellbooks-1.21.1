@@ -105,7 +105,7 @@ public class SoulChainSpell extends AbstractSpell {
     }
 
     public float getRange(int spellLevel, LivingEntity caster) {
-        return 4f + getSpellPower(spellLevel, caster) * .5f;
+        return 4f + getSpellPower(spellLevel, caster) * 1.5f;
     }
 
 }

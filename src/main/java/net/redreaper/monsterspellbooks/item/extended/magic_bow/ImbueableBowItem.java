@@ -6,8 +6,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 
 public class ImbueableBowItem extends ExtendedBowItem implements IPresetSpellContainer {
-    public ImbueableBowItem(Tier pTier, Properties properties) {
-        super(pTier,properties);
+    public ImbueableBowItem(Properties properties) {
+        super(properties);
     }
 
     @Override

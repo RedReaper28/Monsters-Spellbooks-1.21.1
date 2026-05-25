@@ -116,7 +116,7 @@ public class GuardiansNeutralizerSpell extends AbstractSpell {
     }
 
     public static float getRange(int level, LivingEntity caster) {
-        return 50;
+        return 15;
     }
 
     private float getDamage(int spellLevel, LivingEntity caster) {

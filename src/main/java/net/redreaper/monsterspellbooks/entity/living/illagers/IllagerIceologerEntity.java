@@ -43,7 +43,7 @@ public class IllagerIceologerEntity extends AbstractSpellCastingIllager implemen
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new SpellBarrageGoal(this, SpellRegistry.ICE_BLOCK_SPELL.get(), 1, 2, 100, 260, 1));
+        this.goalSelector.addGoal(2, new SpellBarrageGoal(this, SpellRegistry.ICE_BLOCK_SPELL.get(), 3, 6, 100, 250, 1));
         this.goalSelector.addGoal(2, new WizardAttackGoal(this, 1.5f, 60, 80)
                 .setSpells(
                         List.of(SpellRegistry.CONE_OF_COLD_SPELL.get(), SpellRegistry.RAY_OF_FROST_SPELL.get(),SpellRegistry.SNOWBALL_SPELL.get()),

@@ -91,7 +91,7 @@ public class ModBiomeModifiers {
 
         context.register(SPAWN_DWARVEN_SPHERE, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_MOUNTAIN),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DWARVEN_SPHERE.get(),15,1,3))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DWARVEN_SPHERE.get(),20,2,3))));
 
         context.register(SPAWN_WITHER_WARLOCK, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_NETHER),

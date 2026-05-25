@@ -282,16 +282,18 @@
   "item.monsterspellbooks.fun_gal_cap_red": "Red FunGal Cap",
   "item.monsterspellbooks.fun_gal_cap_blue": "Glowshroom FunGal Cap",
   "item.monsterspellbooks.flesh_maiden": "Flesh Maiden",
+  "item.monsterspellbooks.unstable_robes_helmet": "Unstable Robes Helmet",
+  "item.monsterspellbooks.unstable_robes_chestplate": "Unstable Robes Chestplate",
+  "item.monsterspellbooks.unstable_robes_leggings": "Unstable Robes Leggins",
+  "item.monsterspellbooks.unstable_robes_boots": "Unstable Robes Boots",
   "item.monsterspellbooks.illager_enchanter_helmet": "Enchanters Hat",
   "item.monsterspellbooks.illager_enchanter_chestplate": "Enchanters Coat",
   "item.monsterspellbooks.illager_enchanter_leggings": "Enchanters Leggings",
   "item.monsterspellbooks.illager_enchanter_boots": "Enchanters Boots",
-
   "item.monsterspellbooks.illager_ember_robe_helmet": "Ember Robe Hat",
   "item.monsterspellbooks.illager_ember_robe_chestplate": "Ember Robe Coat",
   "item.monsterspellbooks.illager_ember_robe_leggings": "Ember Robe Leggings",
   "item.monsterspellbooks.illager_ember_robe_boots": "Ember Robe Boots",
-
   "item.monsterspellbooks.illager_iceologer_helmet": "Iceologers Hoddie",
   "item.monsterspellbooks.illager_iceologer_chestplate": "Iceologers Coat",
   "item.monsterspellbooks.illager_iceologer_leggings": "Iceologers Leggings",
@@ -359,7 +361,6 @@
   "entity.monsterspellbooks.soul_wizard": "Soul Wizard",
   "entity.monsterspellbooks.spriggan": "Spriggan",
   "entity.monsterspellbooks.vile_skeleton": "Vile Skeleton",
-
   "entity.monsterspellbooks.summoned_vile_skeleton": "Summoned Vile Skeleton",
   "entity.monsterspellbooks.summoned_aegis": "Summoned Aegis",
   "entity.monsterspellbooks.summoned_prismarine_keeper": "Summoned Prismarine Keeper",
@@ -423,11 +424,8 @@
   "tooltip.monsterspellbooks.magmatic_macuahuitl.desc": "15% reduced armor on hit",
   "tooltip.monsterspellbooks.gore_passive_ability": "Gives Bloodlust II on kill",
   "tooltip.monsterspellbooks.endersent_crusher_passive_ability": "A heavy obsidian hammer that acts just like the mace of the trial chambers",
-
   "tooltip.monsterspellbooks.snow_bow": "Arrow hits inflict freezing",
   "tooltip.monsterspellbooks.red_snake": "Arrow hits add a stack of Immolation",
-
-
   "tooltip.monsterspellbooks.flesh_maiden_passive_ability": "A once beautiful women that got experimented on her wedding day,now makes you immune to the consequences of Heartstop",
 
   "attribute.monsterspellbooks.necro_spell_power": "Necro Spell Power",
@@ -648,6 +646,11 @@
   "spell.monsterspellbooks.wither_bomb.guide": "Fire an enhanced wither skull which home towards your cursor,or the creature your cursor is targeting,exploding and dealing massive damage on impact",
   "spell.monsterspellbooks.wither_nova": "Wither Nova",
   "spell.monsterspellbooks.wither_nova.guide": "Release the cataclysmic force of a collapsing nether star in a giant beam that destroys all life in its way but making you unable to move while and shortly afher casting",
+
+  "spell.monsterspellbooks.spinblade": "Spinblade",
+  "spell.monsterspellbooks.spinblade.guide": "Throw a Dwarven Spinblade that bounces from enemy to enemy 2 additioonal times",
+  "spell.monsterspellbooks.summon_dwarven_drones": "Summon Dwarven Drones",
+  "spell.monsterspellbooks.wither_nova.guide": "Summon a swarm of Dwarven Drones equiped with Redstone blasters",
 
   "death.attack.necro_magic": "%1$s was killed by %2$s's necro magic",
 

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "monsterspellbooks:dwarven_alloy_plate"
+  },
+  "base": {
+    "item": "irons_spellbooks:electromancer_boots"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:dwarven_engineer_boots"
+  },
+  "template": {
+    "item": "monsterspellbooks:upgrade_rune"
+  }
+}

@@ -560,11 +560,13 @@ public class ModEntities {
             ENTITIES.register("aegis", () -> EntityType.Builder.of(AegisEntity::new, MobCategory.MONSTER).
                     sized(.8f, 1.8f).build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "aegis").toString()));
 
-    public static final Supplier<EntityType<DwarvenSphereEntity>>DWARVEN_SPHERE=
-            ENTITIES.register("dwarven_sphere", () -> EntityType.Builder.<DwarvenSphereEntity>of(DwarvenSphereEntity::new, MobCategory.MISC)
-                    .sized(2, 3F)
-                    .clientTrackingRange(64)
-                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "dwarven_sphere").toString()));
+    public static final DeferredHolder<EntityType<?>, EntityType<DwarvenSphereEntity>> DWARVEN_SPHERE =
+            ENTITIES.register("dwarven_sphere", () -> EntityType.Builder.<DwarvenSphereEntity>of
+                            (DwarvenSphereEntity::new, MobCategory.MONSTER).
+                    sized(.6f, 1.8f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "dwarven_sphere").toString()
+                    ));
 
     public static final Supplier<EntityType<DwarvenSlicerEntity>>DWARVEN_SLICER=
             ENTITIES.register("dwarven_slicer",()->EntityType.Builder.of(DwarvenSlicerEntity::new,MobCategory.MONSTER)
