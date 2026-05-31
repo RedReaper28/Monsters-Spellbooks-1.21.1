@@ -6,6 +6,14 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 
 public class ModUtils {
 
+    public static float getEntityArmor(LivingEntity entity) {
+        if (entity != null) {
+            float entityArmor = (float) (entity.getAttributeValue(Attributes.ARMOR));
+            return entityArmor;
+        }
+        return 0;
+    }
+
     public static float getEntityHp(LivingEntity entity) {
         if (entity != null) {
             float entityHp = (float) (entity.getAttributeValue(Attributes.MAX_HEALTH));

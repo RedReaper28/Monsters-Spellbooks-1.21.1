@@ -136,8 +136,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DEATH_KNIGHT_LEGGINGS.get());
                         output.accept(ModItems.DEATH_KNIGHT_BOOTS.get());
 
-                        output.accept(ModItems.DWARVEN_SHIELD.get());
-
                         output.accept(ModItems.WITHERWARD_RING.get());
                         output.accept(ModItems.CRITICAL_GLASSES.get());
                         output.accept(ModItems.IGNITION_GLOVE.get());
@@ -145,6 +143,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.BRIMSTONE_SIGIL.get());
                         output.accept(ModItems.OBSIDIAN_MEDAL.get());
                         output.accept(ModItems.CROSS_NECKLACE.get());
+                        output.accept(ModItems.ORB_SOUL.get());
                     }).build());
 
     public static final Supplier<CreativeModeTab>MONSTERS_AND_MATERIALS_TAB=CREATIVE_MODE_TAB.register("monsters_and_materials_tab",
@@ -155,9 +154,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.NECRO_UPGRADE_ORB.get());
                         output.accept(ModItems.AERO_UPGRADE_ORB.get());
 
-                        output.accept(ModItems.RAW_OCEANITE);
-                        output.accept(ModItems.OCEANITE_INGOT);
-                        output.accept(ModItems.OCEANITE_NUGGET);
                         output.accept(ModItems.ROSE_GOLD_INGOT);
                         output.accept(ModItems.ROSE_GOLD_NUGGET);
                         output.accept(ModItems.POSEIDON_PEARL);
@@ -178,9 +174,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.RAW_SCORCHED_METAL);
                         output.accept(ModItems.SCORCHED_METAL_INGOT);
                         output.accept(ModItems.SCORCHED_METAL_NUGGET);
-                        output.accept(ModItems.RAW_VILE_IRON);
-                        output.accept(ModItems.VILE_IRON_INGOT);
-                        output.accept(ModItems.VILE_IRON_NUGGET);
                         output.accept(ModItems.NETHER_PYRITE);
                         output.accept(ModItems.NETHER_RUBY);
                         output.accept(ModItems.SPECTRITE_INGOT);
@@ -228,6 +221,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.REDSTONE_ELEMENTAL_SPAWN_EGG.get());
                         output.accept(ModItems.SOUL_WRAITH_SPAWN_EGG.get());
                         output.accept(ModItems.WITHER_WARLOCK_SPAWN_EGG.get());
+                        output.accept(ModItems.WITHER_WARRIOR_SPAWN_EGG.get());
                         output.accept(ModItems.PRISMARINE_KEEPER_SPAWN_EGG.get());
                         output.accept(ModItems.VILE_SKELETON_SPAWN_EGG.get());
                         output.accept(ModItems.MAGMA_ATRONACH_SPAWN_EGG.get());
@@ -239,11 +233,6 @@ public class ModCreativeTabs {
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID,"monsters_and_materials_tab"))
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_blocks"))
                     .displayItems((itemDisplayParameters, output) ->{
-                        output.accept(ModBlocks.OCEANITE_ORE_CLAY);
-                        output.accept(ModBlocks.OCEANITE_ORE_SAND);
-                        output.accept(ModBlocks.OCEANITE_ORE_GRAVEL);
-                        output.accept(ModBlocks.RAW_OCEANITE_BLOCK);
-                        output.accept(ModBlocks.OCEANITE_BLOCK);
                         output.accept(ModBlocks.ROSE_GOLD_BLOCK);
                         output.accept(ModBlocks.POSEIDON_PEARL_ORE);
                         output.accept(ModBlocks.POSEIDON_PEARL_BLOCK);
@@ -259,9 +248,6 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.SCORCHED_METAL_ORE);
                         output.accept(ModBlocks.RAW_SCORCHED_METAL_BLOCK);
                         output.accept(ModBlocks.SCORCHED_METAL_BLOCK);
-                        output.accept(ModBlocks.VILE_IRON_ORE);
-                        output.accept(ModBlocks.RAW_VILE_IRON_BLOCK);
-                        output.accept(ModBlocks.VILE_IRON_BLOCK);
                         output.accept(ModBlocks.NETHER_PYRITE_ORE);
                         output.accept(ModBlocks.NETHER_PYRITE_BLOCK);
                         output.accept(ModBlocks.NETHER_RUBY_ORE);

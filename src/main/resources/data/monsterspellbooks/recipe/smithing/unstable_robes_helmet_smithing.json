@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:popped_chorus_fruit"
+  },
+  "base": {
+    "item": "irons_spellbooks:shadowwalker_helmet"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:unstable_robes_helmet"
+  },
+  "template": {
+    "item": "monsterspellbooks:upgrade_rune"
+  }
+}

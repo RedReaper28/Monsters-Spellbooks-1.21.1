@@ -2,7 +2,7 @@ package net.redreaper.monsterspellbooks.entity.armor;
 
 import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.item.armor.SanguiniteHeroArmorItem;
+import net.redreaper.monsterspellbooks.item.armor.tierArch.SanguiniteHeroArmorItem;
 import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 
 public class SanguiniteHeroArmorModel extends DefaultedEntityGeoModel<SanguiniteHeroArmorItem> {

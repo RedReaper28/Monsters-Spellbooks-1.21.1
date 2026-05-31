@@ -5,10 +5,13 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
+import net.redreaper.monsterspellbooks.item.armor.custom.MessageArmorKey;
+import net.redreaper.monsterspellbooks.item.curios.MessageCurioKey;
 import net.redreaper.monsterspellbooks.particle.*;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = MonstersSpellbooks.MOD_ID)
-public class    PayloadHandler {
+@EventBusSubscriber
+public class PayloadHandler {
+
     @SubscribeEvent
     public static void register(final RegisterPayloadHandlersEvent event) {
         final PayloadRegistrar payloadRegistrar = event.registrar(MonstersSpellbooks.MOD_ID).versioned("1.0.0").optional();
@@ -21,5 +24,9 @@ public class    PayloadHandler {
         payloadRegistrar.playToClient(ThunderStepParticlePacket.TYPE, ThunderStepParticlePacket.STREAM_CODEC, ThunderStepParticlePacket::handle);
         payloadRegistrar.playToClient(SoulRiverParticlePacket.TYPE, SoulRiverParticlePacket.STREAM_CODEC, SoulRiverParticlePacket::handle);
         payloadRegistrar.playToClient(BubbleExplosionParticlePacket.TYPE, BubbleExplosionParticlePacket.STREAM_CODEC, BubbleExplosionParticlePacket::handle);
+
+        payloadRegistrar.playToServer(MessageCurioKey.TYPE, MessageCurioKey.STREAM_CODEC, MessageCurioKey::handle);
+        payloadRegistrar.playToServer(MessageArmorKey.TYPE, MessageArmorKey.STREAM_CODEC, MessageArmorKey::handle);
+
     }
 }

@@ -6,10 +6,10 @@
       "item": "monsterspellbooks:nether_pyrite"
     },
     "B": {
-      "item": "minecraft:netherite_ingot"
+      "item": "monsterspellbooks:scorched_metal_ingot"
     },
     "C": {
-      "item": "irons_spellbooks:pyrium_ingot"
+      "item": "minecraft:blaze_powder"
     }
   },
   "pattern": [

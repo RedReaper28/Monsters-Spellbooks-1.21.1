@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.ice_arsenal.IceArsenalSword;
+import net.redreaper.monsterspellbooks.entity.spells.voltaic_multishot.VoltArrowProjectile;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -39,24 +40,21 @@ public class IceArsenalSpell extends AbstractSpell {
         this.manaCostPerLevel = 5;
         this.baseSpellPower = 20;
         this.spellPowerPerLevel = 3;
-        this.castTime = 0;
+        this.castTime = 30;
         this.baseManaCost = 10;
     }
 
     public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        int count = getCount(spellLevel);
-        float damage = getDamage(spellLevel, entity);
-        int degreesPerNeedle = 360 / count;
-        var raycast = Utils.raycastForEntity(world, entity, 32, true);
-        for (int i = 0; i < count; i++) {
-            IceArsenalSword needle = new IceArsenalSword(world, entity);
-            int rotation = degreesPerNeedle * i - (degreesPerNeedle / 2);
-            needle.setDamage(damage);
-            needle.setZRot(rotation);
-            Vec3 spawn = entity.getEyePosition().add(new Vec3(0, 1.5, 0).zRot(rotation * Mth.DEG_TO_RAD).xRot(-entity.getXRot() * Mth.DEG_TO_RAD).yRot(-entity.getYRot() * Mth.DEG_TO_RAD));
-            needle.moveTo(spawn);
-            needle.shoot(raycast.getLocation().subtract(spawn).normalize());
-            world.addFreshEntity(needle);
+        Vec3 look = entity.getLookAngle();
+        int[] angles = new int[]{0,-30,-20,-10,30,20,10};
+        for (int angle : angles) {
+            IceArsenalSword dagger = new IceArsenalSword(world, entity);
+            dagger.setOwner(entity);
+            dagger.setDamage(this.getDamage(spellLevel, entity));
+            dagger.setPos(entity.position().add((double) 0.0F, (double) entity.getEyeHeight() - (double) dagger.getBbHeight() * (double) 0.5F, (double) 0.0F));
+            Vec3 dir = look.yRot((float) Math.toRadians((double) angle));
+            dagger.shoot(dir.x, dir.y, dir.z, 1.25F, 0.0F);
+            world.addFreshEntity(dagger);
         }
         super.onCast(world, spellLevel, entity, castSource, playerMagicData);
     }
@@ -67,7 +65,7 @@ public class IceArsenalSpell extends AbstractSpell {
     }
 
     public CastType getCastType() {
-        return CastType.INSTANT;
+        return CastType.LONG;
     }
 
     public DefaultConfig getDefaultConfig() {
@@ -83,7 +81,7 @@ public class IceArsenalSpell extends AbstractSpell {
     }
 
     private int getCount(int spellLevel) {
-        return spellLevel;
+        return 7;
     }
 
     public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {

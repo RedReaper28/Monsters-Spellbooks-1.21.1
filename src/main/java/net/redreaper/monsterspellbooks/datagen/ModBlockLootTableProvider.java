@@ -24,8 +24,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        dropSelf(ModBlocks.RAW_OCEANITE_BLOCK.get());
-        dropSelf(ModBlocks.OCEANITE_BLOCK.get());
         dropSelf(ModBlocks.ROSE_GOLD_BLOCK.get());
         dropSelf(ModBlocks.POSEIDON_PEARL_BLOCK.get());
         dropSelf(ModBlocks.RAW_ORICHALCUM_BLOCK.get());
@@ -37,8 +35,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.WHITE_GOLD_BLOCK.get());
         dropSelf(ModBlocks.RAW_SCORCHED_METAL_BLOCK.get());
         dropSelf(ModBlocks.SCORCHED_METAL_BLOCK.get());
-        dropSelf(ModBlocks.RAW_VILE_IRON_BLOCK.get());
-        dropSelf(ModBlocks.VILE_IRON_BLOCK.get());
         dropSelf(ModBlocks.NETHER_PYRITE_BLOCK.get());
         dropSelf(ModBlocks.NETHER_RUBY_BLOCK.get());
         dropSelf(ModBlocks.SPECTRITE_BLOCK.get());
@@ -119,13 +115,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         dropSelf(ModBlocks.GRAVISTONE.get());
 
-        add(ModBlocks.OCEANITE_ORE_CLAY.get(),
-                block -> createOreDrop(ModBlocks.OCEANITE_ORE_CLAY.get(), ModItems.RAW_OCEANITE.get()));
-        add(ModBlocks.OCEANITE_ORE_SAND.get(),
-                block -> createOreDrop(ModBlocks.OCEANITE_ORE_SAND.get(), ModItems.RAW_OCEANITE.get()));
-        add(ModBlocks.OCEANITE_ORE_GRAVEL.get(),
-                block -> createOreDrop(ModBlocks.OCEANITE_ORE_SAND.get(), ModItems.RAW_OCEANITE.get()));
-
         add(ModBlocks.POSEIDON_PEARL_ORE.get(),
                 block -> createOreDrop(ModBlocks.POSEIDON_PEARL_BLOCK.get(), ModItems.POSEIDON_PEARL.get()));
         add(ModBlocks.ORICHALCUM_ORE.get(),
@@ -134,8 +123,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createOreDrop(ModBlocks.DEEPSLATE_ORICHALCUM_ORE.get(), ModItems.RAW_ORICHALCUM.get()));
         add(ModBlocks.SCORCHED_METAL_ORE.get(),
                 block -> createOreDrop(ModBlocks.SCORCHED_METAL_ORE.get(), ModItems.RAW_SCORCHED_METAL.get()));
-        add(ModBlocks.VILE_IRON_ORE.get(),
-                block -> createOreDrop(ModBlocks.VILE_IRON_ORE.get(), ModItems.RAW_VILE_IRON.get()));
         add(ModBlocks.NETHER_PYRITE_ORE.get(),
                 block -> createMultipleOreDrops(ModBlocks.NETHER_PYRITE_ORE.get(), ModItems.NETHER_PYRITE.get(),2,6));
         add(ModBlocks.NETHER_RUBY_ORE.get(),

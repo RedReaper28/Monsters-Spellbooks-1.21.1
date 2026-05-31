@@ -50,6 +50,7 @@ import net.redreaper.monsterspellbooks.entity.model.OrbitalSnowballEntity.Orbita
 import net.redreaper.monsterspellbooks.entity.model.PoisonQuillVine.PoisonQuillVineModel;
 import net.redreaper.monsterspellbooks.entity.model.PoisonQuillVine.PoisonQuillVineRenderer;
 import net.redreaper.monsterspellbooks.entity.model.PrismarineKeeper.PrismarineKeeperRenderer;
+import net.redreaper.monsterspellbooks.entity.model.RancorPhantomEntity.RancorPhantomRenderer;
 import net.redreaper.monsterspellbooks.entity.model.RedstoneElementalEntity.RedstoneElementalModel;
 import net.redreaper.monsterspellbooks.entity.model.RedstoneElementalEntity.RedstoneElementalRenderer;
 import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityModel;
@@ -61,6 +62,7 @@ import net.redreaper.monsterspellbooks.entity.model.SoulWraithEntity.SoulWraithR
 import net.redreaper.monsterspellbooks.entity.model.Spriggan.SprigganRenderer;
 import net.redreaper.monsterspellbooks.entity.model.VileSkeleton.VileSkeletonRenderer;
 import net.redreaper.monsterspellbooks.entity.model.WitherWarlockEntity.WitherWarlockRenderer;
+import net.redreaper.monsterspellbooks.entity.model.WitherWarriorEntity.WitherWarriorRenderer;
 import net.redreaper.monsterspellbooks.entity.model.WrathEmtity.WrathRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.ancient_flash.AncientFlashRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.blast_fungus.BlastFungusRenderer;
@@ -213,6 +215,8 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.DRIPPLER.get(), context -> {return new DripplerEntityRenderer(context, new DripplerEntityModel());});
         event.registerEntityRenderer(ModEntities.SPRIGGAN.get(), SprigganRenderer::new);
         event.registerEntityRenderer(ModEntities.WITHER_WARLOCK.get(), WitherWarlockRenderer::new);
+        event.registerEntityRenderer(ModEntities.WITHER_WARRIOR.get(), WitherWarriorRenderer::new);
+        event.registerEntityRenderer(ModEntities.SUMMONED_WITHER_WARRIOR.get(), WitherWarriorRenderer::new);
         event.registerEntityRenderer(ModEntities.HEROBRINE_CULTIST_MAGE.get(), HerobrineCultistRenderer::new);
         event.registerEntityRenderer(ModEntities.HEROBRINE_CULTIST_ASSASSIN.get(), HerobrineCultistRenderer::new);
         event.registerEntityRenderer(ModEntities.ILLAGER_ENCHANTER.get(), IllagerEnchanterRenderer::new);
@@ -228,6 +232,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.BLASTLING.get(), context -> {return new BlastlingRenderer(context, new BlastlingModel());});
 
         event.registerEntityRenderer(ModEntities.WRATH.get(), WrathRenderer::new);
+        event.registerEntityRenderer(ModEntities.RANCOR_PHANTOM.get(), RancorPhantomRenderer::new);
         event.registerEntityRenderer(ModEntities.SUMMONED_PRISMARINE_KEEPER.get(), PrismarineKeeperRenderer::new);
         event.registerEntityRenderer(ModEntities.SUMMONED_DEATH_KNIGHT.get(), context -> {return new DeathKnightRenderer(context, new DeathKnightModel());});
         event.registerEntityRenderer(ModEntities.SUMMONED_VILE_SKELETON.get(), VileSkeletonRenderer::new);

@@ -38,6 +38,8 @@ public class CommonSetup {
         event.put(ModEntities.DRIPPLER.get(), DripplerEntity.createAttributes().build());
         event.put(ModEntities.SPRIGGAN.get(), SprigganEntity.createAttributes().build());
         event.put(ModEntities.WITHER_WARLOCK.get(), WitherWarlockEntity.createAttributes().build());
+        event.put(ModEntities.WITHER_WARRIOR.get(), WitherWarriorEntity.createAttributes().build());
+        event.put(ModEntities.SUMMONED_WITHER_WARRIOR.get(), WitherWarriorEntity.createAttributes().build());
         event.put(ModEntities.JUNGLE_WHISPERER.get(), JungleWhispererEntity.createAttributes().build());
         event.put(ModEntities.HEROBRINE_CULTIST_MAGE.get(), HerobrineCultistMageEntity.createAttributes().build());
         event.put(ModEntities.HEROBRINE_CULTIST_ASSASSIN.get(), HerobrineCultistAssassinEntity.createAttributes().build());
@@ -56,6 +58,7 @@ public class CommonSetup {
         event.put(ModEntities.LIVING_LEAF_CRYSTAL.get(), LivingLeafCrystalEntity.createAttributes().build());
         event.put(ModEntities.ORBITAL_SNOWBALL.get(), OrbitalSnowballEntity.createAttributes().build());
         event.put(ModEntities.WRATH.get(), WrathEntity.createAttributes().build());
+        event.put(ModEntities.RANCOR_PHANTOM.get(), RancorPhantomEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_PRISMARINE_KEEPER.get(), SummonedPrismarineKeeper.createAttributes().build());
         event.put(ModEntities.SUMMONED_AEGIS.get(), SummonedAegisEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_VILE_SKELETON.get(), SummonedVileSkeletonEntity.createAttributes().build());

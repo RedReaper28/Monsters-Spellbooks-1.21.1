@@ -28,6 +28,7 @@ import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.wither_nova.WitherNovaVisualEntity;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
+import net.redreaper.monsterspellbooks.init.ModSounds;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 import org.jetbrains.annotations.NotNull;
@@ -83,7 +84,7 @@ public class WitherNovaSpell extends AbstractSpell {
 
     @Override
     public Optional<SoundEvent> getCastStartSound() {
-        return Optional.of(SoundEvents.WITHER_AMBIENT);
+        return Optional.of(ModSounds.ENERGY_FIRE.get());
     }
 
     @Override

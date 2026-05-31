@@ -15,16 +15,6 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS=DeferredRegister.createBlocks(MonstersSpellbooks.MOD_ID);
 
-    public static final DeferredBlock<Block>OCEANITE_ORE_CLAY=registerBlock("oceanite_ore_clay",
-            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_ORE).sound(SoundType.GRAVEL)));
-    public static final DeferredBlock<Block>OCEANITE_ORE_SAND=registerBlock("oceanite_ore_sand",
-            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_ORE).sound(SoundType.SAND)));
-    public static final DeferredBlock<Block>OCEANITE_ORE_GRAVEL=registerBlock("oceanite_ore_gravel",
-            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_ORE).sound(SoundType.GRAVEL)));
-    public static final DeferredBlock<Block>RAW_OCEANITE_BLOCK=registerBlock("raw_oceanite_block",
-            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_IRON_BLOCK).sound(SoundType.PACKED_MUD)));
-    public static final DeferredBlock<Block>OCEANITE_BLOCK=registerBlock("oceanite_block",
-            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.MUD_BRICKS)));
     public static final DeferredBlock<Block>ROSE_GOLD_BLOCK=registerBlock("rose_gold_block",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.COPPER)));
     public static final DeferredBlock<Block>POSEIDON_PEARL_ORE=registerBlock("poseidon_pearl_ore",
@@ -58,12 +48,6 @@ public class ModBlocks {
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_GOLD_BLOCK).sound(SoundType.ANCIENT_DEBRIS)));
     public static final DeferredBlock<Block>SCORCHED_METAL_BLOCK=registerBlock("scorched_metal_block",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_GOLD_ORE).sound(SoundType.NETHERITE_BLOCK)));
-    public static final DeferredBlock<Block>VILE_IRON_ORE=registerBlock("vile_iron_ore",
-            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_ORE).sound(SoundType.GILDED_BLACKSTONE).lightLevel(state -> 7)));
-    public static final DeferredBlock<Block>RAW_VILE_IRON_BLOCK=registerBlock("raw_vile_iron_block",
-            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_IRON_BLOCK).lightLevel(state -> 7)));
-    public static final DeferredBlock<Block>VILE_IRON_BLOCK=registerBlock("vile_iron_block",
-            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).lightLevel(state -> 7)));
     public static final DeferredBlock<Block>NETHER_PYRITE_ORE =registerBlock("nether_pyrite_ore",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.LAPIS_ORE).sound(SoundType.NETHER_ORE)));
     public static final DeferredBlock<Block>NETHER_PYRITE_BLOCK=registerBlock("nether_pyrite_block",

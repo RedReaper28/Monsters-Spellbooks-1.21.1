@@ -49,8 +49,8 @@ public class CrossNecklaceItem extends PassiveAbilityCurio {
         var target = event.getEntity();
         var CHARM = ((CrossNecklaceItem) ModItems.CROSS_NECKLACE.get());
         if (target instanceof ServerPlayer serverPlayer) {
-            if (CHARM.isEquippedBy(serverPlayer) && CHARM.tryProcCooldown(serverPlayer)) {
-                if (sourceEntity instanceof LivingEntity) {
+            if (sourceEntity instanceof LivingEntity) {
+                if (CHARM.isEquippedBy(serverPlayer) && CHARM.tryProcCooldown(serverPlayer)) {
                     double baseDamage = damageFor(target);
                     Vec3 spawn = sourceEntity.position();
                     SunbeamEntity sunbeam = new SunbeamEntity(target.level());

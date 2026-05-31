@@ -41,7 +41,6 @@ import java.util.Collections;
 import java.util.UUID;
 
 public class WrathEntity extends PathfinderMob implements GeoEntity {
-
     @Nullable
     private UUID ownerUUID;
 

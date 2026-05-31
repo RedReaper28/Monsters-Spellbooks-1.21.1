@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:raw_scorched_metal"
+    },
+    "C": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ACC",
+    "CC "
+  ],
+  "result": {
+    "count": 4,
+    "id": "monsterspellbooks:scorched_metal_ingot"
+  }
+}

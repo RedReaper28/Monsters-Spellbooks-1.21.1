@@ -9,4 +9,3 @@ public class DraugrPillagerRenderer extends AbstractSpellCastingMobRenderer {
         super(context, new DraugrPillagerModel());
     }
 }
-

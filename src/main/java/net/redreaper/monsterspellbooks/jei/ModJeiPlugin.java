@@ -18,12 +18,10 @@ public class ModJeiPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        registration.addItemStackInfo(new ItemStack(ModItems.RAW_OCEANITE.get()), Component.translatable("item.monsterspellbooks.raw_oceanite.guide"));
         registration.addItemStackInfo(new ItemStack(ModItems.POSEIDON_PEARL.get()), Component.translatable("item.monsterspellbooks.poseidon_pearl.guide"));
         registration.addItemStackInfo(new ItemStack(ModItems.RAW_ORICHALCUM.get()), Component.translatable("item.monsterspellbooks.raw_orichalcum.guide"));
         registration.addItemStackInfo(new ItemStack(ModItems.DWARVEN_ALLOY_SCRAP.get()), Component.translatable("item.monsterspellbooks.dwarven_alloy_scrap.guide"));
         registration.addItemStackInfo(new ItemStack(ModItems.RAW_SCORCHED_METAL.get()), Component.translatable("item.monsterspellbooks.raw_scorched_metal.guide"));
-        registration.addItemStackInfo(new ItemStack(ModItems.RAW_VILE_IRON.get()), Component.translatable("item.monsterspellbooks.raw_vile_iron.guide"));
         registration.addItemStackInfo(new ItemStack(ModItems.NETHER_PYRITE.get()), Component.translatable("item.monsterspellbooks.nether_pyrite.guide"));
         registration.addItemStackInfo(new ItemStack(ModItems.NETHER_RUBY.get()), Component.translatable("item.monsterspellbooks.nether_pyrite.guide"));
         registration.addItemStackInfo(new ItemStack(ModItems.ILLAGERITE_INGOT.get()), Component.translatable("item.monsterspellbooks.illagerite_ingot.guide"));

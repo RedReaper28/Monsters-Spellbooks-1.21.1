@@ -123,11 +123,6 @@ public class PrimordialFlashSpell extends AbstractSpell {
 
         boolean mirrored = playerMagicData.getCastingEquipmentSlot().equals(SpellSelectionManager.OFFHAND);
 
-        AncientFlash swipe = new AncientFlash(level, mirrored);
-        swipe.moveTo(hitLocation);
-        swipe.setYRot(entity.getYRot());
-        level.addFreshEntity(swipe);
-
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 

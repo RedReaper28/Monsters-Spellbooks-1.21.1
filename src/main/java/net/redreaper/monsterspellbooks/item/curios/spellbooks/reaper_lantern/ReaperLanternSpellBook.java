@@ -2,12 +2,14 @@ package net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern;
 
 import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import io.redspace.ironsspellbooks.item.SpellBook;
+import io.redspace.ironsspellbooks.api.util.Utils;
+import io.redspace.ironsspellbooks.damage.SpellDamageSource;
+import io.redspace.ironsspellbooks.entity.spells.wisp.WispEntity;
 import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
+import net.acetheeldritchking.aces_spell_utils.items.curios.PassiveAbilitySpellbook;
 import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
-import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -26,7 +28,8 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class ReaperLanternSpellBook extends SpellBook implements GeoItem {
+public class ReaperLanternSpellBook extends PassiveAbilitySpellbook implements GeoItem {
+    public static final int COOLDOWN = 5*20;
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("idle");
     private final AnimationController<ReaperLanternSpellBook> animationController = new AnimationController<>(this, "controller", 0, this::predicate);
@@ -56,6 +59,10 @@ public class ReaperLanternSpellBook extends SpellBook implements GeoItem {
 
         super.initializeSpellContainer(itemStack);
         AffinityData.setAffinityData(itemStack, ModSpellRegistry.REAPER_ASPECT.get(), 2);
+    }
+
+    protected int getCooldownTicks() {
+        return COOLDOWN;
     }
 
     @Override

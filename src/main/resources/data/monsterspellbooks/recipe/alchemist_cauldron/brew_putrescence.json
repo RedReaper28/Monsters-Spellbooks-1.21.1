@@ -5,7 +5,7 @@
     "id": "irons_spellbooks:timeless_slurry"
   },
   "input": {
-    "tag": "monsterspellbooks:necro_focus"
+    "item": "monsterspellbooks:vile_bone"
   },
   "results": [
     {

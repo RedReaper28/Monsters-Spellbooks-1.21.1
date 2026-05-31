@@ -2,7 +2,7 @@ package net.redreaper.monsterspellbooks.entity.armor;
 
 import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.item.armor.StarscourgeArmorItem;
+import net.redreaper.monsterspellbooks.item.armor.tierArch.StarscourgeArmorItem;
 import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 
 public class StarscourgeArmorModel extends DefaultedEntityGeoModel<StarscourgeArmorItem> {

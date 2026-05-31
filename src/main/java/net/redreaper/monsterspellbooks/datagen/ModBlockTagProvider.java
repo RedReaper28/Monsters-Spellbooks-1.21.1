@@ -22,8 +22,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.@NotNull Provider provider) {
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.RAW_OCEANITE_BLOCK.get())
-                .add(ModBlocks.OCEANITE_BLOCK.get())
                 .add(ModBlocks.ROSE_GOLD_BLOCK.get())
                 .add(ModBlocks.POSEIDON_PEARL_ORE.get())
                 .add(ModBlocks.POSEIDON_PEARL_BLOCK.get())
@@ -39,9 +37,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.SCORCHED_METAL_ORE.get())
                 .add(ModBlocks.RAW_SCORCHED_METAL_BLOCK.get())
                 .add(ModBlocks.SCORCHED_METAL_BLOCK.get())
-                .add(ModBlocks.VILE_IRON_ORE.get())
-                .add(ModBlocks.RAW_VILE_IRON_BLOCK.get())
-                .add(ModBlocks.VILE_IRON_BLOCK.get())
                 .add(ModBlocks.NETHER_PYRITE_ORE.get())
                 .add(ModBlocks.NETHER_PYRITE_BLOCK.get())
                 .add(ModBlocks.NETHER_RUBY_ORE.get())
@@ -106,30 +101,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(ModBlocks.CORAL_LOG.get())
                 .add(ModBlocks.CORAL_PLANKS.get())
-        ;
-
-
-        tag(BlockTags.MINEABLE_WITH_SHOVEL)
-                .add(ModBlocks.OCEANITE_ORE_CLAY.get())
-                .add(ModBlocks.OCEANITE_ORE_SAND.get())
-                .add(ModBlocks.OCEANITE_ORE_GRAVEL.get())
-        ;
-
-        tag(BlockTags.NEEDS_STONE_TOOL)
-                .add(ModBlocks.OCEANITE_ORE_CLAY.get())
-                .add(ModBlocks.OCEANITE_ORE_SAND.get())
-                .add(ModBlocks.OCEANITE_ORE_GRAVEL.get())
-                .add(ModBlocks.RAW_OCEANITE_BLOCK.get())
-                .add(ModBlocks.OCEANITE_BLOCK.get())
-                .add(ModBlocks.ROSE_GOLD_BLOCK.get())
-                .add(ModBlocks.SCORCHED_METAL_ORE.get())
-                .add(ModBlocks.RAW_SCORCHED_METAL_BLOCK.get())
-                .add(ModBlocks.SCORCHED_METAL_BLOCK.get())
-                .add(ModBlocks.VILE_IRON_ORE.get())
-                .add(ModBlocks.RAW_VILE_IRON_BLOCK.get())
-                .add(ModBlocks.VILE_IRON_BLOCK.get())
-                .add(ModBlocks.NETHER_PYRITE_ORE.get())
-                .add(ModBlocks.NETHER_PYRITE_BLOCK.get())
         ;
 
         tag(BlockTags.NEEDS_IRON_TOOL)

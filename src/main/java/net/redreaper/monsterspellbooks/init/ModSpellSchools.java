@@ -34,7 +34,7 @@ public class ModSpellSchools  {
             (
                     NECRO_RESOURCE,
                     ModTags.Items.NECRO_FOCUS,
-                    Component.translatable("school.monsterspellbooks.necro").withStyle(Style.EMPTY.withColor(ChatFormatting.DARK_GREEN)),
+                    Component.translatable("school.monsterspellbooks.necro").withStyle(Style.EMPTY.withColor(7274449)),
                     ModAtributeRegistry.NECRO_MAGIC_POWER,
                     ModAtributeRegistry.NECRO_MAGIC_RESIST,
                     ModSounds.NECRO_CAST,

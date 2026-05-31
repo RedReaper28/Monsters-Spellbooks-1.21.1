@@ -2,7 +2,7 @@ package net.redreaper.monsterspellbooks.entity.armor;
 
 import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.item.armor.ForgeMasterpieceArmorItem;
+import net.redreaper.monsterspellbooks.item.armor.tierArch.ForgeMasterpieceArmorItem;
 import software.bernie.geckolib.model.DefaultedItemGeoModel;
 
 public class ForgeMasterpieceArmorModel extends DefaultedItemGeoModel<ForgeMasterpieceArmorItem> {

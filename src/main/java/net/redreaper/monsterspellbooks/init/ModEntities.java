@@ -105,11 +105,23 @@ public class ModEntities {
                     .clientTrackingRange(4)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "divine_sword").toString()));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<IceArsenalSword>> ICE_SWORD =
+            ENTITIES.register("ice_sword", () -> EntityType.Builder.<IceArsenalSword>of(IceArsenalSword::new, MobCategory.MISC)
+                    .sized(.5f, .5f)
+                    .clientTrackingRange(4)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ice_sword").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<WrathEntity>> WRATH =
             ENTITIES.register("wrath", () -> EntityType.Builder.<WrathEntity>of(WrathEntity::new, MobCategory.MISC)
                     .sized(.5f, .5f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "wrath").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<RancorPhantomEntity>> RANCOR_PHANTOM =
+            ENTITIES.register("rancor_phantom", () -> EntityType.Builder.<RancorPhantomEntity>of(RancorPhantomEntity::new, MobCategory.MISC)
+                    .sized(.5f, .5f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "rancor_phantom").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<SoulCastingFieldAOE>>SOUL_CASTING_FIELD =
             ENTITIES.register("soul_casting_field", () -> EntityType.Builder.<SoulCastingFieldAOE>of(SoulCastingFieldAOE::new, MobCategory.MISC)
@@ -425,11 +437,7 @@ public class ModEntities {
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "frenzied_burst").toString()));
-    public static final DeferredHolder<EntityType<?>, EntityType<IceArsenalSword>> ICE_SWORD =
-            ENTITIES.register("ice_sword", () -> EntityType.Builder.<IceArsenalSword>of(IceArsenalSword::new, MobCategory.MISC)
-                    .sized(.5f, .5f)
-                    .clientTrackingRange(64)
-                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "ice_sword").toString()));
+
     public static final DeferredHolder<EntityType<?>, EntityType<SnowCloud>> SNOW_CLOUD =
             ENTITIES.register("snow_cloud", () -> EntityType.Builder.<SnowCloud>of(SnowCloud::new, MobCategory.MISC)
                     .sized(4f, 1.2f)
@@ -611,6 +619,20 @@ public class ModEntities {
                     .sized(.6f, 2.75f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "wither_warlock").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<WitherWarriorEntity>> WITHER_WARRIOR =
+            ENTITIES.register("wither_warrior", () -> EntityType.Builder.<WitherWarriorEntity>of(WitherWarriorEntity::new, MobCategory.MONSTER)
+                    .sized(.85f, 2.3f)
+                    .clientTrackingRange(64)
+                    .eyeHeight(2.3f)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "wither_warrior").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SummonedWitherWarriorEntity>> SUMMONED_WITHER_WARRIOR =
+            ENTITIES.register("summoned_wither_warrior", () -> EntityType.Builder.<SummonedWitherWarriorEntity>of(SummonedWitherWarriorEntity::new, MobCategory.MONSTER)
+                    .sized(.85f, 2.3f)
+                    .clientTrackingRange(64)
+                    .eyeHeight(2.3f)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "summoned_wither_warrior").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<IllagerEnchanterEntity>> ILLAGER_ENCHANTER =
             ENTITIES.register("illager_enchanter", () -> EntityType.Builder.of(IllagerEnchanterEntity::new, MobCategory.MONSTER)

@@ -35,6 +35,7 @@ import net.redreaper.monsterspellbooks.entity.spells.space_breaker.SpaceBreaker;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.init.ModSounds;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
+import net.redreaper.monsterspellbooks.utils.ModUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -45,7 +46,7 @@ public class SpaceBreakerSpell extends AbstractSpell {
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.irons_spellbooks.damage", Utils.stringTruncation(getDamage(spellLevel, caster), 2)),
+                Component.translatable("ui.irons_spellbooks.damage", getDamageText(spellLevel, caster)),
                 Component.translatable("ui.irons_spellbooks.distance", getRange(spellLevel, caster))
         );
     }
@@ -60,8 +61,8 @@ public class SpaceBreakerSpell extends AbstractSpell {
     public SpaceBreakerSpell()
     {
         this.manaCostPerLevel = 5;
-        this.baseSpellPower = 20;
-        this.spellPowerPerLevel = 10;
+        this.baseSpellPower = 10;
+        this.spellPowerPerLevel = 5;
         this.castTime = 20;
         this.baseManaCost = 50;
     }
@@ -121,9 +122,9 @@ public class SpaceBreakerSpell extends AbstractSpell {
                     aoe.setSlownessAmplifier(0);
                     level.addFreshEntity(aoe);
 
-                    ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS,75,1, true, true, true));
-                    ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.STUNNED,75,1, true, true, true));
-                    ((LivingEntity) target).addEffect(new MobEffectInstance(MobEffects.BLINDNESS,75,0, true, true, true));
+                    ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS,60,1, true, true, true));
+                    ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.STUNNED,60,1, true, true, true));
+                    ((LivingEntity) target).addEffect(new MobEffectInstance(MobEffects.BLINDNESS,60,0, true, true, true));
                     MagicManager.spawnParticles(level, ModParticleHelper.SPACE_SHARD, target.getX(), target.getY() + target.getBbHeight() * .5f, target.getZ(), 100, target.getBbWidth() * .5f, target.getBbHeight() * .5f, target.getBbWidth() * .5f, 1, false);
                     MagicManager.spawnParticles(level, ParticleHelper.UNSTABLE_ENDER, target.getX(), target.getY() + target.getBbHeight() * .5f, target.getZ(), 20, target.getBbWidth() * .5f, target.getBbHeight() * .5f, target.getBbWidth() * .5f, 0.3, false);
 
@@ -162,7 +163,24 @@ public class SpaceBreakerSpell extends AbstractSpell {
 
     private float getDamage(int spellLevel, LivingEntity caster)
     {
-        return ASUtils.getDamageForAttributes(this, caster, spellLevel, Attributes.ATTACK_DAMAGE, 0.50F);
+        float baseDamage = ASUtils.getDamageForAttributes(this, caster, spellLevel, Attributes.ARMOR, 1);
+        return baseDamage;
+    }
+
+    private String getDamageText(int spellLevel, LivingEntity caster)
+    {
+        if (caster != null)
+        {
+            float extraDamage = ModUtils.getEntityArmor(caster) ;
+            String plus = "";
+            if (extraDamage > 0)
+            {
+                plus = String.format(" (+%s)", Utils.stringTruncation(extraDamage, 1));
+            }
+            String damage = Utils.stringTruncation(getDamage(spellLevel, caster), 1);
+            return damage + plus;
+        }
+        return "" + getSpellPower(spellLevel, caster);
     }
 
     private int getRange(int spellLevel, LivingEntity caster) {return (int) (6 + spellLevel * getEntityPowerMultiplier(caster)); }

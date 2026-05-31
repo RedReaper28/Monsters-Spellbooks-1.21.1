@@ -1,5 +1,7 @@
 package net.redreaper.monsterspellbooks.events;
 
+import io.redspace.ironsspellbooks.api.config.ModifyDefaultConfigValuesEvent;
+import io.redspace.ironsspellbooks.api.config.SpellConfigParameter;
 import io.redspace.ironsspellbooks.api.entity.IMagicEntity;
 import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
@@ -7,9 +9,15 @@ import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
+import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.effect.ImmolateEffect;
+import io.redspace.ironsspellbooks.entity.spells.wisp.WispEntity;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
+import io.redspace.ironsspellbooks.spells.blood.RaiseDeadSpell;
+import io.redspace.ironsspellbooks.spells.blood.WitherSkullSpell;
+import io.redspace.ironsspellbooks.spells.evocation.GustSpell;
+import io.redspace.ironsspellbooks.spells.evocation.SlowSpell;
 import net.acetheeldritchking.aces_spell_utils.utils.ASUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
@@ -26,6 +34,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -37,8 +46,10 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.redreaper.monsterspellbooks.effect.HemorrhageMobEffect;
 import net.redreaper.monsterspellbooks.effect.StaticMobEffect;
 import net.redreaper.monsterspellbooks.effect.VoidTouchedEffect;
+import net.redreaper.monsterspellbooks.entity.living.summons.RancorPhantomEntity;
 import net.redreaper.monsterspellbooks.init.*;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.DiseaseEncyclopediaItem;
+import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.weapons.*;
 import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlItem;
 
@@ -341,6 +352,18 @@ public class ServerEvents {
                     if (randomNum == 10) {entity.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 3, true, true, true));}
                     player.getCooldowns().addCooldown(ModItems.DISEASE_ENCYCLOPEDIA.get(), DiseaseEncyclopediaItem.COOLDOWN);
                 }
+
+                if (ASUtils.hasCurio(player, ModItems.REAPER_LANTERN.get()) && (!player.getCooldowns().isOnCooldown(ModItems.REAPER_LANTERN.get()))) {
+                    if (event.getSource() instanceof SpellDamageSource) {
+                        float baseDamage = event.getOriginalDamage()/2;
+                        Level world = attacker.level();
+                        RancorPhantomEntity wispEntity = new RancorPhantomEntity(world, (LivingEntity) event.getSource().getEntity(), (float) baseDamage);
+                        wispEntity.setTarget(event.getEntity());
+                        wispEntity.setPos(Utils.getPositionFromEntityLookDirection(event.getSource().getEntity(), 2).subtract(0, .2, 0));
+                        world.addFreshEntity(wispEntity);
+                        player.getCooldowns().addCooldown(ModItems.REAPER_LANTERN.get(), ReaperLanternSpellBook.COOLDOWN);
+                    }
+                }
             }
         }
     }
@@ -371,6 +394,25 @@ public class ServerEvents {
         }
     }
 
+
+    @SubscribeEvent
+    public static void modifySpellSchool(ModifyDefaultConfigValuesEvent event) {
+        if(event.getSpell() instanceof SlowSpell) {
+            event.setDefaultValue(SpellConfigParameter.SCHOOL, ModSpellSchools.NECRO.get());
+        }
+
+        if(event.getSpell() instanceof WitherSkullSpell) {
+            event.setDefaultValue(SpellConfigParameter.SCHOOL, ModSpellSchools.NECRO.get());
+        }
+
+        if(event.getSpell() instanceof RaiseDeadSpell) {
+            event.setDefaultValue(SpellConfigParameter.SCHOOL, ModSpellSchools.NECRO.get());
+        }
+
+        if(event.getSpell() instanceof GustSpell) {
+            event.setDefaultValue(SpellConfigParameter.SCHOOL, ModSpellSchools.AERO.get());
+        }
+    }
 
 }
 

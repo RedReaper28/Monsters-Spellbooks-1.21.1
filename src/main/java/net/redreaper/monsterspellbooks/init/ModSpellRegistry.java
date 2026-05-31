@@ -137,7 +137,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> REAPER_ASPECT = registerSpell(new ReaperAspectSpell());
     public static final Supplier<AbstractSpell> BANSHEE_SCREAM = registerSpell(new BansheeScreamSpell());
     public static final Supplier<AbstractSpell> BONE_DAGGER = registerSpell(new BoneDaggerSpell());
-    public static final Supplier<AbstractSpell> SUMMON_DEATH_KNIGHT = registerSpell(new ConjureDeathKnightSpell());
+    public static final Supplier<AbstractSpell> SUMMON_DEATH_KNIGHT = registerSpell(new SummonDeathKnightSpell());
     public static final Supplier<AbstractSpell> FALL_CURSE = registerSpell(new FallCurseSpell());
     public static final Supplier<AbstractSpell> GRAVEYARD_FISSURE = registerSpell(new GraveyardFissureSpell());
     public static final Supplier<AbstractSpell> LICHDOM = registerSpell(new LichdomSpell());

@@ -33,15 +33,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C',ModItems.BOOK_OF_SOULS.get())
                         .unlockedBy("has_material", has(ModItems.BOOK_OF_SOULS.get())).save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.PEARl_MARBLE.get(),9)
-                .pattern("BBB")
-                .pattern("BAC")
-                .pattern("CCC")
-                .define('A',ModItems.POSEIDON_PEARL.get())
-                .define('B',ModItems.RAW_OCEANITE.get())
-                .define('C',Items.SAND)
-                .unlockedBy("has_material", has(ModItems.POSEIDON_PEARL.get())).save(recipeOutput);
-
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DEATHSILVER_SWORD.get())
                 .pattern("A")
                 .pattern("A")

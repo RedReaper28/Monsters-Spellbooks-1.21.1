@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:spectrite_ingot"
+    },
+    "B": {
+      "item": "monsterspellbooks:vile_bone"
+    },
+    "C": {
+      "item": "irons_spellbooks:divine_soulshard"
+    }
+  },
+  "pattern": [
+    "BAB",
+    "ACA",
+    "BAB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:orb_soul"
+  }
+}

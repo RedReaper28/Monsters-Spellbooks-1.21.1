@@ -114,7 +114,7 @@ public class ModExtendedArmorMaterials {
             0F);
 
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>ENCHANTER=register("enchanter",
-            schoolArmorMap(),
+            schoolHybridArmorMap(),
             10,
             SoundEvents.ARMOR_EQUIP_NETHERITE,
             () -> Ingredient.of(ItemRegistry.MAGIC_CLOTH.get()),
@@ -122,7 +122,7 @@ public class ModExtendedArmorMaterials {
             0);
 
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>ICEOLOGER=register("iceologer",
-            schoolArmorMap(),
+            schoolHybridArmorMap(),
             10,
             SoundEvents.ARMOR_EQUIP_NETHERITE,
             () -> Ingredient.of(ItemRegistry.MAGIC_CLOTH.get()),
