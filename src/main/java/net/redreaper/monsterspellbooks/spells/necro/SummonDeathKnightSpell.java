@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class SummonDeathKnightSpell extends AbstractSpell {
-    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "conjure_death_knight");
+    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "summon_death_knight");
     private final DefaultConfig defaultConfig = new DefaultConfig()
             .setMinRarity(SpellRarity.EPIC)
             .setSchoolResource(ModSpellSchools.NECRO_RESOURCE)

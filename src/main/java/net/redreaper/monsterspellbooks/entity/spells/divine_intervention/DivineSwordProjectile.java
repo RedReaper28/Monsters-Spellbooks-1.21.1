@@ -23,6 +23,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.AnimatableManager;
@@ -117,10 +118,10 @@ public class DivineSwordProjectile extends AbstractMagicProjectile implements Ge
                 if (distanceSqr < explosionRadiusSqr && canHitEntity(entity) && Utils.hasLineOfSight(level(), losPoint, entity.getBoundingBox().getCenter(), true)) {
                     double p = (1 - distanceSqr / explosionRadiusSqr);
                     float damage = (float) (this.damage * p);
-                    DamageSources.applyDamage(entity, damage, SpellRegistry.DIVINE_SMITE_SPELL.get().getDamageSource(this, getOwner()));
+                    DamageSources.applyDamage(entity, damage, ModSpellRegistry.DIVINE_INTERVENTION.get().getDamageSource(this, getOwner()));
                 }
             }
-            MagicManager.spawnParticles(level(), new BlastwaveParticleOptions(SpellRegistry.DIVINE_SMITE_SPELL.get().getSchoolType().getTargetingColor(), explosionRadius), getX(), getY(), getZ(), 1, 0, 0, 0, 0, true);
+            MagicManager.spawnParticles(level(), new BlastwaveParticleOptions(ModSpellRegistry.DIVINE_INTERVENTION.get().getSchoolType().getTargetingColor(), explosionRadius), getX(), getY(), getZ(), 1, 0, 0, 0, 0, true);
             playSound(SoundRegistry.DIVINE_SMITE_CAST.value(), 4.0F, (1.0F + (this.level().random.nextFloat() - this.level().random.nextFloat()) * 0.2F) * 0.7F);
 
         }

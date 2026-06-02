@@ -29,8 +29,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-public class AegisPatrolSpell extends AbstractSpell {
-    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "aegis_patrol");
+public class SummonAegisPatrolSpell extends AbstractSpell {
+    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "summon_aegis_patrol");
     private final DefaultConfig defaultConfig = new DefaultConfig()
             .setMinRarity(SpellRarity.UNCOMMON  )
             .setSchoolResource(SchoolRegistry.HOLY_RESOURCE)
@@ -43,7 +43,7 @@ public class AegisPatrolSpell extends AbstractSpell {
         return List.of(Component.translatable("ui.irons_spellbooks.summon_count", getSummonCount(spellLevel, caster)));
     }
 
-    public AegisPatrolSpell() {
+    public SummonAegisPatrolSpell() {
         this.manaCostPerLevel = 50;
         this.baseSpellPower = 20;
         this.spellPowerPerLevel = 10;

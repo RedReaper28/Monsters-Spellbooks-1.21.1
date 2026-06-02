@@ -71,12 +71,6 @@ public class WitherWarriorEntity extends AbstractSpellCastingMob implements IAni
                 .setComboChance(.4f)
                 .setMeleeAttackInverval(10, 30)
                 .setMeleeMovespeedModifier(1.5f)
-                .setSpells(
-                        List.of(),
-                        List.of(),
-                        List.of(),
-                        List.of()
-                )
         );
 
         this.goalSelector.addGoal(7, new RandomStrollGoal(this, (double)1.0F));
@@ -124,6 +118,7 @@ public class WitherWarriorEntity extends AbstractSpellCastingMob implements IAni
             return entity.getType().is(EntityTypeTags.UNDEAD) && this.getTeam() == null && entity.getTeam() == null;
         }
     }
+
     @Override
     public void playAmbientSound() {
         this.playSound(getAmbientSound(), 1, Mth.randomBetweenInclusive(getRandom(), 5, 10) * .1f);

@@ -72,12 +72,6 @@ public class PrismarineKeeper extends AbstractSpellCastingMob implements IAnimat
                 .setComboChance(.4f)
                 .setMeleeAttackInverval(10, 30)
                 .setMeleeMovespeedModifier(1.5f)
-                .setSpells(
-                        List.of(),
-                        List.of(),
-                        List.of(),
-                        List.of()
-                )
         );
 
         this.goalSelector.addGoal(7, new RandomStrollGoal(this, (double)1.0F));

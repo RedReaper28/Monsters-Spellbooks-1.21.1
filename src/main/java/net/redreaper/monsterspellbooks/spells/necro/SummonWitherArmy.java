@@ -5,10 +5,7 @@ import io.redspace.ironsspellbooks.api.events.SpellSummonEvent;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.Utils;
-import io.redspace.ironsspellbooks.capabilities.magic.RecastInstance;
-import io.redspace.ironsspellbooks.capabilities.magic.RecastResult;
-import io.redspace.ironsspellbooks.capabilities.magic.SummonManager;
-import io.redspace.ironsspellbooks.capabilities.magic.SummonedEntitiesCastData;
+import io.redspace.ironsspellbooks.capabilities.magic.*;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -22,15 +19,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.NeoForge;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.living.summons.SummonedVileSkeletonEntity;
+import net.redreaper.monsterspellbooks.entity.living.summons.SummonedWitherWarriorEntity;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Optional;
 
-public class VileSummonSpell extends AbstractSpell {
-    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "vile_summon");
+public class SummonWitherArmy extends AbstractSpell {
+    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "summon_wither_warrior");
     private final DefaultConfig defaultConfig = new DefaultConfig()
             .setMinRarity(SpellRarity.UNCOMMON)
             .setSchoolResource(ModSpellSchools.NECRO_RESOURCE)
@@ -43,7 +40,7 @@ public class VileSummonSpell extends AbstractSpell {
         return List.of(Component.translatable("ui.irons_spellbooks.summon_count", getSummonCount(spellLevel, caster)));
     }
 
-    public VileSummonSpell() {
+    public SummonWitherArmy() {
         this.manaCostPerLevel = 10;
         this.baseSpellPower = 10;
         this.spellPowerPerLevel = 3;
@@ -99,24 +96,43 @@ public class VileSummonSpell extends AbstractSpell {
     }
 
     @Override
-    public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        var recasts = playerMagicData.getPlayerRecasts();
-        if (!recasts.hasRecastForSpell(this)) {
+    public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
+        PlayerRecasts recasts = playerMagicData.getPlayerRecasts();
+
+        if (!recasts.hasRecastForSpell(this))
+        {
             SummonedEntitiesCastData summonedEntitiesCastData = new SummonedEntitiesCastData();
-            int summonTime = 20 * 60 * 10;
-            int count = getSummonCount(spellLevel, entity);
-            for (int i = 0; i < count; i++) {
-                SummonedVileSkeletonEntity vex = new SummonedVileSkeletonEntity(world, entity);
-                vex.moveTo(entity.getEyePosition().add(new Vec3(Utils.getRandomScaled(2), 1, Utils.getRandomScaled(2))));
-                vex.finalizeSpawn((ServerLevel) world, world.getCurrentDifficultyAt(vex.getOnPos()), MobSpawnType.MOB_SUMMONED, null);
-                var creature = NeoForge.EVENT_BUS.post(new SpellSummonEvent<>(entity, vex, this.spellId, spellLevel)).getCreature();
-                world.addFreshEntity(creature);
-                SummonManager.initSummon(entity, creature, summonTime, summonedEntitiesCastData);
+            int summonTimer = 20 * 60 * 10;
+
+            for (int i = 0; i < spellLevel; i++)
+            {
+                Vec3 vec = entity.getEyePosition();
+
+                double randomNearbyX = vec.x + entity.getRandom().nextGaussian() * 3;
+                double randomNearbyZ = vec.z + entity.getRandom().nextGaussian() * 3;
+
+                spawnThrallsNearby(randomNearbyX, vec.y, randomNearbyZ, entity, level, summonTimer, spellLevel, summonedEntitiesCastData);
             }
-            RecastInstance recastInstance = new RecastInstance(this.getSpellId(), spellLevel, getRecastCount(spellLevel, entity), summonTime, castSource, summonedEntitiesCastData);
+
+            RecastInstance recastInstance = new RecastInstance(this.getSpellId(), spellLevel, getRecastCount(spellLevel, entity), summonTimer, castSource, summonedEntitiesCastData);
             recasts.addRecast(recastInstance, playerMagicData);
         }
-        super.onCast(world, spellLevel, entity, castSource, playerMagicData);
+
+        super.onCast(level, spellLevel, entity, castSource, playerMagicData);
+    }
+
+    private void spawnThrallsNearby(double x, double y, double z, LivingEntity caster, Level level, int summonTimer, int spellLevel, SummonedEntitiesCastData castData)
+    {
+        SummonedWitherWarriorEntity keeper = new SummonedWitherWarriorEntity(level, caster);
+
+        var event = NeoForge.EVENT_BUS.post(new SpellSummonEvent<>(caster, keeper, this.spellId, spellLevel)).getCreature();
+        keeper.finalizeSpawn((ServerLevel) level, level.getCurrentDifficultyAt(keeper.getOnPos()), MobSpawnType.MOB_SUMMONED, null);
+
+        keeper.moveTo(x, y, z);
+
+        level.addFreshEntity(event);
+
+        SummonManager.initSummon(caster, event, summonTimer, castData);
     }
 }
 

@@ -78,7 +78,7 @@ public class SummonedVileSkeletonEntity extends VileSkeletonEntity implements IM
 
     @Override
     public boolean doHurtTarget(Entity entity) {
-        return Utils.doMeleeAttack(this, entity, ModSpellRegistry.VILE_SUMMON.get().getDamageSource(this, getSummoner()));
+        return Utils.doMeleeAttack(this, entity, ModSpellRegistry.SUMMON_WITHER_ARMY.get().getDamageSource(this, getSummoner()));
     }
 
     public boolean hurt(DamageSource pSource, float pAmount) {

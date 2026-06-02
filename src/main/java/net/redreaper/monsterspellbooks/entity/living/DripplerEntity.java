@@ -29,6 +29,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.init.ModTags;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.util.GeckoLibUtil;
@@ -107,6 +108,14 @@ public class DripplerEntity extends UniqueAbstractSpellCastingMob implements Geo
                 .add(Attributes.FLYING_SPEED, 0.25)
                 .add(AttributeRegistry.SPELL_POWER, 1.1)
                 .add(AttributeRegistry.SPELL_RESIST, 1.1);
+    }
+
+    public boolean isAlliedTo(Entity entity) {
+        if (super.isAlliedTo(entity)) {
+            return true;
+        } else {
+            return entity.getType().is(ModTags.Entities.HOMUNCULUS) && this.getTeam() == null && entity.getTeam() == null;
+        }
     }
 
     @Override

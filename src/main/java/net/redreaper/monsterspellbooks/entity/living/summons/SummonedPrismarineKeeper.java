@@ -6,19 +6,24 @@ import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 import io.redspace.ironsspellbooks.entity.mobs.goals.*;
 import io.redspace.ironsspellbooks.util.OwnerHelper;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.redreaper.monsterspellbooks.entity.living.PrismarineKeeper;
 import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 
+import javax.annotation.Nullable;
 import java.util.UUID;
 
 public class SummonedPrismarineKeeper extends PrismarineKeeper implements IMagicSummon {
@@ -45,11 +50,22 @@ public class SummonedPrismarineKeeper extends PrismarineKeeper implements IMagic
         this.targetSelector.addGoal(4, (new GenericHurtByTargetGoal(this, (entity) -> entity == getSummoner())).setAlertOthers());
         this.targetSelector.addGoal(5, new GenericProtectOwnerTargetGoal(this, this::getSummoner));
         super.registerGoals();
+
+        this.goalSelector.getAvailableGoals().removeIf(goal ->
+                goal.getGoal() instanceof HurtByTargetGoal || goal.getGoal() instanceof NearestAttackableTargetGoal
+        );
     }
 
     @Override
-    public boolean isAlliedTo(Entity entityIn) {
-        return super.isAlliedTo(entityIn) || this.isAlliedHelper(entityIn);
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
+        RandomSource randomsource = Utils.random;
+        this.populateDefaultEquipmentSlots(randomsource, pDifficulty);
+        return pSpawnData;
+    }
+
+    @Override
+    protected void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
+        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.PRISMARINE_CLAYMORE.get()));
     }
 
     // Attacks and Death
@@ -60,9 +76,8 @@ public class SummonedPrismarineKeeper extends PrismarineKeeper implements IMagic
     }
 
     @Override
-    public void onRemovedFromLevel() {
-        this.onRemovedHelper(this);
-        super.onRemovedFromLevel();
+    protected boolean shouldDropLoot() {
+        return false;
     }
 
     @Override
@@ -73,6 +88,26 @@ public class SummonedPrismarineKeeper extends PrismarineKeeper implements IMagic
                     getX(), getY(), getZ(),
                     25, 0.4, 0.8, 0.4, 0.03, false);
             discard();
+        }
+    }
+
+    @Override
+    public boolean isAlliedTo(Entity entityIn) {
+        if (entityIn == this)
+        {
+            return true;
+        }
+        else if (entityIn == getSummoner() || this.isAlliedHelper(entityIn))
+        {
+            return true;
+        }
+        else if (getSummoner() != null && !entityIn.isAlliedTo(getSummoner()))
+        {
+            return false;
+        }
+        else
+        {
+            return this.getTeam() == null && entityIn.getTeam() == null;
         }
     }
 

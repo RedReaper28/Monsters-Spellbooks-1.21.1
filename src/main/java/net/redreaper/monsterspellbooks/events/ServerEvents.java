@@ -11,7 +11,6 @@ import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.effect.ImmolateEffect;
-import io.redspace.ironsspellbooks.entity.spells.wisp.WispEntity;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import io.redspace.ironsspellbooks.spells.blood.RaiseDeadSpell;
@@ -43,6 +42,8 @@ import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
 import net.redreaper.monsterspellbooks.effect.HemorrhageMobEffect;
 import net.redreaper.monsterspellbooks.effect.StaticMobEffect;
 import net.redreaper.monsterspellbooks.effect.VoidTouchedEffect;
@@ -257,7 +258,20 @@ public class ServerEvents {
                 }
             }
 
+        }
+    }
 
+    @SubscribeEvent
+    public static void onPlayerAttack(AttackEntityEvent event) {
+        if (event.getEntity().hasEffect(ModMobEffects.STUNNED)) {
+            event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onBreakBlock(BlockEvent.BreakEvent event) {
+        if (event.getPlayer().hasEffect(ModMobEffects.STUNNED)) {
+            event.setCanceled(true);
         }
     }
 

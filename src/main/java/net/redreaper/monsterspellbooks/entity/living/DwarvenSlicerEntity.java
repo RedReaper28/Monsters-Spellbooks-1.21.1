@@ -26,6 +26,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
+import net.redreaper.monsterspellbooks.init.ModTags;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
@@ -125,6 +126,14 @@ public class DwarvenSlicerEntity extends Monster implements GeoEntity {
         builder = builder.add(Attributes.ATTACK_KNOCKBACK, 0.1);
         builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 0.5);
         return builder;
+    }
+
+    public boolean isAlliedTo(Entity entity) {
+        if (super.isAlliedTo(entity)) {
+            return true;
+        } else {
+            return entity.getType().is(ModTags.Entities.DWARVEN_CONSTRUCT) && this.getTeam() == null && entity.getTeam() == null;
+        }
     }
 
     public boolean doHurtTarget(Entity entity) {

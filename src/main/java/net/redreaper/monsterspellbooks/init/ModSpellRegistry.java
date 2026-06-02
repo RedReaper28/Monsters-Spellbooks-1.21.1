@@ -81,10 +81,11 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> WRATH = registerSpell(new WrathSpell());
 
     //HOLY
-    public static final Supplier<AbstractSpell> AEGIS_PATROL = registerSpell(new AegisPatrolSpell());
     public static final Supplier<AbstractSpell> DIVINE_INTERVENTION = registerSpell(new DivineInterventionSpell());
     public static final Supplier<AbstractSpell> HALLOW_SLASH = registerSpell(new HallowSlashSpell());
     public static final Supplier<AbstractSpell> PALADIN_THROW = registerSpell(new PaladinThrowSpell());
+    public static final Supplier<AbstractSpell> SUMMON_AEGIS_PATROL = registerSpell(new SummonAegisPatrolSpell());
+
 
     //HYDRO
     public static final Supplier<AbstractSpell> BUBBLE_SPRAY = registerSpell(new BubbleSpraySpell());
@@ -156,7 +157,7 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> SUMMON_SOUL_WIZARD = registerSpell(new SummonSoulWizardSpell());
     public static final Supplier<AbstractSpell> TORMENT_ARROW = registerSpell(new TormentArrowSpell());
     public static final Supplier<AbstractSpell> VILE_SLASH = registerSpell(new VileSlashSpell());
-    public static final Supplier<AbstractSpell> VILE_SUMMON = registerSpell(new VileSummonSpell());
+    public static final Supplier<AbstractSpell> SUMMON_WITHER_ARMY = registerSpell(new SummonWitherArmy());
     public static final Supplier<AbstractSpell> WITHER_BOMB = registerSpell(new WitherBombSpell());
     public static final Supplier<AbstractSpell> WITHER_NOVA = registerSpell(new WitherNovaSpell());
 

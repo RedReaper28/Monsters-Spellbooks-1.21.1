@@ -5,10 +5,7 @@ import io.redspace.ironsspellbooks.api.events.SpellSummonEvent;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.Utils;
-import io.redspace.ironsspellbooks.capabilities.magic.RecastInstance;
-import io.redspace.ironsspellbooks.capabilities.magic.RecastResult;
-import io.redspace.ironsspellbooks.capabilities.magic.SummonManager;
-import io.redspace.ironsspellbooks.capabilities.magic.SummonedEntitiesCastData;
+import io.redspace.ironsspellbooks.capabilities.magic.*;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.acetheeldritchking.aces_spell_utils.registries.ASSchoolRegistry;
 import net.minecraft.network.chat.Component;
@@ -19,7 +16,9 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.NeoForge;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
@@ -98,23 +97,42 @@ public class SummonPrismarineSquadSpell extends AbstractSpell {
     }
 
     @Override
-    public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        var recasts = playerMagicData.getPlayerRecasts();
-        if (!recasts.hasRecastForSpell(this)) {
+    public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
+        PlayerRecasts recasts = playerMagicData.getPlayerRecasts();
+
+        if (!recasts.hasRecastForSpell(this))
+        {
             SummonedEntitiesCastData summonedEntitiesCastData = new SummonedEntitiesCastData();
-            int summonTime = 20 * 60 * 10;
-            int count = getSummonCount(spellLevel, entity);
-            for (int i = 0; i < count; i++) {
-                SummonedPrismarineKeeper vex = new SummonedPrismarineKeeper(world, entity);
-                vex.moveTo(entity.getEyePosition().add(new Vec3(Utils.getRandomScaled(2), 1, Utils.getRandomScaled(2))));
-                vex.finalizeSpawn((ServerLevel) world, world.getCurrentDifficultyAt(vex.getOnPos()), MobSpawnType.MOB_SUMMONED, null);
-                var creature = NeoForge.EVENT_BUS.post(new SpellSummonEvent<>(entity, vex, this.spellId, spellLevel)).getCreature();
-                world.addFreshEntity(creature);
-                SummonManager.initSummon(entity, creature, summonTime, summonedEntitiesCastData);
+            int summonTimer = 20 * 60 * 10;
+
+            for (int i = 0; i < spellLevel; i++)
+            {
+                Vec3 vec = entity.getEyePosition();
+
+                double randomNearbyX = vec.x + entity.getRandom().nextGaussian() * 3;
+                double randomNearbyZ = vec.z + entity.getRandom().nextGaussian() * 3;
+
+                spawnThrallsNearby(randomNearbyX, vec.y, randomNearbyZ, entity, level, summonTimer, spellLevel, summonedEntitiesCastData);
             }
-            RecastInstance recastInstance = new RecastInstance(this.getSpellId(), spellLevel, getRecastCount(spellLevel, entity), summonTime, castSource, summonedEntitiesCastData);
+
+            RecastInstance recastInstance = new RecastInstance(this.getSpellId(), spellLevel, getRecastCount(spellLevel, entity), summonTimer, castSource, summonedEntitiesCastData);
             recasts.addRecast(recastInstance, playerMagicData);
         }
-        super.onCast(world, spellLevel, entity, castSource, playerMagicData);
+
+        super.onCast(level, spellLevel, entity, castSource, playerMagicData);
+    }
+
+    private void spawnThrallsNearby(double x, double y, double z, LivingEntity caster, Level level, int summonTimer, int spellLevel, SummonedEntitiesCastData castData)
+    {
+        SummonedPrismarineKeeper keeper = new SummonedPrismarineKeeper(level, caster);
+
+        var event = NeoForge.EVENT_BUS.post(new SpellSummonEvent<>(caster, keeper, this.spellId, spellLevel)).getCreature();
+        keeper.finalizeSpawn((ServerLevel) level, level.getCurrentDifficultyAt(keeper.getOnPos()), MobSpawnType.MOB_SUMMONED, null);
+
+        keeper.moveTo(x, y, z);
+
+        level.addFreshEntity(event);
+
+        SummonManager.initSummon(caster, event, summonTimer, castData);
     }
 }
