@@ -97,7 +97,7 @@ public class SoulChainSpell extends AbstractSpell {
     }
 
     public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) (getSpellPower(spellLevel, caster) * 20);
+        return (int) (getSpellPower(spellLevel, caster)+5 * 20);
     }
 
     public float getDamage(int spellLevel, LivingEntity caster) {

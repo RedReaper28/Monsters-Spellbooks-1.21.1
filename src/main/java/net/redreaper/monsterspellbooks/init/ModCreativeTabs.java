@@ -137,6 +137,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DEATH_KNIGHT_BOOTS.get());
 
                         output.accept(ModItems.WITHERWARD_RING.get());
+                        output.accept(ModItems.COLD_CONJURER_TALISMAN.get());
                         output.accept(ModItems.CRITICAL_GLASSES.get());
                         output.accept(ModItems.IGNITION_GLOVE.get());
                         output.accept(ModItems.THUNDERING_QUIVER.get());
@@ -218,12 +219,12 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DWARVEN_SPHERE_SPAWN_EGG.get());
                         output.accept(ModItems.DWARVEN_SLICER_SPAWN_EGG.get());
                         output.accept(ModItems.JUNGLE_WHISPERER_SPAWN_EGG.get());
+                        output.accept(ModItems.JUNGLE_LEAPLEAF_SPAWN_EGG.get());
                         output.accept(ModItems.REDSTONE_ELEMENTAL_SPAWN_EGG.get());
                         output.accept(ModItems.SOUL_WRAITH_SPAWN_EGG.get());
                         output.accept(ModItems.WITHER_WARLOCK_SPAWN_EGG.get());
                         output.accept(ModItems.WITHER_WARRIOR_SPAWN_EGG.get());
                         output.accept(ModItems.PRISMARINE_KEEPER_SPAWN_EGG.get());
-                        output.accept(ModItems.VILE_SKELETON_SPAWN_EGG.get());
                         output.accept(ModItems.MAGMA_ATRONACH_SPAWN_EGG.get());
                         output.accept(ModItems.BLASTLING_SPAWN_EGG.get());
                     }).build());

@@ -1,20 +1,46 @@
 package net.redreaper.monsterspellbooks.item.armor.tierArch;
 
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import io.redspace.ironsspellbooks.item.armor.IDisableJacket;
 import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
+import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.acetheeldritchking.aces_spell_utils.entity.render.armor.EmissiveGenericCustomArmorRenderer;
 import net.acetheeldritchking.aces_spell_utils.items.example.items.armor.ImbuableExtendedGeoArmorItem;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.armor.ForgeMasterpieceArmorModel;
 import net.redreaper.monsterspellbooks.init.ModExtendedArmorMaterials;
+import net.redreaper.monsterspellbooks.init.ModItems;
+import net.redreaper.monsterspellbooks.init.ModKeybinds;
+import net.redreaper.monsterspellbooks.init.ModMobEffects;
+import net.redreaper.monsterspellbooks.item.armor.custom.KeybindArmor;
+import net.redreaper.monsterspellbooks.item.armor.custom.MessageArmorKey;
+import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
+import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.renderer.GeoArmorRenderer;
 
-public class ForgeMasterpieceArmorItem extends ImbuableExtendedGeoArmorItem {
+import java.util.List;
+
+public class ForgeMasterpieceArmorItem extends ImbuableExtendedGeoArmorItem implements IDisableJacket, KeybindArmor {
 
     public ForgeMasterpieceArmorItem(Type slot, Properties settings) {
         super(ModExtendedArmorMaterials.FORGE_MASTERPIECE_ARMOR, slot, settings,
@@ -33,5 +59,81 @@ public class ForgeMasterpieceArmorItem extends ImbuableExtendedGeoArmorItem {
         RenderType GLOW_RENDER_TYPE = RenderType.eyes(LAYER);
 
         return new EmissiveGenericCustomArmorRenderer<>(new ForgeMasterpieceArmorModel(), LAYER, GLOW_RENDER_TYPE);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+        if (entity instanceof Player player && !level.isClientSide() && isWearingFullSet(player)) {
+            evaluateArmorEffects(player);
+        }
+
+        if (entity instanceof Player player) {
+            if (level.isClientSide) {
+                if (this.type == Type.CHESTPLATE && player.getItemBySlot(EquipmentSlot.CHEST) == stack && ModKeybinds.ABILITY_ARMOR.consumeClick()) {
+                    PacketDistributor.sendToServer(new MessageArmorKey(EquipmentSlot.CHEST.ordinal(), player.getId(), 5), new CustomPacketPayload[0]);
+                    this.onKeyPacket(player, stack, 5);
+                }
+                return;
+            }
+        }
+    }
+
+    private void evaluateArmorEffects(Player player) {
+        if (!player.hasEffect(MobEffects.FIRE_RESISTANCE)) {
+            player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 320, 0, false, false, false));
+        }
+    }
+
+    private boolean isWearingFullSet(Player player) {
+        return player.getItemBySlot(Type.HELMET.getSlot()).getItem() instanceof ForgeMasterpieceArmorItem &&
+                player.getItemBySlot(Type.CHESTPLATE.getSlot()).getItem() instanceof ForgeMasterpieceArmorItem &&
+                player.getItemBySlot(Type.LEGGINGS.getSlot()).getItem() instanceof ForgeMasterpieceArmorItem &&
+                player.getItemBySlot(Type.BOOTS.getSlot()).getItem() instanceof ForgeMasterpieceArmorItem;
+    }
+
+    public void onKeyPacket(Player player, ItemStack itemStack, int Type) {
+        if (player != null) {
+            if (Type == 5 && isWearingFullSet(player) && !player.getCooldowns().isOnCooldown((Item) ModItems.FORGE_MASTERPIECE_CHESTPLATE.get())) {
+                player.addEffect(new MobEffectInstance(ModMobEffects.BRIMSTONE_FRENZY, 300, 0, true, true, true));
+                player.getCooldowns().addCooldown(ModItems.FORGE_MASTERPIECE_CHESTPLATE.get(), 400);
+
+                if (player.level() instanceof ServerLevel serverLevel) {
+                    double x = player.getX();
+                    double y = player.getY() + player.getEyeHeight() * 0.5D;
+                    double z = player.getZ();
+
+                    int count = 40;
+                    double speed = 0.4;
+
+                    for (int i = 0; i < count; i++) {
+                        double angle = (2 * Math.PI * i) / count;
+
+                        double dx = Math.cos(angle);
+                        double dz = Math.sin(angle);
+
+                        serverLevel.sendParticles(ModParticleHelper.BRIMSTONE_FIRE, x, y, z, 1, dx * speed, 0.05, dz * speed, 0.0);
+                    }
+
+                    serverLevel.sendParticles(ModParticleHelper.BRIMSTONE_FIRE, x, y, z, 1, 0.0, 0.0, 0.0, 0.0);
+
+                    try {
+                        serverLevel.playSound(null, x, y, z, SoundRegistry.HEAT_SURGE_PREPARE, SoundSource.PLAYERS, 1.5F, 1.0F);
+                    }
+                    catch (Exception ignored) {
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void appendHoverText(@NotNull ItemStack itemStack, TooltipContext context, @NotNull List<Component> lines, @NotNull TooltipFlag flag) {
+        super.appendHoverText(itemStack, context, lines, flag);
+        if (this.type == Type.CHESTPLATE) {
+            lines.add(Component.translatable("tooltip.monsterspellbooks.on_full_Set"));
+            lines.add(Component.translatable("tooltip.monsterspellbooks.furnace_set_passive").withStyle(Style.EMPTY.withColor(16748915)));
+            lines.add(Component.translatable("tooltip.monsterspellbooks.ability", ModKeybinds.ABILITY_ARMOR.getTranslatedKeyMessage()));
+            lines.add(Component.translatable("tooltip.monsterspellbooks.furnace_set").withStyle(Style.EMPTY.withColor(16748915)));
+        }
     }
 }

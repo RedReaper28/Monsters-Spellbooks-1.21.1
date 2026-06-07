@@ -30,6 +30,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.redreaper.monsterspellbooks.init.ModAtributeRegistry;
 import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import net.redreaper.monsterspellbooks.init.ModTags;
@@ -105,8 +106,8 @@ public class DraugrEliteVindicatorEntity extends DraugrIllagerEntity implements 
                 .add(Attributes.ARMOR, 10)
                 .add(Attributes.FOLLOW_RANGE, 24.0)
                 .add(Attributes.MOVEMENT_SPEED, 0.35F)
-                .add(AttributeRegistry.ICE_SPELL_POWER, 5);
-
+                .add(AttributeRegistry.ICE_SPELL_POWER, 2)
+                .add(ModAtributeRegistry.NECRO_MAGIC_POWER, 2);
     }
 
 

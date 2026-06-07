@@ -23,6 +23,7 @@ import net.redreaper.monsterspellbooks.item.curios.belt.WitheredTotemItem;
 import net.redreaper.monsterspellbooks.item.curios.elemental_charm.*;
 import net.redreaper.monsterspellbooks.item.curios.hands.IgnitionGloveItem;
 import net.redreaper.monsterspellbooks.item.curios.head.CriticalSorcererGlassesItem;
+import net.redreaper.monsterspellbooks.item.curios.necklace.ColdConjurerTalisman;
 import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.*;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
@@ -284,6 +285,8 @@ public class ModItems {
 
     public static final Supplier<CurioBaseItem>WITHERWARD_RING = ITEMS.register("witherward_ring",
             WitherWardCurio::new);
+    public static final Supplier<CurioBaseItem> COLD_CONJURER_TALISMAN = ITEMS.register("cold_conjurers_talisman",
+            ColdConjurerTalisman::new);
     public static final Supplier<CurioBaseItem>WITHERED_TOTEM = ITEMS.register("withered_totem",
             WitheredTotemItem::new);
     public static final Supplier<CurioBaseItem>IGNITION_GLOVE = ITEMS.register("ignition_gloves",
@@ -432,6 +435,7 @@ public class ModItems {
     public static final Supplier<DeferredSpawnEggItem> DWARVEN_SPHERE_SPAWN_EGG = ITEMS.register("dwarven_sphere_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DWARVEN_SPHERE, 10050109, 16501864, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> DWARVEN_SLICER_SPAWN_EGG = ITEMS.register("dwarven_slicer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.DWARVEN_SLICER, 10050109, 16501864, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> JUNGLE_WHISPERER_SPAWN_EGG = ITEMS.register("jungle_whisperer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.JUNGLE_WHISPERER, 6323765, 8601546, ItemPropertiesHelper.material().stacksTo(64)));
+    public static final Supplier<DeferredSpawnEggItem> JUNGLE_LEAPLEAF_SPAWN_EGG = ITEMS.register("jungle_leapleaf_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.JUNGLE_LEAPLEAF, 6323765, 8601546, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> ILLAGER_ENCHANTER_SPAWN_EGG = ITEMS.register("illager_enchanter_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.ILLAGER_ENCHANTER, 9804699, 9053763, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> ILLAGER_ICEOLOGER_SPAWN_EGG = ITEMS.register("illager_iceologer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.ILLAGER_ICEOLOGER, 9804699, 927571, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> ILLAGER_FIREOLOGER_SPAWN_EGG = ITEMS.register("illager_fireologer_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.ILLAGER_FIREOLOGER, 9804699, 8257536, ItemPropertiesHelper.material().stacksTo(64)));

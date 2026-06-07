@@ -700,6 +700,14 @@ public class ModEntities {
                             ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "jungle_whisperer").toString()
                     ));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<JungleLeapleafEntity>> JUNGLE_LEAPLEAF =
+            ENTITIES.register("jungle_leapleaf", () -> EntityType.Builder.<JungleLeapleafEntity>of
+                            (JungleLeapleafEntity::new, MobCategory.MONSTER).
+                    sized(2f, 2.5f)
+                    .build(
+                            ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "jungle_leapleaf").toString()
+                    ));
+
     public static final DeferredHolder<EntityType<?>, EntityType<MagmaAtronachEntity>> MAGMA_ATRONACH =
             ENTITIES.register("magma_atronach", () -> EntityType.Builder.<MagmaAtronachEntity>of
                             (MagmaAtronachEntity::new, MobCategory.MONSTER).

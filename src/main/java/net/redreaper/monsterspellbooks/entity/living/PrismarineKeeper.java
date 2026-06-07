@@ -1,6 +1,7 @@
 package net.redreaper.monsterspellbooks.entity.living;
 
 import io.redspace.ironsspellbooks.IronsSpellbooks;
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.entity.mobs.IAnimatedAttacker;
@@ -10,6 +11,7 @@ import io.redspace.ironsspellbooks.entity.mobs.wizards.GenericAnimatedWarlockAtt
 import io.redspace.ironsspellbooks.entity.mobs.wizards.fire_boss.NotIdioticNavigation;
 import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
+import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.DamageTypeTags;
@@ -48,7 +50,7 @@ import software.bernie.geckolib.animation.AnimationState;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class PrismarineKeeper extends AbstractSpellCastingMob implements IAnimatedAttacker{
+public class PrismarineKeeper extends AbstractSpellCastingMob implements IAnimatedAttacker,Enemy{
     public PrismarineKeeper(EntityType<? extends AbstractSpellCastingMob> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         xpReward = 25;
@@ -157,7 +159,9 @@ public class PrismarineKeeper extends AbstractSpellCastingMob implements IAnimat
                 .add(Attributes.ATTACK_KNOCKBACK, 2.0)
                 .add(Attributes.STEP_HEIGHT, 1)
                 .add(Attributes.ENTITY_INTERACTION_RANGE, 3.5)
-                .add(Attributes.MOVEMENT_SPEED, .19);
+                .add(Attributes.MOVEMENT_SPEED, .19)
+                .add(ASAttributeRegistry.HYDRO_MAGIC_RESIST, 1.5f)
+                ;
     }
 
     @Override

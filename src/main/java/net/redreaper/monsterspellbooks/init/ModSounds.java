@@ -44,6 +44,14 @@ public class ModSounds {
     public static final Supplier<SoundEvent>WHISPERER_AMBIENT =registerSoundEvent("whisperer_ambient");
     public static final Supplier<SoundEvent>WHISPERER_MELEE_ATTACK =registerSoundEvent("whisperer_melee_attack");
     public static final Supplier<SoundEvent>WHISPERER_DEATH =registerSoundEvent("whisperer_death");
+
+    public static final Supplier<SoundEvent>LEAPLEAF_AMBIENT =registerSoundEvent("leapleaf_ambient");
+    public static final Supplier<SoundEvent>LEAPLEAF_STEP =registerSoundEvent("leapleaf_step");
+    public static final Supplier<SoundEvent>LEAPLEAF_MELEE_ATTACK =registerSoundEvent("leapleaf_melee_attack");
+    public static final Supplier<SoundEvent>LEAPLEAF_LEAP =registerSoundEvent("leapleaf_leap");
+    public static final Supplier<SoundEvent>LEAPLEAF_HURT =registerSoundEvent("leapleaf_hurt");
+    public static final Supplier<SoundEvent>LEAPLEAF_DEATH =registerSoundEvent("leapleaf_death");
+
     public static final Supplier<SoundEvent>SOUL_WIZARD_HURT =registerSoundEvent("soul_wizard_hurt");
     public static final Supplier<SoundEvent>BLASTLING_AMBIENT =registerSoundEvent("blastling_ambient");
     public static final Supplier<SoundEvent>BLASTLING_STEP =registerSoundEvent("blastling_step");

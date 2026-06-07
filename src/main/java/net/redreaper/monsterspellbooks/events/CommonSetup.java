@@ -32,7 +32,6 @@ public class CommonSetup {
         event.put(ModEntities.REDSNAKE_WITHER_SKELETON.get(), WitherSkeleton.createAttributes().build());
         event.put(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereEntity.createAttributes().build());
         event.put(ModEntities.DWARVEN_SLICER.get(), DwarvenSlicerEntity.createAttributes().build());
-        event.put(ModEntities.SHOCK.get(), ShockEntity.createAttributes().build());
         event.put(ModEntities.REDSTONE_ELEMENTAL.get(), RedstoneElementalEntity.createAttributes().build());
         event.put(ModEntities.SOUL_WRAITH.get(), SoulWraithEntity.createAttributes().build());
         event.put(ModEntities.AEGIS.get(), AegisEntity.createAttributes().build());
@@ -42,6 +41,7 @@ public class CommonSetup {
         event.put(ModEntities.WITHER_WARRIOR.get(), WitherWarriorEntity.createAttributes().build());
         event.put(ModEntities.SUMMONED_WITHER_WARRIOR.get(), WitherWarriorEntity.createAttributes().build());
         event.put(ModEntities.JUNGLE_WHISPERER.get(), JungleWhispererEntity.createAttributes().build());
+        event.put(ModEntities.JUNGLE_LEAPLEAF.get(), JungleLeapleafEntity.createAttributes().build());
         event.put(ModEntities.HEROBRINE_CULTIST_MAGE.get(), HerobrineCultistMageEntity.createAttributes().build());
         event.put(ModEntities.HEROBRINE_CULTIST_ASSASSIN.get(), HerobrineCultistAssassinEntity.createAttributes().build());
         event.put(ModEntities.ILLAGER_ENCHANTER.get(), IllagerEnchanterEntity.createAttributes().build());

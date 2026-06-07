@@ -7,7 +7,6 @@ import io.redspace.ironsspellbooks.entity.mobs.abstract_spell_casting_mob.Abstra
 import io.redspace.ironsspellbooks.entity.mobs.abstract_spell_casting_mob.NeutralWizard;
 import io.redspace.ironsspellbooks.entity.mobs.goals.WizardAttackGoal;
 import io.redspace.ironsspellbooks.entity.mobs.goals.WizardRecoverGoal;
-import io.redspace.ironsspellbooks.registries.ItemRegistry;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
@@ -25,8 +24,6 @@ import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
@@ -45,12 +42,12 @@ public class WitherWarlockEntity extends AbstractSpellCastingMob implements Enem
     protected void registerGoals() {
         this.goalSelector.addGoal(4, new WizardAttackGoal(this, 1.25f, 35, 80)
                 .setSpells(
-                        List.of(ModSpellRegistry.TORMENT_ARROW.get(), ModSpellRegistry.LIFE_DRAIN.get(), ModSpellRegistry.RANCORCALL.get()),
+                        List.of(ModSpellRegistry.TORMENT_ARROW.get(),ModSpellRegistry.WITHER_BOMB.get(), ModSpellRegistry.LIFE_DRAIN.get(), ModSpellRegistry.RANCORCALL.get()),
                         List.of(),
                         List.of(),
                         List.of(SpellRegistry.SLOW_SPELL.get())
                 )
-                .setSingleUseSpell(ModSpellRegistry.SPECTRAL_BLAST.get(), 160, 350, 4, 5)
+                .setSingleUseSpell(ModSpellRegistry.SUMMON_WITHER_ARMY.get(), 80, 350, 4, 5)
                 .setDrinksPotions());
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));

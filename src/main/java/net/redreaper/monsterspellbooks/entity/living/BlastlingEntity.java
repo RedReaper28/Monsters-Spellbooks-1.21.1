@@ -1,10 +1,12 @@
 package net.redreaper.monsterspellbooks.entity.living;
 
 import io.redspace.ironsspellbooks.IronsSpellbooks;
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.entity.mobs.IAnimatedAttacker;
 import io.redspace.ironsspellbooks.entity.mobs.goals.WizardAttackGoal;
 import net.acetheeldritchking.aces_spell_utils.entity.mobs.UniqueAbstractSpellCastingMob;
+import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
@@ -131,7 +133,10 @@ public class BlastlingEntity extends UniqueAbstractSpellCastingMob implements Ge
                 .add(Attributes.KNOCKBACK_RESISTANCE, 2)
                 .add(Attributes.FOLLOW_RANGE, 30.0)
                 .add(Attributes.ENTITY_INTERACTION_RANGE, 2.0)
-                .add(Attributes.MOVEMENT_SPEED, .15);
+                .add(Attributes.MOVEMENT_SPEED, .15)
+                .add(AttributeRegistry.ENDER_MAGIC_RESIST, 1.5f)
+                .add(ASAttributeRegistry.HYDRO_MAGIC_POWER, -.5f)
+                ;
     }
 
     @Override

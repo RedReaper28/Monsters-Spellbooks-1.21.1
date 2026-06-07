@@ -148,6 +148,7 @@ public class WitherWarriorEntity extends AbstractSpellCastingMob implements IAni
                 .add(Attributes.MOVEMENT_SPEED, 0.25F);
     }
 
+    @Override
     public boolean doHurtTarget(Entity entity) {
         if (!super.doHurtTarget(entity)) {
             return false;
@@ -155,11 +156,11 @@ public class WitherWarriorEntity extends AbstractSpellCastingMob implements IAni
             if (entity instanceof LivingEntity) {
                 ((LivingEntity)entity).addEffect(new MobEffectInstance(MobEffects.WITHER, 200), this);
             }
-
             return true;
         }
     }
 
+    @Override
     public boolean canBeAffected(MobEffectInstance potioneffect) {
         return !potioneffect.is(MobEffects.WITHER) && super.canBeAffected(potioneffect);
     }

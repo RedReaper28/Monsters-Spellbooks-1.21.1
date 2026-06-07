@@ -1,6 +1,7 @@
 package net.redreaper.monsterspellbooks.entity.living;
 
 import io.redspace.ironsspellbooks.IronsSpellbooks;
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.entity.mobs.IAnimatedAttacker;
 import io.redspace.ironsspellbooks.entity.mobs.goals.melee.AttackAnimationData;
@@ -10,6 +11,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
@@ -28,6 +30,7 @@ import net.redreaper.monsterspellbooks.entity.goals.WhispererAnimatedWarlockAtta
 import net.redreaper.monsterspellbooks.init.ModEntities;
 import net.redreaper.monsterspellbooks.init.ModSounds;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
+import net.redreaper.monsterspellbooks.init.ModTags;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
@@ -129,7 +132,10 @@ public class JungleWhispererEntity extends UniqueAbstractSpellCastingMob impleme
                 .add(Attributes.KNOCKBACK_RESISTANCE, 2)
                 .add(Attributes.FOLLOW_RANGE, 45.0)
                 .add(Attributes.ENTITY_INTERACTION_RANGE, 2.0)
-                .add(Attributes.MOVEMENT_SPEED, .20);
+                .add(Attributes.MOVEMENT_SPEED, .20)
+                .add(AttributeRegistry.NATURE_MAGIC_RESIST, 1.5f)
+                .add(AttributeRegistry.FIRE_MAGIC_RESIST, -.5f)
+                ;
     }
 
     public SoundEvent getAmbientSound() {
@@ -159,6 +165,14 @@ public class JungleWhispererEntity extends UniqueAbstractSpellCastingMob impleme
 
     protected boolean shouldDropLoot() {
         return true;
+    }
+
+    public boolean isAlliedTo(Entity entity) {
+        if (super.isAlliedTo(entity)) {
+            return true;
+        } else {
+            return entity.getType().is(ModTags.Entities.JUNGLE_ABOMINATIONS) && this.getTeam() == null && entity.getTeam() == null;
+        }
     }
 
     // Geckolib & Animations

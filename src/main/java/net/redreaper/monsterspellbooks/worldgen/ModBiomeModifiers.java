@@ -95,7 +95,7 @@ public class ModBiomeModifiers {
 
         context.register(SPAWN_WITHER_WARLOCK, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_NETHER),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.WITHER_WARLOCK.get(),18,1,1))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.WITHER_WARLOCK.get(),10,1,1))));
 
         context.register(SPAWN_WITHER_WARRIOR, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.HAS_NETHER_FOSSIL),

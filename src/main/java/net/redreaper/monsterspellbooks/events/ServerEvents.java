@@ -11,6 +11,7 @@ import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.effect.ImmolateEffect;
+import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import io.redspace.ironsspellbooks.spells.blood.RaiseDeadSpell;
@@ -129,6 +130,12 @@ public class ServerEvents {
                 entityTarget.addEffect(new MobEffectInstance(MobEffects.WITHER, 120, 1, true, true, true));
             }
         }
+
+        if (entityAttacker instanceof IMagicSummon summon && summon.getSummoner() instanceof Player summoner) {
+            if (ASUtils.hasCurio(summoner, ModItems.COLD_CONJURER_TALISMAN.get())) {
+                Utils.addFreezeTicks(entityTarget, 120);
+            }
+        }
     }
 
     @SubscribeEvent
@@ -169,12 +176,15 @@ public class ServerEvents {
 
         // Curios
         if (sourceEntity != null) {
+
             if (sourceEntity instanceof Player player) {
                 // Brimstone Sigil
                 if (ASUtils.hasCurio(player, ModItems.BRIMSTONE_SIGIL.get())) {
                     if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC))
                         target.addEffect(new MobEffectInstance(ModMobEffects.BRIMSTONE_FLAME, 60, 0, true, true, true));
                 }
+
+
 
                 // Frostmourne
                 if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FROSTMOURNE)) {

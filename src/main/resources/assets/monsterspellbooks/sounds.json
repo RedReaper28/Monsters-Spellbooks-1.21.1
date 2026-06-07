@@ -158,14 +158,54 @@
     ]
   },
 
-
-
   "whisperer_death": {
     "subtitles": "sounds.monsterspellbooks.whisperer_death",
     "sounds": [
       "monsterspellbooks:entity/whisperer_death"
     ]
   },
+
+  "leapleaf_ambient": {
+    "subtitles": "sounds.monsterspellbooks.leapleaf_ambient",
+    "sounds": [
+      "monsterspellbooks:entity/leapleaf_ambient"
+    ]
+  },
+  "leapleaf_death": {
+    "subtitles": "sounds.monsterspellbooks.leapleaf_death",
+    "sounds": [
+      "monsterspellbooks:entity/leapleaf_death"
+    ]
+  },
+
+  "leapleaf_hurt": {
+    "subtitles": "sounds.monsterspellbooks.leapleaf_hurt",
+    "sounds": [
+      "monsterspellbooks:entity/leapleaf_hurt"
+    ]
+  },
+
+  "leapleaf_leap": {
+    "subtitles": "sounds.monsterspellbooks.leapleaf_leap",
+    "sounds": [
+      "monsterspellbooks:entity/leapleaf_leap"
+    ]
+  },
+
+  "leapleaf_melee_attack": {
+    "subtitles": "sounds.monsterspellbooks.leapleaf_melee_attack",
+    "sounds": [
+      "monsterspellbooks:entity/leapleaf_melee_attack"
+    ]
+  },
+
+  "leapleaf_step": {
+    "subtitles": "sounds.monsterspellbooks.leapleaf_step",
+    "sounds": [
+      "monsterspellbooks:entity/leapleaf_step"
+    ]
+  },
+
   "soul_wizard_hurt": {
     "subtitles": "sounds.monsterspellbooks.soul_wizard_hurt",
     "sounds": [

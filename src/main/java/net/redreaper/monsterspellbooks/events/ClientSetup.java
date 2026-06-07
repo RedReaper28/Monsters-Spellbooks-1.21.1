@@ -39,6 +39,8 @@ import net.redreaper.monsterspellbooks.entity.model.IceSerpeant.IceSerpeantRende
 import net.redreaper.monsterspellbooks.entity.model.IllagerEnchanterEntity.IllagerEnchanterRenderer;
 import net.redreaper.monsterspellbooks.entity.model.IllagerFireologerEntity.IllagerFireologerRenderer;
 import net.redreaper.monsterspellbooks.entity.model.IllagerIceologerEntity.IllagerIceologerRenderer;
+import net.redreaper.monsterspellbooks.entity.model.JungleLeapLeaf.JungleLeapLeafModel;
+import net.redreaper.monsterspellbooks.entity.model.JungleLeapLeaf.JungleLeapLeafRenderer;
 import net.redreaper.monsterspellbooks.entity.model.JungleWhisperer.JungleWhispererModel;
 import net.redreaper.monsterspellbooks.entity.model.JungleWhisperer.JungleWhispererRenderer;
 import net.redreaper.monsterspellbooks.entity.model.LivingLeafCrystal.LivingLeafCrystalModel;
@@ -223,6 +225,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.ILLAGER_ICEOLOGER.get(), IllagerIceologerRenderer::new);
         event.registerEntityRenderer(ModEntities.ILLAGER_FIREOLOGER.get(), IllagerFireologerRenderer::new);
         event.registerEntityRenderer(ModEntities.JUNGLE_WHISPERER.get(), context -> {return new JungleWhispererRenderer(context, new JungleWhispererModel());});
+        event.registerEntityRenderer(ModEntities.JUNGLE_LEAPLEAF.get(), context -> {return new JungleLeapLeafRenderer(context, new JungleLeapLeafModel());});
         event.registerEntityRenderer(ModEntities.DRAUGR_EVOKER.get(), DraugrEvokerRenderer::new);
         event.registerEntityRenderer(ModEntities.DRAUGR_VINDICATOR.get(), DraugrVindicatorRenderer::new);
         event.registerEntityRenderer(ModEntities.DRAUGR_ELITE_VINDICATOR.get(), DraugrVindicatorRenderer::new);

@@ -45,6 +45,7 @@ public class ModTags {
     }
 
     public static class Entities{
+        public static final TagKey<EntityType<?>> JUNGLE_ABOMINATIONS = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "jungle_abominations"));
         public static final TagKey<EntityType<?>> DWARVEN_CONSTRUCT = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "dwarven_construct"));
         public static final TagKey<EntityType<?>> PRISMARINE_CONSTRUCT = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "prismarine_construct"));
         public static final TagKey<EntityType<?>> ELEMENTAL = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "elemental"));

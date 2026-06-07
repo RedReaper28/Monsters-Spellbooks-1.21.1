@@ -22,7 +22,7 @@ public class BrimstoneFlameMobEffect extends MagicMobEffect implements ISyncedMo
 
     public boolean applyEffectTick(LivingEntity p_296276_, int p_296233_) {
         Registry<DamageType> dTypeReg = p_296276_.damageSources().damageTypes;
-        Holder.Reference<DamageType> dType = dTypeReg.getHolder(NeoForgeMod.POISON_DAMAGE).orElse(dTypeReg.getHolderOrThrow(ISSDamageTypes.BLOOD_MAGIC));
+        Holder.Reference<DamageType> dType = dTypeReg.getHolder(NeoForgeMod.POISON_DAMAGE).orElse(dTypeReg.getHolderOrThrow(ISSDamageTypes.FIRE_MAGIC));
         p_296276_.hurt(new DamageSource(dType), 2.5f);
         return true;
     }

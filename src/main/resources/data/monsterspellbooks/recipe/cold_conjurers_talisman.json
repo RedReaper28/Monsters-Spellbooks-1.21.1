@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:deathsilver_ingot"
+    },
+    "B": {
+      "item": "irons_spellbooks:permafrost_shard"
+    },
+    "C": {
+      "item": "irons_spellbooks:conjurers_talisman"
+    },
+    "D": {
+      "item": "irons_spellbooks:frozen_bone"
+    }
+  },
+  "pattern": [
+    " A ",
+    "DCA",
+    "BD "
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:cold_conjurers_talisman"
+  }
+}

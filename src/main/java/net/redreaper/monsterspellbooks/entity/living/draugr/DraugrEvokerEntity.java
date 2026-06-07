@@ -90,12 +90,13 @@ public class DraugrEvokerEntity extends DraugrIllagerEntity implements Enemy {
                 .add(Attributes.ATTACK_KNOCKBACK, 0.0)
                 .add(Attributes.MAX_HEALTH, 60.0)
                 .add(Attributes.FOLLOW_RANGE, 24.0)
-                .add(AttributeRegistry.ICE_SPELL_POWER, 15)
-                .add(ModAtributeRegistry.NECRO_MAGIC_POWER, 10)
+                .add(AttributeRegistry.ICE_SPELL_POWER, 2.5)
+                .add(ModAtributeRegistry.NECRO_MAGIC_POWER, 2.5)
                 .add(AttributeRegistry.CAST_TIME_REDUCTION, 2)
                 .add(Attributes.MOVEMENT_SPEED, .20);
     }
 
+    // Attacks and Death
     public boolean isAlliedTo(Entity entity) {
         if (super.isAlliedTo(entity)) {
             return true;
@@ -119,6 +120,21 @@ public class DraugrEvokerEntity extends DraugrIllagerEntity implements Enemy {
     @Override
     protected boolean shouldDespawnInPeaceful() {
         return true;
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity entity) {
+        if (!super.doHurtTarget(entity)) {
+            if (entity instanceof Player player && player.isBlocking()) {
+                player.disableShield();
+            }
+            return false;
+        } else {
+            if (entity instanceof Player player && player.isBlocking()) {
+                player.disableShield();
+            }
+            return true;
+        }
     }
 }
 

@@ -6,6 +6,7 @@ import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.entity.mobs.goals.WizardAttackGoal;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.acetheeldritchking.aces_spell_utils.entity.mobs.UniqueAbstractSpellCastingMob;
+import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -110,7 +111,7 @@ public class RedstoneElementalEntity extends UniqueAbstractSpellCastingMob imple
                 .add(Attributes.MOVEMENT_SPEED, 0.25)
                 .add(Attributes.FLYING_SPEED, 0.25)
                 .add(AttributeRegistry.SPELL_POWER, 1.5)
-                .add(AttributeRegistry.SPELL_RESIST, 1.5)
+                .add(AttributeRegistry.LIGHTNING_MAGIC_RESIST, 1.5f)
                 ;
     }
 
