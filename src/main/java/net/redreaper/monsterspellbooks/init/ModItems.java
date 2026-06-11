@@ -89,7 +89,6 @@ public class ModItems {
             ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>NETHER_RUBY= ITEMS.register("nether_ruby",
             ()->new Item(new Item.Properties().fireResistant()));
-
     public static final DeferredItem<Item>SPECTRITE_INGOT= ITEMS.register("spectrite_ingot",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>BLAZESTEEL_INGOT= ITEMS.register("blazesteel_ingot",
@@ -111,6 +110,8 @@ public class ModItems {
     public static final DeferredItem<Item>PRISMARINE_GEM= ITEMS.register("prismarine_gem",
             ()->new Item(new Item.Properties().rarity(ModRarities.PRISMARINE_RARITY_PROXY.getValue())));
     public static final DeferredItem<Item>WISEWOOD_BONE= ITEMS.register("wisewood_bone",
+            ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>PLANT_MATTER= ITEMS.register("plant_matter",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>DWARVEN_ALLOY_PLATE= ITEMS.register("dwarven_alloy_plate",
             () -> new Item(ItemPropertiesHelper.material()));

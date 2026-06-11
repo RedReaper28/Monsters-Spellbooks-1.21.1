@@ -5,6 +5,6 @@
     "type": "monsterspellbooks:dwarven_sphere",
     "maxCount": 3,
     "minCount": 2,
-    "weight": 20
+    "weight": 15
   }
 }

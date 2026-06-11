@@ -117,6 +117,7 @@ import net.redreaper.monsterspellbooks.entity.spells.stray_grasp.StrayGraspRende
 import net.redreaper.monsterspellbooks.entity.spells.torment_arrow.TormentArrowRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.vitaL_blast.VitalBlastRenderer;
+import net.redreaper.monsterspellbooks.entity.spells.void_arrows.VoidArrowRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.voltaic_multishot.VoltArrowRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.water_trident.WaterTridentRenderer;
 import net.redreaper.monsterspellbooks.entity.spells.wind_charge.ExtendedWindChargeRenderer;
@@ -203,6 +204,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.TORMENT_ARROW_PROJECTILE.get(), TormentArrowRenderer::new);
         event.registerEntityRenderer(ModEntities.DWARVEN_SPINBLADE.get(), DwarvenSpinbladeRenderer::new);
         event.registerEntityRenderer(ModEntities.SMALL_OBSIDIAN_ARROW_PROJECTILE.get(), SmallObsidianArrowRenderer::new);
+        event.registerEntityRenderer(ModEntities.VOID_ARROW_PROJECTILE.get(), VoidArrowRenderer::new);
         event.registerEntityRenderer(ModEntities.OBSIDIAN_ARROW_PROJECTILE.get(), ObsidianArrowRenderer::new);
         event.registerEntityRenderer(ModEntities.OBSIDIAN_ARROW_PROJECTILE.get(), ObsidianArrowRenderer::new);
         event.registerEntityRenderer(ModEntities.OBSIDIAN_ARROW_VOLLEY_ENTITY.get(), NoopRenderer::new);

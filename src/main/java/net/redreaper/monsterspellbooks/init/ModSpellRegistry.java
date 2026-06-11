@@ -55,13 +55,14 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> CRUSH = registerSpell(new CrushSpell());
     public static final Supplier<AbstractSpell> DRAGON_CHARGE = registerSpell(new DragonChargeSpell());
     public static final Supplier<AbstractSpell> ENDERSENT_SMASH = registerSpell(new EndersentSmashSpell());
+    public static final Supplier<AbstractSpell> ENDERSENT_FORM = registerSpell(new EndersentFormSpell());
     public static final Supplier<AbstractSpell> FIRMAMENT_SPLITTER = registerSpell(new FirmamentSplitterSpell());
-    public static final Supplier<AbstractSpell> GRAVITY_FORCE = registerSpell(new GravityForceSpell());
     public static final Supplier<AbstractSpell> GRAVITY_WELL = registerSpell(new GravityWellSpell());
     public static final Supplier<AbstractSpell> OBSIDIAN_ARSENAL = registerSpell(new ObsidianArsenalSpell());
     public static final Supplier<AbstractSpell> SPACE_BREAKER = registerSpell(new SpaceBreakerSpell());
     public static final Supplier<AbstractSpell> SPACE_RUPTURE = registerSpell(new SpaceRuptureSpell());
     public static final Supplier<AbstractSpell> UNSTABLE_TELEPORT = registerSpell(new UnstableTeleportSpell());
+    public static final Supplier<AbstractSpell> VOID_ARROWS = registerSpell(new VoidArrowsSpell());
 
     //EVOCATION
     public static final Supplier<AbstractSpell> ENCHANTERS_BOOST = registerSpell(new EnchantersBoostSpell());
@@ -85,7 +86,6 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> HALLOW_SLASH = registerSpell(new HallowSlashSpell());
     public static final Supplier<AbstractSpell> PALADIN_THROW = registerSpell(new PaladinThrowSpell());
     public static final Supplier<AbstractSpell> SUMMON_AEGIS_PATROL = registerSpell(new SummonAegisPatrolSpell());
-
 
     //HYDRO
     public static final Supplier<AbstractSpell> BUBBLE_SPRAY = registerSpell(new BubbleSpraySpell());
@@ -128,7 +128,6 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> BLAST_FUNGUS = registerSpell(new BlastFungusSpell());
     public static final Supplier<AbstractSpell> INFECTION_SLASH = registerSpell(new InfectionSlashSpell());
     public static final Supplier<AbstractSpell> LEAF_CRYSTAL = registerSpell(new LifeCrystalSpell());
-    public static final Supplier<AbstractSpell> MOUNTAIN_CORPSE = registerSpell(new MountainCorpseSpell());
     public static final Supplier<AbstractSpell> POISON_QUILL = registerSpell(new PoisonQuillSpell());
     public static final Supplier<AbstractSpell> SPIDER_FANGS = registerSpell(new SpiderFangsSpell());
     public static final Supplier<AbstractSpell> SUMMON_POISON_VINE = registerSpell(new SummonPoisonVinesSpell());

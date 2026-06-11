@@ -5,6 +5,6 @@
     "type": "monsterspellbooks:wither_warlock",
     "maxCount": 1,
     "minCount": 1,
-    "weight": 9
+    "weight": 10
   }
 }

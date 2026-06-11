@@ -138,6 +138,13 @@
     ]
   },
 
+  "spell_construct_summon": {
+    "subtitles": "sounds.monsterspellbooks.spell_construct_summon",
+    "sounds": [
+      "monsterspellbooks:spell_construct_summon"
+    ]
+  },
+
   "spell_necro_cast": {
   "subtitles": "sounds.monsterspellbooks.spell_necro_cast",
   "sounds": [

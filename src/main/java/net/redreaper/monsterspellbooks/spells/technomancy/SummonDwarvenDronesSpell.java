@@ -65,9 +65,7 @@ public class SummonDwarvenDronesSpell extends AbstractSpell {
 
     public int getSummonCount(int spellLevel, LivingEntity caster) {return spellLevel;}
 
-    @Override public Optional<SoundEvent> getCastStartSound() {return Optional.of(ModSounds.SOUL_SCREAM.get());}
-
-    @Override public Optional<SoundEvent> getCastFinishSound() {return Optional.of(ModSounds.SOUL_WIZARD_SUMMON.get());}
+    @Override public Optional<SoundEvent> getCastFinishSound() {return Optional.of(ModSounds.CONSTRUCT_SUMMON.get());}
 
     @Override public int getRecastCount(int spellLevel, @Nullable LivingEntity entity) {
         return 2;

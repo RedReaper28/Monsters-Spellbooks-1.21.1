@@ -84,6 +84,7 @@ import net.redreaper.monsterspellbooks.entity.spells.stray_grasp.StrayGraspProje
 import net.redreaper.monsterspellbooks.entity.spells.thunderstorm_wave.AncientLightningStrike;
 import net.redreaper.monsterspellbooks.entity.spells.vile_slash.VileSlashProjectileNew;
 import net.redreaper.monsterspellbooks.entity.spells.vitaL_blast.VitalBlastVisualEntity;
+import net.redreaper.monsterspellbooks.entity.spells.void_arrows.VoidArrowProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.voltaic_multishot.VoltArrowProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.water_trident.WaterTridentProjectile;
 import net.redreaper.monsterspellbooks.entity.spells.wind_charge.ExtendedWindCharge;
@@ -147,6 +148,12 @@ public class ModEntities {
                     .sized(.8f, .8f)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "small_obsidian_arrow").toString()));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<VoidArrowProjectile>> VOID_ARROW_PROJECTILE =
+            ENTITIES.register("void_arrow", () -> EntityType.Builder.<VoidArrowProjectile>of(VoidArrowProjectile::new, MobCategory.MISC)
+                    .sized(.8f, .8f)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "void_arrow").toString()));
 
     public static final DeferredHolder<EntityType<?>, EntityType<ObsidianArrowProjectile>> OBSIDIAN_ARROW_PROJECTILE =
             ENTITIES.register("obsidian_arrow", () -> EntityType.Builder.<ObsidianArrowProjectile>of(ObsidianArrowProjectile::new, MobCategory.MISC)

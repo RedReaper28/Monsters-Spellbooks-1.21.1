@@ -8,6 +8,7 @@ import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.acetheeldritchking.aces_spell_utils.entity.mobs.UniqueAbstractSpellCastingMob;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
@@ -31,6 +32,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.init.ModSounds;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.animatable.GeoAnimatable;
@@ -97,7 +99,7 @@ public class SoulWraithEntity extends UniqueAbstractSpellCastingMob implements G
     }
 
     public @NotNull SoundEvent getHurtSound(@NotNull DamageSource damageSource) {
-        return SoundRegistry.LIGHTNING_CAST.get();
+        return ModSounds.SOUL_SCREAM.get();
     }
 
     public static AttributeSupplier.Builder createAttributes()

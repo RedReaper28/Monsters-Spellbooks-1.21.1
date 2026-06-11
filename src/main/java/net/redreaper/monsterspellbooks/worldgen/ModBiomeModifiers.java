@@ -32,6 +32,7 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier>SPAWN_SPRIGGAN=registerKey("spawn_spriggan");
     public static final ResourceKey<BiomeModifier>SPAWN_DWARVEN_SPHERE=registerKey("spawn_dwarven_sphere");
     public static final ResourceKey<BiomeModifier>SPAWN_JUNGLE_WHISPERER =registerKey("spawn_jungle_whisperer");
+    public static final ResourceKey<BiomeModifier>SPAWN_JUNGLE_LEAPLEAF =registerKey("spawn_jungle_leapleaf");
     public static final ResourceKey<BiomeModifier>SPAWN_SOUL_WRAITH=registerKey("spawn_soul_wraith");
     public static final ResourceKey<BiomeModifier>SPAWN_WITHER_WARLOCK=registerKey("spawn_wither_warlock");
     public static final ResourceKey<BiomeModifier>SPAWN_WITHER_WARRIOR=registerKey("spawn_wither_warrior");
@@ -83,7 +84,7 @@ public class ModBiomeModifiers {
 
         context.register(SPAWN_DRIPPLER, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DRIPPLER.get(),10,1,2))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DRIPPLER.get(),15,1,2))));
 
         context.register(SPAWN_SPRIGGAN, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_FOREST),
@@ -91,7 +92,7 @@ public class ModBiomeModifiers {
 
         context.register(SPAWN_DWARVEN_SPHERE, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_MOUNTAIN),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DWARVEN_SPHERE.get(),20,2,3))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.DWARVEN_SPHERE.get(),15,2,3))));
 
         context.register(SPAWN_WITHER_WARLOCK, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_NETHER),
@@ -103,11 +104,15 @@ public class ModBiomeModifiers {
 
         context.register(SPAWN_SOUL_WRAITH, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.HAS_NETHER_FOSSIL),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.SOUL_WRAITH.get(),15,1,1))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.SOUL_WRAITH.get(),10,1,1))));
 
         context.register(SPAWN_JUNGLE_WHISPERER, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_JUNGLE),
                 List.of(new MobSpawnSettings.SpawnerData(ModEntities.JUNGLE_WHISPERER.get(),10,1,2))));
+
+        context.register(SPAWN_JUNGLE_LEAPLEAF, new BiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_JUNGLE),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.JUNGLE_LEAPLEAF.get(),8,1,2))));
 
         context.register(SPAWN_BLASTLING, new BiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_END),

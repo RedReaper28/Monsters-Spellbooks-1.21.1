@@ -98,6 +98,7 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> CHARMING = MOB_EFFECT_DEFERRED_REGISTER.register("charming", () -> new CharmingMobEffect(MobEffectCategory.BENEFICIAL, 15497727 ));
     public static final DeferredHolder<MobEffect, MobEffect> SHADOW_SHROUD = MOB_EFFECT_DEFERRED_REGISTER.register("shadow_shroud", () -> new ShadowShroudMobEffect(MobEffectCategory.BENEFICIAL, 8467669 ));
     public static final DeferredHolder<MobEffect, MobEffect> VOID_TOUCHED = MOB_EFFECT_DEFERRED_REGISTER.register("void_touched", () -> new VoidTouchedEffect(MobEffectCategory.HARMFUL, 1114193 ));
+    public static final DeferredHolder<MobEffect, MobEffect> FORGED_RESISTANCE = MOB_EFFECT_DEFERRED_REGISTER.register("forged_resistance", () -> new ForgedResistance(MobEffectCategory.HARMFUL, 16748915 ));
     public static final DeferredHolder<MobEffect, MobEffect> BLEEDING = MOB_EFFECT_DEFERRED_REGISTER.register("bleeding", () -> new BleedingMobEffect(MobEffectCategory.HARMFUL, 16711680));
     public static final DeferredHolder<MobEffect, MobEffect> ACIDIC_VENOM = MOB_EFFECT_DEFERRED_REGISTER.register("acidic_venom", () -> new AcidicVenomEffect(MobEffectCategory.HARMFUL, 9916322));
     public static final DeferredHolder<MobEffect, MobEffect> SUFFOCATION = MOB_EFFECT_DEFERRED_REGISTER.register("suffocation", () -> new SuffocationMobEffect(MobEffectCategory.HARMFUL, 8028868));
@@ -110,14 +111,16 @@ public class ModMobEffects {
             .addAttributeModifier(AttributeRegistry.CAST_TIME_REDUCTION, MonstersSpellbooks.id("mobeffect_spirit_frostbite"), SpiritFrostbiteMobEffect.CAST_TIME_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
             .addAttributeModifier(Attributes.ATTACK_SPEED, MonstersSpellbooks.id("mobeffect_spirit_frostbite"), SpiritFrostbiteMobEffect.ATTACK_SLOWNESS_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
             .addAttributeModifier(AttributeRegistry.MANA_REGEN, MonstersSpellbooks.id("mobeffect_spirit_frostbite"), SpiritFrostbiteMobEffect.MANA_SLOWNESS_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
-    public static final DeferredHolder<MobEffect, MobEffect> MOUNTAIN_CORPSE = MOB_EFFECT_DEFERRED_REGISTER.register("mountain_corpse", () -> new MountainCorpseMobEffect(MobEffectCategory.BENEFICIAL, 3311322)
-            .addAttributeModifier(Attributes.MOVEMENT_SPEED, MonstersSpellbooks.id("mobeffect_mountain_corpse"), MountainCorpseMobEffect.SPEED_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
-            .addAttributeModifier(Attributes.SCALE, MonstersSpellbooks.id("mobeffect_mountain_corpse"), MountainCorpseMobEffect.SCALE_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE)
-            .addAttributeModifier(Attributes.ENTITY_INTERACTION_RANGE, MonstersSpellbooks.id("mobeffect_mountain_corpse"), MountainCorpseMobEffect.ENTITY_RANGE_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
-            .addAttributeModifier(Attributes.BLOCK_INTERACTION_RANGE, MonstersSpellbooks.id("mobeffect_mountain_corpse"), MountainCorpseMobEffect.BLOCK_RANGE_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
-            .addAttributeModifier(Attributes.ATTACK_KNOCKBACK, MonstersSpellbooks.id("mobeffect_mountain_corpse"), MountainCorpseMobEffect.ATTACK_KNOCKBACK_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE)
-            .addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, MonstersSpellbooks.id("mobeffect_mountain_corpse"), MountainCorpseMobEffect.KNOCKBACK_RESISTANCE_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE)
-            .addAttributeModifier(Attributes.STEP_HEIGHT, MonstersSpellbooks.id("mobeffect_mountain_corpse"), MountainCorpseMobEffect.STEP_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE));
+
+    public static final DeferredHolder<MobEffect, MobEffect> ENDERSENT_STRENGTH = MOB_EFFECT_DEFERRED_REGISTER.register("endersent_strength", () -> new EndersentStrengthMobEffect(MobEffectCategory.BENEFICIAL, 3311322)
+            .addAttributeModifier(Attributes.ATTACK_DAMAGE, MonstersSpellbooks.id("mobeffect_endersent_strength"), EndersentStrengthMobEffect.ATTACK_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+            .addAttributeModifier(Attributes.ATTACK_SPEED, MonstersSpellbooks.id("mobeffect_endersent_strength"), EndersentStrengthMobEffect.ATTACK_SPEED_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+            .addAttributeModifier(Attributes.ATTACK_KNOCKBACK, MonstersSpellbooks.id("mobeffect_endersent_strength"), EndersentStrengthMobEffect.ATTACK_KNOCKBACK_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE)
+            .addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, MonstersSpellbooks.id("mobeffect_endersent_strength"), EndersentStrengthMobEffect.KNOCKBACK_RESISTANCE_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE)
+            .addAttributeModifier(Attributes.SCALE, MonstersSpellbooks.id("mobeffect_endersent_strength"), EndersentStrengthMobEffect.SCALE_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE)
+            .addAttributeModifier(Attributes.BLOCK_INTERACTION_RANGE, MonstersSpellbooks.id("mobeffect_endersent_strength"), EndersentStrengthMobEffect.BLOCK_RANGE_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+            .addAttributeModifier(Attributes.ENTITY_INTERACTION_RANGE, MonstersSpellbooks.id("mobeffect_endersent_strength"), EndersentStrengthMobEffect.ENTITY_RANGE_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+            .addAttributeModifier(Attributes.STEP_HEIGHT, MonstersSpellbooks.id("mobeffect_endersent_strength"), EndersentStrengthMobEffect.STEP_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE));
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECT_DEFERRED_REGISTER.register(eventBus);

@@ -188,6 +188,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.REDSTONE_CRYSTAL);
                         output.accept(ModItems.PRISMARINE_GEM);
                         output.accept(ModItems.WISEWOOD_BONE);
+                        output.accept(ModItems.PLANT_MATTER);
                         output.accept(ModItems.HOMUNCULUS_BLOOD_ORB);
                         output.accept(ModItems.DWARVEN_ALLOY_PLATE);
                         output.accept(ModItems.VILE_BONE);

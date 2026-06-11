@@ -11,6 +11,7 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.init.ModExtendedArmorMaterials;
+import net.redreaper.monsterspellbooks.init.ModMobEffects;
 
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class ModArmorItem extends ArmorItem {
     private static final Map<Holder<ArmorMaterial>, List<MobEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<Holder<ArmorMaterial>, List<MobEffectInstance>>())
                     .put(ModExtendedArmorMaterials.FORGE_MASTERPIECE_ARMOR,
-                            List.of(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 20, 0, false, false)))
+                            List.of(new MobEffectInstance(ModMobEffects.FORGED_RESISTANCE, 20, 0, false, false)))
                     .build();
 
     public ModArmorItem(Holder<ArmorMaterial> material, Type type, Properties properties) {
