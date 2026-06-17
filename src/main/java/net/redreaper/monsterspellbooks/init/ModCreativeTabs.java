@@ -57,6 +57,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DEATHSILVER_DAGGER.get());
                         output.accept(ModItems.DEATHSILVER_SWORD.get());
                         output.accept(ModItems.DEATHSILVER_AXE.get());
+                        output.accept(ModItems.VILLAGE_BUTCHERER.get());
                         output.accept(ModItems.POISON_BITER.get());
                         output.accept(ModItems.POISON_GLAIVE.get());
                         output.accept(ModItems.FROST_FANG.get());
@@ -75,7 +76,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.WILDFIRE_CROWN.get());
                         output.accept(ModItems.FUNGAL_CAP_RED.get());
                         output.accept(ModItems.FUNGAL_CAP_BLUE.get());
-                        output.accept(ModItems.FLESH_MAIDEN.get());
 
                         output.accept(ModItems.DRAUGR_ELITE_HELMET.get());
                         output.accept(ModItems.DRAUGR_ELITE_CHESTPLATE.get());
@@ -96,11 +96,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SANGUINITE_HERO_LEGGINGS.get());
                         output.accept(ModItems.SANGUINITE_HERO_BOOTS.get());
 
-                        output.accept(ModItems.DWARVEN_ENGINEER_VISOR.get());
-                        output.accept(ModItems.DWARVEN_ENGINEER_CHESTPLATE.get());
-                        output.accept(ModItems.DWARVEN_ENGINEER_LEGGINGS.get());
-                        output.accept(ModItems.DWARVEN_ENGINEER_BOOTS.get());
-
                         output.accept(ModItems.FORGE_MASTERPIECE_HELMET.get());
                         output.accept(ModItems.FORGE_MASTERPIECE_CHESTPLATE.get());
                         output.accept(ModItems.FORGE_MASTERPIECE_LEGGINGS.get());
@@ -111,10 +106,10 @@ public class ModCreativeTabs {
                         output.accept(ModItems.STARSCOURGE_LEGGINGS.get());
                         output.accept(ModItems.STARSCOURGE_BOOTS.get());
 
-                        output.accept(ModItems.HEROBRINE_CULTIST_HELMET.get());
-                        output.accept(ModItems.HEROBRINE_CULTIST_CHESTPLATE.get());
-                        output.accept(ModItems.HEROBRINE_CULTIST_LEGGINGS.get());
-                        output.accept(ModItems.HEROBRINE_CULTIST_BOOTS.get());
+                        output.accept(ModItems.DWARVEN_ENGINEER_VISOR.get());
+                        output.accept(ModItems.DWARVEN_ENGINEER_CHESTPLATE.get());
+                        output.accept(ModItems.DWARVEN_ENGINEER_LEGGINGS.get());
+                        output.accept(ModItems.DWARVEN_ENGINEER_BOOTS.get());
 
                         output.accept(ModItems.ILLAGER_ENCHANTER_HELMET.get());
                         output.accept(ModItems.ILLAGER_ENCHANTER_CHESTPLATE.get());
@@ -135,6 +130,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DEATH_KNIGHT_CHESTPLATE.get());
                         output.accept(ModItems.DEATH_KNIGHT_LEGGINGS.get());
                         output.accept(ModItems.DEATH_KNIGHT_BOOTS.get());
+
+                        output.accept(ModItems.HEROBRINE_CULTIST_HELMET.get());
+                        output.accept(ModItems.HEROBRINE_CULTIST_CHESTPLATE.get());
+                        output.accept(ModItems.HEROBRINE_CULTIST_LEGGINGS.get());
+                        output.accept(ModItems.HEROBRINE_CULTIST_BOOTS.get());
 
                         output.accept(ModItems.WITHERWARD_RING.get());
                         output.accept(ModItems.COLD_CONJURER_TALISMAN.get());

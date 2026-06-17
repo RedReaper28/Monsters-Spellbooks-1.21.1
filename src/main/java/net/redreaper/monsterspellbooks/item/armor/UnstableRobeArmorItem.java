@@ -23,7 +23,7 @@ public class UnstableRobeArmorItem extends PresetImbueArmorItem implements IPres
         super(ArmorMaterialRegistry.SCHOOL, slot, settings, SpellDataRegistryHolder.of(
                 new SpellDataRegistryHolder(ModSpellRegistry.UNSTABLE_TELEPORT, 1)),
                 new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE),
-                new AttributeContainer(Attributes.MOVEMENT_SPEED, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(Attributes.MOVEMENT_SPEED, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     }

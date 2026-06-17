@@ -18,7 +18,7 @@ import software.bernie.geckolib.renderer.GeoArmorRenderer;
 public class DraugrEliteArmorItem extends ImbuableExtendedGeoArmorItem {
     public DraugrEliteArmorItem(Type slot, Properties settings) {
         super(ModExtendedArmorMaterials.DEATHSILVER, slot, settings,
-                new AttributeContainer(AttributeRegistry.SPELL_RESIST,0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(AttributeRegistry.SPELL_RESIST,0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(ASAttributeRegistry.MANA_REND,0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.SPELL_POWER, -0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.MAX_MANA, -150, AttributeModifier.Operation.ADD_VALUE)

@@ -5,6 +5,7 @@ import io.redspace.ironsspellbooks.entity.armor.GenericCustomArmorRenderer;
 import io.redspace.ironsspellbooks.item.armor.ImbuableChestplateArmorItem;
 import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
@@ -16,7 +17,7 @@ public class StarscourgeArmorItem extends ImbuableChestplateArmorItem {
     public StarscourgeArmorItem(Type slot, Properties settings) {
         super(ModExtendedArmorMaterials.STARSCOURGE_ARMOR, slot, settings,
                 new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE),
-                new AttributeContainer(AttributeRegistry.SPELL_RESIST, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(Attributes.KNOCKBACK_RESISTANCE, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     }
 

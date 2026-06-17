@@ -32,7 +32,10 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 2, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers VOID_OBSIDIAN = new ModExtendedWeaponTiers(1551, 11F, -2.8F, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
-            new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static ModExtendedWeaponTiers VILLAGE_BUTCHER = new ModExtendedWeaponTiers(1551, 7F, -3F, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ILLAGERITE_INGOT.get()),
+            new AttributeContainer(AttributeRegistry.EVOCATION_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers CULTIST_KNIFE = new ModExtendedWeaponTiers(751, 6F, -2.6F, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(Items.IRON_INGOT),
             new AttributeContainer(ASAttributeRegistry.RITUAL_MAGIC_POWER, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
@@ -59,7 +62,7 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
 
     public static ModExtendedWeaponTiers RITUAL_BONE = new ModExtendedWeaponTiers(1551, 5F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ItemRegistry.BLOOD_VIAL.get()),
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(AttributeRegistry.SUMMON_DAMAGE, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(AttributeRegistry.SUMMON_DAMAGE, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers BLOOD_IRON = new ModExtendedWeaponTiers(1551, 9F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ItemRegistry.BLOOD_VIAL.get()),
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
@@ -83,7 +86,7 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(Attributes.ENTITY_INTERACTION_RANGE, 2, AttributeModifier.Operation.ADD_VALUE));
 
     public static ModExtendedWeaponTiers POISONED_SICKLE = new ModExtendedWeaponTiers(751, 4F, -2.5f, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModTags.NATURE_FOCUS),
-            new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers END_DAGGER = new ModExtendedWeaponTiers(1551, 5F, -2.5f, 10, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
             new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
@@ -106,8 +109,8 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(Attributes.WATER_MOVEMENT_EFFICIENCY, 0.10, AttributeModifier.Operation.ADD_VALUE));
 
     public static ModExtendedWeaponTiers NECROMANCER_PRISMARINE = new ModExtendedWeaponTiers(1551, 7F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT.get()),
-            new AttributeContainer(ASAttributeRegistry.HYDRO_MAGIC_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(ASAttributeRegistry.HYDRO_MAGIC_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(Attributes.WATER_MOVEMENT_EFFICIENCY, .20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers SNOW_BOW = new ModExtendedWeaponTiers(951, -1, -3, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ItemRegistry.ICE_VENOM_VIAL.get()),

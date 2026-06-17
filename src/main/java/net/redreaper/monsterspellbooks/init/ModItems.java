@@ -2,6 +2,8 @@ package net.redreaper.monsterspellbooks.init;
 
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.item.curios.CurioBaseItem;
+import io.redspace.ironsspellbooks.item.weapons.ExtendedWeaponTier;
+import io.redspace.ironsspellbooks.item.weapons.TwilightGaleItem;
 import io.redspace.ironsspellbooks.registries.ComponentRegistry;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.item.UpgradeOrbItem;
@@ -209,17 +211,19 @@ public class ModItems {
     public static final DeferredItem<SwordItem>SANGUINITE_DAGGER=ITEMS.register("sanguinite_dagger", ()->
             new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,-3,-2.5f))));
     public static final DeferredItem<SwordItem>SANGUINITE_SCYTHE=ITEMS.register("sanguinite_scythe",
-            ()->new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,0,-3f))));
+            ()->new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,-7,-3f))));
     public static final DeferredItem<AxeItem>SANGUINITE_AXE=ITEMS.register("sanguinite_axe",
-            ()->new AxeItem(ModToolTiers.SANGUINITE,new Item.Properties().rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).attributes(AxeItem.createAttributes(ModToolTiers.SANGUINITE,3,-3.2f))));
+            ()->new AxeItem(ModToolTiers.SANGUINITE,new Item.Properties().rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).attributes(AxeItem.createAttributes(ModToolTiers.SANGUINITE,1,-3.2f))));
 
     public static final DeferredHolder<Item, Item> DEATHSILVER_DAGGER = ITEMS.register("deathsilver_dagger", () ->
             new ExtendedSwordItem(ModToolTiers.DEATHSILVER, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DEATHSILVER_DAGGER))));
-
     public static final DeferredHolder<Item, Item> DEATHSILVER_SWORD = ITEMS.register("deathsilver_sword", () ->
             new ExtendedSwordItem(ModToolTiers.DEATHSILVER, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DEATHSILVER_SWORD))));
     public static final DeferredHolder<Item, Item> DEATHSILVER_AXE = ITEMS.register("deathsilver_axe", () ->
             new ExtendedSwordItem(ModToolTiers.DEATHSILVER, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DEATHSILVER_AXE))));
+
+    public static final DeferredItem<Item>VILLAGE_BUTCHERER = ITEMS.register("village_butcherer",
+            VillagerButchererItem::new);
 
     public static final DeferredItem<Item>POISON_BITER = ITEMS.register("poison_biter",
             PoisonBiterItem::new);

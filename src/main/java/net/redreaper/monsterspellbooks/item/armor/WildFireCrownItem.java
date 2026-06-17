@@ -10,6 +10,7 @@ import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
 import io.redspace.ironsspellbooks.registries.ComponentRegistry;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.acetheeldritchking.aces_spell_utils.entity.render.armor.EmissiveGenericCustomArmorRenderer;
+import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -35,7 +36,8 @@ import java.util.Map;
 public class WildFireCrownItem extends ImbuableChestplateArmorItem implements IPresetSpellContainer {
     public WildFireCrownItem(ArmorItem.Type slot, Properties settings) {
         super(ModExtendedArmorMaterials.WILDFIRE_CROWN, slot, settings,
-                new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(ASAttributeRegistry.SPELL_RES_PENETRATION, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE)
         );
     }

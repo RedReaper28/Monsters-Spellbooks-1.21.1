@@ -36,6 +36,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.SANGUINITE_SCYTHE.get())
                 .add(ModItems.DEATHSILVER_DAGGER.get())
                 .add(ModItems.DEATHSILVER_SWORD.get())
+                .add(ModItems.VILLAGE_BUTCHERER.get())
                 .add(ModItems.POISON_BITER.get())
                 .add(ModItems.POISON_GLAIVE.get())
                 .add(ModItems.NECROMANCER_TRIDENT.get())

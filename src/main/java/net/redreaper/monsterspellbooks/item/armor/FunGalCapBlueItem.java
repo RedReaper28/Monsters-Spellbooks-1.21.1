@@ -34,9 +34,9 @@ import java.util.Map;
 public class FunGalCapBlueItem extends ImbuableChestplateArmorItem implements IPresetSpellContainer {
     public FunGalCapBlueItem(Type slot, Properties settings) {
         super(ModExtendedArmorMaterials.FUNGAL_CAP, slot, settings,
-                new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                new AttributeContainer(AttributeRegistry.MANA_REGEN, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE)
+                new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(AttributeRegistry.MANA_REGEN, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(AttributeRegistry.MAX_MANA, 150, AttributeModifier.Operation.ADD_VALUE)
         );
     }
 

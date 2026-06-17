@@ -22,8 +22,65 @@ import java.util.function.Supplier;
 
 public class ModExtendedArmorMaterials {
     private static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(Registries.ARMOR_MATERIAL, MonstersSpellbooks.MOD_ID);
+    //ARCH
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>STARSCOURGE_ARMOR=register("starscourge_armor",
+            schoolUpgradedArmorMap(),
+            25,
+            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
+            3,
+            0.2F);
 
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>FORGE_MASTERPIECE_ARMOR=register("forge_masterpiece_armor",
+            schoolUpgradedArmorMap(),
+            25,
+            SoundRegistry.FIRE_CAST,
+            () -> Ingredient.of(ModItems.SCORCHED_METAL_INGOT.get()),
+            1.5f,
+            0F);
 
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>SANGUINITE_ARMOR=register("sanguinite_armor",
+            schoolUpgradedArmorMap(),
+            25,
+            SoundRegistry.BLOOD_EXPLOSION,
+            () -> Ingredient.of(ModItems.SANGUINITE_INGOT.get()),
+            0,
+            0F);
+
+    //HYBRID
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>DWARVEN_ENGINEER=register("dwarven_engineer_armor",
+            schoolUpgradedArmorMap(),
+            25,
+            SoundRegistry.LIGHTNING_CAST,
+            () -> Ingredient.of(ModItems.DWARVEN_ALLOY_PLATE.get()),
+            2,
+            0F);
+
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>FROST_DEATHSILVER=register("frost_deathsilver",
+            schoolHybridArmorMap(),
+            20,
+            SoundRegistry.ICE_CAST,
+            () -> Ingredient.of(ModItems.DEATHSILVER_INGOT.get()),
+            2,
+            0);
+
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>ENCHANTER=register("enchanter",
+            schoolHybridArmorMap(),
+            10,
+            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            () -> Ingredient.of(ItemRegistry.MAGIC_CLOTH.get()),
+            0,
+            0);
+
+    public static DeferredHolder<ArmorMaterial,ArmorMaterial>ICEOLOGER=register("iceologer",
+            schoolHybridArmorMap(),
+            10,
+            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            () -> Ingredient.of(ItemRegistry.MAGIC_CLOTH.get()),
+            0,
+            0);
+
+    //UNIQUE
     public static DeferredHolder<ArmorMaterial, ArmorMaterial> FIERCE_DEITY = register("fierce_deity",
             makeArmorMap(2, 0, 0, 0),
             15,
@@ -56,54 +113,14 @@ public class ModExtendedArmorMaterials {
             0,
             0);
 
-    public static DeferredHolder<ArmorMaterial,ArmorMaterial>STARSCOURGE_ARMOR=register("starscourge_armor",
-            schoolUpgradedArmorMap(),
-            25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE,
-            () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
-            4,
-            0.2F);
-
-    public static DeferredHolder<ArmorMaterial,ArmorMaterial>FORGE_MASTERPIECE_ARMOR=register("forge_masterpiece_armor",
-            schoolUpgradedArmorMap(),
-            25,
-            SoundRegistry.FIRE_CAST,
-            () -> Ingredient.of(ModItems.SCORCHED_METAL_INGOT.get()),
-            5,
-            0F);
-
-
-    public static DeferredHolder<ArmorMaterial,ArmorMaterial>DWARVEN_ENGINEER=register("dwarven_engineer_armor",
-            schoolUpgradedArmorMap(),
-            25,
-            SoundRegistry.LIGHTNING_CAST,
-            () -> Ingredient.of(ModItems.DWARVEN_ALLOY_PLATE.get()),
-            5,
-            0F);
 
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>DEATHSILVER=register("deathsilver",
             spellcounterArmorMap(),
             10,
             SoundEvents.ARMOR_EQUIP_NETHERITE,
             () -> Ingredient.of(ModItems.DEATHSILVER_INGOT.get()),
-            2,
+            3,
             0);
-
-    public static DeferredHolder<ArmorMaterial,ArmorMaterial>FROST_DEATHSILVER=register("frost_deathsilver",
-            schoolHybridArmorMap(),
-            20,
-            SoundRegistry.ICE_CAST,
-            () -> Ingredient.of(ModItems.DEATHSILVER_INGOT.get()),
-            2,
-            0);
-
-    public static DeferredHolder<ArmorMaterial,ArmorMaterial>SANGUINITE_ARMOR=register("sanguinite_armor",
-            schoolUpgradedArmorMap(),
-            25,
-            SoundRegistry.BLOOD_EXPLOSION,
-            () -> Ingredient.of(ModItems.SANGUINITE_INGOT.get()),
-            2,
-            0F);
 
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>FLESH_MAIDEN=register("flesh_maiden",
             schoolArmorMap(),
@@ -112,22 +129,6 @@ public class ModExtendedArmorMaterials {
             () -> Ingredient.of(ItemRegistry.BLOOD_VIAL.get()),
             0,
             0F);
-
-    public static DeferredHolder<ArmorMaterial,ArmorMaterial>ENCHANTER=register("enchanter",
-            schoolHybridArmorMap(),
-            10,
-            SoundEvents.ARMOR_EQUIP_NETHERITE,
-            () -> Ingredient.of(ItemRegistry.MAGIC_CLOTH.get()),
-            2,
-            0);
-
-    public static DeferredHolder<ArmorMaterial,ArmorMaterial>ICEOLOGER=register("iceologer",
-            schoolHybridArmorMap(),
-            10,
-            SoundEvents.ARMOR_EQUIP_NETHERITE,
-            () -> Ingredient.of(ItemRegistry.MAGIC_CLOTH.get()),
-            2,
-            0);
 
     private static DeferredHolder<ArmorMaterial, ArmorMaterial> register(
             String name,
@@ -156,17 +157,16 @@ public class ModExtendedArmorMaterials {
         return makeArmorMap(7, 11, 10, 6);
     }
 
-
     static public EnumMap<ArmorItem.Type, Integer> schoolArmorMap() {
         return makeArmorMap(3, 8, 6, 3);
     }
 
     static public EnumMap<ArmorItem.Type, Integer> schoolHybridArmorMap() {
-        return makeArmorMap(5, 10, 9, 6);
+        return makeArmorMap(3, 9, 7, 3);
     }
 
     static public EnumMap<ArmorItem.Type, Integer> schoolUpgradedArmorMap() {
-        return makeArmorMap(5, 10, 9, 6);
+        return makeArmorMap(4, 9, 7, 5);
     }
 
     public static void register(IEventBus eventBus)

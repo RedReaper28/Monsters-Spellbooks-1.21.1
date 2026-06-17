@@ -6,6 +6,7 @@ import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.acetheeldritchking.aces_spell_utils.entity.render.armor.EmissiveGenericCustomArmorRenderer;
 import net.acetheeldritchking.aces_spell_utils.items.example.items.armor.ImbuableExtendedGeoArmorItem;
+import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -45,7 +46,7 @@ public class ForgeMasterpieceArmorItem extends ImbuableExtendedGeoArmorItem impl
     public ForgeMasterpieceArmorItem(Type slot, Properties settings) {
         super(ModExtendedArmorMaterials.FORGE_MASTERPIECE_ARMOR, slot, settings,
                 new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE),
-                new AttributeContainer(AttributeRegistry.SPELL_RESIST, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(ASAttributeRegistry.MAGIC_DAMAGE_CRIT_CHANCE, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     }
 
