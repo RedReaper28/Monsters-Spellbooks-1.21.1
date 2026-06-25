@@ -85,7 +85,7 @@ public class GlowInkReleaseSpell extends AbstractSpell {
                     int i = this.getDuration(spellLevel, entity);
                     livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.GUIDING_BOLT, i,0));
                     livingEntity.addEffect(new MobEffectInstance(ModMobEffects.FOCUS, i, 0));
-                    livingEntity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, i, 1));
+                    livingEntity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, 80, 0));
                 }
             }
         });

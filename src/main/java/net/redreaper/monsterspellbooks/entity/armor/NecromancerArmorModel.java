@@ -2,7 +2,7 @@ package net.redreaper.monsterspellbooks.entity.armor;
 
 import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.item.armor.NecromancerArmorItem;
+import net.redreaper.monsterspellbooks.item.armor.tierSchool.NecromancerArmorItem;
 import software.bernie.geckolib.model.DefaultedItemGeoModel;
 
 public class NecromancerArmorModel extends DefaultedItemGeoModel<NecromancerArmorItem> {

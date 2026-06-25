@@ -29,7 +29,7 @@ public class ModExtendedArmorMaterials {
             SoundEvents.ARMOR_EQUIP_NETHERITE,
             () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
             3,
-            0.2F);
+            0.05F);
 
     public static DeferredHolder<ArmorMaterial,ArmorMaterial>FORGE_MASTERPIECE_ARMOR=register("forge_masterpiece_armor",
             schoolUpgradedArmorMap(),

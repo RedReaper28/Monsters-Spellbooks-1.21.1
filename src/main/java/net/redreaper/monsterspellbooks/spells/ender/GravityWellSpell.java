@@ -101,8 +101,8 @@ public class GravityWellSpell extends AbstractSpell {
         }
 
         targetEntity.setDeltaMovement(targetEntity.getDeltaMovement().add(vec));
-        targetEntity.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS, 120,3));
-        targetEntity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, 120,3));
+        targetEntity.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS, 100,3));
+        targetEntity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, 100,0));
         Vec3 particleLocation = targetEntity.position();
         MagicManager.spawnParticles(entity.level(), ParticleHelper.UNSTABLE_ENDER, particleLocation.x, particleLocation.y + (double)(targetEntity.getBbHeight() / 2.0F), particleLocation.z, 50, 0.0F, 0.0F, 0.0F, 0.2, false);
     }

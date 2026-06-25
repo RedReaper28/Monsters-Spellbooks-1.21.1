@@ -85,7 +85,7 @@ public class FallCurseSpell extends AbstractSpell {
                 if (livingEntity.distanceToSqr(entity) < (double)(radius * radius)) {
                     livingEntity.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS,i,3, true, true, true));
                     livingEntity.addEffect(new MobEffectInstance(ModMobEffects.HEAVY_BODY,i,3, true, true, true));
-                    livingEntity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED,i,3, true, true, true));
+                    livingEntity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED,i,0, true, true, true));
                     livingEntity.addEffect(new MobEffectInstance(ModMobEffects.CURSE,i,0, true, true, true));
                     livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,i,1,true, true, true));
                 }

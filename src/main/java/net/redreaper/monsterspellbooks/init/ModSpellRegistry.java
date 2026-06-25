@@ -124,7 +124,6 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> ZAP = registerSpell(new ZapSpell());
 
     //NATURE
-    public static final Supplier<AbstractSpell> BEAST_HOWL = registerSpell(new BeastHowlSpell());
     public static final Supplier<AbstractSpell> BLAST_FUNGUS = registerSpell(new BlastFungusSpell());
     public static final Supplier<AbstractSpell> INFECTION_SLASH = registerSpell(new InfectionSlashSpell());
     public static final Supplier<AbstractSpell> LEAF_CRYSTAL = registerSpell(new LifeCrystalSpell());

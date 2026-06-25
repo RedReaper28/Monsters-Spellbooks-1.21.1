@@ -3,7 +3,7 @@ package net.redreaper.monsterspellbooks.entity.armor;
 import io.redspace.ironsspellbooks.IronsSpellbooks;
 import net.minecraft.resources.ResourceLocation;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.item.armor.FierceDeityMaskItem;
+import net.redreaper.monsterspellbooks.item.armor.tierUnique.FierceDeityMaskItem;
 import software.bernie.geckolib.model.GeoModel;
 
 public class FierceDeityMaskArmorModel extends GeoModel<FierceDeityMaskItem> {

@@ -1,4 +1,4 @@
-package net.redreaper.monsterspellbooks.item.armor;
+package net.redreaper.monsterspellbooks.item.armor.tierUnique;
 
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;

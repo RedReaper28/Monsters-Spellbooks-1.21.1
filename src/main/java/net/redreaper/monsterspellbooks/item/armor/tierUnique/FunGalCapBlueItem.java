@@ -1,15 +1,15 @@
-package net.redreaper.monsterspellbooks.item.armor;
+package net.redreaper.monsterspellbooks.item.armor.tierUnique;
 
 import io.redspace.ironsspellbooks.api.events.ModifySpellLevelEvent;
 import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
+import io.redspace.ironsspellbooks.api.spells.IPresetSpellContainer;
+import io.redspace.ironsspellbooks.item.armor.ImbuableChestplateArmorItem;
 import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
 import io.redspace.ironsspellbooks.registries.ComponentRegistry;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.acetheeldritchking.aces_spell_utils.entity.render.armor.EmissiveGenericCustomArmorRenderer;
-import net.acetheeldritchking.aces_spell_utils.items.example.items.armor.ImbuableExtendedGeoArmorItem;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -23,24 +23,32 @@ import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.entity.armor.FleshMaidenArmorModel;
+import net.redreaper.monsterspellbooks.entity.armor.FungalCapBlueModel;
 import net.redreaper.monsterspellbooks.init.ModExtendedArmorMaterials;
-import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.renderer.GeoArmorRenderer;
 
 import java.util.List;
 import java.util.Map;
 
-
-public class FleshMaidenArmorItem extends ImbuableExtendedGeoArmorItem {
-    public FleshMaidenArmorItem(Type slot, Properties settings) {
-        super(ModExtendedArmorMaterials.FLESH_MAIDEN, slot, settings,
-                new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE),
-                new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
-        SpellDataRegistryHolder.of(
-                new SpellDataRegistryHolder(ModSpellRegistry.HYSTERIA, 4)
+public class FunGalCapBlueItem extends ImbuableChestplateArmorItem implements IPresetSpellContainer {
+    public FunGalCapBlueItem(Type slot, Properties settings) {
+        super(ModExtendedArmorMaterials.FUNGAL_CAP, slot, settings,
+                new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(AttributeRegistry.MANA_REGEN, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(AttributeRegistry.MAX_MANA, 150, AttributeModifier.Operation.ADD_VALUE)
         );
+    }
+
+    private static final ResourceLocation LAYER = ResourceLocation.fromNamespaceAndPath(
+            MonstersSpellbooks.MOD_ID,
+            "textures/armor/fun_gal_cap_blue_glow.png");
+
+    @Override
+    @OnlyIn(Dist.CLIENT)
+    public GeoArmorRenderer<?> supplyRenderer() {
+        RenderType GLOW_RENDER_TYPE = RenderType.eyes(LAYER);
+        return new EmissiveGenericCustomArmorRenderer<>(new FungalCapBlueModel(), LAYER, GLOW_RENDER_TYPE);
     }
 
     @Override
@@ -51,13 +59,12 @@ public class FleshMaidenArmorItem extends ImbuableExtendedGeoArmorItem {
             int i = TooltipsUtils.indexOfComponent(lines, "tooltip.irons_spellbooks.spellbook_spell_count");
             lines.addAll(i < 0 ? lines.size() : i + 1, affinityData.getDescriptionComponent());
         }
-        lines.add(Component.translatable("tooltip.monsterspellbooks.flesh_maiden_passive_ability").withStyle(new ChatFormatting[]{ChatFormatting.RED}));
     }
 
     public void initializeSpellContainer(ItemStack itemStack) {
         if (itemStack != null) {
             super.initializeSpellContainer(itemStack);
-            itemStack.set(ComponentRegistry.AFFINITY_COMPONENT, new AffinityData(Map.of(ModSpellRegistry.HYSTERIA.get().getSpellResource(), 1)));
+            itemStack.set(ComponentRegistry.AFFINITY_COMPONENT, new AffinityData(Map.of(SpellRegistry.GLUTTONY_SPELL.get().getSpellResource(), 1)));
         }
     }
 
@@ -67,26 +74,13 @@ public class FleshMaidenArmorItem extends ImbuableExtendedGeoArmorItem {
         public static void onModifySpellLevel(ModifySpellLevelEvent event) {
             LivingEntity caster = event.getEntity();
             if (caster != null) {
-                if (event.getSpell() == ModSpellRegistry.HYSTERIA.get()) {
-                    ItemStack chestItem = caster.getItemBySlot(EquipmentSlot.CHEST);
-                    if (chestItem.getItem() instanceof FleshMaidenArmorItem) {
+                if (event.getSpell() == SpellRegistry.GLUTTONY_SPELL.get()) {
+                    ItemStack chestItem = caster.getItemBySlot(EquipmentSlot.HEAD);
+                    if (chestItem.getItem() instanceof WildFireCrownItem) {
                         event.addLevels(1);
                     }
-
                 }
             }
         }
-    }
-
-    private static final ResourceLocation LAYER = ResourceLocation.fromNamespaceAndPath(
-            MonstersSpellbooks.MOD_ID,
-            "textures/armor/flesh_maiden_glow.png");
-
-    @Override
-    @OnlyIn(Dist.CLIENT)
-    public GeoArmorRenderer<?> supplyRenderer() {
-        RenderType GLOW_RENDER_TYPE = RenderType.eyes(LAYER);
-
-        return new EmissiveGenericCustomArmorRenderer<>(new FleshMaidenArmorModel(), LAYER, GLOW_RENDER_TYPE);
     }
 }

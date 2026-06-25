@@ -15,7 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class PresetImbueArmorItem extends ExtendedGeoArmorItem implements IPresetSpellContainer {
+public abstract class PresetImbueArmorItem extends ModImbuableExtendedGeoArmorItem implements IPresetSpellContainer {
 
     List<SpellData> spellData = null;
     SpellDataRegistryHolder[] spellDataRegistryHolders;

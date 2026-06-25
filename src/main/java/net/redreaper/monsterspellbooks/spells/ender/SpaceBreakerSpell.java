@@ -123,7 +123,7 @@ public class SpaceBreakerSpell extends AbstractSpell {
                     level.addFreshEntity(aoe);
 
                     ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS,60,1, true, true, true));
-                    ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.STUNNED,60,1, true, true, true));
+                    ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.STUNNED,60,0, true, true, true));
                     ((LivingEntity) target).addEffect(new MobEffectInstance(MobEffects.BLINDNESS,60,0, true, true, true));
                     MagicManager.spawnParticles(level, ModParticleHelper.SPACE_SHARD, target.getX(), target.getY() + target.getBbHeight() * .5f, target.getZ(), 100, target.getBbWidth() * .5f, target.getBbHeight() * .5f, target.getBbWidth() * .5f, 1, false);
                     MagicManager.spawnParticles(level, ParticleHelper.UNSTABLE_ENDER, target.getX(), target.getY() + target.getBbHeight() * .5f, target.getZ(), 20, target.getBbWidth() * .5f, target.getBbHeight() * .5f, target.getBbWidth() * .5f, 0.3, false);

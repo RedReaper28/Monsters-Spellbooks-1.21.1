@@ -20,6 +20,7 @@ public class IllagerEnchanterArmorItem extends ModImbuableExtendedGeoArmorItem {
         super(ModExtendedArmorMaterials.ENCHANTER, slot, settings,
                 new AttributeContainer(AttributeRegistry.HOLY_SPELL_POWER,0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.EVOCATION_SPELL_POWER,0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(AttributeRegistry.MANA_REGEN,0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE)
         );
     }

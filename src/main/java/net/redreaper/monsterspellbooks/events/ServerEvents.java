@@ -50,6 +50,7 @@ import net.redreaper.monsterspellbooks.effect.StaticMobEffect;
 import net.redreaper.monsterspellbooks.effect.VoidTouchedEffect;
 import net.redreaper.monsterspellbooks.entity.living.summons.RancorPhantomEntity;
 import net.redreaper.monsterspellbooks.init.*;
+import net.redreaper.monsterspellbooks.item.curios.elemental_charm.DwarvenPowerCoreItem;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.DiseaseEncyclopediaItem;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.weapons.*;
@@ -345,22 +346,20 @@ public class ServerEvents {
         var source = event.getSource();
         var attacker = event.getSource().getEntity();
 
-        if (attacker instanceof Player livingAttacker1) {
-            if (attacker instanceof Player) {
+        if (attacker instanceof Player player) {
                 if (event.getSource().is(ISSDamageTypes.BLOOD_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
                     if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DREADHOUND_TOOTH_NECKLACE.get())) {
                         HemorrhageMobEffect.addHemorrhageStack(livingEntity, livingAttacker);
                     }
                 }
 
-                if (event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
-                    if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DWARVEN_POWER_CORE.get())) {
-                        StaticMobEffect.addStaticStack((LivingEntity) attacker, attacker);
+                if (event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC) && (!player.getCooldowns().isOnCooldown(ModItems.DWARVEN_POWER_CORE.get()))) {
+                    if (ASUtils.hasCurio(player, ModItems.DWARVEN_POWER_CORE.get())) {
+                        StaticMobEffect.addStaticStack(player, player);
+                        player.getCooldowns().addCooldown(ModItems.DWARVEN_POWER_CORE.get(), DwarvenPowerCoreItem.COOLDOWN);
                     }
                 }
-            }
 
-            if (attacker instanceof Player player) {
                 // Disease Encyclopedia
                 if (ASUtils.hasCurio(player, ModItems.DISEASE_ENCYCLOPEDIA.get()) && (!player.getCooldowns().isOnCooldown(ModItems.DISEASE_ENCYCLOPEDIA.get()))) {
                     int randomNum = (int) (Math.random() * 11); // 0 to 10
@@ -368,12 +367,12 @@ public class ServerEvents {
                     if (randomNum == 2) {entity.addEffect(new MobEffectInstance(MobEffectRegistry.BLIGHT, 200, 2, true, true, true));}
                     if (randomNum == 3) {entity.addEffect(new MobEffectInstance(MobEffectRegistry.SLOWED, 200, 1, true, true, true));}
                     if (randomNum == 4) {entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0, true, true, true));}
-                    if (randomNum == 5) {entity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, 150, 1, true, true, true));}
+                    if (randomNum == 5) {entity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, 100, 1, true, true, true));}
                     if (randomNum == 6) {entity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 1, true, true, true));}
                     if (randomNum == 7) {entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 150, 0, true, true, true));}
                     if (randomNum == 8) {entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 1, true, true, true));}
                     if (randomNum == 9) {entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 300, 3, true, true, true));}
-                    if (randomNum == 10) {entity.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 3, true, true, true));}
+                    if (randomNum == 10) {entity.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 1, true, true, true));}
                     player.getCooldowns().addCooldown(ModItems.DISEASE_ENCYCLOPEDIA.get(), DiseaseEncyclopediaItem.COOLDOWN);
                 }
 
@@ -388,7 +387,7 @@ public class ServerEvents {
                         player.getCooldowns().addCooldown(ModItems.REAPER_LANTERN.get(), ReaperLanternSpellBook.COOLDOWN);
                     }
                 }
-            }
+
         }
     }
 
