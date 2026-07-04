@@ -49,6 +49,7 @@
   "item.monsterspellbooks.raw_sanguinite_vial": "Raw Sanguinite Vial",
   "item.monsterspellbooks.electro_core": "Electro Core",
   "item.monsterspellbooks.redstone_crystal": "Redstone Crystal",
+  "item.monsterspellbooks.redstone_crystal.guide": "Dropped by Redstone Elementals that spawn deep under sea level in caves",
   "item.monsterspellbooks.prismarine_gem": "Prismarine Gem",
   "item.monsterspellbooks.wisewood_bone": "Wisewood Bone",
   "item.monsterspellbooks.wisewood_bone.guide": "Droped from Spriggans on Forest Biomes",
@@ -182,6 +183,7 @@
   "item.monsterspellbooks.deathsilver_dagger": "Deathsilver Dagger",
   "item.monsterspellbooks.deathsilver_sword": "Deathsilver Sword",
   "item.monsterspellbooks.deathsilver_axe": "Deathsilver Axe",
+  "item.monsterspellbooks.village_butcherer": "Village Butcher",
   "item.monsterspellbooks.crescent_blood_rose": "Crescent Blood Rose",
   "item.monsterspellbooks.poison_biter": "Poison Biter",
   "item.monsterspellbooks.poison_glaive": "Poison Glaive",
@@ -403,6 +405,7 @@
   "effect.monsterspellbooks.lichdom": "Lichdom",
   "effect.monsterspellbooks.madness": "Madness",
   "effect.monsterspellbooks.mana_regen": "Mana Regeneration",
+  "effect.monsterspellbooks.obsidian_skin": "Obsidian Skin",
   "effect.monsterspellbooks.mana_absorption": "Mana Absorption",
   "effect.monsterspellbooks.mountain_corpse": "Mountain Corpse",
   "effect.monsterspellbooks.overheat": "Overheat",
@@ -417,6 +420,7 @@
   "effect.monsterspellbooks.space_anchored": "Space Anchored",
   "effect.monsterspellbooks.spirit_frostbite": "Spirit Frostbite",
   "effect.monsterspellbooks.static": "Static",
+  "effect.monsterspellbooks.stellar_berserker": "Stellar Berserker",
   "effect.monsterspellbooks.stunned": "Stunned",
   "effect.monsterspellbooks.suffocation": "Suffocation",
   "effect.monsterspellbooks.void_touched": "Void Touched",
@@ -427,11 +431,19 @@
   "school.monsterspellbooks.necro": "Necro",
   "school.monsterspellbooks.aero": "Aero",
 
-  "tooltip.monsterspellbooks.on_full_Set": "§6On Full Set:",
+  "tooltip.monsterspellbooks.on_full_set": "§6On Full Set:",
+  "tooltip.monsterspellbooks.on_full_set_cooldown": "§6On Full Set. Cooldown [%s§6]:",
   "tooltip.monsterspellbooks.ability": "§6Ability [%s§6]: ",
+  "tooltip.monsterspellbooks.ability_cooldown": "§6Ability [%s§6]. Cooldown [%s§6]: ",
+
+  "tooltip.monsterspellbooks.sanguinite_set_passive": "Makes you invisible whenever you croutch and increasses movement speed",
+  "tooltip.monsterspellbooks.sanguinite_set": "Gain great buffs to melee attributes for 5s",
 
   "tooltip.monsterspellbooks.furnace_set_passive": "Fire immunity and +15% damage to enemies on fire",
-  "tooltip.monsterspellbooks.furnace_set": "Use your body and mana regen as fuel to obtain 20% Fire Spell Power",
+  "tooltip.monsterspellbooks.furnace_set": "Use your body and mana regen as fuel to obtain 20% Fire Spell Power for 10s",
+
+  "tooltip.monsterspellbooks.star_set_passive": "Turn your skin to obsidian to gain 5 AP and immunity to fire,cold,wither and poison",
+  "tooltip.monsterspellbooks.star_set": "Turn your skin to obsidian to gain +5 AP,+20% attack and immunity to fire,cold,wither and poison at the cost of not being able to heal",
 
   "tooltip.monsterspellbooks.flesh_maiden_passive_ability": "A once beautiful women that got experimented on her wedding day,now makes you immune to the consequences of Heartstop",
 

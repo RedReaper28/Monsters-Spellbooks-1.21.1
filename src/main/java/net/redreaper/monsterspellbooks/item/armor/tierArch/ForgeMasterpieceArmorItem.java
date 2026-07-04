@@ -50,18 +50,6 @@ public class ForgeMasterpieceArmorItem extends ImbuableExtendedGeoArmorItem impl
                 new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     }
 
-    private static final ResourceLocation LAYER = ResourceLocation.fromNamespaceAndPath(
-            MonstersSpellbooks.MOD_ID,
-            "textures/armor/forge_master_armor_glow.png");
-
-    @Override
-    @OnlyIn(Dist.CLIENT)
-    public GeoArmorRenderer<?> supplyRenderer() {
-        RenderType GLOW_RENDER_TYPE = RenderType.eyes(LAYER);
-
-        return new EmissiveGenericCustomArmorRenderer<>(new ForgeMasterpieceArmorModel(), LAYER, GLOW_RENDER_TYPE);
-    }
-
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         if (entity instanceof Player player && !level.isClientSide() && isWearingFullSet(player)) {
@@ -81,7 +69,7 @@ public class ForgeMasterpieceArmorItem extends ImbuableExtendedGeoArmorItem impl
 
     private void evaluateArmorEffects(Player player) {
         if (!player.hasEffect(ModMobEffects.FORGED_RESISTANCE)) {
-            player.addEffect(new MobEffectInstance(ModMobEffects.FORGED_RESISTANCE, 200, 0, false, false, false));
+            player.addEffect(new MobEffectInstance(ModMobEffects.FORGED_RESISTANCE, 5*20, 0, false, false, false));
         }
     }
 
@@ -95,8 +83,8 @@ public class ForgeMasterpieceArmorItem extends ImbuableExtendedGeoArmorItem impl
     public void onKeyPacket(Player player, ItemStack itemStack, int Type) {
         if (player != null) {
             if (Type == 5 && isWearingFullSet(player) && !player.getCooldowns().isOnCooldown((Item) ModItems.FORGE_MASTERPIECE_CHESTPLATE.get())) {
-                player.addEffect(new MobEffectInstance(ModMobEffects.BRIMSTONE_FRENZY, 300, 0, true, true, true));
-                player.getCooldowns().addCooldown(ModItems.FORGE_MASTERPIECE_CHESTPLATE.get(), 400);
+                player.addEffect(new MobEffectInstance(ModMobEffects.BRIMSTONE_FRENZY, 10*20, 0, true, true, true));
+                player.getCooldowns().addCooldown(ModItems.FORGE_MASTERPIECE_CHESTPLATE.get(), 20*20);
 
                 if (player.level() instanceof ServerLevel serverLevel) {
                     double x = player.getX();
@@ -131,10 +119,22 @@ public class ForgeMasterpieceArmorItem extends ImbuableExtendedGeoArmorItem impl
     public void appendHoverText(@NotNull ItemStack itemStack, TooltipContext context, @NotNull List<Component> lines, @NotNull TooltipFlag flag) {
         super.appendHoverText(itemStack, context, lines, flag);
         if (this.type == Type.CHESTPLATE) {
-            lines.add(Component.translatable("tooltip.monsterspellbooks.on_full_Set"));
+            lines.add(Component.translatable("tooltip.monsterspellbooks.on_full_set"));
             lines.add(Component.translatable("tooltip.monsterspellbooks.furnace_set_passive").withStyle(Style.EMPTY.withColor(16748915)));
-            lines.add(Component.translatable("tooltip.monsterspellbooks.ability", ModKeybinds.ABILITY_ARMOR.getTranslatedKeyMessage()));
+            lines.add(Component.translatable("tooltip.monsterspellbooks.ability_cooldown", ModKeybinds.ABILITY_ARMOR.getTranslatedKeyMessage(),20));
             lines.add(Component.translatable("tooltip.monsterspellbooks.furnace_set").withStyle(Style.EMPTY.withColor(16748915)));
         }
     }
+
+    @Override
+    @OnlyIn(Dist.CLIENT)
+    public GeoArmorRenderer<?> supplyRenderer() {
+        RenderType GLOW_RENDER_TYPE = RenderType.eyes(LAYER);
+
+        return new EmissiveGenericCustomArmorRenderer<>(new ForgeMasterpieceArmorModel(), LAYER, GLOW_RENDER_TYPE);
+    }
+
+    private static final ResourceLocation LAYER = ResourceLocation.fromNamespaceAndPath(
+            MonstersSpellbooks.MOD_ID,
+            "textures/armor/forge_master_armor_glow.png");
 }

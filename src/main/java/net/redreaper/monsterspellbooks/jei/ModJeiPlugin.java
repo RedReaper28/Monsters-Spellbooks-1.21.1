@@ -32,6 +32,7 @@ public class ModJeiPlugin implements IModPlugin {
         registration.addItemStackInfo(new ItemStack(ModItems.UPGRADE_RUNE.get()), Component.translatable("item.monsterspellbooks.upgrade_rune.guide"));
         registration.addItemStackInfo(new ItemStack(ModItems.WISEWOOD_BONE.get()), Component.translatable("item.monsterspellbooks.wisewood_bone.guide"));
         registration.addItemStackInfo(new ItemStack(ModItems.PLANT_MATTER.get()), Component.translatable("item.monsterspellbooks.plant_matter.guide"));
+        registration.addItemStackInfo(new ItemStack(ModItems.REDSTONE_CRYSTAL.get()), Component.translatable("item.monsterspellbooks.redstone_crystal.guide"));
 
     }
 }

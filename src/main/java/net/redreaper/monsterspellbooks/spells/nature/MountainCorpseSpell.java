@@ -13,22 +13,10 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.effect.MountainCorpseMobEffect;
-import net.redreaper.monsterspellbooks.init.ModMobEffects;
 
-import java.util.List;
 
 public class MountainCorpseSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "mountain_corpse");
-
-    @Override
-    public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
-        return List.of(
-                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 20, 1)),
-                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getAttackKnockback(spellLevel, caster), 0), Component.translatable("attribute.name.generic.attack_knockback")),
-                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getKnockbackResistance(spellLevel, caster), 0), Component.translatable("attribute.name.generic.knockback_resistance"))
-        );
-    }
 
     private final DefaultConfig defaultConfig = new DefaultConfig()
             .setMinRarity(SpellRarity.LEGENDARY)
@@ -59,14 +47,6 @@ public class MountainCorpseSpell extends AbstractSpell {
 
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
-    }
-
-    private float getAttackKnockback (int spellLevel, LivingEntity entity) {
-        return spellLevel * MountainCorpseMobEffect.ATTACK_KNOCKBACK_PER_LEVEL* 100;
-    }
-
-    private float getKnockbackResistance (int spellLevel, LivingEntity entity) {
-        return spellLevel * MountainCorpseMobEffect.KNOCKBACK_RESISTANCE_PER_LEVEL* 100;
     }
 
     public AnimationHolder getCastStartAnimation() {

@@ -62,7 +62,10 @@ public class ModMobEffects {
             .addAttributeModifier(AttributeRegistry.CAST_TIME_REDUCTION, MonstersSpellbooks.id("mobeffect_fear"), FearMobEffect.CAST_TIME_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     public static final DeferredHolder<MobEffect, MobEffect> MANA_REGEN = MOB_EFFECT_DEFERRED_REGISTER.register("mana_regen", () -> new ManaRegenMobEffect(MobEffectCategory.BENEFICIAL, 12238583)
             .addAttributeModifier(AttributeRegistry.MANA_REGEN, MonstersSpellbooks.id("mobeffect_mana_regen"), ManaRegenMobEffect.MANA_REGEN_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
-
+    public static final DeferredHolder<MobEffect, MobEffect> OBSIDIAN_SKIN = MOB_EFFECT_DEFERRED_REGISTER.register("obsidian_skin", () -> new ObsidianSkinMobEffect(MobEffectCategory.BENEFICIAL, 3876692)
+            .addAttributeModifier(Attributes.ATTACK_DAMAGE, MonstersSpellbooks.id("mobeffect_obsidian_skin"), ObsidianSkinMobEffect.ATTACK_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+            .addAttributeModifier(Attributes.ARMOR, MonstersSpellbooks.id("mobeffect_obsidian_skin"), ObsidianSkinMobEffect.DEFENSE_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE)
+            .addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, MonstersSpellbooks.id("mobeffect_obsidian_skin"), ObsidianSkinMobEffect.KNOCKBACK_RESISTANCE_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE));
     public static final DeferredHolder<MobEffect, MobEffect> SOUL_BOOSTED = MOB_EFFECT_DEFERRED_REGISTER.register("soul_boosted", () -> new SoulBoostedMobEffect(MobEffectCategory.BENEFICIAL, 3128771)
             .addAttributeModifier(AttributeRegistry.MANA_REGEN, MonstersSpellbooks.id("mobeffect_soul_boosted"), SoulBoostedMobEffect.MANA_REGEN_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
             .addAttributeModifier(AttributeRegistry.CASTING_MOVESPEED, MonstersSpellbooks.id("mobeffect_soul_boosted"), SoulBoostedMobEffect.CASTING_SPEED_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
@@ -103,11 +106,6 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> BRIMSTONE_FLAME = MOB_EFFECT_DEFERRED_REGISTER.register("brimstone_flame", () -> new BrimstoneFlameMobEffect(MobEffectCategory.HARMFUL, 14896975));
     public static final DeferredHolder<MobEffect, MobEffect> HEMORRHAGE = MOB_EFFECT_DEFERRED_REGISTER.register("hemorrhage", () -> new HemorrhageMobEffect(MobEffectCategory.HARMFUL, 16711680));
     public static final DeferredHolder<MobEffect, MobEffect> STATIC = MOB_EFFECT_DEFERRED_REGISTER.register("static", () -> new StaticMobEffect(MobEffectCategory.HARMFUL, 15081480));
-
-    public static final DeferredHolder<MobEffect, MobEffect> STELLAR_BERSERKER = MOB_EFFECT_DEFERRED_REGISTER.register("stellar_berserker", () -> new StellarBerserkerMobEffect(MobEffectCategory.BENEFICIAL, 3876692)
-            .addAttributeModifier(Attributes.ATTACK_DAMAGE, MonstersSpellbooks.id("mobeffect_stellar_berserker"), StellarBerserkerMobEffect.ATTACK_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
-            .addAttributeModifier(Attributes.ATTACK_SPEED, MonstersSpellbooks.id("mobeffect_stellar_berserker"), StellarBerserkerMobEffect.ATTACK_SPEED_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
-            .addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, MonstersSpellbooks.id("mobeffect_stellar_berserker"), StellarBerserkerMobEffect.KNOCKBACK_RESISTANCE_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE));
 
     public static final DeferredHolder<MobEffect, MobEffect> SPIRIT_FROSTBITE = MOB_EFFECT_DEFERRED_REGISTER.register("spirit_frostbite", () -> new SpiritFrostbiteMobEffect(MobEffectCategory.HARMFUL, 2818100)
             .addAttributeModifier(Attributes.MOVEMENT_SPEED, MonstersSpellbooks.id("mobeffect_spirit_frostbite"), SpiritFrostbiteMobEffect.SLOWNESS_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)

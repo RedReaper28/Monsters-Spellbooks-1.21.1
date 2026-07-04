@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:illagerite_ingot"
+    },
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "C": {
+      "item": "irons_spellbooks:weapon_parts"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ABC",
+    "B  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:village_butcherer"
+  }
+}

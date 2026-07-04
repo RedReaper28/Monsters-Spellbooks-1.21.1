@@ -1,9 +1,7 @@
 package net.redreaper.monsterspellbooks.events;
 
 import io.redspace.ironsspellbooks.api.util.Utils;
-import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.WitherSkeleton;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -23,6 +21,7 @@ import net.redreaper.monsterspellbooks.entity.living.illagers.IllagerFireologerE
 import net.redreaper.monsterspellbooks.entity.living.illagers.IllagerIceologerEntity;
 import net.redreaper.monsterspellbooks.entity.living.summons.*;
 import net.redreaper.monsterspellbooks.init.ModEntities;
+import net.redreaper.monsterspellbooks.utils.ModUtils;
 
 @SuppressWarnings("removal")
 @EventBusSubscriber(modid = MonstersSpellbooks.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
@@ -92,5 +91,9 @@ public class CommonSetup {
                 (type, serverLevelAccessor, spawnType, blockPos, random) -> Utils.checkMonsterSpawnRules(serverLevelAccessor, spawnType, blockPos, random), RegisterSpawnPlacementsEvent.Operation.OR);
         event.register(ModEntities.BLASTLING.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (type, serverLevelAccessor, spawnType, blockPos, random) -> Utils.checkMonsterSpawnRules(serverLevelAccessor, spawnType, blockPos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
+
+        event.register(ModEntities.REDSTONE_ELEMENTAL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                (type, serverLevelAccessor, spawnType, blockPos, random) -> ModUtils.checkUndergroundMonsterSpawnRules(serverLevelAccessor, spawnType, blockPos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
+
     }
 }
