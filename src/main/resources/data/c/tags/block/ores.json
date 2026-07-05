@@ -5,7 +5,6 @@
     "#c:ores/orichalcum",
     "monsterspellbooks:scorched_metal_ore",
     "monsterspellbooks:nether_pyrite_ore",
-    "monsterspellbooks:nether_ruby_ore",
-    "monsterspellbooks:void_matter_ore.json"
+    "monsterspellbooks:nether_ruby_ore"
   ]
 }

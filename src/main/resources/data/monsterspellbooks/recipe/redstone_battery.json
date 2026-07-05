@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:dwarven_alloy_ingot"
+    },
+    "B": {
+      "item": "monsterspellbooks:redstone_crystal"
+    } ,
+    "C": {
+      "item": "monsterspellbooks:dwarven_alloy_cog"
+    },
+    "D": {
+      "item": "monsterspellbooks:dwarven_alloy_plate"
+    }
+  },
+  "pattern": [
+    "ADA",
+    "CBC",
+    "ADA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:redstone_battery"
+  }
+}

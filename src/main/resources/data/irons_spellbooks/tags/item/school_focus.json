@@ -3,6 +3,7 @@
   "values": [
     "#monsterspellbooks:necro_focus",
     "#monsterspellbooks:aero_focus",
-    "#aces_spell_utils:hydro_focus"
+    "#aces_spell_utils:hydro_focus",
+    "#aces_spell_utils:technomancy_focus"
   ]
 }

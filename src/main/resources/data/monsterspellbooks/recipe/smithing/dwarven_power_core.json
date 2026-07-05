@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "monsterspellbooks:redstone_battery"
+  },
+  "base": {
+    "item": "irons_spellbooks:energized_core"
+  },
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:dwarven_power_core"
+  },
+  "template": {
+    "item": "monsterspellbooks:upgrade_rune"
+  }
+}

@@ -57,6 +57,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DEATHSILVER_DAGGER.get());
                         output.accept(ModItems.DEATHSILVER_SWORD.get());
                         output.accept(ModItems.DEATHSILVER_AXE.get());
+                        output.accept(ModItems.DWARVEN_SHIELD.get());
                         output.accept(ModItems.VILLAGE_BUTCHERER.get());
                         output.accept(ModItems.POISON_BITER.get());
                         output.accept(ModItems.POISON_GLAIVE.get());
@@ -141,9 +142,11 @@ public class ModCreativeTabs {
                         output.accept(ModItems.CRITICAL_GLASSES.get());
                         output.accept(ModItems.IGNITION_GLOVE.get());
                         output.accept(ModItems.THUNDERING_QUIVER.get());
-                        output.accept(ModItems.BRIMSTONE_SIGIL.get());
+
                         output.accept(ModItems.OBSIDIAN_MEDAL.get());
+                        output.accept(ModItems.BRIMSTONE_SIGIL.get());
                         output.accept(ModItems.CROSS_NECKLACE.get());
+                        output.accept(ModItems.DWARVEN_POWER_CORE.get());
                         output.accept(ModItems.ORB_SOUL.get());
                     }).build());
 
@@ -191,6 +194,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.PLANT_MATTER);
                         output.accept(ModItems.HOMUNCULUS_BLOOD_ORB);
                         output.accept(ModItems.DWARVEN_ALLOY_PLATE);
+                        output.accept(ModItems.DWARVEN_ALLOY_COG);
+                        output.accept(ModItems.REDSTONE_BATTERY);
                         output.accept(ModItems.VILE_BONE);
                         output.accept(ModItems.ECTOPLASM_BALL);
                         output.accept(ModItems.ECTOPLASM_VIAL);

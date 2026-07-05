@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "monsterspellbooks:dwarven_alloy_ingot"
+    },
+    "B": {
+      "item": "monsterspellbooks:dwarven_alloy_nugget"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "BAB",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:dwarven_alloy_cog"
+  }
+}

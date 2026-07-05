@@ -146,8 +146,8 @@ public class RedstoneElementalEntity extends UniqueAbstractSpellCastingMob imple
     @Override
     protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {}
 
-    public static boolean checkRedstoneConstructSpawnRules(EntityType<? extends LivingEntity> redstone, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
-        return pos.getY() <= level.getSeaLevel() - 33 && level.getRawBrightness(pos, 0) == 0;
+    public boolean isPushable() {
+        return false;
     }
 
     // Geckolib & Animations

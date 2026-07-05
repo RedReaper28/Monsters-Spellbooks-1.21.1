@@ -118,6 +118,8 @@ public class ModItems {
             () -> new Item(ItemPropertiesHelper.material()));
     public static final DeferredItem<Item>DWARVEN_ALLOY_COG= ITEMS.register("dwarven_alloy_cog",
             ()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item>REDSTONE_BATTERY= ITEMS.register("redstone_battery",
+            ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>DWARVEN_UPGRADE = ITEMS.register("dwarven_upgrade",
             () -> new Item(ItemPropertiesHelper.material()));
     public static final DeferredItem<Item>STRIDER_COTTON_BALL= ITEMS.register("strider_cotton_boll",
