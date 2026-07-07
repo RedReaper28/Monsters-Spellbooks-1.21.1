@@ -92,6 +92,7 @@
   "block.monsterspellbooks.deepslate_orichalcum_ore": "Deepslate Orichalcum Ore",
   "block.monsterspellbooks.raw_orichalcum_block": "Raw Orichalcum Block",
   "block.monsterspellbooks.orichalcum_block": "Orichalcum Block",
+  "block.monsterspellbooks.deathsilver_ore": "Deathsilver Ore",
   "block.monsterspellbooks.deathsilver_block": "Deathsilver Block",
   "block.monsterspellbooks.sanguinite_block": "Sanguinite Block",
   "block.monsterspellbooks.illagerite_block": "Illagerite Block",
@@ -247,7 +248,7 @@
   "item.monsterspellbooks.dreadhound_tooth_necklace": "Dreadhound Tooth Necklace",
   "item.monsterspellbooks.dreadhound_tooth_necklace.desc": "Sacrifice health to reduce the cost of Blood Magic by 66%.",
   "item.monsterspellbooks.dwarven_power_core": "Dwarven Power Core",
-  "item.monsterspellbooks.dwarven_power_core.desc": "Dealing Lighting Spell Damage adds a stack of Static. Releasing it into a powerful shockwave when reaching 3 stakcs",
+  "item.monsterspellbooks.dwarven_power_core.desc": "Dealing Lighting Spell Damage adds a stack of Static. Releasing it into a powerful shockwave when reaching max stacks",
   "item.monsterspellbooks.obsidian_medal": "Obsidian Medal",
   "item.monsterspellbooks.obsidian_medal.desc": "Gives immunity to movement imparing effects",
   "item.monsterspellbooks.blizzard_caller": "Blizzard Caller",
@@ -471,6 +472,7 @@
 
   "ui.monsterspellbooks.additional_withered_damage": "%d%% Additional Withered Damage",
   "ui.monsterspellbooks.mana_steal": "%d%% Mana Steal",
+  "ui.monsterspellbooks.frost_coating": "%d%% Magical Armor",
   "ui.monsterspellbooks.additional_fire_damage": "%d%% Fire Spell Damage Weakness",
   "ui.monsterspellbooks.magic_weapon_not_enough_mana": "Not enough mana for use",
 

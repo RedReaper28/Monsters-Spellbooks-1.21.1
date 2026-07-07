@@ -66,7 +66,7 @@ public class EndersentFormSpell extends AbstractSpell {
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
 
-        entity.addEffect(new MobEffectInstance(ModMobEffects.ENDERSENT_STRENGTH, (int) (getSpellPower(spellLevel, entity) * 20), 0, false, false, true));
+        entity.addEffect(new MobEffectInstance(ModMobEffects.ENDERSENT_STRENGTH, getDurationTicks(spellLevel, entity), spellLevel - 1, false, false, true));
 
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
@@ -89,6 +89,10 @@ public class EndersentFormSpell extends AbstractSpell {
 
     private float getScale (int spellLevel, LivingEntity entity) {
         return EndersentStrengthMobEffect.SCALE_PER_LEVEL* 100;
+    }
+
+    private int getDurationTicks(int spellLevel, LivingEntity entity){
+        return (int) (30 * 20 * getEntityPowerMultiplier(entity));
     }
 
     @Override

@@ -8,7 +8,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
-import net.redreaper.monsterspellbooks.block.EctoplasmFluidBlock;
 
 import java.util.function.Supplier;
 
@@ -29,17 +28,13 @@ public class ModBlocks {
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.METAL)));
     public static final DeferredBlock<Block>ORICHALCUM_BLOCK=registerBlock("orichalcum_block",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.METAL)));
-    public static final DeferredBlock<Block>DEATHSILVER_BLOCK=registerBlock("deathsilver_block",
-            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.METAL)));
+
     public static final DeferredBlock<Block>SANGUINITE_BLOCK=registerBlock("sanguinite_block",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.NETHERITE_BLOCK)));
-
     public static final DeferredBlock<Block>ILLAGERITE_BLOCK=registerBlock("illagerite_block",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.COPPER)));
-
     public static final DeferredBlock<Block>DWARVEN_ALLOY_BLOCK =registerBlock("dwarven_alloy_block",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.NETHERITE_BLOCK)));
-
     public static final DeferredBlock<Block>WHITE_GOLD_BLOCK=registerBlock("white_gold_block",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK)));
     public static final DeferredBlock<Block>SCORCHED_METAL_ORE =registerBlock("scorched_metal_ore",
@@ -56,6 +51,10 @@ public class ModBlocks {
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_ORE).sound(SoundType.NETHER_ORE)));
     public static final DeferredBlock<Block>NETHER_RUBY_BLOCK=registerBlock("nether_ruby_block",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
+    public static final DeferredBlock<Block> DEATHSILVER_ORE =registerBlock("deathsilver_ore",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_ORE).sound(SoundType.SOUL_SAND)));
+    public static final DeferredBlock<Block>DEATHSILVER_BLOCK=registerBlock("deathsilver_block",
+            ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).sound(SoundType.METAL)));
     public static final DeferredBlock<Block>SPECTRITE_BLOCK=registerBlock("spectrite_block",
             ()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK)));
     public static final DeferredBlock<Block>WITHER_ALLOY_BLOCK=registerBlock("wither_alloy_block",

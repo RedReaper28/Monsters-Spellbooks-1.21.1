@@ -16,6 +16,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         blockWithItem(ModBlocks.ILLAGERITE_BLOCK);
+        blockWithItem(ModBlocks.DEATHSILVER_ORE);
 
         blockWithItem(ModBlocks.CORAL_LOG);
         blockWithItem(ModBlocks.CORAL_PLANKS);

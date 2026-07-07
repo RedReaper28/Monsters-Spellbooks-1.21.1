@@ -24,6 +24,7 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?,?>>SCORCHED_METAL_ORE_KEY=registerKey("scorched_metal_ore");
     public static final ResourceKey<ConfiguredFeature<?,?>>NETHER_PYRITE_ORE_KEY=registerKey("nether_pyrite_ore");
     public static final ResourceKey<ConfiguredFeature<?,?>>NETHER_RUBY_ORE_KEY=registerKey("nether_ruby_ore");
+    public static final ResourceKey<ConfiguredFeature<?,?>>DEATHSILVER_ORE_KEY =registerKey("deathsilver_ore");
     public static final ResourceKey<ConfiguredFeature<?,?>>VOID_ORE_KEY=registerKey("void_ruby_ore");
 
     public static final ResourceKey<ConfiguredFeature<?,?>>GRAVISTONE_KEY=registerKey("gravistone");
@@ -36,9 +37,16 @@ public class ModConfiguredFeatures {
         RuleTest netherReplaceables=new BlockMatchTest(Blocks.NETHERRACK);
         RuleTest endReplaceables=new BlockMatchTest(Blocks.END_STONE);
 
+        RuleTest soulSandReplaceables=new BlockMatchTest(Blocks.SOUL_SAND);
+        RuleTest soulSoilReplaceables=new BlockMatchTest(Blocks.SOUL_SOIL);
+
         List<OreConfiguration.TargetBlockState>orichalcumOres=List.of(
                 OreConfiguration.target(stoneReplaceables, ModBlocks.ORICHALCUM_ORE.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_ORICHALCUM_ORE.get().defaultBlockState()));
+
+        List<OreConfiguration.TargetBlockState>deathsilverOres=List.of(
+                OreConfiguration.target(soulSandReplaceables, ModBlocks.DEATHSILVER_ORE.get().defaultBlockState()),
+                OreConfiguration.target(soulSoilReplaceables, ModBlocks.DEATHSILVER_ORE.get().defaultBlockState()));
 
         List<OreConfiguration.TargetBlockState>ivoryStone=List.of(
                 OreConfiguration.target(stoneReplaceables, ModBlocks.IVORYSTONE.get().defaultBlockState()),
@@ -53,6 +61,7 @@ public class ModConfiguredFeatures {
                 ModBlocks.NETHER_PYRITE_ORE.get().defaultBlockState(),12));
         register(context,NETHER_RUBY_ORE_KEY,Feature.ORE,new OreConfiguration(netherReplaceables,
                 ModBlocks.NETHER_RUBY_ORE.get().defaultBlockState(),3));
+        register(context,DEATHSILVER_ORE_KEY,Feature.ORE,new OreConfiguration(deathsilverOres,5));
         register(context,VOID_ORE_KEY,Feature.ORE,new OreConfiguration(endReplaceables,
                 ModBlocks.VOID_MATTER_ORE.get().defaultBlockState(),3));
 

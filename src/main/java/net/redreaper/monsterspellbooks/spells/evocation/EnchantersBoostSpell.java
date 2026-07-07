@@ -36,7 +36,7 @@ public class EnchantersBoostSpell extends AbstractSpell {
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(spellLevel, caster), 1))
+                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDurationTicks(spellLevel, caster), 1))
         );
     }
 
@@ -80,8 +80,8 @@ public class EnchantersBoostSpell extends AbstractSpell {
         if (playerMagicData.getAdditionalCastData() instanceof TargetEntityCastData healTargetingData) {
             var targetEntity = healTargetingData.getTarget((ServerLevel) world);
             if (targetEntity != null) {
-                targetEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, getDuration(spellLevel, entity), 2));
-                targetEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, getDuration(spellLevel, entity), 1));
+                targetEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, getDurationTicks(spellLevel, entity), 2));
+                targetEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, getDurationTicks(spellLevel, entity), 1));
                 PacketDistributor.sendToPlayersTrackingEntityAndSelf(targetEntity, new HealParticlesPacket(targetEntity.position()));
             }
         }
@@ -104,8 +104,8 @@ public class EnchantersBoostSpell extends AbstractSpell {
         return Optional.of(ModSounds.EVOCATION_BOOST.get());
     }
 
-    public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) 20 * 120;
+    private int getDurationTicks(int spellLevel, LivingEntity entity){
+        return (int) (30 * 20 * getEntityPowerMultiplier(entity));
     }
 
     @Override

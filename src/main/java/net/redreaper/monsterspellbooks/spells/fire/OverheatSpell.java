@@ -25,7 +25,7 @@ public class OverheatSpell extends AbstractSpell {
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 20, 1)),
+                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDurationTicks(spellLevel, caster), 1)),
                 Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentAttackDamage(spellLevel, caster), 0), Component.translatable("attribute.name.generic.attack_damage")),
                 Component.translatable("ui.irons_spellbooks.rend", Utils.stringTruncation((getRendAmplifier(spellLevel, caster) + 1) * 5, 1))
                 );
@@ -60,15 +60,19 @@ public class OverheatSpell extends AbstractSpell {
 
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
 
-        entity.addEffect(new MobEffectInstance(ModMobEffects.OVERHEAT, (int) (getSpellPower(spellLevel, entity) * 20), spellLevel-1, false, false, true));
+        entity.addEffect(new MobEffectInstance(ModMobEffects.OVERHEAT, getDurationTicks(spellLevel, entity), spellLevel-1, false, false, true));
 
-        entity.addEffect(new MobEffectInstance(MobEffectRegistry.REND, (int) (getSpellPower(spellLevel, entity) * 20), getRendAmplifier(spellLevel, entity)));
+        entity.addEffect(new MobEffectInstance(MobEffectRegistry.REND, getDurationTicks(spellLevel, entity), getRendAmplifier(spellLevel, entity)));
 
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 
     private float getPercentAttackDamage(int spellLevel, LivingEntity entity) {
         return spellLevel * OverheatMobEffect.ATTACK_DAMAGE_PER_LEVEL * 100;
+    }
+
+    private int getDurationTicks(int spellLevel, LivingEntity entity){
+        return (int) (30 * 20 * getEntityPowerMultiplier(entity));
     }
 
     public int getRendAmplifier(int spellLevel, LivingEntity caster) {

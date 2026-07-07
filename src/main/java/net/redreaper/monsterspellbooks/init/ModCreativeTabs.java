@@ -57,7 +57,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DEATHSILVER_DAGGER.get());
                         output.accept(ModItems.DEATHSILVER_SWORD.get());
                         output.accept(ModItems.DEATHSILVER_AXE.get());
-                        output.accept(ModItems.DWARVEN_SHIELD.get());
                         output.accept(ModItems.VILLAGE_BUTCHERER.get());
                         output.accept(ModItems.POISON_BITER.get());
                         output.accept(ModItems.POISON_GLAIVE.get());
@@ -73,6 +72,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DISRUPTION_NAGINATA.get());
                         output.accept(ModItems.ENDERSENT_CRUSHER.get());
                         output.accept(ModItems.SNOW_BOW.get());
+                        output.accept(ModItems.DWARVEN_SHIELD.get());
 
                         output.accept(ModItems.WILDFIRE_CROWN.get());
                         output.accept(ModItems.FUNGAL_CAP_RED.get());
@@ -164,15 +164,12 @@ public class ModCreativeTabs {
                         output.accept(ModItems.RAW_ORICHALCUM);
                         output.accept(ModItems.ORICHALCUM_INGOT);
                         output.accept(ModItems.ORICHALCUM_NUGGET);
-                        output.accept(ModItems.DEATHSILVER_INGOT);
-                        output.accept(ModItems.DEATHSILVER_NUGGET);
                         output.accept(ModItems.SANGUINITE_INGOT);
                         output.accept(ModItems.ILLAGERITE_INGOT);
                         output.accept(ModItems.ILLAGERITE_NUGGETS);
                         output.accept(ModItems.DWARVEN_ALLOY_SCRAP);
                         output.accept(ModItems.DWARVEN_ALLOY_INGOT);
                         output.accept(ModItems.DWARVEN_ALLOY_NUGGET);
-
                         output.accept(ModItems.WHITE_GOLD_INGOT);
                         output.accept(ModItems.WHITE_GOLD_NUGGET);
                         output.accept(ModItems.RAW_SCORCHED_METAL);
@@ -180,6 +177,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SCORCHED_METAL_NUGGET);
                         output.accept(ModItems.NETHER_PYRITE);
                         output.accept(ModItems.NETHER_RUBY);
+                        output.accept(ModItems.DEATHSILVER_INGOT);
+                        output.accept(ModItems.DEATHSILVER_NUGGET);
                         output.accept(ModItems.SPECTRITE_INGOT);
                         output.accept(ModItems.BLAZESTEEL_INGOT);
                         output.accept(ModItems.WITHER_ALLOY_INGOT);
@@ -247,7 +246,6 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.DEEPSLATE_ORICHALCUM_ORE);
                         output.accept(ModBlocks.RAW_ORICHALCUM_BLOCK);
                         output.accept(ModBlocks.ORICHALCUM_BLOCK);
-                        output.accept(ModBlocks.DEATHSILVER_BLOCK);
                         output.accept(ModBlocks.SANGUINITE_BLOCK);
                         output.accept(ModBlocks.ILLAGERITE_BLOCK);
                         output.accept(ModBlocks.DWARVEN_ALLOY_BLOCK);
@@ -260,6 +258,8 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.NETHER_RUBY_ORE);
                         output.accept(ModBlocks.NETHER_RUBY_BLOCK);
                         output.accept(ModBlocks.WITHER_ALLOY_BLOCK);
+                        output.accept(ModBlocks.DEATHSILVER_ORE);
+                        output.accept(ModBlocks.DEATHSILVER_BLOCK);
                         output.accept(ModBlocks.SPECTRITE_BLOCK);
                         output.accept(ModBlocks.BLAZESTEEL_BLOCK);
                         output.accept(ModBlocks.VOID_MATTER_ORE);

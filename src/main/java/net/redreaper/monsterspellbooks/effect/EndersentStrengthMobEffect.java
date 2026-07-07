@@ -8,7 +8,7 @@ public class EndersentStrengthMobEffect extends MagicMobEffect implements ISynce
     public static final float SCALE_PER_LEVEL = 1.5F;
     public static final float ENTITY_RANGE_PER_LEVEL = .50F;
     public static final float BLOCK_RANGE_PER_LEVEL = .50F;
-    public static final float ATTACK_PER_LEVEL =  0.30f;
+    public static final float ATTACK_PER_LEVEL =  0.20f;
     public static final float ATTACK_SPEED_PER_LEVEL =  -0.30f;
     public static final float ATTACK_KNOCKBACK_PER_LEVEL = 1F;
     public static final float KNOCKBACK_RESISTANCE_PER_LEVEL = 5F;

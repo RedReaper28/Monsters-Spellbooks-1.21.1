@@ -6,10 +6,16 @@ import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.AnimationHolder;
 import io.redspace.ironsspellbooks.api.util.Utils;
+import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
+import io.redspace.ironsspellbooks.capabilities.magic.TargetEntityCastData;
+import io.redspace.ironsspellbooks.effect.HastenedEffect;
+import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
+import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -27,9 +33,8 @@ public class FrostCoatingSpell extends AbstractSpell {
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 20, 1)),
-                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getExtraArmor(spellLevel+2, caster), 0), Component.translatable("attribute.name.generic.armor")),
-                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getSpellResistance(spellLevel+2, caster), 0), Component.translatable("attribute.irons_spellbooks.spell_resist"))
+                Component.translatable("ui.monsterspellbooks.frost_coating", Utils.stringTruncation(HastenedEffect.getPercentForAmplifier(getAmplifier(spellLevel, caster), caster) * 100, 1)),
+                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(spellLevel, caster), 1))
         );
     }
 
@@ -64,20 +69,27 @@ public class FrostCoatingSpell extends AbstractSpell {
     }
 
     @Override
-    public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        entity.addEffect(new MobEffectInstance(ModMobEffects.FROST_COATING, (int) (getSpellPower(spellLevel, entity) * 20), getAmplifierForLevel(spellLevel, entity), false, false, true));
-        super.onCast(level, spellLevel, entity, castSource, playerMagicData);
+    public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
+        if (playerMagicData.getAdditionalCastData() instanceof TargetEntityCastData targetData) {
+            if (targetData.getTarget((ServerLevel) world) instanceof LivingEntity targetEntity) {
+                targetEntity.addEffect(new MobEffectInstance(ModMobEffects.FROST_COATING, getDuration(spellLevel, entity), getAmplifier(spellLevel, entity), false, false, true));
+                MagicManager.spawnParticles(world, ParticleHelper.SNOWFLAKE, targetEntity.getX(), targetEntity.getY() + .25, targetEntity.getZ(), 15, targetEntity.getBbWidth() * 0.5, targetEntity.getBbWidth() * 0.5, targetEntity.getBbWidth() * 0.5, 0, false);
+            }
+        }
+        super.onCast(world, spellLevel, entity, castSource, playerMagicData);
     }
 
-    private int getAmplifierForLevel(int spellLevel, LivingEntity caster) {
-        return 1 + spellLevel;
+    public int getAmplifier(int spellLevel, LivingEntity caster) {
+        int base = 8 - 1; // 20%
+        return (int) (base * getEntityPowerMultiplier(caster));
+    }
+
+    public int getDuration(int spellLevel, LivingEntity caster) {
+        return (int) (getSpellPower(spellLevel, caster) * 20);
     }
 
     @Override public Optional<SoundEvent> getCastFinishSound() {return Optional.of(SoundRegistry.FROSTBITE_FREEZE.get());}
 
     @Override public AnimationHolder getCastStartAnimation() {return SpellAnimations.SELF_CAST_ANIMATION;}
 
-    private float getExtraArmor (int spellLevel, LivingEntity entity) {return spellLevel * FrostCoatingMobEffect.ARMOR_PER_LEVEL* 100;}
-
-    private float getSpellResistance (int spellLevel, LivingEntity entity) {return spellLevel * FrostCoatingMobEffect.SPELL_RESISTANCE_PER_LEVEL * 100;}
 }

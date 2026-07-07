@@ -91,6 +91,6 @@ public class StrayGraspSpell extends AbstractSpell {
     }
 
     public int getChilledDuration(int spellLevel, LivingEntity caster) {
-        return (int) (getSpellPower(spellLevel, caster) * 10 * 2.5);
+        return 15 *20;
     }
 }

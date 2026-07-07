@@ -35,7 +35,7 @@ public class EnchantersProtectionSpell extends AbstractSpell {
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(spellLevel, caster), 1))
+                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDurationTicks(spellLevel, caster), 1))
         );
     }
 
@@ -79,11 +79,11 @@ public class EnchantersProtectionSpell extends AbstractSpell {
         if (playerMagicData.getAdditionalCastData() instanceof TargetEntityCastData healTargetingData) {
             var targetEntity = healTargetingData.getTarget((ServerLevel) world);
             if (targetEntity != null) {
-                targetEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 120, 1));
-                targetEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20 * 120, 1));
-                targetEntity.addEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 20 * 120, 3));
-                targetEntity.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 20 * 120, 3));
-                targetEntity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 20 * 120, 0));
+                targetEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, getDurationTicks(spellLevel, entity), 1));
+                targetEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, getDurationTicks(spellLevel, entity), 1));
+                targetEntity.addEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, getDurationTicks(spellLevel, entity), 3));
+                targetEntity.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, getDurationTicks(spellLevel, entity), 3));
+                targetEntity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, getDurationTicks(spellLevel, entity), 0));
                 PacketDistributor.sendToPlayersTrackingEntityAndSelf(targetEntity, new HealParticlesPacket(targetEntity.position()));
             }
         }
@@ -106,10 +106,9 @@ public class EnchantersProtectionSpell extends AbstractSpell {
         }
     }
 
-    public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) 20 * 120;
+    private int getDurationTicks(int spellLevel, LivingEntity entity){
+        return (int) (30 * 20 * getEntityPowerMultiplier(entity));
     }
-
     @Override
     public Vector3f getTargetingColor() {
         return new Vector3f(.85f, 0, 0);

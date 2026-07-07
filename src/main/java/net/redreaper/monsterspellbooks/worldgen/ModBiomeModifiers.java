@@ -22,6 +22,7 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier>ADD_SCORCHED_ORE=registerKey("add_scorched_ore");
     public static final ResourceKey<BiomeModifier>ADD_PYRITE_ORE=registerKey("add_pyrite_ore");
     public static final ResourceKey<BiomeModifier>ADD_RUBY_ORE=registerKey("add_ruby_ore");
+    public static final ResourceKey<BiomeModifier>ADD_DEATHSILVER_ORE=registerKey("add_deathsilver_ore");
 
     public static final ResourceKey<BiomeModifier>ADD_VOID_ORE=registerKey("add_void_ore");
 
@@ -66,6 +67,11 @@ public class ModBiomeModifiers {
         context.register(ADD_RUBY_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_NETHER),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.RUBY_ORE_PLACED_KEY)),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_DEATHSILVER_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.HAS_NETHER_FOSSIL),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.DEATHSILVER_ORE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(ADD_VOID_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(

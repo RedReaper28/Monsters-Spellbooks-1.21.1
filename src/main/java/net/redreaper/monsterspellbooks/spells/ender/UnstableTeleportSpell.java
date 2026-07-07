@@ -168,7 +168,7 @@ public class UnstableTeleportSpell extends AbstractSpell {
     }
 
     private float getDistance(int spellLevel, LivingEntity sourceEntity) {
-        return 10 + (float) (Utils.softCapFormula(getEntityPowerMultiplier(sourceEntity)) * spellLevel * 2);
+        return 5 + (float) (Utils.softCapFormula(getEntityPowerMultiplier(sourceEntity)) * spellLevel * 2);
     }
 
     private float getDamage(int spellLevel, LivingEntity caster) {

@@ -76,35 +76,35 @@ public class WitherBombSpell extends AbstractSpell {
     public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         var recasts = playerMagicData.getPlayerRecasts();
         if (!world.isClientSide) {
-            boolean hasWitherTotem = ASUtils.hasCurio((Player) entity, ModItems.WITHERED_TOTEM.get());
-
-            if (hasWitherTotem) {
-                if (!recasts.hasRecastForSpell(getSpellId())) {
-                    recasts.addRecast(new RecastInstance(getSpellId(), spellLevel, getRecastCount(spellLevel, entity), 120, castSource, null), playerMagicData);
+            if (entity instanceof Player player) {
+                boolean hasWitherTotem = ASUtils.hasCurio(player, ModItems.WITHERED_TOTEM.get());
+                if (hasWitherTotem) {
+                    if (!recasts.hasRecastForSpell(getSpellId())) {
+                        recasts.addRecast(new RecastInstance(getSpellId(), spellLevel, getRecastCount(spellLevel, entity), 120, castSource, null), playerMagicData);
+                    }
+                    Vec3 origin = entity.getEyePosition();
+                    WitherBombProjectile fireball = new WitherBombProjectile(world, entity);
+                    fireball.setOwner(entity);
+                    fireball.setDamage(getDamage(spellLevel, entity));
+                    fireball.setExplosionRadius(getRadius(spellLevel, entity));
+                    fireball.setPos(origin.add(entity.getForward()).subtract(0, fireball.getBbHeight() / 2, 0));
+                    fireball.shoot(entity.getLookAngle());
+                    fireball.setCursorHoming(true);
+                    world.addFreshEntity(fireball);
+                } else {
+                    if (!recasts.hasRecastForSpell(getSpellId())) {
+                        recasts.addRecast(new RecastInstance(getSpellId(), spellLevel, 1, 120, castSource, null), playerMagicData);
+                    }
+                    Vec3 origin = entity.getEyePosition();
+                    WitherBombProjectile fireball = new WitherBombProjectile(world, entity);
+                    fireball.setOwner(entity);
+                    fireball.setDamage(getDamage(spellLevel, entity));
+                    fireball.setExplosionRadius(getRadius(spellLevel, entity));
+                    fireball.setPos(origin.add(entity.getForward()).subtract(0, fireball.getBbHeight() / 2, 0));
+                    fireball.shoot(entity.getLookAngle());
+                    fireball.setCursorHoming(true);
+                    world.addFreshEntity(fireball);
                 }
-                Vec3 origin = entity.getEyePosition();
-                WitherBombProjectile fireball = new WitherBombProjectile(world, entity);
-                fireball.setOwner(entity);
-                fireball.setDamage(getDamage(spellLevel, entity));
-                fireball.setExplosionRadius(getRadius(spellLevel, entity));
-                fireball.setPos(origin.add(entity.getForward()).subtract(0, fireball.getBbHeight() / 2, 0));
-                fireball.shoot(entity.getLookAngle());
-                fireball.setCursorHoming(true);
-                world.addFreshEntity(fireball);
-            }
-            else{
-                if (!recasts.hasRecastForSpell(getSpellId())) {
-                    recasts.addRecast(new RecastInstance(getSpellId(), spellLevel, 1, 120, castSource, null), playerMagicData);
-                }
-                Vec3 origin = entity.getEyePosition();
-                WitherBombProjectile fireball = new WitherBombProjectile(world, entity);
-                fireball.setOwner(entity);
-                fireball.setDamage(getDamage(spellLevel, entity));
-                fireball.setExplosionRadius(getRadius(spellLevel, entity));
-                fireball.setPos(origin.add(entity.getForward()).subtract(0, fireball.getBbHeight() / 2, 0));
-                fireball.shoot(entity.getLookAngle());
-                fireball.setCursorHoming(true);
-                world.addFreshEntity(fireball);
             }
         }
         super.onCast(world, spellLevel, entity, castSource, playerMagicData);

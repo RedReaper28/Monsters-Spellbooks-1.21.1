@@ -9,8 +9,8 @@ import net.minecraft.world.item.ItemStack;
 import net.redreaper.monsterspellbooks.procedures.effectsonhit.PoisonOnHit;
 
 public class OverheatMobEffect extends MagicMobEffect implements ISyncedMobEffect {
-    public static final float ATTACK_DAMAGE_PER_LEVEL = .2f;
-    public static final float FIRE_SPELL_POWER_PER_LEVEL = .10f;
+    public static final float ATTACK_DAMAGE_PER_LEVEL = .1f;
+    public static final float FIRE_SPELL_POWER_PER_LEVEL = .1f;
 
             public OverheatMobEffect(MobEffectCategory mobEffectCategory, int color) {
             super(mobEffectCategory, color);

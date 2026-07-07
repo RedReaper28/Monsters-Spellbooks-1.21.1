@@ -153,11 +153,11 @@ repositories {
 
 dependencies {
     // ISS ***************************************************************************************************
-    implementation "io.redspace:irons_spellbooks:1.21.1-3.16.0"
+    implementation "io.redspace:irons_spellbooks:1.21.1-3.16.2"
 
     // PATREON LIB
-    implementation "curse.maven:irons-lib-1492763:8207094"
-
+    implementation "curse.maven:irons-lib-1492763:8364894"
+    
     // GECKOLIB ***************************************************************************************************
     implementation "curse.maven:geckolib-388172:6304958"
 

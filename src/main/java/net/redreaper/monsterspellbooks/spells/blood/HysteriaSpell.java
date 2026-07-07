@@ -60,9 +60,9 @@ public class HysteriaSpell extends AbstractSpell {
     }
 
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        entity.addEffect(new MobEffectInstance(ModMobEffects.BLOODLUST, (int) (getSpellPower(spellLevel, entity) * 10), spellLevel - 1, false, false, true));
-        entity.addEffect(new MobEffectInstance(ModMobEffects.CURSE, (int) (getSpellPower(spellLevel, entity) * 10), spellLevel - 1, false, false, true));
-        entity.addEffect(new MobEffectInstance(MobEffectRegistry.HEARTSTOP, (int) (getSpellPower(spellLevel, entity) * 10),0));
+        entity.addEffect(new MobEffectInstance(ModMobEffects.BLOODLUST, getDurationTicks(spellLevel, entity), spellLevel - 1, false, false, true));
+        entity.addEffect(new MobEffectInstance(ModMobEffects.CURSE, getDurationTicks(spellLevel, entity), spellLevel - 1, false, false, true));
+        entity.addEffect(new MobEffectInstance(MobEffectRegistry.HEARTSTOP, getDurationTicks(spellLevel, entity), spellLevel - 1, false, false, true));
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 
@@ -71,6 +71,10 @@ public class HysteriaSpell extends AbstractSpell {
     private float getPercentSpellPower(int spellLevel, LivingEntity entity) {return spellLevel * BloodLustMobEffect.ATTACK_SPEED_PER_LEVEL * 100;}
 
     private float getPercentSpeed(int spellLevel, LivingEntity entity) {return spellLevel * BloodLustMobEffect.SPEED_PER_LEVEL * 100;}
+
+    private int getDurationTicks(int spellLevel, LivingEntity entity){
+        return (int) (30 * 20 * getEntityPowerMultiplier(entity));
+    }
 
     public AnimationHolder getCastStartAnimation() {
         return SpellAnimations.SELF_CAST_ANIMATION;

@@ -10,8 +10,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
 
 public class FrostCoatingMobEffect extends MagicMobEffect implements ISyncedMobEffect {
-    public static final float ARMOR_PER_LEVEL =  0.05f;
-    public static final float SPELL_RESISTANCE_PER_LEVEL =  0.05f;
+    public static final float ARMOR_PER_LEVEL =  0.025f;
+    public static final float SPELL_RESISTANCE_PER_LEVEL =  0.025f;
 
     public FrostCoatingMobEffect(MobEffectCategory mobEffectCategory, int color) {
         super(mobEffectCategory, color);

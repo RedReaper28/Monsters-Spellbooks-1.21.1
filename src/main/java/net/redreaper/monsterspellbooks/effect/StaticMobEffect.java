@@ -23,7 +23,7 @@ import java.util.WeakHashMap;
 
 public class StaticMobEffect extends MagicMobEffect implements ISyncedMobEffect {
 
-    public static final int STACKS_REQUIRED = 3;
+    public static final int STACKS_REQUIRED = 5;
     public static final int STACKS_REQUIRED_AMPLIFIER = STACKS_REQUIRED - 1;
 
     private static final Map<LivingEntity, Entity> EFFECT_CREDIT = new WeakHashMap<>();
