@@ -2,7 +2,6 @@ package net.redreaper.monsterspellbooks.item.weapons;
 
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.util.Utils;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -19,7 +18,14 @@ public class SwiftStriker extends ExtendedSwordItem {
     public SwiftStriker() {
         super(
                 ModExtendedWeaponTiers.END_DAGGER,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.END_DAGGER)));
+                new Item
+                        .Properties()
+                        .stacksTo(1)
+                        .rarity(ASRarities.COSMIC_RARITY_PROXY.getValue())
+                        .fireResistant()
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.END_DAGGER)
+                        )
+        );
     }
 
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {

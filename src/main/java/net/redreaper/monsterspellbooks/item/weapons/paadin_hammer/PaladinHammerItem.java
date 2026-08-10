@@ -5,12 +5,12 @@ import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.item.UniqueItem;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.acetheeldritchking.aces_spell_utils.items.weapons.maces.PresetImbueMaceItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
@@ -25,9 +25,15 @@ import java.util.List;
 
 public class PaladinHammerItem extends PresetImbueMaceItem implements UniqueItem {
     public PaladinHammerItem() {
-        super(ModExtendedWeaponTiers.HALLOWED_HEAVY_STEEL,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(Rarity.UNCOMMON)
-                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.HALLOWED_HEAVY_STEEL)),
+        super(
+                ModExtendedWeaponTiers.HALLOWED_HEAVY_STEEL,
+                new Item
+                        .Properties()
+                        .stacksTo(1)
+                        .fireResistant()
+                        .rarity(Rarity.UNCOMMON)
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.HALLOWED_HEAVY_STEEL)
+                        ),
                 SpellDataRegistryHolder.of(
                         new SpellDataRegistryHolder(ModSpellRegistry.PALADIN_THROW, 10)
                 )

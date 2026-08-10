@@ -96,7 +96,7 @@ public class ServerEvents {
                     serverPlayer.connection.send(new ClientboundSetActionBarTextPacket(Component.translatable("display.monsterspellbooks.curse_warning").append(formattedTime)
                             .withStyle(s -> s.withColor(TextColor.fromRgb(0xF35F5F)))));
                     serverPlayer.level().playSound(null, player.getX(), player.getY(), player.getZ(),
-                            SoundEvents.FIRE_EXTINGUISH, SoundSource.PLAYERS, 0.5f, 1f);
+                            SoundEvents.WITHER_HURT, SoundSource.PLAYERS, 0.5f, 1f);
                 }
             }
         }

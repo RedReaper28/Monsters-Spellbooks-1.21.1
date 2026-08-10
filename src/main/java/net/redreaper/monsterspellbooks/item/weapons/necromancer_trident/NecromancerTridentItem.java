@@ -5,9 +5,7 @@ import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
-import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.item.UniqueItem;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -22,6 +20,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
@@ -39,10 +38,17 @@ public class NecromancerTridentItem extends MagicSwordItem implements UniqueItem
     public int MAX_MANA_COST = 50;
     public int BASE_POWER_SCALE = 10;
 
+
     public NecromancerTridentItem() {
-        super(ModExtendedWeaponTiers.NECROMANCER_PRISMARINE,
-                ItemPropertiesHelper.equipment(10).fireResistant().rarity(ModRarities.PRISMARINE_RARITY_PROXY.getValue())
-                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.NECROMANCER_PRISMARINE)),
+        super(
+                ModExtendedWeaponTiers.NECROMANCER_PRISMARINE,
+                new Item
+                        .Properties()
+                        .stacksTo(1)
+                        .fireResistant()
+                        .rarity(ModRarities.PRISMARINE_RARITY_PROXY.getValue())
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.NECROMANCER_PRISMARINE)
+                        ),
                 SpellDataRegistryHolder.of(
                         new SpellDataRegistryHolder(ModSpellRegistry.RIPTIDE_DASH, 8)
                 )

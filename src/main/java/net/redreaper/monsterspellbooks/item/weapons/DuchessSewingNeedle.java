@@ -25,6 +25,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class DuchessSewingNeedle extends MagicSwordItem implements UniqueItem {
+
+
     public DuchessSewingNeedle() {
         super(
                 ModExtendedWeaponTiers.RITUAL_BONE,

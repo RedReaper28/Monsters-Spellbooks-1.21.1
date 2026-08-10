@@ -3,7 +3,6 @@ package net.redreaper.monsterspellbooks.item.weapons;
 
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.util.Utils;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -19,11 +18,17 @@ import java.util.List;
 
 public class DancerSwordItem extends ExtendedSwordItem {
     public static final int COOLDOWN = 10 * 20;
-    public DancerSwordItem() {
 
+    public DancerSwordItem() {
         super(
                 ModExtendedWeaponTiers.DANCERS_SWORD,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(Rarity.UNCOMMON).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DANCERS_SWORD))
+                new Item
+                        .Properties()
+                        .stacksTo(1)
+                        .rarity(Rarity.UNCOMMON)
+                        .fireResistant()
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DANCERS_SWORD)
+                        )
         );
     }
 

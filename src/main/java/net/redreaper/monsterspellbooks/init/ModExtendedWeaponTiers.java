@@ -123,18 +123,28 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(ASAttributeRegistry.MAGIC_PROJECTILE_DAMAGE, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers DEATHSILVER_DAGGER = new ModExtendedWeaponTiers(1551, 6F, -2.5f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT),
-            new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
-
+            new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(IronsLibRegistries.AttributeRegistry.ARMOR_PIERCE, 0.3, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     public static ModExtendedWeaponTiers DEATHSILVER_SWORD = new ModExtendedWeaponTiers(1551, 8F, -2.4f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT),
             new AttributeContainer(AttributeRegistry.SPELL_RESIST, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
-
     public static ModExtendedWeaponTiers DEATHSILVER_AXE = new ModExtendedWeaponTiers(1551, 9F, -3.2f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT),
             new AttributeContainer(AttributeRegistry.SPELL_RESIST, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
+    public static ModExtendedWeaponTiers SANGUINITE_DAGGER = new ModExtendedWeaponTiers(1551, 6F, -2.5f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.SANGUINITE_DAGGER),
+            new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(IronsLibRegistries.AttributeRegistry.ARMOR_PIERCE, 3, AttributeModifier.Operation.ADD_VALUE));
+    public static ModExtendedWeaponTiers SANGUINITE_SCYTHE = new ModExtendedWeaponTiers(1551, 9F, -2f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.SANGUINITE_DAGGER),
+            new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(IronsLibRegistries.AttributeRegistry.HEALING_RECEIVED, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+    public static ModExtendedWeaponTiers SANGUINITE_GREATAXE = new ModExtendedWeaponTiers(1551, 11F, -3.2f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.SANGUINITE_DAGGER),
+            new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(ASAttributeRegistry.LIFE_RECOVERY, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
     public static ModExtendedWeaponTiers ORICHALCUM_DAGGER = new ModExtendedWeaponTiers(1551, 5F, -2.5f, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),
-            new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.1, AttributeModifier.Operation.ADD_VALUE));
+            new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.1, AttributeModifier.Operation.ADD_VALUE),
+            new AttributeContainer(IronsLibRegistries.AttributeRegistry.ARMOR_PIERCE, 0.3, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     public static ModExtendedWeaponTiers ORICHALCUM_GREATSWORD = new ModExtendedWeaponTiers(1551, 7F, -3, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.2f, AttributeModifier.Operation.ADD_VALUE));
     public static ModExtendedWeaponTiers ORICHALCUM_GREATAXE = new ModExtendedWeaponTiers(1551, 11F, -3.2f, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),

@@ -5,7 +5,6 @@ import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.item.UniqueItem;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.acetheeldritchking.aces_spell_utils.items.weapons.maces.PresetImbueMaceItem;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
@@ -16,6 +15,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.api.distmarker.Dist;
@@ -39,13 +39,21 @@ public class EndersentCrusherItem extends PresetImbueMaceItem implements GeoItem
     private final AnimationController<EndersentCrusherItem> animationController = new AnimationController(this, "controller", 0, this::predicate);
 
     public EndersentCrusherItem() {
-        super(ModExtendedWeaponTiers.HEAVY_VOID_OBSIDIAN,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.HEAVY_VOID_OBSIDIAN)),
+        super(
+                ModExtendedWeaponTiers.HEAVY_VOID_OBSIDIAN,
+                new Item
+                        .Properties()
+                        .stacksTo(1)
+                        .fireResistant()
+                        .rarity(ASRarities.COSMIC_RARITY_PROXY.getValue())
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.HEAVY_VOID_OBSIDIAN)
+                        ),
                 SpellDataRegistryHolder.of(
                         new SpellDataRegistryHolder(ModSpellRegistry.ENDERSENT_SMASH, 5)
                 )
         );
     }
+
 
     public void initializeSpellContainer(ItemStack itemStack) {
         if (itemStack == null) {

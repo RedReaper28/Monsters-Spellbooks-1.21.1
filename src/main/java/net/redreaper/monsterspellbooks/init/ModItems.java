@@ -103,9 +103,9 @@ public class ModItems {
     public static final DeferredItem<Item>VOID_OBSIDIAN_INGOT= ITEMS.register("void_obsidian_ingot",
             ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>HOMUNCULUS_BLOOD_ORB = ITEMS.register("homunculus_blood_orb",
-            () -> new Item(ItemPropertiesHelper.material()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>RAW_SANGUINITE_VIAL = ITEMS.register("raw_sanguinite_vial",
-            () -> new Item(ItemPropertiesHelper.material()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>REDSTONE_CRYSTAL= ITEMS.register("redstone_crystal",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>PRISMARINE_GEM= ITEMS.register("prismarine_gem",
@@ -115,13 +115,13 @@ public class ModItems {
     public static final DeferredItem<Item>PLANT_MATTER= ITEMS.register("plant_matter",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>DWARVEN_ALLOY_PLATE= ITEMS.register("dwarven_alloy_plate",
-            () -> new Item(ItemPropertiesHelper.material()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>DWARVEN_ALLOY_COG= ITEMS.register("dwarven_alloy_cog",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>REDSTONE_BATTERY= ITEMS.register("redstone_battery",
             ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>DWARVEN_UPGRADE = ITEMS.register("dwarven_upgrade",
-            () -> new Item(ItemPropertiesHelper.material()));
+            ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>STRIDER_COTTON_BALL= ITEMS.register("strider_cotton_boll",
             ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>STRIDER_COTTON_STRING= ITEMS.register("strider_cotton_string",
@@ -216,26 +216,23 @@ public class ModItems {
     public static final DeferredItem<AxeItem>SANGUINITE_AXE=ITEMS.register("sanguinite_axe",
             ()->new AxeItem(ModToolTiers.SANGUINITE,new Item.Properties().rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).attributes(AxeItem.createAttributes(ModToolTiers.SANGUINITE,1,-3.2f))));
 
-    public static final DeferredHolder<Item, Item> DEATHSILVER_DAGGER = ITEMS.register("deathsilver_dagger", () ->
-            new ExtendedSwordItem(ModToolTiers.DEATHSILVER, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DEATHSILVER_DAGGER))));
-    public static final DeferredHolder<Item, Item> DEATHSILVER_SWORD = ITEMS.register("deathsilver_sword", () ->
-            new ExtendedSwordItem(ModToolTiers.DEATHSILVER, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DEATHSILVER_SWORD))));
-    public static final DeferredHolder<Item, Item> DEATHSILVER_AXE = ITEMS.register("deathsilver_axe", () ->
-            new ExtendedSwordItem(ModToolTiers.DEATHSILVER, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DEATHSILVER_AXE))));
+    public static final DeferredItem<Item>DEATHSILVER_DAGGER = ITEMS.register("deathsilver_dagger",
+            DeathsilverDaggerItem::new);
+    public static final DeferredItem<Item>DEATHSILVER_SWORD = ITEMS.register("deathsilver_sword",
+            DeathsilverSwordItem::new);
+    public static final DeferredItem<Item>DEATHSILVER_AXE = ITEMS.register("deathsilver_axe",
+            DeathsilverAxeItem::new);
 
     public static final DeferredItem<Item>VILLAGE_BUTCHERER = ITEMS.register("village_butcherer",
             VillagerButchererItem::new);
-
     public static final DeferredItem<Item>POISON_BITER = ITEMS.register("poison_biter",
             PoisonBiterItem::new);
     public static final DeferredItem<Item>POISON_GLAIVE = ITEMS.register("poison_glaive",
             PoisonGlaive::new);
     public static final DeferredItem<Item>FROST_FANG = ITEMS.register("frost_fang",
             FrostFangItem::new);
-
     public static final DeferredItem<Item> NECROMANCER_TRIDENT = ITEMS.register("necromancer_trident",
             NecromancerTridentItem::new);
-
     public static final DeferredItem<Item>CRESCENT_BLOOD_ROSE = ITEMS.register("crescent_blood_rose",
             CrescentBloodRoseItem::new);
     public static final DeferredItem<Item>CLAWS_OF_CALAMITY = ITEMS.register("claws_of_calamity",

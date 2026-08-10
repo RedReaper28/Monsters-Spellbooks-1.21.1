@@ -1,5 +1,6 @@
 package net.redreaper.monsterspellbooks.item.weapons;
 
+import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.ChatFormatting;
@@ -8,32 +9,29 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
-import net.redreaper.monsterspellbooks.item.extended.magic_bow.ImbueableBowItem;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class SnowBowItem extends ImbueableBowItem {
-    public SnowBowItem() {
+public class DeathsilverDaggerItem extends ExtendedSwordItem {
+
+    public DeathsilverDaggerItem() {
         super(
+                ModExtendedWeaponTiers.DEATHSILVER_DAGGER,
                 new Item
                         .Properties()
                         .stacksTo(1)
-                        .durability(451)
                         .rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue())
-                        .fireResistant()
-                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.SNOW_BOW)
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DEATHSILVER_DAGGER)
                         )
         );
     }
 
-    public int getEnchantmentValue() {
-        return 10;
+    @Override
+    public void appendHoverText(@NotNull ItemStack itemStack, @NotNull TooltipContext context, @NotNull List<Component> lines, @NotNull TooltipFlag flag) {
+        super.appendHoverText(itemStack, context, lines, flag);
+        var affinityData = AffinityData.getAffinityData(itemStack);
+        lines.add(Component.translatable("tooltip.monsterspellbooks.deathsilver").withStyle(new ChatFormatting[]{ChatFormatting.GRAY}));
     }
 
-    @Override
-    public void appendHoverText(@NotNull ItemStack itemStack, TooltipContext context, @NotNull List<Component> lines, @NotNull TooltipFlag flag) {
-        super.appendHoverText(itemStack, context, lines, flag);
-        lines.add(Component.translatable("tooltip.monsterspellbooks.snow_bow").withStyle(new ChatFormatting[]{ChatFormatting.DARK_AQUA}));
-    }
 }

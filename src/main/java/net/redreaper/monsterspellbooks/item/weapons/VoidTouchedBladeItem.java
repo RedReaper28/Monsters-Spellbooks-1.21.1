@@ -5,11 +5,11 @@ import io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
@@ -21,9 +21,16 @@ public class VoidTouchedBladeItem extends MagicSwordItem {
     public VoidTouchedBladeItem() {
         super(
                 ModExtendedWeaponTiers.VOID_BLADE,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.VOID_BLADE)),
+                new Item
+                        .Properties()
+                        .stacksTo(1)
+                        .rarity(ASRarities.COSMIC_RARITY_PROXY.getValue())
+                        .fireResistant()
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.VOID_BLADE)
+                        ),
                 SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(SpellRegistry.SHADOW_SLASH, 5))
+                        new SpellDataRegistryHolder(SpellRegistry.SHADOW_SLASH, 5)
+                )
         );
     }
 

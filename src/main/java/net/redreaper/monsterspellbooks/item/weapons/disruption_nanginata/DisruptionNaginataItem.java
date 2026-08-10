@@ -6,11 +6,11 @@ import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.item.UniqueItem;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.api.distmarker.Dist;
@@ -24,8 +24,15 @@ import java.util.List;
 
 public class DisruptionNaginataItem extends MagicSwordItem implements UniqueItem {
     public DisruptionNaginataItem() {
-        super(ModExtendedWeaponTiers.VOID_OBSIDIAN,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.COSMIC_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.VOID_OBSIDIAN)),
+        super(
+                ModExtendedWeaponTiers.VOID_OBSIDIAN,
+                new Item
+                        .Properties()
+                        .stacksTo(1)
+                        .fireResistant()
+                        .rarity(ASRarities.COSMIC_RARITY_PROXY.getValue())
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.VOID_OBSIDIAN)
+                        ),
                 SpellDataRegistryHolder.of(
                         new SpellDataRegistryHolder(ModSpellRegistry.SPACE_RUPTURE, 5)
                 )

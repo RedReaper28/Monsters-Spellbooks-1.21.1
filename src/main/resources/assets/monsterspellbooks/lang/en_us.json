@@ -428,7 +428,7 @@
   "effect.monsterspellbooks.void_touched": "Void Touched",
 
   "effect.monsterspellbooks.hemorrhage.description": "Upon reaching 3 stacks of Hemorrhage, the creature explodes, dealing damage and Hemorrhaging nearby creatures",
-  "display.monsterspellbooks.curse_warning": "What a terrible night to have a Curse",
+  "display.monsterspellbooks.curse_warning": "What a terrible night to have a Curse.Try that on  ",
 
   "school.monsterspellbooks.necro": "Necro",
   "school.monsterspellbooks.aero": "Aero",
@@ -448,6 +448,9 @@
   "tooltip.monsterspellbooks.star_set": "Turn your skin to obsidian to gain +5 AP,+20% attack and immunity to fire,cold,wither and poison at the cost of not being able to heal",
 
   "tooltip.monsterspellbooks.flesh_maiden_passive_ability": "A once beautiful women that got experimented on her wedding day,now makes you immune to the consequences of Heartstop",
+
+  "tooltip.monsterspellbooks.sanguinite": "Builds up Hemorrage on melee hits",
+  "tooltip.monsterspellbooks.deathsilver": "Deals 50% more damage to non undead targets on melee hits",
 
   "tooltip.monsterspellbooks.poison_glaive": "Hits inflict poison",
   "tooltip.monsterspellbooks.poison_bite": "Kills summon poison splashes",
@@ -634,7 +637,7 @@
   "spell.monsterspellbooks.spider_fangs.guide": "Shot 4 poisonous spider fangs forward.With an Ice Spellbook shot 2 Ice Spider Fangs to inflict Frostbite.With a Pale Spellbook shot a pair of mandibles to inflict Acidic Venom",
   "spell.monsterspellbooks.summon_poison_vines": "Summon Poison Vines",
   "spell.monsterspellbooks.summon_poison_vines.guide": "Summon Poison Quill Vines to act as turrets for you",
-  "spell.monsterspellbooks.reaper_aspect": "Aspect of the Reaper ",
+  "spell.monsterspellbooks.reaper_aspect": "Aspect of the Reaper  ",
   "spell.monsterspellbooks.reaper_aspect.guide": "Instill yourself with necrotic magic,dealing additional melee,ranged,or spell damage towards creatures that are withering",
   "spell.monsterspellbooks.banshee_scream": "Banshee Scream",
   "spell.monsterspellbooks.banshee_scream.guide": "Release a horrible scream that wither any life that hears it",

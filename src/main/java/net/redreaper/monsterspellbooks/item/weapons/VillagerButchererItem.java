@@ -6,6 +6,7 @@ import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.entity.spells.thrown_item.ThrownItemProjectile;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
+import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -34,7 +35,13 @@ public class VillagerButchererItem extends ExtendedSwordItem {
     public VillagerButchererItem() {
         super(
                 ModExtendedWeaponTiers.VILLAGE_BUTCHER,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.VILLAGE_BUTCHER))
+                new Item
+                        .Properties()
+                        .stacksTo(1)
+                        .rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue())
+                        .fireResistant()
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.VILLAGE_BUTCHER)
+                        )
         );
     }
 

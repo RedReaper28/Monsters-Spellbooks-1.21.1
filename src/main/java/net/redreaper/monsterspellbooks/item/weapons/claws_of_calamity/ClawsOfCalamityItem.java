@@ -6,12 +6,12 @@ import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.item.UniqueItem;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.api.distmarker.Dist;
@@ -35,8 +35,15 @@ public class ClawsOfCalamityItem extends MagicSwordItem implements GeoItem, Uniq
     private final AnimationController<ClawsOfCalamityItem> animationController = new AnimationController<>(this, "controller", 0, this::predicate);
 
     public ClawsOfCalamityItem() {
-        super(ModExtendedWeaponTiers.FORBIDDEN_TOOL,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.ACCURSED_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.FORBIDDEN_TOOL)),
+        super(
+                ModExtendedWeaponTiers.FORBIDDEN_TOOL,
+                new Item
+                        .Properties()
+                        .stacksTo(1)
+                        .fireResistant()
+                        .rarity(ASRarities.ACCURSED_RARITY_PROXY.getValue())
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.FORBIDDEN_TOOL)
+                        ),
                 SpellDataRegistryHolder.of(
                         new SpellDataRegistryHolder(ModSpellRegistry.PRIMORDIAL_FLASH, 3)
                 )

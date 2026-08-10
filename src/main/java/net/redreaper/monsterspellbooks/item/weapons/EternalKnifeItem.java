@@ -5,7 +5,6 @@ import io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -19,14 +18,22 @@ import java.util.List;
 
 public class EternalKnifeItem extends MagicSwordItem {
     public static final int COOLDOWN = 15 * 20;
+
     public EternalKnifeItem() {
         super(
                 ModExtendedWeaponTiers.CULTIST_KNIFE,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.FORBIDDEN_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.CULTIST_KNIFE)),
+                new Item
+                        .Properties()
+                        .stacksTo(1)
+                        .rarity(ASRarities.FORBIDDEN_RARITY_PROXY.getValue())
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.CULTIST_KNIFE)
+                        ),
                 SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(SpellRegistry.SACRIFICE_SPELL, 5))
+                        new SpellDataRegistryHolder(SpellRegistry.SHOCKWAVE_SPELL, 5)
+                )
         );
     }
+
 
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);

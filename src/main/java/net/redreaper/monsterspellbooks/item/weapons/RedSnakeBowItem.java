@@ -1,10 +1,10 @@
 package net.redreaper.monsterspellbooks.item.weapons;
 
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
@@ -15,12 +15,20 @@ import java.util.List;
 
 public class RedSnakeBowItem extends ImbueableBowItem {
     public static final int COOLDOWN = 15 * 20;
+
     public RedSnakeBowItem() {
         super(
-                ItemPropertiesHelper.equipment(1).fireResistant().durability(451).rarity(ASRarities.ARID_RARITY_PROXY.getValue())
-                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.RED_SNAKE))
+                new Item
+                        .Properties()
+                        .stacksTo(1)
+                        .durability(451)
+                        .rarity(ASRarities.ARID_RARITY_PROXY.getValue())
+                        .fireResistant()
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.RED_SNAKE)
+                        )
         );
     }
+
 
     public int getEnchantmentValue() {
         return 10;

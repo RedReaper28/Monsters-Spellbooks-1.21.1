@@ -2,11 +2,10 @@ package net.redreaper.monsterspellbooks.item.weapons;
 
 import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
-import io.redspace.ironsspellbooks.entity.spells.poison_cloud.PoisonSplash;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
@@ -21,8 +20,16 @@ public class PoisonGlaive extends ExtendedSwordItem {
     public PoisonGlaive() {
         super(
                 ModExtendedWeaponTiers.POISONED_SPEAR,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(Rarity.EPIC).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.POISONED_SPEAR)));
+                new Item
+                        .Properties()
+                        .stacksTo(1)
+                        .rarity(Rarity.EPIC)
+                        .fireResistant()
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.POISONED_SPEAR)
+                        )
+        );
     }
+
 
     @Override
     public void appendHoverText(@NotNull ItemStack itemStack, TooltipContext context, @NotNull List<Component> lines, @NotNull TooltipFlag flag) {

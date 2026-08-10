@@ -7,7 +7,6 @@ import io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.item.UniqueItem;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -27,12 +26,20 @@ import java.util.List;
 
 public class ReaperSickle extends MagicSwordItem implements UniqueItem {
     public static final int COOLDOWN = 20 * 20;
+
     public ReaperSickle() {
         super(
                 ModExtendedWeaponTiers.SPECTRITE,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ModRarities.SOUL_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.SPECTRITE)),
+                new Item
+                        .Properties()
+                        .stacksTo(1)
+                        .rarity(ModRarities.SOUL_RARITY_PROXY.getValue())
+                        .fireResistant()
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.SPECTRITE)
+                        ),
                 SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(ModSpellRegistry.VILE_SLASH, 5))
+                        new SpellDataRegistryHolder(ModSpellRegistry.VILE_SLASH, 5)
+                )
         );
     }
 

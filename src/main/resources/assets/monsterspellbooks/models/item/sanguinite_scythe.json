@@ -2,17 +2,17 @@
 	"parent": "minecraft:item/handheld",
 	"loader": "neoforge:separate_transforms",
 	"base": {
-		"parent": "monsterspellbooks:item/sanguinite_scythe_hand"
+		"parent": "irons_spellbooks:item/template_verylarge_sword",
+		"textures": {
+			"layer0": "monsterspellbooks:item/sanguinite_scythe"
+		}
 	},
 	"perspectives": {
 		"gui": {
-			"parent": "monsterspellbooks:item/sanguinite_scythe_gui"
-		},
-		"ground": {
-			"parent": "monsterspellbooks:item/sanguinite_scythe_gui"
-		},
-		"fixed": {
-			"parent": "monsterspellbooks:item/sanguinite_scythe_gui"
+			"parent": "minecraft:item/handheld",
+			"textures": {
+				"layer0": "monsterspellbooks:item/sanguinite_scythe_gui"
+			}
 		}
 	}
 }

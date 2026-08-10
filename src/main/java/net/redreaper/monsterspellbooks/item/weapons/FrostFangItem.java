@@ -1,7 +1,6 @@
 package net.redreaper.monsterspellbooks.item.weapons;
 
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -18,7 +17,13 @@ public class FrostFangItem extends ExtendedSwordItem {
     public FrostFangItem() {
         super(
                 ModExtendedWeaponTiers.FROST_FANG,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.FROST_FANG)));
+                new Properties()
+                        .stacksTo(1)
+                        .rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue())
+                        .fireResistant()
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.FROST_FANG)
+                        )
+        );
     }
 
     @Override
