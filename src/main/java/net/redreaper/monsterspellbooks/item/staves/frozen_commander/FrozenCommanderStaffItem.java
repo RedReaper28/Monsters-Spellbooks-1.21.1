@@ -2,7 +2,6 @@ package net.redreaper.monsterspellbooks.item.staves.frozen_commander;
 
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.acetheeldritchking.aces_spell_utils.items.example.items.weapons.ASWeaponTiers;
 import net.acetheeldritchking.aces_spell_utils.items.weapons.MagicGunItem;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
@@ -18,7 +17,11 @@ public class FrozenCommanderStaffItem extends MagicGunItem {
     public FrozenCommanderStaffItem() {
         super(
                 ASWeaponTiers.EXAMPLE_GUN,
-                ItemPropertiesHelper.equipment(1).fireResistant().rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModStaffMaterials.FROZEN_COMMANDER)),
+                new Properties()
+                        .stacksTo(1)
+                        .fireResistant()
+                        .rarity(ASRarities.GLACIAL_RARITY_PROXY.getValue())
+                        .attributes(ExtendedSwordItem.createAttributes(ModStaffMaterials.FROZEN_COMMANDER)),
                 SpellDataRegistryHolder.of(
                 )
         );

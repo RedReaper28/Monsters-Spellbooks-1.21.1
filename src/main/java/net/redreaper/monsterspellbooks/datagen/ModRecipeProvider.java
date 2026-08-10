@@ -38,14 +38,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("A")
                 .pattern("B")
                 .define('A',ModItems.DEATHSILVER_INGOT.get())
-                .define('B',Items.STICK)
+                .define('B',ModItems.VILE_BONE.get())
                 .unlockedBy("has_material", has(ModItems.DEATHSILVER_INGOT.get())).save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DEATHSILVER_DAGGER.get())
                 .pattern(" A")
                 .pattern("B ")
                 .define('A',ModItems.DEATHSILVER_INGOT.get())
-                .define('B',Items.STICK)
+                .define('B',ModItems.VILE_BONE.get())
                 .unlockedBy("has_material", has(ModItems.DEATHSILVER_INGOT.get())).save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DEATHSILVER_AXE.get())
@@ -53,7 +53,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("AB")
                 .pattern(" B")
                 .define('A',ModItems.DEATHSILVER_INGOT.get())
-                .define('B',Items.STICK)
+                .define('B',ModItems.VILE_BONE.get())
                 .unlockedBy("has_material", has(ModItems.DEATHSILVER_INGOT.get())).save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FROST_FANG.get())

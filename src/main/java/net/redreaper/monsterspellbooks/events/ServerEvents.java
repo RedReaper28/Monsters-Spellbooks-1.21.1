@@ -165,6 +165,10 @@ public class ServerEvents {
                     event.setAmount(newDamage);
                 }
             }
+
+            if (livingAttacker.getItemBySlot(EquipmentSlot.MAINHAND).is(ModTags.Items.SANGUINITE_WEAPONS)) {
+                HemorrhageMobEffect.addHemorrhageStack(target, livingAttacker);
+            }
         }
     }
 
@@ -185,7 +189,11 @@ public class ServerEvents {
                         target.addEffect(new MobEffectInstance(ModMobEffects.BRIMSTONE_FLAME, 60, 0, true, true, true));
                 }
 
-
+                if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModTags.Items.SANGUINITE_WEAPONS)) {
+                    if (event.getSource().is(DamageTypes.PLAYER_ATTACK)) {
+                        HemorrhageMobEffect.addHemorrhageStack(target, player);
+                    }
+                }
 
                 // Frostmourne
                 if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FROSTMOURNE)) {

@@ -5,7 +5,6 @@ import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -36,7 +35,13 @@ public class DwarvenRiotShieldItem extends ExtendedShieldItem {
     public static final int COOLDOWN = 10 * 20;
 
     public DwarvenRiotShieldItem() {
-        super(ItemPropertiesHelper.equipment(1).fireResistant().durability(1541).rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()));
+        super(
+                new Properties()
+                        .stacksTo(1)
+                        .fireResistant()
+                        .durability(1541)
+                        .rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue())
+                        );
     }
 
     public UseAnim getUseAnimation(ItemStack p_77661_1_) {

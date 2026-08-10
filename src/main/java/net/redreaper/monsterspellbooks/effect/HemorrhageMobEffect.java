@@ -1,25 +1,30 @@
 package net.redreaper.monsterspellbooks.effect;
 
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
+import io.redspace.ironsspellbooks.api.util.CameraShakeData;
+import io.redspace.ironsspellbooks.api.util.CameraShakeManager;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import io.redspace.ironsspellbooks.effect.ISyncedMobEffect;
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
+import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
-import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
@@ -27,7 +32,7 @@ import java.util.WeakHashMap;
 
 public class HemorrhageMobEffect extends MagicMobEffect implements ISyncedMobEffect {
 
-    public static final int STACKS_REQUIRED = 3;
+    public static final int STACKS_REQUIRED = 5;
     public static final int STACKS_REQUIRED_AMPLIFIER = STACKS_REQUIRED - 1;
 
     private static final Map<LivingEntity, Entity> EFFECT_CREDIT = new WeakHashMap<>();
@@ -42,9 +47,9 @@ public class HemorrhageMobEffect extends MagicMobEffect implements ISyncedMobEff
         MobEffectInstance previous = entity.getEffect(ModMobEffects.HEMORRHAGE);
         MobEffectInstance inst;
         if (previous != null) {
-            inst = new MobEffectInstance(ModMobEffects.HEMORRHAGE, 20 * 15, previous.getAmplifier() + 1, previous.isAmbient(), previous.isVisible(), previous.showIcon());
+            inst = new MobEffectInstance(ModMobEffects.HEMORRHAGE, 20 * 5, previous.getAmplifier() + 1, previous.isAmbient(), previous.isVisible(), previous.showIcon());
         } else {
-            inst = new MobEffectInstance(ModMobEffects.HEMORRHAGE, 20 * 15, 0, false, false, true);
+            inst = new MobEffectInstance(ModMobEffects.HEMORRHAGE, 20 * 5, 0, false, false, true);
         }
         if (afflicter != null) {
             EFFECT_CREDIT.put(entity, afflicter);
@@ -78,36 +83,39 @@ public class HemorrhageMobEffect extends MagicMobEffect implements ISyncedMobEff
         if (DELAYED_INSTANCES.containsKey(self) && !(DELAYED_INSTANCES.get(self) - duration > 4)) {
             return true;
         }
-        float explosionRadius = 6;
         var level = livingEntity.level();
         if (level.isClientSide) {
             return true;
         }
+
         @Nullable Entity attacker = EFFECT_CREDIT.remove(livingEntity);
         double baseDamage = damageFor(attacker);
+        float damage = (float) (baseDamage);
 
         var source = new DamageSource(level.damageSources().damageTypes.getHolderOrThrow(ISSDamageTypes.BLOOD_MAGIC), attacker);
+        livingEntity.invulnerableTime = 0; // ensure explosion can hit after the damage that procs it
 
-        var explosionRadiusSqr = explosionRadius * explosionRadius;
-        var entities = level.getEntities(null, livingEntity.getBoundingBox().inflate(explosionRadius));
-        Vec3 losPoint = Utils.raycastForBlock(level, livingEntity.position(), livingEntity.position().add(0, 1, 0), ClipContext.Fluid.NONE).getLocation();
-        for (Entity entity : entities) {
-            double distanceSqr = entity.distanceToSqr(livingEntity.position());
-            if (distanceSqr < explosionRadiusSqr && entity.canBeHitByProjectile() && !DamageSources.isFriendlyFireBetween(attacker, entity) && Utils.hasLineOfSight(level, losPoint, entity.getBoundingBox().getCenter(), true)) {
-                double p = (1 - distanceSqr / explosionRadiusSqr);
-                float damage = (float) (baseDamage * p);
-                if (entity.hurt(source, damage) && entity instanceof LivingEntity livingVictim) {
-                    var inst = addHemorrhageStack(livingVictim, attacker);
-                    DELAYED_INSTANCES.put(inst, inst.getDuration());
-                }
-            }
+        if (livingEntity.hurt(source, damage) && livingEntity instanceof LivingEntity livingVictim) {
+
         }
+
+        doSBloodExplosion(level, 1.5f, livingEntity.getBoundingBox().getCenter());
         level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundRegistry.BLOOD_EXPLOSION.value(), livingEntity.getSoundSource(), 4.0F, (1.0F + (level.random.nextFloat() - level.random.nextFloat()) * 0.2F) * 0.7F);
         return false;
     }
 
+    public static void doSBloodExplosion(Level level, float explosionRadius, Vec3 pos) {
+
+        MagicManager.spawnParticles(level, ParticleHelper.BLOOD, pos.x, pos.y, pos.z, 250, .03, .4, .03, .4, false);
+        MagicManager.spawnParticles(level, new BlastwaveParticleOptions(SchoolRegistry.BLOOD.get().getTargetingColor(), explosionRadius), pos.x, pos.y, pos.z, 1, 0, 0, 0, 0, true);
+
+        CameraShakeManager.addCameraShake(new CameraShakeData(level, 10, pos, 20));
+        level.playSound(null, BlockPos.containing(pos), SoundRegistry.BLOOD_EXPLOSION.get(), SoundSource.PLAYERS, 3, Utils.random.nextIntBetweenInclusive(8, 12) * .1f);
+    }
+
+
     public static double damageFor(@Nullable Entity entity) {
-        double baseDamage = 10.0;
+        double baseDamage = 5;
         if (entity instanceof LivingEntity livingAttacker) {
             baseDamage = baseDamage * livingAttacker.getAttributeValue(AttributeRegistry.SPELL_POWER) * livingAttacker.getAttributeValue(AttributeRegistry.BLOOD_SPELL_POWER);
         }

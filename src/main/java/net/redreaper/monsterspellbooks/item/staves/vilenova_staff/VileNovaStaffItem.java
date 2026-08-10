@@ -2,7 +2,6 @@ package net.redreaper.monsterspellbooks.item.staves.vilenova_staff;
 
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.item.weapons.StaffItem;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -16,8 +15,13 @@ public class VileNovaStaffItem extends StaffItem {
     public final ModDispatcher dispatcher = new ModDispatcher();
 
     public VileNovaStaffItem() {
-        super(ItemPropertiesHelper.equipment(1).fireResistant().rarity(ModRarities.SOUL_RARITY_PROXY.getValue())
-                .attributes(ExtendedSwordItem.createAttributes(ModStaffMaterials.VILENOVA)));
+        super(
+                new Properties()
+                        .stacksTo(1)
+                        .rarity(ModRarities.SOUL_RARITY_PROXY.getValue())
+                        .attributes(ExtendedSwordItem.createAttributes(ModStaffMaterials.VILENOVA)
+                        )
+        );
     }
 
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {

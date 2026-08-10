@@ -159,8 +159,9 @@ public class ModItems {
 
     public static final DeferredHolder<Item, Item> GREAT_AXEBLADE = ITEMS.register("great_axeblade", () ->
             new ExtendedAxeItem(Tiers.IRON, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_GREATAXE))));
-    public static final DeferredHolder<Item, Item> MASTERS_KATANA = ITEMS.register("masters_katana", () ->
-            new ExtendedSwordItem(ModToolTiers.ROSE_GOLD, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.MASTERS_KATANA))));
+
+    public static final DeferredHolder<Item, Item> MASTERS_KATANA = ITEMS.register("masters_katana",
+            MastersKatana::new);
     public static final DeferredHolder<Item, Item> DANCERS_SWORD = ITEMS.register("dancers_sword",
             DancerSwordItem::new);
 
@@ -209,12 +210,13 @@ public class ModItems {
             new ExtendedAxeItem(ModToolTiers.DWARVEN_ALLOY, ItemPropertiesHelper.equipment().rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DWARVEN_WARHAMMER))));
     public static final DeferredItem<AxeItem>DWARVEN_AXE=ITEMS.register("dwarven_axe", ()->
             new AxeItem(ModToolTiers.DWARVEN_ALLOY, ItemPropertiesHelper.equipment().rarity(ModRarities.DWARVEN_RARITY_PROXY.getValue()).attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.DWARVEN_AXE))));
-    public static final DeferredItem<SwordItem>SANGUINITE_DAGGER=ITEMS.register("sanguinite_dagger", ()->
-            new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,-3,-2.5f))));
+
+    public static final DeferredItem<SwordItem>SANGUINITE_DAGGER=ITEMS.register("sanguinite_dagger",
+            SanguniteDaggerItem::new);
     public static final DeferredItem<SwordItem>SANGUINITE_SCYTHE=ITEMS.register("sanguinite_scythe",
-            ()->new SwordItem(ModToolTiers.SANGUINITE,new Item.Properties().rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).attributes(SwordItem.createAttributes(ModToolTiers.SANGUINITE,-7,-3f))));
+            SanguniteScytheItem::new);
     public static final DeferredItem<AxeItem>SANGUINITE_AXE=ITEMS.register("sanguinite_axe",
-            ()->new AxeItem(ModToolTiers.SANGUINITE,new Item.Properties().rarity(ModRarities.SANGUINITE_RARITY_PROXY.getValue()).attributes(AxeItem.createAttributes(ModToolTiers.SANGUINITE,1,-3.2f))));
+            SanguniteGreatAxeItem::new);
 
     public static final DeferredItem<Item>DEATHSILVER_DAGGER = ITEMS.register("deathsilver_dagger",
             DeathsilverDaggerItem::new);

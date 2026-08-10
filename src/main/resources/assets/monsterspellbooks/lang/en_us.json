@@ -244,7 +244,6 @@
   "item.monsterspellbooks.thundering_quiver.desc": "Adds 2 extra volt arrows to Voltaic Multishot",
   "item.monsterspellbooks.brimstone_sigil": "Brimstone Sigil",
   "item.monsterspellbooks.brimstone_sigil.desc": "Dealing Fire Spell Damage inflicts Brimstone Flame",
-  "item.monsterspellbooks.brimstone_sigil.immolate.desc": "At 3 Immolation stacks, cause an explosion (%s damage), spreading Immolation",
   "item.monsterspellbooks.dreadhound_tooth_necklace": "Dreadhound Tooth Necklace",
   "item.monsterspellbooks.dreadhound_tooth_necklace.desc": "Sacrifice health to reduce the cost of Blood Magic by 66%.",
   "item.monsterspellbooks.dwarven_power_core": "Dwarven Power Core",
@@ -427,7 +426,7 @@
   "effect.monsterspellbooks.suffocation": "Suffocation",
   "effect.monsterspellbooks.void_touched": "Void Touched",
 
-  "effect.monsterspellbooks.hemorrhage.description": "Upon reaching 3 stacks of Hemorrhage, the creature explodes, dealing damage and Hemorrhaging nearby creatures",
+  "effect.monsterspellbooks.hemorrhage.description": "At 5 stacks of Hemorrhage, the creatures wounds explode, dealing %s damage to it ",
   "display.monsterspellbooks.curse_warning": "What a terrible night to have a Curse.Try that on  ",
 
   "school.monsterspellbooks.necro": "Necro",
@@ -449,7 +448,7 @@
 
   "tooltip.monsterspellbooks.flesh_maiden_passive_ability": "A once beautiful women that got experimented on her wedding day,now makes you immune to the consequences of Heartstop",
 
-  "tooltip.monsterspellbooks.sanguinite": "Builds up Hemorrage on melee hits",
+  "tooltip.monsterspellbooks.sanguinite": "Builds up Hemorrhage on melee hits",
   "tooltip.monsterspellbooks.deathsilver": "Deals 50% more damage to non undead targets on melee hits",
 
   "tooltip.monsterspellbooks.poison_glaive": "Hits inflict poison",
