@@ -31,9 +31,8 @@ import java.util.Map;
 import java.util.WeakHashMap;
 
 public class HemorrhageMobEffect extends MagicMobEffect implements ISyncedMobEffect {
-
-    public static final int STACKS_REQUIRED = 5;
-    public static final int STACKS_REQUIRED_AMPLIFIER = STACKS_REQUIRED - 1;
+    public static final int STACKS_REQUIRED = 6;
+    public static final int STACKS_REQUIRED_AMPLIFIER = STACKS_REQUIRED -1 ;
 
     private static final Map<LivingEntity, Entity> EFFECT_CREDIT = new WeakHashMap<>();
 
@@ -50,6 +49,36 @@ public class HemorrhageMobEffect extends MagicMobEffect implements ISyncedMobEff
             inst = new MobEffectInstance(ModMobEffects.HEMORRHAGE, 20 * 5, previous.getAmplifier() + 1, previous.isAmbient(), previous.isVisible(), previous.showIcon());
         } else {
             inst = new MobEffectInstance(ModMobEffects.HEMORRHAGE, 20 * 5, 0, false, false, true);
+        }
+        if (afflicter != null) {
+            EFFECT_CREDIT.put(entity, afflicter);
+        }
+        entity.addEffect(inst);
+        return inst;
+    }
+
+    public static MobEffectInstance addHemorrhageStack2(LivingEntity entity, @Nullable Entity afflicter) {
+        MobEffectInstance previous = entity.getEffect(ModMobEffects.HEMORRHAGE);
+        MobEffectInstance inst;
+        if (previous != null) {
+            inst = new MobEffectInstance(ModMobEffects.HEMORRHAGE, 20 * 5, previous.getAmplifier() + 2, previous.isAmbient(), previous.isVisible(), previous.showIcon());
+        } else {
+            inst = new MobEffectInstance(ModMobEffects.HEMORRHAGE, 20 * 5, 1, false, false, true);
+        }
+        if (afflicter != null) {
+            EFFECT_CREDIT.put(entity, afflicter);
+        }
+        entity.addEffect(inst);
+        return inst;
+    }
+
+    public static MobEffectInstance addHemorrhageStack3(LivingEntity entity, @Nullable Entity afflicter) {
+        MobEffectInstance previous = entity.getEffect(ModMobEffects.HEMORRHAGE);
+        MobEffectInstance inst;
+        if (previous != null) {
+            inst = new MobEffectInstance(ModMobEffects.HEMORRHAGE, 20 * 5, previous.getAmplifier() + 3, previous.isAmbient(), previous.isVisible(), previous.showIcon());
+        } else {
+            inst = new MobEffectInstance(ModMobEffects.HEMORRHAGE, 20 * 5, 2, false, false, true);
         }
         if (afflicter != null) {
             EFFECT_CREDIT.put(entity, afflicter);

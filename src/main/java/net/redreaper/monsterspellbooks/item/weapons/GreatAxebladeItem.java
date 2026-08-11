@@ -9,11 +9,12 @@ public class GreatAxebladeItem extends ExtendedAxeItem {
 
     public GreatAxebladeItem() {
         super(
-                ModExtendedWeaponTiers.MASTERS_KATANA,
+                ModExtendedWeaponTiers.GREAT_AXEBLADE,
                 new Properties()
                         .stacksTo(1)
+                        .fireResistant()
                         .rarity(Rarity.UNCOMMON)
-                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.MASTERS_KATANA)
+                        .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.GREAT_AXEBLADE)
                         )
         );
     }

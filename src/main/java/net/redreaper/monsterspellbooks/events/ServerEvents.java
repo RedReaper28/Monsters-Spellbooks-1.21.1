@@ -165,10 +165,6 @@ public class ServerEvents {
                     event.setAmount(newDamage);
                 }
             }
-
-            if (livingAttacker.getItemBySlot(EquipmentSlot.MAINHAND).is(ModTags.Items.SANGUINITE_WEAPONS)) {
-                HemorrhageMobEffect.addHemorrhageStack(target, livingAttacker);
-            }
         }
     }
 
@@ -189,9 +185,27 @@ public class ServerEvents {
                         target.addEffect(new MobEffectInstance(ModMobEffects.BRIMSTONE_FLAME, 60, 0, true, true, true));
                 }
 
-                if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModTags.Items.SANGUINITE_WEAPONS)) {
+                if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.POISON_GLAIVE)) {
+                    if (event.getSource().is(DamageTypes.PLAYER_ATTACK)) {
+                        target.addEffect(new MobEffectInstance(MobEffects.POISON, 3*20, 1, true, true, true));
+                    }
+                }
+
+                if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.SANGUINITE_DAGGER)) {
                     if (event.getSource().is(DamageTypes.PLAYER_ATTACK)) {
                         HemorrhageMobEffect.addHemorrhageStack(target, player);
+                    }
+                }
+
+                if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.SANGUINITE_SCYTHE)) {
+                    if (event.getSource().is(DamageTypes.PLAYER_ATTACK)) {
+                        HemorrhageMobEffect.addHemorrhageStack2(target, player);
+                    }
+                }
+
+                if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.SANGUINITE_AXE)) {
+                    if (event.getSource().is(DamageTypes.PLAYER_ATTACK)) {
+                        HemorrhageMobEffect.addHemorrhageStack3(target, player);
                     }
                 }
 

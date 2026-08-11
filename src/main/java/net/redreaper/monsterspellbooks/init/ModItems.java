@@ -157,9 +157,8 @@ public class ModItems {
     public static final DeferredItem<Item>BRIMSTONE_OROCHI=ITEMS.register("brimstone_orochi",
             BrimstoneOrochiItem::new);
 
-    public static final DeferredHolder<Item, Item> GREAT_AXEBLADE = ITEMS.register("great_axeblade", () ->
-            new ExtendedAxeItem(Tiers.IRON, ItemPropertiesHelper.equipment().attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.ORICHALCUM_GREATAXE))));
-
+    public static final DeferredHolder<Item, Item> GREAT_AXEBLADE = ITEMS.register("great_axeblade",
+            GreatAxebladeItem::new);
     public static final DeferredHolder<Item, Item> MASTERS_KATANA = ITEMS.register("masters_katana",
             MastersKatana::new);
     public static final DeferredHolder<Item, Item> DANCERS_SWORD = ITEMS.register("dancers_sword",

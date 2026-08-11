@@ -82,12 +82,11 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(ASAttributeRegistry.GOLIATH_SLAYER, 0.01, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
-    public static ModExtendedWeaponTiers POISONED_SPEAR = new ModExtendedWeaponTiers(751, 6F, -3, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModTags.NATURE_FOCUS),
-            new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(Attributes.ENTITY_INTERACTION_RANGE, 2, AttributeModifier.Operation.ADD_VALUE));
+    public static ModExtendedWeaponTiers POISONED_SPEAR = new ModExtendedWeaponTiers(751, 6F, -2.6f, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModTags.NATURE_FOCUS),
+            new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers POISONED_SICKLE = new ModExtendedWeaponTiers(751, 4F, -2.5f, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModTags.NATURE_FOCUS),
-            new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers END_DAGGER = new ModExtendedWeaponTiers(1551, 5F, -2.5f, 10, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModItems.VOID_OBSIDIAN_INGOT.get()),
             new AttributeContainer(AttributeRegistry.ENDER_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
@@ -98,11 +97,11 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
     public static ModExtendedWeaponTiers MASTERS_KATANA = new ModExtendedWeaponTiers(1561, 3F, -2.0f, 25, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModItems.ROSE_GOLD_INGOT.get()),
             new AttributeContainer(IronsLibRegistries.AttributeRegistry.CRIT_DAMAGE, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
-    public static ModExtendedWeaponTiers GREAT_AXEBLADE = new ModExtendedWeaponTiers(1561, 3F, -2.0f, 25, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModItems.ROSE_GOLD_INGOT.get()),
-            new AttributeContainer(IronsLibRegistries.AttributeRegistry.CRIT_DAMAGE, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+    public static ModExtendedWeaponTiers GREAT_AXEBLADE = new ModExtendedWeaponTiers(1561, 11f, -3.3f, 25, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModItems.ROSE_GOLD_INGOT.get()),
+            new AttributeContainer(AttributeRegistry.EVOCATION_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers DANCERS_SWORD = new ModExtendedWeaponTiers(751, 5F, -1.2f, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(Items.IRON_INGOT),
-            new AttributeContainer(Attributes.MOVEMENT_SPEED, 0.2, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(Attributes.MOVEMENT_SPEED, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers PRISMARINE_CLAYMORE = new ModExtendedWeaponTiers(751, 7F, -2.8F, 10, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(Items.PRISMARINE_SHARD),
             new AttributeContainer(Attributes.WATER_MOVEMENT_EFFICIENCY, 0.15, AttributeModifier.Operation.ADD_VALUE),
@@ -147,7 +146,7 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
 
     public static ModExtendedWeaponTiers ORICHALCUM_DAGGER = new ModExtendedWeaponTiers(1551, 5F, -2.5f, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.1, AttributeModifier.Operation.ADD_VALUE),
-            new AttributeContainer(IronsLibRegistries.AttributeRegistry.ARMOR_PIERCE, 0.3, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(IronsLibRegistries.AttributeRegistry.ARMOR_PIERCE, 0.3, AttributeModifier.Operation.ADD_VALUE));
     public static ModExtendedWeaponTiers ORICHALCUM_GREATSWORD = new ModExtendedWeaponTiers(1551, 7F, -3, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.2f, AttributeModifier.Operation.ADD_VALUE));
     public static ModExtendedWeaponTiers ORICHALCUM_GREATAXE = new ModExtendedWeaponTiers(1551, 11F, -3.2f, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),

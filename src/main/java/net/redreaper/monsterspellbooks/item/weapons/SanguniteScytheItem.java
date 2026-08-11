@@ -5,6 +5,7 @@ import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.util.MinecraftInstanceHelper;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.item.ItemStack;
@@ -33,10 +34,16 @@ public class SanguniteScytheItem extends ExtendedSwordItem {
     public void appendHoverText(@NotNull ItemStack itemStack, @NotNull TooltipContext context, @NotNull List<Component> lines, @NotNull TooltipFlag flag) {
         super.appendHoverText(itemStack, context, lines, flag);
         var affinityData = AffinityData.getAffinityData(itemStack);
-        lines.add(Component.translatable("tooltip.monsterspellbooks.sanguinite").withStyle(Style.EMPTY.withColor(16722350)));
-        lines.add(Component.translatable("effect.monsterspellbooks.hemorrhage.description",
-                Component.literal(Utils.stringTruncation(HemorrhageMobEffect.damageFor(MinecraftInstanceHelper.getPlayer()), 1)).withStyle(ChatFormatting.RED)
-        ).withStyle(Style.EMPTY.withColor(16722350)));
+        if (Screen.hasShiftDown()) {
+            lines.add(Component.translatable("tooltip.irons_spellbooks.passive_ability_no_cooldown").withStyle(ChatFormatting.DARK_PURPLE));
+            lines.add(Component.literal(" ").append(Component.translatable(this.getDescriptionId() + ".desc")).withStyle(Style.EMPTY.withColor(16722350)));
+            lines.add(Component.translatable("effect.monsterspellbooks.hemorrhage.description",
+                    Component.literal(Utils.stringTruncation(HemorrhageMobEffect.damageFor(MinecraftInstanceHelper.getPlayer()), 1)).withStyle(ChatFormatting.RED)
+            ).withStyle(Style.EMPTY.withColor(16722350)));
+        }
+        else {
+            lines.add(Component.translatable("item.aces_spell_utils.more_details1").withStyle(ChatFormatting.GRAY));
+        }
     }
 
 }
