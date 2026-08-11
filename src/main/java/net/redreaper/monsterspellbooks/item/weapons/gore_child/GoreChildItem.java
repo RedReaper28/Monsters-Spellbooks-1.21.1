@@ -19,7 +19,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
 import net.redreaper.monsterspellbooks.item.extended.magic_axe.PresetImbueAxeItem;
-import net.redreaper.monsterspellbooks.procedures.effectsonhit.BloodlustOnHit;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -74,14 +73,5 @@ public class GoreChildItem extends PresetImbueAxeItem implements UniqueItem {
             }
         }
     }
-
-    public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
-        boolean retval = super.hurtEnemy(itemstack, entity, sourceentity);
-        if (entity.isDeadOrDying()) {
-            BloodlustOnHit.execute(sourceentity);
-        }
-        return retval;
-    }
-
 }
 

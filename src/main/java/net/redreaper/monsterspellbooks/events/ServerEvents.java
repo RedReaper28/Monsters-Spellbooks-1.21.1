@@ -191,6 +191,12 @@ public class ServerEvents {
                     }
                 }
 
+                if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FROST_FANG)) {
+                    if (event.getSource().is(DamageTypes.PLAYER_ATTACK)) {
+                        Utils.addFreezeTicks(target, 60);
+                    }
+                }
+
                 if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.SANGUINITE_DAGGER)) {
                     if (event.getSource().is(DamageTypes.PLAYER_ATTACK)) {
                         HemorrhageMobEffect.addHemorrhageStack(target, player);

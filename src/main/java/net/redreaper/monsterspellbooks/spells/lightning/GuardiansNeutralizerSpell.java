@@ -61,7 +61,7 @@ public class GuardiansNeutralizerSpell extends AbstractSpell {
 
     @Override
     public CastType getCastType() {
-        return CastType.CONTINUOUS;
+        return CastType.LONG;
     }
 
     @Override
@@ -108,7 +108,7 @@ public class GuardiansNeutralizerSpell extends AbstractSpell {
     }
 
     public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int) (getSpellPower(spellLevel, caster) * 5);
+        return (int) (getSpellPower(spellLevel, caster) * 2);
     }
 
     public int getAmplifier(int spellLevel, LivingEntity entity) {

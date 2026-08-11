@@ -122,6 +122,6 @@ public class CrushSpell extends AbstractSpell {
 
     @Override
     public Vector3f getTargetingColor() {
-        return Utils.deconstructRGB(ModMobEffects.HEAL_CUT.get().getColor());
+        return Utils.deconstructRGB(ModMobEffects.CRUSHING_PRESENCE.get().getColor());
     }
 }

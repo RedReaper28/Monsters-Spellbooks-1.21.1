@@ -20,6 +20,7 @@ import net.minecraft.world.phys.HitResult;
 import net.redreaper.monsterspellbooks.MonstersSpellbooks;
 import net.redreaper.monsterspellbooks.entity.spells.spectral_blast.SpectralBlastVisualEntity;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 
@@ -69,9 +70,11 @@ public class SpectralBlastSpell extends AbstractSpell {
         level.addFreshEntity(new SpectralBlastVisualEntity(level, entity.getEyePosition().subtract((double)0.0F, (double)0.75F, (double)0.0F), hitResult.getLocation(), entity));
         if (hitResult.getType() == HitResult.Type.ENTITY) {
             Entity target = ((EntityHitResult)hitResult).getEntity();
-            if (target instanceof LivingEntity) {
-                DamageSources.applyDamage(target, this.getDamage(spellLevel, entity), this.getDamageSource(entity));
-                ((LivingEntity) target).addEffect(new MobEffectInstance(ModMobEffects.LETHARGY, (int) (getSpellPower(spellLevel, entity) * 20),  0, false, true, true));
+            if (target instanceof LivingEntity targetEntity) {
+                float hp = (float) (targetEntity.getHealth() *0.15);
+                float damage = getDamage(spellLevel, entity) + hp;
+                DamageSources.applyDamage(targetEntity, damage, ModSpellRegistry.SPECTRAL_BLAST.get().getDamageSource(entity));
+                targetEntity.addEffect(new MobEffectInstance(ModMobEffects.LETHARGY, (int) (getSpellPower(spellLevel, entity) * 20),  0, false, true, true));
             }
         }
         MagicManager.spawnParticles(level, ModParticleHelper.REAPER_FIRE, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z, 50, (double)0.0F, (double)0.0F, (double)0.0F, 0.3, false);

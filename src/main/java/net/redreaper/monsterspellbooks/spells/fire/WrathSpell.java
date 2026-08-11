@@ -40,15 +40,15 @@ public class WrathSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.COMMON)
             .setSchoolResource(SchoolRegistry.FIRE_RESOURCE)
             .setMaxLevel(10)
-            .setCooldownSeconds(3)
+            .setCooldownSeconds(6)
             .build();
 
     public WrathSpell() {
         this.manaCostPerLevel = 2;
         this.baseSpellPower = 5;
         this.spellPowerPerLevel = 1;
-        this.castTime = 20;
-        this.baseManaCost = 15;
+        this.castTime = 30;
+        this.baseManaCost = 20;
     }
 
     @Override
