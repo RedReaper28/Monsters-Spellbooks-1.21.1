@@ -100,7 +100,7 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
     public static ModExtendedWeaponTiers GREAT_AXEBLADE = new ModExtendedWeaponTiers(1561, 11f, -3.3f, 25, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModItems.ROSE_GOLD_INGOT.get()),
             new AttributeContainer(AttributeRegistry.EVOCATION_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
-    public static ModExtendedWeaponTiers DANCERS_SWORD = new ModExtendedWeaponTiers(751, 5F, -1.2f, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(Items.IRON_INGOT),
+    public static ModExtendedWeaponTiers DANCERS_SWORD = new ModExtendedWeaponTiers(751, 5F, -1.5f, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(Items.IRON_INGOT),
             new AttributeContainer(Attributes.MOVEMENT_SPEED, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers PRISMARINE_CLAYMORE = new ModExtendedWeaponTiers(751, 7F, -2.8F, 10, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(Items.PRISMARINE_SHARD),
@@ -133,6 +133,8 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
     public static ModExtendedWeaponTiers DEATHSILVER_AXE = new ModExtendedWeaponTiers(1551, 9F, -3.2f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT),
             new AttributeContainer(AttributeRegistry.SPELL_RESIST, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+    public static ModExtendedWeaponTiers DEATHSILVER_GREATAXE = new ModExtendedWeaponTiers(1551, 9F, -3.2f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT),
+            new AttributeContainer(AttributeRegistry.SPELL_RESIST, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers SANGUINITE_DAGGER = new ModExtendedWeaponTiers(1551, 6F, -2, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.SANGUINITE_DAGGER),
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),

@@ -2,13 +2,15 @@ package net.redreaper.monsterspellbooks.item.curios.head;
 
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
+import io.redspace.ironslib.registry.IronsLibRegistries;
 import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
-import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
+import io.redspace.ironsspellbooks.compat.Curios;
 import io.redspace.ironsspellbooks.registries.ComponentRegistry;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
-import net.acetheeldritchking.aces_spell_utils.items.curios.ImbueableCurioItem;
+import net.acetheeldritchking.aces_spell_utils.items.curios.PresetImbueCurio;
 import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.core.Holder;
@@ -18,21 +20,21 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.redreaper.monsterspellbooks.init.ModCurios;
 import org.jetbrains.annotations.NotNull;
 import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 import java.util.Map;
 
-public class CriticalSorcererGlassesItem extends ImbueableCurioItem {
+public class CriticalSorcererGlassesItem extends PresetImbueCurio {
     public CriticalSorcererGlassesItem() {
-        super(ItemPropertiesHelper.equipment().stacksTo(1).fireResistant().rarity(ASRarities.FORBIDDEN_RARITY_PROXY.getValue()), ModCurios.ELEMENTAL_CHARM_SLOT);
+        super(ItemPropertiesHelper.equipment().stacksTo(1).fireResistant().rarity(ASRarities.FORBIDDEN_RARITY_PROXY.getValue()), Curios.NECKLACE_SLOT,
+                SpellDataRegistryHolder.of(new SpellDataRegistryHolder(SpellRegistry.PLANAR_SIGHT_SPELL, 1)));
     }
 
     public Multimap<Holder<Attribute>, AttributeModifier> getAttributeModifiers(SlotContext slotContext, ResourceLocation id, ItemStack stack) {
         Multimap<Holder<Attribute>, AttributeModifier> attr = LinkedHashMultimap.create();
-        attr.put(AttributeRegistry.ELDRITCH_SPELL_POWER, new AttributeModifier(id, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+        attr.put(IronsLibRegistries.AttributeRegistry.CRIT_DAMAGE, new AttributeModifier(id, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
         attr.put(ASAttributeRegistry.MAGIC_DAMAGE_CRIT_CHANCE, new AttributeModifier(id, 0.50, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
         attr.put(ASAttributeRegistry.MAGIC_DAMAGE_CRIT_DAMAGE, new AttributeModifier(id, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
         return attr;

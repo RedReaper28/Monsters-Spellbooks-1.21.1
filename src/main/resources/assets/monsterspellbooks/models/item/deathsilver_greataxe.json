@@ -1,0 +1,18 @@
+{
+	"parent": "minecraft:item/handheld",
+	"loader": "neoforge:separate_transforms",
+	"base": {
+		"parent": "monsterspellbooks:item/deathsilver_greataxe_hand"
+	},
+	"perspectives": {
+		"gui": {
+			"parent": "monsterspellbooks:item/deathsilver_greataxe_gui"
+		},
+		"ground": {
+			"parent": "monsterspellbooks:item/deathsilver_greataxe_gui"
+		},
+		"fixed": {
+			"parent": "monsterspellbooks:item/deathsilver_greataxe_gui"
+		}
+	}
+}

@@ -4,11 +4,12 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
+import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
+import io.redspace.ironsspellbooks.compat.Curios;
 import io.redspace.ironsspellbooks.registries.ComponentRegistry;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
-import net.acetheeldritchking.aces_spell_utils.items.curios.ImbueableCurioItem;
+import net.acetheeldritchking.aces_spell_utils.items.curios.PresetImbueCurio;
 import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.core.Holder;
@@ -19,7 +20,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.redreaper.monsterspellbooks.init.ModCurios;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 import org.jetbrains.annotations.NotNull;
 import top.theillusivec4.curios.api.SlotContext;
@@ -27,9 +27,10 @@ import top.theillusivec4.curios.api.SlotContext;
 import java.util.List;
 import java.util.Map;
 
-public class ThunderingQuiverItem extends ImbueableCurioItem {
+public class ThunderingQuiverItem extends PresetImbueCurio {
     public ThunderingQuiverItem() {
-        super(ItemPropertiesHelper.equipment().stacksTo(1).fireResistant().rarity(ASRarities.AQUATIC_RARITY_PROXY.getValue()), ModCurios.ELEMENTAL_CHARM_SLOT);
+        super(ItemPropertiesHelper.equipment().stacksTo(1).fireResistant().rarity(ASRarities.SCULK_RARITY_PROXY.getValue()), Curios.NECKLACE_SLOT,
+                SpellDataRegistryHolder.of(new SpellDataRegistryHolder(ModSpellRegistry.VOLTAIC_MULTISHOT, 8)));
     }
 
     public Multimap<Holder<Attribute>, AttributeModifier> getAttributeModifiers(SlotContext slotContext, ResourceLocation id, ItemStack stack) {

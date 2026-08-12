@@ -4,12 +4,14 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.compat.Curios;
 import io.redspace.ironsspellbooks.registries.ComponentRegistry;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
 import net.acetheeldritchking.aces_spell_utils.items.curios.ImbueableCurioItem;
+import net.acetheeldritchking.aces_spell_utils.items.curios.PresetImbueCurio;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
@@ -24,9 +26,10 @@ import top.theillusivec4.curios.api.SlotContext;
 import java.util.List;
 import java.util.Map;
 
-public class IgnitionGloveItem extends ImbueableCurioItem {
+public class IgnitionGloveItem extends PresetImbueCurio {
     public IgnitionGloveItem() {
-        super(ItemPropertiesHelper.equipment().stacksTo(1).fireResistant().rarity(ASRarities.ARID_RARITY_PROXY.getValue()), Curios.NECKLACE_SLOT);
+        super(ItemPropertiesHelper.equipment().stacksTo(1).fireResistant().rarity(ASRarities.ARID_RARITY_PROXY.getValue()), Curios.NECKLACE_SLOT,
+                SpellDataRegistryHolder.of(new SpellDataRegistryHolder(SpellRegistry.SCORCH_SPELL, 8)));
     }
 
     public Multimap<Holder<Attribute>, AttributeModifier> getAttributeModifiers(SlotContext slotContext, ResourceLocation id, ItemStack stack) {

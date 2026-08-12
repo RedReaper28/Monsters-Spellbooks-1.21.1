@@ -56,6 +56,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('B',ModItems.VILE_BONE.get())
                 .unlockedBy("has_material", has(ModItems.DEATHSILVER_INGOT.get())).save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DEATHSILVER_AXE.get())
+                .pattern("AAA")
+                .pattern("AAB")
+                .pattern("B  ")
+                .define('A',ModItems.DEATHSILVER_INGOT.get())
+                .define('B',ModItems.VILE_BONE.get())
+                .unlockedBy("has_material", has(ModItems.DEATHSILVER_INGOT.get())).save(recipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FROST_FANG.get())
                 .pattern("  B")
                 .pattern("BA ")

@@ -43,20 +43,21 @@ public class ModCreativeTabs {
                         output.accept(ModItems.ROSE_GOLD_AXE.get());
                         output.accept(ModItems.ROSE_GOLD_SHOVEL.get());
                         output.accept(ModItems.ROSE_GOLD_HOE.get());
-                        output.accept(ModItems.ORICHALCUM_DAGGER.get());
                         output.accept(ModItems.ORICHALCUM_GREATSWORD.get());
                         output.accept(ModItems.ORICHALCUM_GREATAXE.get());
                         output.accept(ModItems.ORICHALCUM_WARHAMMER.get());
                         output.accept(ModItems.ORICHALCUM_AXE.get());
+                        output.accept(ModItems.ORICHALCUM_DAGGER.get());
                         output.accept(ModItems.DWARVEN_GREATAXE.get());
                         output.accept(ModItems.DWARVEN_WARHAMMER.get());
                         output.accept(ModItems.DWARVEN_AXE.get());
                         output.accept(ModItems.SANGUINITE_DAGGER.get());
                         output.accept(ModItems.SANGUINITE_SCYTHE.get());
                         output.accept(ModItems.SANGUINITE_AXE.get());
-                        output.accept(ModItems.DEATHSILVER_DAGGER.get());
-                        output.accept(ModItems.DEATHSILVER_SWORD.get());
+                        output.accept(ModItems.DEATHSILVER_GREATAXE.get());
                         output.accept(ModItems.DEATHSILVER_AXE.get());
+                        output.accept(ModItems.DEATHSILVER_SWORD.get());
+                        output.accept(ModItems.DEATHSILVER_DAGGER.get());
                         output.accept(ModItems.VILLAGE_BUTCHERER.get());
                         output.accept(ModItems.POISON_BITER.get());
                         output.accept(ModItems.POISON_GLAIVE.get());
@@ -142,6 +143,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.CRITICAL_GLASSES.get());
                         output.accept(ModItems.IGNITION_GLOVE.get());
                         output.accept(ModItems.THUNDERING_QUIVER.get());
+                        output.accept(ModItems.WITHERED_TOTEM.get());
 
                         output.accept(ModItems.OBSIDIAN_MEDAL.get());
                         output.accept(ModItems.BRIMSTONE_SIGIL.get());

@@ -223,6 +223,8 @@ public class ModItems {
             DeathsilverSwordItem::new);
     public static final DeferredItem<Item>DEATHSILVER_AXE = ITEMS.register("deathsilver_axe",
             DeathsilverAxeItem::new);
+    public static final DeferredItem<Item>DEATHSILVER_GREATAXE = ITEMS.register("deathsilver_greataxe",
+            DeathsilverGreataxeItem::new);
 
     public static final DeferredItem<Item>VILLAGE_BUTCHERER = ITEMS.register("village_butcherer",
             VillagerButchererItem::new);

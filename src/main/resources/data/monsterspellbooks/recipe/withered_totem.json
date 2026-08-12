@@ -3,18 +3,22 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "monsterspellbooks:deathsilver_ingot"
+      "item": "monsterspellbooks:spectrite_ingot"
     },
     "B": {
       "item": "monsterspellbooks:vile_bone"
+    },
+    "C": {
+      "item": "minecraft:soul_sand"
     }
   },
   "pattern": [
-    " A",
-    "B "
+    "BBB",
+    "CAC",
+    " C "
   ],
   "result": {
     "count": 1,
-    "id": "monsterspellbooks:deathsilver_dagger"
+    "id": "monsterspellbooks:withered_totem"
   }
 }
