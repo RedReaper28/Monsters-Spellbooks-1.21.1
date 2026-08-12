@@ -12,6 +12,8 @@ import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.effect.ImmolateEffect;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
+import io.redspace.ironsspellbooks.entity.spells.poison_cloud.PoisonCloud;
+import io.redspace.ironsspellbooks.entity.spells.poison_cloud.PoisonSplash;
 import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import io.redspace.ironsspellbooks.spells.blood.RaiseDeadSpell;
@@ -52,6 +54,7 @@ import net.redreaper.monsterspellbooks.entity.living.summons.RancorPhantomEntity
 import net.redreaper.monsterspellbooks.init.*;
 import net.redreaper.monsterspellbooks.item.curios.elemental_charm.DwarvenPowerCoreItem;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.DiseaseEncyclopediaItem;
+import net.redreaper.monsterspellbooks.item.curios.spellbooks.FrenzyKingBookItem;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.weapons.*;
 import net.redreaper.monsterspellbooks.item.weapons.magmatic_macuahuitl.MagmaticMacuahuitlItem;
@@ -325,6 +328,25 @@ public class ServerEvents {
         {
             ItemStack mainhandItem = livingAttacker.getMainHandItem();
 
+            // Poison Biter
+            if (mainhandItem.getItem() instanceof PoisonBiterItem && (!(attacker instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.POISON_BITER.get())))
+            {
+                if (target instanceof LivingEntity livingTarget)
+                {
+                    PoisonCloud cloud = new PoisonCloud(attacker.level());
+                    cloud.setOwner(attacker);
+                    cloud.setDuration(200);
+                    cloud.setDamage(2);
+                    cloud.moveTo(livingTarget.position());
+                    attacker.level().addFreshEntity(cloud);
+                }
+
+                if (attacker instanceof Player player)
+                {
+                    player.getCooldowns().addCooldown(ModItems.POISON_BITER.get(), PoisonBiterItem.COOLDOWN);
+                }
+            }
+
             // Reaper Sickle
             if (mainhandItem.getItem() instanceof ReaperSickle && (!(attacker instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.REAPER_SICKLE.get())))
             {
@@ -375,47 +397,48 @@ public class ServerEvents {
         var attacker = event.getSource().getEntity();
 
         if (attacker instanceof Player player) {
-                if (event.getSource().is(ISSDamageTypes.BLOOD_MAGIC) && event.getSource().getEntity() instanceof LivingEntity livingAttacker) {
-                    if (ASUtils.hasCurio((Player) livingAttacker, ModItems.DREADHOUND_TOOTH_NECKLACE.get())) {
-                        HemorrhageMobEffect.addHemorrhageStack(livingEntity, livingAttacker);
+            if (event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC) && (!player.getCooldowns().isOnCooldown(ModItems.DWARVEN_POWER_CORE.get()))) {
+                if (ASUtils.hasCurio(player, ModItems.DWARVEN_POWER_CORE.get())) {
+                    StaticMobEffect.addStaticStack(player, player);
+                    player.getCooldowns().addCooldown(ModItems.DWARVEN_POWER_CORE.get(), DwarvenPowerCoreItem.COOLDOWN);
                     }
-                }
+            }
 
-                if (event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC) && (!player.getCooldowns().isOnCooldown(ModItems.DWARVEN_POWER_CORE.get()))) {
-                    if (ASUtils.hasCurio(player, ModItems.DWARVEN_POWER_CORE.get())) {
-                        StaticMobEffect.addStaticStack(player, player);
-                        player.getCooldowns().addCooldown(ModItems.DWARVEN_POWER_CORE.get(), DwarvenPowerCoreItem.COOLDOWN);
-                    }
+            // Frenzy King Book
+            if (event.getSource().is(ISSDamageTypes.ELDRITCH_MAGIC) && (!player.getCooldowns().isOnCooldown(ModItems.FRENZY_KING_BOOK.get()))) {
+                if (ASUtils.hasCurio(player, ModItems.FRENZY_KING_BOOK.get())) {
+                    entity.setRemainingFireTicks(60);
+                    player.getCooldowns().addCooldown(ModItems.FRENZY_KING_BOOK.get(), FrenzyKingBookItem.COOLDOWN);
                 }
+            }
 
-                // Disease Encyclopedia
-                if (ASUtils.hasCurio(player, ModItems.DISEASE_ENCYCLOPEDIA.get()) && (!player.getCooldowns().isOnCooldown(ModItems.DISEASE_ENCYCLOPEDIA.get()))) {
-                    int randomNum = (int) (Math.random() * 11); // 0 to 10
-                    if (randomNum ==1 ) {entity.addEffect(new MobEffectInstance(ModMobEffects.MADNESS, 200, 1, true, true, true));}
-                    if (randomNum == 2) {entity.addEffect(new MobEffectInstance(MobEffectRegistry.BLIGHT, 200, 2, true, true, true));}
-                    if (randomNum == 3) {entity.addEffect(new MobEffectInstance(MobEffectRegistry.SLOWED, 200, 1, true, true, true));}
-                    if (randomNum == 4) {entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0, true, true, true));}
-                    if (randomNum == 5) {entity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, 100, 1, true, true, true));}
-                    if (randomNum == 6) {entity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 1, true, true, true));}
-                    if (randomNum == 7) {entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 150, 0, true, true, true));}
-                    if (randomNum == 8) {entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 1, true, true, true));}
-                    if (randomNum == 9) {entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 300, 3, true, true, true));}
-                    if (randomNum == 10) {entity.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 1, true, true, true));}
-                    player.getCooldowns().addCooldown(ModItems.DISEASE_ENCYCLOPEDIA.get(), DiseaseEncyclopediaItem.COOLDOWN);
-                }
+            // Disease Encyclopedia
+            if (ASUtils.hasCurio(player, ModItems.DISEASE_ENCYCLOPEDIA.get()) && (!player.getCooldowns().isOnCooldown(ModItems.DISEASE_ENCYCLOPEDIA.get()))) {
+                int randomNum = (int) (Math.random() * 11); // 0 to 10
+                if (randomNum ==1 ) {entity.addEffect(new MobEffectInstance(ModMobEffects.MADNESS, 200, 1, true, true, true));}
+                if (randomNum == 2) {entity.addEffect(new MobEffectInstance(MobEffectRegistry.BLIGHT, 200, 2, true, true, true));}
+                if (randomNum == 3) {entity.addEffect(new MobEffectInstance(MobEffectRegistry.SLOWED, 200, 1, true, true, true));}
+                if (randomNum == 4) {entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0, true, true, true));}
+                if (randomNum == 5) {entity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, 100, 1, true, true, true));}
+                if (randomNum == 6) {entity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 1, true, true, true));}
+                if (randomNum == 7) {entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 150, 0, true, true, true));}
+                if (randomNum == 8) {entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 1, true, true, true));}
+                if (randomNum == 9) {entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 300, 3, true, true, true));}
+                if (randomNum == 10) {entity.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 1, true, true, true));}
+                player.getCooldowns().addCooldown(ModItems.DISEASE_ENCYCLOPEDIA.get(), DiseaseEncyclopediaItem.COOLDOWN);
+            }
 
-                if (ASUtils.hasCurio(player, ModItems.REAPER_LANTERN.get()) && (!player.getCooldowns().isOnCooldown(ModItems.REAPER_LANTERN.get()))) {
-                    if (event.getSource() instanceof SpellDamageSource) {
-                        float baseDamage = event.getOriginalDamage()/2;
+            if (ASUtils.hasCurio(player, ModItems.REAPER_LANTERN.get()) && (!player.getCooldowns().isOnCooldown(ModItems.REAPER_LANTERN.get()))) {
+                if (event.getSource() instanceof SpellDamageSource) {
+                    float baseDamage = event.getOriginalDamage()/2;
                         Level world = attacker.level();
                         RancorPhantomEntity wispEntity = new RancorPhantomEntity(world, (LivingEntity) event.getSource().getEntity(), (float) baseDamage);
                         wispEntity.setTarget(event.getEntity());
                         wispEntity.setPos(Utils.getPositionFromEntityLookDirection(event.getSource().getEntity(), 2).subtract(0, .2, 0));
                         world.addFreshEntity(wispEntity);
                         player.getCooldowns().addCooldown(ModItems.REAPER_LANTERN.get(), ReaperLanternSpellBook.COOLDOWN);
-                    }
                 }
-
+            }
         }
     }
 

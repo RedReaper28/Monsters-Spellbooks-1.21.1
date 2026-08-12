@@ -1,5 +1,6 @@
 package net.redreaper.monsterspellbooks.item.armor.tierHybrid;
 
+import io.redspace.ironslib.registry.IronsLibRegistries;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
 import net.acetheeldritchking.aces_spell_utils.entity.render.armor.EmissiveGenericCustomArmorRenderer;
@@ -20,7 +21,7 @@ public class IllagerEnchanterArmorItem extends ModImbuableExtendedGeoArmorItem {
         super(ModExtendedArmorMaterials.ENCHANTER, slot, settings,
                 new AttributeContainer(AttributeRegistry.HOLY_SPELL_POWER,0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.EVOCATION_SPELL_POWER,0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                new AttributeContainer(AttributeRegistry.MANA_REGEN,0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(IronsLibRegistries.AttributeRegistry.EXPERIENCE_GAINED,0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE)
         );
     }

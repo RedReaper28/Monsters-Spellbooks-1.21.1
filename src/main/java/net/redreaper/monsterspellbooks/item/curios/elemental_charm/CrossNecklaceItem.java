@@ -8,6 +8,7 @@ import io.redspace.ironsspellbooks.entity.spells.sunbeam.SunbeamEntity;
 import io.redspace.ironsspellbooks.item.curios.PassiveAbilityCurio;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
+import net.acetheeldritchking.aces_spell_utils.items.curios.FlatCooldownPassiveAbilityCurio;
 import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -29,7 +30,7 @@ import top.theillusivec4.curios.api.SlotContext;
 
 
 @EventBusSubscriber
-public class CrossNecklaceItem extends PassiveAbilityCurio {
+public class CrossNecklaceItem extends FlatCooldownPassiveAbilityCurio {
     public static final int COOLDOWN_IN_TICKS = 5 * 20;
     public CrossNecklaceItem() {
         super(ItemPropertiesHelper.equipment().stacksTo(1).fireResistant().rarity(Rarity.UNCOMMON), Curios.NECKLACE_SLOT);

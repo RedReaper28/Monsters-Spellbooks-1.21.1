@@ -89,7 +89,7 @@ public class DraugrEliteVindicatorEntity extends DraugrIllagerEntity implements 
         this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(ModItems.DRAUGR_ELITE_HELMET.get()));
         this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(ModItems.DRAUGR_ELITE_CHESTPLATE.get()));
         this.setItemSlot(EquipmentSlot.FEET, new ItemStack(ModItems.DRAUGR_ELITE_BOOTS.get()));
-        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.DEATHSILVER_SWORD.get()));
+        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.DEATHSILVER_GREATAXE.get()));
         this.setDropChance(EquipmentSlot.HEAD, 0.15f);
         this.setDropChance(EquipmentSlot.CHEST, 0.15f);
         this.setDropChance(EquipmentSlot.FEET, 0.15f);

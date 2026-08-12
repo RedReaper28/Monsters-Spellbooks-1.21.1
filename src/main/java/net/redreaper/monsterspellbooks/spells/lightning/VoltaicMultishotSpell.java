@@ -85,6 +85,7 @@ public class VoltaicMultishotSpell extends AbstractSpell {
                     VoltArrowProjectile dagger = new VoltArrowProjectile(world, entity);
                     dagger.setOwner(entity);
                     dagger.setDamage(this.getDamage(spellLevel, entity));
+                    dagger.setAoeDamage(this.getAoeDamage(spellLevel, entity));
                     dagger.setExplosionRadius(explosionRadius);
                     dagger.setPos(entity.position().add((double) 0.0F, (double) entity.getEyeHeight() - (double) dagger.getBbHeight() * (double) 0.5F, (double) 0.0F));
                     Vec3 dir = look.yRot((float) Math.toRadians((double) angle));
@@ -97,6 +98,7 @@ public class VoltaicMultishotSpell extends AbstractSpell {
                         VoltArrowProjectile dagger = new VoltArrowProjectile(world, entity);
                         dagger.setOwner(entity);
                         dagger.setDamage(this.getDamage(spellLevel, entity));
+                        dagger.setAoeDamage(this.getAoeDamage(spellLevel, entity));
                         dagger.setExplosionRadius(explosionRadius);
                         dagger.setPos(entity.position().add((double) 0.0F, (double) entity.getEyeHeight() - (double) dagger.getBbHeight() * (double) 0.5F, (double) 0.0F));
                         Vec3 dir = look.yRot((float) Math.toRadians((double) angle));
@@ -111,6 +113,10 @@ public class VoltaicMultishotSpell extends AbstractSpell {
 
     public float getDamage(int spellLevel, LivingEntity caster) {
         return getSpellPower(spellLevel, caster);
+    }
+
+    public float getAoeDamage(int spellLevel, LivingEntity caster) {
+        return 1 + getSpellPower(spellLevel, caster) * .1f;
     }
 
     public float getRadius(int spellLevel, LivingEntity caster) {

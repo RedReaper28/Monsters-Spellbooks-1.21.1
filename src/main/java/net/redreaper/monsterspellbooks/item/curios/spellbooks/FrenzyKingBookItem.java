@@ -2,10 +2,10 @@ package net.redreaper.monsterspellbooks.item.curios.spellbooks;
 
 import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import io.redspace.ironsspellbooks.item.SpellBook;
 import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import io.redspace.ironsspellbooks.util.TooltipsUtils;
+import net.acetheeldritchking.aces_spell_utils.items.curios.PassiveAbilitySpellbook;
 import net.acetheeldritchking.aces_spell_utils.utils.ASRarities;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -17,7 +17,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.Map;
 
-public class FrenzyKingBookItem extends SpellBook {
+public class FrenzyKingBookItem extends PassiveAbilitySpellbook {
+    public static final int COOLDOWN = 3*20;
     public FrenzyKingBookItem() {
         super(12, ItemPropertiesHelper.equipment().fireResistant().stacksTo(1).rarity(ASRarities.SCULK_RARITY_PROXY.getValue()));
         withSpellbookAttributes(new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),

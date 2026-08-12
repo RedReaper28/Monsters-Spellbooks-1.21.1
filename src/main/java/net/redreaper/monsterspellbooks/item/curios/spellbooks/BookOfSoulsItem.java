@@ -11,7 +11,7 @@ import net.redreaper.monsterspellbooks.utils.ModRarities;
 public class BookOfSoulsItem extends SpellBook {
     public BookOfSoulsItem() {
         super(10, ItemPropertiesHelper.equipment().fireResistant().stacksTo(1).rarity(ModRarities.SOUL_RARITY_PROXY.getValue()));
-        withSpellbookAttributes(new AttributeContainer(AttributeRegistry.MAX_MANA, 200, AttributeModifier.Operation.ADD_VALUE),
-                new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+        withSpellbookAttributes(new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(AttributeRegistry.MAX_MANA, 200, AttributeModifier.Operation.ADD_VALUE));
     }
 }

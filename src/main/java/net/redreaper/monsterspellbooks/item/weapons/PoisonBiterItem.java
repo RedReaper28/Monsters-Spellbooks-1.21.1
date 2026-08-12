@@ -5,9 +5,9 @@ import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
-import io.redspace.ironsspellbooks.entity.spells.poison_cloud.PoisonSplash;
-import io.redspace.ironsspellbooks.util.TooltipsUtils;
+import io.redspace.ironsspellbooks.api.util.Utils;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
@@ -19,11 +19,11 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class PoisonBiterItem extends MagicSwordItem {
+    public static final int COOLDOWN = 10 * 20;
     public PoisonBiterItem() {
         super(
                 ModExtendedWeaponTiers.POISONED_SICKLE,
@@ -49,15 +49,20 @@ public class PoisonBiterItem extends MagicSwordItem {
         AffinityData.setAffinityData(itemStack, ModSpellRegistry.INFECTION_SLASH.get(),1);
     }
 
-    @Override
-    public void appendHoverText(@NotNull ItemStack itemStack, @NotNull TooltipContext context, @NotNull List<Component> lines, @NotNull TooltipFlag flag) {
-        super.appendHoverText(itemStack, context, lines, flag);
-        var affinityData = AffinityData.getAffinityData(itemStack);
-        if (!affinityData.affinityData().isEmpty()) {
-            int i = TooltipsUtils.indexOfComponent(lines, "tooltip.irons_spellbooks.spellbook_spell_count");
-            lines.addAll(i < 0 ? lines.size() : i + 1, affinityData.getDescriptionComponent());
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+        if (Screen.hasShiftDown()) {
+            tooltipComponents.add(Component.translatable("tooltip.irons_spellbooks.passive_ability", new Object[]{Component.literal(Utils.timeFromTicks((float)this.getPassiveCooldownTicks(), 1)).withStyle(ChatFormatting.LIGHT_PURPLE)}).withStyle(ChatFormatting.DARK_PURPLE));
+            tooltipComponents.add(Component.literal(" ").append(Component.translatable(this.getDescriptionId() + ".desc")).withStyle(ChatFormatting.DARK_GREEN));
         }
-        lines.add(Component.translatable("tooltip.monsterspellbooks.poison_bite").withStyle(new ChatFormatting[]{ChatFormatting.GREEN}));
+        else {
+            tooltipComponents.add(Component.translatable("item.aces_spell_utils.more_details1").withStyle(ChatFormatting.GRAY));
+        }
+
+    }
+
+    protected int getPassiveCooldownTicks() {
+        return COOLDOWN;
     }
 
     @EventBusSubscriber({Dist.CLIENT})
@@ -77,18 +82,5 @@ public class PoisonBiterItem extends MagicSwordItem {
                 }
             }
         }
-    }
-
-    public boolean hurtEnemy(@NotNull ItemStack stack, @NotNull LivingEntity entity, @NotNull LivingEntity sourceentity) {
-        boolean retval = super.hurtEnemy(stack, entity, sourceentity);
-        if (entity.isDeadOrDying()) {
-            PoisonSplash cloud = new PoisonSplash(sourceentity.level());
-            cloud.setOwner(sourceentity);
-            cloud.setDuration(200);
-            cloud.setPos(entity.position());
-            cloud.setDamage(10);
-            sourceentity.level().addFreshEntity(cloud);
-        }
-        return retval;
     }
 }

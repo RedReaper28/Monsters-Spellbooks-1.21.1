@@ -121,7 +121,7 @@ public class VileSlashProjectileNew extends AbstractMagicProjectile implements G
         {
             DamageSources.applyDamage(entity, damage, ModSpellRegistry.VILE_SLASH.get().getDamageSource(this, getOwner()));
             if (entity instanceof LivingEntity targetEntity) {
-                targetEntity.addEffect(new MobEffectInstance(ModMobEffects.SOUL_ROT, 5*20 * 20));
+                targetEntity.addEffect(new MobEffectInstance(ModMobEffects.SOUL_ROT, 5*20 , 1));
             }
             victims.add(entity);
         }

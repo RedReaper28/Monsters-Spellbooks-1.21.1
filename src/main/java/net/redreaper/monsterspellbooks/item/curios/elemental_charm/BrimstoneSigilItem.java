@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.item.curios.PassiveAbilityCurio;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
+import net.acetheeldritchking.aces_spell_utils.items.curios.FlatCooldownPassiveAbilityCurio;
 import net.acetheeldritchking.aces_spell_utils.registries.ASAttributeRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -15,7 +16,7 @@ import net.redreaper.monsterspellbooks.init.ModCurios;
 import net.redreaper.monsterspellbooks.utils.ModRarities;
 import top.theillusivec4.curios.api.SlotContext;
 
-public class BrimstoneSigilItem extends PassiveAbilityCurio {
+public class BrimstoneSigilItem extends FlatCooldownPassiveAbilityCurio {
     public static final int COOLDOWN_IN_TICKS = 10 * 20;
     public BrimstoneSigilItem() {
         super(ItemPropertiesHelper.equipment().stacksTo(1).fireResistant().rarity(ModRarities.BRIMSTONE_RARITY_PROXY.getValue()), ModCurios.ELEMENTAL_CHARM_SLOT);
