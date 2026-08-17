@@ -192,6 +192,9 @@ dependencies {
     //Better Combat
     implementation "curse.maven:better-combat-by-daedelus-639842:7348161"
 
+    //Huge Structure Blocks
+    implementation "curse.maven:huge-structure-blocks-474114:7065481"
+
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

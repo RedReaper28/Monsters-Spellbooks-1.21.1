@@ -73,6 +73,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DISRUPTION_NAGINATA.get());
                         output.accept(ModItems.ENDERSENT_CRUSHER.get());
                         output.accept(ModItems.SNOW_BOW.get());
+                        output.accept(ModItems.MITHRIL_SHIELD.get());
                         output.accept(ModItems.DWARVEN_SHIELD.get());
 
                         output.accept(ModItems.WILDFIRE_CROWN.get());

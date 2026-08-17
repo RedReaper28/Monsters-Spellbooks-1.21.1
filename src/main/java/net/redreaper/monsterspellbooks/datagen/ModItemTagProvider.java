@@ -99,6 +99,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         ;
 
         tag(ItemTags.DURABILITY_ENCHANTABLE)
+                .add(ModItems.MITHRIL_SHIELD.get())
                 .add(ModItems.DWARVEN_SHIELD.get())
         ;
 

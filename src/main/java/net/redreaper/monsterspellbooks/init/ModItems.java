@@ -29,6 +29,7 @@ import net.redreaper.monsterspellbooks.item.curios.rings.WitherWardCurio;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.*;
 import net.redreaper.monsterspellbooks.item.curios.spellbooks.reaper_lantern.ReaperLanternSpellBook;
 import net.redreaper.monsterspellbooks.item.shields.dwarven_riot_shield.DwarvenRiotShieldItem;
+import net.redreaper.monsterspellbooks.item.shields.mithril_shield.MithrilShieldItem;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiItem;
 import net.redreaper.monsterspellbooks.item.staves.frozen_commander.FrozenCommanderStaffItem;
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffItem;
@@ -174,6 +175,8 @@ public class ModItems {
     public static final DeferredItem<Item>ETERNAL_KNIFE=ITEMS.register("eternal_knife",
             EternalKnifeItem::new);
 
+    public static final DeferredItem<Item>MITHRIL_SHIELD=ITEMS.register("mithril_shield",
+            MithrilShieldItem::new);
     public static final DeferredItem<Item>DWARVEN_SHIELD=ITEMS.register("dwarven_shield",
             DwarvenRiotShieldItem::new);
 

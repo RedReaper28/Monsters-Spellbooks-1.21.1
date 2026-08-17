@@ -55,8 +55,6 @@ import net.redreaper.monsterspellbooks.entity.model.PrismarineKeeper.PrismarineK
 import net.redreaper.monsterspellbooks.entity.model.RancorPhantomEntity.RancorPhantomRenderer;
 import net.redreaper.monsterspellbooks.entity.model.RedstoneElementalEntity.RedstoneElementalModel;
 import net.redreaper.monsterspellbooks.entity.model.RedstoneElementalEntity.RedstoneElementalRenderer;
-import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityModel;
-import net.redreaper.monsterspellbooks.entity.model.ShockEntity.ShockEntityRenderer;
 import net.redreaper.monsterspellbooks.entity.model.SoulWizardEntity.SoulWizardModel;
 import net.redreaper.monsterspellbooks.entity.model.SoulWizardEntity.SoulWizardRenderer;
 import net.redreaper.monsterspellbooks.entity.model.SoulWraithEntity.SoulWraithModel;
@@ -214,7 +212,6 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.VILE_SKELETON.get(), VileSkeletonRenderer::new);
         event.registerEntityRenderer(ModEntities.DWARVEN_SPHERE.get(), DwarvenSphereRenderer::new);
         event.registerEntityRenderer(ModEntities.DWARVEN_SLICER.get(), DwarvenSlicerRenderer::new);
-        event.registerEntityRenderer(ModEntities.SHOCK.get(), context -> {return new ShockEntityRenderer(context, new ShockEntityModel());});
         event.registerEntityRenderer(ModEntities.AEGIS.get(), context -> {return new AegisEntityRenderer(context, new AegisEntityModel());});
         event.registerEntityRenderer(ModEntities.DRIPPLER.get(), context -> {return new DripplerEntityRenderer(context, new DripplerEntityModel());});
         event.registerEntityRenderer(ModEntities.SPRIGGAN.get(), SprigganRenderer::new);
@@ -330,6 +327,9 @@ public static void registerParticles(RegisterParticleProvidersEvent event)
     @SubscribeEvent
     public static void onFMLClientSetup(FMLClientSetupEvent event) {
         ItemProperties.register(ModItems.DWARVEN_SHIELD.get(), ResourceLocation.withDefaultNamespace("blocking"), (itemStack, level, entity, useDur) ->
+                entity != null && entity.isUsingItem() && entity.getUseItem() == itemStack ? 1.0F : 0.0F
+        );
+        ItemProperties.register(ModItems.MITHRIL_SHIELD.get(), ResourceLocation.withDefaultNamespace("blocking"), (itemStack, level, entity, useDur) ->
                 entity != null && entity.isUsingItem() && entity.getUseItem() == itemStack ? 1.0F : 0.0F
         );
     }

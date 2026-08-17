@@ -1,0 +1,40 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "builtin/entity",
+	"texture_size": [64, 64],
+	"textures": {
+		"particle": "monsterspellbooks:item/dwarven_shield"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [30, 60, 6],
+			"translation": [2, 2.5, -1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [30, -120, 0],
+			"translation": [3, 2.5, -1]
+		},
+		"firstperson_righthand": {
+			"rotation": [-90, 60, 90],
+			"translation": [-2, 3.5, 2.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [90, -60, 90],
+			"translation": [-2, 3.5, 2.5]
+		},
+		"ground": {
+			"rotation": [-1.72, -0.11, 45],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"gui": {
+			"rotation": [0, -45, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"fixed": {
+			"rotation": [-180, 90, -180],
+			"translation": [0, 0, 0.5],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}

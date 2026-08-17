@@ -17,6 +17,7 @@ import net.redreaper.monsterspellbooks.entity.curios.reaper_lantern.ReaperLanter
 import net.redreaper.monsterspellbooks.entity.curios.thundering_quiver.ThunderingQuiverCurioRenderer;
 import net.redreaper.monsterspellbooks.init.*;
 import net.redreaper.monsterspellbooks.item.shields.dwarven_riot_shield.DwarvenRiotShieldRenderer;
+import net.redreaper.monsterspellbooks.item.shields.mithril_shield.MithrilShieldRenderer;
 import net.redreaper.monsterspellbooks.item.staves.brimstone_orochi.BrimstoneOrochiRenderer;
 import net.redreaper.monsterspellbooks.item.staves.frozen_commander.FrozenCommanderStaffRenderer;
 import net.redreaper.monsterspellbooks.item.staves.vilenova_staff.VileNovaStaffRenderer;
@@ -119,6 +120,7 @@ public class MonstersSpellbooks {
             AzItemRendererRegistry.register(MagmaticMacuahuitlRenderer::new, ModItems.MAGMATIC_MACUAHUITL.get());
             AzItemRendererRegistry.register(GoreChildRenderer::new, ModItems.GORE_CHILD.get());
             AzItemRendererRegistry.register(DisruptionNaginataRenderer::new, ModItems.DISRUPTION_NAGINATA.get());
+            AzItemRendererRegistry.register(MithrilShieldRenderer::new, ModItems.MITHRIL_SHIELD.get());
             AzItemRendererRegistry.register(DwarvenRiotShieldRenderer::new, ModItems.DWARVEN_SHIELD.get());
 
             // Animation Registry

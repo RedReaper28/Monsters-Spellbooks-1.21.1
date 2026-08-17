@@ -10,6 +10,7 @@ import io.redspace.ironsspellbooks.entity.mobs.goals.PatrolNearLocationGoal;
 import io.redspace.ironsspellbooks.entity.mobs.goals.melee.AttackAnimationData;
 import io.redspace.ironsspellbooks.entity.mobs.wizards.GenericAnimatedWarlockAttackGoal;
 import io.redspace.ironsspellbooks.entity.mobs.wizards.fire_boss.NotIdioticNavigation;
+import io.redspace.ironsspellbooks.entity.mobs.wizards.fire_boss.goals.FireBossAttackKeyframe;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
@@ -30,6 +31,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.phys.Vec3;
 import net.redreaper.monsterspellbooks.init.ModAtributeRegistry;
 import net.redreaper.monsterspellbooks.init.ModItems;
 import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
@@ -52,10 +54,29 @@ public class DraugrEliteVindicatorEntity extends DraugrIllagerEntity implements 
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(3, new GenericAnimatedWarlockAttackGoal<>(this, 1.20f, 50, 75)
                 .setMoveset(List.of(
-                        new AttackAnimationData(9, "simple_sword_upward_swipe", 5),
-                        new AttackAnimationData(8, "simple_sword_lunge_stab", 6),
-                        new AttackAnimationData(10, "simple_sword_stab_alternate", 8),
-                        new AttackAnimationData(10, "simple_sword_horizontal_cross_swipe", 8)
+                        AttackAnimationData.builder("scythe_downslash_sideslash")
+                                .length(60)
+                                .attacks(
+                                        new FireBossAttackKeyframe(22, new Vec3(0, 0, .5f), new Vec3(0, -.2, 0), new FireBossAttackKeyframe.SwingData(true, true)),
+                                        new FireBossAttackKeyframe(40, new Vec3(0, .1, 0.8), new FireBossAttackKeyframe.SwingData(false, false))
+                                ).build(),
+                        AttackAnimationData.builder("scythe_horizontal_slash_spin")
+                                .length(45)
+                                .area(0.25f)
+                                .rangeMultiplier(3f)
+                                .attacks(
+                                        new FireBossAttackKeyframe(14, new Vec3(0, 0.1, 1.25), new Vec3(0, .1, 0.8), new FireBossAttackKeyframe.SwingData(false, true)),
+                                        new FireBossAttackKeyframe(30, new Vec3(0, 0.1, 1.85), new Vec3(0, .3, 0.8), new FireBossAttackKeyframe.SwingData(false, false))
+                                ).build()
+                        ,
+                        AttackAnimationData.builder("scythe_sideslash_downslash_sideslash")
+                                .length(62)
+                                .rangeMultiplier(2f)
+                                .attacks(
+                                        new FireBossAttackKeyframe(18, new Vec3(0, 0, .45), new FireBossAttackKeyframe.SwingData(false, true)),
+                                        new FireBossAttackKeyframe(30, new Vec3(0, 0, .45), new FireBossAttackKeyframe.SwingData(false, false)),
+                                        new FireBossAttackKeyframe(50, new Vec3(0, 0.1, 1.25), new Vec3(0, .3, 0.8), new FireBossAttackKeyframe.SwingData(false, false))
+                                ).build()
                 ))
                 .setComboChance(.4f)
                 .setMeleeAttackInverval(10, 30)

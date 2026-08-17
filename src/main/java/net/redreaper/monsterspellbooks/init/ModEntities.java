@@ -587,10 +587,6 @@ public class ModEntities {
             ENTITIES.register("dwarven_slicer",()->EntityType.Builder.of(DwarvenSlicerEntity::new,MobCategory.MONSTER)
                     .sized(0.6F, 0.50f).build("dwarven_slicer"));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<ShockEntity>> SHOCK =
-            ENTITIES.register("shock", () -> EntityType.Builder.<ShockEntity>of(ShockEntity::new, MobCategory.MONSTER).
-                    sized(.6f, .80f).build(ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "shock").toString()));
-
     public static final DeferredHolder<EntityType<?>, EntityType<RedstoneElementalEntity>> REDSTONE_ELEMENTAL =
             ENTITIES.register("redstone_elemental", () -> EntityType.Builder.<RedstoneElementalEntity>of
                             (RedstoneElementalEntity::new, MobCategory.MONSTER).
