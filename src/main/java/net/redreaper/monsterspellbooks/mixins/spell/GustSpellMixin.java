@@ -6,10 +6,6 @@ import io.redspace.ironsspellbooks.spells.evocation.GustSpell;
 import net.redreaper.monsterspellbooks.init.ModSpellSchools;
 import org.spongepowered.asm.mixin.Mixin;
 
-@Mixin(GustSpell.class)
 public abstract class GustSpellMixin extends AbstractSpell {
-    @Override
-    public SchoolType getSchoolType() {
-        return ModSpellSchools.AERO.get();
-    }
+
 }

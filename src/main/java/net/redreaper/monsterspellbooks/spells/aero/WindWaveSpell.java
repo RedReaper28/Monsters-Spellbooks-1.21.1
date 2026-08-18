@@ -2,6 +2,7 @@ package net.redreaper.monsterspellbooks.spells.aero;
 
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
+import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.AnimationHolder;
 import io.redspace.ironsspellbooks.api.util.Utils;
@@ -95,7 +96,7 @@ public class WindWaveSpell extends AbstractSpell {
         float radius = 5.0F;
         float range = 1.7F;
         MagicManager.spawnParticles(level, ParticleTypes.GUST, entity.getX(), entity.getY() + (double) 1.0F, entity.getZ(), 50, (double) 0.0F, (double) 0.0F, (double) 0.0F, (double) 1.0F, false);
-        MagicManager.spawnParticles(level, new BlastwaveParticleOptions(ModSpellSchools.AERO.get().getTargetingColor(), radius), entity.getX(), entity.getY() + .165f, entity.getZ(), 1, 0, 0, 0, 0, true);
+        MagicManager.spawnParticles(level, new BlastwaveParticleOptions(SchoolRegistry.EVOCATION.get().getTargetingColor(), radius), entity.getX(), entity.getY() + .165f, entity.getZ(), 1, 0, 0, 0, 0, true);
         Vec3 smiteLocation = Utils.raycastForBlock(entity.level(), entity.getEyePosition(), entity.getEyePosition().add(entity.getForward().multiply((double)range, (double)0.0F, (double)range)), ClipContext.Fluid.NONE).getLocation();
         List<Entity> entities = entity.level().getEntities(entity, AABB.ofSize(smiteLocation, (double)(radius * 2.0F), (double)(radius * 4.0F), (double)(radius * 2.0F)));
         SpellDamageSource damageSource = this.getDamageSource(entity);

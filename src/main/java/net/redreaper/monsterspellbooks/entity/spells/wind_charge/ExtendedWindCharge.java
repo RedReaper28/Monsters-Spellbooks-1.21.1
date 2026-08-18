@@ -108,7 +108,7 @@ public class ExtendedWindCharge extends WindCharge implements AntiMagicSusceptib
                     p.setIgnoreFallDamageFromCurrentImpulse(true);
                 }
             }
-            DamageSources.applyDamage(livingentity, getDamage(), ModSpellRegistry.WIND_CHARGE.get().getDamageSource(this, getOwner()));
+            DamageSources.applyDamage(livingentity, getDamage(), ModSpellRegistry.SPECTRAL_BLAST.get().getDamageSource(this, getOwner()));
             DamageSource damagesource = this.damageSources().windCharge(this, livingentity);
             if (entity.hurt(damagesource, 1.0F) && entity instanceof LivingEntity livingentity2) {
                 livingentity.addEffect(new MobEffectInstance(MobEffectRegistry.AIRBORNE, 60, 3));

@@ -81,7 +81,6 @@ public class ModMobEffects {
 
     public static final DeferredHolder<MobEffect, MobEffect> HEAL_CUT = MOB_EFFECT_DEFERRED_REGISTER.register("heal_cut", HealCutMobEffect::new);
     public static final DeferredHolder<MobEffect, MobEffect> SPACE_ANCHORED = MOB_EFFECT_DEFERRED_REGISTER.register("space_anchored", SpaceAnchoredMobEffect::new);
-    public static final DeferredHolder<MobEffect, MobEffect> FLIGHT = MOB_EFFECT_DEFERRED_REGISTER.register("flight", FlightMobEffect::new);
     public static final DeferredHolder<MobEffect, MobEffect> RIPTIDE_DASH = MOB_EFFECT_DEFERRED_REGISTER.register("riptide_dash", () -> new RiptideDashMobEffect(MobEffectCategory.BENEFICIAL, 8028868));
     public static final DeferredHolder<MobEffect, MobEffect> LICHDOM = MOB_EFFECT_DEFERRED_REGISTER.register("lichdom", LichdomMobEffect::new);
     public static final DeferredHolder<MobEffect, MobEffect> EFFECT_OF_UNDYING = MOB_EFFECT_DEFERRED_REGISTER.register("effect_of_undying", EffectOfUndyingEffect::new);
@@ -97,7 +96,6 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> FORGED_RESISTANCE = MOB_EFFECT_DEFERRED_REGISTER.register("forged_resistance", () -> new ForgedResistance(MobEffectCategory.HARMFUL, 16748915 ));
     public static final DeferredHolder<MobEffect, MobEffect> BLEEDING = MOB_EFFECT_DEFERRED_REGISTER.register("bleeding", () -> new BleedingMobEffect(MobEffectCategory.HARMFUL, 16711680));
     public static final DeferredHolder<MobEffect, MobEffect> ACIDIC_VENOM = MOB_EFFECT_DEFERRED_REGISTER.register("acidic_venom", () -> new AcidicVenomEffect(MobEffectCategory.HARMFUL, 9916322));
-    public static final DeferredHolder<MobEffect, MobEffect> SUFFOCATION = MOB_EFFECT_DEFERRED_REGISTER.register("suffocation", () -> new SuffocationMobEffect(MobEffectCategory.HARMFUL, 8028868));
     public static final DeferredHolder<MobEffect, MobEffect> BRIMSTONE_FLAME = MOB_EFFECT_DEFERRED_REGISTER.register("brimstone_flame", () -> new BrimstoneFlameMobEffect(MobEffectCategory.HARMFUL, 14896975));
     public static final DeferredHolder<MobEffect, MobEffect> HEMORRHAGE = MOB_EFFECT_DEFERRED_REGISTER.register("hemorrhage", () -> new HemorrhageMobEffect(MobEffectCategory.HARMFUL, 16711680));
     public static final DeferredHolder<MobEffect, MobEffect> STATIC = MOB_EFFECT_DEFERRED_REGISTER.register("static", () -> new StaticMobEffect(MobEffectCategory.HARMFUL, 15081480));

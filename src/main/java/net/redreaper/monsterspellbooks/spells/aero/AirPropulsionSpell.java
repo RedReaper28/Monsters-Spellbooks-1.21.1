@@ -62,7 +62,6 @@ public class AirPropulsionSpell extends AbstractSpell {
 
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        entity.addEffect(new MobEffectInstance(ModMobEffects.FLIGHT, (int) (getSpellPower(spellLevel, entity) * 20), 0, false, false, true));
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 

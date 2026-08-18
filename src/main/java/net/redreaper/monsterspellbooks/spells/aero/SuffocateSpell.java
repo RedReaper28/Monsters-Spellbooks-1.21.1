@@ -77,8 +77,6 @@ public class SuffocateSpell extends AbstractSpell {
         if (Utils.preCastTargetHelper(level, entity, playerMagicData, this, 32, .35f)) {
             float radius = 3f;
             var target = ((TargetEntityCastData) playerMagicData.getAdditionalCastData()).getTarget((ServerLevel) level);
-            var area = TargetedAreaEntity.createTargetAreaEntity(level, target.position(), radius, ModMobEffects.SUFFOCATION.get().getColor(), target);
-            playerMagicData.setAdditionalCastData(new TargetedTargetAreaCastData(target, area));
             return true;
         }
         return false;
@@ -93,7 +91,6 @@ public class SuffocateSpell extends AbstractSpell {
                 AtomicInteger targets = new AtomicInteger(0);
                 targetEntity.level().getEntitiesOfClass(LivingEntity.class, targetEntity.getBoundingBox().inflate(radius)).forEach((victim) -> {
                     if (targets.get() < MAX_TARGETS && victim != entity && victim.distanceToSqr(targetEntity) < radius * radius && !DamageSources.isFriendlyFireBetween(entity, victim)) {
-                        victim.addEffect(new MobEffectInstance(ModMobEffects.SUFFOCATION, getDuration(spellLevel, entity), spellLevel));
                         targets.incrementAndGet();
                     }
                 });
@@ -104,10 +101,5 @@ public class SuffocateSpell extends AbstractSpell {
 
     public int getDuration(int spellLevel, LivingEntity caster) {
         return (int) (getSpellPower(spellLevel, caster) * 7.5);
-    }
-
-    @Override
-    public Vector3f getTargetingColor() {
-        return Utils.deconstructRGB(ModMobEffects.SUFFOCATION.get().getColor());
     }
 }

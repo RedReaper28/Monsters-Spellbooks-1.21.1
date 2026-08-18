@@ -159,7 +159,6 @@ public class ModCreativeTabs {
                     .title(Component.translatable("creative_tab.monsterspellbooks.monsters_and_materials"))
                     .displayItems((itemDisplayParameters, output) ->{
                         output.accept(ModItems.NECRO_UPGRADE_ORB.get());
-                        output.accept(ModItems.AERO_UPGRADE_ORB.get());
 
                         output.accept(ModItems.ROSE_GOLD_INGOT);
                         output.accept(ModItems.ROSE_GOLD_NUGGET);
@@ -206,7 +205,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.VOID_VIAL);
                         output.accept(ModItems.SUPERIOR_WEAPON_PARTS);
                         output.accept(ModItems.UPGRADE_RUNE);
-                        output.accept(ModItems.AERO_RUNE);
                         output.accept(ModItems.NECRO_RUNE);
 
                         output.accept(ModItems.ROSE_GOLD_APPLE);

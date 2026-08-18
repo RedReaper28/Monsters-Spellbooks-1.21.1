@@ -482,10 +482,6 @@ public class ServerEvents {
         if(event.getSpell() instanceof RaiseDeadSpell) {
             event.setDefaultValue(SpellConfigParameter.SCHOOL, ModSpellSchools.NECRO.get());
         }
-
-        if(event.getSpell() instanceof GustSpell) {
-            event.setDefaultValue(SpellConfigParameter.SCHOOL, ModSpellSchools.AERO.get());
-        }
     }
 
 }

@@ -1,6 +1,8 @@
 package net.redreaper.monsterspellbooks.init;
 
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;
+import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -44,11 +46,11 @@ public class ModSpellSchools  {
     public static final Supplier<SchoolType> AERO = registerSchool(new SchoolType
             (
                     AERO_RESOURCE,
-                    ModTags.Items.AERO_FOCUS,
+                    io.redspace.ironsspellbooks.util.ModTags.EVOCATION_FOCUS,
                     Component.translatable("school.monsterspellbooks.aero").withStyle(Style.EMPTY.withColor(11904458)),
-                    ModAtributeRegistry.AERO_MAGIC_POWER,
-                    ModAtributeRegistry.AERO_MAGIC_RESIST,
+                    AttributeRegistry.EVOCATION_SPELL_POWER,
+                    AttributeRegistry.EVOCATION_MAGIC_RESIST,
                     SoundRegistry.GUST_CAST,
-                    ModDamageTypes.AERO_MAGIC
+                    ISSDamageTypes.EVOCATION_MAGIC
             ));
 }

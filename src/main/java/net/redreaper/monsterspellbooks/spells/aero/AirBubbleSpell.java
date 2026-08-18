@@ -74,8 +74,6 @@ public class AirBubbleSpell extends AbstractSpell {
         if (Utils.preCastTargetHelper(level, entity, playerMagicData, this, 32, .35f)) {
             float radius = 3f;
             var target = ((TargetEntityCastData) playerMagicData.getAdditionalCastData()).getTarget((ServerLevel) level);
-            var area = TargetedAreaEntity.createTargetAreaEntity(level, target.position(), radius, ModMobEffects.FLIGHT.get().getColor(), target);
-            playerMagicData.setAdditionalCastData(new TargetedTargetAreaCastData(target, area));
             return true;
         }
         return false;
@@ -90,8 +88,6 @@ public class AirBubbleSpell extends AbstractSpell {
                 AtomicInteger targets = new AtomicInteger(0);
                 targetEntity.level().getEntitiesOfClass(LivingEntity.class, targetEntity.getBoundingBox().inflate(radius)).forEach((victim) -> {
                     if (targets.get() < MAX_TARGETS && victim != entity && victim.distanceToSqr(targetEntity) < radius * radius) {
-                        victim.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, getDuration(spellLevel, entity), 0));
-                        targets.incrementAndGet();
                     }
                 });
             }
@@ -103,8 +99,4 @@ public class AirBubbleSpell extends AbstractSpell {
         return (int) (getSpellPower(spellLevel, caster) * 10000);
     }
 
-    @Override
-    public Vector3f getTargetingColor() {
-        return Utils.deconstructRGB(ModMobEffects.FLIGHT.get().getColor());
-    }
 }

@@ -92,7 +92,7 @@ public class SteamSteamSpell extends AbstractSpell {
             return this.getSpellPower(spellLevel, (Entity)null) * 7.0F;
         } else {
             double firePower = caster.getAttributeValue(AttributeRegistry.FIRE_SPELL_POWER);
-            double bloodPower = caster.getAttributeValue(ModAtributeRegistry.AERO_MAGIC_POWER);
+            double bloodPower = caster.getAttributeValue(AttributeRegistry.EVOCATION_SPELL_POWER);
             return (float)((double)0.5f + (double).75f * (double)this.getSpellPower(spellLevel, caster) * ((double)0.5F * firePower + (double)0.5F * bloodPower));
         }
     }

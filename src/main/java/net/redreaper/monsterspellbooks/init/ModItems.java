@@ -141,8 +141,6 @@ public class ModItems {
             ()->new Item(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item>UPGRADE_RUNE= ITEMS.register("upgrade_rune",
             ()->new Item(new Item.Properties()));
-    public static final DeferredItem<Item>AERO_RUNE= ITEMS.register("aero_rune",
-            ()->new Item(new Item.Properties()));
     public static final DeferredItem<Item>NECRO_RUNE= ITEMS.register("necro_rune",
             ()->new Item(new Item.Properties()));
 
@@ -464,11 +462,8 @@ public class ModItems {
     public static final Supplier<DeferredSpawnEggItem> MAGMA_ATRONACH_SPAWN_EGG = ITEMS.register("magma_atronach_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.MAGMA_ATRONACH, 1380882, 16734238, ItemPropertiesHelper.material().stacksTo(64)));
     public static final Supplier<DeferredSpawnEggItem> BLASTLING_SPAWN_EGG = ITEMS.register("blastling_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.BLASTLING, 0, 15077593, ItemPropertiesHelper.material().stacksTo(64)));
 
-
     public static final DeferredHolder<Item, Item> NECRO_UPGRADE_ORB = ITEMS.register("necro_upgrade_orb", () ->
             new UpgradeOrbItem(ItemPropertiesHelper.material().rarity(Rarity.UNCOMMON).component(ComponentRegistry.UPGRADE_ORB_TYPE, ModUpgradeTypeRegistry.NECRO_SPELL_POWER)));
-    public static final DeferredHolder<Item, Item> AERO_UPGRADE_ORB = ITEMS.register("aero_upgrade_orb", () ->
-            new UpgradeOrbItem(ItemPropertiesHelper.material().rarity(Rarity.UNCOMMON).component(ComponentRegistry.UPGRADE_ORB_TYPE, ModUpgradeTypeRegistry.AERO_SPELL_POWER)));
 
 
     public static void register(IEventBus eventBus){

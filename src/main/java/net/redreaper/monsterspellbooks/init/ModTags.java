@@ -32,7 +32,6 @@ public class ModTags {
     public static class Items{
 
         public static final TagKey<Item> NECRO_FOCUS=createTag("necro_focus");
-        public static final TagKey<Item> AERO_FOCUS=createTag("aero_focus");
         public static final TagKey<Item> SUPERIOR_ARCANE_INGOT_BASE=createTag("superior_arcane_ingot_base");
 
         public static final TagKey<Item> LICHDOM_KEYS=createTag("lichdom_keys");

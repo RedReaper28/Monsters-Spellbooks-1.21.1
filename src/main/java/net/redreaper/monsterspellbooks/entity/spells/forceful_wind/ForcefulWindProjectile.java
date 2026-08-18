@@ -75,7 +75,7 @@ public class ForcefulWindProjectile extends AbstractMagicProjectile implements G
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         DamageSources.applyDamage(pResult.getEntity(), getDamage(),
-                ModSpellRegistry.FORCEFUL_WIND.get().getDamageSource(this, getOwner()));
+                ModSpellRegistry.SPECTRAL_BLAST.get().getDamageSource(this, getOwner()));
         if (pResult.getEntity() instanceof LivingEntity livingTarget)
         {
             livingTarget.addEffect(new MobEffectInstance(MobEffectRegistry.GUIDING_BOLT, 5 * 20));

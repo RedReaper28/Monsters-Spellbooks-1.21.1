@@ -23,7 +23,7 @@ import java.util.Map;
 public class EnchantingTomeItem extends SpellBook {
     public EnchantingTomeItem() {
         super(10, ItemPropertiesHelper.equipment().fireResistant().stacksTo(1).rarity(ModRarities.ILLAGER_RARITY_PROXY.getValue()));
-        withSpellbookAttributes(new AttributeContainer(ModAtributeRegistry.AERO_MAGIC_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+        withSpellbookAttributes(new AttributeContainer(AttributeRegistry.EVOCATION_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.MAX_MANA, 200, AttributeModifier.Operation.ADD_VALUE));
     }
 

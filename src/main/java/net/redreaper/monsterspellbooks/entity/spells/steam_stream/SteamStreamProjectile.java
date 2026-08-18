@@ -87,7 +87,7 @@ public class SteamStreamProjectile extends AbstractConeProjectile {
     @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         var entity = entityHitResult.getEntity();
-        DamageSources.applyDamage(entity, damage, ModSpellRegistry.STEAM_STREAM.get().getDamageSource(this, getOwner()));
+        DamageSources.applyDamage(entity, damage, ModSpellRegistry.SPECTRAL_BLAST.get().getDamageSource(this, getOwner()));
     }
 }
 

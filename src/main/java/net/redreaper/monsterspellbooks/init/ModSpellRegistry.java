@@ -32,16 +32,6 @@ public class ModSpellRegistry {
         return SPELLS.register(spell.getSpellName(), () -> spell);
     }
 
-    //AERO
-    public static final Supplier<AbstractSpell> AIR_BUBBLE = registerSpell(new AirBubbleSpell());
-    public static final Supplier<AbstractSpell> AIR_PROPULSION = registerSpell(new AirPropulsionSpell());
-    public static final Supplier<AbstractSpell> CLOUD_DASH = registerSpell(new CloudDashSpell());
-    public static final Supplier<AbstractSpell> FORCEFUL_WIND = registerSpell(new ForcefulWindSpell());
-    public static final Supplier<AbstractSpell> STEAM_STREAM = registerSpell(new SteamSteamSpell());
-    public static final Supplier<AbstractSpell> SUFFOCATE = registerSpell(new SuffocateSpell());
-    public static final Supplier<AbstractSpell> WIND_CHARGE = registerSpell(new WindChargeSpell());
-    public static final Supplier<AbstractSpell> WIND_WAVE = registerSpell(new WindWaveSpell());
-
     //BLOOD
     public static final Supplier<AbstractSpell> ANTICOAGULATION = registerSpell(new AnticoagulationSpell());
     public static final Supplier<AbstractSpell> BLOOD_PIERCE = registerSpell(new BloodPierceSpell());
