@@ -1,19 +1,20 @@
 package net.redreaper.monsterspellbooks.effect;
 
-import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
+import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.effect.ISyncedMobEffect;
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
-import io.redspace.ironsspellbooks.registries.SoundRegistry;
-import io.redspace.ironsspellbooks.util.ParticleHelper;
-import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.phys.Vec3;
-import net.redreaper.monsterspellbooks.entity.spells.redstone_mines.RedstoneExplosionEntity;
+import net.minecraft.world.level.block.Blocks;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.redreaper.monsterspellbooks.init.ModMobEffects;
 import net.redreaper.monsterspellbooks.particle.ModParticleHelper;
 import org.jetbrains.annotations.Nullable;
@@ -21,11 +22,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 import java.util.WeakHashMap;
 
+@EventBusSubscriber
 public class StaticMobEffect extends MagicMobEffect implements ISyncedMobEffect {
-
-    public static final int STACKS_REQUIRED = 5;
-    public static final int STACKS_REQUIRED_AMPLIFIER = STACKS_REQUIRED - 1;
-
     private static final Map<LivingEntity, Entity> EFFECT_CREDIT = new WeakHashMap<>();
 
     private static final Map<MobEffectInstance, Integer> DELAYED_INSTANCES = new WeakHashMap<>();
@@ -46,68 +44,40 @@ public class StaticMobEffect extends MagicMobEffect implements ISyncedMobEffect 
             EFFECT_CREDIT.put(entity, afflicter);
         }
         entity.addEffect(inst);
+        StaticEffectData.get(entity).setHitCount(inst.getAmplifier());
+
         return inst;
     }
 
     @Override
-    public void clientTick(LivingEntity livingEntity, MobEffectInstance instance) {
-        int amplifier = instance.getAmplifier();
-        ParticleOptions particle = ParticleHelper.ELECTRIC_SPARKS;
-        if (amplifier >= 1) {
-            particle = ModParticleHelper.REDSTONE_SPARKS;
+    public void onEffectRemoved(LivingEntity pLivingEntity, int pAmplifier) {
+        StaticEffectData.remove(pLivingEntity);
+    }
+
+    @SubscribeEvent
+    public static void onLivingDamage(LivingDamageEvent.Post event) {
+        LivingEntity entityTarget = event.getEntity();
+        Entity entityAttacker = event.getSource().getDirectEntity();
+        var effect = entityTarget.getEffect(ModMobEffects.STATIC);
+        if (effect == null) {
+            return;
         }
-        var random = livingEntity.getRandom();
-        for (int i = 0; i < 2; i++) {
-            Vec3 motion = new Vec3(
-                    random.nextFloat() * 2 - 1,
-                    random.nextFloat() * 2 - 1,
-                    random.nextFloat() * 2 - 1
-            );
-            motion = motion.scale(.04f);
-            livingEntity.level().addParticle(particle, livingEntity.getRandomX(.4f), livingEntity.getRandomY(), livingEntity.getRandomZ(.4f), motion.x, motion.y, motion.z);
+
+        var data = StaticEffectData.get(entityTarget);
+
+        if (entityAttacker instanceof LivingEntity livingAttacker) {
+                var source = new DamageSource(entityTarget.level().damageSources().damageTypes.getHolderOrThrow(DamageTypes.LIGHTNING_BOLT), entityTarget);
+                float baseDamage = event.getOriginalDamage();
+                float thornDamage = baseDamage * .5f;
+                livingAttacker.hurt(source,baseDamage);
+                livingAttacker.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS, 5*20,1));
+                MagicManager.spawnParticles(entityAttacker.level(), ModParticleHelper.REDSTONE_SPARKS, entityAttacker.getRandomX(entityAttacker.getBbWidth() * 0.45), entityAttacker.getRandomY() + 0.25, entityAttacker.getRandomZ(entityAttacker.getBbWidth() * 0.45), 1, 0, 0, 0, 0.25, false);
+        }
+
+        data.decrementHit();
+        if (!data.hasHitsRemaining()) {
+            entityTarget.removeEffect(ModMobEffects.STATIC);
         }
     }
 
-    @Override
-    public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
-        var self = livingEntity.getEffect(ModMobEffects.STATIC);
-        if (DELAYED_INSTANCES.containsKey(self) && !(DELAYED_INSTANCES.get(self) - duration > 4)) {
-            return true;
-        }
-        var level = livingEntity.level();
-        if (level.isClientSide) {
-            return true;
-        }
-        @Nullable Entity attacker = EFFECT_CREDIT.remove(livingEntity);
-
-        var source = new DamageSource(level.damageSources().damageTypes.getHolderOrThrow(ISSDamageTypes.LIGHTNING_MAGIC), attacker);
-
-        if (livingEntity instanceof LivingEntity livingAttacker) {
-            double baseDamage = damageFor(attacker);
-            RedstoneExplosionEntity chainLightning = new RedstoneExplosionEntity(livingAttacker.level(), livingAttacker, livingEntity);
-            chainLightning.setDamage((float) baseDamage);
-            chainLightning.range = 15;
-            chainLightning.maxConnections = 5;
-            livingAttacker.level().addFreshEntity(chainLightning);
-        }
-
-        level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundRegistry.SHOCKWAVE_CAST.value(), livingEntity.getSoundSource(), 4.0F, (1.0F + (level.random.nextFloat() - level.random.nextFloat()) * 0.2F) * 0.7F);
-        return false;
-    }
-
-    public static double damageFor(@Nullable Entity entity) {
-        double baseDamage = 10.0;
-        if (entity instanceof LivingEntity livingAttacker) {
-            baseDamage = baseDamage * livingAttacker.getAttributeValue(AttributeRegistry.SPELL_POWER) * livingAttacker.getAttributeValue(AttributeRegistry.LIGHTNING_SPELL_POWER);
-        }
-        return baseDamage;
-    }
-
-    static int duration;
-
-    @Override
-    public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-        StaticMobEffect.duration = duration;
-        return amplifier >= STACKS_REQUIRED_AMPLIFIER;
-    }
 }

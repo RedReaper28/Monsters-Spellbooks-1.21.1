@@ -67,25 +67,6 @@ public class VoidTouchedEffect extends MagicMobEffect implements ISyncedMobEffec
         }
     }
 
-    @Override
-    public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
-        var self = livingEntity.getEffect(MobEffectRegistry.IMMOLATE);
-        float explosionRadius = 6;
-        var level = livingEntity.level();
-        if (level.isClientSide) {
-            return true;
-        }
-
-        var entities = level.getEntities(null, livingEntity.getBoundingBox().inflate(explosionRadius));
-        Vec3 losPoint = Utils.raycastForBlock(level, livingEntity.position(), livingEntity.position().add(0, 1, 0), ClipContext.Fluid.NONE).getLocation();
-        for (Entity entity : entities) {
-            double distanceSqr = entity.distanceToSqr(livingEntity.position());
-        }
-        PacketDistributor.sendToPlayersTrackingEntity(livingEntity, new FieryExplosionParticlesPacket(livingEntity.getBoundingBox().getCenter(), 1.5f));
-        level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.GENERIC_EXPLODE.value(), livingEntity.getSoundSource(), 4.0F, (1.0F + (level.random.nextFloat() - level.random.nextFloat()) * 0.2F) * 0.7F);
-        return false;
-    }
-
     @SubscribeEvent
     public static void increaseDamage(LivingIncomingDamageEvent event) {
         var attacker = event.getSource().getEntity();

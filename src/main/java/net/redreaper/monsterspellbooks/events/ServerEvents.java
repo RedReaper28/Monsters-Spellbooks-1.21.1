@@ -163,9 +163,12 @@ public class ServerEvents {
         {
             if (!target.getType().is(EntityTypeTags.UNDEAD)) {
                 if (livingAttacker.getItemBySlot(EquipmentSlot.MAINHAND).is(ModTags.Items.DEATHSILVER_WEAPONS)) {
-                    float baseDamage = event.getOriginalAmount();
-                    float newDamage = baseDamage * 1.50f;
-                    event.setAmount(newDamage);
+                    if (event.getSource().is(DamageTypes.PLAYER_ATTACK)) {
+
+                        float baseDamage = event.getOriginalAmount();
+                        float newDamage = baseDamage * 1.50f;
+                        event.setAmount(newDamage);
+                    }
                 }
             }
         }
@@ -262,23 +265,6 @@ public class ServerEvents {
                     if (livingEntity instanceof Player player)
                     {
                         player.getCooldowns().addCooldown(ModItems.ETERNAL_KNIFE.get(), EternalKnifeItem.COOLDOWN);
-                    }
-                }
-            }
-
-            if (mainhandItem.getItem() instanceof MagmaticMacuahuitlItem && (!(livingEntity instanceof Player player) || !player.getCooldowns().isOnCooldown(ModItems.MAGMATIC_MACUAHUITL.get())))
-            {
-                // Magmatic Macuahuitl - Hit enemies are inflicted with Rend
-                {
-                    MagicManager.spawnParticles(target.level(), new BlastwaveParticleOptions(SchoolRegistry.FIRE.get().getTargetingColor(), 1.5f), target.getX(), target.getY() + 0.165F, target.getZ(), 1, 0, 0, 0, 0, true);
-                    if (target instanceof LivingEntity livingTarget)
-                    {
-                        livingTarget.addEffect(new MobEffectInstance(MobEffectRegistry.REND, 10*20, 6, true, true, true));
-                    }
-
-                    if (livingEntity instanceof Player player)
-                    {
-                        player.getCooldowns().addCooldown(ModItems.MAGMATIC_MACUAHUITL.get(), MagmaticMacuahuitlItem.COOLDOWN);
                     }
                 }
             }

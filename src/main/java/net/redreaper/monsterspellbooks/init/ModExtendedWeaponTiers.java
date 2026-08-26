@@ -26,7 +26,8 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(AttributeRegistry.LIGHTNING_SPELL_POWER, 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static ModExtendedWeaponTiers MAGMATIC_OBSIDIAN = new ModExtendedWeaponTiers(751, 7F, -2.8F, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(Items.BLAZE_POWDER),
-            new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+            new AttributeContainer(IronsLibRegistries.AttributeRegistry.ARMOR_PIERCE, 5, AttributeModifier.Operation.ADD_VALUE));
 
     public static ModExtendedWeaponTiers BLOOD_STAINED_GOLD = new ModExtendedWeaponTiers(1551, 14, -3, 25, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ItemRegistry.BLOOD_VIAL.get()),
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),

@@ -7,6 +7,7 @@ import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.entity.mobs.IMagicSummon;
 import io.redspace.ironsspellbooks.entity.mobs.goals.*;
 import io.redspace.ironsspellbooks.util.OwnerHelper;
+import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.acetheeldritchking.aces_spell_utils.entity.mobs.UniqueAbstractSpellCastingMob;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -155,7 +156,7 @@ public class SoulWizardEntity extends UniqueAbstractSpellCastingMob implements I
     public void onUnSummon() {
         if (!this.level().isClientSide)
         {
-            MagicManager.spawnParticles(this.level(), ModParticleHelper.SOUL_FIRE,
+            MagicManager.spawnParticles(this.level(), ParticleHelper.SOUL_FIRE,
                     getX(), getY(), getZ(),
                     25, 0.4, 0.8, 0.4, 0.03, false);
             discard();

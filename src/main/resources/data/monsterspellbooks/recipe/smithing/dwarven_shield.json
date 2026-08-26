@@ -4,7 +4,7 @@
     "item": "monsterspellbooks:redstone_battery"
   },
   "base": {
-    "item": "minecraft:shield"
+    "item": "monsterspellbooks:mithril_shield"
   },
   "result": {
     "count": 1,

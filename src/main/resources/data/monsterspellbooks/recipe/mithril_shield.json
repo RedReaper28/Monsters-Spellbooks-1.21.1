@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "irons_spellbooks:mithril_scrap"
+    },
+    "B": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "BAB",
+    "BBB",
+    " B "
+  ],
+  "result": {
+    "count": 1,
+    "id": "monsterspellbooks:mithril_shield"
+  }
+}

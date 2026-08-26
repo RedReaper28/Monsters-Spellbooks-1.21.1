@@ -105,7 +105,7 @@ public class RancorPhantomEntity extends PathfinderMob implements GeoEntity {
                     DamageSources.applyDamage(target, damageAmount, ModSpellRegistry.RANCORCALL.get().getDamageSource(this, cachedOwner));
                     this.playSound(WispSpell.getImpactSound(), 1.0f, 1.0f);
                     var p = target.getEyePosition();
-                    MagicManager.spawnParticles(level(), ModParticleHelper.SOUL_FIRE, p.x, p.y, p.z, 25, 0, 0, 0, .18, true);
+                    MagicManager.spawnParticles(level(), ParticleHelper.SOUL_FIRE, p.x, p.y, p.z, 25, 0, 0, 0, .18, true);
                     discard();
                 }
             }

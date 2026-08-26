@@ -67,7 +67,7 @@ public class StrayGraspProjectile extends AbstractMagicProjectile implements Geo
 
     @Override
     public void impactParticles(double x, double y, double z) {
-        MagicManager.spawnParticles(level(), ModParticleHelper.SOUL_FIRE, x, y, z, 5, .1, .1, .1, 0.5, true);
+        MagicManager.spawnParticles(level(), ParticleHelper.SOUL_FIRE, x, y, z, 5, .1, .1, .1, 0.5, true);
         MagicManager.spawnParticles(level(), ParticleHelper.SNOWFLAKE, x, y, z, 75, .1, .1, .1, .5, false);
     }
 

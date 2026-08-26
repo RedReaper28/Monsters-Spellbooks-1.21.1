@@ -5,6 +5,7 @@ import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
+import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -52,12 +53,12 @@ public class RancorSkull extends AbstractMagicProjectile implements GeoEntity {
 
     public void trailParticles() {
         Vec3 vec3 = this.position().subtract(getDeltaMovement());
-        level().addParticle(ModParticleHelper.SOUL_FIRE, vec3.x, vec3.y, vec3.z, 0, 0, 0);
+        level().addParticle(ParticleHelper.SOUL_FIRE, vec3.x, vec3.y, vec3.z, 0, 0, 0);
     }
 
     @Override
     public void impactParticles(double x, double y, double z) {
-        MagicManager.spawnParticles(level(), ModParticleHelper.SOUL_FIRE, x, y, z, 5, .1, .1, .1, .5, false);
+        MagicManager.spawnParticles(level(), ParticleHelper.SOUL_FIRE, x, y, z, 5, .1, .1, .1, .5, false);
     }
 
     @Override public float getSpeed() {

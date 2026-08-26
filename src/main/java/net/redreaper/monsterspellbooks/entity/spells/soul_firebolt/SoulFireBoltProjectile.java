@@ -4,6 +4,7 @@ import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
+import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -89,7 +90,7 @@ public class SoulFireBoltProjectile extends AbstractMagicProjectile {
             double y = Mth.lerp(offset, y1, y2) + swirl.y + getBbHeight() / 2;
             double z = Mth.lerp(offset, z1, z2) + swirl.z;
             Vec3 jitter = Vec3.ZERO;//Utils.getRandomVec3(.05f);
-            level().addParticle(ModParticleHelper.SOUL_FIRE, x, y, z, jitter.x, jitter.y, jitter.z);
+            level().addParticle(ParticleHelper.SOUL_FIRE, x, y, z, jitter.x, jitter.y, jitter.z);
         }
     }
 }

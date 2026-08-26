@@ -3,6 +3,7 @@ package net.redreaper.monsterspellbooks.entity.spells.soul_scorch;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import io.redspace.ironsspellbooks.entity.spells.AoeEntity;
+import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -58,6 +59,6 @@ public class SoulFireField extends AoeEntity {
 
     @Override
     public Optional<ParticleOptions> getParticle() {
-        return Optional.of(ModParticleHelper.SOUL_FIRE);
+        return Optional.of(ParticleHelper.SOUL_FIRE);
     }
 }

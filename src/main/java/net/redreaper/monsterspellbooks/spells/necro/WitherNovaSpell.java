@@ -128,7 +128,7 @@ public class WitherNovaSpell extends AbstractSpell {
         for (int i = 0; i < 2; i++) {
             Vec3 pos = vec3.add(Utils.getRandomVec3(entity.getBbHeight() * 2));
             Vec3 motion = vec3.subtract(pos).scale(0.10f);
-            entity.level().addParticle(ModParticleHelper.SOUL_FIRE, pos.x, pos.y, pos.z, motion.x, motion.y, motion.z);
+            entity.level().addParticle(ParticleHelper.SOUL_FIRE, pos.x, pos.y, pos.z, motion.x, motion.y, motion.z);
         }
     }
 

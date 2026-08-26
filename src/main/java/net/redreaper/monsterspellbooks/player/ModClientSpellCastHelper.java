@@ -90,7 +90,7 @@ public class ModClientSpellCastHelper {
                 Vec3 posOffset = Utils.getRandomVec3(1).scale(radius * .4f);
                 Vec3 motion = posOffset.normalize().scale(speed * .5f);
                 motion = motion.add(Utils.getRandomVec3(0.25));
-                level.addParticle(ModParticleHelper.SOUL_FIRE, true, x + posOffset.x, y + posOffset.y, z + posOffset.z, motion.x, motion.y, motion.z);
+                level.addParticle(ParticleHelper.SOUL_FIRE, true, x + posOffset.x, y + posOffset.y, z + posOffset.z, motion.x, motion.y, motion.z);
                 level.addParticle(ParticleTypes.SOUL, x + posOffset.x * .5f, y + posOffset.y * .5f, z + posOffset.z * .5f, motion.x, motion.y, motion.z);
             }
             //Sparks

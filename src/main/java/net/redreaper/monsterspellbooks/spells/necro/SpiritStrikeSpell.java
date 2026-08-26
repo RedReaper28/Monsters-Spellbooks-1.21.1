@@ -10,6 +10,7 @@ import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
+import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -33,7 +34,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class SpiritStrikeSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(MonstersSpellbooks.MOD_ID, "spirit_strike");
 
@@ -103,7 +103,7 @@ public class SpiritStrikeSpell extends AbstractSpell {
                 if (offsetVector.dot(forward) >= 0) {
                     if (DamageSources.applyDamage(targetEntity, getDamage(spellLevel, entity), damageSource)) {
                         ((LivingEntity) targetEntity).addEffect(new MobEffectInstance(ModMobEffects.SOUL_REND, (int) (getSpellPower(spellLevel, entity) * 20),spellLevel-1, false, true, true));
-                        MagicManager.spawnParticles(level, ModParticleHelper.SOUL_FIRE, targetEntity.getX(), targetEntity.getY() + targetEntity.getBbHeight() * .5f, targetEntity.getZ(), 30, targetEntity.getBbWidth() * .5f, targetEntity.getBbHeight() * .5f, targetEntity.getBbWidth() * .5f, .03, false);
+                        MagicManager.spawnParticles(level, ParticleHelper.SOUL_FIRE, targetEntity.getX(), targetEntity.getY() + targetEntity.getBbHeight() * .5f, targetEntity.getZ(), 30, targetEntity.getBbWidth() * .5f, targetEntity.getBbHeight() * .5f, targetEntity.getBbWidth() * .5f, .03, false);
                         EnchantmentHelper.doPostAttackEffects((ServerLevel) level, targetEntity, damageSource);
                     }
                 }
