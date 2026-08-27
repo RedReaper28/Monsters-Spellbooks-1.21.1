@@ -1,0 +1,32 @@
+{
+  "bonusParameters": {
+    "irons_jewelry:action": {
+      "action": {
+        "type": "irons_jewelry:apply_damage",
+        "amount": {
+          "base": 3.0,
+          "scalar": 1.0
+        },
+        "damageType": "minecraft:lava"
+      },
+      "targetSelf": false
+    },
+    "irons_jewelry:attribute": {
+      "amount": 0.05,
+      "attribute": "aces_spell_utils:magic_projectile_damage",
+      "operation": "add_multiplied_total"
+    },
+    "irons_jewelry:negative_effect": {
+      "effect": "irons_spellbooks:rend"
+    },
+    "irons_jewelry:positive_effect": {
+      "effect": "minecraft:fire_resistance"
+    }
+  },
+  "descriptionId": "material.monsterspellbooks.hellmetal",
+  "ingredient": {
+    "item": "monsterspellbooks:scorched_metal_ingot"
+  },
+  "paletteLocation": "monsterspellbooks:palettes/hellmetal",
+  "quality": 1.5
+}

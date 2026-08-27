@@ -48,7 +48,6 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> ENDERSENT_FORM = registerSpell(new EndersentFormSpell());
     public static final Supplier<AbstractSpell> FIRMAMENT_SPLITTER = registerSpell(new FirmamentSplitterSpell());
     public static final Supplier<AbstractSpell> GRAVITY_WELL = registerSpell(new GravityWellSpell());
-    public static final Supplier<AbstractSpell> OBSIDIAN_ARSENAL = registerSpell(new ObsidianArsenalSpell());
     public static final Supplier<AbstractSpell> SPACE_BREAKER = registerSpell(new SpaceBreakerSpell());
     public static final Supplier<AbstractSpell> SPACE_RUPTURE = registerSpell(new SpaceRuptureSpell());
     public static final Supplier<AbstractSpell> UNSTABLE_TELEPORT = registerSpell(new UnstableTeleportSpell());

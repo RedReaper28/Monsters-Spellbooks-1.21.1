@@ -1,0 +1,32 @@
+{
+  "bonusParameters": {
+    "irons_jewelry:action": {
+      "action": {
+        "type": "irons_jewelry:apply_damage",
+        "amount": {
+          "base": 3.0,
+          "scalar": 1.0
+        },
+        "damageType": "minecraft:wither"
+      },
+      "targetSelf": false
+    },
+    "irons_jewelry:attribute": {
+      "amount": 0.1,
+      "attribute": "aces_spell_utils:mana_rend",
+      "operation": "add_multiplied_total"
+    },
+    "irons_jewelry:negative_effect": {
+      "effect": "minecraft:wither"
+    },
+    "irons_jewelry:positive_effect": {
+      "effect": "monsterspellbooks:soul_boosted"
+    }
+  },
+  "descriptionId": "material.monsterspellbooks.deathsilver",
+  "ingredient": {
+    "item": "monsterspellbooks:deathsilver_ingot"
+  },
+  "paletteLocation": "monsterspellbooks:palettes/deathsilver",
+  "quality": 2
+}

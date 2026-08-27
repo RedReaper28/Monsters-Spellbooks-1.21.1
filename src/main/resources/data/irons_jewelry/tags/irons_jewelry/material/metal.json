@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "monsterspellbooks:blazesteel",
+    "monsterspellbooks:deathsilver",
+    "monsterspellbooks:dwarven_alloy",
+    "monsterspellbooks:hellmetal",
+    "monsterspellbooks:orichalcum",
+    "monsterspellbooks:rose_gold",
+    "monsterspellbooks:sanguinite",
+    "monsterspellbooks:illagerite",
+    "monsterspellbooks:spectrite",
+    "monsterspellbooks:void_obsidian",
+    "monsterspellbooks:white_gold",
+    "monsterspellbooks:wither_alloy"
+  ]
+}

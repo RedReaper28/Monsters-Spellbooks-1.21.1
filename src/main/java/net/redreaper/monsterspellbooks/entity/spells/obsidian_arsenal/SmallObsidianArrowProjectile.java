@@ -91,7 +91,7 @@ public class SmallObsidianArrowProjectile extends AbstractMagicProjectile {
         if (level().isClientSide)
             return;
         Entity entity = entityHitResult.getEntity();
-        boolean hit = DamageSources.applyDamage(entity, getDamage(), ModSpellRegistry.OBSIDIAN_ARSENAL.get().getDamageSource(this, getOwner()));
+        boolean hit = DamageSources.applyDamage(entity, getDamage(), ModSpellRegistry.CORRUPTED_BEACON_RAY.get().getDamageSource(this, getOwner()));
         boolean ignore = entity.getType() == EntityType.ENDERMAN;
         if (hit) {
             this.pierceOrDiscard();

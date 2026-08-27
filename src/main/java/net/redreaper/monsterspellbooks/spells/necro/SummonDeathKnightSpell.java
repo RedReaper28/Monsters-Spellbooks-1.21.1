@@ -1,5 +1,6 @@
 package net.redreaper.monsterspellbooks.spells.necro;
 
+import io.redspace.ironsspellbooks.IronsSpellbooks;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.events.SpellSummonEvent;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
@@ -18,6 +19,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.NeoForge;
@@ -40,7 +43,11 @@ public class SummonDeathKnightSpell extends AbstractSpell {
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
-        return List.of(Component.translatable("ui.irons_spellbooks.summon_count", getSummonCount(spellLevel, caster)));
+        return List.of(
+                Component.translatable("ui.irons_spellbooks.summon_count",  getSummonCount(spellLevel, caster)),
+                Component.translatable("ui.irons_spellbooks.percent_damage", (int) (100 + getDamageBonus(spellLevel, caster) * 100)),
+                Component.translatable("ui.irons_spellbooks.percent_health", (int) (100 + getHealthBonus(spellLevel, caster) * 100))
+        );
     }
 
     public SummonDeathKnightSpell() {
@@ -80,6 +87,16 @@ public class SummonDeathKnightSpell extends AbstractSpell {
         return Optional.empty();
     }
 
+    public double getHealthBonus(int spellLevel, LivingEntity caster) {
+        // 10% extra health for every extra spell power
+        return (getSpellPower(spellLevel, caster) - 1) * .05;
+    }
+
+    public double getDamageBonus(int spellLevel, LivingEntity caster) {
+        // 5% extra damage for every extra spell power
+        return (getSpellPower(spellLevel, caster) - 1) * .025;
+    }
+
     @Override
     public int getRecastCount(int spellLevel, @Nullable LivingEntity entity) {
         return 2;
@@ -104,10 +121,16 @@ public class SummonDeathKnightSpell extends AbstractSpell {
             SummonedEntitiesCastData summonedEntitiesCastData = new SummonedEntitiesCastData();
             int summonTime = 20 * 60 * 10;
             int count = getSummonCount(spellLevel, entity);
+            AttributeModifier healthModifier = new AttributeModifier(IronsSpellbooks.id("spell_power_health_bonus"), getHealthBonus(spellLevel, entity), AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+            AttributeModifier damageModifier = new AttributeModifier(IronsSpellbooks.id("spell_power_damage_bonus"), getDamageBonus(spellLevel, entity), AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+
             for (int i = 0; i < count; i++) {
                 DeathKnightEntity vex = new DeathKnightEntity(world, entity);
                 vex.moveTo(entity.getEyePosition().add(new Vec3(Utils.getRandomScaled(0), 0, Utils.getRandomScaled(0))));
                 vex.finalizeSpawn((ServerLevel) world, world.getCurrentDifficultyAt(vex.getOnPos()), MobSpawnType.MOB_SUMMONED, null);
+                vex.getAttribute(Attributes.ATTACK_DAMAGE).addPermanentModifier(damageModifier);
+                vex.getAttribute(Attributes.MAX_HEALTH).addPermanentModifier(healthModifier);
+                vex.setHealth(vex.getMaxHealth());
                 var creature = NeoForge.EVENT_BUS.post(new SpellSummonEvent<>(entity, vex, this.spellId, spellLevel)).getCreature();
                 world.addFreshEntity(creature);
                 SummonManager.initSummon(entity, creature, summonTime, summonedEntitiesCastData);

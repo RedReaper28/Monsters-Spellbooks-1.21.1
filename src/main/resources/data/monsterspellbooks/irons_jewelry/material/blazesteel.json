@@ -1,0 +1,32 @@
+{
+  "bonusParameters": {
+    "irons_jewelry:action": {
+      "action": {
+        "type": "irons_jewelry:apply_damage",
+        "amount": {
+          "base": 6.0,
+          "scalar": 1.0
+        },
+        "damageType": "minecraft:lava"
+      },
+      "targetSelf": false
+    },
+    "irons_jewelry:attribute": {
+      "amount": 0.1,
+      "attribute": "aces_spell_utils:magic_projectile_damage",
+      "operation": "add_multiplied_total"
+    },
+    "irons_jewelry:negative_effect": {
+      "effect": "monsterspellbooks:inflammable"
+    },
+    "irons_jewelry:positive_effect": {
+      "effect": "minecraft:strength"
+    }
+  },
+  "descriptionId": "material.monsterspellbooks.blazesteel",
+  "ingredient": {
+    "item": "monsterspellbooks:blazesteel_ingot"
+  },
+  "paletteLocation": "monsterspellbooks:palettes/blazesteel",
+  "quality": 2
+}

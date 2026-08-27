@@ -37,7 +37,8 @@ public class SummonWitherArmy extends AbstractSpell {
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
-        return List.of(Component.translatable("ui.irons_spellbooks.summon_count", getSummonCount(spellLevel, caster)));
+        return List.of
+                (Component.translatable("ui.irons_spellbooks.summon_count", getSummonCount(spellLevel, caster)));
     }
 
     public SummonWitherArmy() {

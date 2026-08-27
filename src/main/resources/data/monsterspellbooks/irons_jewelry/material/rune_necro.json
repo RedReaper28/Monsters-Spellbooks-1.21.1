@@ -1,0 +1,18 @@
+{
+  "descriptionId": "material.monsterspellbooks.rune_necro",
+  "ingredient": {
+    "item": "monsterspellbooks:necro_rune"
+  },
+  "materialType": [
+    "spellbooks_rune"
+  ],
+  "paletteLocation": "monsterspellbooks:palettes/rune_necro",
+  "quality": 1.5,
+  "bonusParameters": {
+    "irons_jewelry:attribute": {
+      "attribute": "monsterspellbooks:necro_spell_power",
+      "amount": 0.025,
+      "operation": "add_multiplied_total"
+    }
+  }
+}

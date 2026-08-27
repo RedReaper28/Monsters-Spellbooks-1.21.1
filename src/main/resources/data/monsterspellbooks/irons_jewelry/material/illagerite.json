@@ -1,0 +1,32 @@
+{
+  "bonusParameters": {
+    "irons_jewelry:action": {
+      "action": {
+        "type": "irons_jewelry:apply_damage",
+        "amount": {
+          "base": 3.0,
+          "scalar": 1.0
+        },
+        "damageType": "minecraft:arrow"
+      },
+      "targetSelf": false
+    },
+    "irons_jewelry:attribute": {
+      "amount": 0.1,
+      "attribute": "irons_lib:arrow_damage",
+      "operation": "add_multiplied_total"
+    },
+    "irons_jewelry:negative_effect": {
+      "effect": "minecraft:blindness"
+    },
+    "irons_jewelry:positive_effect": {
+      "effect": "minecraft:regeneration"
+    }
+  },
+  "descriptionId": "material.monsterspellbooks.illagerite",
+  "ingredient": {
+    "item": "monsterspellbooks:illagerite_ingot"
+  },
+  "paletteLocation": "monsterspellbooks:palettes/illagerite",
+  "quality": 2
+}

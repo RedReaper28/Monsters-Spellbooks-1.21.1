@@ -383,13 +383,6 @@ public class ServerEvents {
         var attacker = event.getSource().getEntity();
 
         if (attacker instanceof Player player) {
-            if (event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC) && (!player.getCooldowns().isOnCooldown(ModItems.DWARVEN_POWER_CORE.get()))) {
-                if (ASUtils.hasCurio(player, ModItems.DWARVEN_POWER_CORE.get())) {
-                    StaticMobEffect.addStaticStack(player, player);
-                    player.getCooldowns().addCooldown(ModItems.DWARVEN_POWER_CORE.get(), DwarvenPowerCoreItem.COOLDOWN);
-                    }
-            }
-
             // Frenzy King Book
             if (event.getSource().is(ISSDamageTypes.ELDRITCH_MAGIC) && (!player.getCooldowns().isOnCooldown(ModItems.FRENZY_KING_BOOK.get()))) {
                 if (ASUtils.hasCurio(player, ModItems.FRENZY_KING_BOOK.get())) {

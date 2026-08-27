@@ -153,10 +153,10 @@ repositories {
 
 dependencies {
     // ISS ***************************************************************************************************
-    implementation "io.redspace:irons_spellbooks:1.21.1-3.16.2"
+    implementation "io.redspace:irons_spellbooks:1.21.1-3.16.3"
 
     // PATREON LIB
-    implementation "curse.maven:irons-lib-1492763:8364894"
+    implementation "io.redspace:irons_lib:${irons_lib_version}"
     
     // GECKOLIB ***************************************************************************************************
     implementation "curse.maven:geckolib-388172:6304958"
@@ -195,6 +195,9 @@ dependencies {
     //Huge Structure Blocks
     implementation "curse.maven:huge-structure-blocks-474114:7065481"
 
+    //JEWELERY
+    localRuntime "curse.maven:irons-jewelry-1101111:8365016"
+    localRuntime "io.redspace:atlas_api:${atlas_api_version}"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
