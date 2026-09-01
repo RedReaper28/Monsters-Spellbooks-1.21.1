@@ -29,8 +29,8 @@ public class CrushingPresenceMobEffect extends MagicMobEffect {
                                 Utils.hasLineOfSight(entity.level(), entity, livingEntity, false)
                 )
                 .forEach(targetEntity -> {
-                    targetEntity.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS, 60, 1));
-                    targetEntity.addEffect(new MobEffectInstance(ModMobEffects.FEAR, 60, 1));
+                    targetEntity.addEffect(new MobEffectInstance(ModMobEffects.PARALYSIS, 5*20, 1));
+                    targetEntity.addEffect(new MobEffectInstance(ModMobEffects.FEAR, 5*20, 1));
                 });
         return true;
     }

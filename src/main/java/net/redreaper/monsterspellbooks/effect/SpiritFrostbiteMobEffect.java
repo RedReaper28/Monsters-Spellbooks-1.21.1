@@ -71,6 +71,6 @@ public class SpiritFrostbiteMobEffect extends MagicMobEffect implements ISyncedM
 
     public boolean shouldApplyEffectTickThisTick(int p_295368_, int p_294232_) {
         int i = 25 >> p_294232_;
-        return i > 0 ? p_295368_ % i == 0 : true;
+        return i == 0 || p_295368_ % i == 0;
     }
 }

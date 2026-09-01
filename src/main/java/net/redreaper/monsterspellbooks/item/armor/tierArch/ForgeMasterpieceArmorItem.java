@@ -69,7 +69,7 @@ public class ForgeMasterpieceArmorItem extends ImbuableExtendedGeoArmorItem impl
 
     private void evaluateArmorEffects(Player player) {
         if (!player.hasEffect(ModMobEffects.FORGED_RESISTANCE)) {
-            player.addEffect(new MobEffectInstance(ModMobEffects.FORGED_RESISTANCE, 5*20, 0, false, false, false));
+            player.addEffect(new MobEffectInstance(ModMobEffects.FORGED_RESISTANCE, 10*20, 0, false, false, false));
         }
     }
 

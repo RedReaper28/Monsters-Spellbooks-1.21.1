@@ -98,7 +98,6 @@ public class MonstersSpellbooks {
             event.enqueueWork(() -> {
                 CuriosRendererRegistry.register(ModItems.GUARDIAN_SPELLBOOK.get(), SpellBookCurioRenderer::new);
                 CuriosRendererRegistry.register(ModItems.ENCHANTING_TOME.get(), SpellBookCurioRenderer::new);
-                CuriosRendererRegistry.register(ModItems.UPDRAFT_TOME.get(), SpellBookCurioRenderer::new);
                 CuriosRendererRegistry.register(ModItems.BOOK_OF_SOULS.get(), SpellBookCurioRenderer::new);
                 CuriosRendererRegistry.register(ModItems.FRENZY_KING_BOOK.get(), SpellBookCurioRenderer::new);
                 CuriosRendererRegistry.register(ModItems.DISEASE_ENCYCLOPEDIA.get(), SpellBookCurioRenderer::new);

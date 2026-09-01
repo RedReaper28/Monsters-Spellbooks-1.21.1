@@ -22,7 +22,6 @@ public class ModCreativeTabs {
                     .displayItems((itemDisplayParameters, output) ->{
                         output.accept(ModItems.ENCHANTING_TOME.get());
                         output.accept(ModItems.GUARDIAN_SPELLBOOK.get());
-                        output.accept(ModItems.UPDRAFT_TOME.get());
                         output.accept(ModItems.BOOK_OF_SOULS.get());
                         output.accept(ModItems.FRENZY_KING_BOOK.get());
                         output.accept(ModItems.DISEASE_ENCYCLOPEDIA.get());

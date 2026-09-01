@@ -11,9 +11,4 @@ public class CursedMobEffect extends MobEffect {
     public CursedMobEffect() {
         super(MobEffectCategory.HARMFUL, 1315355);
     }
-
-    public List<ItemStack> getCurativeItems() {
-        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-        return ret;
-    }
 }

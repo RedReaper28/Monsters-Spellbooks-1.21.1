@@ -70,7 +70,7 @@ public class SpiritStrikeParticle extends TextureSheetParticle {
                                     )
                             )
                     ).scale(this.quadSize * .75f).add(Utils.getRandomVec3(0.3));
-            level.addParticle(ParticleHelper.EMBERS, x + localPos.x, y + localPos.y, z + localPos.z, 0, 0, 0);
+            level.addParticle(ParticleHelper.SOUL_FIRE, x + localPos.x, y + localPos.y, z + localPos.z, 0, 0, 0);
         }
     }
 
