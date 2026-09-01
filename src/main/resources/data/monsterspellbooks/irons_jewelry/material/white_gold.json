@@ -23,10 +23,10 @@
       "effect": "minecraft:haste"
     }
   },
-  "descriptionId": "material.monsterspellbooks.wither_alloy",
+  "descriptionId": "material.monsterspellbooks.white_gold",
   "ingredient": {
     "item": "monsterspellbooks:white_gold_ingot"
   },
-  "paletteLocation": "monsterspellbooks:palettes/wither_alloy",
+  "paletteLocation": "monsterspellbooks:palettes/white_gold",
   "quality": 0.5
 }

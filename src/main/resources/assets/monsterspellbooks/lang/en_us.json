@@ -713,8 +713,12 @@
   "rarity.monsterspellbooks_rarity_sanguinite.name": "Sanguinite",
   "rarity.monsterspellbooks_rarity_wind.name": "Wind",
 
+  "material.monsterspellbooks.redstone_crystal": "Redstone Crystal",
+  "material.monsterspellbooks.prismarine_gem": "Prismarine Gem",
+
   "material.monsterspellbooks.rose_gold": "Rose Gold",
   "material.monsterspellbooks.orichalcum": "Orichalcum",
+  "material.monsterspellbooks.illagerite": "Illagerite",
   "material.monsterspellbooks.sanguinite": "Sanguinite",
   "material.monsterspellbooks.dwarven_alloy": "Dwarven Alloy",
   "material.monsterspellbooks.white_gold": "White Gold",
@@ -722,7 +726,11 @@
   "material.monsterspellbooks.spectrite": "Spectrite",
   "material.monsterspellbooks.deathsilver": "Deathsilver",
   "material.monsterspellbooks.blazesteel": "Blazesteel",
+  "material.monsterspellbooks.wither_alloy": "Wither Alloy",
+  "material.monsterspellbooks.void_obsidian": "Void Obsidian",
   "material.monsterspellbooks.rune_necro": "Necro Rune",
+
+  "action.monsterspellbooks.explode.redstone": "Redstone Discharge",
 
   "key.monsterspellbooks.group": "Monsters And Spellbooks",
   "key.monsterspellbooks.ability_armor": "Ability Armor",

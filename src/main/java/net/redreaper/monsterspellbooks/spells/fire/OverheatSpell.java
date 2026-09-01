@@ -88,7 +88,7 @@ public class OverheatSpell extends AbstractSpell {
     }
 
     public int getRendAmplifier(int spellLevel, LivingEntity caster) {
-        return spellLevel+1;
+        return spellLevel + 2;
     }
 
     public AnimationHolder getCastStartAnimation() {

@@ -37,7 +37,7 @@ public class WildFireCrownItem extends ImbuableChestplateArmorItem implements IP
     public WildFireCrownItem(ArmorItem.Type slot, Properties settings) {
         super(ModExtendedArmorMaterials.WILDFIRE_CROWN, slot, settings,
                 new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                new AttributeContainer(ASAttributeRegistry.SPELL_RES_PENETRATION, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(ASAttributeRegistry.SPELL_RES_PENETRATION, 0.05, AttributeModifier.Operation.ADD_VALUE),
                 new AttributeContainer(AttributeRegistry.MAX_MANA, 125, AttributeModifier.Operation.ADD_VALUE)
         );
     }

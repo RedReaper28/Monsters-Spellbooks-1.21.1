@@ -2,14 +2,19 @@
   "bonusParameters": {
     "irons_jewelry:action": {
       "action": {
-        "type": "irons_jewelry:apply_damage",
-        "amount": {
-          "base": 3.0,
+        "type": "irons_jewelry:apply_effect",
+        "amplifier": {
+          "base": 0.0,
+          "max": 2.0,
           "scalar": 1.0
         },
-        "damageType": "minecraft:lightning_bolt"
+        "duration": {
+          "base": 120.0,
+          "scalar": 0.0
+        },
+        "effect": "minecraft:speed"
       },
-      "targetSelf": false
+      "targetSelf": true
     },
     "irons_jewelry:attribute": {
       "amount": 0.1,
@@ -17,10 +22,10 @@
       "operation": "add_multiplied_total"
     },
     "irons_jewelry:negative_effect": {
-      "effect": "monsterspellbooks:paralysis"
+      "effect": "monsterspellbooks:stunned"
     },
     "irons_jewelry:positive_effect": {
-      "effect": "minecraft:speed"
+      "effect": "minecraft:resistance"
     }
   },
   "descriptionId": "material.monsterspellbooks.dwarven_alloy",

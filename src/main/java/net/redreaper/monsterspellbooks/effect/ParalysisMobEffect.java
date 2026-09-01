@@ -9,7 +9,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
 public class ParalysisMobEffect extends MagicMobEffect {
-    public static final float SLOWNESS_PER_LEVEL =  -0.2F;
+    public static final float SLOWNESS_PER_LEVEL =  -0.25F;
 
     public ParalysisMobEffect(MobEffectCategory mobEffectCategory, int color) {
         super(mobEffectCategory, color);

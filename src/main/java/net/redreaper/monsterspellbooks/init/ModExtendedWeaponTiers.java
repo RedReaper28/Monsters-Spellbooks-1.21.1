@@ -68,20 +68,20 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
 
     public static ModExtendedWeaponTiers BLOOD_IRON = new ModExtendedWeaponTiers(1551, 9F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ItemRegistry.BLOOD_VIAL.get()),
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(ASAttributeRegistry.LIFE_RECOVERY, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(ASAttributeRegistry.LIFE_RECOVERY, 0.10, AttributeModifier.Operation.ADD_VALUE));
 
     public static ModExtendedWeaponTiers FROST_TOUCHED_SUPERIOR_DEATHSILVER = new ModExtendedWeaponTiers(1551, 11F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT.get()),
             new AttributeContainer(AttributeRegistry.ICE_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
             new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(ASAttributeRegistry.MANA_STEAL, 0.10D, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(ASAttributeRegistry.MANA_STEAL, 0.10D, AttributeModifier.Operation.ADD_VALUE));
 
     public static ModExtendedWeaponTiers SPECTRITE = new ModExtendedWeaponTiers(1551, 9F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.SPECTRITE_INGOT.get()),
             new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.10, AttributeModifier.Operation.ADD_VALUE));
 
     public static ModExtendedWeaponTiers SANGUINITE = new ModExtendedWeaponTiers(1551, 9F, -2.8F, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.SANGUINITE_INGOT.get()),
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(ASAttributeRegistry.GOLIATH_SLAYER, 0.01, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(ASAttributeRegistry.GOLIATH_SLAYER, 0.01, AttributeModifier.Operation.ADD_VALUE));
 
     public static ModExtendedWeaponTiers POISONED_SPEAR = new ModExtendedWeaponTiers(751, 6F, -2.6f, 15, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModTags.NATURE_FOCUS),
             new AttributeContainer(AttributeRegistry.NATURE_SPELL_POWER, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
@@ -127,13 +127,13 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
 
     public static ModExtendedWeaponTiers DEATHSILVER_DAGGER = new ModExtendedWeaponTiers(1551, 6F, -2.5f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT),
             new AttributeContainer(AttributeRegistry.SPELL_RESIST, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.15, AttributeModifier.Operation.ADD_VALUE));
     public static ModExtendedWeaponTiers DEATHSILVER_SWORD = new ModExtendedWeaponTiers(1551, 8F, -2.4f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT),
             new AttributeContainer(AttributeRegistry.SPELL_RESIST, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.10, AttributeModifier.Operation.ADD_VALUE));
     public static ModExtendedWeaponTiers DEATHSILVER_AXE = new ModExtendedWeaponTiers(1551, 9F, -3.2f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT),
             new AttributeContainer(AttributeRegistry.SPELL_RESIST, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.15, AttributeModifier.Operation.ADD_VALUE));
     public static ModExtendedWeaponTiers DEATHSILVER_GREATAXE = new ModExtendedWeaponTiers(1551, 9F, -3.2f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.DEATHSILVER_INGOT),
             new AttributeContainer(AttributeRegistry.SPELL_RESIST, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
@@ -145,7 +145,7 @@ public class ModExtendedWeaponTiers implements Tier, IronsWeaponTier {
             new AttributeContainer(IronsLibRegistries.AttributeRegistry.HEALING_RECEIVED, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     public static ModExtendedWeaponTiers SANGUINITE_GREATAXE = new ModExtendedWeaponTiers(1551, 11F, -3.2f, 10, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.SANGUINITE_DAGGER),
             new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-            new AttributeContainer(ASAttributeRegistry.LIFE_RECOVERY, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new AttributeContainer(ASAttributeRegistry.LIFE_RECOVERY, 0.10, AttributeModifier.Operation.ADD_VALUE));
 
     public static ModExtendedWeaponTiers ORICHALCUM_DAGGER = new ModExtendedWeaponTiers(1551, 5F, -2.5f, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get()),
             new AttributeContainer(Attributes.ATTACK_KNOCKBACK, 0.1, AttributeModifier.Operation.ADD_VALUE),

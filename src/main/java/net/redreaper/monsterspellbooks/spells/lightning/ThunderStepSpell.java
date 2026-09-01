@@ -94,7 +94,7 @@ public class ThunderStepSpell extends AbstractSpell {
 
         ChainLightning chainLightning = new ChainLightning(level, entity, entity);
         chainLightning.setDamage(getDamage(spellLevel, entity)*2);
-        chainLightning.range = 10;
+        chainLightning.range = 5;
         chainLightning.maxConnections = 5;
         level.addFreshEntity(chainLightning);
 

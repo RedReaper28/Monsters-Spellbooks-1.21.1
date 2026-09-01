@@ -23,7 +23,7 @@ public class MajorasMaskArmorItem extends ExtendedArmorItem implements IPresetSp
                 new AttributeContainer(AttributeRegistry.BLOOD_SPELL_POWER, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_POWER, 0.45, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
                 new AttributeContainer(AttributeRegistry.ELDRITCH_SPELL_POWER, 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                new AttributeContainer(ASAttributeRegistry.MANA_STEAL, 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                new AttributeContainer(ASAttributeRegistry.MANA_STEAL, 0.15, AttributeModifier.Operation.ADD_VALUE),
                 new AttributeContainer(AttributeRegistry.MAX_MANA, -.50, AttributeModifier.Operation.ADD_MULTIPLIED_BASE)
         );
     }

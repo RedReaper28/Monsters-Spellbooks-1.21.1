@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.redreaper.monsterspellbooks.init.ModExtendedWeaponTiers;
+import net.redreaper.monsterspellbooks.init.ModSpellRegistry;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class EternalKnifeItem extends MagicSwordItem {
                         .attributes(ExtendedSwordItem.createAttributes(ModExtendedWeaponTiers.CULTIST_KNIFE)
                         ),
                 SpellDataRegistryHolder.of(
-                        new SpellDataRegistryHolder(SpellRegistry.SHOCKWAVE_SPELL, 5)
+                        new SpellDataRegistryHolder(ModSpellRegistry.SPIRIT_STRIKE, 5)
                 )
         );
     }

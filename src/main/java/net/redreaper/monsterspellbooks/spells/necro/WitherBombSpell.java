@@ -112,7 +112,7 @@ public class WitherBombSpell extends AbstractSpell {
 
 
     public float getDamage(int spellLevel, LivingEntity caster) {
-        return 5 + 5 * getSpellPower(spellLevel, caster);
+        return 5 * getSpellPower(spellLevel, caster);
     }
 
     public int getRadius(int spellLevel, LivingEntity caster) {

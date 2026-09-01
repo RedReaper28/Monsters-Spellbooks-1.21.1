@@ -47,12 +47,12 @@ public class SpectralBlastSpell extends AbstractSpell {
         this.manaCostPerLevel = 15;
         this.baseSpellPower = 10;
         this.spellPowerPerLevel = 0;
-        this.castTime = 60;
+        this.castTime = 0;
         this.baseManaCost = 20;
     }
 
     public CastType getCastType() {
-        return CastType.LONG;
+        return CastType.INSTANT;
     }
 
     public ResourceLocation getSpellResource() {

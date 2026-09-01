@@ -5,42 +5,42 @@
         "type": "irons_jewelry:explode",
         "affect_self": false,
         "block_interaction": "none",
-        "damage_type": "irons_spellbooks:fire_magic",
+        "damage_type": "irons_spellbooks:lightning_magic",
         "knockback_multiplier": {
           "base": 0.5,
           "scalar": 0.0
         },
         "large_particle": {
-          "type": "irons_spellbooks:fiery_smoke"
+          "type": "monsterspellbooks:redstone_sparks"
         },
         "radius": {
           "base": 2.0,
           "scalar": 1.0
         },
         "small_particle": {
-          "type": "irons_spellbooks:fire"
+          "type": "irons_spellbooks:electricity"
         },
-        "sound": "minecraft:entity.generic.explode",
+        "sound": "minecraft:entity.lightning_bolt.impact",
         "translation": "action.monsterspellbooks.explode.redstone"
       },
       "targetSelf": false
     },
     "irons_jewelry:attribute": {
       "amount": 0.1,
-      "attribute": "aces_spell_utils:magic_projectile_damage",
+      "attribute": "irons_spellbooks:cooldown_reduction",
       "operation": "add_multiplied_total"
     },
     "irons_jewelry:negative_effect": {
-      "effect": "monsterspellbooks:inflammable"
+      "effect": "monsterspellbooks:paralysis"
     },
     "irons_jewelry:positive_effect": {
-      "effect": "minecraft:strength"
+      "effect": "minecraft:speed"
     }
   },
-  "descriptionId": "material.monsterspellbooks.blazesteel",
+  "descriptionId": "material.monsterspellbooks.redstone_crystal",
   "ingredient": {
-    "item": "monsterspellbooks:blazesteel_ingot"
+    "item": "monsterspellbooks:redstone_crystal"
   },
-  "paletteLocation": "monsterspellbooks:palettes/blazesteel",
-  "quality": 2.5
+  "paletteLocation": "monsterspellbooks:palettes/redstone_crystal",
+  "quality": 2
 }

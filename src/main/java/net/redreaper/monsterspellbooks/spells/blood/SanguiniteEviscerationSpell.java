@@ -46,7 +46,7 @@ public class SanguiniteEviscerationSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.UNCOMMON)
             .setSchoolResource(SchoolRegistry.BLOOD_RESOURCE)
             .setMaxLevel(8)
-            .setCooldownSeconds(180)
+            .setCooldownSeconds(30)
             .build();
 
     public SanguiniteEviscerationSpell()

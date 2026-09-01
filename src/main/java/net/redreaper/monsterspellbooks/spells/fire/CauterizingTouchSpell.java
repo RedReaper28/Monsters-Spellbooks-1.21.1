@@ -48,7 +48,7 @@ public class CauterizingTouchSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.LEGENDARY)
             .setSchoolResource(SchoolRegistry.FIRE_RESOURCE)
             .setMaxLevel(3)
-            .setCooldownSeconds(180)
+            .setCooldownSeconds(45)
             .build();
 
     public CauterizingTouchSpell()

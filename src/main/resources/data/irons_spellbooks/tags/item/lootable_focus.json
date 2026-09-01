@@ -4,7 +4,6 @@
   ],
   "remove": [
     "#monsterspellbooks:necro_focus",
-    "minecraft:breeze_rod",
     "minecraft:comparator"
   ]
 }

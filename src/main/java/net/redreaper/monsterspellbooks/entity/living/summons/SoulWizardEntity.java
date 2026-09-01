@@ -100,7 +100,7 @@ public class SoulWizardEntity extends UniqueAbstractSpellCastingMob implements I
                         List.of(),
                         // Support
                         List.of()
-                ).setSingleUseSpell(ModSpellRegistry.SOUL_SCORCH.get(), 100, 250, 2, 4)
+                ).setSingleUseSpell(ModSpellRegistry.SOUL_SCORCH.get(), 100, 250, 5, 6)
                 .setSpellQuality(1.0f, 1.0f)
                 .setIsFlying()
                 .setSpellQuality(0.8f, 0.8f)

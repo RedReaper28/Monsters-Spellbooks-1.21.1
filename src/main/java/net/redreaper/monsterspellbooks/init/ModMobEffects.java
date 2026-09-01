@@ -49,7 +49,9 @@ public class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> LETHARGY = MOB_EFFECT_DEFERRED_REGISTER.register("lethargy", () -> new LethargyMobEffect(MobEffectCategory.HARMFUL, 1315355)
             .addAttributeModifier(IronsLibRegistries.AttributeRegistry.HEALING_RECEIVED, MonstersSpellbooks.id("mobeffect_lethargy"), LethargyMobEffect.HEAL_DRAIN_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     public static final DeferredHolder<MobEffect, MobEffect> INFLAMMABLE = MOB_EFFECT_DEFERRED_REGISTER.register("inflammable", () -> new InflammableMobEffect(MobEffectCategory.HARMFUL, 16736038)
-            .addAttributeModifier(AttributeRegistry.FIRE_MAGIC_RESIST, MonstersSpellbooks.id("mobeffect_inflammable"), InflammableMobEffect.FIRE_WEAKNESS_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            .addAttributeModifier(AttributeRegistry.FIRE_MAGIC_RESIST, MonstersSpellbooks.id("mobeffect_inflammable"), InflammableMobEffect.FIRE_WEAKNESS_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_BASE)
+            .addAttributeModifier(Attributes.BURNING_TIME, MonstersSpellbooks.id("mobeffect_inflammable"), InflammableMobEffect.BURN_TIME_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
     public static final DeferredHolder<MobEffect, MobEffect> FROST_COATING = MOB_EFFECT_DEFERRED_REGISTER.register("frost_coating", () -> new FrostCoatingMobEffect(MobEffectCategory.BENEFICIAL, 14678523)
             .addAttributeModifier(Attributes.ARMOR, MonstersSpellbooks.id("mobeffect_frost_coating"), FrostCoatingMobEffect.ARMOR_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_BASE)
             .addAttributeModifier(AttributeRegistry.SPELL_RESIST, MonstersSpellbooks.id("mobeffect_frost_coating"), FrostCoatingMobEffect.SPELL_RESISTANCE_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
@@ -68,7 +70,7 @@ public class ModMobEffects {
             .addAttributeModifier(ModAtributeRegistry.NECRO_MAGIC_POWER, MonstersSpellbooks.id("mobeffect_soul_boosted"), SoulBoostedMobEffect.NECRO_POWER_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static final DeferredHolder<MobEffect, MobEffect> MANA_ABSORPTION = MOB_EFFECT_DEFERRED_REGISTER.register("mana_absorption", () -> new ManaAbsorptionMobEffect(MobEffectCategory.BENEFICIAL, 4259780)
-            .addAttributeModifier(ASAttributeRegistry.MANA_STEAL, MonstersSpellbooks.id("mobeffect_mana_absorption"), ManaAbsorptionMobEffect.MANA_STEAL_PER_LEVEL, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+            .addAttributeModifier(ASAttributeRegistry.MANA_STEAL, MonstersSpellbooks.id("mobeffect_mana_absorption"), ManaAbsorptionMobEffect.MANA_STEAL_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE));
 
     public static final DeferredHolder<MobEffect, MobEffect> SOUL_FORM = MOB_EFFECT_DEFERRED_REGISTER.register("soul_form", () -> new SoulFormMobEffect(MobEffectCategory.BENEFICIAL, 6354426)
             .addAttributeModifier(ASAttributeRegistry.EVASIVE, MonstersSpellbooks.id("mobeffect_soul_form"), SoulFormMobEffect.EVASION_PER_LEVEL, AttributeModifier.Operation.ADD_VALUE)

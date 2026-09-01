@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "monsterspellbooks:necro_rune",
-    "monsterspellbooks:aero_rune",
     "monsterspellbooks:upgrade_rune"
   ]
 }

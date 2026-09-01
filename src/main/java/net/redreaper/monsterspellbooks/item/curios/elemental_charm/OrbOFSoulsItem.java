@@ -39,7 +39,7 @@ public class OrbOFSoulsItem extends ImbueableCurioItem {
     public Multimap<Holder<Attribute>, AttributeModifier> getAttributeModifiers(SlotContext slotContext, ResourceLocation id, ItemStack stack) {
         Multimap<Holder<Attribute>, AttributeModifier> attr = LinkedHashMultimap.create();
         attr.put(ModAtributeRegistry.NECRO_MAGIC_POWER, new AttributeModifier(id, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
-        attr.put(ASAttributeRegistry.MANA_REND, new AttributeModifier(id, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+        attr.put(ASAttributeRegistry.MANA_REND, new AttributeModifier(id, 0.10, AttributeModifier.Operation.ADD_VALUE));
         attr.put(AttributeRegistry.SUMMON_DAMAGE, new AttributeModifier(id, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
         return attr;
     }

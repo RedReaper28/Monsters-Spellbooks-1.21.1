@@ -38,7 +38,7 @@ public class ReaperLanternSpellBook extends PassiveAbilitySpellbook implements G
         super(12, ItemPropertiesHelper.equipment().fireResistant().stacksTo(1).rarity(ModRarities.SOUL_RARITY_PROXY.getValue()));
         withSpellbookAttributes(new AttributeContainer(AttributeRegistry.MAX_MANA, 200, AttributeModifier.Operation.ADD_VALUE),
         new AttributeContainer(ModAtributeRegistry.NECRO_MAGIC_POWER, 0.20, AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-        new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.10, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+        new AttributeContainer(ASAttributeRegistry.MANA_REND, 0.10, AttributeModifier.Operation.ADD_VALUE));
     }
 
     @Override
