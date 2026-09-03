@@ -42,9 +42,7 @@ public abstract class AegisVillageSpawnMixin {
 
             if (!path.contains("town_centers") && !path.contains("starts")) return;
 
-            int fixedGuardCount = 4;
-
-            for (int i = 0; i < fixedGuardCount; i++) {
+            if (random.nextDouble() >= 0.4) {
                 AegisEntity guard = ModEntities.AEGIS.get().create(level.getLevel());
                 if (guard == null) return;
                 guard.setPersistenceRequired();
